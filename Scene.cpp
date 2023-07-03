@@ -4,12 +4,33 @@ Scene::~Scene() {
     // destroy all objects
 }
 
-void Scene::addObject(GameObject* object, const std::string& group)
+Scene::Scene()
+{   
+    SDL_GetRendererOutputSize(SceneManager::renderer, &windowWidth, &windowHeight);
+}
+
+void Scene::add(GameObject* object, const std::string& group)
 {
+    object->init(this, group, groups[group]->size(), nullptr);
+    object->startBase();
+    object->start();
+
     if (groups.count(group) == 0) {
         addGroup(group);
     }
     groups[group]->push_back(object);
+}
+
+void Scene::addToParent(GameObject* object, GameObject* parent)
+{
+    if (parent == nullptr) {std::cout << "nullparent" << std::endl; return;}
+    std::cout << parent << std::endl;
+    object->init(this, parent->group, parent->id + 1, parent);
+    object->startBase();
+    object->start();
+
+    auto insert_pos = groups[parent->group]->begin() + parent->id + 1;
+    groups[parent->group]->emplace(insert_pos, object);
 }
 
 void Scene::addGroup(const std::string& group)
@@ -29,14 +50,33 @@ Group& Scene::getGroup(const std::string& group)
     return *(groups[group]);
 }
 
-void Scene::update(float deltaTime)
+void Scene::update()
 {
+    Uint32 currentTime = SDL_GetTicks();
+    float deltaTime = (currentTime - lastTime) / 1000.0f;
+    lastTime = currentTime;
+
+    SDL_SetRenderDrawColor(SceneManager::renderer, 19, 14, 77, 255);
+    SDL_RenderClear(SceneManager::renderer);
+
+    lastTime = SDL_GetTicks();
+
     for (std::string& layer : layers) {
         Group* group = groups[layer];
         for (auto it = group->begin(); it != group->end(); ) {
             GameObject* object = *it;
+            object->updateBase(deltaTime);
             object->update(deltaTime);
             object->draw();
+            
+            // FPS
+            // double fps;
+            // float msec = SDL_GetTicks() - currentTime;
+            // if(msec > 0)
+            //     fps = 1000.0 / (double) msec;
+            // std::cout << "FPS: " << fps << std::endl;
+
+            // Destory Objects
             if (object->toDestroy) {
                 it = group->erase(it);
                 delete object;
@@ -45,57 +85,32 @@ void Scene::update(float deltaTime)
             }
         }
     }
+
+    //SDL_RenderPresent(SceneManager::renderer);
+
+
 }
 
-// std::vector<GameObject*> Scene::getAllObjects() {
-//     std::vector<GameObject*> allObjects;
-//     for (Group& group : groups) {
-//         for (GameObject* obj : group.objects) {
-//             allObjects.push_back(obj);
-//         }
-//     }
-//     return allObjects;
-// }
+void Scene::unload()
+{
+    // for (auto& pair : groups) {
+    //     Group* group = pair.second;
+    //     for (auto it = group->begin(); it != group->end(); ) {
+    //         GameObject* object = *it;
+    //         if (object) {
+    //             delete object;
+    //             it = group->erase(it);
+    //         } else {
+    //             ++it;
+    //         }
+    //     }
+    //     delete group;
+    // }
+    //groups.clear();
+    objects.clear();
+    layers.clear();
+}
 
-// void Scene::addObject(const std::string& name, GameObject* object) 
-// {
-//     // Check if name exists in map
-//     Group& group = findGroup(name);
-//     // Add object to vector
-//     group.objects.push_back(object);
-//     objects.push_back(object);
-//     object->groups.push_back(name);
-// }
+void Scene::load() {}
 
-// void Scene::removeObject(GameObject* object)
-// {
-//     // Remove the object from the groups it belongs to
-//     for (const std::string& groupName : object->groups)
-//     {
-//         Group& group = findGroup(groupName);
-//         group.objects.erase(std::remove(group.objects.begin(), group.objects.end(), object), group.objects.end());
-//     } 
 
-//     objects.erase(std::remove(objects.begin(), objects.end(), object), objects.end());  
-
-// }
-
-// Group& Scene::findGroup(const std::string& name) 
-// {
-//     for (Group& group : groups)
-//     {
-//         if (group.name == name)
-//         {
-//             return group;
-//         }
-//     }
-
-//     // If group with given name not found, create it and return it
-//     groups.push_back({name, std::vector<GameObject*>()});
-//     return groups.back();
-// }
-
-// std::vector<GameObject*>& Scene::getObjects(const std::string& name) {
-//     // Return vector of objects for given key
-//     return findGroup(name).objects;
-// }

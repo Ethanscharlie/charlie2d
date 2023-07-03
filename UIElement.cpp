@@ -10,10 +10,31 @@
 #include "UIElement.h"
 #include "Math.h"
 
-UIElement::UIElement(SDL_Renderer* rendererIn, Scene* sceneIn, const SDL_Rect& rect) : GameObject(rendererIn, sceneIn)
+UIElement::UIElement(const SDL_Rect& rect, const int _fontSize) : original_font_size(_fontSize), GameObject()
 {   
-    UIRect = rect;
+    spriteRect = rect;
+    size.x = rect.w;
+    size.y = rect.h;
+
     text = "";
+    changeFont(original_font_size);
+    
+    //moveTo({spriteRect.x, spriteRect.y});
+    moveTo({static_cast<float>(spriteRect.x), static_cast<float>(spriteRect.y)});
+
+
+    //originalSize = {spriteRect.w, spriteRect.h};
+}
+
+void UIElement::start() {}
+
+void UIElement::startBase()
+{
+}
+
+void UIElement::loadTexture(const std::string& image){
+    texture = ResourceManager::getInstance(SceneManager::renderer).getTexture(image);        
+    SDL_QueryTexture(texture, nullptr, nullptr, nullptr, nullptr);
 }
 
 UIElement::~UIElement()
@@ -23,10 +44,83 @@ UIElement::~UIElement()
     TTF_CloseFont(font);
 }
 
+void UIElement::update(float deltaTime)
+{
+    
+}
+
+void UIElement::updateBase(float deltaTime)
+{
+    GameObject::updateBase(deltaTime);
+
+    SDL_Point mousePos;
+    SDL_GetMouseState(&mousePos.x, &mousePos.y);
+    if (SDL_PointInRect(&mousePos, &spriteRect))
+    {
+        onHover();
+        const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
+        if (InputManager::checkInput("fire"))
+        {
+            onClick();
+        }
+    }
+    else
+    {
+        onNotHover();
+    }
+}
+
+void UIElement::onHover()
+{
+
+}
+void UIElement::onNotHover()
+{
+
+}
+
+void UIElement::onClick()
+{
+
+}
+
 void UIElement::draw() 
 {
-    Draw9SlicedTexture(renderer, texture, UIRect, 10);
-    renderTextInRect(renderer, font, text, UIRect);
+    //spriteRect.x = getPosition().x - centerOffset.x;
+    //spriteRect.y = getPosition().y - centerOffset.y;
+    //spriteRect.w = size.x;
+    //spriteRect.h = size.y;
+
+    float width_scale =  (float) SceneManager::windowWidth  / SceneManager::originalWidth;
+    float height_scale = (float) SceneManager::windowHeight / SceneManager::originalHeight;
+
+    //spriteRect.x = SceneManager::screen_change_scale * (getPosition().x - centerOffset.x) ;//+ SceneManager::windowWidth/2; 
+    //spriteRect.y = SceneManager::screen_change_scale * (getPosition().y - centerOffset.y) ;//+ SceneManager::windowHeight/2;    
+
+    //spriteRect.w = size.x * SceneManager::screen_change_scale;
+    //spriteRect.h = size.y * SceneManager::screen_change_scale;
+    
+    if (ignore_screen_resize || true)
+    {
+        spriteRect.x = SceneManager::screen_change_scale * (getPosition().x - centerOffset.x) + SceneManager::windowWidth/2; 
+        spriteRect.y = SceneManager::screen_change_scale * (getPosition().y - centerOffset.y) + SceneManager::windowHeight/2;    
+
+        spriteRect.w = size.x * SceneManager::screen_change_scale;
+        spriteRect.h = size.y * SceneManager::screen_change_scale;
+    }
+    else {
+        spriteRect.x = SceneManager::screen_change_scale * (getPosition().x - centerOffset.x) ;//+ SceneManager::windowWidth/2; 
+        spriteRect.y = SceneManager::screen_change_scale * (getPosition().y - centerOffset.y) ;//+ SceneManager::windowHeight/2;    
+
+        spriteRect.w = size.x * SceneManager::screen_change_scale;
+        spriteRect.h = size.y * SceneManager::screen_change_scale;
+    }
+
+    Draw9SlicedTexture(SceneManager::renderer, texture, spriteRect, 10);
+    if (text.length() > 0)
+    {
+        renderTextInRect(SceneManager::renderer, text, spriteRect);
+    }
 }
 
 void UIElement::Draw9SlicedTexture(SDL_Renderer* renderer, SDL_Texture* texture, SDL_Rect destRect, int borderSize)
@@ -84,10 +178,16 @@ void UIElement::Draw9SlicedTexture(SDL_Renderer* renderer, SDL_Texture* texture,
     }
 }
 
-void UIElement::renderTextInRect(SDL_Renderer* renderer, TTF_Font* font, const std::string& text, const SDL_Rect& rect)
+void UIElement::changeFont(int size)
+{
+    fontSize = size;
+    font = TTF_OpenFont("img/fonts/Silkscreen-Regular.ttf", fontSize);
+}
+
+void UIElement::renderTextInRect(SDL_Renderer* renderer, const std::string& text, const SDL_Rect& rect)
 {
     // Create a surface from the text
-    SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped(font, text.c_str(), {0, 0, 0}, rect.w);
+    SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped(font, text.c_str(), text_color, rect.w);
 
     if (textSurface == nullptr) {
         std::cerr << "Error creating surface: " << SDL_GetError() << std::endl;
@@ -117,3 +217,4 @@ void UIElement::renderTextInRect(SDL_Renderer* renderer, TTF_Font* font, const s
     SDL_DestroyTexture(textTexture);
     SDL_FreeSurface(textSurface);
 }
+

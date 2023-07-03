@@ -1,0 +1,70 @@
+#include "Animation.h"
+
+Animation::Animation(GameObject* objectIn, std::vector<std::string> framesIn, float fpsIn) 
+{
+    object = objectIn;
+    frames = framesIn;
+    fps = fpsIn;
+}
+
+void Animation::update()
+{
+    if (playing && timer + fps*1000 < SDL_GetTicks())
+    {
+        object->loadTexture(frames[frameCounter]);
+        
+        if (direction == 1)
+        {
+            frameCounter ++;
+        }
+        else if(direction == -1)
+        {
+            frameCounter --;
+        }
+
+        if ((direction == 1 && frames.size() == frameCounter) ||
+                (direction == -1 && frameCounter == -1)) 
+        {
+            if (looping) 
+            {
+                resetFrameCounter();
+            }
+            else {
+                playing = false;
+                onFinish();
+                onFinish = [](){}; 
+            }
+        }
+
+        timer = SDL_GetTicks();
+    }
+}
+
+void Animation::resetFrameCounter()
+{
+    if (direction == 1)
+    {
+        frameCounter = 0;
+    }
+    else if (direction == -1)
+    {
+        frameCounter = frames.size()-1;
+    }
+}
+
+void Animation::play(int directionIn, std::function<void()> onFinishIn)
+{
+    playing = true;
+    looping = false;
+    direction = directionIn;
+    onFinish = onFinishIn;
+    resetFrameCounter();
+}
+
+void Animation::loop(int directionIn)
+{
+    playing = true;
+    looping = true;
+    direction = directionIn;
+    resetFrameCounter();
+}
