@@ -1,0 +1,71 @@
+#pragma once
+#include <cmath>
+#include <SDL.h>
+#include <vector>
+#include <unordered_map>
+#include <typeindex>
+#include <memory>
+#include <map>
+#include "Math.h"
+#include "Scene.h"
+#include "Animation.h"
+#include "Component.h"
+#include "ObjectBox.h"
+
+class Scene;
+class Animation;
+struct objectBox;
+
+class GameObject
+{
+public:
+    GameObject();
+    virtual ~GameObject();
+
+    template <typename C>
+    void addComponent() {
+        C* component = new C();
+
+        component->object = this;
+        component->box = box;
+        component->scene = scene;
+        component->start();
+        components[typeid(C)] = std::move(component);
+        scene->template add<C>(components[typeid(C)]);
+    }
+
+    template <typename C>
+    C& getComponent() {
+        auto it = components.find(typeid(C));                                                                                                  
+        if (it != components.end())                                                                                                            
+            return *static_cast<C*>(it->second);                                                                                           
+        else                                                                                                                                   
+            throw std::runtime_error("Component not found!");  
+    }
+
+    template <typename C>
+    bool checkComponent() {
+        auto it = components.find(typeid(C));
+        return it != components.end();
+    }
+
+    void addChild(GameObject* object);
+    void setParent(GameObject* object);
+    GameObject* getParent();
+    std::vector<GameObject*> getChildren();
+    void removeParent();
+    
+
+    bool toDestroy = false;
+    Scene* scene = nullptr;
+    objectBox* box;
+    std::string tag = "";
+    bool debug = false;
+    int iid;
+
+    private:
+    std::map<std::type_index, Component*> components; 
+    std::vector<GameObject*> children;
+    GameObject* parent = nullptr;
+
+};
