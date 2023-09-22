@@ -1,5 +1,5 @@
 # charlie2d
-A simple c++ w/SDL2 framwork
+A simple c++ w/SDL2 game framwork
 
 I'll add docs later
 
