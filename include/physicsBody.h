@@ -10,42 +10,42 @@ class physicsBody : public Component {
     physicsBody() : Component("physicsBody") {};
 
     void start() override {
-        //if (object->components->find(typeid(Collider)) != object->components->end()) {
-        //    object->addComponent<Collider>();
+        //if (entity->components->find(typeid(Collider)) != entity->components->end()) {
+        //    entity->addComponent<Collider>();
         //}
     }
 
     void update(float deltaTime) override {
         //if (velocity.x != 0 || velocity.y != 0) {
         //    Vector2f movement = velocity;
-        //    object->box->absoluteBox.position.x += movement.x; 
-        //    std::vector<Collider*> cols = object->getComponent<Collider>().getCollisions();
+        //    entity->box->absoluteBox.position.x += movement.x; 
+        //    std::vector<Collider*> cols = entity->getComponent<Collider>().getCollisions();
 
         //    for (Collider* col : cols) {
-        //        Entity* other = col->object;
+        //        Entity* other = col->entity;
         //        if (!other->getComponent<Collider>().solid) continue;
 
         //        if (movement.x > 0) {
-        //            object->box->absoluteBox.position.x = (other->box->absoluteBox.getLeft() - object->box->absoluteBox.size.x) ;        
+        //            entity->box->absoluteBox.position.x = (other->box->absoluteBox.getLeft() - entity->box->absoluteBox.size.x) ;        
         //            velocity.x = 0;
         //        } else if (movement.x < 0) {
-        //            object->box->absoluteBox.position.x = other->box->absoluteBox.getRight();
+        //            entity->box->absoluteBox.position.x = other->box->absoluteBox.getRight();
         //            velocity.x = 0;
         //        }
         //    }
 
-        //    object->box->absoluteBox.position.y += movement.y;
-        //    cols = object->getComponent<Collider>().getCollisions();
+        //    entity->box->absoluteBox.position.y += movement.y;
+        //    cols = entity->getComponent<Collider>().getCollisions();
 
         //    for (Collider* col : cols) {
-        //        Entity* other = col->object;
+        //        Entity* other = col->entity;
         //        if (!other->getComponent<Collider>().solid) continue;
 
         //        if (movement.y > 0) {
-        //            object->box->absoluteBox.position.y = (other->box->absoluteBox.getTop() - object->box->absoluteBox.size.y) ;        
+        //            entity->box->absoluteBox.position.y = (other->box->absoluteBox.getTop() - entity->box->absoluteBox.size.y) ;        
         //            velocity.y = 0;
         //        } else if (movement.y < 0) {
-        //            object->box->absoluteBox.position.y = other->box->absoluteBox.getBottom() ;
+        //            entity->box->absoluteBox.position.y = other->box->absoluteBox.getBottom() ;
         //            velocity.y = 0;
         //        }
         //    }
@@ -54,34 +54,34 @@ class physicsBody : public Component {
 
         if (velocity.x != 0 || velocity.y != 0) {
             Vector2f movement = velocity;
-            object->box->changePosition({movement.x, 0}); 
-            std::vector<Collider*> cols = object->getComponent<Collider>().getCollisions();
+            entity->box->changePosition({movement.x, 0}); 
+            std::vector<Collider*> cols = entity->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {
-                Entity* other = col->object;
+                Entity* other = col->entity;
                 if (!other->getComponent<Collider>().solid) continue;
 
                 if (movement.x > 0) {
-                    object->box->setXPosition(other->box->getBox().getLeft() - object->box->getSize().x) ;        
+                    entity->box->setXPosition(other->box->getBox().getLeft() - entity->box->getSize().x) ;        
                     velocity.x = 0;
                 } else if (movement.x < 0) {
-                    object->box->setXPosition(other->box->getBox().getRight());
+                    entity->box->setXPosition(other->box->getBox().getRight());
                     velocity.x = 0;
                 }
             }
 
-            object->box->changePosition({0, movement.y});
-            cols = object->getComponent<Collider>().getCollisions();
+            entity->box->changePosition({0, movement.y});
+            cols = entity->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {
-                Entity* other = col->object;
+                Entity* other = col->entity;
                 if (!other->getComponent<Collider>().solid) continue;
 
                 if (movement.y > 0) {
-                    object->box->setYPosition(other->box->getBox().getTop() - object->box->getSize().y) ;        
+                    entity->box->setYPosition(other->box->getBox().getTop() - entity->box->getSize().y) ;        
                     velocity.y = 0;
                 } else if (movement.y < 0) {
-                    object->box->setYPosition(other->box->getBox().getBottom());
+                    entity->box->setYPosition(other->box->getBox().getBottom());
                     velocity.y = 0;
                 }
             }

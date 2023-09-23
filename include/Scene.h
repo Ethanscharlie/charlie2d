@@ -18,7 +18,7 @@ class Scene {
 public:
     ~Scene();
     Scene();
-    //void add(Entity* object, const std::string& group);
+    //void add(Entity* entity, const std::string& group);
 
     template <typename C>
     void add(Component* component) {
@@ -40,7 +40,7 @@ public:
         if (it != components.end()) {                                                                                                        
             for (auto component : it->second) {                                                                                              
                 // Static cast each Component* to C*                                                                                         
-                if (component->object->tag == tag || tag == "") {
+                if (component->entity->tag == tag || tag == "") {
                     hits.push_back(static_cast<C*>(component));                                                                                  
                 }
             }                                                                                                                                
@@ -54,7 +54,7 @@ public:
     std::vector<Entity*> getTag(std::string tag);
 
     Entity* createObject(std::string tag="");
-    //void addToParent(Entity* object, Entity* parent);
+    //void addToParent(Entity* entity, Entity* parent);
     std::vector<Entity*> getAllObjects();
     void update();
     virtual void load();
@@ -70,5 +70,5 @@ private:
     std::map<std::type_index, Group> components; 
     std::vector<std::type_index> componentTypes;
     //std::vector<std::string> layers;
-    //std::vector<Entity*> objects;
+    //std::vector<Entity*> entitys;
 };

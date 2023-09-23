@@ -13,19 +13,19 @@ class CircleCollider : public Component {
     CircleCollider() : Component("CircleCollider") {};
 
     void start() override {
-        radius = object->box->getSize().y / 2;
+        radius = entity->box->getSize().y / 2;
     }
 
     void update(float deltaTime) override {
-        radius = object->box->getSize().y / 2;
+        radius = entity->box->getSize().y / 2;
     }
 
     std::vector<CircleCollider*> getCollisions(std::string tag="") {
-        radius = object->box->getSize().y / 2;
+        radius = entity->box->getSize().y / 2;
         std::vector<CircleCollider*> hits; 
 
-        for (auto* col : object->scene->getGroup<CircleCollider>(tag)) {
-            if (col->object == object) continue;
+        for (auto* col : entity->scene->getGroup<CircleCollider>(tag)) {
+            if (col->entity == entity) continue;
             if (checkCircleCollision(col)) {
                 hits.push_back(col);
             }
@@ -39,8 +39,8 @@ class CircleCollider : public Component {
     }
 
     bool checkCircleCollision(CircleCollider* col) {
-        float distance = std::sqrt(std::pow(col->object->box->getBox().getCenter().x - object->box->getBox().getCenter().x, 2) + 
-                std::pow(col->object->box->getBox().getCenter().y - object->box->getBox().getCenter().y, 2));
+        float distance = std::sqrt(std::pow(col->entity->box->getBox().getCenter().x - entity->box->getBox().getCenter().x, 2) + 
+                std::pow(col->entity->box->getBox().getCenter().y - entity->box->getBox().getCenter().y, 2));
 
         //bool c = distance <= radius + col->radius;
         //std::cout << c << std::endl;

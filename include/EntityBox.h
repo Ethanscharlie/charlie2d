@@ -3,8 +3,8 @@
 
 class Entity;
 
-struct objectBox {
-    objectBox(Entity* _object);
+struct entityBox {
+    entityBox(Entity* _entity);
 
     Vector2f getLocalPosition() {return localBox.position;}
     Vector2f getLocalSize()     {return localBox.size;}
@@ -49,7 +49,7 @@ struct objectBox {
     void updateLocalBox() ;
     void print();
 
-    Entity* object = nullptr;
+    Entity* entity = nullptr;
 
     int anchor = 0;
 

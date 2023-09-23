@@ -1,7 +1,7 @@
 #include "Scene.h"
 
 Scene::~Scene() {
-    // destroy all objects
+    // destroy all entitys
 }
 
 Scene::Scene()
@@ -10,13 +10,13 @@ Scene::Scene()
 }
 
 Entity* Scene::createObject(std::string tag) {
-    Entity* object = new Entity();
-    object->scene = this;
-    object->tag = tag;
-    object->iid = allObjects.size();
-    tags[tag].push_back(object);
-    allObjects.push_back(object);
-    return object;
+    Entity* entity = new Entity();
+    entity->scene = this;
+    entity->tag = tag;
+    entity->iid = allObjects.size();
+    tags[tag].push_back(entity);
+    allObjects.push_back(entity);
+    return entity;
 }
 
 
@@ -58,13 +58,13 @@ void Scene::update()
         for (auto it = clist->begin(); it != clist->end();) {
             Component* component = *it;
             if (component == nullptr) continue;
-            Entity* object = component->object;
+            Entity* entity = component->entity;
 
-            if (object->toDestroy) {
+            if (entity->toDestroy) {
                 component->onDestroy();
                 it = clist->erase(it);
 
-                std::remove(allObjects.begin(), allObjects.end(), object);
+                std::remove(allObjects.begin(), allObjects.end(), entity);
             } else {
                 if(component->useLayer) {
                     layeredComponents.push_back(component);
@@ -78,7 +78,7 @@ void Scene::update()
     }
 
     std::sort(layeredComponents.begin(), layeredComponents.end(), [](Component* a, Component* b){
-            if (a->layer == b->layer) return a->object->iid < b->object->iid;
+            if (a->layer == b->layer) return a->entity->iid < b->entity->iid;
             return a->layer < b->layer;
             });
 
@@ -89,13 +89,13 @@ void Scene::update()
     //for (auto it = layeredComponents->begin(); it != layeredComponents->end();) {
     //    Component* component = *it;
     //    if (component == nullptr) continue;
-    //    Entity* object = component->object;
+    //    Entity* entity = component->entity;
 
-    //    if (object->toDestroy) {
+    //    if (entity->toDestroy) {
     //        component->onDestroy();
     //        it = layeredComponents->erase(it);
 
-    //        std::remove(allObjects.begin(), allObjects.end(), object);
+    //        std::remove(allObjects.begin(), allObjects.end(), entity);
     //    } else {
     //        component->update(deltaTime);
     //        ++it;
@@ -118,9 +118,9 @@ void Scene::unload()
     // for (auto& pair : groups) {
     //     Group* group = pair.second;
     //     for (auto it = group->begin(); it != group->end(); ) {
-    //         Entity* object = *it;
-    //         if (object) {
-    //             delete object;
+    //         Entity* entity = *it;
+    //         if (entity) {
+    //             delete entity;
     //             it = group->erase(it);
     //         } else {
     //             ++it;
@@ -129,7 +129,7 @@ void Scene::unload()
     //     delete group;
     // }
     //groups.clear();
-    //objects.clear();
+    //entitys.clear();
     //layers.clear();
 }
 

@@ -1,10 +1,10 @@
 #pragma once
 #include "Entity.h"
-#include "ObjectBox.h"
+#include "EntityBox.h"
 
 class Entity;
 class Scene;
-struct objectBox;
+struct entityBox;
 
 class Component {
     public:
@@ -16,12 +16,12 @@ class Component {
     
     template <typename C>
     void addComponent() {
-        return object->template addComponent<C>();
+        return entity->template addComponent<C>();
     }
 
     template <typename C>
     C& getComponent() {
-        return object->template getComponent<C>();
+        return entity->template getComponent<C>();
     }
 
     template <typename C>
@@ -29,8 +29,8 @@ class Component {
         return checkComponent<C>();
     }
 
-    objectBox* box;
-    Entity* object;
+    entityBox* box;
+    Entity* entity;
     Scene* scene;
     std::string title = "";
     bool isInit = false;

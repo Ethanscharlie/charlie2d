@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcharlie2D.a CMakeFiles/charlie2D.dir/source/Animation.cpp.o CMakeFiles/charlie2D.dir/source/Entity.cpp.o CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o CMakeFiles/charlie2D.dir/source/Scene.cpp.o CMakeFiles/charlie2D.dir/source/SceneManager.cpp.o CMakeFiles/charlie2D.dir/source/Sprite.cpp.o
+/usr/bin/ranlib libcharlie2D.a

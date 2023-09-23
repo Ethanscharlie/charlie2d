@@ -7,19 +7,19 @@
 #include "Math.h"
 
 Entity::Entity() {
-    box = new objectBox(this);
+    box = new entityBox(this);
 }
 
 Entity::~Entity() {
 }
 
-void Entity::addChild(Entity* object) {
-    children.push_back(object);
+void Entity::addChild(Entity* entity) {
+    children.push_back(entity);
 }
 
-void Entity::setParent(Entity* object) {
-    parent = object;
-    object->addChild(this);
+void Entity::setParent(Entity* entity) {
+    parent = entity;
+    entity->addChild(this);
 }
 
 std::vector<Entity*> Entity::getChildren() {

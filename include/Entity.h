@@ -10,11 +10,11 @@
 #include "Scene.h"
 #include "Animation.h"
 #include "Component.h"
-#include "ObjectBox.h"
+#include "EntityBox.h"
 
 class Scene;
 class Animation;
-struct objectBox;
+struct entityBox;
 
 class Entity
 {
@@ -26,7 +26,7 @@ public:
     void addComponent() {
         C* component = new C();
 
-        component->object = this;
+        component->entity = this;
         component->box = box;
         component->scene = scene;
         component->start();
@@ -49,8 +49,8 @@ public:
         return it != components.end();
     }
 
-    void addChild(Entity* object);
-    void setParent(Entity* object);
+    void addChild(Entity* entity);
+    void setParent(Entity* entity);
     Entity* getParent();
     std::vector<Entity*> getChildren();
     void removeParent();
@@ -58,7 +58,7 @@ public:
 
     bool toDestroy = false;
     Scene* scene = nullptr;
-    objectBox* box;
+    entityBox* box;
     std::string tag = "";
     bool debug = false;
     int iid;

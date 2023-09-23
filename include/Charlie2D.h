@@ -8,7 +8,7 @@
 #include "Component.h"
 
 // Components
-#include "ObjectBox.h"
+#include "EntityBox.h"
 #include "physicsBody.h"
 #include "Sprite.h"
 #include "Collider.h"

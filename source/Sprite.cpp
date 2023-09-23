@@ -2,12 +2,12 @@
 
 void Sprite::update(float deltaTime) {
     SDL_Rect renderRect;
-    Vector2f renderPos = object->box->getPosition() * SceneManager::screen_change_scale;
+    Vector2f renderPos = entity->box->getPosition() * SceneManager::screen_change_scale;
     renderRect.x = renderPos.x - (SceneManager::screen_change_scale * SceneManager::camera.x - SceneManager::windowWidth  / 2); 
     renderRect.y = renderPos.y - (SceneManager::screen_change_scale * SceneManager::camera.y - SceneManager::windowHeight / 2);   
 
-    renderRect.w = object->box->getSize().x * SceneManager::screen_change_scale;
-    renderRect.h = object->box->getSize().y * SceneManager::screen_change_scale;
+    renderRect.w = entity->box->getSize().x * SceneManager::screen_change_scale;
+    renderRect.h = entity->box->getSize().y * SceneManager::screen_change_scale;
 
     SDL_Rect* srcrect;
     if (sourceRect.w == 0 && sourceRect.h == 0) {
@@ -29,13 +29,13 @@ void Sprite::update(float deltaTime) {
         animation.second->update();
     }
 
-    //if (object->checkComponent<Collider>()) {
-    //    Vector2f renderPos = object->getComponent<Collider>().colliderBox.position * SceneManager::screen_change_scale;
+    //if (entity->checkComponent<Collider>()) {
+    //    Vector2f renderPos = entity->getComponent<Collider>().colliderBox.position * SceneManager::screen_change_scale;
     //    renderRect.x = renderPos.x - (SceneManager::screen_change_scale * SceneManager::camera.x - SceneManager::windowWidth  / 2); 
     //    renderRect.y = renderPos.y - (SceneManager::screen_change_scale * SceneManager::camera.y - SceneManager::windowHeight / 2);   
 
-    //    renderRect.w = object->getComponent<Collider>().colliderBox.size.x * SceneManager::screen_change_scale;
-    //    renderRect.h = object->getComponent<Collider>().colliderBox.size.y * SceneManager::screen_change_scale;
+    //    renderRect.w = entity->getComponent<Collider>().colliderBox.size.x * SceneManager::screen_change_scale;
+    //    renderRect.h = entity->getComponent<Collider>().colliderBox.size.y * SceneManager::screen_change_scale;
 
     //    SDL_SetRenderDrawColor(SceneManager::renderer, 0, 255, 0, 255);
     //    SDL_RenderDrawRect(SceneManager::renderer, &renderRect);  
@@ -52,9 +52,9 @@ void Sprite::loadTexture(const std::string& image, bool setSize, bool keepCenter
 
     if (setSize) {
         if (keepCentered) {
-            object->box->setScale({spriteRect.w, spriteRect.h});
+            entity->box->setScale({spriteRect.w, spriteRect.h});
         } else {
-            object->box->setSize({spriteRect.w, spriteRect.h});
+            entity->box->setSize({spriteRect.w, spriteRect.h});
         }
     }
 }

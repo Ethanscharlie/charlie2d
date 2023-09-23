@@ -1,19 +1,19 @@
 #include "Collider.h"
 
 void Collider::start() override {
-    colliderBox = object->box->getBox();
+    colliderBox = entity->box->getBox();
 }
 
 void Collider::update(float deltaTime) override {
-    colliderBox = object->box->getBox();
+    colliderBox = entity->box->getBox();
 }
 
 std::vector<Collider*> Collider::getCollisions(std::string tag) {
-    colliderBox = object->box->getBox();
+    colliderBox = entity->box->getBox();
     std::vector<Collider*> hits; 
 
-    for (auto* col : object->scene->getGroup<Collider>(tag)) {
-        if (col->object == object) continue;
+    for (auto* col : entity->scene->getGroup<Collider>(tag)) {
+        if (col->entity == entity) continue;
         if (checkBoxCollision(col->colliderBox)) {
             hits.push_back(col);
         }
