@@ -6,11 +6,11 @@
 #include <SDL_ttf.h>
 #include <unordered_map>
 #include "SceneManager.h"
-#include "GameObject.h"
+#include "Entity.h"
 #include "Component.h"
 //#include "Sprite.h"
 
-class GameObject;
+class Entity;
 
 typedef std::vector<Component*> Group;
 
@@ -18,7 +18,7 @@ class Scene {
 public:
     ~Scene();
     Scene();
-    //void add(GameObject* object, const std::string& group);
+    //void add(Entity* object, const std::string& group);
 
     template <typename C>
     void add(Component* component) {
@@ -51,11 +51,11 @@ public:
         return hits;                                                                                                                         
     }                                                                                                                                        
 
-    std::vector<GameObject*> getTag(std::string tag);
+    std::vector<Entity*> getTag(std::string tag);
 
-    GameObject* createObject(std::string tag="");
-    //void addToParent(GameObject* object, GameObject* parent);
-    std::vector<GameObject*> getAllObjects();
+    Entity* createObject(std::string tag="");
+    //void addToParent(Entity* object, Entity* parent);
+    std::vector<Entity*> getAllObjects();
     void update();
     virtual void load();
     void unload();
@@ -65,10 +65,10 @@ public:
 
 private:
     Uint64 lastTime;
-    std::unordered_map<std::string, std::vector<GameObject*>> tags;
-    std::vector<GameObject*> allObjects;
+    std::unordered_map<std::string, std::vector<Entity*>> tags;
+    std::vector<Entity*> allObjects;
     std::map<std::type_index, Group> components; 
     std::vector<std::type_index> componentTypes;
     //std::vector<std::string> layers;
-    //std::vector<GameObject*> objects;
+    //std::vector<Entity*> objects;
 };

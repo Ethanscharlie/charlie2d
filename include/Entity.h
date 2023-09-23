@@ -16,11 +16,11 @@ class Scene;
 class Animation;
 struct objectBox;
 
-class GameObject
+class Entity
 {
 public:
-    GameObject();
-    virtual ~GameObject();
+    Entity();
+    virtual ~Entity();
 
     template <typename C>
     void addComponent() {
@@ -49,10 +49,10 @@ public:
         return it != components.end();
     }
 
-    void addChild(GameObject* object);
-    void setParent(GameObject* object);
-    GameObject* getParent();
-    std::vector<GameObject*> getChildren();
+    void addChild(Entity* object);
+    void setParent(Entity* object);
+    Entity* getParent();
+    std::vector<Entity*> getChildren();
     void removeParent();
     
 
@@ -65,7 +65,7 @@ public:
 
     private:
     std::map<std::type_index, Component*> components; 
-    std::vector<GameObject*> children;
-    GameObject* parent = nullptr;
+    std::vector<Entity*> children;
+    Entity* parent = nullptr;
 
 };

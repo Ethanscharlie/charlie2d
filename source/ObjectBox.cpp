@@ -1,6 +1,6 @@
 #include "ObjectBox.h"
 
-objectBox::objectBox(GameObject* _object)
+objectBox::objectBox(Entity* _object)
 :object(_object)
 {}
 
@@ -53,7 +53,7 @@ void objectBox::updateGlobalBox() {
             globalBox.position = localBox.position + object->getParent()->box->globalBox.getBottomRightCorner();
         }
 
-        for (GameObject* child : object->getChildren()) { 
+        for (Entity* child : object->getChildren()) { 
             child->box->updateGlobalBox();
         }
     }
@@ -104,7 +104,7 @@ void objectBox::updateLocalBox() {
         }
     }
 
-    for (GameObject* child : object->getChildren()) { 
+    for (Entity* child : object->getChildren()) { 
         child->box->updateGlobalBox();
     }
 }

@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <random>
 
-//#include "GameObject.h"
+//#include "Entity.h"
 
 struct Vector2f
 {

@@ -1,4 +1,4 @@
-#include "GameObject.h"
+#include "Entity.h"
 #include "Scene.h"
 #include "ResourceManager.h"
 
@@ -6,35 +6,35 @@
 #include <vector>
 #include "Math.h"
 
-GameObject::GameObject() {
+Entity::Entity() {
     box = new objectBox(this);
 }
 
-GameObject::~GameObject() {
+Entity::~Entity() {
 }
 
-void GameObject::addChild(GameObject* object) {
+void Entity::addChild(Entity* object) {
     children.push_back(object);
 }
 
-void GameObject::setParent(GameObject* object) {
+void Entity::setParent(Entity* object) {
     parent = object;
     object->addChild(this);
 }
 
-std::vector<GameObject*> GameObject::getChildren() {
+std::vector<Entity*> Entity::getChildren() {
     return children;
 }
 
-GameObject* GameObject::getParent() {
+Entity* Entity::getParent() {
     return parent;
 }
 
-void GameObject::removeParent() {
+void Entity::removeParent() {
 
 }
 
-//void GameObject::setAnchor(int anchor_) {
+//void Entity::setAnchor(int anchor_) {
 //    if (anchor_ >= 0 && anchor_ < 9) {
 //        anchor = anchor_;
 //    } else {

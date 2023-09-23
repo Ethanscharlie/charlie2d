@@ -1,12 +1,12 @@
 #pragma once
 
 #include "ResourceManager.h"
-#include "GameObject.h"
+#include "Entity.h"
 #include "Component.h"
 #include "Sprite.h"
 #include <functional>
 
-class GameObject;
+class Entity;
 class Sprite;
 
 class Animation

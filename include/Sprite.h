@@ -1,7 +1,7 @@
 #pragma once 
 
 #include <SDL.h>
-#include "GameObject.h"
+#include "Entity.h"
 #include "Component.h"
 #include "Collider.h"
 #include "Math.h"

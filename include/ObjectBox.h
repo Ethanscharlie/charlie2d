@@ -1,10 +1,10 @@
 #pragma once
-#include "GameObject.h"
+#include "Entity.h"
 
-class GameObject;
+class Entity;
 
 struct objectBox {
-    objectBox(GameObject* _object);
+    objectBox(Entity* _object);
 
     Vector2f getLocalPosition() {return localBox.position;}
     Vector2f getLocalSize()     {return localBox.size;}
@@ -49,7 +49,7 @@ struct objectBox {
     void updateLocalBox() ;
     void print();
 
-    GameObject* object = nullptr;
+    Entity* object = nullptr;
 
     int anchor = 0;
 

@@ -1,5 +1,5 @@
 #include "Animation.h"
-#include "GameObject.h"
+#include "Entity.h"
 #include "InputManager.h"
 #include "Math.h"
 #include "ResourceManager.h"

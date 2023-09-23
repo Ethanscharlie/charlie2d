@@ -1,6 +1,6 @@
 #pragma once 
 
-#include "GameObject.h"
+#include "Entity.h"
 #include "Component.h"
 #include "Collider.h"
 #include "Math.h"
@@ -22,7 +22,7 @@ class physicsBody : public Component {
         //    std::vector<Collider*> cols = object->getComponent<Collider>().getCollisions();
 
         //    for (Collider* col : cols) {
-        //        GameObject* other = col->object;
+        //        Entity* other = col->object;
         //        if (!other->getComponent<Collider>().solid) continue;
 
         //        if (movement.x > 0) {
@@ -38,7 +38,7 @@ class physicsBody : public Component {
         //    cols = object->getComponent<Collider>().getCollisions();
 
         //    for (Collider* col : cols) {
-        //        GameObject* other = col->object;
+        //        Entity* other = col->object;
         //        if (!other->getComponent<Collider>().solid) continue;
 
         //        if (movement.y > 0) {
@@ -58,7 +58,7 @@ class physicsBody : public Component {
             std::vector<Collider*> cols = object->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {
-                GameObject* other = col->object;
+                Entity* other = col->object;
                 if (!other->getComponent<Collider>().solid) continue;
 
                 if (movement.x > 0) {
@@ -74,7 +74,7 @@ class physicsBody : public Component {
             cols = object->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {
-                GameObject* other = col->object;
+                Entity* other = col->object;
                 if (!other->getComponent<Collider>().solid) continue;
 
                 if (movement.y > 0) {

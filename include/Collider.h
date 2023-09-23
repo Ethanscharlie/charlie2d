@@ -2,7 +2,7 @@
 #pragma once 
 
 #include <SDL.h>
-#include "GameObject.h"
+#include "Entity.h"
 #include "Component.h"
 #include "Math.h"
 #include "SceneManager.h"

@@ -1,8 +1,8 @@
 #pragma once
-#include "GameObject.h"
+#include "Entity.h"
 #include "ObjectBox.h"
 
-class GameObject;
+class Entity;
 class Scene;
 struct objectBox;
 
@@ -30,7 +30,7 @@ class Component {
     }
 
     objectBox* box;
-    GameObject* object;
+    Entity* object;
     Scene* scene;
     std::string title = "";
     bool isInit = false;

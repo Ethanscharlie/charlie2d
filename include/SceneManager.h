@@ -6,7 +6,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
-#include "GameObject.h"
+#include "Entity.h"
 #include <string>
 #include <unordered_map>
 #include "Scene.h"

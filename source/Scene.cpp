@@ -9,8 +9,8 @@ Scene::Scene()
     SDL_GetRendererOutputSize(SceneManager::renderer, &windowWidth, &windowHeight);
 }
 
-GameObject* Scene::createObject(std::string tag) {
-    GameObject* object = new GameObject();
+Entity* Scene::createObject(std::string tag) {
+    Entity* object = new Entity();
     object->scene = this;
     object->tag = tag;
     object->iid = allObjects.size();
@@ -20,7 +20,7 @@ GameObject* Scene::createObject(std::string tag) {
 }
 
 
-std::vector<GameObject*> Scene::getTag(std::string tag) {
+std::vector<Entity*> Scene::getTag(std::string tag) {
     return tags[tag];
 }
 
@@ -58,7 +58,7 @@ void Scene::update()
         for (auto it = clist->begin(); it != clist->end();) {
             Component* component = *it;
             if (component == nullptr) continue;
-            GameObject* object = component->object;
+            Entity* object = component->object;
 
             if (object->toDestroy) {
                 component->onDestroy();
@@ -89,7 +89,7 @@ void Scene::update()
     //for (auto it = layeredComponents->begin(); it != layeredComponents->end();) {
     //    Component* component = *it;
     //    if (component == nullptr) continue;
-    //    GameObject* object = component->object;
+    //    Entity* object = component->object;
 
     //    if (object->toDestroy) {
     //        component->onDestroy();
@@ -106,7 +106,7 @@ void Scene::update()
     //    std::vector<Component*>* clist = &c.second;
 }
 
-std::vector<GameObject*> Scene::getAllObjects() {
+std::vector<Entity*> Scene::getAllObjects() {
     return allObjects;
 }
 
@@ -118,7 +118,7 @@ void Scene::unload()
     // for (auto& pair : groups) {
     //     Group* group = pair.second;
     //     for (auto it = group->begin(); it != group->end(); ) {
-    //         GameObject* object = *it;
+    //         Entity* object = *it;
     //         if (object) {
     //             delete object;
     //             it = group->erase(it);
