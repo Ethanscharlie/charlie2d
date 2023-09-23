@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-#include "SceneManager.h"
+#include "GameManager.h"
 #include "ResourceManager.h"
 
 class UISliceRenderer : public Component {
@@ -11,7 +11,7 @@ class UISliceRenderer : public Component {
     UISliceRenderer() : Component("UISliceRenderer") {};
 
     void setColor(std::array<Uint8, 3> color) {
-        texture = ResourceManager::getInstance(SceneManager::renderer).getColoredTexture(color, textureName);
+        texture = ResourceManager::getInstance(GameManager::renderer).getColoredTexture(color, textureName);
     }
 
     void start() override {
@@ -22,32 +22,32 @@ class UISliceRenderer : public Component {
 
     void loadTexture(std::string name) {
         textureName = name;
-        texture = ResourceManager::getInstance(SceneManager::renderer).getTexture(textureName);
+        texture = ResourceManager::getInstance(GameManager::renderer).getTexture(textureName);
     }
 
     void update(float deltaTime) override {
         SDL_Rect spriteRect = {0,0,0,0};
         
-        float width_scale =  (float) SceneManager::windowWidth  / SceneManager::originalWidth;
-        float height_scale = (float) SceneManager::windowHeight / SceneManager::originalHeight;
+        float width_scale =  (float) GameManager::windowWidth  / GameManager::originalWidth;
+        float height_scale = (float) GameManager::windowHeight / GameManager::originalHeight;
 
         if (true)
         {
-            spriteRect.x = SceneManager::screen_change_scale * (box->getPosition().x) + SceneManager::windowWidth/2; 
-            spriteRect.y = SceneManager::screen_change_scale * (box->getPosition().y) + SceneManager::windowHeight/2;    
+            spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::windowWidth/2; 
+            spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::windowHeight/2;    
 
-            spriteRect.w = box->getSize().x * SceneManager::screen_change_scale;
-            spriteRect.h = box->getSize().y * SceneManager::screen_change_scale;
+            spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
+            spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
         }
         else {
-            spriteRect.x = SceneManager::screen_change_scale * (box->getPosition().x) ;//+ SceneManager::windowWidth/2; 
-            spriteRect.y = SceneManager::screen_change_scale * (box->getPosition().y) ;//+ SceneManager::windowHeight/2;    
+            spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) ;//+ GameManager::windowWidth/2; 
+            spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) ;//+ GameManager::windowHeight/2;    
 
-            spriteRect.w = box->getSize().x * SceneManager::screen_change_scale;
-            spriteRect.h = box->getSize().y * SceneManager::screen_change_scale;
+            spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
+            spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
         }
         
-        Draw9SlicedTexture(SceneManager::renderer, texture, spriteRect, 10);
+        Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);
     }
 
     void Draw9SlicedTexture(SDL_Renderer* renderer, SDL_Texture* texture, SDL_Rect destRect, int borderSize)

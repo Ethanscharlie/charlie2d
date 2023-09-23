@@ -346,7 +346,7 @@ CMakeFiles/charlie2D.dir/source/Sprite.cpp.o: \
  /usr/include/c++/13.2.1/pstl/glue_numeric_defs.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Scene.h \
  /usr/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/SceneManager.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_ttf.h \
  /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL_mixer.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/InputManager.h \

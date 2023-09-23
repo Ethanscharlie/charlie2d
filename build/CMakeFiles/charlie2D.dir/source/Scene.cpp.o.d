@@ -300,7 +300,7 @@ CMakeFiles/charlie2D.dir/source/Scene.cpp.o: \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
  /usr/include/c++/13.2.1/bits/erase_if.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/SceneManager.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_ttf.h \
  /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL_mixer.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Entity.h \

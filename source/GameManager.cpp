@@ -1,32 +1,32 @@
-#include "SceneManager.h"
+#include "GameManager.h"
 
-int SceneManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
-Uint32 SceneManager::fadeStartTime = 0; 
-int SceneManager::fade_time = 300;
+int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
+Uint32 GameManager::fadeStartTime = 0; 
+int GameManager::fade_time = 300;
 
-bool SceneManager::running = true;
+bool GameManager::running = true;
 
-std::unordered_map<std::string, Scene*> SceneManager::scenes;
-Scene* SceneManager::currentScene = nullptr;
-Scene* SceneManager::loadingScene = nullptr;
+std::unordered_map<std::string, Scene*> GameManager::scenes;
+Scene* GameManager::currentScene = nullptr;
+Scene* GameManager::loadingScene = nullptr;
 
-int SceneManager::originalWidth = 0;
-int SceneManager::originalHeight = 0;
-int SceneManager::windowWidth = 0;
-int SceneManager::windowHeight = 0;
+int GameManager::originalWidth = 0;
+int GameManager::originalHeight = 0;
+int GameManager::windowWidth = 0;
+int GameManager::windowHeight = 0;
                                     
-float SceneManager::screen_change_scale = 0;
+float GameManager::screen_change_scale = 0;
                                     
-Vector2f SceneManager::camera = {0, 0};
+Vector2f GameManager::camera = {0, 0};
                                     
-SDL_Window* SceneManager::window = nullptr;
-SDL_Renderer* SceneManager::renderer = nullptr;
+SDL_Window* GameManager::window = nullptr;
+SDL_Renderer* GameManager::renderer = nullptr;
 
-SceneManager::SceneManager() {
+GameManager::GameManager() {
     
 }
 
-void SceneManager::init(Vector2f originalSize)
+void GameManager::init(Vector2f originalSize)
 {
   srand(time(NULL));
   SDL_Init(SDL_INIT_VIDEO); 
@@ -37,8 +37,8 @@ void SceneManager::init(Vector2f originalSize)
 
   originalWidth = originalSize.x;
   originalHeight = originalSize.y;
-  windowWidth =  SceneManager::originalWidth  ;
-  windowHeight = SceneManager::originalHeight ;
+  windowWidth =  GameManager::originalWidth  ;
+  windowHeight = GameManager::originalHeight ;
 
   screen_change_scale = ((float) windowWidth + (float) windowHeight)
       / (originalWidth + originalHeight);
@@ -48,11 +48,11 @@ void SceneManager::init(Vector2f originalSize)
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 }
 
-void SceneManager::AddScene(const std::string& name, Scene* scene) {
+void GameManager::AddScene(const std::string& name, Scene* scene) {
   scenes[name] = scene;
 }
 
-void SceneManager::LoadScene(const std::string& name) {
+void GameManager::LoadScene(const std::string& name) {
   Scene* scene = scenes[name];
   if (scene) {
     loadingScene = scene;
@@ -63,11 +63,11 @@ void SceneManager::LoadScene(const std::string& name) {
   }
 }
 
-Scene* SceneManager::GetCurrentScene() {
+Scene* GameManager::GetCurrentScene() {
     return currentScene;
 }
 
-void SceneManager::Update() {
+void GameManager::Update() {
   InputManager::update();
   SDL_Event event;
   while (SDL_PollEvent(&event))
@@ -119,7 +119,7 @@ void SceneManager::Update() {
       fill_dst.x=0;
       fill_dst.y=0;
 
-      SDL_RenderFillRect(SceneManager::renderer, &fill_dst); 
+      SDL_RenderFillRect(GameManager::renderer, &fill_dst); 
 
       // Check if the fade transition is complete
       if (elapsedTime >= fade_time) {
@@ -160,13 +160,13 @@ void SceneManager::Update() {
   SDL_RenderPresent(renderer);
 }
 
-void SceneManager::Render() {
+void GameManager::Render() {
   if (currentScene) {
     // currentScene->Draw();
   }
 }
 
-void SceneManager::playSound(std::string filename, bool loop) {
+void GameManager::playSound(std::string filename, bool loop) {
     //   Mix_Chunk* sound = ResourceManager::getInstance(renderer).getAudio(filename);
 
     //   int channel = Mix_PlayChannel(-1, sound, 0);
@@ -202,14 +202,14 @@ void SceneManager::playSound(std::string filename, bool loop) {
 }
 
 
-void SceneManager::quit()
+void GameManager::quit()
 {
-  SDL_DestroyRenderer(SceneManager::renderer);
-  SDL_DestroyWindow(SceneManager::window);
+  SDL_DestroyRenderer(GameManager::renderer);
+  SDL_DestroyWindow(GameManager::window);
   
   TTF_Quit();
   Mix_Quit();
   SDL_Quit();
 
-  SceneManager::running = false;
+  GameManager::running = false;
 }

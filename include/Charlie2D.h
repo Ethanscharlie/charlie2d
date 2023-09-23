@@ -6,6 +6,7 @@
 #include "Scene.h"
 #include "Animation.h"
 #include "Component.h"
+#include "GameManager.h"
 
 // Components
 #include "EntityBox.h"

@@ -6,7 +6,7 @@ Scene::~Scene() {
 
 Scene::Scene()
 {   
-    SDL_GetRendererOutputSize(SceneManager::renderer, &windowWidth, &windowHeight);
+    SDL_GetRendererOutputSize(GameManager::renderer, &windowWidth, &windowHeight);
 }
 
 Entity* Scene::createObject(std::string tag) {
@@ -38,8 +38,8 @@ void Scene::update()
 
     //std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
 
-    SDL_SetRenderDrawColor(SceneManager::renderer, 0, 0, 0, 255);
-    SDL_RenderClear(SceneManager::renderer);
+    SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
+    SDL_RenderClear(GameManager::renderer);
 
     std::vector<Component*> layeredComponents;
     for (auto& c : components) {

@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-#include "SceneManager.h"
+#include "GameManager.h"
 #include "ResourceManager.h"
 
 class UICanvas : public Component {
@@ -12,9 +12,9 @@ class UICanvas : public Component {
 
     void start() override {
 
-        //float scaler = (float) SceneManager::windowWidth / SceneManager::originalWidth / SceneManager::screen_change_scale;
-        //box->setSize({SceneManager::originalWidth  * scaler, SceneManager::originalHeight * scaler});
-        box->setSize({SceneManager::windowWidth/ SceneManager::screen_change_scale, SceneManager::windowHeight / SceneManager::screen_change_scale});
+        //float scaler = (float) GameManager::windowWidth / GameManager::originalWidth / GameManager::screen_change_scale;
+        //box->setSize({GameManager::originalWidth  * scaler, GameManager::originalHeight * scaler});
+        box->setSize({GameManager::windowWidth/ GameManager::screen_change_scale, GameManager::windowHeight / GameManager::screen_change_scale});
 
         // Margin
         //box->changeSize({-10, -10});

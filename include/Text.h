@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-#include "SceneManager.h"
+#include "GameManager.h"
 #include "ResourceManager.h"
 
 class Text : public Component {
@@ -25,22 +25,22 @@ class Text : public Component {
 
         SDL_Rect spriteRect = {0,0,0,0};
         
-        float width_scale =  (float) SceneManager::windowWidth  / SceneManager::originalWidth;
-        float height_scale = (float) SceneManager::windowHeight / SceneManager::originalHeight;
+        float width_scale =  (float) GameManager::windowWidth  / GameManager::originalWidth;
+        float height_scale = (float) GameManager::windowHeight / GameManager::originalHeight;
 
-        spriteRect.x = SceneManager::screen_change_scale * (box->getPosition().x) + SceneManager::windowWidth/2; 
-        spriteRect.y = SceneManager::screen_change_scale * (box->getPosition().y) + SceneManager::windowHeight/2;    
+        spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::windowWidth/2; 
+        spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::windowHeight/2;    
 
-        spriteRect.w = box->getSize().x * SceneManager::screen_change_scale;
-        spriteRect.h = box->getSize().y * SceneManager::screen_change_scale;
+        spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
+        spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
 
-        renderTextInRect(SceneManager::renderer, text, spriteRect);
+        renderTextInRect(GameManager::renderer, text, spriteRect);
     }
 
     void changeFont(char* fontFile, int size)
     {
         fontSize = size;
-        font = TTF_OpenFont(fontFile, fontSize * SceneManager::screen_change_scale);
+        font = TTF_OpenFont(fontFile, fontSize * GameManager::screen_change_scale);
     }
 
     void renderTextInRect(SDL_Renderer* renderer, const std::string& text, const SDL_Rect& rect)

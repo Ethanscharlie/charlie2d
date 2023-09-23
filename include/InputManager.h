@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <unordered_map>
 #include <SDL_gamecontroller.h>
-#include "SceneManager.h"
+#include "GameManager.h"
 
 
 class InputManager {

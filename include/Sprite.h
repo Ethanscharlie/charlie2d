@@ -5,7 +5,7 @@
 #include "Component.h"
 #include "Collider.h"
 #include "Math.h"
-#include "SceneManager.h"
+#include "GameManager.h"
 
 class Animation;
 

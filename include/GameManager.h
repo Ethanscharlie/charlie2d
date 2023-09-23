@@ -16,9 +16,9 @@
 
 class Scene;
 
-class SceneManager {
+class GameManager {
 public:
-    SceneManager();
+    GameManager();
     static void init(Vector2f originalSize);
     static void AddScene(const std::string& name, Scene* scene);
     static void LoadScene(const std::string& name);

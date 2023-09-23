@@ -239,7 +239,7 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/c++/13.2.1/cstddef \
  /usr/include/c++/13.2.1/bits/uses_allocator_args.h \
  /usr/include/SDL2/SDL_gamecontroller.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/SceneManager.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/ostream \
  /usr/include/c++/13.2.1/ios /usr/include/c++/13.2.1/iosfwd \
  /usr/include/c++/13.2.1/bits/stringfwd.h \

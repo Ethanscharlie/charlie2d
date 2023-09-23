@@ -2,7 +2,7 @@ CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ResourceManager.cpp \
  /usr/include/stdc-predef.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/SceneManager.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /usr/include/c++/13.2.1/iostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \

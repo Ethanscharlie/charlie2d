@@ -4,7 +4,7 @@
 #include "Entity.h"
 #include "Component.h"
 #include "Math.h"
-#include "SceneManager.h"
+#include "GameManager.h"
 #include "InputManager.h"
 
 class Button : public Component {

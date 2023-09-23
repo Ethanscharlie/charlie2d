@@ -201,6 +201,30 @@ source/EntityBox.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/EntityBox.cpp.s
 .PHONY : source/EntityBox.cpp.s
 
+source/GameManager.o: source/GameManager.cpp.o
+.PHONY : source/GameManager.o
+
+# target to build an object file
+source/GameManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/GameManager.cpp.o
+.PHONY : source/GameManager.cpp.o
+
+source/GameManager.i: source/GameManager.cpp.i
+.PHONY : source/GameManager.i
+
+# target to preprocess a source file
+source/GameManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/GameManager.cpp.i
+.PHONY : source/GameManager.cpp.i
+
+source/GameManager.s: source/GameManager.cpp.s
+.PHONY : source/GameManager.s
+
+# target to generate assembly for a file
+source/GameManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/GameManager.cpp.s
+.PHONY : source/GameManager.cpp.s
+
 source/InputMangaer.o: source/InputMangaer.cpp.o
 .PHONY : source/InputMangaer.o
 
@@ -273,30 +297,6 @@ source/Scene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Scene.cpp.s
 .PHONY : source/Scene.cpp.s
 
-source/SceneManager.o: source/SceneManager.cpp.o
-.PHONY : source/SceneManager.o
-
-# target to build an object file
-source/SceneManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/SceneManager.cpp.o
-.PHONY : source/SceneManager.cpp.o
-
-source/SceneManager.i: source/SceneManager.cpp.i
-.PHONY : source/SceneManager.i
-
-# target to preprocess a source file
-source/SceneManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/SceneManager.cpp.i
-.PHONY : source/SceneManager.cpp.i
-
-source/SceneManager.s: source/SceneManager.cpp.s
-.PHONY : source/SceneManager.s
-
-# target to generate assembly for a file
-source/SceneManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/SceneManager.cpp.s
-.PHONY : source/SceneManager.cpp.s
-
 source/Sprite.o: source/Sprite.cpp.o
 .PHONY : source/Sprite.o
 
@@ -339,6 +339,9 @@ help:
 	@echo "... source/EntityBox.o"
 	@echo "... source/EntityBox.i"
 	@echo "... source/EntityBox.s"
+	@echo "... source/GameManager.o"
+	@echo "... source/GameManager.i"
+	@echo "... source/GameManager.s"
 	@echo "... source/InputMangaer.o"
 	@echo "... source/InputMangaer.i"
 	@echo "... source/InputMangaer.s"
@@ -348,9 +351,6 @@ help:
 	@echo "... source/Scene.o"
 	@echo "... source/Scene.i"
 	@echo "... source/Scene.s"
-	@echo "... source/SceneManager.o"
-	@echo "... source/SceneManager.i"
-	@echo "... source/SceneManager.s"
 	@echo "... source/Sprite.o"
 	@echo "... source/Sprite.i"
 	@echo "... source/Sprite.s"

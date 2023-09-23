@@ -5,7 +5,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <unordered_map>
-#include "SceneManager.h"
+#include "GameManager.h"
 #include "Entity.h"
 #include "Component.h"
 //#include "Sprite.h"
