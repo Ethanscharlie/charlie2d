@@ -9,7 +9,7 @@ Scene::Scene()
     SDL_GetRendererOutputSize(GameManager::renderer, &windowWidth, &windowHeight);
 }
 
-Entity* Scene::createObject(std::string tag) {
+Entity* Scene::createEntity(std::string tag) {
     Entity* entity = new Entity();
     entity->scene = this;
     entity->tag = tag;

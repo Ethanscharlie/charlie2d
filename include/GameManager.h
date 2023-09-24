@@ -14,6 +14,11 @@
 #include "ResourceManager.h"
 #include "Math.h"
 
+#ifdef __EMSCRIPTEN__
+#include <emscripten.h>
+#include <emscripten.html5.h>
+#endif
+
 class Scene;
 
 class GameManager {
@@ -27,6 +32,7 @@ public:
     static void Render();
     static void playSound(std::string filename, bool loop =false);
     static void quit();
+    static void doUpdateLoop();
 
     static SDL_Window* window;
     static SDL_Renderer* renderer;

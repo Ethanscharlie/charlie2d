@@ -53,7 +53,7 @@ public:
 
     std::vector<Entity*> getTag(std::string tag);
 
-    Entity* createObject(std::string tag="");
+    Entity* createEntity(std::string tag="");
     //void addToParent(Entity* entity, Entity* parent);
     std::vector<Entity*> getAllObjects();
     void update();
