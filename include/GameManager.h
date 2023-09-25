@@ -24,7 +24,7 @@ class Scene;
 class GameManager {
 public:
     GameManager();
-    static void init(Vector2f originalSize);
+    static void init(Vector2f originalSize={1920,1080});
     static void AddScene(const std::string& name, Scene* scene);
     static void LoadScene(const std::string& name);
     static Scene* GetCurrentScene();

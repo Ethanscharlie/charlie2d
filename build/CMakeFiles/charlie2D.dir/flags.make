@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/SDL2 -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include
+CXX_INCLUDES = -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include
 
 CXX_FLAGS = -std=gnu++20
 

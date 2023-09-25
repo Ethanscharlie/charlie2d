@@ -10,6 +10,10 @@
 #include "Component.h"
 //#include "Sprite.h"
 
+#include <fstream>
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
+
 class Entity;
 
 typedef std::vector<Component*> Group;
@@ -59,6 +63,7 @@ public:
     void update();
     virtual void load();
     void unload();
+    void loadLDTK(std::string file);
 
     int windowWidth, windowHeight;
 

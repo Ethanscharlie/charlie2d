@@ -14,6 +14,7 @@
  # Include your header files                                                                          
  target_include_directories(charlie2D PUBLIC 
      /usr/include/SDL2
+     /usr/include/nlohmann
      ${PROJECT_SOURCE_DIR}/include
      )      
 

@@ -133,6 +133,55 @@ void Scene::unload()
     //layers.clear();
 }
 
+void Scene::loadLDTK(std::string file) {
+    std::ifstream f(file);
+    json data = json::parse(f);
+
+    auto& layerInstances = data["levels"][0]["layerInstances"];
+    for (auto it = layerInstances.rbegin(); it != layerInstances.rend(); ++it) { 
+        auto const& layer = *it;
+        if (layer["__type"] == "Tiles") {
+            int tileWidth = layer ["__gridSize"];
+            int tileHeight = layer["__gridSize"];
+
+            for (auto const& tile : layer["gridTiles"]) {
+                Entity* tileObject = createEntity(layer["__identifier"]);
+
+                tileObject->addComponent<Sprite>();
+
+                std::string imageFileLocation;
+
+                imageFileLocation.append("img/ldtk"); 
+                imageFileLocation.append("/"); 
+                imageFileLocation.append(layer["__tilesetRelPath"]);
+
+                tileObject->getComponent<Sprite>().loadTexture(imageFileLocation);
+
+                tileObject->getComponent<Sprite>().sourceRect.x = tile["src"][0];
+                tileObject->getComponent<Sprite>().sourceRect.y = tile["src"][1];
+                tileObject->getComponent<Sprite>().sourceRect.w = layer["__gridSize"];
+                tileObject->getComponent<Sprite>().sourceRect.h = layer["__gridSize"];
+
+                tileObject->box->setSize({layer["__gridSize"], layer["__gridSize"]});
+
+                tileObject->box->setPosition({tile["px"][0], tile["px"][1]});
+                tileObject->box->setSize({tileWidth, tileHeight});
+            }
+        }
+
+        else if (layer["__type"] == "Entities") {
+            for (auto const& entity : layer["entityInstances"]) {
+                Entity* object = createEntity(entity["__identifier"]);
+
+                object->addComponent<Sprite>();
+
+                object->box->setPosition({entity["px"][0], entity["px"][1]});
+                object->box->setSize({entity["width"], entity["height"]});
+            }
+        }
+    }
+}
+
 void Scene::load() {}
 
 

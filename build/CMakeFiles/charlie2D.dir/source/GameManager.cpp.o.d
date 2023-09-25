@@ -350,15 +350,100 @@ CMakeFiles/charlie2D.dir/source/GameManager.cpp.o: \
  /usr/include/SDL2/SDL_ttf.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
- /usr/include/c++/13.2.1/array \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
- /usr/include/c++/13.2.1/functional \
- /usr/include/c++/13.2.1/bits/std_function.h \
+ /usr/include/c++/13.2.1/fstream /usr/include/c++/13.2.1/bits/codecvt.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
+ /usr/include/c++/13.2.1/bits/fstream.tcc /usr/include/nlohmann/json.hpp \
+ /usr/include/c++/13.2.1/algorithm \
  /usr/include/c++/13.2.1/bits/stl_algo.h \
  /usr/include/c++/13.2.1/bits/algorithmfwd.h \
  /usr/include/c++/13.2.1/bits/stl_heap.h \
+ /usr/include/c++/13.2.1/bits/ranges_algo.h \
+ /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13.2.1/functional \
+ /usr/include/c++/13.2.1/bits/std_function.h \
+ /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/iterator \
+ /usr/include/c++/13.2.1/bits/stream_iterator.h \
+ /usr/include/c++/13.2.1/utility \
+ /usr/include/c++/13.2.1/bits/stl_relops.h \
+ /usr/include/nlohmann/adl_serializer.hpp \
+ /usr/include/nlohmann/detail/abi_macros.hpp \
+ /usr/include/nlohmann/detail/conversions/from_json.hpp \
+ /usr/include/c++/13.2.1/forward_list \
+ /usr/include/c++/13.2.1/bits/forward_list.h \
+ /usr/include/c++/13.2.1/bits/forward_list.tcc \
+ /usr/include/c++/13.2.1/valarray \
+ /usr/include/c++/13.2.1/bits/valarray_array.h \
+ /usr/include/c++/13.2.1/bits/valarray_array.tcc \
+ /usr/include/c++/13.2.1/bits/valarray_before.h \
+ /usr/include/c++/13.2.1/bits/slice_array.h \
+ /usr/include/c++/13.2.1/bits/valarray_after.h \
+ /usr/include/c++/13.2.1/bits/gslice.h \
+ /usr/include/c++/13.2.1/bits/gslice_array.h \
+ /usr/include/c++/13.2.1/bits/mask_array.h \
+ /usr/include/c++/13.2.1/bits/indirect_array.h \
+ /usr/include/nlohmann/detail/exceptions.hpp \
+ /usr/include/nlohmann/detail/value_t.hpp \
+ /usr/include/nlohmann/detail/macro_scope.hpp \
+ /usr/include/nlohmann/detail/meta/detected.hpp \
+ /usr/include/nlohmann/detail/meta/void_t.hpp \
+ /usr/include/nlohmann/thirdparty/hedley/hedley.hpp \
+ /usr/include/c++/13.2.1/version /usr/include/c++/13.2.1/cassert \
+ /usr/include/assert.h /usr/include/nlohmann/detail/string_escape.hpp \
+ /usr/include/nlohmann/detail/input/position_t.hpp \
+ /usr/include/nlohmann/detail/meta/cpp_future.hpp \
+ /usr/include/nlohmann/detail/meta/type_traits.hpp \
+ /usr/include/nlohmann/detail/iterators/iterator_traits.hpp \
+ /usr/include/nlohmann/detail/meta/call_std/begin.hpp \
+ /usr/include/nlohmann/detail/meta/call_std/end.hpp \
+ /usr/include/nlohmann/json_fwd.hpp \
+ /usr/include/nlohmann/detail/string_concat.hpp \
+ /usr/include/c++/13.2.1/cstring \
+ /usr/include/nlohmann/detail/meta/identity_tag.hpp \
+ /usr/include/nlohmann/detail/meta/std_fs.hpp \
+ /usr/include/c++/13.2.1/filesystem /usr/include/c++/13.2.1/bits/fs_fwd.h \
+ /usr/include/c++/13.2.1/bits/chrono.h /usr/include/c++/13.2.1/ratio \
+ /usr/include/c++/13.2.1/bits/parse_numbers.h \
+ /usr/include/c++/13.2.1/bits/fs_path.h /usr/include/c++/13.2.1/locale \
+ /usr/include/c++/13.2.1/bits/locale_facets_nonio.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/time_members.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/messages_members.h \
+ /usr/include/libintl.h \
+ /usr/include/c++/13.2.1/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13.2.1/bits/locale_conv.h \
+ /usr/include/c++/13.2.1/iomanip \
+ /usr/include/c++/13.2.1/bits/quoted_string.h \
+ /usr/include/c++/13.2.1/sstream /usr/include/c++/13.2.1/bits/sstream.tcc \
+ /usr/include/c++/13.2.1/codecvt /usr/include/c++/13.2.1/bits/fs_dir.h \
+ /usr/include/c++/13.2.1/bits/fs_ops.h \
+ /usr/include/nlohmann/detail/conversions/to_json.hpp \
+ /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+ /usr/include/c++/13.2.1/ranges /usr/include/c++/13.2.1/optional \
+ /usr/include/c++/13.2.1/span \
+ /usr/include/nlohmann/byte_container_with_subtype.hpp \
+ /usr/include/nlohmann/detail/hash.hpp \
+ /usr/include/nlohmann/detail/input/binary_reader.hpp \
+ /usr/include/nlohmann/detail/input/input_adapters.hpp \
+ /usr/include/nlohmann/detail/input/json_sax.hpp \
+ /usr/include/nlohmann/detail/input/lexer.hpp \
+ /usr/include/nlohmann/detail/meta/is_sax.hpp \
+ /usr/include/nlohmann/detail/input/parser.hpp \
+ /usr/include/nlohmann/detail/iterators/internal_iterator.hpp \
+ /usr/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+ /usr/include/nlohmann/detail/iterators/iter_impl.hpp \
+ /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+ /usr/include/nlohmann/detail/json_pointer.hpp \
+ /usr/include/nlohmann/detail/json_ref.hpp \
+ /usr/include/nlohmann/detail/output/binary_writer.hpp \
+ /usr/include/nlohmann/detail/output/output_adapters.hpp \
+ /usr/include/nlohmann/detail/output/serializer.hpp \
+ /usr/include/nlohmann/detail/conversions/to_chars.hpp \
+ /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/13.2.1/any \
+ /usr/include/nlohmann/detail/macro_unscope.hpp \
+ /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/InputManager.h \
  /usr/include/SDL2/SDL_gamecontroller.h
