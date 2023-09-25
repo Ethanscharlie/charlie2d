@@ -16,45 +16,11 @@ class physicsBody : public Component {
     }
 
     void update(float deltaTime) override {
-        //if (velocity.x != 0 || velocity.y != 0) {
-        //    Vector2f movement = velocity;
-        //    entity->box->absoluteBox.position.x += movement.x; 
-        //    std::vector<Collider*> cols = entity->getComponent<Collider>().getCollisions();
-
-        //    for (Collider* col : cols) {
-        //        Entity* other = col->entity;
-        //        if (!other->getComponent<Collider>().solid) continue;
-
-        //        if (movement.x > 0) {
-        //            entity->box->absoluteBox.position.x = (other->box->absoluteBox.getLeft() - entity->box->absoluteBox.size.x) ;        
-        //            velocity.x = 0;
-        //        } else if (movement.x < 0) {
-        //            entity->box->absoluteBox.position.x = other->box->absoluteBox.getRight();
-        //            velocity.x = 0;
-        //        }
-        //    }
-
-        //    entity->box->absoluteBox.position.y += movement.y;
-        //    cols = entity->getComponent<Collider>().getCollisions();
-
-        //    for (Collider* col : cols) {
-        //        Entity* other = col->entity;
-        //        if (!other->getComponent<Collider>().solid) continue;
-
-        //        if (movement.y > 0) {
-        //            entity->box->absoluteBox.position.y = (other->box->absoluteBox.getTop() - entity->box->absoluteBox.size.y) ;        
-        //            velocity.y = 0;
-        //        } else if (movement.y < 0) {
-        //            entity->box->absoluteBox.position.y = other->box->absoluteBox.getBottom() ;
-        //            velocity.y = 0;
-        //        }
-        //    }
-        //    //velocity.print();
-        //}
+        velocity.y += gravity;
 
         if (velocity.x != 0 || velocity.y != 0) {
             Vector2f movement = velocity;
-            entity->box->changePosition({movement.x, 0}); 
+            entity->box->changePosition({movement.x * deltaTime, 0}); 
             std::vector<Collider*> cols = entity->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {
@@ -70,7 +36,7 @@ class physicsBody : public Component {
                 }
             }
 
-            entity->box->changePosition({0, movement.y});
+            entity->box->changePosition({0, movement.y * deltaTime});
             cols = entity->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {
@@ -90,5 +56,6 @@ class physicsBody : public Component {
     }
 
     Vector2f velocity;
+    float gravity = 0;
 };
 

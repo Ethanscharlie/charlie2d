@@ -83,10 +83,24 @@ CMakeFiles/charlie2D.dir/source/Animation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/charlie2D.dir/source/Animation.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Animation.cpp -o CMakeFiles/charlie2D.dir/source/Animation.cpp.s
 
+CMakeFiles/charlie2D.dir/source/Collider.cpp.o: CMakeFiles/charlie2D.dir/flags.make
+CMakeFiles/charlie2D.dir/source/Collider.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp
+CMakeFiles/charlie2D.dir/source/Collider.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/charlie2D.dir/source/Collider.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/Collider.cpp.o -MF CMakeFiles/charlie2D.dir/source/Collider.cpp.o.d -o CMakeFiles/charlie2D.dir/source/Collider.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp
+
+CMakeFiles/charlie2D.dir/source/Collider.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/charlie2D.dir/source/Collider.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp > CMakeFiles/charlie2D.dir/source/Collider.cpp.i
+
+CMakeFiles/charlie2D.dir/source/Collider.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/charlie2D.dir/source/Collider.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp -o CMakeFiles/charlie2D.dir/source/Collider.cpp.s
+
 CMakeFiles/charlie2D.dir/source/Entity.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/Entity.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Entity.cpp
 CMakeFiles/charlie2D.dir/source/Entity.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/charlie2D.dir/source/Entity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/charlie2D.dir/source/Entity.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/Entity.cpp.o -MF CMakeFiles/charlie2D.dir/source/Entity.cpp.o.d -o CMakeFiles/charlie2D.dir/source/Entity.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Entity.cpp
 
 CMakeFiles/charlie2D.dir/source/Entity.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/charlie2D.dir/source/Entity.cpp.s: cmake_force
 CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/EntityBox.cpp
 CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o -MF CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o.d -o CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/EntityBox.cpp
 
 CMakeFiles/charlie2D.dir/source/EntityBox.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/charlie2D.dir/source/EntityBox.cpp.s: cmake_force
 CMakeFiles/charlie2D.dir/source/GameManager.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/GameManager.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/GameManager.cpp
 CMakeFiles/charlie2D.dir/source/GameManager.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/charlie2D.dir/source/GameManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/charlie2D.dir/source/GameManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/GameManager.cpp.o -MF CMakeFiles/charlie2D.dir/source/GameManager.cpp.o.d -o CMakeFiles/charlie2D.dir/source/GameManager.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/GameManager.cpp
 
 CMakeFiles/charlie2D.dir/source/GameManager.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/charlie2D.dir/source/GameManager.cpp.s: cmake_force
 CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputMangaer.cpp
 CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o -MF CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o.d -o CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputMangaer.cpp
 
 CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.s: cmake_force
 CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ResourceManager.cpp
 CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o -MF CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o.d -o CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ResourceManager.cpp
 
 CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.s: cmake_force
 CMakeFiles/charlie2D.dir/source/Scene.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/Scene.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Scene.cpp
 CMakeFiles/charlie2D.dir/source/Scene.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/charlie2D.dir/source/Scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/charlie2D.dir/source/Scene.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/Scene.cpp.o -MF CMakeFiles/charlie2D.dir/source/Scene.cpp.o.d -o CMakeFiles/charlie2D.dir/source/Scene.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Scene.cpp
 
 CMakeFiles/charlie2D.dir/source/Scene.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/charlie2D.dir/source/Scene.cpp.s: cmake_force
 CMakeFiles/charlie2D.dir/source/Sprite.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/Sprite.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Sprite.cpp
 CMakeFiles/charlie2D.dir/source/Sprite.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/charlie2D.dir/source/Sprite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/charlie2D.dir/source/Sprite.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/Sprite.cpp.o -MF CMakeFiles/charlie2D.dir/source/Sprite.cpp.o.d -o CMakeFiles/charlie2D.dir/source/Sprite.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Sprite.cpp
 
 CMakeFiles/charlie2D.dir/source/Sprite.cpp.i: cmake_force
@@ -184,6 +198,7 @@ CMakeFiles/charlie2D.dir/source/Sprite.cpp.s: cmake_force
 # Object files for target charlie2D
 charlie2D_OBJECTS = \
 "CMakeFiles/charlie2D.dir/source/Animation.cpp.o" \
+"CMakeFiles/charlie2D.dir/source/Collider.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/Entity.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/GameManager.cpp.o" \
@@ -196,6 +211,7 @@ charlie2D_OBJECTS = \
 charlie2D_EXTERNAL_OBJECTS =
 
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Animation.cpp.o
+libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Collider.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Entity.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/GameManager.cpp.o
@@ -205,7 +221,7 @@ libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Scene.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Sprite.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/build.make
 libcharlie2D.a: CMakeFiles/charlie2D.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libcharlie2D.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libcharlie2D.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/charlie2D.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/charlie2D.dir/link.txt --verbose=$(VERBOSE)
 

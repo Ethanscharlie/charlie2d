@@ -30,7 +30,7 @@ public:
         component->box = box;
         component->scene = scene;
         component->start();
-        components[typeid(C)] = std::move(component);
+        components[typeid(C)] = component;
         scene->template add<C>(components[typeid(C)]);
     }
 

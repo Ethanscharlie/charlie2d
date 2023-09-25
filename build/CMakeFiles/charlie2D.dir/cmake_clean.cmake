@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/charlie2D.dir/source/Animation.cpp.o"
   "CMakeFiles/charlie2D.dir/source/Animation.cpp.o.d"
+  "CMakeFiles/charlie2D.dir/source/Collider.cpp.o"
+  "CMakeFiles/charlie2D.dir/source/Collider.cpp.o.d"
   "CMakeFiles/charlie2D.dir/source/Entity.cpp.o"
   "CMakeFiles/charlie2D.dir/source/Entity.cpp.o.d"
   "CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o"

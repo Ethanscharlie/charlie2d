@@ -1,7 +1,7 @@
-CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputMangaer.cpp \
+CMakeFiles/charlie2D.dir/source/Collider.cpp.o: \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp \
  /usr/include/stdc-predef.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/InputManager.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
@@ -208,46 +208,53 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h /usr/include/c++/13.2.1/unordered_map \
+ /usr/include/SDL2/SDL_misc.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Entity.h \
+ /usr/include/c++/13.2.1/vector /usr/include/c++/13.2.1/bits/allocator.h \
+ /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
+ /usr/include/c++/13.2.1/bits/new_allocator.h \
+ /usr/include/c++/13.2.1/bits/memoryfwd.h \
+ /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/13.2.1/ext/alloc_traits.h \
+ /usr/include/c++/13.2.1/bits/alloc_traits.h \
+ /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/initializer_list \
+ /usr/include/c++/13.2.1/bits/stl_bvector.h \
+ /usr/include/c++/13.2.1/bits/functional_hash.h \
+ /usr/include/c++/13.2.1/bits/hash_bytes.h \
+ /usr/include/c++/13.2.1/bits/refwrap.h \
+ /usr/include/c++/13.2.1/bits/invoke.h \
+ /usr/include/c++/13.2.1/bits/stl_function.h \
+ /usr/include/c++/13.2.1/backward/binders.h \
+ /usr/include/c++/13.2.1/bits/range_access.h \
+ /usr/include/c++/13.2.1/bits/vector.tcc \
+ /usr/include/c++/13.2.1/bits/memory_resource.h \
+ /usr/include/c++/13.2.1/cstddef \
+ /usr/include/c++/13.2.1/bits/uses_allocator.h \
+ /usr/include/c++/13.2.1/bits/uses_allocator_args.h \
+ /usr/include/c++/13.2.1/tuple /usr/include/c++/13.2.1/bits/ranges_util.h \
+ /usr/include/c++/13.2.1/bits/ranges_base.h \
+ /usr/include/c++/13.2.1/bits/max_size_type.h \
+ /usr/include/c++/13.2.1/numbers /usr/include/c++/13.2.1/unordered_map \
  /usr/include/c++/13.2.1/bits/unordered_map.h \
  /usr/include/c++/13.2.1/bits/hashtable.h \
  /usr/include/c++/13.2.1/bits/hashtable_policy.h \
- /usr/include/c++/13.2.1/tuple \
- /usr/include/c++/13.2.1/bits/uses_allocator.h \
- /usr/include/c++/13.2.1/bits/invoke.h \
- /usr/include/c++/13.2.1/bits/ranges_util.h \
- /usr/include/c++/13.2.1/bits/ranges_base.h \
- /usr/include/c++/13.2.1/bits/max_size_type.h \
- /usr/include/c++/13.2.1/numbers \
- /usr/include/c++/13.2.1/bits/functional_hash.h \
- /usr/include/c++/13.2.1/bits/hash_bytes.h \
  /usr/include/c++/13.2.1/ext/aligned_buffer.h \
- /usr/include/c++/13.2.1/ext/alloc_traits.h \
- /usr/include/c++/13.2.1/bits/alloc_traits.h \
- /usr/include/c++/13.2.1/bits/memoryfwd.h \
- /usr/include/c++/13.2.1/bits/allocator.h \
- /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
- /usr/include/c++/13.2.1/bits/new_allocator.h \
  /usr/include/c++/13.2.1/bits/enable_special_members.h \
- /usr/include/c++/13.2.1/bits/stl_function.h \
- /usr/include/c++/13.2.1/backward/binders.h \
  /usr/include/c++/13.2.1/bits/node_handle.h \
- /usr/include/c++/13.2.1/bits/range_access.h \
  /usr/include/c++/13.2.1/bits/erase_if.h \
- /usr/include/c++/13.2.1/bits/memory_resource.h \
- /usr/include/c++/13.2.1/cstddef \
- /usr/include/c++/13.2.1/bits/uses_allocator_args.h \
- /usr/include/SDL2/SDL_gamecontroller.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
- /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/ostream \
- /usr/include/c++/13.2.1/ios /usr/include/c++/13.2.1/iosfwd \
- /usr/include/c++/13.2.1/bits/stringfwd.h \
+ /usr/include/c++/13.2.1/typeindex /usr/include/c++/13.2.1/typeinfo \
+ /usr/include/c++/13.2.1/memory \
+ /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13.2.1/bits/align.h \
+ /usr/include/c++/13.2.1/bits/unique_ptr.h \
+ /usr/include/c++/13.2.1/ostream /usr/include/c++/13.2.1/ios \
+ /usr/include/c++/13.2.1/iosfwd /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
  /usr/include/c++/13.2.1/exception \
  /usr/include/c++/13.2.1/bits/exception_ptr.h \
  /usr/include/c++/13.2.1/bits/cxxabi_init_exception.h \
- /usr/include/c++/13.2.1/typeinfo \
  /usr/include/c++/13.2.1/bits/nested_exception.h \
  /usr/include/c++/13.2.1/bits/char_traits.h \
  /usr/include/c++/13.2.1/bits/localefwd.h \
@@ -271,7 +278,6 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/c++/13.2.1/string \
  /usr/include/c++/13.2.1/bits/ostream_insert.h \
  /usr/include/c++/13.2.1/bits/cxxabi_forced.h \
- /usr/include/c++/13.2.1/bits/refwrap.h \
  /usr/include/c++/13.2.1/bits/basic_string.h \
  /usr/include/c++/13.2.1/string_view \
  /usr/include/c++/13.2.1/bits/string_view.tcc \
@@ -297,20 +303,7 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h \
  /usr/include/c++/13.2.1/bits/locale_facets.tcc \
  /usr/include/c++/13.2.1/bits/basic_ios.tcc \
- /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
- /usr/include/c++/13.2.1/bits/istream.tcc /usr/include/c++/13.2.1/vector \
- /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
- /usr/include/c++/13.2.1/bits/stl_vector.h \
- /usr/include/c++/13.2.1/bits/stl_bvector.h \
- /usr/include/c++/13.2.1/bits/vector.tcc /usr/include/SDL2/SDL.h \
- /usr/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL.h \
- /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL_mixer.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Entity.h \
- /usr/include/c++/13.2.1/typeindex /usr/include/c++/13.2.1/memory \
- /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
- /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13.2.1/bits/align.h \
- /usr/include/c++/13.2.1/bits/unique_ptr.h \
+ /usr/include/c++/13.2.1/bits/ostream.tcc \
  /usr/include/c++/13.2.1/bits/shared_ptr.h \
  /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
  /usr/include/c++/13.2.1/bits/allocated_ptr.h \
@@ -342,15 +335,24 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_map.h \
  /usr/include/c++/13.2.1/bits/stl_multimap.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Math.h \
- /usr/include/c++/13.2.1/ctime /usr/include/c++/13.2.1/random \
- /usr/include/c++/13.2.1/cstdint /usr/include/c++/13.2.1/bits/random.h \
+ /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/istream \
+ /usr/include/c++/13.2.1/bits/istream.tcc /usr/include/c++/13.2.1/ctime \
+ /usr/include/c++/13.2.1/random /usr/include/c++/13.2.1/cstdint \
+ /usr/include/c++/13.2.1/bits/random.h \
  /usr/include/c++/13.2.1/bits/uniform_int_dist.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/opt_random.h \
  /usr/include/c++/13.2.1/bits/random.tcc /usr/include/c++/13.2.1/numeric \
  /usr/include/c++/13.2.1/bits/stl_numeric.h \
  /usr/include/c++/13.2.1/pstl/glue_numeric_defs.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Scene.h \
- /usr/include/SDL2/SDL_ttf.h \
+ /usr/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
+ /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_ttf.h \
+ /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL_mixer.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/InputManager.h \
+ /usr/include/SDL2/SDL_gamecontroller.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
+ /usr/include/c++/13.2.1/array \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
  /usr/include/c++/13.2.1/fstream /usr/include/c++/13.2.1/bits/codecvt.h \
@@ -365,7 +367,7 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
  /usr/include/c++/13.2.1/functional \
  /usr/include/c++/13.2.1/bits/std_function.h \
- /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/iterator \
+ /usr/include/c++/13.2.1/iterator \
  /usr/include/c++/13.2.1/bits/stream_iterator.h \
  /usr/include/c++/13.2.1/utility \
  /usr/include/c++/13.2.1/bits/stl_relops.h \
@@ -446,6 +448,4 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h

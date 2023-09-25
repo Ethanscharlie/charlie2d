@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Animation.cpp" "CMakeFiles/charlie2D.dir/source/Animation.cpp.o" "gcc" "CMakeFiles/charlie2D.dir/source/Animation.cpp.o.d"
+  "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp" "CMakeFiles/charlie2D.dir/source/Collider.cpp.o" "gcc" "CMakeFiles/charlie2D.dir/source/Collider.cpp.o.d"
   "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Entity.cpp" "CMakeFiles/charlie2D.dir/source/Entity.cpp.o" "gcc" "CMakeFiles/charlie2D.dir/source/Entity.cpp.o.d"
   "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/EntityBox.cpp" "CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o" "gcc" "CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o.d"
   "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/GameManager.cpp" "CMakeFiles/charlie2D.dir/source/GameManager.cpp.o" "gcc" "CMakeFiles/charlie2D.dir/source/GameManager.cpp.o.d"
