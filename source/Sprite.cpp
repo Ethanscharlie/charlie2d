@@ -1,13 +1,14 @@
 #include "Sprite.h"
 
 void Sprite::update(float deltaTime) {
+    float scaler = GameManager::screen_change_scale * GameManager::cameraZoom;
     SDL_Rect renderRect;
-    Vector2f renderPos = entity->box->getPosition() * GameManager::screen_change_scale;
-    renderRect.x = renderPos.x - (GameManager::screen_change_scale * GameManager::camera.x - GameManager::windowWidth  / 2); 
-    renderRect.y = renderPos.y - (GameManager::screen_change_scale * GameManager::camera.y - GameManager::windowHeight / 2);   
+    Vector2f renderPos = entity->box->getPosition() * scaler;
+    renderRect.x = renderPos.x - (scaler * GameManager::camera.x - GameManager::windowWidth  / 2); 
+    renderRect.y = renderPos.y - (scaler * GameManager::camera.y - GameManager::windowHeight / 2);   
 
-    renderRect.w = entity->box->getSize().x * GameManager::screen_change_scale + 1;
-    renderRect.h = entity->box->getSize().y * GameManager::screen_change_scale + 1;
+    renderRect.w = entity->box->getSize().x * scaler + 1;
+    renderRect.h = entity->box->getSize().y * scaler + 1;
 
     SDL_Rect* srcrect;
     if (sourceRect.w == 0 && sourceRect.h == 0) {

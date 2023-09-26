@@ -44,6 +44,7 @@ public:
     static float screen_change_scale;
     static bool running;
     static Vector2f camera;
+    static float cameraZoom;
     
 private:
   static std::unordered_map<std::string, Scene*> scenes;

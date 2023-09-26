@@ -18,6 +18,7 @@ int GameManager::windowHeight = 0;
 float GameManager::screen_change_scale = 0;
                                     
 Vector2f GameManager::camera = {0, 0};
+float GameManager::cameraZoom = 1;
                                     
 SDL_Window* GameManager::window = nullptr;
 SDL_Renderer* GameManager::renderer = nullptr;
