@@ -17,4 +17,5 @@ public:
     static Vector2f getMousePosition();
 
     static bool mousePressed;
+    static bool jumpPressed;
 };

@@ -16,11 +16,11 @@ class physicsBody : public Component {
     }
 
     void update(float deltaTime) override {
-        velocity.y += gravity;
+        velocity.y += gravity * deltaTime;
 
         if (velocity.x != 0 || velocity.y != 0) {
-            Vector2f movement = velocity;
-            entity->box->changePosition({movement.x * deltaTime, 0}); 
+            Vector2f movement = velocity * deltaTime;
+            entity->box->changePosition({movement.x, 0}); 
             std::vector<Collider*> cols = entity->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {
@@ -36,7 +36,7 @@ class physicsBody : public Component {
                 }
             }
 
-            entity->box->changePosition({0, movement.y * deltaTime});
+            entity->box->changePosition({0, movement.y});
             cols = entity->getComponent<Collider>().getCollisions();
 
             for (Collider* col : cols) {

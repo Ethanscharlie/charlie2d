@@ -6,8 +6,8 @@ void Sprite::update(float deltaTime) {
     renderRect.x = renderPos.x - (GameManager::screen_change_scale * GameManager::camera.x - GameManager::windowWidth  / 2); 
     renderRect.y = renderPos.y - (GameManager::screen_change_scale * GameManager::camera.y - GameManager::windowHeight / 2);   
 
-    renderRect.w = entity->box->getSize().x * GameManager::screen_change_scale;
-    renderRect.h = entity->box->getSize().y * GameManager::screen_change_scale;
+    renderRect.w = entity->box->getSize().x * GameManager::screen_change_scale + 1;
+    renderRect.h = entity->box->getSize().y * GameManager::screen_change_scale + 1;
 
     SDL_Rect* srcrect;
     if (sourceRect.w == 0 && sourceRect.h == 0) {

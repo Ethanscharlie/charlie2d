@@ -1,6 +1,7 @@
 #include "InputManager.h"
 
 bool InputManager::mousePressed = false;
+bool InputManager::jumpPressed = false;
 
 InputManager::InputManager()
 {
@@ -10,6 +11,7 @@ InputManager::InputManager()
 void InputManager::update()
 {
     mousePressed = false;
+    jumpPressed = false;
 }
 
 bool InputManager::checkInput(const std::string& input)
@@ -21,6 +23,19 @@ bool InputManager::checkInput(const std::string& input)
     if (input == "fire")
     {
         if(mousePressed){
+            return true;
+        }
+    }
+    else if (input == "jumpTrigger")
+    {
+        if(jumpPressed){
+            return true;
+        }
+    }
+    else if (input == "jump")
+    {
+        if (keyboardState[SDL_SCANCODE_SPACE])
+        {
             return true;
         }
     }

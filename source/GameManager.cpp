@@ -107,7 +107,10 @@ void GameManager::Update() {
       }
       else if (event.type == SDL_KEYDOWN)
         {
-            //std::cout << event.key.keysym.sym << std::endl;
+            switch (event.key.keysym.sym) {
+                case SDLK_SPACE:
+                    InputManager::jumpPressed = true;
+            }
         }
   }
 
