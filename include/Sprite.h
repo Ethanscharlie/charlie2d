@@ -28,5 +28,6 @@ class Sprite : public Component {
     bool showBorders = false;
     Angle angle;
     std::unordered_map<std::string, Animation*> animations;
+    bool onScreen = false;
 };
 

@@ -38,5 +38,6 @@ class Component {
     int index;
 
     bool useLayer = false;
+    bool standardUpdate = true;
 };
 

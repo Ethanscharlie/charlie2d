@@ -17,8 +17,8 @@ int GameManager::windowHeight = 0;
                                     
 float GameManager::screen_change_scale = 0;
                                     
-Vector2f GameManager::camera = {0, 0};
-float GameManager::cameraZoom = 1;
+Box GameManager::camera = {0, 0, 1980/2, 1080/2};
+Box GameManager::cameraLimitBox = {0, 0, 0, 0};
                                     
 SDL_Window* GameManager::window = nullptr;
 SDL_Renderer* GameManager::renderer = nullptr;
@@ -64,7 +64,7 @@ void GameManager::LoadScene(const std::string& name) {
   }
 }
 
-Scene* GameManager::GetCurrentScene() {
+Scene* GameManager::getCurrentScene() {
     return currentScene;
 }
 
@@ -215,6 +215,17 @@ void GameManager::playSound(std::string filename, bool loop) {
 
 }
 
+
+void GameManager::setCamera(const Vector2f& position) {
+    camera.setWithCenter(position);
+
+    //if ( cameraLimitBox.size.x == 0 && cameraLimitBox.size.y == 0) return;
+
+    if (camera.position.x < cameraLimitBox.position.x) camera.position.x = cameraLimitBox.position.x;
+    if (camera.getRight() > cameraLimitBox.getRight()) camera.position.x = cameraLimitBox.getRight()-camera.size.x;
+    if (camera.position.y < cameraLimitBox.position.y) camera.position.y = cameraLimitBox.position.y;
+    if (camera.getBottom() > cameraLimitBox.getBottom()) camera.position.y = cameraLimitBox.getBottom()-camera.size.y;
+}
 
 void GameManager::quit()
 {

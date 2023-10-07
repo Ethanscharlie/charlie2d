@@ -49,6 +49,11 @@ public:
         return it != components.end();
     }
 
+    std::map<std::type_index, Component*> getComponents() {
+        return components;
+    };
+    
+
     void addChild(Entity* entity);
     void setParent(Entity* entity);
     Entity* getParent();
@@ -62,6 +67,7 @@ public:
     std::string tag = "";
     bool debug = false;
     int iid;
+    bool skipUpdate = false;
 
     private:
     std::map<std::type_index, Component*> components; 

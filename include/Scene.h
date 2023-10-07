@@ -8,6 +8,7 @@
 #include "GameManager.h"
 #include "Entity.h"
 #include "Component.h"
+#include "Tile.h"
 //#include "Sprite.h"
 
 #include <fstream>
@@ -61,9 +62,8 @@ public:
     //void addToParent(Entity* entity, Entity* parent);
     std::vector<Entity*> getAllObjects();
     void update();
-    virtual void load();
+    virtual void load() = 0;
     void unload();
-    void loadLDTK(std::string file);
 
     int windowWidth, windowHeight;
 

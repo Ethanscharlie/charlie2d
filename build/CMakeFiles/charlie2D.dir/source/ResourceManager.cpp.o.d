@@ -351,6 +351,10 @@ CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: \
  /usr/include/SDL2/SDL_ttf.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Tile.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
  /usr/include/c++/13.2.1/fstream /usr/include/c++/13.2.1/bits/codecvt.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
@@ -443,8 +447,5 @@ CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/InputManager.h \
  /usr/include/SDL2/SDL_gamecontroller.h

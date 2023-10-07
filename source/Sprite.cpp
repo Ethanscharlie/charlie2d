@@ -1,11 +1,11 @@
 #include "Sprite.h"
 
 void Sprite::update(float deltaTime) {
-    float scaler = GameManager::screen_change_scale * GameManager::cameraZoom;
+    float scaler = GameManager::screen_change_scale * ((GameManager::originalWidth + GameManager::originalHeight) / (GameManager::camera.size.x + GameManager::camera.size.y));
     SDL_Rect renderRect;
     Vector2f renderPos = entity->box->getPosition() * scaler;
-    renderRect.x = renderPos.x - (scaler * GameManager::camera.x - GameManager::windowWidth  / 2); 
-    renderRect.y = renderPos.y - (scaler * GameManager::camera.y - GameManager::windowHeight / 2);   
+    renderRect.x = renderPos.x - (scaler * GameManager::camera.getCenter().x - GameManager::windowWidth  / 2); 
+    renderRect.y = renderPos.y - (scaler * GameManager::camera.getCenter().y - GameManager::windowHeight / 2);   
 
     renderRect.w = entity->box->getSize().x * scaler + 1;
     renderRect.h = entity->box->getSize().y * scaler + 1;
@@ -17,9 +17,12 @@ void Sprite::update(float deltaTime) {
         srcrect = &sourceRect;
     }
 
-    if (texture != nullptr) {
+    if (texture != nullptr && renderRect.x+renderRect.w/2 > 0-renderRect.w/2 && renderRect.x+renderRect.w/2 < GameManager::windowWidth+renderRect.w/2 && 
+            renderRect.y+renderRect.h/2 > 0-renderRect.h/2 && renderRect.y+renderRect.h/2 < GameManager::windowHeight+renderRect.h/2) {
+
+        onScreen = true;
         SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect, (180 / M_PI) * std::atan2(angle.vector.y, angle.vector.x), nullptr, SDL_FLIP_NONE);
-    }
+    } else {onScreen = false;}
 
     if (showBorders) {
         SDL_SetRenderDrawColor(GameManager::renderer, 0, 255, 0, 255);

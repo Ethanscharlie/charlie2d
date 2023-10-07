@@ -345,6 +345,30 @@ source/Sprite.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Sprite.cpp.s
 .PHONY : source/Sprite.cpp.s
 
+source/Tile.o: source/Tile.cpp.o
+.PHONY : source/Tile.o
+
+# target to build an object file
+source/Tile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Tile.cpp.o
+.PHONY : source/Tile.cpp.o
+
+source/Tile.i: source/Tile.cpp.i
+.PHONY : source/Tile.i
+
+# target to preprocess a source file
+source/Tile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Tile.cpp.i
+.PHONY : source/Tile.cpp.i
+
+source/Tile.s: source/Tile.cpp.s
+.PHONY : source/Tile.s
+
+# target to generate assembly for a file
+source/Tile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Tile.cpp.s
+.PHONY : source/Tile.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -381,6 +405,9 @@ help:
 	@echo "... source/Sprite.o"
 	@echo "... source/Sprite.i"
 	@echo "... source/Sprite.s"
+	@echo "... source/Tile.o"
+	@echo "... source/Tile.i"
+	@echo "... source/Tile.s"
 .PHONY : help
 
 

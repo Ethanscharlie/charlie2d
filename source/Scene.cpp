@@ -2,6 +2,7 @@
 
 Scene::~Scene() {
     // destroy all entitys
+    unload();
 }
 
 Scene::Scene()
@@ -36,44 +37,46 @@ void Scene::update()
     lastTime = currentTime;
     lastTime = SDL_GetPerformanceCounter();
 
-    //std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
+    if (1.0f / deltaTime < 200) std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
 
     SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
     SDL_RenderClear(GameManager::renderer);
 
     std::vector<Component*> layeredComponents;
+    std::vector<Component*> toRemove;
     for (auto& c : components) {
         std::vector<Component*>* clist = &c.second;
-        //if (clist->size() > 0 && clist->data()[0]->useLayer) {
-        //    //layeredComponents->insert(layeredComponents->end(), clist->begin(), clist->end());
-        //    for (auto it = clist->begin(); it != clist->end();) {
-        //        Component* component = *it;
-        //        layeredComponents.push_back(component);
-        //        ++it;
-        //    }
-        //    
-        //    //continue;
-        //}
 
         for (auto it = clist->begin(); it != clist->end();) {
             Component* component = *it;
             if (component == nullptr) continue;
             Entity* entity = component->entity;
 
-            if (entity->toDestroy) {
-                component->onDestroy();
-                it = clist->erase(it);
+              if (entity->toDestroy) {
+                  component->onDestroy();
+                  it = clist->erase(it);
 
-                std::remove(allObjects.begin(), allObjects.end(), entity);
-            } else {
-                if(component->useLayer) {
-                    layeredComponents.push_back(component);
-                } else {
-                    component->update(deltaTime);
-                }
+                  allObjects.erase(std::remove(allObjects.begin(), allObjects.end(), entity), allObjects.end());
+                  delete component;
 
-                ++it;
-            }
+                  // Delete Entity if there are no remaining components
+                  if (entity->getComponents().size() <= 0) {
+                    delete entity;
+                  }
+              }
+              else if (entity->skipUpdate) {
+                    entity->skipUpdate = false;
+              } else {
+                  if (component->standardUpdate) {
+                      if (component->useLayer) {
+                          layeredComponents.push_back(component);
+                      } else {
+                          component->update(deltaTime);
+                      }
+                  }
+
+                  ++it;
+              }
         }
     }
 
@@ -85,25 +88,6 @@ void Scene::update()
     for (Component* component : layeredComponents) {
         component->update(deltaTime);
     }
-
-    //for (auto it = layeredComponents->begin(); it != layeredComponents->end();) {
-    //    Component* component = *it;
-    //    if (component == nullptr) continue;
-    //    Entity* entity = component->entity;
-
-    //    if (entity->toDestroy) {
-    //        component->onDestroy();
-    //        it = layeredComponents->erase(it);
-
-    //        std::remove(allObjects.begin(), allObjects.end(), entity);
-    //    } else {
-    //        component->update(deltaTime);
-    //        ++it;
-    //    }
-    //}
-
-    //for (auto& c : components) {
-    //    std::vector<Component*>* clist = &c.second;
 }
 
 std::vector<Entity*> Scene::getAllObjects() {
@@ -115,73 +99,5 @@ void Scene::unload()
     componentTypes.clear();
     components.clear();
     tags.clear();
-    // for (auto& pair : groups) {
-    //     Group* group = pair.second;
-    //     for (auto it = group->begin(); it != group->end(); ) {
-    //         Entity* entity = *it;
-    //         if (entity) {
-    //             delete entity;
-    //             it = group->erase(it);
-    //         } else {
-    //             ++it;
-    //         }
-    //     }
-    //     delete group;
-    // }
-    //groups.clear();
-    //entitys.clear();
-    //layers.clear();
 }
-
-void Scene::loadLDTK(std::string file) {
-    std::ifstream f(file);
-    json data = json::parse(f);
-
-    auto& layerInstances = data["levels"][0]["layerInstances"];
-    for (auto it = layerInstances.rbegin(); it != layerInstances.rend(); ++it) { 
-        auto const& layer = *it;
-        if (layer["__type"] == "Tiles") {
-            int tileWidth = layer ["__gridSize"];
-            int tileHeight = layer["__gridSize"];
-
-            for (auto const& tile : layer["gridTiles"]) {
-                Entity* tileObject = createEntity(layer["__identifier"]);
-
-                tileObject->addComponent<Sprite>();
-
-                std::string imageFileLocation;
-
-                imageFileLocation.append("img/ldtk"); 
-                imageFileLocation.append("/"); 
-                imageFileLocation.append(layer["__tilesetRelPath"]);
-
-                tileObject->getComponent<Sprite>().loadTexture(imageFileLocation);
-
-                tileObject->getComponent<Sprite>().sourceRect.x = tile["src"][0];
-                tileObject->getComponent<Sprite>().sourceRect.y = tile["src"][1];
-                tileObject->getComponent<Sprite>().sourceRect.w = layer["__gridSize"];
-                tileObject->getComponent<Sprite>().sourceRect.h = layer["__gridSize"];
-
-                tileObject->box->setSize({layer["__gridSize"], layer["__gridSize"]});
-
-                tileObject->box->setPosition({tile["px"][0], tile["px"][1]});
-                tileObject->box->setSize({tileWidth, tileHeight});
-            }
-        }
-
-        else if (layer["__type"] == "Entities") {
-            for (auto const& entity : layer["entityInstances"]) {
-                Entity* object = createEntity(entity["__identifier"]);
-
-                object->addComponent<Sprite>();
-
-                object->box->setPosition({entity["px"][0], entity["px"][1]});
-                object->box->setSize({entity["width"], entity["height"]});
-            }
-        }
-    }
-}
-
-void Scene::load() {}
-
 

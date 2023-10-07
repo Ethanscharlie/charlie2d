@@ -353,6 +353,11 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/SDL2/SDL_ttf.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Tile.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
+ /usr/include/c++/13.2.1/array \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
  /usr/include/c++/13.2.1/fstream /usr/include/c++/13.2.1/bits/codecvt.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
@@ -365,7 +370,7 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/c++/13.2.1/pstl/glue_algorithm_defs.h \
  /usr/include/c++/13.2.1/functional \
  /usr/include/c++/13.2.1/bits/std_function.h \
- /usr/include/c++/13.2.1/array /usr/include/c++/13.2.1/iterator \
+ /usr/include/c++/13.2.1/iterator \
  /usr/include/c++/13.2.1/bits/stream_iterator.h \
  /usr/include/c++/13.2.1/utility \
  /usr/include/c++/13.2.1/bits/stl_relops.h \
@@ -444,7 +449,4 @@ CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/13.2.1/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h

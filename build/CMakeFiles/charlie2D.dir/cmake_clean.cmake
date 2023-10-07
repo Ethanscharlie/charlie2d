@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/charlie2D.dir/source/Scene.cpp.o.d"
   "CMakeFiles/charlie2D.dir/source/Sprite.cpp.o"
   "CMakeFiles/charlie2D.dir/source/Sprite.cpp.o.d"
+  "CMakeFiles/charlie2D.dir/source/Tile.cpp.o"
+  "CMakeFiles/charlie2D.dir/source/Tile.cpp.o.d"
   "libcharlie2D.a"
   "libcharlie2D.pdb"
 )

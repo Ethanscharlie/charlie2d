@@ -27,7 +27,7 @@ public:
     static void init(Vector2f originalSize={1920,1080});
     static void AddScene(const std::string& name, Scene* scene);
     static void LoadScene(const std::string& name);
-    static Scene* GetCurrentScene();
+    static Scene* getCurrentScene();
     static void Update();
     static void Render();
     static void playSound(std::string filename, bool loop =false);
@@ -43,8 +43,11 @@ public:
     static int originalHeight;
     static float screen_change_scale;
     static bool running;
-    static Vector2f camera;
-    static float cameraZoom;
+
+    static void setCamera(const Vector2f& position);
+    static Box camera;
+    //static float cameraZoom;
+    static Box cameraLimitBox;
     
 private:
   static std::unordered_map<std::string, Scene*> scenes;

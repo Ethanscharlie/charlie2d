@@ -27,6 +27,10 @@ bool Collider::checkCollision(Collider col) {
 }
 
 bool Collider::checkBoxCollision(Box otherBox) {
+    if (!getComponent<Sprite>().onScreen) {
+        return false;
+    }
+
     return colliderBox.getLeft()   < otherBox.getRight() && 
         colliderBox.getRight()  > otherBox.getLeft() && 
         colliderBox.getTop()    < otherBox.getBottom() && 
