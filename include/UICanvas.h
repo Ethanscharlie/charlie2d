@@ -14,7 +14,7 @@ class UICanvas : public Component {
 
         //float scaler = (float) GameManager::windowWidth / GameManager::originalWidth / GameManager::screen_change_scale;
         //box->setSize({GameManager::originalWidth  * scaler, GameManager::originalHeight * scaler});
-        box->setSize({GameManager::windowWidth/ GameManager::screen_change_scale, GameManager::windowHeight / GameManager::screen_change_scale});
+        box->setSize({GameManager::currentWindowSize.x/ GameManager::screen_change_scale, GameManager::currentWindowSize.y / GameManager::screen_change_scale});
 
         // Margin
         //box->changeSize({-10, -10});

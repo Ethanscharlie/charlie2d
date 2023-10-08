@@ -10,14 +10,16 @@ std::unordered_map<std::string, Scene*> GameManager::scenes;
 Scene* GameManager::currentScene = nullptr;
 Scene* GameManager::loadingScene = nullptr;
 
-int GameManager::originalWidth = 0;
-int GameManager::originalHeight = 0;
-int GameManager::windowWidth = 0;
-int GameManager::windowHeight = 0;
+// int GameManager::originalWidth = 0;
+// int GameManager::originalHeight = 0;
+// int GameManager::windowWidth = 0;
+// int GameManager::windowHeight = 0;
+Vector2f GameManager::gameWindowSize = {0, 0};
+Vector2f GameManager::currentWindowSize = {0, 0};
                                     
 float GameManager::screen_change_scale = 0;
                                     
-Box GameManager::camera = {0, 0, 1980/2, 1080/2};
+Box GameManager::camera = {0, 0, 0, 0};
 Box GameManager::cameraLimitBox = {0, 0, 0, 0};
                                     
 SDL_Window* GameManager::window = nullptr;
@@ -27,7 +29,7 @@ GameManager::GameManager() {
     
 }
 
-void GameManager::init(Vector2f originalSize)
+void GameManager::init(Vector2f windowSize)
 {
   srand(time(NULL));
   SDL_Init(SDL_INIT_VIDEO); 
@@ -36,16 +38,19 @@ void GameManager::init(Vector2f originalSize)
   IMG_Init(IMG_INIT_PNG);
   SDL_SetWindowResizable(window, SDL_TRUE);
 
-  originalWidth = originalSize.x;
-  originalHeight = originalSize.y;
-  windowWidth =  GameManager::originalWidth  ;
-  windowHeight = GameManager::originalHeight ;
+  //originalWidth = originalSize.x;
+  //originalHeight = originalSize.y;
+  //windowWidth =  GameManager::originalWidth  ;
+  //windowHeight = GameManager::originalHeight ;
+  gameWindowSize = windowSize;
+  currentWindowSize = windowSize;
+  camera.size = windowSize; 
 
-  screen_change_scale = ((float) windowWidth + (float) windowHeight)
-      / (originalWidth + originalHeight);
+  screen_change_scale = ((float) currentWindowSize.x + (float) currentWindowSize.y)
+      / (gameWindowSize.x + gameWindowSize.y);
 
 
-  window = SDL_CreateWindow("SDL2 works!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowWidth, windowHeight, SDL_WINDOW_SHOWN);
+  window = SDL_CreateWindow("SDL2 works!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, currentWindowSize.x, currentWindowSize.y, SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 }
 
@@ -96,11 +101,11 @@ void GameManager::Update() {
           switch (event.window.event)
           {
               case SDL_WINDOWEVENT_RESIZED:
-                  windowWidth = event.window.data1;
-                  windowHeight = event.window.data2;
+                  currentWindowSize.x = event.window.data1;
+                  currentWindowSize.y = event.window.data2;
 
-                  screen_change_scale = ((float) windowWidth + (float) windowHeight)
-                      / (originalWidth + originalHeight);
+                  screen_change_scale = ((float) currentWindowSize.x + (float) currentWindowSize.y)
+                      / (gameWindowSize.x + gameWindowSize.y);
 
                   break;
           }
@@ -128,8 +133,8 @@ void GameManager::Update() {
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, static_cast<Uint8>(255 * elapsedTime / fade_time));
 
       SDL_Rect fill_dst;
-      fill_dst.w=windowWidth;
-      fill_dst.h=windowHeight;
+      fill_dst.w=currentWindowSize.x;
+      fill_dst.h=currentWindowSize.y;
       fill_dst.x=0;
       fill_dst.y=0;
 
@@ -158,8 +163,8 @@ void GameManager::Update() {
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, static_cast<Uint8>(255 - 255 * elapsedTime / fade_time));
 
       SDL_Rect fill_dst;
-      fill_dst.w=windowWidth;
-      fill_dst.h=windowHeight;
+      fill_dst.w=currentWindowSize.x;
+      fill_dst.h=currentWindowSize.y;
       fill_dst.x=0;
       fill_dst.y=0;
 
@@ -219,7 +224,7 @@ void GameManager::playSound(std::string filename, bool loop) {
 void GameManager::setCamera(const Vector2f& position) {
     camera.setWithCenter(position);
 
-    //if ( cameraLimitBox.size.x == 0 && cameraLimitBox.size.y == 0) return;
+    if ( cameraLimitBox.size.x == 0 && cameraLimitBox.size.y == 0) return;
 
     if (camera.position.x < cameraLimitBox.position.x) camera.position.x = cameraLimitBox.position.x;
     if (camera.getRight() > cameraLimitBox.getRight()) camera.position.x = cameraLimitBox.getRight()-camera.size.x;

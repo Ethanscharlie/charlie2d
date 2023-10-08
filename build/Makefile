@@ -177,30 +177,6 @@ source/Collider.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Collider.cpp.s
 .PHONY : source/Collider.cpp.s
 
-source/Entity.o: source/Entity.cpp.o
-.PHONY : source/Entity.o
-
-# target to build an object file
-source/Entity.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Entity.cpp.o
-.PHONY : source/Entity.cpp.o
-
-source/Entity.i: source/Entity.cpp.i
-.PHONY : source/Entity.i
-
-# target to preprocess a source file
-source/Entity.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Entity.cpp.i
-.PHONY : source/Entity.cpp.i
-
-source/Entity.s: source/Entity.cpp.s
-.PHONY : source/Entity.s
-
-# target to generate assembly for a file
-source/Entity.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Entity.cpp.s
-.PHONY : source/Entity.cpp.s
-
 source/EntityBox.o: source/EntityBox.cpp.o
 .PHONY : source/EntityBox.o
 
@@ -384,9 +360,6 @@ help:
 	@echo "... source/Collider.o"
 	@echo "... source/Collider.i"
 	@echo "... source/Collider.s"
-	@echo "... source/Entity.o"
-	@echo "... source/Entity.i"
-	@echo "... source/Entity.s"
 	@echo "... source/EntityBox.o"
 	@echo "... source/EntityBox.i"
 	@echo "... source/EntityBox.s"

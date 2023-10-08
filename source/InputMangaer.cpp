@@ -96,6 +96,6 @@ Vector2f InputManager::checkAxis() {
 Vector2f InputManager::getMousePosition() {
     int mouseX, mouseY;
     SDL_GetMouseState(&mouseX, &mouseY);
-    return {mouseX / GameManager::screen_change_scale + GameManager::camera.position.x - GameManager::originalWidth/2,
-           mouseY / GameManager::screen_change_scale + GameManager::camera.position.y - GameManager::originalHeight/2};
+    return {mouseX / GameManager::screen_change_scale + GameManager::camera.position.x - GameManager::gameWindowSize.x/2,
+           mouseY / GameManager::screen_change_scale + GameManager::camera.position.y - GameManager::gameWindowSize.y/2};
 }

@@ -37,10 +37,13 @@ public:
     static SDL_Window* window;
     static SDL_Renderer* renderer;
     static SDL_Texture* screenTexture;
-    static int windowWidth;
-    static int windowHeight;
-    static int originalWidth;
-    static int originalHeight;
+    //static int windowWidth;
+    //static int windowHeight;
+    //static int originalWidth;
+    //static int originalHeight;
+    static Vector2f gameWindowSize;
+    static Vector2f currentWindowSize;
+    
     static float screen_change_scale;
     static bool running;
 

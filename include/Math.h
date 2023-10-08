@@ -154,6 +154,9 @@ struct Box
     Vector2f getBottomRightCorner() {return {getRight(), getBottom()};}
     Vector2f getCenter() {return {position.x + size.x/2, position.y + size.y/2};}
 
+    void setScale(const Vector2f& point) {Vector2f center = getCenter(); size = (point); setWithCenter(center);}
+    void changeScale(const Vector2f& change) {Vector2f center = getCenter(); size = (change); setWithCenter(center);}
+
     void setWithCenter(const Vector2f& point) {
         position.x = point.x - size.x/2;
         position.y = point.y - size.y/2;

@@ -8,7 +8,7 @@ struct entityBox;
 
 class Component {
     public:
-    Component(std::string _title) : title(_title) {};
+    Component(std::string _title="") : title(_title) {};
     virtual void start() = 0;
     virtual void update(float deltaTime) = 0;
     virtual void onDestroy() {}

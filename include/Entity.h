@@ -19,8 +19,9 @@ struct entityBox;
 class Entity
 {
 public:
-    Entity();
-    virtual ~Entity();
+    Entity() {
+        //box = new entityBox(this);
+    };
 
     template <typename C>
     void addComponent() {
@@ -54,11 +55,18 @@ public:
     };
     
 
-    void addChild(Entity* entity);
-    void setParent(Entity* entity);
-    Entity* getParent();
-    std::vector<Entity*> getChildren();
-    void removeParent();
+    void addChild(Entity* entity) {
+        children.push_back(entity);
+    }
+
+    void setParent(Entity* entity) {
+        parent = entity;
+        entity->addChild(this);
+    }
+
+    Entity* getParent() {return parent;}
+    std::vector<Entity*> getChildren() {return children;}
+    void removeParent() {};
     
 
     bool toDestroy = false;

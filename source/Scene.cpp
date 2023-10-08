@@ -12,6 +12,7 @@ Scene::Scene()
 
 Entity* Scene::createEntity(std::string tag) {
     Entity* entity = new Entity();
+    entity->box = new entityBox(entity);
     entity->scene = this;
     entity->tag = tag;
     entity->iid = allObjects.size();
