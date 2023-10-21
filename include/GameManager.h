@@ -8,8 +8,6 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include <functional>
-#include "Scene.h"
-#include "Entity.h"
 #include <string>
 #include <unordered_map>
 #include "InputManager.h"

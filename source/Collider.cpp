@@ -1,5 +1,8 @@
 #include "Collider.h"
 #include "EntityBox.h"
+#include "Sprite.h"
+#include "Scene.h"
+#include "Entity.h"
 
 void Collider::start() {
     colliderBox = entity->box->getBox();
@@ -28,7 +31,7 @@ bool Collider::checkCollision(Collider col) {
 }
 
 bool Collider::checkBoxCollision(Box otherBox) {
-    if (entity->checkComponent<Sprite>() && !getComponent<Sprite>().onScreen) {
+    if (entity->checkComponent<Sprite>() && !entity->getComponent<Sprite>().onScreen) {
         return false;
     }
 

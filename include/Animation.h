@@ -2,9 +2,6 @@
 #define ANIMATION_H
 
 #include "ResourceManager.h"
-#include "Entity.h"
-//#include "Component.h"
-#include "Sprite.h"
 #include <functional>
 
 class Entity;

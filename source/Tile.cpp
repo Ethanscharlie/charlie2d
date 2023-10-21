@@ -1,4 +1,6 @@
 #include "Tile.h"
+#include "Sprite.h"
+#include "Entity.h"
 
 void TileLayer::start() {
     useLayer = true;

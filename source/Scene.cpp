@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "Entity.h"
 #include "Component.h"
+#include "EntityBox.h"
 
 Scene::~Scene() {
     // destroy all entitys

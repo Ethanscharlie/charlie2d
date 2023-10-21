@@ -1,5 +1,5 @@
 #include "Animation.h"
-#include "Component.h"
+#include "Sprite.h"
 
 Animation::Animation(Sprite* spriteIn, std::vector<std::string> framesIn, float fpsIn) 
 {

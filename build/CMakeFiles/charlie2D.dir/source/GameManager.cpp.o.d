@@ -1,8 +1,6 @@
-CMakeFiles/charlie2D.dir/source/Animation.cpp.o: \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Animation.cpp \
+CMakeFiles/charlie2D.dir/source/GameManager.cpp.o: \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/source/GameManager.cpp \
  /usr/include/stdc-predef.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /usr/include/c++/13.2.1/iostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
@@ -312,6 +310,7 @@ CMakeFiles/charlie2D.dir/source/Animation.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/InputManager.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_gamecontroller.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Math.h \
  /usr/include/c++/13.2.1/ctime /usr/include/c++/13.2.1/random \
  /usr/include/c++/13.2.1/cstdint /usr/include/c++/13.2.1/bits/random.h \
@@ -320,11 +319,42 @@ CMakeFiles/charlie2D.dir/source/Animation.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_numeric.h \
  /usr/include/c++/13.2.1/pstl/glue_numeric_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
  /usr/include/c++/13.2.1/map /usr/include/c++/13.2.1/bits/stl_tree.h \
  /usr/include/c++/13.2.1/bits/stl_map.h \
  /usr/include/c++/13.2.1/bits/stl_multimap.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Entity.h \
+ /usr/include/c++/13.2.1/typeindex /usr/include/c++/13.2.1/memory \
+ /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13.2.1/bits/align.h \
+ /usr/include/c++/13.2.1/bits/unique_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/13.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/13.2.1/ext/concurrence.h \
+ /usr/include/c++/13.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/13.2.1/bits/atomic_base.h \
+ /usr/include/c++/13.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13.2.1/bits/atomic_wait.h \
+ /usr/include/c++/13.2.1/climits \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/bits/uio_lim.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h /usr/include/syscall.h \
+ /usr/include/sys/syscall.h /usr/include/asm/unistd.h \
+ /usr/include/asm/unistd_64.h /usr/include/bits/syscall.h \
+ /usr/include/c++/13.2.1/bits/std_mutex.h \
+ /usr/include/c++/13.2.1/backward/auto_ptr.h \
+ /usr/include/c++/13.2.1/bits/ranges_uninitialized.h \
+ /usr/include/c++/13.2.1/bits/ranges_algobase.h \
+ /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Scene.h \
+ /usr/include/SDL2/SDL_ttf.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Scene.h

@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "Entity.h"
 
 void Sprite::update(float deltaTime) {
     float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));
@@ -56,9 +57,9 @@ void Sprite::loadTexture(const std::string& image, bool setSize, bool keepCenter
 
     if (setSize) {
         if (keepCentered) {
-            entity->box->setScale({spriteRect.w, spriteRect.h});
+            entity->box->setScale({static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
         } else {
-            entity->box->setSize({spriteRect.w, spriteRect.h});
+            entity->box->setSize({static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
         }
     }
 }

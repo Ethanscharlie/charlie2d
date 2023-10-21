@@ -1,9 +1,10 @@
-#pragma once
-#include "Entity.h"
+//tile.h
+#ifndef TILE_H
+#define TILE_H
+
 #include "Math.h"
 #include "ResourceManager.h"
 #include "Scene.h"
-#include "Component.h"
 #include "GameManager.h"
 
 // Components
@@ -22,3 +23,5 @@ class TileLayer : public Component {
 
     std::vector<Entity*> tiles;
 };
+
+#endif

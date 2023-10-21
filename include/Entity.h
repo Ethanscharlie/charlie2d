@@ -9,8 +9,6 @@
 #include <map>
 #include "Math.h"
 #include "Scene.h"
-//#include "Component.h"
-//#include "EntityBox.h"
 
 class Scene;
 class Animation;
@@ -30,10 +28,19 @@ public:
 
         component->entity = this;
         component->box = box;
+        component->entityTag = tag;
         component->scene = scene;
         component->start();
         components[typeid(C)] = component;
-        scene->template add<C>(components[typeid(C)]);
+
+        //scene->template add<C>(components[typeid(C)]);
+        if (scene->components.count(typeid(C)) == 0) { //&& std::find(componentTypes.begin(), componentTypes.end(), typeid(C)) == componentTypes.end()) {
+            scene->componentTypes.push_back(typeid(C));
+            std::cout << "added type " << component->title << std::endl;
+        }
+
+        component->index = 0;//components[typeid(C)].size();
+        scene->components[typeid(C)].push_back(component);
     }
 
     template <typename C>

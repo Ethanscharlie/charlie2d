@@ -1,10 +1,12 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include "Entity.h"
+#include <iostream>
+
+//#include "Entity.h"
 //#include "EntityBox.h"
 
-//class Scene;
+class Scene;
 struct entityBox;
 class Entity;
 
@@ -16,15 +18,15 @@ class Component {
     virtual void onDestroy() {}
 
     
-    template <typename C>
-    void addComponent() {
-        return entity->template addComponent<C>();
-    }
+    //template <typename C>
+    //void addComponent() {
+    //    return entity->template addComponent<C>();
+    //}
 
-    template <typename C>
-    C& getComponent() {
-        return entity->template getComponent<C>();
-    }
+    //template <typename C>
+    //C& getComponent() {
+    //    return entity->template getComponent<C>();
+    //}
     //template <typename C>
     //void addComponent() {
     //    C* component = new C();
@@ -58,6 +60,7 @@ class Component {
     bool isInit = false;
     int layer = 0;
     int index;
+    std::string entityTag = "";
 
     bool useLayer = false;
     bool standardUpdate = true;

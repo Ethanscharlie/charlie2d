@@ -1,4 +1,6 @@
 #include "GameManager.h"
+#include "Entity.h"
+#include "Scene.h"
 
 int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
 Uint32 GameManager::fadeStartTime = 0; 

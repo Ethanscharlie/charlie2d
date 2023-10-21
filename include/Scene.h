@@ -5,20 +5,17 @@
 #include <vector>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <typeindex>
+#include <map>
 #include <unordered_map>
 #include "GameManager.h"
-#include "Tile.h"
+
 #include "Component.h"
-//#include "Sprite.h"
-
-//#include <fstream>
-//#include <nlohmann/json.hpp>
-//using json = nlohmann::json;
-
-class Entity;
-//class Component;
+//#include "Entity.h"
 
 typedef std::vector<Component*> Group;
+
+class Entity;
 
 class Scene {
 public:
@@ -29,13 +26,13 @@ public:
     template <typename C>
     void add(Component* component) {
 
-        if (components.count(typeid(C)) == 0) { //&& std::find(componentTypes.begin(), componentTypes.end(), typeid(C)) == componentTypes.end()) {
-            componentTypes.push_back(typeid(C));
-            std::cout << "added type " << component->title << std::endl;
-        }
+        //if (components.count(typeid(C)) == 0) { //&& std::find(componentTypes.begin(), componentTypes.end(), typeid(C)) == componentTypes.end()) {
+        //    componentTypes.push_back(typeid(C));
+        //    std::cout << "added type " << component->title << std::endl;
+        //}
 
-        component->index = 0;//components[typeid(C)].size();
-        components[typeid(C)].push_back(component);
+        //component->index = 0;//components[typeid(C)].size();
+        //components[typeid(C)].push_back(component);
     }
 
     template <typename C>                                                                                                                    
@@ -46,7 +43,7 @@ public:
         if (it != components.end()) {                                                                                                        
             for (auto component : it->second) {                                                                                              
                 // Static cast each Component* to C*                                                                                         
-                if (component->entity->tag == tag || tag == "") {
+                if (component->entityTag == tag || tag == "") {
                     hits.push_back(static_cast<C*>(component));                                                                                  
                 }
             }                                                                                                                                
@@ -70,7 +67,7 @@ public:
     bool updateEntities = true;
 
 
-private:
+//private:
     Uint64 lastTime;
     std::unordered_map<std::string, std::vector<Entity*>> tags;
     std::vector<Entity*> allObjects;

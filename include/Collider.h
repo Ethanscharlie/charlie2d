@@ -2,11 +2,11 @@
 #define COLLIDER_H
 
 #include <SDL.h>
-#include "Entity.h"
 #include "Component.h"
 #include "Math.h"
 #include "GameManager.h"
 #include "EntityBox.h"
+#include <iostream>
 
 typedef std::vector<Component*> Group;
 

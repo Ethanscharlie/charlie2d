@@ -1,4 +1,5 @@
 #include "EntityBox.h"
+#include "Scene.h"
 #include "Entity.h"
 
 entityBox::entityBox(Entity* _entity)

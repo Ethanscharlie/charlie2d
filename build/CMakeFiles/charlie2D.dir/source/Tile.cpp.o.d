@@ -1,7 +1,8 @@
-CMakeFiles/charlie2D.dir/source/Collider.cpp.o: \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp \
+CMakeFiles/charlie2D.dir/source/Tile.cpp.o: \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Tile.cpp \
  /usr/include/stdc-predef.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Tile.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Math.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
@@ -208,11 +209,9 @@ CMakeFiles/charlie2D.dir/source/Collider.cpp.o: \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
- /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/ostream \
- /usr/include/c++/13.2.1/ios /usr/include/c++/13.2.1/iosfwd \
- /usr/include/c++/13.2.1/bits/stringfwd.h \
+ /usr/include/SDL2/SDL_misc.h /usr/include/c++/13.2.1/iostream \
+ /usr/include/c++/13.2.1/ostream /usr/include/c++/13.2.1/ios \
+ /usr/include/c++/13.2.1/iosfwd /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/memoryfwd.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
  /usr/include/c++/13.2.1/exception \
@@ -288,11 +287,9 @@ CMakeFiles/charlie2D.dir/source/Collider.cpp.o: \
  /usr/include/c++/13.2.1/bits/locale_facets.tcc \
  /usr/include/c++/13.2.1/bits/basic_ios.tcc \
  /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
- /usr/include/c++/13.2.1/bits/istream.tcc \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Math.h \
- /usr/include/c++/13.2.1/ctime /usr/include/c++/13.2.1/random \
- /usr/include/c++/13.2.1/cstdint /usr/include/c++/13.2.1/bits/random.h \
- /usr/include/c++/13.2.1/vector \
+ /usr/include/c++/13.2.1/bits/istream.tcc /usr/include/c++/13.2.1/ctime \
+ /usr/include/c++/13.2.1/random /usr/include/c++/13.2.1/cstdint \
+ /usr/include/c++/13.2.1/bits/random.h /usr/include/c++/13.2.1/vector \
  /usr/include/c++/13.2.1/bits/stl_uninitialized.h \
  /usr/include/c++/13.2.1/bits/stl_vector.h \
  /usr/include/c++/13.2.1/bits/stl_bvector.h \
@@ -303,6 +300,7 @@ CMakeFiles/charlie2D.dir/source/Collider.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_numeric.h \
  /usr/include/c++/13.2.1/pstl/glue_numeric_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_ttf.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_image.h \
@@ -321,18 +319,17 @@ CMakeFiles/charlie2D.dir/source/Collider.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_heap.h \
  /usr/include/c++/13.2.1/bits/stl_tempbuf.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/InputManager.h \
- /usr/include/SDL2/SDL_gamecontroller.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
- /usr/include/c++/13.2.1/map /usr/include/c++/13.2.1/bits/stl_tree.h \
+ /usr/include/SDL2/SDL_gamecontroller.h /usr/include/c++/13.2.1/map \
+ /usr/include/c++/13.2.1/bits/stl_tree.h \
  /usr/include/c++/13.2.1/bits/stl_map.h \
  /usr/include/c++/13.2.1/bits/stl_multimap.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Scene.h \
+ /usr/include/SDL2/SDL_ttf.h /usr/include/c++/13.2.1/typeindex \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Scene.h \
- /usr/include/SDL2/SDL_ttf.h /usr/include/c++/13.2.1/typeindex \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Entity.h \
  /usr/include/c++/13.2.1/memory \
  /usr/include/c++/13.2.1/bits/stl_raw_storage_iter.h \
@@ -363,5 +360,4 @@ CMakeFiles/charlie2D.dir/source/Collider.cpp.o: \
  /usr/include/c++/13.2.1/backward/auto_ptr.h \
  /usr/include/c++/13.2.1/bits/ranges_uninitialized.h \
  /usr/include/c++/13.2.1/bits/ranges_algobase.h \
- /usr/include/c++/13.2.1/pstl/glue_memory_defs.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Scene.h
+ /usr/include/c++/13.2.1/pstl/glue_memory_defs.h

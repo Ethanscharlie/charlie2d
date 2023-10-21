@@ -1,7 +1,6 @@
-CMakeFiles/charlie2D.dir/source/Animation.cpp.o: \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Animation.cpp \
+CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ResourceManager.cpp \
  /usr/include/stdc-predef.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/GameManager.h \
  /usr/include/c++/13.2.1/iostream \
@@ -320,11 +319,7 @@ CMakeFiles/charlie2D.dir/source/Animation.cpp.o: \
  /usr/include/c++/13.2.1/bits/stl_numeric.h \
  /usr/include/c++/13.2.1/pstl/glue_numeric_defs.h \
  /usr/include/c++/13.2.1/pstl/execution_defs.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/ResourceManager.h \
  /usr/include/c++/13.2.1/map /usr/include/c++/13.2.1/bits/stl_tree.h \
  /usr/include/c++/13.2.1/bits/stl_map.h \
- /usr/include/c++/13.2.1/bits/stl_multimap.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Component.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/EntityBox.h \
- /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Animation.h
+ /usr/include/c++/13.2.1/bits/stl_multimap.h

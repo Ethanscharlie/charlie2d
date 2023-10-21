@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <SDL_gamecontroller.h>
 #include "GameManager.h"
+#include "Math.h"
 
 
 class InputManager {

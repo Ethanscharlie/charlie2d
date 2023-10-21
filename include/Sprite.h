@@ -1,14 +1,13 @@
 #pragma once 
 
 #include <SDL.h>
-#include "Entity.h"
-#include "Component.h"
 #include "Collider.h"
 #include "Math.h"
 #include "GameManager.h"
 #include "Animation.h"
 
 class Animation;
+class Entity;
 
 class Sprite : public Component {
     public:
