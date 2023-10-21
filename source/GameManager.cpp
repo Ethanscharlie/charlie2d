@@ -84,15 +84,6 @@ Scene* GameManager::getCurrentScene() {
     return currentScene;
 }
 
-void GameManager::doUpdateLoop() {
-    #ifdef __EMSCRIPTEN__
-    emscripten_set_main_loop(Update(), 0, 1);
-    #else
-    while (running) {
-        Update();
-    }
-    #endif
-}
 
 void GameManager::Update() {
   InputManager::update();
@@ -190,6 +181,16 @@ void GameManager::Update() {
   }
 
   SDL_RenderPresent(renderer);
+}
+
+void GameManager::doUpdateLoop() {
+    #ifdef __EMSCRIPTEN__
+    emscripten_set_main_loop(Update, 0, 1);
+    #else
+    while (running) {
+        Update();
+    }
+    #endif
 }
 
 void GameManager::Render() {
