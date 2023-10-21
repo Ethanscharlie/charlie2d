@@ -1,11 +1,12 @@
-
-#pragma once 
+#ifndef COLLIDER_H
+#define COLLIDER_H
 
 #include <SDL.h>
 #include "Entity.h"
 #include "Component.h"
 #include "Math.h"
 #include "GameManager.h"
+#include "EntityBox.h"
 
 typedef std::vector<Component*> Group;
 
@@ -23,3 +24,4 @@ class Collider : public Component {
     bool solid = false;
 };
 
+#endif

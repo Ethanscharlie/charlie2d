@@ -24,6 +24,7 @@ Box GameManager::cameraLimitBox = {0, 0, 0, 0};
                                     
 SDL_Window* GameManager::window = nullptr;
 SDL_Renderer* GameManager::renderer = nullptr;
+std::function<void()> GameManager::onMiddleFade = [](){};
 
 GameManager::GameManager() {
     
@@ -63,8 +64,16 @@ void GameManager::LoadScene(const std::string& name) {
   if (scene) {
     loadingScene = scene;
     if (!transition) {
-        transition = 1;
-        fadeStartTime = SDL_GetTicks();
+        doFade([](){
+                if (currentScene) {
+                currentScene->unload();
+                }
+
+                loadingScene->load();
+                currentScene = loadingScene;
+        });
+        //transition = 1;
+        //fadeStartTime = SDL_GetTicks();
     }
   }
 }
@@ -145,12 +154,14 @@ void GameManager::Update() {
           transition = 2;
         fadeStartTime = SDL_GetTicks();
         
-        if (currentScene) {
-          currentScene->unload();
-        }
+        // ON MIDDLE
+        //if (currentScene) {
+        //  currentScene->unload();
+        //}
 
-        loadingScene->load();
-        currentScene = loadingScene;
+        //loadingScene->load();
+        //currentScene = loadingScene;
+        onMiddleFade();
       }
   }
 
@@ -242,4 +253,10 @@ void GameManager::quit()
   SDL_Quit();
 
   GameManager::running = false;
+}
+
+void GameManager::doFade(std::function<void()> middle) {
+    onMiddleFade = middle; 
+    transition = 1;
+    fadeStartTime = SDL_GetTicks();
 }

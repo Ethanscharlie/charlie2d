@@ -16,10 +16,10 @@ class physicsBody : public Component {
     }
 
     void update(float deltaTime) override {
-        if (maxVelocity.x != NULL) {
+        if (maxVelocity.x != -1) {
             if (abs(velocity.x) > abs(maxVelocity.x)) velocity.x = velocity.x/abs(velocity.x) * maxVelocity.x;
         }
-        if (maxVelocity.y != NULL) {
+        if (maxVelocity.y != -1) {
             if (abs(velocity.y) > abs(maxVelocity.y)) velocity.y = velocity.y/abs(velocity.y) * maxVelocity.y;
         }
 
@@ -61,6 +61,6 @@ class physicsBody : public Component {
     }
 
     Vector2f velocity;
-    Vector2f maxVelocity;
+    Vector2f maxVelocity = {-1, -1};
 };
 

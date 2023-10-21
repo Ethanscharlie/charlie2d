@@ -222,7 +222,7 @@ charlie2D_BINARY_DIR:STATIC=/home/ethanscharlie/Projects/Code/Github/charlie2d/b
 charlie2D_IS_TOP_LEVEL:STATIC=ON
 
 //Dependencies for the target
-charlie2D_LIB_DEPENDS:STATIC=general;SDL2;general;SDL2_image;general;SDL2_ttf;general;SDL2_mixer;
+charlie2D_LIB_DEPENDS:STATIC=general;SDL2;general;SDL2_ttf;general;SDL2_mixer;general;SDL2_image;
 
 //Value Computed by CMake
 charlie2D_SOURCE_DIR:STATIC=/home/ethanscharlie/Projects/Code/Github/charlie2d

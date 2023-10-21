@@ -1,8 +1,9 @@
-#pragma once
+#ifndef ANIMATION_H
+#define ANIMATION_H
 
 #include "ResourceManager.h"
 #include "Entity.h"
-#include "Component.h"
+//#include "Component.h"
 #include "Sprite.h"
 #include <functional>
 
@@ -28,3 +29,5 @@ class Animation
     bool looping;
     std::function<void()> onFinish;
 };
+
+#endif

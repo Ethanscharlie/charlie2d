@@ -37,10 +37,10 @@ class Text : public Component {
         renderTextInRect(GameManager::renderer, text, spriteRect);
     }
 
-    void changeFont(char* fontFile, int size)
+    void changeFont(std::string fontFile, int size)
     {
         fontSize = size;
-        font = TTF_OpenFont(fontFile, fontSize * GameManager::screen_change_scale);
+        font = TTF_OpenFont(fontFile.c_str(), fontSize * GameManager::screen_change_scale);
     }
 
     void renderTextInRect(SDL_Renderer* renderer, const std::string& text, const SDL_Rect& rect)
@@ -84,7 +84,7 @@ class Text : public Component {
     SDL_Color text_color = {0, 0, 0};
     int original_font_size = 20;
     int fontSize;
-    char* fontFile = "";
-    TTF_Font* font = TTF_OpenFont(fontFile, fontSize);
+    std::string fontFile = "";
+    TTF_Font* font = TTF_OpenFont(fontFile.c_str(), fontSize);
     SDL_Color textColor;
 };

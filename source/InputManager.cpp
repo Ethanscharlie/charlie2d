@@ -39,6 +39,20 @@ bool InputManager::checkInput(const std::string& input)
             return true;
         }
     }
+    else if (input == "hit")
+    {
+        if (keyboardState[SDL_SCANCODE_F])
+        {
+            return true;
+        }
+    }
+    else if (input == "take")
+    {
+        if (keyboardState[SDL_SCANCODE_E])
+        {
+            return true;
+        }
+    }
     else if (input == "up")
     {
         if (keyboardState[SDL_SCANCODE_W] or keyboardState[SDL_SCANCODE_UP])
@@ -90,7 +104,7 @@ int InputManager::checkHorizontal()
 }
 
 Vector2f InputManager::checkAxis() {
-    return {checkHorizontal(), -checkVertical()};
+    return {static_cast<float>(checkHorizontal()), static_cast<float>(-checkVertical())};
 }
 
 Vector2f InputManager::getMousePosition() {

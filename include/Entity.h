@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENTITY_H
+#define ENTITY_H
 #include <cmath>
 #include <SDL.h>
 #include <vector>
@@ -8,13 +9,13 @@
 #include <map>
 #include "Math.h"
 #include "Scene.h"
-#include "Animation.h"
-#include "Component.h"
-#include "EntityBox.h"
+//#include "Component.h"
+//#include "EntityBox.h"
 
 class Scene;
 class Animation;
 struct entityBox;
+class Component;
 
 class Entity
 {
@@ -76,10 +77,13 @@ public:
     bool debug = false;
     int iid;
     bool skipUpdate = false;
+    bool active = true;
 
-    private:
     std::map<std::type_index, Component*> components; 
+    private:
     std::vector<Entity*> children;
     Entity* parent = nullptr;
 
 };
+
+#endif // ENTITY_H

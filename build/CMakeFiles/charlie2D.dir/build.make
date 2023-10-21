@@ -125,19 +125,19 @@ CMakeFiles/charlie2D.dir/source/GameManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/charlie2D.dir/source/GameManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethanscharlie/Projects/Code/Github/charlie2d/source/GameManager.cpp -o CMakeFiles/charlie2D.dir/source/GameManager.cpp.s
 
-CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: CMakeFiles/charlie2D.dir/flags.make
-CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputMangaer.cpp
-CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o -MF CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o.d -o CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputMangaer.cpp
+CMakeFiles/charlie2D.dir/source/InputManager.cpp.o: CMakeFiles/charlie2D.dir/flags.make
+CMakeFiles/charlie2D.dir/source/InputManager.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputManager.cpp
+CMakeFiles/charlie2D.dir/source/InputManager.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/charlie2D.dir/source/InputManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/InputManager.cpp.o -MF CMakeFiles/charlie2D.dir/source/InputManager.cpp.o.d -o CMakeFiles/charlie2D.dir/source/InputManager.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputManager.cpp
 
-CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputMangaer.cpp > CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.i
+CMakeFiles/charlie2D.dir/source/InputManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/charlie2D.dir/source/InputManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputManager.cpp > CMakeFiles/charlie2D.dir/source/InputManager.cpp.i
 
-CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputMangaer.cpp -o CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.s
+CMakeFiles/charlie2D.dir/source/InputManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/charlie2D.dir/source/InputManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputManager.cpp -o CMakeFiles/charlie2D.dir/source/InputManager.cpp.s
 
 CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: CMakeFiles/charlie2D.dir/flags.make
 CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ResourceManager.cpp
@@ -195,17 +195,32 @@ CMakeFiles/charlie2D.dir/source/Tile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/charlie2D.dir/source/Tile.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Tile.cpp -o CMakeFiles/charlie2D.dir/source/Tile.cpp.s
 
+CMakeFiles/charlie2D.dir/source/ldtk.cpp.o: CMakeFiles/charlie2D.dir/flags.make
+CMakeFiles/charlie2D.dir/source/ldtk.cpp.o: /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ldtk.cpp
+CMakeFiles/charlie2D.dir/source/ldtk.cpp.o: CMakeFiles/charlie2D.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/charlie2D.dir/source/ldtk.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/charlie2D.dir/source/ldtk.cpp.o -MF CMakeFiles/charlie2D.dir/source/ldtk.cpp.o.d -o CMakeFiles/charlie2D.dir/source/ldtk.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ldtk.cpp
+
+CMakeFiles/charlie2D.dir/source/ldtk.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/charlie2D.dir/source/ldtk.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ldtk.cpp > CMakeFiles/charlie2D.dir/source/ldtk.cpp.i
+
+CMakeFiles/charlie2D.dir/source/ldtk.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/charlie2D.dir/source/ldtk.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ldtk.cpp -o CMakeFiles/charlie2D.dir/source/ldtk.cpp.s
+
 # Object files for target charlie2D
 charlie2D_OBJECTS = \
 "CMakeFiles/charlie2D.dir/source/Animation.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/Collider.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/GameManager.cpp.o" \
-"CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o" \
+"CMakeFiles/charlie2D.dir/source/InputManager.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/Scene.cpp.o" \
 "CMakeFiles/charlie2D.dir/source/Sprite.cpp.o" \
-"CMakeFiles/charlie2D.dir/source/Tile.cpp.o"
+"CMakeFiles/charlie2D.dir/source/Tile.cpp.o" \
+"CMakeFiles/charlie2D.dir/source/ldtk.cpp.o"
 
 # External object files for target charlie2D
 charlie2D_EXTERNAL_OBJECTS =
@@ -214,14 +229,15 @@ libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Animation.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Collider.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/GameManager.cpp.o
-libcharlie2D.a: CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o
+libcharlie2D.a: CMakeFiles/charlie2D.dir/source/InputManager.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Scene.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Sprite.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/source/Tile.cpp.o
+libcharlie2D.a: CMakeFiles/charlie2D.dir/source/ldtk.cpp.o
 libcharlie2D.a: CMakeFiles/charlie2D.dir/build.make
 libcharlie2D.a: CMakeFiles/charlie2D.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libcharlie2D.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libcharlie2D.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/charlie2D.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/charlie2D.dir/link.txt --verbose=$(VERBOSE)
 

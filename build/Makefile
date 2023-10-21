@@ -225,29 +225,29 @@ source/GameManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/GameManager.cpp.s
 .PHONY : source/GameManager.cpp.s
 
-source/InputMangaer.o: source/InputMangaer.cpp.o
-.PHONY : source/InputMangaer.o
+source/InputManager.o: source/InputManager.cpp.o
+.PHONY : source/InputManager.o
 
 # target to build an object file
-source/InputMangaer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.o
-.PHONY : source/InputMangaer.cpp.o
+source/InputManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/InputManager.cpp.o
+.PHONY : source/InputManager.cpp.o
 
-source/InputMangaer.i: source/InputMangaer.cpp.i
-.PHONY : source/InputMangaer.i
+source/InputManager.i: source/InputManager.cpp.i
+.PHONY : source/InputManager.i
 
 # target to preprocess a source file
-source/InputMangaer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.i
-.PHONY : source/InputMangaer.cpp.i
+source/InputManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/InputManager.cpp.i
+.PHONY : source/InputManager.cpp.i
 
-source/InputMangaer.s: source/InputMangaer.cpp.s
-.PHONY : source/InputMangaer.s
+source/InputManager.s: source/InputManager.cpp.s
+.PHONY : source/InputManager.s
 
 # target to generate assembly for a file
-source/InputMangaer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/InputMangaer.cpp.s
-.PHONY : source/InputMangaer.cpp.s
+source/InputManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/InputManager.cpp.s
+.PHONY : source/InputManager.cpp.s
 
 source/ResourceManager.o: source/ResourceManager.cpp.o
 .PHONY : source/ResourceManager.o
@@ -345,6 +345,30 @@ source/Tile.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/Tile.cpp.s
 .PHONY : source/Tile.cpp.s
 
+source/ldtk.o: source/ldtk.cpp.o
+.PHONY : source/ldtk.o
+
+# target to build an object file
+source/ldtk.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/ldtk.cpp.o
+.PHONY : source/ldtk.cpp.o
+
+source/ldtk.i: source/ldtk.cpp.i
+.PHONY : source/ldtk.i
+
+# target to preprocess a source file
+source/ldtk.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/ldtk.cpp.i
+.PHONY : source/ldtk.cpp.i
+
+source/ldtk.s: source/ldtk.cpp.s
+.PHONY : source/ldtk.s
+
+# target to generate assembly for a file
+source/ldtk.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/charlie2D.dir/build.make CMakeFiles/charlie2D.dir/source/ldtk.cpp.s
+.PHONY : source/ldtk.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -366,9 +390,9 @@ help:
 	@echo "... source/GameManager.o"
 	@echo "... source/GameManager.i"
 	@echo "... source/GameManager.s"
-	@echo "... source/InputMangaer.o"
-	@echo "... source/InputMangaer.i"
-	@echo "... source/InputMangaer.s"
+	@echo "... source/InputManager.o"
+	@echo "... source/InputManager.i"
+	@echo "... source/InputManager.s"
 	@echo "... source/ResourceManager.o"
 	@echo "... source/ResourceManager.i"
 	@echo "... source/ResourceManager.s"
@@ -381,6 +405,9 @@ help:
 	@echo "... source/Tile.o"
 	@echo "... source/Tile.i"
 	@echo "... source/Tile.s"
+	@echo "... source/ldtk.o"
+	@echo "... source/ldtk.i"
+	@echo "... source/ldtk.s"
 .PHONY : help
 
 

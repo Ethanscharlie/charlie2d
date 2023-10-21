@@ -1,5 +1,7 @@
-#pragma once
-#include "Entity.h"
+#ifndef ENTITY_BOX_H
+#define ENTITY_BOX_H
+
+#include "Math.h"
 
 class Entity;
 
@@ -57,4 +59,6 @@ struct entityBox {
     Box globalBox;
     Box localBox;
 };
+
+#endif
 

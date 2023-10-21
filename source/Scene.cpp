@@ -1,4 +1,6 @@
 #include "Scene.h"
+#include "Entity.h"
+#include "Component.h"
 
 Scene::~Scene() {
     // destroy all entitys
@@ -67,6 +69,9 @@ void Scene::update()
               }
               else if (entity->skipUpdate) {
                     entity->skipUpdate = false;
+              }
+              else if (!entity->active) { ++it;}
+              else if (!updateEntities) { ++it;
               } else {
                   if (component->standardUpdate) {
                       if (component->useLayer) {

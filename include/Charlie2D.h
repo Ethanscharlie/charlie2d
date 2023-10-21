@@ -15,6 +15,8 @@
 #include "Collider.h"
 #include "CircleCollider.h"
 
+#include "ldtk.h"
+
 //#include "Tile.h"
 
 #include "UISliceRenderer.h"

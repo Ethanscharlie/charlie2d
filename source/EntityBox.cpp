@@ -1,4 +1,5 @@
 #include "EntityBox.h"
+#include "Entity.h"
 
 entityBox::entityBox(Entity* _entity)
 :entity(_entity)

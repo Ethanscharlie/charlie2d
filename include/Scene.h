@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCENE_H
+#define SCENE_H
 
 #include <iostream>
 #include <vector>
@@ -6,16 +7,16 @@
 #include <SDL_ttf.h>
 #include <unordered_map>
 #include "GameManager.h"
-#include "Entity.h"
-#include "Component.h"
 #include "Tile.h"
+#include "Component.h"
 //#include "Sprite.h"
 
-#include <fstream>
-#include <nlohmann/json.hpp>
-using json = nlohmann::json;
+//#include <fstream>
+//#include <nlohmann/json.hpp>
+//using json = nlohmann::json;
 
 class Entity;
+//class Component;
 
 typedef std::vector<Component*> Group;
 
@@ -66,6 +67,7 @@ public:
     void unload();
 
     int windowWidth, windowHeight;
+    bool updateEntities = true;
 
 
 private:
@@ -77,3 +79,5 @@ private:
     //std::vector<std::string> layers;
     //std::vector<Entity*> entitys;
 };
+
+#endif

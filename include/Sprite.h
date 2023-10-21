@@ -6,6 +6,7 @@
 #include "Collider.h"
 #include "Math.h"
 #include "GameManager.h"
+#include "Animation.h"
 
 class Animation;
 

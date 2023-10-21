@@ -1,10 +1,12 @@
-#pragma once
-#include "Entity.h"
-#include "EntityBox.h"
+#ifndef COMPONENT_H
+#define COMPONENT_H
 
-class Entity;
-class Scene;
+#include "Entity.h"
+//#include "EntityBox.h"
+
+//class Scene;
 struct entityBox;
+class Entity;
 
 class Component {
     public:
@@ -23,6 +25,26 @@ class Component {
     C& getComponent() {
         return entity->template getComponent<C>();
     }
+    //template <typename C>
+    //void addComponent() {
+    //    C* component = new C();
+
+    //    component->entity = this;
+    //    component->box = box;
+    //    component->scene = scene;
+    //    component->start();
+    //    entity->components[typeid(C)] = component;
+    //    scene->template add<C>(entity->getComponents()[typeid(C)]);
+    //}
+
+    //template <typename C>
+    //C& getComponent() {
+    //    auto it = entity->getComponents().find(typeid(C));                                                                                                  
+    //    if (it != entity->getComponents().end())                                                                                                            
+    //        return *static_cast<C*>(it->second);                                                                                           
+    //    else                                                                                                                                   
+    //        throw std::runtime_error("Component not found!");  
+    //}
 
     template <typename C>
     bool checkComponent() {
@@ -30,7 +52,7 @@ class Component {
     }
 
     entityBox* box;
-    Entity* entity;
+    Entity* entity = nullptr;
     Scene* scene;
     std::string title = "";
     bool isInit = false;
@@ -40,4 +62,6 @@ class Component {
     bool useLayer = false;
     bool standardUpdate = true;
 };
+
+#endif 
 
