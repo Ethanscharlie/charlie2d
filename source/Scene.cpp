@@ -41,7 +41,7 @@ void Scene::update()
     lastTime = currentTime;
     lastTime = SDL_GetPerformanceCounter();
 
-    if (1.0f / deltaTime < 200) std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
+    //if (1.0f / deltaTime < 200) std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
 
     SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
     SDL_RenderClear(GameManager::renderer);
@@ -72,12 +72,11 @@ void Scene::update()
                     entity->skipUpdate = false;
               }
               else if (!entity->active) { ++it;}
-              else if (!updateEntities) { ++it;
-              } else {
+              else {
                   if (component->standardUpdate) {
                       if (component->useLayer) {
                           layeredComponents.push_back(component);
-                      } else {
+                      } else if (updateEntities) {
                           component->update(deltaTime);
                       }
                   }

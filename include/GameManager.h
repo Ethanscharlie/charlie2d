@@ -34,7 +34,7 @@ public:
     static void quit();
     static void doUpdateLoop();
 
-    static void doFade(std::function<void()> middle=[](){});
+    static void doFade(std::function<void()> middle=[](){}, int fadeTime=300);
 
     static SDL_Window* window;
     static SDL_Renderer* renderer;

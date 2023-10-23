@@ -258,7 +258,8 @@ void GameManager::quit()
   GameManager::running = false;
 }
 
-void GameManager::doFade(std::function<void()> middle) {
+void GameManager::doFade(std::function<void()> middle, int fadeTime) {
+    fade_time = fadeTime;
     onMiddleFade = middle; 
     transition = 1;
     fadeStartTime = SDL_GetTicks();
