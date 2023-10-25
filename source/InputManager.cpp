@@ -19,7 +19,16 @@ bool InputManager::checkInput(const std::string& input)
     SDL_PumpEvents();
     const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
 //    std::cout << keyboardState << std::endl;
+    
+    if (input == "any") {
+        for (int i = 0; i < SDL_NUM_SCANCODES; i++) {
+            if (keyboardState[i]) {
+                return true;
+            }
+        }
 
+        return false;
+    }
     if (input == "fire")
     {
         if(mousePressed){

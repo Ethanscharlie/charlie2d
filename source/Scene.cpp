@@ -57,10 +57,14 @@ void Scene::update()
             Entity* entity = component->entity;
 
               if (entity->toDestroy) {
+                  for (Entity* e : entity->getChildren()) {
+                        e->toDestroy = true;
+                  }
+
                   component->onDestroy();
                   it = clist->erase(it);
-
                   allObjects.erase(std::remove(allObjects.begin(), allObjects.end(), entity), allObjects.end());
+
                   delete component;
 
                   // Delete Entity if there are no remaining components
