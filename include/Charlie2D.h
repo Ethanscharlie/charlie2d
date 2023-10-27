@@ -14,6 +14,7 @@
 #include "Sprite.h"
 #include "Collider.h"
 #include "CircleCollider.h"
+#include "JumpMan.h"
 
 #include "ldtk.h"
 

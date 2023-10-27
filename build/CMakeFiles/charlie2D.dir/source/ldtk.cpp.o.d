@@ -365,6 +365,7 @@ CMakeFiles/charlie2D.dir/source/ldtk.cpp.o: \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Collider.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Sprite.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/CircleCollider.h \
+ /home/ethanscharlie/Projects/Code/Github/charlie2d/include/JumpMan.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/UISliceRenderer.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/Text.h \
  /home/ethanscharlie/Projects/Code/Github/charlie2d/include/UICanvas.h \
