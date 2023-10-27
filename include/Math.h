@@ -118,17 +118,42 @@ struct Angle {
 
     void lookAt(const Vector2f center, const Vector2f& point) 
     {
-        vector = {point.x - center.x, point.y - center.y};
-        float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
-        if (length > 0) {
-            vector.x = vector.x / length;
-            vector.y = vector.y / length;
-        } else {
-            vector = {0.0f, 0.0f};
-        }
+        //vector = {point.x - center.x, point.y - center.y};
+        //float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
+        //if (length > 0) {
+        //    vector.x = vector.x / length;
+        //    vector.y = vector.y / length;
+        //} else {
+        //    vector = {0.0f, 0.0f};
+        //}
+    } 
+
+    void rotate(float angle) {
+        radians += angle * (180.0/3.141592653589793238463);
+        //angle *= (180.0/3.141592653589793238463); 
+        //vector.x = vector.x * cos(angle) - vector.y * sin(angle);
+        //vector.y = vector.x * sin(angle) + vector.y * cos(angle);
+
+        //float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
+        //if (length > 0) {
+        //    vector.x = vector.x / length;
+        //    vector.y = vector.y / length;
+        //} else {
+        //    vector = {0.0f, 0.0f};
+        //}
     }
 
-    Vector2f vector;
+   // std::pair<double, double> rotate_vector(double x, double y, double angle) {                          
+   //double cos_angle = cos(angle);                                                                     
+   //double sin_angle = sin(angle);                                                                     
+   //                                                                                                   
+   //double new_x = x * cos_angle - y * sin_angle;                                                      
+   //double new_y = x * sin_angle + y * cos_angle;                                                      
+                                                                                                      
+   //return std::make_pair(new_x, new_y);                                                               
+
+    float radians = 0;
+    //Vector2f vector;
 };
 
 struct Box

@@ -53,6 +53,38 @@ public:
     }
 
     template <typename C>
+    C* add() {
+        C* component = new C();
+
+        component->entity = this;
+        component->box = box;
+        component->entityTag = tag;
+        component->scene = scene;
+        component->start();
+        components[typeid(C)] = component;
+
+        //scene->template add<C>(components[typeid(C)]);
+        if (scene->components.count(typeid(C)) == 0) { //&& std::find(componentTypes.begin(), componentTypes.end(), typeid(C)) == componentTypes.end()) {
+            scene->componentTypes.push_back(typeid(C));
+            std::cout << "added type " << component->title << std::endl;
+        }
+
+        component->index = 0;//components[typeid(C)].size();
+        scene->components[typeid(C)].push_back(component);
+
+        return component;
+    }
+
+    template <typename C>
+    C* get() {
+        auto it = components.find(typeid(C));                                                                                                  
+        if (it != components.end())                                                                                                            
+            return static_cast<C*>(it->second);                                                                                           
+        else                                                                                                                                   
+            throw std::runtime_error("Component not found!");  
+    }
+
+    template <typename C>
     bool checkComponent() {
         auto it = components.find(typeid(C));
         return it != components.end();

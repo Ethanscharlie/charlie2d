@@ -46,6 +46,7 @@ class Text : public Component {
     void renderTextInRect(SDL_Renderer* renderer, const std::string& text, const SDL_Rect& rect)
     {
         // Create a surface from the text
+        TTF_SetFontWrappedAlign(font, TTF_WRAPPED_ALIGN_CENTER);
         SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped(font, text.c_str(), text_color, rect.w);
 
         if (textSurface == nullptr) {

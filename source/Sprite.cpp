@@ -5,8 +5,14 @@ void Sprite::update(float deltaTime) {
     float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));
     SDL_Rect renderRect;
     Vector2f renderPos = entity->box->getPosition() * scaler;
-    renderRect.x = renderPos.x - (scaler * GameManager::camera.getCenter().x - GameManager::currentWindowSize.x  / 2); 
-    renderRect.y = renderPos.y - (scaler * GameManager::camera.getCenter().y - GameManager::currentWindowSize.y / 2);   
+    Vector2f camera = GameManager::camera.getCenter();
+    renderRect.x = renderPos.x - (scaler * camera.x - GameManager::currentWindowSize.x  / 2); 
+    renderRect.y = renderPos.y - (scaler * camera.y - GameManager::currentWindowSize.y / 2);   
+
+    if (pinCamera) {
+        renderRect.x = renderPos.x; 
+        renderRect.y = renderPos.y ;  
+    }
 
     renderRect.w = entity->box->getSize().x * scaler + 1;
     renderRect.h = entity->box->getSize().y * scaler + 1;
@@ -22,7 +28,8 @@ void Sprite::update(float deltaTime) {
             renderRect.y+renderRect.h/2 > 0-renderRect.h/2 && renderRect.y+renderRect.h/2 < GameManager::currentWindowSize.y+renderRect.h/2) {
 
         onScreen = true;
-        SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect, (180 / M_PI) * std::atan2(angle.vector.y, angle.vector.x), nullptr, SDL_FLIP_NONE);
+        SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect, (180 / M_PI) * angle.radians, nullptr, SDL_FLIP_NONE);
+//std::atan2(angle.vector.y, angle.vector.x)
     } else {onScreen = false;}
 
     if (showBorders) {

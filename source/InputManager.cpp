@@ -48,6 +48,13 @@ bool InputManager::checkInput(const std::string& input)
             return true;
         }
     }
+    else if (input == "dash")
+    {
+        if (keyboardState[SDL_SCANCODE_LSHIFT] || keyboardState[SDL_SCANCODE_LSHIFT])
+        {
+            return true;
+        }
+    }
     else if (input == "hit")
     {
         if (keyboardState[SDL_SCANCODE_F])

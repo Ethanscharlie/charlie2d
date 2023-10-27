@@ -29,5 +29,6 @@ class Sprite : public Component {
     Angle angle;
     std::unordered_map<std::string, Animation*> animations;
     bool onScreen = false;
+    bool pinCamera = false;
 };
 
