@@ -1,4 +1,5 @@
 #include "EntityBox.h"
+#include "GameManager.h"
 #include "Scene.h"
 #include "Entity.h"
 
@@ -109,4 +110,13 @@ void entityBox::updateLocalBox() {
     for (Entity* child : entity->getChildren()) { 
         child->box->updateGlobalBox();
     }
+}
+
+
+Vector2f entityBox::getScreenPosition() {
+    float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));
+    Vector2f renderPos = entity->box->getPosition() * scaler;
+    Vector2f camera = GameManager::camera.getCenter();
+    return { renderPos.x - (scaler * camera.x - GameManager::currentWindowSize.x  / 2), 
+        renderPos.y - (scaler * camera.y - GameManager::currentWindowSize.y / 2)};   
 }

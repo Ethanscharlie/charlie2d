@@ -6,6 +6,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <random>
+//#include "GameManager.h"
 
 //#include "Entity.h"
 
@@ -103,6 +104,7 @@ struct Vector2f
 		std::cout << x << ", " << y << std::endl;
 	}
 
+
     float dist(Vector2f point) 
     {
         return sqrt(pow(point.x - x, 2) + pow(point.y - y, 2));
@@ -118,7 +120,7 @@ struct Angle {
 
     void lookAt(const Vector2f center, const Vector2f& point) 
     {
-        //vector = {point.x - center.x, point.y - center.y};
+        setWithVector({point.x - center.x, point.y - center.y});
         //float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
         //if (length > 0) {
         //    vector.x = vector.x / length;
@@ -127,6 +129,24 @@ struct Angle {
         //    vector = {0.0f, 0.0f};
         //}
     } 
+
+    Vector2f getVector() {
+        Vector2f vector = {std::cos(radians), std::sin(radians)};
+
+        float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
+        if (length > 0) {
+            vector.x = vector.x / length;
+            vector.y = vector.y / length;
+        } else {
+            vector = {0.0f, 0.0f};
+        }
+
+        return vector;
+    }
+
+    void setWithVector(Vector2f vector) {
+        radians = std::atan2(vector.y, vector.x);
+    }
 
     void rotate(float angle) {
         radians += angle * (180.0/3.141592653589793238463);

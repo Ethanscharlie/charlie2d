@@ -36,7 +36,7 @@ void Scene::update()
     float deltaTime = static_cast<float>((currentTime - lastTime) * 1000 /
             static_cast<double>(SDL_GetPerformanceFrequency())) * 0.001;
 
-    if (deltaTime > 900) deltaTime = 0;
+    //if (deltaTime > 900) deltaTime = 0;
 
     lastTime = currentTime;
     lastTime = SDL_GetPerformanceCounter();

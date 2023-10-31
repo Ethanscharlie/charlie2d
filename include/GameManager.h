@@ -29,20 +29,19 @@ public:
     static void LoadScene(const std::string& name);
     static Scene* getCurrentScene();
     static void Update();
-    static void Render();
     static void playSound(std::string filename, bool loop =false);
     static void quit();
     static void doUpdateLoop();
+    static void setWindowSize(Vector2f size);
+    #ifdef __EMSCRIPTEN__
+
+    #endif
 
     static void doFade(std::function<void()> middle=[](){}, int fadeTime=300);
 
     static SDL_Window* window;
     static SDL_Renderer* renderer;
     static SDL_Texture* screenTexture;
-    //static int windowWidth;
-    //static int windowHeight;
-    //static int originalWidth;
-    //static int originalHeight;
     static Vector2f gameWindowSize;
     static Vector2f currentWindowSize;
     
@@ -51,7 +50,6 @@ public:
 
     static void setCamera(const Vector2f& position);
     static Box camera;
-    //static float cameraZoom;
     static Box cameraLimitBox;
     static int transition; // 0 -> Not Going, 1 -> Going, 2 -> Finished
     

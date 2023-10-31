@@ -1,3 +1,0 @@
-/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles/charlie2D.dir
-/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles/edit_cache.dir
-/home/ethanscharlie/Projects/Code/Github/charlie2d/build/CMakeFiles/rebuild_cache.dir

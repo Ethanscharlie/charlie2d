@@ -28,8 +28,11 @@ class Text : public Component {
         float width_scale =  (float) GameManager::currentWindowSize.x / GameManager::gameWindowSize.x;
         float height_scale = (float) GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
 
-        spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::currentWindowSize.x/2; 
-        spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::currentWindowSize.y/2;    
+        //spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::currentWindowSize.x/2; 
+        //spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::currentWindowSize.y/2;    
+            Vector2f renderPos = entity->box->getScreenPosition();
+            spriteRect.x = renderPos.x + GameManager::camera.getCenter().x;
+            spriteRect.y = renderPos.y + GameManager::camera.getCenter().y;
 
         spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
         spriteRect.h = box->getSize().y * GameManager::screen_change_scale;

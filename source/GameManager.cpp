@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "Entity.h"
 #include "Scene.h"
+#include "Math.h"
 
 int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
 Uint32 GameManager::fadeStartTime = 0; 
@@ -12,10 +13,6 @@ std::unordered_map<std::string, Scene*> GameManager::scenes;
 Scene* GameManager::currentScene = nullptr;
 Scene* GameManager::loadingScene = nullptr;
 
-// int GameManager::originalWidth = 0;
-// int GameManager::originalHeight = 0;
-// int GameManager::windowWidth = 0;
-// int GameManager::windowHeight = 0;
 Vector2f GameManager::gameWindowSize = {0, 0};
 Vector2f GameManager::currentWindowSize = {0, 0};
                                     
@@ -27,6 +24,26 @@ Box GameManager::cameraLimitBox = {0, 0, 0, 0};
 SDL_Window* GameManager::window = nullptr;
 SDL_Renderer* GameManager::renderer = nullptr;
 std::function<void()> GameManager::onMiddleFade = [](){};
+
+#ifdef __EMSCRIPTEN__
+EM_JS(void, resize_callback, (), {                                                                                                   
+        window.addEventListener('resize', function() {                                                                                       
+                // Call the function _on_resize from JavaScript                                                                                    
+                //Module['_on_resize'](window.innerWidth, window.innerHeight);                                                                       
+                _on_resize(window.innerWidth, window.innerHeight);                                                                                    
+                });                                                                                                                                  
+        });                                                                                                                                      
+
+
+extern "C" {                                                                                                                             
+    // This is a C++ function that is called from JavaScript                                                                               
+    void EMSCRIPTEN_KEEPALIVE on_resize(int width, int height) {                                                                                                
+        printf("Window resized to %dx%d\n", width, height);                                                                                  
+        GameManager::setWindowSize({static_cast<float>(width), static_cast<float>(height)});
+    }                                                                                                                                      
+}                                                                                                                                        
+#endif
+
 
 GameManager::GameManager() {
     
@@ -41,10 +58,6 @@ void GameManager::init(Vector2f windowSize)
   IMG_Init(IMG_INIT_PNG);
   SDL_SetWindowResizable(window, SDL_TRUE);
 
-  //originalWidth = originalSize.x;
-  //originalHeight = originalSize.y;
-  //windowWidth =  GameManager::originalWidth  ;
-  //windowHeight = GameManager::originalHeight ;
   gameWindowSize = windowSize;
   currentWindowSize = windowSize;
   camera.size = windowSize; 
@@ -55,6 +68,14 @@ void GameManager::init(Vector2f windowSize)
 
   window = SDL_CreateWindow("SDL2 works!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, currentWindowSize.x, currentWindowSize.y, SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+
+#ifdef __EMSCRIPTEN__
+  resize_callback();
+  float width = emscripten_run_script_int("window.innerWidth");                                                                          
+  float height = emscripten_run_script_int("window.innerHeight");      
+  GameManager::setWindowSize({width, height});
+#endif
 }
 
 void GameManager::AddScene(const std::string& name, Scene* scene) {
@@ -84,9 +105,13 @@ Scene* GameManager::getCurrentScene() {
     return currentScene;
 }
 
+#ifdef __EMSCRIPTEN__
+#endif
 
 void GameManager::Update() {
   InputManager::update();
+    #ifdef __EMSCRIPTEN__
+    #endif
   SDL_Event event;
   while (SDL_PollEvent(&event))
   {
@@ -183,6 +208,16 @@ void GameManager::Update() {
   SDL_RenderPresent(renderer);
 }
 
+void GameManager::setWindowSize(Vector2f size) {
+    SDL_SetWindowSize(window, size.x, size.y);
+    currentWindowSize = size;
+
+    screen_change_scale = ((float) currentWindowSize.x + (float) currentWindowSize.y)
+        / (gameWindowSize.x + gameWindowSize.y);
+}
+
+
+
 void GameManager::doUpdateLoop() {
     #ifdef __EMSCRIPTEN__
     emscripten_set_main_loop(Update, 0, 1);
@@ -193,27 +228,7 @@ void GameManager::doUpdateLoop() {
     #endif
 }
 
-void GameManager::Render() {
-  if (currentScene) {
-    // currentScene->Draw();
-  }
-}
-
 void GameManager::playSound(std::string filename, bool loop) {
-    //   Mix_Chunk* sound = ResourceManager::getInstance(renderer).getAudio(filename);
-
-    //   int channel = Mix_PlayChannel(-1, sound, 0);
-    //   if (loop) {
-//  //         channel = Mix_PlayChannel(-1, sound, -1);
-    //   }
-
-    //   if (channel == -1) {
-    //       printf("Failed to play sound effect: %s\n", Mix_GetError());
-    //   }
-
-
-    //   //Mix_FreeChunk(sound);
-    //   //Mix_CloseAudio();
     Mix_Chunk* sound = ResourceManager::getInstance(renderer).getAudio(filename);
 
     int maxChannels = Mix_AllocateChannels(-1);  // Get the total number of channels
@@ -236,6 +251,9 @@ void GameManager::playSound(std::string filename, bool loop) {
 
 
 void GameManager::setCamera(const Vector2f& position) {
+    if (camera.size.y / camera.size.x != currentWindowSize.x / currentWindowSize.y) {
+        //currentWindowSize = camera.size;
+    }
     camera.setWithCenter(position);
 
     if ( cameraLimitBox.size.x == 0 && cameraLimitBox.size.y == 0) return;

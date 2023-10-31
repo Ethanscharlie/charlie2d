@@ -28,23 +28,23 @@ class UISliceRenderer : public Component {
     void update(float deltaTime) override {
         SDL_Rect spriteRect = {0,0,0,0};
         
-        float width_scale =  (float) GameManager::currentWindowSize.x  / GameManager::gameWindowSize.x;
-        float height_scale = (float) GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
-
         if (true)
         {
-            spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::currentWindowSize.x/2; 
-            spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::currentWindowSize.y/2;    
+            //spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::currentWindowSize.x/2; 
+            //spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::currentWindowSize.y/2;    
+            Vector2f renderPos = entity->box->getScreenPosition();
+            spriteRect.x = renderPos.x + GameManager::camera.getCenter().x;
+            spriteRect.y = renderPos.y + GameManager::camera.getCenter().y;
 
             spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
             spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
         }
         else {
-            spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) ;//+ GameManager::windowWidth/2; 
-            spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) ;//+ GameManager::windowHeight/2;    
+            //spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) ;//+ GameManager::windowWidth/2; 
+            //spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) ;//+ GameManager::windowHeight/2;    
 
-            spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
-            spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
+            //spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
+            //spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
         }
         
         Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);

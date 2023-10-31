@@ -123,9 +123,19 @@ Vector2f InputManager::checkAxis() {
     return {static_cast<float>(checkHorizontal()), static_cast<float>(-checkVertical())};
 }
 
-Vector2f InputManager::getMousePosition() {
+Vector2f InputManager::getMouseWorldPosition() {
     int mouseX, mouseY;
     SDL_GetMouseState(&mouseX, &mouseY);
-    return {mouseX / GameManager::screen_change_scale + GameManager::camera.getCenter().x - GameManager::gameWindowSize.x/2,
-           mouseY / GameManager::screen_change_scale + GameManager:: camera.getCenter().y - GameManager::gameWindowSize.y/2};
+    Vector2f mouse = {static_cast<float>(mouseX), static_cast<float>(mouseY)};
+
+    float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x +              
+                GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));         
+    Vector2f camera = GameManager::camera.getCenter();                                               
+    return (mouse - GameManager::currentWindowSize / 2) / scaler + camera;
+}
+
+Vector2f InputManager::getMouseScreenPosition() {
+    int mouseX, mouseY;
+    SDL_GetMouseState(&mouseX, &mouseY);
+    return {static_cast<float>(mouseX), static_cast<float>(mouseY)};
 }
