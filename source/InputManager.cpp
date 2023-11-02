@@ -103,19 +103,15 @@ bool InputManager::checkInput(const std::string& input)
 
 int InputManager::checkVertical()
 {
-    //const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
-
-    if (checkInput("up")) {return 1;}
-    if (checkInput("down")) {return -1;}
+    if (checkInput("up")) return 1;
+    if (checkInput("down")) return -1;
     return 0;
 }
 
 int InputManager::checkHorizontal()
 {
-    //const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
-
-    if (checkInput("right")) {return 1;}
-    if (checkInput("left")) {return -1;}
+    if (checkInput("right")) return 1;
+    if (checkInput("left")) return -1;
     return 0;
 }
 
@@ -130,8 +126,17 @@ Vector2f InputManager::getMouseWorldPosition() {
 
     float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x +              
                 GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));         
-    Vector2f camera = GameManager::camera.getCenter();                                               
-    return (mouse - GameManager::currentWindowSize / 2) / scaler + camera;
+    return (mouse - GameManager::currentWindowSize / 2) / scaler + GameManager::camera.getCenter();
+}
+
+Vector2f InputManager::getMouseUIPosition() {
+    //return {GameManager::screen_change_scale * (entity->box->getPosition().x) + GameManager::currentWindowSize.x/2, 
+    //GameManager::screen_change_scale * (entity->box->getPosition().y) + GameManager::currentWindowSize.y/2};    
+    Vector2f mouse = getMouseScreenPosition();    
+     return { (mouse.x - GameManager::currentWindowSize.x/2) / GameManager::screen_change_scale,                         
+        (mouse.y - GameManager::currentWindowSize.y/2) / GameManager::screen_change_scale};                                 
+
+
 }
 
 Vector2f InputManager::getMouseScreenPosition() {

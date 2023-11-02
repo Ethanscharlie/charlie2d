@@ -16,6 +16,7 @@ public:
     static int checkHorizontal();
     static Vector2f checkAxis();
     static Vector2f getMouseWorldPosition();
+    static Vector2f getMouseUIPosition();
     static Vector2f getMouseScreenPosition();
 
     static bool mousePressed;

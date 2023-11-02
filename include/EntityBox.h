@@ -49,6 +49,7 @@ struct entityBox {
 
 
     Vector2f getScreenPosition();
+    Vector2f getUIPosition();
 
     void updateGlobalBox() ;
     void updateLocalBox() ;

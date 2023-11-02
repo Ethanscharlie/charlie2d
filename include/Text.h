@@ -30,9 +30,9 @@ class Text : public Component {
 
         //spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::currentWindowSize.x/2; 
         //spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::currentWindowSize.y/2;    
-            Vector2f renderPos = entity->box->getScreenPosition();
-            spriteRect.x = renderPos.x + GameManager::camera.getCenter().x;
-            spriteRect.y = renderPos.y + GameManager::camera.getCenter().y;
+            Vector2f renderPos = entity->box->getUIPosition();
+            spriteRect.x = renderPos.x;//+ GameManager::camera.getCenter().x;
+            spriteRect.y = renderPos.y;//+ GameManager::camera.getCenter().y;
 
         spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
         spriteRect.h = box->getSize().y * GameManager::screen_change_scale;

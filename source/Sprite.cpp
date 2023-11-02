@@ -13,9 +13,10 @@ void Sprite::update(float deltaTime) {
     renderRect.x = renderPos.x;
     renderRect.y = renderPos.y;
 
-    if (pinCamera) {
-    //    renderRect.x = renderPos.x; 
-    //    renderRect.y = renderPos.y ;  
+    if (renderAsUI) {
+        renderPos = entity->box->getUIPosition();
+        renderRect.x = renderPos.x;
+        renderRect.y = renderPos.y;
     }
 
     renderRect.w = entity->box->getSize().x * scaler + 1;

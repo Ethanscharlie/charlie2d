@@ -15,10 +15,10 @@ class Button : public Component {
     }
 
     void update(float deltaTime) override {
-        bool touching =  box->getBox().getLeft()   < InputManager::getMouseScreenPosition().x && 
-                         box->getBox().getRight()  > InputManager::getMouseScreenPosition().x && 
-                         box->getBox().getTop()    < InputManager::getMouseScreenPosition().y && 
-                         box->getBox().getBottom() > InputManager::getMouseScreenPosition().y;
+        bool touching =  box->getBox().getLeft()   < InputManager::getMouseUIPosition().x && 
+                         box->getBox().getRight()  > InputManager::getMouseUIPosition().x && 
+                         box->getBox().getTop()    < InputManager::getMouseUIPosition().y && 
+                         box->getBox().getBottom() > InputManager::getMouseUIPosition().y;
 
         if (touching) {
             onHover();

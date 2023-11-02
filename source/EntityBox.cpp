@@ -116,7 +116,15 @@ void entityBox::updateLocalBox() {
 Vector2f entityBox::getScreenPosition() {
     float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));
     Vector2f renderPos = entity->box->getPosition() * scaler;
-    Vector2f camera = GameManager::camera.getCenter();
-    return { renderPos.x - (scaler * camera.x - GameManager::currentWindowSize.x  / 2), 
-        renderPos.y - (scaler * camera.y - GameManager::currentWindowSize.y / 2)};   
+    return renderPos - (GameManager::camera.getCenter() * scaler - GameManager::currentWindowSize / 2);
 }
+
+Vector2f entityBox::getUIPosition() {
+    return {GameManager::screen_change_scale * (entity->box->getPosition().x) + GameManager::currentWindowSize.x/2, 
+    GameManager::screen_change_scale * (entity->box->getPosition().y) + GameManager::currentWindowSize.y/2};    
+}
+
+
+
+
+
