@@ -32,6 +32,7 @@ class UISliceRenderer : public Component {
         {
             //spriteRect.x = GameManager::screen_change_scale * (box->getPosition().x) + GameManager::currentWindowSize.x/2; 
             //spriteRect.y = GameManager::screen_change_scale * (box->getPosition().y) + GameManager::currentWindowSize.y/2;    
+            float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));
             Vector2f renderPos = entity->box->getUIPosition();
             spriteRect.x = renderPos.x;//+ GameManager::camera.getCenter().x;
             spriteRect.y = renderPos.y;//+ GameManager::camera.getCenter().y;

@@ -13,14 +13,18 @@ void Sprite::update(float deltaTime) {
     renderRect.x = renderPos.x;
     renderRect.y = renderPos.y;
 
+    renderRect.w = entity->box->getSize().x * scaler + 1;
+    renderRect.h = entity->box->getSize().y * scaler + 1;
+
     if (renderAsUI) {
         renderPos = entity->box->getUIPosition();
         renderRect.x = renderPos.x;
         renderRect.y = renderPos.y;
+
+        renderRect.w = entity->box->getSize().x * GameManager::screen_change_scale + 1;
+        renderRect.h = entity->box->getSize().y * GameManager::screen_change_scale + 1;
     }
 
-    renderRect.w = entity->box->getSize().x * scaler + 1;
-    renderRect.h = entity->box->getSize().y * scaler + 1;
 
     SDL_Rect* srcrect;
     if (sourceRect.w == 0 && sourceRect.h == 0) {

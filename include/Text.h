@@ -34,6 +34,7 @@ class Text : public Component {
             spriteRect.x = renderPos.x;//+ GameManager::camera.getCenter().x;
             spriteRect.y = renderPos.y;//+ GameManager::camera.getCenter().y;
 
+        float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));
         spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
         spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
 
