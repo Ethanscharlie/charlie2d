@@ -1,13 +1,14 @@
 #ifndef RESOURCE_MANAGER_H
 #define RESOURCE_MANAGER_H
 
-#include "GameManager.h"
+//#include "GameManager.h"
 
 #include <string>
 #include <map>
 #include <array>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 
 class ResourceManager {
 public:

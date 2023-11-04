@@ -5,6 +5,7 @@
 #include <SDL2/SDL_image.h>
 #include "GameManager.h"
 #include "ResourceManager.h"
+#include "EntityBox.h"
 
 class UICanvas : public Component {
     public:

@@ -3,6 +3,8 @@
  # Set the project name                                                                               
  project(charlie2D)                                                                                   
 
+ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
  set(CMAKE_CXX_STANDARD 20)
                                                                                                       
  # Add all your .cpp files to a variable                                                              

@@ -1,4 +1,5 @@
 #include "InputManager.h"
+#include "GameManager.h"
 
 bool InputManager::mousePressed = false;
 bool InputManager::jumpPressed = false;
