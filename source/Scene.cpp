@@ -10,7 +10,6 @@ Scene::~Scene() {
 
 Scene::Scene()
 {   
-    SDL_GetRendererOutputSize(GameManager::renderer, &windowWidth, &windowHeight);
 }
 
 Entity* Scene::createEntity(std::string tag) {
@@ -106,8 +105,22 @@ std::vector<Entity*> Scene::getAllObjects() {
 
 void Scene::unload()
 {
-    componentTypes.clear();
+    for (auto& [type, vector] : components)
+    {
+      for (Component* component : vector) {
+        delete component;
+      }
+      vector.clear();
+    }
     components.clear();
+
+    for (auto& [tag, vector] : tags)
+    {
+      for (Entity* entity : vector) {
+        delete entity;
+      }
+      vector.clear();
+    }
     tags.clear();
 }
 

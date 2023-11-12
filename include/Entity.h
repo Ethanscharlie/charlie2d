@@ -35,7 +35,6 @@ public:
 
         //scene->template add<C>(components[typeid(C)]);
         if (scene->components.count(typeid(C)) == 0) { //&& std::find(componentTypes.begin(), componentTypes.end(), typeid(C)) == componentTypes.end()) {
-            scene->componentTypes.push_back(typeid(C));
             std::cout << "added type " << component->title << std::endl;
         }
 
@@ -65,7 +64,6 @@ public:
 
         //scene->template add<C>(components[typeid(C)]);
         if (scene->components.count(typeid(C)) == 0) { //&& std::find(componentTypes.begin(), componentTypes.end(), typeid(C)) == componentTypes.end()) {
-            scene->componentTypes.push_back(typeid(C));
             std::cout << "added type " << component->title << std::endl;
         }
 

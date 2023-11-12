@@ -63,7 +63,6 @@ public:
     virtual void load() = 0;
     void unload();
 
-    int windowWidth, windowHeight;
     bool updateEntities = true;
 
 
@@ -72,7 +71,6 @@ public:
     std::unordered_map<std::string, std::vector<Entity*>> tags;
     std::vector<Entity*> allObjects;
     std::map<std::type_index, Group> components; 
-    std::vector<std::type_index> componentTypes;
     //std::vector<std::string> layers;
     //std::vector<Entity*> entitys;
 };
