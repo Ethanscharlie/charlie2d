@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <vector>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 #include <functional>
 #include <string>
 #include <unordered_map>
@@ -24,6 +24,8 @@ class Scene;
 class GameManager {
 public:
     GameManager();
+    ~GameManager();
+
     static void init(Vector2f originalSize={1920,1080});
     static void AddScene(const std::string& name, Scene* scene);
     static void LoadScene(const std::string& name);

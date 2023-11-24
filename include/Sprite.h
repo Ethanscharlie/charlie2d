@@ -30,5 +30,6 @@ class Sprite : public Component {
     std::unordered_map<std::string, Animation*> animations;
     bool onScreen = false;
     bool renderAsUI = false;
+    SDL_RendererFlip flip = SDL_FLIP_NONE;
 };
 

@@ -19,7 +19,7 @@ class Entity;
 
 class Scene {
 public:
-    ~Scene();
+    virtual ~Scene();
     Scene();
     //void add(Entity* entity, const std::string& group);
 
@@ -49,7 +49,8 @@ public:
             }                                                                                                                                
         }                                                                                                                                    
         else                                                                                                                                 
-            throw std::runtime_error("Component not found!");                                                                                
+            components[typeid(C)];
+            // throw std::runtime_error("Component group not found!");                                                                                
 
         return hits;                                                                                                                         
     }                                                                                                                                        
@@ -64,6 +65,7 @@ public:
     void unload();
 
     bool updateEntities = true;
+    float deltaTime = 0;
 
 
 //private:

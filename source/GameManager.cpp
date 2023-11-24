@@ -1,5 +1,6 @@
 #include "GameManager.h"
 #include "Entity.h"
+#include "InputManager.h"
 #include "Math.h"
 #include "Scene.h"
 
@@ -47,10 +48,17 @@ void EMSCRIPTEN_KEEPALIVE on_resize(int width, int height) {
 
 GameManager::GameManager() {}
 
+GameManager::~GameManager() {
+  for (auto &[name, scene] : scenes) {
+    delete scene;
+  }
+}
+
 void GameManager::init(Vector2f windowSize) {
   srand(time(NULL));
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Init(SDL_INIT_AUDIO);
+  SDL_Init(SDL_INIT_TIMER);
   TTF_Init();
   IMG_Init(IMG_INIT_PNG);
   SDL_SetWindowResizable(window, SDL_TRUE);
@@ -135,11 +143,27 @@ void GameManager::Update() {
       }
       break;
     } else if (event.type == SDL_KEYDOWN) {
+      if (event.key.keysym.sym <= 256) {
+        if (true || InputManager::keysUped[event.key.keysym.sym]) { 
+          InputManager::keys[event.key.keysym.sym] = true;
+          // InputManager::keysUped[event.key.keysym.sym] = false;
+        } else {
+          // InputManager::keys[event.key.keysym.sym] = false;
+        }
+      }
+
       switch (event.key.keysym.sym) {
       case SDLK_SPACE:
         InputManager::jumpPressed = true;
+      }     
+    } else if (event.type == SDL_KEYUP) {
+      if (event.key.keysym.sym <= 256) {
+        // std::cout << "KEYUP" << std::endl;
+        // InputManager::keys[event.key.keysym.sym] = false;
+        // InputManager::keysUped[event.key.keysym.sym] = true;
       }
     }
+
   }
 
   if (currentScene) {
@@ -216,6 +240,14 @@ void GameManager::setWindowSize(Vector2f size) {
   screen_change_scale =
       ((float)currentWindowSize.x + (float)currentWindowSize.y) /
       (gameWindowSize.x + gameWindowSize.y);
+
+  if (getCurrentScene()) {
+    for (auto &c : getCurrentScene()->components) {
+      for (Component *component : c.second) {
+        component->onScreenChange();
+      }
+    }
+  }
 }
 
 void GameManager::doUpdateLoop() {

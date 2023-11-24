@@ -1,18 +1,29 @@
-#include "InputManager.h"
 #include "GameManager.h"
+#include "InputManager.h"
 
 bool InputManager::mousePressed = false;
 bool InputManager::jumpPressed = false;
 
+bool InputManager::keys[NUM_KEYS];
+bool InputManager::keysUped[NUM_KEYS];
+
 InputManager::InputManager()
 {
-
+  for (int i = 0; i < NUM_KEYS; ++i) {
+    keys[i] = false; // Initialize all keys as released
+    keysUped[i] = true;
+  }
 }
 
 void InputManager::update()
 {
     mousePressed = false;
     jumpPressed = false;
+
+    for (int i = 0; i < NUM_KEYS; ++i) {
+      keys[i] = false; // Initialize all keys as released
+    }
+
 }
 
 bool InputManager::checkInput(const std::string& input)
@@ -52,6 +63,20 @@ bool InputManager::checkInput(const std::string& input)
     else if (input == "dash")
     {
         if (keyboardState[SDL_SCANCODE_LSHIFT] || keyboardState[SDL_SCANCODE_LSHIFT])
+        {
+            return true;
+        }
+    }
+    else if (input == "rightBump")
+    {
+        if (keyboardState[SDL_SCANCODE_E])
+        {
+            return true;
+        }
+    }
+    else if (input == "leftBump")
+    {
+        if (keyboardState[SDL_SCANCODE_Q])
         {
             return true;
         }

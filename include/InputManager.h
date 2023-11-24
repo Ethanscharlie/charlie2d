@@ -3,9 +3,12 @@
 #include <SDL.h>
 #include <unordered_map>
 #include <SDL_gamecontroller.h>
+#include <vector>
 //#include "GameManager.h"
 #include "Math.h"
 
+// #define NUM_KEYS 256 // Total number of keys
+#define NUM_KEYS 286 // Total number of keys
 
 class InputManager {
 public:
@@ -21,4 +24,7 @@ public:
 
     static bool mousePressed;
     static bool jumpPressed;
+
+    static bool keys[NUM_KEYS];
+    static bool keysUped[NUM_KEYS];
 };

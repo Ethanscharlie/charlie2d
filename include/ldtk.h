@@ -20,7 +20,7 @@ class LDTK {
     static std::string findTraveledLevel(Entity* player);
     static bool checkOutsideBounds(Entity* player);
     static void loadLevel(std::string iid, Scene* scene);
-    static void loadJson(std::string file="img/ldtk/icnt.ldtk");
+    static void loadJson(std::string file="img/ldtk/space.ldtk");
 
     static Box worldBox;
     static Entity* ldtkPlayer;

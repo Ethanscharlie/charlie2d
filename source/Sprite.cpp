@@ -41,7 +41,7 @@ void Sprite::update(float deltaTime) {
             && renderRect.y+renderRect.h/1 < GameManager::currentWindowSize.y+renderRect.h/1*5) {
 
         onScreen = true;
-        SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect, (180 / M_PI) * angle.radians, nullptr, SDL_FLIP_NONE);
+        SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect, (180 / M_PI) * angle.radians, nullptr, flip);
 //std::atan2(angle.vector.y, angle.vector.x)
     } else {onScreen = false;}
 

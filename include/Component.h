@@ -13,6 +13,8 @@ class Entity;
 class Component {
     public:
     Component(std::string _title="") : title(_title) {};
+    virtual ~Component() {}
+
     virtual void start() = 0;
     virtual void update(float deltaTime) = 0;
     virtual void onDestroy() {}

@@ -10,9 +10,9 @@
 #include "Math.h"
 #include "Scene.h"
 
+
 class Scene;
 class Animation;
-struct entityBox;
 class Component;
 
 class Entity
@@ -21,6 +21,10 @@ public:
     Entity() {
         //box = new entityBox(this);
     };
+
+    ~Entity() {
+      delete box;
+    }
 
     template <typename C>
     void addComponent() {
@@ -71,6 +75,15 @@ public:
         scene->components[typeid(C)].push_back(component);
 
         return component;
+    }
+
+    template <typename C>
+    C* require() {
+      if (checkComponent<C>()) {
+        return get<C>();
+      } else {
+        return add<C>();
+      }
     }
 
     template <typename C>
