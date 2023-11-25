@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['timer_0',['timer',['../classAnimation.html#acac8a7be13b45b7e3c4fe2ffb88ccd55',1,'Animation']]],
-  ['transition_1',['transition',['../classGameManager.html#a7e027ded125d9e5c6dfd88fccefd26b7',1,'GameManager']]]
+  ['uselayer_0',['useLayer',['../classComponent.html#acc6b6f489071d8549dc0f2976225e051',1,'Component']]]
 ];

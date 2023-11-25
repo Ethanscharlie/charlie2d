@@ -5,32 +5,32 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL\_gamecontroller.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL\_gamecontroller.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00007\ \textcolor{comment}{//\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \#include\ "{}GameManager.h"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Math.h"{}}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{comment}{//\ \#define\ NUM\_KEYS\ 256\ //\ Total\ number\ of\ keys}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ NUM\_KEYS\ 286\ }\textcolor{comment}{//\ Total\ number\ of\ keys}}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classInputManager}{InputManager}}\ \{}
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classInputManager}{InputManager}}();}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ update();}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ checkInput(\textcolor{keyword}{const}\ std::string\&\ input);}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ checkVertical();}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ checkHorizontal();}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ checkAxis();}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getMouseWorldPosition();}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getMouseUIPosition();}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getMouseScreenPosition();}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ mousePressed;}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ jumpPressed;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ keys[NUM\_KEYS];}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ keysUped[NUM\_KEYS];}
-\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classInputManager}{InputManager}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classInputManager}{InputManager}}();}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInputManager_a136d6afa55ee74eeda5eb72e78e3ee97}{update}}();}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInputManager_a59438046010e85ae15abf22de7c11644}{checkInput}}(\textcolor{keyword}{const}\ std::string\ \&input);}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classInputManager_a07f199764155999b43a7bb4e23131d77}{checkVertical}}();}
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classInputManager_abba7a775276179958f0aea1ebeff9614}{checkHorizontal}}();}
+\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_af52401c3d20a16b6011f04f9681afaa8}{checkAxis}}();}
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_a4b66a778c22ec7c818eca42674827932}{getMouseWorldPosition}}();}
+\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{getMouseUIPosition}}();}
+\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_a7902bf595457b3c74ebc6a9c8fcf189e}{getMouseScreenPosition}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ mousePressed;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ jumpPressed;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInputManager_ab1b21316900a6008ba1214c5e9976a53}{keys}}[NUM\_KEYS];}
+\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ keysUped[NUM\_KEYS];}
+\DoxyCodeLine{00092\ \};}
 
 \end{DoxyCode}

@@ -17,18 +17,18 @@
 \DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classCircleCollider}{CircleCollider}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}CircleCollider"{}})\{\};}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d}{start}}()\textcolor{keyword}{\ override\ }\{\ radius\ =\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getSize().y\ /\ 2;\ \}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d}{start}}()\textcolor{keyword}{\ override\ }\{\ radius\ =\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>getSize().y\ /\ 2;\ \}}
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCircleCollider_af410c11f63576845aa343d8ff9b0e579}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
-\DoxyCodeLine{00028\ \ \ \ \ radius\ =\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getSize().y\ /\ 2;}
+\DoxyCodeLine{00028\ \ \ \ \ radius\ =\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>getSize().y\ /\ 2;}
 \DoxyCodeLine{00029\ \ \ \}}
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00035\ \ \ std::vector<CircleCollider\ *>\ \mbox{\hyperlink{classCircleCollider_ae01a223d53f70433005c38d037ff963e}{getCollisions}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}})\ \{}
-\DoxyCodeLine{00036\ \ \ \ \ radius\ =\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getSize().y\ /\ 2;}
+\DoxyCodeLine{00036\ \ \ \ \ radius\ =\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>getSize().y\ /\ 2;}
 \DoxyCodeLine{00037\ \ \ \ \ std::vector<CircleCollider\ *>\ hits;}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ *col\ :\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>\mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>getGroup<\mbox{\hyperlink{classCircleCollider}{CircleCollider}}>(tag))\ \{}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col-\/>entity\ ==\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}})}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ *col\ :\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>getGroup<\mbox{\hyperlink{classCircleCollider}{CircleCollider}}>(tag))\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col-\/>entity\ ==\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}})}
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{00042\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classCircleCollider_abc7a4b982b2a817dbbec64922959e06b}{checkCircleCollision}}(col))\ \{}
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ hits.push\_back(col);}
@@ -42,11 +42,11 @@
 \DoxyCodeLine{00054\ }
 \DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCircleCollider_abc7a4b982b2a817dbbec64922959e06b}{checkCircleCollision}}(\mbox{\hyperlink{classCircleCollider}{CircleCollider}}\ *col)\ \{}
 \DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{float}\ distance\ =}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::sqrt(std::pow(col-\/>\mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getBox().getCenter().x\ -\/}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getBox().getCenter().x,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::sqrt(std::pow(col-\/>\mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>getBox().getCenter().x\ -\/}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>getBox().getCenter().x,}
 \DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2)\ +}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::pow(col-\/>\mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getBox().getCenter().y\ -\/}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getBox().getCenter().y,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::pow(col-\/>\mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>getBox().getCenter().y\ -\/}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>getBox().getCenter().y,}
 \DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2));}
 \DoxyCodeLine{00066\ }
 \DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ bool\ c\ =\ distance\ <=\ radius\ +\ col-\/>radius;}}

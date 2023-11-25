@@ -1,32 +1,37 @@
 \doxysection{Input\+Manager Class Reference}
 \hypertarget{classInputManager}{}\label{classInputManager}\index{InputManager@{InputManager}}
+
+
+Manages input through sdl2 MY WAY.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Manager.\+h$>$}
+
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classInputManager_a136d6afa55ee74eeda5eb72e78e3ee97}\label{classInputManager_a136d6afa55ee74eeda5eb72e78e3ee97} 
 static void {\bfseries update} ()
-\item 
-\Hypertarget{classInputManager_a59438046010e85ae15abf22de7c11644}\label{classInputManager_a59438046010e85ae15abf22de7c11644} 
-static bool {\bfseries check\+Input} (const std\+::string \&input)
-\item 
-\Hypertarget{classInputManager_a07f199764155999b43a7bb4e23131d77}\label{classInputManager_a07f199764155999b43a7bb4e23131d77} 
-static int {\bfseries check\+Vertical} ()
-\item 
-\Hypertarget{classInputManager_abba7a775276179958f0aea1ebeff9614}\label{classInputManager_abba7a775276179958f0aea1ebeff9614} 
-static int {\bfseries check\+Horizontal} ()
-\item 
-\Hypertarget{classInputManager_af52401c3d20a16b6011f04f9681afaa8}\label{classInputManager_af52401c3d20a16b6011f04f9681afaa8} 
-static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries check\+Axis} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Update loop. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classInputManager_a59438046010e85ae15abf22de7c11644}{check\+Input}} (const std\+::string \&input)
+\begin{DoxyCompactList}\small\item\em checks a input with a string (like Unity) \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classInputManager_a07f199764155999b43a7bb4e23131d77}{check\+Vertical}} ()
+\begin{DoxyCompactList}\small\item\em Checks for verticle input W / S / UParrow / DOWNarrow. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classInputManager_abba7a775276179958f0aea1ebeff9614}{check\+Horizontal}} ()
+\begin{DoxyCompactList}\small\item\em Checks for Horizontal input D / A / RIGHTarrow / LEFTarrow. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structVector2f}{Vector2f}} \mbox{\hyperlink{classInputManager_af52401c3d20a16b6011f04f9681afaa8}{check\+Axis}} ()
+\begin{DoxyCompactList}\small\item\em Check for axis input (read check\+Vertical and check\+Horizontal) \end{DoxyCompactList}\item 
 \Hypertarget{classInputManager_a4b66a778c22ec7c818eca42674827932}\label{classInputManager_a4b66a778c22ec7c818eca42674827932} 
 static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Mouse\+World\+Position} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the Mouse pointer in world position. \end{DoxyCompactList}\item 
 \Hypertarget{classInputManager_a052fa79825bafc35f695f45f07d477b6}\label{classInputManager_a052fa79825bafc35f695f45f07d477b6} 
 static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Mouse\+UIPosition} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the Mouse pointer in UI position. \end{DoxyCompactList}\item 
 \Hypertarget{classInputManager_a7902bf595457b3c74ebc6a9c8fcf189e}\label{classInputManager_a7902bf595457b3c74ebc6a9c8fcf189e} 
 static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Mouse\+Screen\+Position} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the mouse raw position. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,10 +43,96 @@ static bool {\bfseries jump\+Pressed} = false
 \item 
 \Hypertarget{classInputManager_ab1b21316900a6008ba1214c5e9976a53}\label{classInputManager_ab1b21316900a6008ba1214c5e9976a53} 
 static bool {\bfseries keys} \mbox{[}NUM\+\_\+\+KEYS\mbox{]}
-\item 
+\begin{DoxyCompactList}\small\item\em Made for check events (Not holding down) \end{DoxyCompactList}\item 
 \Hypertarget{classInputManager_a9ca586d7d5dfa8c23940814f5b262b23}\label{classInputManager_a9ca586d7d5dfa8c23940814f5b262b23} 
 static bool {\bfseries keys\+Uped} \mbox{[}NUM\+\_\+\+KEYS\mbox{]}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages input through sdl2 MY WAY. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInputManager_af52401c3d20a16b6011f04f9681afaa8}\label{classInputManager_af52401c3d20a16b6011f04f9681afaa8} 
+\index{InputManager@{InputManager}!checkAxis@{checkAxis}}
+\index{checkAxis@{checkAxis}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{checkAxis()}{checkAxis()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVector2f}{Vector2f}} Input\+Manager\+::check\+Axis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check for axis input (read check\+Vertical and check\+Horizontal) 
+
+\begin{DoxyReturn}{Returns}
+a \doxylink{structVector2f}{Vector2f} with each axis as -\/1, 0 or 1 
+\end{DoxyReturn}
+\Hypertarget{classInputManager_abba7a775276179958f0aea1ebeff9614}\label{classInputManager_abba7a775276179958f0aea1ebeff9614} 
+\index{InputManager@{InputManager}!checkHorizontal@{checkHorizontal}}
+\index{checkHorizontal@{checkHorizontal}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{checkHorizontal()}{checkHorizontal()}}
+{\footnotesize\ttfamily int Input\+Manager\+::check\+Horizontal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks for Horizontal input D / A / RIGHTarrow / LEFTarrow. 
+
+\begin{DoxyReturn}{Returns}
+-\/1 (Left) 1 (Right) 0 (None) 
+\end{DoxyReturn}
+\Hypertarget{classInputManager_a59438046010e85ae15abf22de7c11644}\label{classInputManager_a59438046010e85ae15abf22de7c11644} 
+\index{InputManager@{InputManager}!checkInput@{checkInput}}
+\index{checkInput@{checkInput}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{checkInput()}{checkInput()}}
+{\footnotesize\ttfamily bool Input\+Manager\+::check\+Input (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+checks a input with a string (like Unity) 
+
+INPUTS\+: any \+: Any key
+
+fire \+: mouse1
+
+jump\+Trigger \+: space (as event)
+
+jump \+: space
+
+dash \+: Lshift
+
+right\+Bump \+: E key
+
+left\+Bump \+: Q key
+
+hit \+: F key
+
+take \+: E key
+
+up \+: W or UParrow
+
+down \+: S or DOWNarrow
+
+right \+: D or RIGHTarrow
+
+left \+: A or LEFTarrow
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & name of input \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classInputManager_a07f199764155999b43a7bb4e23131d77}\label{classInputManager_a07f199764155999b43a7bb4e23131d77} 
+\index{InputManager@{InputManager}!checkVertical@{checkVertical}}
+\index{checkVertical@{checkVertical}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{checkVertical()}{checkVertical()}}
+{\footnotesize\ttfamily int Input\+Manager\+::check\+Vertical (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks for verticle input W / S / UParrow / DOWNarrow. 
+
+\begin{DoxyReturn}{Returns}
+-\/1 (Down) 1 (Up) 0 (None) 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

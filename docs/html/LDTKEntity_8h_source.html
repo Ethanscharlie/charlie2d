@@ -84,37 +84,30 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Charlie2D.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using </span>json = nlohmann::json;</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classLDTKEntity.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classLDTKEntity.html">LDTKEntity</a> : <span class="keyword">public</span> <a class="code hl_class" href="classComponent.html">Component</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="classLDTKEntity.html">LDTKEntity</a>() {}</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">   14</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">start</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    }</div>
-</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">   18</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">update</a>(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
-</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    json entityJson;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classLDTKEntity.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classLDTKEntity.html">LDTKEntity</a> : <span class="keyword">public</span> <a class="code hl_class" href="classComponent.html">Component</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <a class="code hl_class" href="classLDTKEntity.html">LDTKEntity</a>() {}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">   17</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">start</a>()<span class="keyword"> override </span>{}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">   19</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">update</a>(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classLDTKEntity.html#a68fe140bf6ea44ade76639a7293ee0de">   24</a></span>  json <a class="code hl_variable" href="classLDTKEntity.html#a68fe140bf6ea44ade76639a7293ee0de">entityJson</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
 </div>
 <div class="ttc" id="aclassComponent_html"><div class="ttname"><a href="classComponent.html">Component</a></div><div class="ttdoc">Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...</div><div class="ttdef"><b>Definition</b> Component.h:17</div></div>
-<div class="ttc" id="aclassLDTKEntity_html"><div class="ttname"><a href="classLDTKEntity.html">LDTKEntity</a></div><div class="ttdef"><b>Definition</b> LDTKEntity.h:10</div></div>
-<div class="ttc" id="aclassLDTKEntity_html_a4ed891a674daf27e44a3802cd89bb2eb"><div class="ttname"><a href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">LDTKEntity::update</a></div><div class="ttdeci">void update(float deltaTime) override</div><div class="ttdoc">Updates in the update loop.</div><div class="ttdef"><b>Definition</b> LDTKEntity.h:18</div></div>
-<div class="ttc" id="aclassLDTKEntity_html_acc210d0da97de9dcabc8a0e93024ba5b"><div class="ttname"><a href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">LDTKEntity::start</a></div><div class="ttdeci">void start() override</div><div class="ttdoc">Runs after Component data is set in entity.add.</div><div class="ttdef"><b>Definition</b> LDTKEntity.h:14</div></div>
+<div class="ttc" id="aclassLDTKEntity_html"><div class="ttname"><a href="classLDTKEntity.html">LDTKEntity</a></div><div class="ttdoc">A simple Component container for LDTK entity json data.</div><div class="ttdef"><b>Definition</b> LDTKEntity.h:13</div></div>
+<div class="ttc" id="aclassLDTKEntity_html_a4ed891a674daf27e44a3802cd89bb2eb"><div class="ttname"><a href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">LDTKEntity::update</a></div><div class="ttdeci">void update(float deltaTime) override</div><div class="ttdoc">Updates in the update loop.</div><div class="ttdef"><b>Definition</b> LDTKEntity.h:19</div></div>
+<div class="ttc" id="aclassLDTKEntity_html_a68fe140bf6ea44ade76639a7293ee0de"><div class="ttname"><a href="classLDTKEntity.html#a68fe140bf6ea44ade76639a7293ee0de">LDTKEntity::entityJson</a></div><div class="ttdeci">json entityJson</div><div class="ttdoc">A nlohmann json file from ldtk for this entity.</div><div class="ttdef"><b>Definition</b> LDTKEntity.h:24</div></div>
+<div class="ttc" id="aclassLDTKEntity_html_acc210d0da97de9dcabc8a0e93024ba5b"><div class="ttname"><a href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">LDTKEntity::start</a></div><div class="ttdeci">void start() override</div><div class="ttdoc">Runs after Component data is set in entity.add.</div><div class="ttdef"><b>Definition</b> LDTKEntity.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

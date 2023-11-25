@@ -1,23 +1,25 @@
 #pragma once
 #include "Charlie2D.h"
-#include <iostream>
-#include <vector>
 #include <fstream>
+#include <iostream>
 #include <nlohmann/json.hpp>
+#include <vector>
 
 using json = nlohmann::json;
 
+/**
+ * \brief A simple Component container for LDTK entity json data
+ */
 class LDTKEntity : public Component {
-    public:
-    LDTKEntity() {}
+public:
+  LDTKEntity() {}
 
-    void start() override {
+  void start() override {}
 
-    }
+  void update(float deltaTime) override {}
 
-    void update(float deltaTime) override {
-        
-    }
-
-    json entityJson;
+  /**
+   * \brief A nlohmann json file from ldtk for this entity
+   */
+  json entityJson;
 };

@@ -13,7 +13,7 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{classphysicsBody}{physicsBody}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}physicsBody"{}})\{\};}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{start}}()\textcolor{keyword}{\ override\ }\{\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classCollider}{Collider}}>();\ \}}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{start}}()\textcolor{keyword}{\ override\ }\{\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classCollider}{Collider}}>();\ \}}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
 \DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Adjusts\ velocity\ if\ greater\ then\ max}}
@@ -37,7 +37,7 @@
 \DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (velocity.x\ ==\ 0\ \&\&\ velocity.y\ ==\ 0)}
 \DoxyCodeLine{00034\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00035\ \ \ \ \ }
-\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out\ =\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>slide(velocity\ *\ deltaTime,\ scene-\/>getTag(\textcolor{stringliteral}{"{}Ground"{}}));}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out\ =\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>box-\/>slide(velocity\ *\ deltaTime,\ scene-\/>getTag(\textcolor{stringliteral}{"{}Ground"{}}));}
 \DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ if\ (out.horizontalHit)\ velocity.x\ =\ 0;}}
 \DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (out.verticleHit)\ velocity.y\ =\ 0;}
 \DoxyCodeLine{00039\ \ \ \}}
