@@ -23,6 +23,7 @@
   <td id="projectalign">
    <div id="projectname">Charlie2D
    </div>
+   <div id="projectbrief">A simple sdl2 based game engine</div>
   </td>
  </tr>
  </tbody>
@@ -98,32 +99,35 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        texture = ResourceManager::getInstance(GameManager::renderer).getColoredTexture(color, textureName);</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> start()<span class="keyword"> override </span>{</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0">   17</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0">start</a>()<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        loadTexture(textureName);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        layer = 65;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        useLayer = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_variable" href="classComponent.html#adf18bc31ffaf50ea287ca1ffd2a5e866">layer</a> = 65;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_variable" href="classComponent.html#acc6b6f489071d8549dc0f2976225e051">useLayer</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> loadTexture(std::string name) {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        textureName = name;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        texture = ResourceManager::getInstance(GameManager::renderer).getTexture(textureName);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{</div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679">   28</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679">update</a>(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        SDL_Rect spriteRect = {0,0,0,0};</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">if</span> (<span class="keyword">true</span>)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="comment">//spriteRect.x = GameManager::screen_change_scale * (box-&gt;getPosition().x) + GameManager::currentWindowSize.x/2; </span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="comment">//spriteRect.y = GameManager::screen_change_scale * (box-&gt;getPosition().y) + GameManager::currentWindowSize.y/2;    </span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordtype">float</span> scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <a class="code hl_struct" href="structVector2f.html">Vector2f</a> renderPos = entity-&gt;box-&gt;getUIPosition();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordtype">float</span> scaler = <a class="code hl_variable" href="classGameManager.html#a773d2f4d3feb16d50e6a5250e4a5924d">GameManager::screen_change_scale</a> * ((<a class="code hl_variable" href="classGameManager.html#ab63f7a2c269aafb43e9e85f6ca8ebebc">GameManager::gameWindowSize</a>.x + <a class="code hl_variable" href="classGameManager.html#ab63f7a2c269aafb43e9e85f6ca8ebebc">GameManager::gameWindowSize</a>.y) / (<a class="code hl_variable" href="classGameManager.html#aa7dc06b7277c7c0afe7ba947e99834a0">GameManager::camera</a>.size.x + <a class="code hl_variable" href="classGameManager.html#aa7dc06b7277c7c0afe7ba947e99834a0">GameManager::camera</a>.size.y));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <a class="code hl_struct" href="structVector2f.html">Vector2f</a> renderPos = <a class="code hl_variable" href="classComponent.html#a72e64cf11f1a4b23c57da0669749522d">entity</a>-&gt;box-&gt;getUIPosition();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            spriteRect.x = renderPos.x;<span class="comment">//+ GameManager::camera.getCenter().x;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            spriteRect.y = renderPos.y;<span class="comment">//+ GameManager::camera.getCenter().y;</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="comment">//std::cout &lt;&lt; spriteRect.x &lt;&lt; &quot;, &quot; &lt;&lt; spriteRect.y &lt;&lt; std::endl;</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            spriteRect.w = box-&gt;getSize().x * GameManager::screen_change_scale;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            spriteRect.h = box-&gt;getSize().y * GameManager::screen_change_scale;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            spriteRect.w = box-&gt;getSize().x * <a class="code hl_variable" href="classGameManager.html#a773d2f4d3feb16d50e6a5250e4a5924d">GameManager::screen_change_scale</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            spriteRect.h = box-&gt;getSize().y * <a class="code hl_variable" href="classGameManager.html#a773d2f4d3feb16d50e6a5250e4a5924d">GameManager::screen_change_scale</a>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="comment">//spriteRect.x = GameManager::screen_change_scale * (box-&gt;getPosition().x) ;//+ GameManager::windowWidth/2; </span></div>
@@ -135,6 +139,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> Draw9SlicedTexture(SDL_Renderer* renderer, SDL_Texture* texture, SDL_Rect destRect, <span class="keywordtype">int</span> borderSize)</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
@@ -196,8 +201,16 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::string textureName = <span class="stringliteral">&quot;img/panel.png&quot;</span>;</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>};</div>
 </div>
-<div class="ttc" id="aclassComponent_html"><div class="ttname"><a href="classComponent.html">Component</a></div><div class="ttdef"><b>Definition</b> Component.h:13</div></div>
+<div class="ttc" id="aclassComponent_html"><div class="ttname"><a href="classComponent.html">Component</a></div><div class="ttdoc">Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...</div><div class="ttdef"><b>Definition</b> Component.h:17</div></div>
+<div class="ttc" id="aclassComponent_html_a72e64cf11f1a4b23c57da0669749522d"><div class="ttname"><a href="classComponent.html#a72e64cf11f1a4b23c57da0669749522d">Component::entity</a></div><div class="ttdeci">Entity * entity</div><div class="ttdoc">The attached entity.</div><div class="ttdef"><b>Definition</b> Component.h:42</div></div>
+<div class="ttc" id="aclassComponent_html_acc6b6f489071d8549dc0f2976225e051"><div class="ttname"><a href="classComponent.html#acc6b6f489071d8549dc0f2976225e051">Component::useLayer</a></div><div class="ttdeci">bool useLayer</div><div class="ttdoc">Tells the engine to update with a sorting algorithim (made for sprites)</div><div class="ttdef"><b>Definition</b> Component.h:56</div></div>
+<div class="ttc" id="aclassComponent_html_adf18bc31ffaf50ea287ca1ffd2a5e866"><div class="ttname"><a href="classComponent.html#adf18bc31ffaf50ea287ca1ffd2a5e866">Component::layer</a></div><div class="ttdeci">int layer</div><div class="ttdoc">Layer to update on (requires useLayer=true)</div><div class="ttdef"><b>Definition</b> Component.h:49</div></div>
+<div class="ttc" id="aclassGameManager_html_a773d2f4d3feb16d50e6a5250e4a5924d"><div class="ttname"><a href="classGameManager.html#a773d2f4d3feb16d50e6a5250e4a5924d">GameManager::screen_change_scale</a></div><div class="ttdeci">static float screen_change_scale</div><div class="ttdoc">ratio between original and current screen sizes</div><div class="ttdef"><b>Definition</b> GameManager.h:114</div></div>
+<div class="ttc" id="aclassGameManager_html_aa7dc06b7277c7c0afe7ba947e99834a0"><div class="ttname"><a href="classGameManager.html#aa7dc06b7277c7c0afe7ba947e99834a0">GameManager::camera</a></div><div class="ttdeci">static Box camera</div><div class="ttdoc">the camera, yup... very fanthy</div><div class="ttdef"><b>Definition</b> GameManager.h:22</div></div>
+<div class="ttc" id="aclassGameManager_html_ab63f7a2c269aafb43e9e85f6ca8ebebc"><div class="ttname"><a href="classGameManager.html#ab63f7a2c269aafb43e9e85f6ca8ebebc">GameManager::gameWindowSize</a></div><div class="ttdeci">static Vector2f gameWindowSize</div><div class="ttdoc">the original resolution</div><div class="ttdef"><b>Definition</b> GameManager.h:17</div></div>
 <div class="ttc" id="aclassUISliceRenderer_html"><div class="ttname"><a href="classUISliceRenderer.html">UISliceRenderer</a></div><div class="ttdef"><b>Definition</b> UISliceRenderer.h:9</div></div>
+<div class="ttc" id="aclassUISliceRenderer_html_a70dfbcf5eea07764b7f5c345f94f7679"><div class="ttname"><a href="classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679">UISliceRenderer::update</a></div><div class="ttdeci">void update(float deltaTime) override</div><div class="ttdoc">Updates in the update loop.</div><div class="ttdef"><b>Definition</b> UISliceRenderer.h:28</div></div>
+<div class="ttc" id="aclassUISliceRenderer_html_acf303ae3fd794b707044ff2fd6fa3ba0"><div class="ttname"><a href="classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0">UISliceRenderer::start</a></div><div class="ttdeci">void start() override</div><div class="ttdoc">Runs after Component data is set in entity.add.</div><div class="ttdef"><b>Definition</b> UISliceRenderer.h:17</div></div>
 <div class="ttc" id="astructVector2f_html"><div class="ttname"><a href="structVector2f.html">Vector2f</a></div><div class="ttdef"><b>Definition</b> Math.h:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

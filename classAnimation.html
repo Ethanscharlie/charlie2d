@@ -23,6 +23,7 @@
   <td id="projectalign">
    <div id="projectname">Charlie2D
    </div>
+   <div id="projectbrief">A simple sdl2 based game engine</div>
   </td>
  </tr>
  </tbody>
@@ -76,29 +77,35 @@ $(function() {
   <div class="headertitle"><div class="title">Animation Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ANIMATIONS YEAH!!! Meant to be used the the <a class="el" href="classSprite.html">Sprite</a> <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a>.  
+ <a href="classAnimation.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Animation_8h_source.html">Animation.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac42772bcf0eef694186a8f01b8132925" id="r_ac42772bcf0eef694186a8f01b8132925"><td class="memItemLeft" align="right" valign="top"><a id="ac42772bcf0eef694186a8f01b8132925" name="ac42772bcf0eef694186a8f01b8132925"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Animation</b> (<a class="el" href="classSprite.html">Sprite</a> *spriteIn, std::vector&lt; std::string &gt; framesIn, float fpsIn)</td></tr>
+<tr class="memitem:ac42772bcf0eef694186a8f01b8132925" id="r_ac42772bcf0eef694186a8f01b8132925"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#ac42772bcf0eef694186a8f01b8132925">Animation</a> (<a class="el" href="classSprite.html">Sprite</a> *spriteIn, std::vector&lt; std::string &gt; framesIn, float fpsIn)</td></tr>
+<tr class="memdesc:ac42772bcf0eef694186a8f01b8132925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uhh yeah.  <br /></td></tr>
 <tr class="separator:ac42772bcf0eef694186a8f01b8132925"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4318baf0b0735e7da87b2c6d3d3a2705" id="r_a4318baf0b0735e7da87b2c6d3d3a2705"><td class="memItemLeft" align="right" valign="top"><a id="a4318baf0b0735e7da87b2c6d3d3a2705" name="a4318baf0b0735e7da87b2c6d3d3a2705"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memitem:a4318baf0b0735e7da87b2c6d3d3a2705" id="r_a4318baf0b0735e7da87b2c6d3d3a2705"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#a4318baf0b0735e7da87b2c6d3d3a2705">update</a> ()</td></tr>
+<tr class="memdesc:a4318baf0b0735e7da87b2c6d3d3a2705"><td class="mdescLeft">&#160;</td><td class="mdescRight">update loop for the animation  <br /></td></tr>
 <tr class="separator:a4318baf0b0735e7da87b2c6d3d3a2705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad53139f47d0156675d9e86cad7a9ec89" id="r_ad53139f47d0156675d9e86cad7a9ec89"><td class="memItemLeft" align="right" valign="top"><a id="ad53139f47d0156675d9e86cad7a9ec89" name="ad53139f47d0156675d9e86cad7a9ec89"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetFrameCounter</b> ()</td></tr>
+<tr class="memitem:ad53139f47d0156675d9e86cad7a9ec89" id="r_ad53139f47d0156675d9e86cad7a9ec89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#ad53139f47d0156675d9e86cad7a9ec89">resetFrameCounter</a> ()</td></tr>
+<tr class="memdesc:ad53139f47d0156675d9e86cad7a9ec89"><td class="mdescLeft">&#160;</td><td class="mdescRight">resets the frame counter  <br /></td></tr>
 <tr class="separator:ad53139f47d0156675d9e86cad7a9ec89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50b8a5b99e7cd4b2f42b399a9a8c8197" id="r_a50b8a5b99e7cd4b2f42b399a9a8c8197"><td class="memItemLeft" align="right" valign="top"><a id="a50b8a5b99e7cd4b2f42b399a9a8c8197" name="a50b8a5b99e7cd4b2f42b399a9a8c8197"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> (int direction=1, std::function&lt; void()&gt; onFinishIn=[](){})</td></tr>
-<tr class="separator:a50b8a5b99e7cd4b2f42b399a9a8c8197"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad173a19155aa3843533302ded3e01dd5" id="r_ad173a19155aa3843533302ded3e01dd5"><td class="memItemLeft" align="right" valign="top"><a id="ad173a19155aa3843533302ded3e01dd5" name="ad173a19155aa3843533302ded3e01dd5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loop</b> (int direction=1)</td></tr>
+<tr class="memitem:aa94dcb6f0f23ebd169573d9e039b2975" id="r_aa94dcb6f0f23ebd169573d9e039b2975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#aa94dcb6f0f23ebd169573d9e039b2975">play</a> (int direction=1, std::function&lt; void()&gt; onFinishIn=[]() {})</td></tr>
+<tr class="memdesc:aa94dcb6f0f23ebd169573d9e039b2975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the animation.  <br /></td></tr>
+<tr class="separator:aa94dcb6f0f23ebd169573d9e039b2975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad173a19155aa3843533302ded3e01dd5" id="r_ad173a19155aa3843533302ded3e01dd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnimation.html#ad173a19155aa3843533302ded3e01dd5">loop</a> (int direction=1)</td></tr>
+<tr class="memdesc:ad173a19155aa3843533302ded3e01dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells the animation to loop and not just play.  <br /></td></tr>
 <tr class="separator:ad173a19155aa3843533302ded3e01dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:add71a00596eb3f48760752cb006ad768" id="r_add71a00596eb3f48760752cb006ad768"><td class="memItemLeft" align="right" valign="top"><a id="add71a00596eb3f48760752cb006ad768" name="add71a00596eb3f48760752cb006ad768"></a>
 <a class="el" href="classSprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>sprite</b></td></tr>
+<tr class="memdesc:add71a00596eb3f48760752cb006ad768"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classSprite.html">Sprite</a> <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> for the rendering. <br /></td></tr>
 <tr class="separator:add71a00596eb3f48760752cb006ad768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41853be6dd73831d6e062982f86f4173" id="r_a41853be6dd73831d6e062982f86f4173"><td class="memItemLeft" align="right" valign="top"><a id="a41853be6dd73831d6e062982f86f4173" name="a41853be6dd73831d6e062982f86f4173"></a>
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>frames</b></td></tr>
@@ -125,8 +132,160 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>looping</b></td></tr>
 std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onFinish</b></td></tr>
 <tr class="separator:a19b354e46ceb8544e91e95cfefa3b9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>ANIMATIONS YEAH!!! Meant to be used the the <a class="el" href="classSprite.html">Sprite</a> <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac42772bcf0eef694186a8f01b8132925" name="ac42772bcf0eef694186a8f01b8132925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac42772bcf0eef694186a8f01b8132925">&#9670;&#160;</a></span>Animation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Animation::Animation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSprite.html">Sprite</a> *&#160;</td>
+          <td class="paramname"><em>spriteIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>framesIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fpsIn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Uhh yeah. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spriteIn</td><td>the <a class="el" href="classSprite.html">Sprite</a> <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> using the animation </td></tr>
+    <tr><td class="paramname">framesIn</td><td>the filenames for the frames in the animation </td></tr>
+    <tr><td class="paramname">fpsIn</td><td>fps stands for faps-Uhh I mean frames per second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad173a19155aa3843533302ded3e01dd5" name="ad173a19155aa3843533302ded3e01dd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad173a19155aa3843533302ded3e01dd5">&#9670;&#160;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Animation::loop </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>direction</em> = <code>1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tells the animation to loop and not just play. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>can be 1 or -1 (to play backwards) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa94dcb6f0f23ebd169573d9e039b2975" name="aa94dcb6f0f23ebd169573d9e039b2975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa94dcb6f0f23ebd169573d9e039b2975">&#9670;&#160;</a></span>play()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Animation::play </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>direction</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>onFinishIn</em> = <code>[]()&#160;{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the animation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>can be 1 or -1 (to play backwards) </td></tr>
+    <tr><td class="paramname">onFinishIn</td><td>code to run on animation finish </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad53139f47d0156675d9e86cad7a9ec89" name="ad53139f47d0156675d9e86cad7a9ec89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad53139f47d0156675d9e86cad7a9ec89">&#9670;&#160;</a></span>resetFrameCounter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Animation::resetFrameCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>resets the frame counter </p>
+<p>TODO remember what this method does because I forgor tbh </p>
+
+</div>
+</div>
+<a id="a4318baf0b0735e7da87b2c6d3d3a2705" name="a4318baf0b0735e7da87b2c6d3d3a2705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4318baf0b0735e7da87b2c6d3d3a2705">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Animation::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>update loop for the animation </p>
+<p>Don't worry it still uses the timer inside it and doesn't just switch frames </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="Animation_8h_source.html">Animation.h</a></li>
+<li>source/<b>Animation.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

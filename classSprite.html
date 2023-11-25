@@ -23,6 +23,7 @@
   <td id="projectalign">
    <div id="projectname">Charlie2D
    </div>
+   <div id="projectbrief">A simple sdl2 based game engine</div>
   </td>
  </tr>
  </tbody>
@@ -82,15 +83,17 @@ Inheritance diagram for Sprite:</div>
  <div class="center">
   <img src="classSprite.png" usemap="#Sprite_map" alt=""/>
   <map id="Sprite_map" name="Sprite_map">
-<area href="classComponent.html" alt="Component" shape="rect" coords="0,0,75,24"/>
+<area href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi..." alt="Component" shape="rect" coords="0,0,75,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad69637776e32e93bda17fe7a108dbb86" id="r_ad69637776e32e93bda17fe7a108dbb86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#ad69637776e32e93bda17fe7a108dbb86">start</a> () override</td></tr>
+<tr class="memdesc:ad69637776e32e93bda17fe7a108dbb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs after <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> data is set in entity.add.  <br /></td></tr>
 <tr class="separator:ad69637776e32e93bda17fe7a108dbb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea1bb193b0b1a47512ef1e7751a38f2f" id="r_aea1bb193b0b1a47512ef1e7751a38f2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite.html#aea1bb193b0b1a47512ef1e7751a38f2f">update</a> (float deltaTime) override</td></tr>
+<tr class="memdesc:aea1bb193b0b1a47512ef1e7751a38f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates in the update loop.  <br /></td></tr>
 <tr class="separator:aea1bb193b0b1a47512ef1e7751a38f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac45edbbc803151dcd90cb1edd75d4f22" id="r_ac45edbbc803151dcd90cb1edd75d4f22"><td class="memItemLeft" align="right" valign="top"><a id="ac45edbbc803151dcd90cb1edd75d4f22" name="ac45edbbc803151dcd90cb1edd75d4f22"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadTexture</b> (const std::string &amp;image, bool setSize=true, bool keepCentered=true)</td></tr>
@@ -102,16 +105,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addAnimation</b> (std
 <tr class="memitem:a5d72c9763c12b6073a92a51ac1d6c590 inherit pub_methods_classComponent" id="r_a5d72c9763c12b6073a92a51ac1d6c590"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>Component</b> (std::string _title=&quot;&quot;)</td></tr>
 <tr class="separator:a5d72c9763c12b6073a92a51ac1d6c590 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d2e572343ab4b6c47d5d03c6448ceb2 inherit pub_methods_classComponent" id="r_a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onDestroy</b> ()</td></tr>
+<tr class="memitem:a1d2e572343ab4b6c47d5d03c6448ceb2 inherit pub_methods_classComponent" id="r_a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a1d2e572343ab4b6c47d5d03c6448ceb2">onDestroy</a> ()</td></tr>
+<tr class="memdesc:a1d2e572343ab4b6c47d5d03c6448ceb2 inherit pub_methods_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is called when entity-&gt;toDestory = true.  <br /></td></tr>
 <tr class="separator:a1d2e572343ab4b6c47d5d03c6448ceb2 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae54013904603c2a15d9963d28e666d78 inherit pub_methods_classComponent" id="r_ae54013904603c2a15d9963d28e666d78"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onScreenChange</b> ()</td></tr>
+<tr class="memitem:ae54013904603c2a15d9963d28e666d78 inherit pub_methods_classComponent" id="r_ae54013904603c2a15d9963d28e666d78"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ae54013904603c2a15d9963d28e666d78">onScreenChange</a> ()</td></tr>
+<tr class="memdesc:ae54013904603c2a15d9963d28e666d78 inherit pub_methods_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs when the screen size is changed.  <br /></td></tr>
 <tr class="separator:ae54013904603c2a15d9963d28e666d78 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a539c336fe7bcb8ab37b57030acd7e6 inherit pub_methods_classComponent" id="r_a7a539c336fe7bcb8ab37b57030acd7e6"><td class="memTemplParams" colspan="2">
-template&lt;typename C &gt; </td></tr>
-<tr class="memitem:a7a539c336fe7bcb8ab37b57030acd7e6 inherit pub_methods_classComponent"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>checkComponent</b> ()</td></tr>
-<tr class="separator:a7a539c336fe7bcb8ab37b57030acd7e6 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d72c9763c12b6073a92a51ac1d6c590 inherit pub_methods_classComponent" id="r_a5d72c9763c12b6073a92a51ac1d6c590"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Component</b> (std::string _title=&quot;&quot;)</td></tr>
+<tr class="separator:a5d72c9763c12b6073a92a51ac1d6c590 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2e572343ab4b6c47d5d03c6448ceb2 inherit pub_methods_classComponent" id="r_a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a1d2e572343ab4b6c47d5d03c6448ceb2">onDestroy</a> ()</td></tr>
+<tr class="separator:a1d2e572343ab4b6c47d5d03c6448ceb2 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54013904603c2a15d9963d28e666d78 inherit pub_methods_classComponent" id="r_ae54013904603c2a15d9963d28e666d78"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ae54013904603c2a15d9963d28e666d78">onScreenChange</a> ()</td></tr>
+<tr class="separator:ae54013904603c2a15d9963d28e666d78 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -143,15 +149,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>renderAsUI</b> = fals
 SDL_RendererFlip&#160;</td><td class="memItemRight" valign="bottom"><b>flip</b> = SDL_FLIP_NONE</td></tr>
 <tr class="separator:a0479774247c6e8d902ece6aec2a1960f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classComponent')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classComponent.html">Component</a></td></tr>
-<tr class="memitem:a374bdfccd617fc1919f9022cecf42251 inherit pub_attribs_classComponent" id="r_a374bdfccd617fc1919f9022cecf42251"><td class="memItemLeft" align="right" valign="top">
+<tr class="memitem:abe845d868daf2ef37c7370d0797e0943 inherit pub_attribs_classComponent" id="r_abe845d868daf2ef37c7370d0797e0943"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="structentityBox.html">entityBox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>box</b></td></tr>
-<tr class="separator:a374bdfccd617fc1919f9022cecf42251 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6acb3f00c9d114d961c8763ede390d2c inherit pub_attribs_classComponent" id="r_a6acb3f00c9d114d961c8763ede390d2c"><td class="memItemLeft" align="right" valign="top">
+<tr class="separator:abe845d868daf2ef37c7370d0797e0943 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e64cf11f1a4b23c57da0669749522d inherit pub_attribs_classComponent" id="r_a72e64cf11f1a4b23c57da0669749522d"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classEntity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>entity</b> = nullptr</td></tr>
-<tr class="separator:a6acb3f00c9d114d961c8763ede390d2c inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a681344c0ff97f7dd2162b59799ed4c0a inherit pub_attribs_classComponent" id="r_a681344c0ff97f7dd2162b59799ed4c0a"><td class="memItemLeft" align="right" valign="top">
+<tr class="memdesc:a72e64cf11f1a4b23c57da0669749522d inherit pub_attribs_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">The attached entity. <br /></td></tr>
+<tr class="separator:a72e64cf11f1a4b23c57da0669749522d inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f6c4a38cd3fbf36984bfa9e0a9eae7 inherit pub_attribs_classComponent" id="r_a37f6c4a38cd3fbf36984bfa9e0a9eae7"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classScene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>scene</b></td></tr>
-<tr class="separator:a681344c0ff97f7dd2162b59799ed4c0a inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a37f6c4a38cd3fbf36984bfa9e0a9eae7 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dda7de19221b9351c969517de715fe7 inherit pub_attribs_classComponent" id="r_a9dda7de19221b9351c969517de715fe7"><td class="memItemLeft" align="right" valign="top">
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>title</b> = &quot;&quot;</td></tr>
 <tr class="separator:a9dda7de19221b9351c969517de715fe7 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,6 +167,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInit</b> = false</t
 <tr class="separator:a7122d36fac96efccec8bcb4a6c32a8a1 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf18bc31ffaf50ea287ca1ffd2a5e866 inherit pub_attribs_classComponent" id="r_adf18bc31ffaf50ea287ca1ffd2a5e866"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>layer</b> = 0</td></tr>
+<tr class="memdesc:adf18bc31ffaf50ea287ca1ffd2a5e866 inherit pub_attribs_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer to update on (requires useLayer=true) <br /></td></tr>
 <tr class="separator:adf18bc31ffaf50ea287ca1ffd2a5e866 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a480e312ce44abfa2e6502d49876bbb3d inherit pub_attribs_classComponent" id="r_a480e312ce44abfa2e6502d49876bbb3d"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></tr>
@@ -169,9 +177,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>entityTag</b> 
 <tr class="separator:a302b94be874440b798b1ec4d941ea8d0 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc6b6f489071d8549dc0f2976225e051 inherit pub_attribs_classComponent" id="r_acc6b6f489071d8549dc0f2976225e051"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useLayer</b> = false</td></tr>
+<tr class="memdesc:acc6b6f489071d8549dc0f2976225e051 inherit pub_attribs_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells the engine to update with a sorting algorithim (made for sprites) <br /></td></tr>
 <tr class="separator:acc6b6f489071d8549dc0f2976225e051 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent" id="r_ad1e24bf474dadd687bef5bd5658cec28"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = true</td></tr>
+<tr class="memdesc:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will update the <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> in the game loop. <br /></td></tr>
 <tr class="separator:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -198,7 +208,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classComponent.html">Component</a>.</p>
+<p>Runs after <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> data is set in entity.add. </p>
+
+<p>Implements <a class="el" href="classComponent.html#adef0f642e0ed12a9b29afe587b912972">Component</a>.</p>
 
 </div>
 </div>
@@ -226,12 +238,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classComponent.html">Component</a>.</p>
+<p>Updates in the update loop. </p>
+
+<p>Implements <a class="el" href="classComponent.html#a9152b930559c4ece4ea5ddd3e6e4b22b">Component</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="Sprite_8h_source.html">Sprite.h</a></li>
+<li>source/<b>Sprite.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
