@@ -10,9 +10,9 @@ Inheritance diagram for Sprite\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classSprite_ad69637776e32e93bda17fe7a108dbb86}{start}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}{update}} (float delta\+Time) override
-\item 
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
 \Hypertarget{classSprite_ac45edbbc803151dcd90cb1edd75d4f22}\label{classSprite_ac45edbbc803151dcd90cb1edd75d4f22} 
 void {\bfseries load\+Texture} (const std\+::string \&image, bool set\+Size=true, bool keep\+Centered=true)
 \item 
@@ -24,11 +24,15 @@ void {\bfseries add\+Animation} (std\+::string title, std\+::vector$<$ std\+::st
 \item 
 {\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void {\bfseries on\+Destroy} ()
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void {\bfseries on\+Screen\+Change} ()
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \item 
-{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -66,7 +70,7 @@ SDL\+\_\+\+Renderer\+Flip {\bfseries flip} = SDL\+\_\+\+FLIP\+\_\+\+NONE
 \mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
 \item 
 \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
-\item 
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
 std\+::string {\bfseries title} = "{}"{}
@@ -74,15 +78,15 @@ std\+::string {\bfseries title} = "{}"{}
 bool {\bfseries is\+Init} = false
 \item 
 int {\bfseries layer} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Layer to update on (requires use\+Layer=true) \end{DoxyCompactList}\item 
 int {\bfseries index}
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
 bool {\bfseries use\+Layer} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
 bool {\bfseries standard\+Update} = true
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
@@ -94,7 +98,11 @@ bool {\bfseries standard\+Update} = true
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{Component}}.
 
 \Hypertarget{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}\label{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f} 
 \index{Sprite@{Sprite}!update@{update}}
@@ -104,10 +112,15 @@ Implements \mbox{\hyperlink{classComponent}{Component}}.
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Updates in the update loop. 
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Implements \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Sprite.\+h\end{DoxyCompactItemize}
+include/Sprite.\+h\item 
+source/Sprite.\+cpp\end{DoxyCompactItemize}

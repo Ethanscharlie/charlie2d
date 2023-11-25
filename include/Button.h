@@ -6,7 +6,11 @@
 #include "Math.h"
 #include "GameManager.h"
 #include "InputManager.h"
+#include "EntityBox.h"
 
+/**
+ *\brief Meant to be used alongside UISliceRenderer
+ */
 class Button : public Component {
     public:
     Button() : Component("Button") {};

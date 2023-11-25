@@ -5,29 +5,30 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COLLIDER\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COLLIDER\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Math.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}EntityBox.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}EntityBox.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Math.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ std::vector<Component*>\ Group;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ std::vector<Component\ *>\ Group;}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCollider}{Collider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classCollider}{Collider}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}collider"{}})\ \{\};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ start()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00019\ \ \ \ \ std::vector<Collider*>\ getCollisions(std::string\ tag=\textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkCollision(\mbox{\hyperlink{classCollider}{Collider}}\ col);}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkBoxCollision(\mbox{\hyperlink{structBox}{Box}}\ otherBox);}
-\DoxyCodeLine{00022\ \ \ \ \ }
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structBox}{Box}}\ colliderBox;\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ solid\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00025\ \};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCollider}{Collider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classCollider}{Collider}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}collider"{}})\{\};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCollider_accd99a67e32b8c4d56f5e346c06b1530}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ std::vector<Collider\ *>\ \mbox{\hyperlink{classCollider_a77519e4068d8a122f3906c55801ffd92}{getCollisions}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCollider_a4e15234bb7d94468dc3060e98944c13f}{checkCollision}}(\mbox{\hyperlink{classCollider}{Collider}}\ col);}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCollider_aefba4ca2e639502bb578461ffe6e5117}{checkBoxCollision}}(\mbox{\hyperlink{structBox}{Box}}\ otherBox);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{structBox}{Box}}\ colliderBox;}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCollider_a9d0989cd3aa64ac3f9873dfb82166fca}{solid}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

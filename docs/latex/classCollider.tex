@@ -1,5 +1,14 @@
 \doxysection{Collider Class Reference}
 \hypertarget{classCollider}{}\label{classCollider}\index{Collider@{Collider}}
+
+
+Colliders event tho Box.\+check\+Collision exists too.  
+
+
+
+
+{\ttfamily \#include $<$Collider.\+h$>$}
+
 Inheritance diagram for Collider\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,28 +19,31 @@ Inheritance diagram for Collider\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}{start}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCollider_accd99a67e32b8c4d56f5e346c06b1530}{update}} (float delta\+Time) override
-\item 
-\Hypertarget{classCollider_a77519e4068d8a122f3906c55801ffd92}\label{classCollider_a77519e4068d8a122f3906c55801ffd92} 
-std\+::vector$<$ \mbox{\hyperlink{classCollider}{Collider}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Collisions} (std\+::string tag="{}"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classCollider}{Collider}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classCollider_a77519e4068d8a122f3906c55801ffd92}{get\+Collisions}} (std\+::string tag="{}"{})
+\begin{DoxyCompactList}\small\item\em Gets all active collisions with other \doxylink{classCollider}{Collider} s. \end{DoxyCompactList}\item 
 \Hypertarget{classCollider_a4e15234bb7d94468dc3060e98944c13f}\label{classCollider_a4e15234bb7d94468dc3060e98944c13f} 
 bool {\bfseries check\+Collision} (\mbox{\hyperlink{classCollider}{Collider}} col)
-\item 
+\begin{DoxyCompactList}\small\item\em Checks a collision with one other \doxylink{classCollider}{Collider}... again? \end{DoxyCompactList}\item 
 \Hypertarget{classCollider_aefba4ca2e639502bb578461ffe6e5117}\label{classCollider_aefba4ca2e639502bb578461ffe6e5117} 
 bool {\bfseries check\+Box\+Collision} (\mbox{\hyperlink{structBox}{Box}} other\+Box)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks a collision with one other \doxylink{classCollider}{Collider}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
 {\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void {\bfseries on\+Destroy} ()
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void {\bfseries on\+Screen\+Change} ()
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \item 
-{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -41,14 +53,14 @@ virtual void {\bfseries on\+Screen\+Change} ()
 \item 
 \Hypertarget{classCollider_a9d0989cd3aa64ac3f9873dfb82166fca}\label{classCollider_a9d0989cd3aa64ac3f9873dfb82166fca} 
 bool {\bfseries solid} = false
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Is solid for physics systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
 \item 
 \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
-\item 
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
 std\+::string {\bfseries title} = "{}"{}
@@ -56,18 +68,36 @@ std\+::string {\bfseries title} = "{}"{}
 bool {\bfseries is\+Init} = false
 \item 
 int {\bfseries layer} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Layer to update on (requires use\+Layer=true) \end{DoxyCompactList}\item 
 int {\bfseries index}
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
 bool {\bfseries use\+Layer} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
 bool {\bfseries standard\+Update} = true
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Colliders event tho Box.\+check\+Collision exists too. 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classCollider_a77519e4068d8a122f3906c55801ffd92}\label{classCollider_a77519e4068d8a122f3906c55801ffd92} 
+\index{Collider@{Collider}!getCollisions@{getCollisions}}
+\index{getCollisions@{getCollisions}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{getCollisions()}{getCollisions()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classCollider}{Collider}} \texorpdfstring{$\ast$}{*} $>$ Collider\+::get\+Collisions (\begin{DoxyParamCaption}\item[{std\+::string}]{tag = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+
+
+Gets all active collisions with other \doxylink{classCollider}{Collider} s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tag} & allowes you to narrow collisions down to only with a certain tag \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}\label{classCollider_afc2cd70c2772433aaba405d1fc1a5beb} 
 \index{Collider@{Collider}!start@{start}}
 \index{start@{start}!Collider@{Collider}}
@@ -76,7 +106,11 @@ bool {\bfseries standard\+Update} = true
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{Component}}.
 
 \Hypertarget{classCollider_accd99a67e32b8c4d56f5e346c06b1530}\label{classCollider_accd99a67e32b8c4d56f5e346c06b1530} 
 \index{Collider@{Collider}!update@{update}}
@@ -86,10 +120,15 @@ Implements \mbox{\hyperlink{classComponent}{Component}}.
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Updates in the update loop. 
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Implements \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Collider.\+h\end{DoxyCompactItemize}
+include/Collider.\+h\item 
+source/Collider.\+cpp\end{DoxyCompactItemize}

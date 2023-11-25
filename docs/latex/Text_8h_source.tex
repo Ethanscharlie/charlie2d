@@ -15,15 +15,15 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{classText}{Text}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}Text"{}})\{\};}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ start()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classText_a7c7391c29820a87f72dd30c92e71c85f}{start}}()\textcolor{keyword}{\ override\ }\{}
 \DoxyCodeLine{00015\ \ \ \ \ text\ =\ \textcolor{stringliteral}{"{}"{}};}
 \DoxyCodeLine{00016\ \ \ \ \ fontSize\ =\ original\_font\_size;}
 \DoxyCodeLine{00017\ \ \ \ \ changeFont(mfontFile,\ original\_font\_size);}
-\DoxyCodeLine{00018\ \ \ \ \ layer\ =\ 70;}
-\DoxyCodeLine{00019\ \ \ \ \ useLayer\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classComponent_adf18bc31ffaf50ea287ca1ffd2a5e866}{layer}}\ =\ 70;}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classComponent_acc6b6f489071d8549dc0f2976225e051}{useLayer}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00020\ \ \ \}}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
 \DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (text.length()\ <=\ 0)}
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ if\ (fontFile\ ==\ "{}"{})\ return;}}
@@ -33,35 +33,35 @@
 \DoxyCodeLine{00029\ \ \ \ \ SDL\_Rect\ spriteRect\ =\ \{0,\ 0,\ 0,\ 0\};}
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ width\_scale\ =}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ (float)GameManager::currentWindowSize.x\ /\ GameManager::gameWindowSize.x;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ (float)\mbox{\hyperlink{classGameManager_abb18b130f0f509697c19bbded946d135}{GameManager::currentWindowSize}}.x\ /\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.x;}
 \DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ height\_scale\ =}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ (float)GameManager::currentWindowSize.y\ /\ GameManager::gameWindowSize.y;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ (float)\mbox{\hyperlink{classGameManager_abb18b130f0f509697c19bbded946d135}{GameManager::currentWindowSize}}.y\ /\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.y;}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ spriteRect.x\ =\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().x)}}
 \DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ +\ GameManager::currentWindowSize.x/2;\ spriteRect.y\ =}}
 \DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().y)\ +}}
 \DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ GameManager::currentWindowSize.y/2;}}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ renderPos\ =\ entity-\/>box-\/>getUIPosition();}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ renderPos\ =\ \mbox{\hyperlink{classComponent_a72e64cf11f1a4b23c57da0669749522d}{entity}}-\/>box-\/>getUIPosition();}
 \DoxyCodeLine{00041\ \ \ \ \ spriteRect.x\ =\ renderPos.x;\ \textcolor{comment}{//+\ GameManager::camera.getCenter().x;}}
 \DoxyCodeLine{00042\ \ \ \ \ spriteRect.y\ =\ renderPos.y;\ \textcolor{comment}{//+\ GameManager::camera.getCenter().y;}}
 \DoxyCodeLine{00043\ }
 \DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ scaler\ =}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ GameManager::screen\_change\_scale\ *}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ ((GameManager::gameWindowSize.x\ +\ GameManager::gameWindowSize.y)\ /}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ (GameManager::camera.size.x\ +\ GameManager::camera.size.y));}
-\DoxyCodeLine{00048\ \ \ \ \ spriteRect.w\ =\ box-\/>getSize().x\ *\ GameManager::screen\_change\_scale;}
-\DoxyCodeLine{00049\ \ \ \ \ spriteRect.h\ =\ box-\/>getSize().y\ *\ GameManager::screen\_change\_scale;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{GameManager::screen\_change\_scale}}\ *}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ ((\mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.x\ +\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.y)\ /}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classGameManager_aa7dc06b7277c7c0afe7ba947e99834a0}{GameManager::camera}}.size.x\ +\ \mbox{\hyperlink{classGameManager_aa7dc06b7277c7c0afe7ba947e99834a0}{GameManager::camera}}.size.y));}
+\DoxyCodeLine{00048\ \ \ \ \ spriteRect.w\ =\ box-\/>getSize().x\ *\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{GameManager::screen\_change\_scale}};}
+\DoxyCodeLine{00049\ \ \ \ \ spriteRect.h\ =\ box-\/>getSize().y\ *\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{GameManager::screen\_change\_scale}};}
 \DoxyCodeLine{00050\ }
 \DoxyCodeLine{00051\ \ \ \ \ renderTextInRect(GameManager::renderer,\ text,\ spriteRect);}
 \DoxyCodeLine{00052\ \ \ \}}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ onScreenChange()\textcolor{keyword}{\ override\ }\{\ changeFont(mfontFile,\ fontSize);\ \}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classText_affaab7133b97efad656ceddefa93c819}{onScreenChange}}()\textcolor{keyword}{\ override\ }\{\ changeFont(mfontFile,\ fontSize);\ \}}
 \DoxyCodeLine{00055\ }
 \DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ changeFont(std::string\ fontFile,\ \textcolor{keywordtype}{int}\ size)\ \{}
 \DoxyCodeLine{00057\ \ \ \ \ fontSize\ =\ size;}
 \DoxyCodeLine{00058\ \ \ \ \ mfontFile\ =\ fontFile;}
 \DoxyCodeLine{00059\ \ \ \ \ font\ =\ TTF\_OpenFont(fontFile.c\_str(),}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fontSize\ *\ GameManager::screen\_change\_scale);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fontSize\ *\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{GameManager::screen\_change\_scale}});}
 \DoxyCodeLine{00061\ \ \ \}}
 \DoxyCodeLine{00062\ }
 \DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ renderTextInRect(SDL\_Renderer\ *renderer,\ \textcolor{keyword}{const}\ std::string\ \&text,}

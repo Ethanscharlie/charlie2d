@@ -1,5 +1,14 @@
 \doxysection{Component Class Reference}
 \hypertarget{classComponent}{}\label{classComponent}\index{Component@{Component}}
+
+
+Components are made to attach to \doxylink{classEntity}{Entity} s \doxylink{classSprite}{Sprite} Components with handle rendering while \doxylink{classCollider}{Collider} s will handle collisions.  
+
+
+
+
+{\ttfamily \#include $<$Component.\+h$>$}
+
 Inheritance diagram for Component\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,31 +21,35 @@ Inheritance diagram for Component\+:\begin{figure}[H]
 \Hypertarget{classComponent_a5d72c9763c12b6073a92a51ac1d6c590}\label{classComponent_a5d72c9763c12b6073a92a51ac1d6c590} 
 {\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-\Hypertarget{classComponent_adef0f642e0ed12a9b29afe587b912972}\label{classComponent_adef0f642e0ed12a9b29afe587b912972} 
-virtual void {\bfseries start} ()=0
+virtual void \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{start}} ()=0
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{update}} (float delta\+Time)=0
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\item 
+\Hypertarget{classComponent_a5d72c9763c12b6073a92a51ac1d6c590}\label{classComponent_a5d72c9763c12b6073a92a51ac1d6c590} 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-\Hypertarget{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}\label{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b} 
-virtual void {\bfseries update} (float delta\+Time)=0
+virtual void \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{start}} ()=0
 \item 
-\Hypertarget{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}\label{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2} 
-virtual void {\bfseries on\+Destroy} ()
+virtual void \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{update}} (float delta\+Time)=0
 \item 
-\Hypertarget{classComponent_ae54013904603c2a15d9963d28e666d78}\label{classComponent_ae54013904603c2a15d9963d28e666d78} 
-virtual void {\bfseries on\+Screen\+Change} ()
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \item 
-\Hypertarget{classComponent_a7a539c336fe7bcb8ab37b57030acd7e6}\label{classComponent_a7a539c336fe7bcb8ab37b57030acd7e6} 
-{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classComponent_a374bdfccd617fc1919f9022cecf42251}\label{classComponent_a374bdfccd617fc1919f9022cecf42251} 
+\Hypertarget{classComponent_abe845d868daf2ef37c7370d0797e0943}\label{classComponent_abe845d868daf2ef37c7370d0797e0943} 
 \mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
 \item 
-\Hypertarget{classComponent_a6acb3f00c9d114d961c8763ede390d2c}\label{classComponent_a6acb3f00c9d114d961c8763ede390d2c} 
+\Hypertarget{classComponent_a72e64cf11f1a4b23c57da0669749522d}\label{classComponent_a72e64cf11f1a4b23c57da0669749522d} 
 \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
-\item 
-\Hypertarget{classComponent_a681344c0ff97f7dd2162b59799ed4c0a}\label{classComponent_a681344c0ff97f7dd2162b59799ed4c0a} 
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+\Hypertarget{classComponent_a37f6c4a38cd3fbf36984bfa9e0a9eae7}\label{classComponent_a37f6c4a38cd3fbf36984bfa9e0a9eae7} 
 \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
 \Hypertarget{classComponent_a9dda7de19221b9351c969517de715fe7}\label{classComponent_a9dda7de19221b9351c969517de715fe7} 
@@ -47,7 +60,7 @@ bool {\bfseries is\+Init} = false
 \item 
 \Hypertarget{classComponent_adf18bc31ffaf50ea287ca1ffd2a5e866}\label{classComponent_adf18bc31ffaf50ea287ca1ffd2a5e866} 
 int {\bfseries layer} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Layer to update on (requires use\+Layer=true) \end{DoxyCompactList}\item 
 \Hypertarget{classComponent_a480e312ce44abfa2e6502d49876bbb3d}\label{classComponent_a480e312ce44abfa2e6502d49876bbb3d} 
 int {\bfseries index}
 \item 
@@ -56,12 +69,115 @@ std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
 \Hypertarget{classComponent_acc6b6f489071d8549dc0f2976225e051}\label{classComponent_acc6b6f489071d8549dc0f2976225e051} 
 bool {\bfseries use\+Layer} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
 \Hypertarget{classComponent_ad1e24bf474dadd687bef5bd5658cec28}\label{classComponent_ad1e24bf474dadd687bef5bd5658cec28} 
 bool {\bfseries standard\+Update} = true
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Detailed Description}
+Components are made to attach to \doxylink{classEntity}{Entity} s \doxylink{classSprite}{Sprite} Components with handle rendering while \doxylink{classCollider}{Collider} s will handle collisions. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}\label{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2} 
+\index{Component@{Component}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Component\+::on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classTileLayer_a7f3410a6fb557d5fb1474191c5b0fac4}{Tile\+Layer}}.
+
+\Hypertarget{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}\label{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2} 
+\index{Component@{Component}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Component\+::on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTileLayer_a7f3410a6fb557d5fb1474191c5b0fac4}{Tile\+Layer}}.
+
+\Hypertarget{classComponent_ae54013904603c2a15d9963d28e666d78}\label{classComponent_ae54013904603c2a15d9963d28e666d78} 
+\index{Component@{Component}!onScreenChange@{onScreenChange}}
+\index{onScreenChange@{onScreenChange}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{onScreenChange()}{onScreenChange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Component\+::on\+Screen\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Runs when the screen size is changed. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classText_affaab7133b97efad656ceddefa93c819}{Text}}.
+
+\Hypertarget{classComponent_ae54013904603c2a15d9963d28e666d78}\label{classComponent_ae54013904603c2a15d9963d28e666d78} 
+\index{Component@{Component}!onScreenChange@{onScreenChange}}
+\index{onScreenChange@{onScreenChange}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{onScreenChange()}{onScreenChange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Component\+::on\+Screen\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classText_affaab7133b97efad656ceddefa93c819}{Text}}.
+
+\Hypertarget{classComponent_adef0f642e0ed12a9b29afe587b912972}\label{classComponent_adef0f642e0ed12a9b29afe587b912972} 
+\index{Component@{Component}!start@{start}}
+\index{start@{start}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Component\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Implemented in \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{Button}}, \mbox{\hyperlink{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d}{Circle\+Collider}}, \mbox{\hyperlink{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}{Collider}}, \mbox{\hyperlink{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}{LDTKEntity}}, \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{physics\+Body}}, \mbox{\hyperlink{classSprite_ad69637776e32e93bda17fe7a108dbb86}{Sprite}}, \mbox{\hyperlink{classText_a7c7391c29820a87f72dd30c92e71c85f}{Text}}, \mbox{\hyperlink{classTileLayer_a5800e39c6e110a8595a841dc806433db}{Tile\+Layer}}, \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{UICanvas}}, and \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{UISlice\+Renderer}}.
+
+\Hypertarget{classComponent_adef0f642e0ed12a9b29afe587b912972}\label{classComponent_adef0f642e0ed12a9b29afe587b912972} 
+\index{Component@{Component}!start@{start}}
+\index{start@{start}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Component\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{Button}}, \mbox{\hyperlink{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d}{Circle\+Collider}}, \mbox{\hyperlink{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}{Collider}}, \mbox{\hyperlink{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}{LDTKEntity}}, \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{physics\+Body}}, \mbox{\hyperlink{classSprite_ad69637776e32e93bda17fe7a108dbb86}{Sprite}}, \mbox{\hyperlink{classText_a7c7391c29820a87f72dd30c92e71c85f}{Text}}, \mbox{\hyperlink{classTileLayer_a5800e39c6e110a8595a841dc806433db}{Tile\+Layer}}, \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{UICanvas}}, and \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{UISlice\+Renderer}}.
+
+\Hypertarget{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}\label{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b} 
+\index{Component@{Component}!update@{update}}
+\index{update@{update}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Implemented in \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{Button}}, \mbox{\hyperlink{classCircleCollider_af410c11f63576845aa343d8ff9b0e579}{Circle\+Collider}}, \mbox{\hyperlink{classCollider_accd99a67e32b8c4d56f5e346c06b1530}{Collider}}, \mbox{\hyperlink{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}{LDTKEntity}}, \mbox{\hyperlink{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}{physics\+Body}}, \mbox{\hyperlink{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}{Sprite}}, \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{Text}}, \mbox{\hyperlink{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea}{Tile\+Layer}}, \mbox{\hyperlink{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5}{UICanvas}}, and \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{UISlice\+Renderer}}.
+
+\Hypertarget{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}\label{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b} 
+\index{Component@{Component}!update@{update}}
+\index{update@{update}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{Button}}, \mbox{\hyperlink{classCircleCollider_af410c11f63576845aa343d8ff9b0e579}{Circle\+Collider}}, \mbox{\hyperlink{classCollider_accd99a67e32b8c4d56f5e346c06b1530}{Collider}}, \mbox{\hyperlink{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}{LDTKEntity}}, \mbox{\hyperlink{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}{physics\+Body}}, \mbox{\hyperlink{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}{Sprite}}, \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{Text}}, \mbox{\hyperlink{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea}{Tile\+Layer}}, \mbox{\hyperlink{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5}{UICanvas}}, and \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{UISlice\+Renderer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Component.\+h\end{DoxyCompactItemize}
+include/Component.\+h\item 
+include/Component.\+sync-\/conflict-\/20231125-\/215451-\/\+Z6\+ENONT.\+h\end{DoxyCompactItemize}

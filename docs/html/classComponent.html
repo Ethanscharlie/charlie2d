@@ -23,6 +23,7 @@
   <td id="projectalign">
    <div id="projectname">Charlie2D
    </div>
+   <div id="projectbrief">A simple sdl2 based game engine</div>
   </td>
  </tr>
  </tbody>
@@ -76,15 +77,20 @@ $(function() {
   <div class="headertitle"><div class="title">Component Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Components are made to attach to <a class="el" href="classEntity.html" title="Entitys are containers for a EnityBox and components.">Entity</a> s <a class="el" href="classSprite.html">Sprite</a> Components with handle rendering while <a class="el" href="classCollider.html" title="Colliders event tho Box.checkCollision exists too.">Collider</a> s will handle collisions.  
+ <a href="classComponent.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Component_8h_source.html">Component.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Component:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classComponent.png" usemap="#Component_map" alt=""/>
   <map id="Component_map" name="Component_map">
-<area href="classButton.html" alt="Button" shape="rect" coords="114,56,218,80"/>
-<area href="classCircleCollider.html" alt="CircleCollider" shape="rect" coords="114,112,218,136"/>
-<area href="classCollider.html" alt="Collider" shape="rect" coords="114,168,218,192"/>
+<area href="classButton.html" title="Meant to be used alongside UISliceRenderer." alt="Button" shape="rect" coords="114,56,218,80"/>
+<area href="classCircleCollider.html" title="For all your ball touching needs!" alt="CircleCollider" shape="rect" coords="114,112,218,136"/>
+<area href="classCollider.html" title="Colliders event tho Box.checkCollision exists too." alt="Collider" shape="rect" coords="114,168,218,192"/>
 <area href="classJumpMan.html" alt="JumpMan" shape="rect" coords="114,224,218,248"/>
 <area href="classLDTKEntity.html" alt="LDTKEntity" shape="rect" coords="114,280,218,304"/>
 <area href="classSprite.html" alt="Sprite" shape="rect" coords="114,336,218,360"/>
@@ -101,34 +107,42 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d72c9763c12b6073a92a51ac1d6c590" id="r_a5d72c9763c12b6073a92a51ac1d6c590"><td class="memItemLeft" align="right" valign="top"><a id="a5d72c9763c12b6073a92a51ac1d6c590" name="a5d72c9763c12b6073a92a51ac1d6c590"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Component</b> (std::string _title=&quot;&quot;)</td></tr>
 <tr class="separator:a5d72c9763c12b6073a92a51ac1d6c590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adef0f642e0ed12a9b29afe587b912972" id="r_adef0f642e0ed12a9b29afe587b912972"><td class="memItemLeft" align="right" valign="top"><a id="adef0f642e0ed12a9b29afe587b912972" name="adef0f642e0ed12a9b29afe587b912972"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()=0</td></tr>
+<tr class="memitem:adef0f642e0ed12a9b29afe587b912972" id="r_adef0f642e0ed12a9b29afe587b912972"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#adef0f642e0ed12a9b29afe587b912972">start</a> ()=0</td></tr>
+<tr class="memdesc:adef0f642e0ed12a9b29afe587b912972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs after <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> data is set in entity.add.  <br /></td></tr>
 <tr class="separator:adef0f642e0ed12a9b29afe587b912972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9152b930559c4ece4ea5ddd3e6e4b22b" id="r_a9152b930559c4ece4ea5ddd3e6e4b22b"><td class="memItemLeft" align="right" valign="top"><a id="a9152b930559c4ece4ea5ddd3e6e4b22b" name="a9152b930559c4ece4ea5ddd3e6e4b22b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (float deltaTime)=0</td></tr>
+<tr class="memitem:a9152b930559c4ece4ea5ddd3e6e4b22b" id="r_a9152b930559c4ece4ea5ddd3e6e4b22b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a9152b930559c4ece4ea5ddd3e6e4b22b">update</a> (float deltaTime)=0</td></tr>
+<tr class="memdesc:a9152b930559c4ece4ea5ddd3e6e4b22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates in the update loop.  <br /></td></tr>
 <tr class="separator:a9152b930559c4ece4ea5ddd3e6e4b22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d2e572343ab4b6c47d5d03c6448ceb2" id="r_a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memItemLeft" align="right" valign="top"><a id="a1d2e572343ab4b6c47d5d03c6448ceb2" name="a1d2e572343ab4b6c47d5d03c6448ceb2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onDestroy</b> ()</td></tr>
+<tr class="memitem:a1d2e572343ab4b6c47d5d03c6448ceb2" id="r_a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a1d2e572343ab4b6c47d5d03c6448ceb2">onDestroy</a> ()</td></tr>
+<tr class="memdesc:a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is called when entity-&gt;toDestory = true.  <br /></td></tr>
 <tr class="separator:a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae54013904603c2a15d9963d28e666d78" id="r_ae54013904603c2a15d9963d28e666d78"><td class="memItemLeft" align="right" valign="top"><a id="ae54013904603c2a15d9963d28e666d78" name="ae54013904603c2a15d9963d28e666d78"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onScreenChange</b> ()</td></tr>
+<tr class="memitem:ae54013904603c2a15d9963d28e666d78" id="r_ae54013904603c2a15d9963d28e666d78"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ae54013904603c2a15d9963d28e666d78">onScreenChange</a> ()</td></tr>
+<tr class="memdesc:ae54013904603c2a15d9963d28e666d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs when the screen size is changed.  <br /></td></tr>
 <tr class="separator:ae54013904603c2a15d9963d28e666d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a539c336fe7bcb8ab37b57030acd7e6" id="r_a7a539c336fe7bcb8ab37b57030acd7e6"><td class="memTemplParams" colspan="2"><a id="a7a539c336fe7bcb8ab37b57030acd7e6" name="a7a539c336fe7bcb8ab37b57030acd7e6"></a>
-template&lt;typename C &gt; </td></tr>
-<tr class="memitem:a7a539c336fe7bcb8ab37b57030acd7e6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>checkComponent</b> ()</td></tr>
-<tr class="separator:a7a539c336fe7bcb8ab37b57030acd7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d72c9763c12b6073a92a51ac1d6c590" id="r_a5d72c9763c12b6073a92a51ac1d6c590"><td class="memItemLeft" align="right" valign="top"><a id="a5d72c9763c12b6073a92a51ac1d6c590" name="a5d72c9763c12b6073a92a51ac1d6c590"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Component</b> (std::string _title=&quot;&quot;)</td></tr>
+<tr class="separator:a5d72c9763c12b6073a92a51ac1d6c590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adef0f642e0ed12a9b29afe587b912972" id="r_adef0f642e0ed12a9b29afe587b912972"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#adef0f642e0ed12a9b29afe587b912972">start</a> ()=0</td></tr>
+<tr class="separator:adef0f642e0ed12a9b29afe587b912972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9152b930559c4ece4ea5ddd3e6e4b22b" id="r_a9152b930559c4ece4ea5ddd3e6e4b22b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a9152b930559c4ece4ea5ddd3e6e4b22b">update</a> (float deltaTime)=0</td></tr>
+<tr class="separator:a9152b930559c4ece4ea5ddd3e6e4b22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2e572343ab4b6c47d5d03c6448ceb2" id="r_a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a1d2e572343ab4b6c47d5d03c6448ceb2">onDestroy</a> ()</td></tr>
+<tr class="separator:a1d2e572343ab4b6c47d5d03c6448ceb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54013904603c2a15d9963d28e666d78" id="r_ae54013904603c2a15d9963d28e666d78"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ae54013904603c2a15d9963d28e666d78">onScreenChange</a> ()</td></tr>
+<tr class="separator:ae54013904603c2a15d9963d28e666d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a374bdfccd617fc1919f9022cecf42251" id="r_a374bdfccd617fc1919f9022cecf42251"><td class="memItemLeft" align="right" valign="top"><a id="a374bdfccd617fc1919f9022cecf42251" name="a374bdfccd617fc1919f9022cecf42251"></a>
+<tr class="memitem:abe845d868daf2ef37c7370d0797e0943" id="r_abe845d868daf2ef37c7370d0797e0943"><td class="memItemLeft" align="right" valign="top"><a id="abe845d868daf2ef37c7370d0797e0943" name="abe845d868daf2ef37c7370d0797e0943"></a>
 <a class="el" href="structentityBox.html">entityBox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>box</b></td></tr>
-<tr class="separator:a374bdfccd617fc1919f9022cecf42251"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6acb3f00c9d114d961c8763ede390d2c" id="r_a6acb3f00c9d114d961c8763ede390d2c"><td class="memItemLeft" align="right" valign="top"><a id="a6acb3f00c9d114d961c8763ede390d2c" name="a6acb3f00c9d114d961c8763ede390d2c"></a>
+<tr class="separator:abe845d868daf2ef37c7370d0797e0943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72e64cf11f1a4b23c57da0669749522d" id="r_a72e64cf11f1a4b23c57da0669749522d"><td class="memItemLeft" align="right" valign="top"><a id="a72e64cf11f1a4b23c57da0669749522d" name="a72e64cf11f1a4b23c57da0669749522d"></a>
 <a class="el" href="classEntity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>entity</b> = nullptr</td></tr>
-<tr class="separator:a6acb3f00c9d114d961c8763ede390d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a681344c0ff97f7dd2162b59799ed4c0a" id="r_a681344c0ff97f7dd2162b59799ed4c0a"><td class="memItemLeft" align="right" valign="top"><a id="a681344c0ff97f7dd2162b59799ed4c0a" name="a681344c0ff97f7dd2162b59799ed4c0a"></a>
+<tr class="memdesc:a72e64cf11f1a4b23c57da0669749522d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The attached entity. <br /></td></tr>
+<tr class="separator:a72e64cf11f1a4b23c57da0669749522d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f6c4a38cd3fbf36984bfa9e0a9eae7" id="r_a37f6c4a38cd3fbf36984bfa9e0a9eae7"><td class="memItemLeft" align="right" valign="top"><a id="a37f6c4a38cd3fbf36984bfa9e0a9eae7" name="a37f6c4a38cd3fbf36984bfa9e0a9eae7"></a>
 <a class="el" href="classScene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>scene</b></td></tr>
-<tr class="separator:a681344c0ff97f7dd2162b59799ed4c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a37f6c4a38cd3fbf36984bfa9e0a9eae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dda7de19221b9351c969517de715fe7" id="r_a9dda7de19221b9351c969517de715fe7"><td class="memItemLeft" align="right" valign="top"><a id="a9dda7de19221b9351c969517de715fe7" name="a9dda7de19221b9351c969517de715fe7"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>title</b> = &quot;&quot;</td></tr>
 <tr class="separator:a9dda7de19221b9351c969517de715fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +151,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInit</b> = false</t
 <tr class="separator:a7122d36fac96efccec8bcb4a6c32a8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf18bc31ffaf50ea287ca1ffd2a5e866" id="r_adf18bc31ffaf50ea287ca1ffd2a5e866"><td class="memItemLeft" align="right" valign="top"><a id="adf18bc31ffaf50ea287ca1ffd2a5e866" name="adf18bc31ffaf50ea287ca1ffd2a5e866"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>layer</b> = 0</td></tr>
+<tr class="memdesc:adf18bc31ffaf50ea287ca1ffd2a5e866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer to update on (requires useLayer=true) <br /></td></tr>
 <tr class="separator:adf18bc31ffaf50ea287ca1ffd2a5e866"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a480e312ce44abfa2e6502d49876bbb3d" id="r_a480e312ce44abfa2e6502d49876bbb3d"><td class="memItemLeft" align="right" valign="top"><a id="a480e312ce44abfa2e6502d49876bbb3d" name="a480e312ce44abfa2e6502d49876bbb3d"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></tr>
@@ -146,13 +161,245 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>entityTag</b> 
 <tr class="separator:a302b94be874440b798b1ec4d941ea8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc6b6f489071d8549dc0f2976225e051" id="r_acc6b6f489071d8549dc0f2976225e051"><td class="memItemLeft" align="right" valign="top"><a id="acc6b6f489071d8549dc0f2976225e051" name="acc6b6f489071d8549dc0f2976225e051"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>useLayer</b> = false</td></tr>
+<tr class="memdesc:acc6b6f489071d8549dc0f2976225e051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells the engine to update with a sorting algorithim (made for sprites) <br /></td></tr>
 <tr class="separator:acc6b6f489071d8549dc0f2976225e051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1e24bf474dadd687bef5bd5658cec28" id="r_ad1e24bf474dadd687bef5bd5658cec28"><td class="memItemLeft" align="right" valign="top"><a id="ad1e24bf474dadd687bef5bd5658cec28" name="ad1e24bf474dadd687bef5bd5658cec28"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = true</td></tr>
+<tr class="memdesc:ad1e24bf474dadd687bef5bd5658cec28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will update the <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> in the game loop. <br /></td></tr>
 <tr class="separator:ad1e24bf474dadd687bef5bd5658cec28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Components are made to attach to <a class="el" href="classEntity.html" title="Entitys are containers for a EnityBox and components.">Entity</a> s <a class="el" href="classSprite.html">Sprite</a> Components with handle rendering while <a class="el" href="classCollider.html" title="Colliders event tho Box.checkCollision exists too.">Collider</a> s will handle collisions. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1d2e572343ab4b6c47d5d03c6448ceb2" name="a1d2e572343ab4b6c47d5d03c6448ceb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d2e572343ab4b6c47d5d03c6448ceb2">&#9670;&#160;</a></span>onDestroy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::onDestroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is called when entity-&gt;toDestory = true. </p>
+
+<p>Reimplemented in <a class="el" href="classTileLayer.html#a7f3410a6fb557d5fb1474191c5b0fac4">TileLayer</a>.</p>
+
+</div>
+</div>
+<a id="a1d2e572343ab4b6c47d5d03c6448ceb2" name="a1d2e572343ab4b6c47d5d03c6448ceb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d2e572343ab4b6c47d5d03c6448ceb2">&#9670;&#160;</a></span>onDestroy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::onDestroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTileLayer.html#a7f3410a6fb557d5fb1474191c5b0fac4">TileLayer</a>.</p>
+
+</div>
+</div>
+<a id="ae54013904603c2a15d9963d28e666d78" name="ae54013904603c2a15d9963d28e666d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54013904603c2a15d9963d28e666d78">&#9670;&#160;</a></span>onScreenChange() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::onScreenChange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs when the screen size is changed. </p>
+
+<p>Reimplemented in <a class="el" href="classText.html#affaab7133b97efad656ceddefa93c819">Text</a>.</p>
+
+</div>
+</div>
+<a id="ae54013904603c2a15d9963d28e666d78" name="ae54013904603c2a15d9963d28e666d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54013904603c2a15d9963d28e666d78">&#9670;&#160;</a></span>onScreenChange() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::onScreenChange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classText.html#affaab7133b97efad656ceddefa93c819">Text</a>.</p>
+
+</div>
+</div>
+<a id="adef0f642e0ed12a9b29afe587b912972" name="adef0f642e0ed12a9b29afe587b912972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adef0f642e0ed12a9b29afe587b912972">&#9670;&#160;</a></span>start() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs after <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> data is set in entity.add. </p>
+
+<p>Implemented in <a class="el" href="classButton.html#af20597b66882388602fa34959bcd2008">Button</a>, <a class="el" href="classCircleCollider.html#a8d99b540a3931b6b0e81e6d1ed3b850d">CircleCollider</a>, <a class="el" href="classCollider.html#afc2cd70c2772433aaba405d1fc1a5beb">Collider</a>, <a class="el" href="classJumpMan.html#a9edfdb170af06e76632923f2b5d439e6">JumpMan</a>, <a class="el" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#a3f61ad0d22479bdea0ca431e7bbab107">physicsBody</a>, <a class="el" href="classSprite.html#ad69637776e32e93bda17fe7a108dbb86">Sprite</a>, <a class="el" href="classText.html#a7c7391c29820a87f72dd30c92e71c85f">Text</a>, <a class="el" href="classTileLayer.html#a5800e39c6e110a8595a841dc806433db">TileLayer</a>, <a class="el" href="classUICanvas.html#a3b1a84d0f2bc7157e7f5414011cc0b29">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0">UISliceRenderer</a>.</p>
+
+</div>
+</div>
+<a id="adef0f642e0ed12a9b29afe587b912972" name="adef0f642e0ed12a9b29afe587b912972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adef0f642e0ed12a9b29afe587b912972">&#9670;&#160;</a></span>start() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classButton.html#af20597b66882388602fa34959bcd2008">Button</a>, <a class="el" href="classCircleCollider.html#a8d99b540a3931b6b0e81e6d1ed3b850d">CircleCollider</a>, <a class="el" href="classCollider.html#afc2cd70c2772433aaba405d1fc1a5beb">Collider</a>, <a class="el" href="classJumpMan.html#a9edfdb170af06e76632923f2b5d439e6">JumpMan</a>, <a class="el" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#a3f61ad0d22479bdea0ca431e7bbab107">physicsBody</a>, <a class="el" href="classSprite.html#ad69637776e32e93bda17fe7a108dbb86">Sprite</a>, <a class="el" href="classText.html#a7c7391c29820a87f72dd30c92e71c85f">Text</a>, <a class="el" href="classTileLayer.html#a5800e39c6e110a8595a841dc806433db">TileLayer</a>, <a class="el" href="classUICanvas.html#a3b1a84d0f2bc7157e7f5414011cc0b29">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0">UISliceRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a9152b930559c4ece4ea5ddd3e6e4b22b" name="a9152b930559c4ece4ea5ddd3e6e4b22b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9152b930559c4ece4ea5ddd3e6e4b22b">&#9670;&#160;</a></span>update() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates in the update loop. </p>
+
+<p>Implemented in <a class="el" href="classButton.html#af3d3e83faa0a146d66faeec9cc4c484e">Button</a>, <a class="el" href="classCircleCollider.html#af410c11f63576845aa343d8ff9b0e579">CircleCollider</a>, <a class="el" href="classCollider.html#accd99a67e32b8c4d56f5e346c06b1530">Collider</a>, <a class="el" href="classJumpMan.html#a0cfd390cb9f6148fb7c391314c1bad40">JumpMan</a>, <a class="el" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#adf53b6cb40bd3e506c7b79113ac3c234">physicsBody</a>, <a class="el" href="classSprite.html#aea1bb193b0b1a47512ef1e7751a38f2f">Sprite</a>, <a class="el" href="classText.html#a57e755e59705824aeaa36d72bd6a8ff3">Text</a>, <a class="el" href="classTileLayer.html#a1db294a23904e414861e8ebbf1a3f4ea">TileLayer</a>, <a class="el" href="classUICanvas.html#ac8b11ae5b4b7a89c5da3d0d6034591e5">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679">UISliceRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a9152b930559c4ece4ea5ddd3e6e4b22b" name="a9152b930559c4ece4ea5ddd3e6e4b22b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9152b930559c4ece4ea5ddd3e6e4b22b">&#9670;&#160;</a></span>update() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Component::update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classButton.html#af3d3e83faa0a146d66faeec9cc4c484e">Button</a>, <a class="el" href="classCircleCollider.html#af410c11f63576845aa343d8ff9b0e579">CircleCollider</a>, <a class="el" href="classCollider.html#accd99a67e32b8c4d56f5e346c06b1530">Collider</a>, <a class="el" href="classJumpMan.html#a0cfd390cb9f6148fb7c391314c1bad40">JumpMan</a>, <a class="el" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#adf53b6cb40bd3e506c7b79113ac3c234">physicsBody</a>, <a class="el" href="classSprite.html#aea1bb193b0b1a47512ef1e7751a38f2f">Sprite</a>, <a class="el" href="classText.html#a57e755e59705824aeaa36d72bd6a8ff3">Text</a>, <a class="el" href="classTileLayer.html#a1db294a23904e414861e8ebbf1a3f4ea">TileLayer</a>, <a class="el" href="classUICanvas.html#ac8b11ae5b4b7a89c5da3d0d6034591e5">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679">UISliceRenderer</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="Component_8h_source.html">Component.h</a></li>
+<li>include/<a class="el" href="Component_8sync-conflict-20231125-215451-Z6ENONT_8h_source.html">Component.sync-conflict-20231125-215451-Z6ENONT.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

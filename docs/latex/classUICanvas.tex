@@ -10,19 +10,23 @@ Inheritance diagram for UICanvas\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{start}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5}{update}} (float delta\+Time) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
 {\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void {\bfseries on\+Destroy} ()
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void {\bfseries on\+Screen\+Change} ()
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \item 
-{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
@@ -31,7 +35,7 @@ virtual void {\bfseries on\+Screen\+Change} ()
 \mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
 \item 
 \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
-\item 
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
 std\+::string {\bfseries title} = "{}"{}
@@ -39,15 +43,15 @@ std\+::string {\bfseries title} = "{}"{}
 bool {\bfseries is\+Init} = false
 \item 
 int {\bfseries layer} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Layer to update on (requires use\+Layer=true) \end{DoxyCompactList}\item 
 int {\bfseries index}
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
 bool {\bfseries use\+Layer} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
 bool {\bfseries standard\+Update} = true
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
@@ -59,7 +63,11 @@ bool {\bfseries standard\+Update} = true
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{Component}}.
 
 \Hypertarget{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5}\label{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5} 
 \index{UICanvas@{UICanvas}!update@{update}}
@@ -69,7 +77,11 @@ Implements \mbox{\hyperlink{classComponent}{Component}}.
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Updates in the update loop. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
 
 
 

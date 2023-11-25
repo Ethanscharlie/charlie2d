@@ -3,22 +3,22 @@
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classLDTK_a8892d9c9383ebfb791b3b95e6077ded8}\label{classLDTK_a8892d9c9383ebfb791b3b95e6077ded8} 
+\Hypertarget{classLDTK_a3319d6db47d17a3ef0fbc6fb38cfbe21}\label{classLDTK_a3319d6db47d17a3ef0fbc6fb38cfbe21} 
 static void {\bfseries update} (float delta\+Time)
 \item 
-\Hypertarget{classLDTK_aa75b5ba2ac37d76a3dfe64aedc455e27}\label{classLDTK_aa75b5ba2ac37d76a3dfe64aedc455e27} 
+\Hypertarget{classLDTK_ab63a9f213ad8af16007789387f3fde6b}\label{classLDTK_ab63a9f213ad8af16007789387f3fde6b} 
 static void {\bfseries unload} (std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ enlist=entities)
 \item 
-\Hypertarget{classLDTK_aa2de1f39ec471aeb8de01ee9fed34d65}\label{classLDTK_aa2de1f39ec471aeb8de01ee9fed34d65} 
+\Hypertarget{classLDTK_a19e2bb47b0c692d2cdafc120b01da449}\label{classLDTK_a19e2bb47b0c692d2cdafc120b01da449} 
 static std\+::string {\bfseries find\+Traveled\+Level} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}player)
 \item 
-\Hypertarget{classLDTK_a30f6a5b7a23be183cb596c0344ecc56f}\label{classLDTK_a30f6a5b7a23be183cb596c0344ecc56f} 
+\Hypertarget{classLDTK_a4a7f1156ceac70f9acb72e4a37c2953b}\label{classLDTK_a4a7f1156ceac70f9acb72e4a37c2953b} 
 static bool {\bfseries check\+Outside\+Bounds} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}player)
 \item 
-\Hypertarget{classLDTK_a97fd72cb5d4417995595d734a990ee54}\label{classLDTK_a97fd72cb5d4417995595d734a990ee54} 
+\Hypertarget{classLDTK_a8bce8f0c9933762c0ec931ae0d7f799e}\label{classLDTK_a8bce8f0c9933762c0ec931ae0d7f799e} 
 static void {\bfseries load\+Level} (std\+::string iid, \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
 \item 
-\Hypertarget{classLDTK_ae66369bcdf8314426926ef02f252151a}\label{classLDTK_ae66369bcdf8314426926ef02f252151a} 
+\Hypertarget{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1}\label{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1} 
 static void {\bfseries load\+Json} (std\+::string file="{}img/ldtk/space.\+ldtk"{})
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
@@ -27,10 +27,10 @@ static void {\bfseries load\+Json} (std\+::string file="{}img/ldtk/space.\+ldtk"
 \Hypertarget{classLDTK_adabda47b36aab6933719a7ca9eadd8d6}\label{classLDTK_adabda47b36aab6933719a7ca9eadd8d6} 
 static \mbox{\hyperlink{structBox}{Box}} {\bfseries world\+Box}
 \item 
-\Hypertarget{classLDTK_a2cb60d257b139cc77b2f05112b8884bc}\label{classLDTK_a2cb60d257b139cc77b2f05112b8884bc} 
-static \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries ldtk\+Player}
+\Hypertarget{classLDTK_ac60d5ca2fa3f38a98df49012ea700152}\label{classLDTK_ac60d5ca2fa3f38a98df49012ea700152} 
+static \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries ldtk\+Player} = nullptr
 \item 
-\Hypertarget{classLDTK_a91fb585bd119a448c57edc4321819bdc}\label{classLDTK_a91fb585bd119a448c57edc4321819bdc} 
+\Hypertarget{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}\label{classLDTK_aaf61f56f261e0f06117c0c5b60c29384} 
 static std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries entities}
 \item 
 \Hypertarget{classLDTK_aaeeb17a04d6ec9a4104d6b70da94ab2b}\label{classLDTK_aaeeb17a04d6ec9a4104d6b70da94ab2b} 
@@ -39,14 +39,15 @@ static json {\bfseries full\+JSON}
 \Hypertarget{classLDTK_aa2e896c7e8044bd1331e4d717bd6885c}\label{classLDTK_aa2e896c7e8044bd1331e4d717bd6885c} 
 static json {\bfseries current\+Level}
 \item 
-\Hypertarget{classLDTK_a9b2f059ed147860635bb5b0d91e0ed1d}\label{classLDTK_a9b2f059ed147860635bb5b0d91e0ed1d} 
+\Hypertarget{classLDTK_a6fe48d9b4955d31a2cd48d66e4e83901}\label{classLDTK_a6fe48d9b4955d31a2cd48d66e4e83901} 
 static std\+::map$<$ std\+::string, json $>$ {\bfseries levels}
 \item 
-\Hypertarget{classLDTK_af1e6d23b4699bd695ca5bf40f737b4fb}\label{classLDTK_af1e6d23b4699bd695ca5bf40f737b4fb} 
-static std\+::function$<$ void()$>$ {\bfseries on\+Load\+Level}
+\Hypertarget{classLDTK_a4a32938cc43d2845a1ea86f83d5f311c}\label{classLDTK_a4a32938cc43d2845a1ea86f83d5f311c} 
+static std\+::function$<$ void()$>$ {\bfseries on\+Load\+Level} = \mbox{[}$\,$\mbox{]}()\{\}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/ldtk.\+h\end{DoxyCompactItemize}
+include/ldtk.\+h\item 
+source/ldtk.\+cpp\end{DoxyCompactItemize}

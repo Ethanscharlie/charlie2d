@@ -10,19 +10,21 @@ Inheritance diagram for Tile\+Layer\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classTileLayer_a5800e39c6e110a8595a841dc806433db}{start}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea}{update}} (float delta\+Time) override
-\item 
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTileLayer_a7f3410a6fb557d5fb1474191c5b0fac4}{on\+Destroy}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
 {\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void {\bfseries on\+Screen\+Change} ()
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -36,7 +38,7 @@ std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{
 \mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
 \item 
 \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
-\item 
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
 \item 
 std\+::string {\bfseries title} = "{}"{}
@@ -44,15 +46,15 @@ std\+::string {\bfseries title} = "{}"{}
 bool {\bfseries is\+Init} = false
 \item 
 int {\bfseries layer} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Layer to update on (requires use\+Layer=true) \end{DoxyCompactList}\item 
 int {\bfseries index}
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
 bool {\bfseries use\+Layer} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
 bool {\bfseries standard\+Update} = true
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
@@ -64,7 +66,11 @@ bool {\bfseries standard\+Update} = true
 
 
 
-Reimplemented from \mbox{\hyperlink{classComponent}{Component}}.
+Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{Component}}.
 
 \Hypertarget{classTileLayer_a5800e39c6e110a8595a841dc806433db}\label{classTileLayer_a5800e39c6e110a8595a841dc806433db} 
 \index{TileLayer@{TileLayer}!start@{start}}
@@ -74,7 +80,11 @@ Reimplemented from \mbox{\hyperlink{classComponent}{Component}}.
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{Component}}.
 
 \Hypertarget{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea}\label{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea} 
 \index{TileLayer@{TileLayer}!update@{update}}
@@ -84,10 +94,15 @@ Implements \mbox{\hyperlink{classComponent}{Component}}.
 
 
 
-Implements \mbox{\hyperlink{classComponent}{Component}}.
+Updates in the update loop. 
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Implements \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Tile.\+h\end{DoxyCompactItemize}
+include/Tile.\+h\item 
+source/Tile.\+cpp\end{DoxyCompactItemize}
