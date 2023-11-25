@@ -1,0 +1,76 @@
+\doxysection{Game\+Manager Class Reference}
+\hypertarget{classGameManager}{}\label{classGameManager}\index{GameManager@{GameManager}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGameManager_a3114934fafbb8237fa53c253de498b33}\label{classGameManager_a3114934fafbb8237fa53c253de498b33} 
+static void {\bfseries init} (\mbox{\hyperlink{structVector2f}{Vector2f}} original\+Size=\{1920, 1080\})
+\item 
+\Hypertarget{classGameManager_a1aa3ba6eabeb17da9454deca36c091cd}\label{classGameManager_a1aa3ba6eabeb17da9454deca36c091cd} 
+static void {\bfseries Add\+Scene} (const std\+::string \&name, \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\item 
+\Hypertarget{classGameManager_ac4d08003f86737665d698faf9f00544f}\label{classGameManager_ac4d08003f86737665d698faf9f00544f} 
+static void {\bfseries Load\+Scene} (const std\+::string \&name)
+\item 
+\Hypertarget{classGameManager_acb0e3694b5fcc061512b7b1d07bd4496}\label{classGameManager_acb0e3694b5fcc061512b7b1d07bd4496} 
+static \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Current\+Scene} ()
+\item 
+\Hypertarget{classGameManager_a3f56ccfdc4db9b0a013858a2f5fd970c}\label{classGameManager_a3f56ccfdc4db9b0a013858a2f5fd970c} 
+static void {\bfseries Update} ()
+\item 
+\Hypertarget{classGameManager_a436611b61dfcebd2f72395df54067fe2}\label{classGameManager_a436611b61dfcebd2f72395df54067fe2} 
+static void {\bfseries play\+Sound} (std\+::string filename, bool loop=false)
+\item 
+\Hypertarget{classGameManager_a8a11857851a198c42942ddbd0034af49}\label{classGameManager_a8a11857851a198c42942ddbd0034af49} 
+static void {\bfseries quit} ()
+\item 
+\Hypertarget{classGameManager_ac880c13c3a8144621cc99fe4435cc575}\label{classGameManager_ac880c13c3a8144621cc99fe4435cc575} 
+static void {\bfseries do\+Update\+Loop} ()
+\item 
+\Hypertarget{classGameManager_ad1d2dd2bfa15428ddf95f979e2c68556}\label{classGameManager_ad1d2dd2bfa15428ddf95f979e2c68556} 
+static void {\bfseries set\+Window\+Size} (\mbox{\hyperlink{structVector2f}{Vector2f}} size)
+\item 
+\Hypertarget{classGameManager_a678ed75f03c724d428047c9ccf146605}\label{classGameManager_a678ed75f03c724d428047c9ccf146605} 
+static void {\bfseries do\+Fade} (std\+::function$<$ void()$>$ middle=\mbox{[}$\,$\mbox{]}()\{\}, int fade\+Time=300)
+\item 
+\Hypertarget{classGameManager_a4bda0b9294410416c21eaabd68a430ab}\label{classGameManager_a4bda0b9294410416c21eaabd68a430ab} 
+static void {\bfseries set\+Camera} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGameManager_a26aa2664efcbd775b7f172ac3d9613ee}\label{classGameManager_a26aa2664efcbd775b7f172ac3d9613ee} 
+static SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
+\item 
+\Hypertarget{classGameManager_a9eae7a361dcf383fbc03b542401e4376}\label{classGameManager_a9eae7a361dcf383fbc03b542401e4376} 
+static SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} {\bfseries renderer}
+\item 
+\Hypertarget{classGameManager_ac3bddd006bb35ab95860f4c5918e0e91}\label{classGameManager_ac3bddd006bb35ab95860f4c5918e0e91} 
+static SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries screen\+Texture}
+\item 
+\Hypertarget{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}\label{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc} 
+static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries game\+Window\+Size}
+\item 
+\Hypertarget{classGameManager_abb18b130f0f509697c19bbded946d135}\label{classGameManager_abb18b130f0f509697c19bbded946d135} 
+static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries current\+Window\+Size}
+\item 
+\Hypertarget{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}\label{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d} 
+static float {\bfseries screen\+\_\+change\+\_\+scale}
+\item 
+\Hypertarget{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d}\label{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d} 
+static bool {\bfseries running}
+\item 
+\Hypertarget{classGameManager_aa7dc06b7277c7c0afe7ba947e99834a0}\label{classGameManager_aa7dc06b7277c7c0afe7ba947e99834a0} 
+static \mbox{\hyperlink{structBox}{Box}} {\bfseries camera}
+\item 
+\Hypertarget{classGameManager_a430ff3ba4c0af776be071993a08798ab}\label{classGameManager_a430ff3ba4c0af776be071993a08798ab} 
+static \mbox{\hyperlink{structBox}{Box}} {\bfseries camera\+Limit\+Box}
+\item 
+\Hypertarget{classGameManager_a7e027ded125d9e5c6dfd88fccefd26b7}\label{classGameManager_a7e027ded125d9e5c6dfd88fccefd26b7} 
+static int {\bfseries transition}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+Manager.\+h\end{DoxyCompactItemize}

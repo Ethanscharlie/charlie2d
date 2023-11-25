@@ -1,0 +1,116 @@
+\doxysection{Text.\+h}
+\hypertarget{Text_8h_source}{}\label{Text_8h_source}\index{include/Text.h@{include/Text.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}EntityBox.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classText}{Text}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{classText}{Text}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}Text"{}})\{\};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ start()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00015\ \ \ \ \ text\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00016\ \ \ \ \ fontSize\ =\ original\_font\_size;}
+\DoxyCodeLine{00017\ \ \ \ \ changeFont(mfontFile,\ original\_font\_size);}
+\DoxyCodeLine{00018\ \ \ \ \ layer\ =\ 70;}
+\DoxyCodeLine{00019\ \ \ \ \ useLayer\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00020\ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (text.length()\ <=\ 0)}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ if\ (fontFile\ ==\ "{}"{})\ return;}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (fontSize\ ==\ 0)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ SDL\_Rect\ spriteRect\ =\ \{0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ width\_scale\ =}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ (float)GameManager::currentWindowSize.x\ /\ GameManager::gameWindowSize.x;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ height\_scale\ =}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ (float)GameManager::currentWindowSize.y\ /\ GameManager::gameWindowSize.y;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ spriteRect.x\ =\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().x)}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ +\ GameManager::currentWindowSize.x/2;\ spriteRect.y\ =}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().y)\ +}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ GameManager::currentWindowSize.y/2;}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ renderPos\ =\ entity-\/>box-\/>getUIPosition();}
+\DoxyCodeLine{00041\ \ \ \ \ spriteRect.x\ =\ renderPos.x;\ \textcolor{comment}{//+\ GameManager::camera.getCenter().x;}}
+\DoxyCodeLine{00042\ \ \ \ \ spriteRect.y\ =\ renderPos.y;\ \textcolor{comment}{//+\ GameManager::camera.getCenter().y;}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ scaler\ =}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ GameManager::screen\_change\_scale\ *}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ ((GameManager::gameWindowSize.x\ +\ GameManager::gameWindowSize.y)\ /}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ (GameManager::camera.size.x\ +\ GameManager::camera.size.y));}
+\DoxyCodeLine{00048\ \ \ \ \ spriteRect.w\ =\ box-\/>getSize().x\ *\ GameManager::screen\_change\_scale;}
+\DoxyCodeLine{00049\ \ \ \ \ spriteRect.h\ =\ box-\/>getSize().y\ *\ GameManager::screen\_change\_scale;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ renderTextInRect(GameManager::renderer,\ text,\ spriteRect);}
+\DoxyCodeLine{00052\ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ onScreenChange()\textcolor{keyword}{\ override\ }\{\ changeFont(mfontFile,\ fontSize);\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ changeFont(std::string\ fontFile,\ \textcolor{keywordtype}{int}\ size)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ fontSize\ =\ size;}
+\DoxyCodeLine{00058\ \ \ \ \ mfontFile\ =\ fontFile;}
+\DoxyCodeLine{00059\ \ \ \ \ font\ =\ TTF\_OpenFont(fontFile.c\_str(),}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fontSize\ *\ GameManager::screen\_change\_scale);}
+\DoxyCodeLine{00061\ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ renderTextInRect(SDL\_Renderer\ *renderer,\ \textcolor{keyword}{const}\ std::string\ \&text,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ SDL\_Rect\ \&rect)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ surface\ from\ the\ text}}
+\DoxyCodeLine{00066\ \ \ \ \ TTF\_SetFontWrappedAlign(font,\ TTF\_WRAPPED\_ALIGN\_CENTER);}
+\DoxyCodeLine{00067\ \ \ \ \ SDL\_Surface\ *textSurface\ =}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ TTF\_RenderText\_Blended\_Wrapped(font,\ text.c\_str(),\ text\_color,\ rect.w);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (textSurface\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ creating\ surface:\ "{}}\ <<\ SDL\_GetError()\ <<\ std::endl;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ texture\ from\ the\ surface}}
+\DoxyCodeLine{00076\ \ \ \ \ SDL\_Texture\ *textTexture\ =}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ SDL\_CreateTextureFromSurface(renderer,\ textSurface);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (textTexture\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ creating\ texture:\ "{}}\ <<\ SDL\_GetError()\ <<\ std::endl;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ SDL\_FreeSurface(textSurface);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ destination\ rectangle\ to\ center\ the\ text}}
+\DoxyCodeLine{00086\ \ \ \ \ SDL\_Rect\ dstRect;}
+\DoxyCodeLine{00087\ \ \ \ \ dstRect.w\ =\ textSurface-\/>w;}
+\DoxyCodeLine{00088\ \ \ \ \ dstRect.h\ =\ textSurface-\/>h;}
+\DoxyCodeLine{00089\ \ \ \ \ dstRect.x\ =\ rect.x\ +\ (rect.w\ -\/\ textSurface-\/>w)\ /\ 2;}
+\DoxyCodeLine{00090\ \ \ \ \ dstRect.y\ =\ rect.y\ +\ (rect.h\ -\/\ textSurface-\/>h)\ /\ 2;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ Render\ the\ texture\ to\ the\ renderer}}
+\DoxyCodeLine{00093\ \ \ \ \ SDL\_RenderCopy(renderer,\ textTexture,\ \textcolor{keyword}{nullptr},\ \&dstRect);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ Clean\ up\ resources}}
+\DoxyCodeLine{00096\ \ \ \ \ SDL\_DestroyTexture(textTexture);}
+\DoxyCodeLine{00097\ \ \ \ \ SDL\_FreeSurface(textSurface);}
+\DoxyCodeLine{00098\ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{structBox}{Box}}\ textBox;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ std::string\ text;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ SDL\_Color\ text\_color\ =\ \{0,\ 0,\ 0\};}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{int}\ original\_font\_size\ =\ 20;}
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{int}\ fontSize;}
+\DoxyCodeLine{00107\ \ \ std::string\ mfontFile\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00108\ \ \ TTF\_Font\ *font\ =\ TTF\_OpenFont(mfontFile.c\_str(),\ fontSize);}
+\DoxyCodeLine{00109\ \ \ SDL\_Color\ textColor;}
+\DoxyCodeLine{00110\ \};}
+
+\end{DoxyCode}

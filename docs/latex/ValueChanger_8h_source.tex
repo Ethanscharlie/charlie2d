@@ -1,0 +1,50 @@
+\doxysection{Value\+Changer.\+h}
+\hypertarget{ValueChanger_8h_source}{}\label{ValueChanger_8h_source}\index{include/ValueChanger.h@{include/ValueChanger.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\#include\ "{}UIPanel.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\#include\ "{}GameObject.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\#include\ "{}SceneManager.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//class\ ArrowButton\ :\ public\ UIPanel}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ \ \ public:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ \ \ ArrowButton(int\ typeIn)\ :\ UIPanel(\{0,\ 0,\ 30,\ 30,\ "{}img/panel.png"{}\})\ \{type\ =\ typeIn;\}}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ \ \ onClick()\ override\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ \ \ \{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ ValueChanger*\ valuechanger\ =\ dynamic\_cast<ValueChanger*>(parent);}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ \ \ \ \ \ \ if\ (type\ ==\ 0)}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ valuechanger-\/>OnLeftButtonClick();}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ \ \ int\ type;}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//class\ ValueChanger\ :\ public\ GameObject}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \ \ \ public:}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ \ \ \ ValueChanger()\ \{\}}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ \ \ \ virtual\ void\ start()\ override\ }}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ \ \ \ \{}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ \ \ \ \ \ \ leftButton\ =\ new\ ArrowButton(0)}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ \ \ \ \ \ \ valuePanel\ =\ new\ UIPanel(\{30,\ 30,\ 30,\ 30\},\ "{}img/panel.png"{});}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ \ \ \ \ \ \ scene-\/>addToParent(leftButton,\ this);}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ \ \ virtual\ void\ update(float\ deltaTime)\ override\ \{\}}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ \ \ \ ArrowButton*\ leftButton;}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \ \ \ UIPanel*\ valuePanel;}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \ \ \ int\ value\ =\ 0;}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ \ \ \ //UIPanel*\ rightButton;}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ \ \ void\ OnLeftButtonClick()}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ \ \ \{}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ \ \ \ \ \ \ \ value\ ++;}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ \ \ \ \ \ \ \ text\ =\ value;}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//}}
+
+\end{DoxyCode}

@@ -1,0 +1,89 @@
+\doxysection{Button Class Reference}
+\hypertarget{classButton}{}\label{classButton}\index{Button@{Button}}
+Inheritance diagram for Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classButton}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{start}} () override
+\item 
+void \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{update}} (float delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classButton_a30b76ab312dc7f66e67596ae20540ec2}\label{classButton_a30b76ab312dc7f66e67596ae20540ec2} 
+std\+::function$<$ void()$>$ {\bfseries on\+Click} = \mbox{[}$\,$\mbox{]}()\{\}
+\item 
+\Hypertarget{classButton_af05425e1be2cfa60fff4f55f68b07a01}\label{classButton_af05425e1be2cfa60fff4f55f68b07a01} 
+std\+::function$<$ void()$>$ {\bfseries on\+Hover} = \mbox{[}$\,$\mbox{]}()\{\}
+\item 
+\Hypertarget{classButton_a8ea2f4049513231318268bd9966f5420}\label{classButton_a8ea2f4049513231318268bd9966f5420} 
+std\+::function$<$ void()$>$ {\bfseries off\+Hover} = \mbox{[}$\,$\mbox{]}()\{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classButton_af20597b66882388602fa34959bcd2008}\label{classButton_af20597b66882388602fa34959bcd2008} 
+\index{Button@{Button}!start@{start}}
+\index{start@{start}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Button\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classButton_af3d3e83faa0a146d66faeec9cc4c484e}\label{classButton_af3d3e83faa0a146d66faeec9cc4c484e} 
+\index{Button@{Button}!update@{update}}
+\index{update@{update}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Button\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Button.\+h\end{DoxyCompactItemize}

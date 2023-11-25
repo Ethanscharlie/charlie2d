@@ -1,0 +1,55 @@
+\doxysection{Animation Class Reference}
+\hypertarget{classAnimation}{}\label{classAnimation}\index{Animation@{Animation}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAnimation_ac42772bcf0eef694186a8f01b8132925}\label{classAnimation_ac42772bcf0eef694186a8f01b8132925} 
+{\bfseries Animation} (\mbox{\hyperlink{classSprite}{Sprite}} \texorpdfstring{$\ast$}{*}sprite\+In, std\+::vector$<$ std\+::string $>$ frames\+In, float fps\+In)
+\item 
+\Hypertarget{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705}\label{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705} 
+void {\bfseries update} ()
+\item 
+\Hypertarget{classAnimation_ad53139f47d0156675d9e86cad7a9ec89}\label{classAnimation_ad53139f47d0156675d9e86cad7a9ec89} 
+void {\bfseries reset\+Frame\+Counter} ()
+\item 
+\Hypertarget{classAnimation_a50b8a5b99e7cd4b2f42b399a9a8c8197}\label{classAnimation_a50b8a5b99e7cd4b2f42b399a9a8c8197} 
+void {\bfseries play} (int direction=1, std\+::function$<$ void()$>$ on\+Finish\+In=\mbox{[}$\,$\mbox{]}()\{\})
+\item 
+\Hypertarget{classAnimation_ad173a19155aa3843533302ded3e01dd5}\label{classAnimation_ad173a19155aa3843533302ded3e01dd5} 
+void {\bfseries loop} (int direction=1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAnimation_add71a00596eb3f48760752cb006ad768}\label{classAnimation_add71a00596eb3f48760752cb006ad768} 
+\mbox{\hyperlink{classSprite}{Sprite}} \texorpdfstring{$\ast$}{*} {\bfseries sprite}
+\item 
+\Hypertarget{classAnimation_a41853be6dd73831d6e062982f86f4173}\label{classAnimation_a41853be6dd73831d6e062982f86f4173} 
+std\+::vector$<$ std\+::string $>$ {\bfseries frames}
+\item 
+\Hypertarget{classAnimation_acac8a7be13b45b7e3c4fe2ffb88ccd55}\label{classAnimation_acac8a7be13b45b7e3c4fe2ffb88ccd55} 
+Uint32 {\bfseries timer} = SDL\+\_\+\+Get\+Ticks()
+\item 
+\Hypertarget{classAnimation_a1dbbea2b8978cd3c3690c8489dcd6feb}\label{classAnimation_a1dbbea2b8978cd3c3690c8489dcd6feb} 
+float {\bfseries fps} = 1
+\item 
+\Hypertarget{classAnimation_a5a49d4eedd5de33efd6b955b04d344fd}\label{classAnimation_a5a49d4eedd5de33efd6b955b04d344fd} 
+int {\bfseries frame\+Counter} = 0
+\item 
+\Hypertarget{classAnimation_a7c8cf515e106c7edeb9b6355e2fd8c81}\label{classAnimation_a7c8cf515e106c7edeb9b6355e2fd8c81} 
+int {\bfseries direction} = 1
+\item 
+\Hypertarget{classAnimation_a7728add5eff875260186237b0b657448}\label{classAnimation_a7728add5eff875260186237b0b657448} 
+bool {\bfseries playing}
+\item 
+\Hypertarget{classAnimation_acb37f27db7ff408ad5aac5b66562de01}\label{classAnimation_acb37f27db7ff408ad5aac5b66562de01} 
+bool {\bfseries looping}
+\item 
+\Hypertarget{classAnimation_a19b354e46ceb8544e91e95cfefa3b9e3}\label{classAnimation_a19b354e46ceb8544e91e95cfefa3b9e3} 
+std\+::function$<$ void()$>$ {\bfseries on\+Finish}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Animation.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\doxysection{UISlice\+Renderer Class Reference}
+\hypertarget{classUISliceRenderer}{}\label{classUISliceRenderer}\index{UISliceRenderer@{UISliceRenderer}}
+Inheritance diagram for UISlice\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classUISliceRenderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classUISliceRenderer_a30a3b0848f69fff92616ea0c7a2ea568}\label{classUISliceRenderer_a30a3b0848f69fff92616ea0c7a2ea568} 
+void {\bfseries set\+Color} (std\+::array$<$ Uint8, 3 $>$ color)
+\item 
+void \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{start}} () override
+\item 
+\Hypertarget{classUISliceRenderer_a302898c1059db0f852d41ba37c055bf2}\label{classUISliceRenderer_a302898c1059db0f852d41ba37c055bf2} 
+void {\bfseries load\+Texture} (std\+::string name)
+\item 
+void \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{update}} (float delta\+Time) override
+\item 
+\Hypertarget{classUISliceRenderer_a639b0e41f6d925ceac3544890ee1d692}\label{classUISliceRenderer_a639b0e41f6d925ceac3544890ee1d692} 
+void {\bfseries Draw9\+Sliced\+Texture} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture, SDL\+\_\+\+Rect dest\+Rect, int border\+Size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}\label{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0} 
+\index{UISliceRenderer@{UISliceRenderer}!start@{start}}
+\index{start@{start}!UISliceRenderer@{UISliceRenderer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void UISlice\+Renderer\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}\label{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679} 
+\index{UISliceRenderer@{UISliceRenderer}!update@{update}}
+\index{update@{update}!UISliceRenderer@{UISliceRenderer}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void UISlice\+Renderer\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/UISlice\+Renderer.\+h\end{DoxyCompactItemize}

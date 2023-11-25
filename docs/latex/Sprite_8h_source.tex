@@ -1,0 +1,41 @@
+\doxysection{Sprite.\+h}
+\hypertarget{Sprite_8h_source}{}\label{Sprite_8h_source}\index{include/Sprite.h@{include/Sprite.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Collider.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Math.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Animation.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAnimation}{Animation}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSprite}{Sprite}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classSprite}{Sprite}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}sprite"{}})\ \{\};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ start()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ useLayer\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexture(\textcolor{keyword}{const}\ std::string\&\ image,\ \textcolor{keywordtype}{bool}\ setSize=\textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ keepCentered=\textcolor{keyword}{true});}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ addAnimation(std::string\ title,\ std::vector<std::string>\ frames,\ \textcolor{keywordtype}{float}\ fps);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ SDL\_Rect\ sourceRect\ =\ \{0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{00026\ \ \ \ \ SDL\_Texture*\ texture\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00027\ \ \ \ \ std::string\ textureName\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ showBorders\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structAngle}{Angle}}\ angle;}
+\DoxyCodeLine{00030\ \ \ \ \ std::unordered\_map<std::string,\ Animation*>\ animations;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ onScreen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ renderAsUI\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \ \ \ \ SDL\_RendererFlip\ flip\ =\ SDL\_FLIP\_NONE;}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+\doxysection{Entity Class Reference}
+\hypertarget{classEntity}{}\label{classEntity}\index{Entity@{Entity}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEntity_ab532e29a83a49f2a41ad535da534457a}\label{classEntity_ab532e29a83a49f2a41ad535da534457a} 
+{\footnotesize template$<$typename C $>$ }\\void {\bfseries add\+Component} ()
+\item 
+\Hypertarget{classEntity_a9d714a24a0ed3fc151e9ffef94602e95}\label{classEntity_a9d714a24a0ed3fc151e9ffef94602e95} 
+{\footnotesize template$<$typename C $>$ }\\C \& {\bfseries get\+Component} ()
+\item 
+\Hypertarget{classEntity_adb247dffdb69e5967f36a30056a7dba7}\label{classEntity_adb247dffdb69e5967f36a30056a7dba7} 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries add} ()
+\item 
+\Hypertarget{classEntity_abe66cdc587c335147849833216ca5c77}\label{classEntity_abe66cdc587c335147849833216ca5c77} 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries require} ()
+\item 
+\Hypertarget{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}\label{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a} 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries get} ()
+\item 
+\Hypertarget{classEntity_aaa08bd4404c74e38d426fb395411c3a6}\label{classEntity_aaa08bd4404c74e38d426fb395411c3a6} 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\item 
+\Hypertarget{classEntity_af06539684263ef18099d8b726c933230}\label{classEntity_af06539684263ef18099d8b726c933230} 
+std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Components} ()
+\item 
+\Hypertarget{classEntity_ab554f9ad736bc1251620b022d2713b50}\label{classEntity_ab554f9ad736bc1251620b022d2713b50} 
+void {\bfseries add\+Child} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+\item 
+\Hypertarget{classEntity_a9e8a940b1f46ccba3607c1de727c9cb8}\label{classEntity_a9e8a940b1f46ccba3607c1de727c9cb8} 
+void {\bfseries set\+Parent} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+\item 
+\Hypertarget{classEntity_a6485d6af764cf54bb6723fe57bec91fa}\label{classEntity_a6485d6af764cf54bb6723fe57bec91fa} 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Parent} ()
+\item 
+\Hypertarget{classEntity_ac6e3619e389101c796606f292f13ea97}\label{classEntity_ac6e3619e389101c796606f292f13ea97} 
+std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Children} ()
+\item 
+\Hypertarget{classEntity_ad426cf6d2a1b7e17d1a6a201a03941c9}\label{classEntity_ad426cf6d2a1b7e17d1a6a201a03941c9} 
+void {\bfseries remove\+Parent} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEntity_ac2076343cde9e2901fd22912759d6176}\label{classEntity_ac2076343cde9e2901fd22912759d6176} 
+bool {\bfseries to\+Destroy} = false
+\item 
+\Hypertarget{classEntity_a4032af8b661246231eaa5823451f69ed}\label{classEntity_a4032af8b661246231eaa5823451f69ed} 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene} = nullptr
+\item 
+\Hypertarget{classEntity_a67938508c7ff28ee37d9d7f027307c53}\label{classEntity_a67938508c7ff28ee37d9d7f027307c53} 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\Hypertarget{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d}\label{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d} 
+std\+::string {\bfseries tag} = "{}"{}
+\item 
+\Hypertarget{classEntity_a6086dd8c4ea133261317ad01fc6695c6}\label{classEntity_a6086dd8c4ea133261317ad01fc6695c6} 
+bool {\bfseries debug} = false
+\item 
+\Hypertarget{classEntity_a7578d68b827bee22bf32c7adb2d5a2fa}\label{classEntity_a7578d68b827bee22bf32c7adb2d5a2fa} 
+int {\bfseries iid}
+\item 
+\Hypertarget{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928}\label{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928} 
+bool {\bfseries skip\+Update} = false
+\item 
+\Hypertarget{classEntity_a939da33e8b67b1d2ee227930aa72da3b}\label{classEntity_a939da33e8b67b1d2ee227930aa72da3b} 
+bool {\bfseries active} = true
+\item 
+\Hypertarget{classEntity_aa68c637484e4c7161cd44a6c13dda19b}\label{classEntity_aa68c637484e4c7161cd44a6c13dda19b} 
+std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries components}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Entity.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,95 @@
+\doxysection{Collider Class Reference}
+\hypertarget{classCollider}{}\label{classCollider}\index{Collider@{Collider}}
+Inheritance diagram for Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCollider}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}{start}} () override
+\item 
+void \mbox{\hyperlink{classCollider_accd99a67e32b8c4d56f5e346c06b1530}{update}} (float delta\+Time) override
+\item 
+\Hypertarget{classCollider_a77519e4068d8a122f3906c55801ffd92}\label{classCollider_a77519e4068d8a122f3906c55801ffd92} 
+std\+::vector$<$ \mbox{\hyperlink{classCollider}{Collider}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Collisions} (std\+::string tag="{}"{})
+\item 
+\Hypertarget{classCollider_a4e15234bb7d94468dc3060e98944c13f}\label{classCollider_a4e15234bb7d94468dc3060e98944c13f} 
+bool {\bfseries check\+Collision} (\mbox{\hyperlink{classCollider}{Collider}} col)
+\item 
+\Hypertarget{classCollider_aefba4ca2e639502bb578461ffe6e5117}\label{classCollider_aefba4ca2e639502bb578461ffe6e5117} 
+bool {\bfseries check\+Box\+Collision} (\mbox{\hyperlink{structBox}{Box}} other\+Box)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCollider_a3d9bb929f04b387689bc57fa9ecf6beb}\label{classCollider_a3d9bb929f04b387689bc57fa9ecf6beb} 
+\mbox{\hyperlink{structBox}{Box}} {\bfseries collider\+Box}
+\item 
+\Hypertarget{classCollider_a9d0989cd3aa64ac3f9873dfb82166fca}\label{classCollider_a9d0989cd3aa64ac3f9873dfb82166fca} 
+bool {\bfseries solid} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}\label{classCollider_afc2cd70c2772433aaba405d1fc1a5beb} 
+\index{Collider@{Collider}!start@{start}}
+\index{start@{start}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Collider\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classCollider_accd99a67e32b8c4d56f5e346c06b1530}\label{classCollider_accd99a67e32b8c4d56f5e346c06b1530} 
+\index{Collider@{Collider}!update@{update}}
+\index{update@{update}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Collider\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Collider.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,206 @@
+\doxysection{Entity\+Box.\+h}
+\hypertarget{EntityBox_8h_source}{}\label{EntityBox_8h_source}\index{include/EntityBox.h@{include/EntityBox.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENTITY\_BOX\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENTITY\_BOX\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Math.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structslideOut}{slideOut}}\ \{}
+\DoxyCodeLine{00011\ \ \ std::vector<Entity\ *>\ hitList;}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{bool}\ horizontalHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{bool}\ verticleHit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structentityBox}{entityBox}}\ \{}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{structentityBox}{entityBox}}(\mbox{\hyperlink{classEntity}{Entity}}\ *\_entity);}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{structentityBox}{\string~entityBox}}()\ \{\}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getLocalPosition()\ \{\ \textcolor{keywordflow}{return}\ localBox.position;\ \}}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getLocalSize()\ \{\ \textcolor{keywordflow}{return}\ localBox.size;\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ setLocalPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ localBox.position\ =\ point;}
+\DoxyCodeLine{00025\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00026\ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ setLocalXPosition(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ localBox.position.x\ =\ x;}
+\DoxyCodeLine{00029\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00030\ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ setLocalYPosition(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ localBox.position.y\ =\ y;}
+\DoxyCodeLine{00033\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00034\ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ changeLocalPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ localBox.position\ +=\ change;}
+\DoxyCodeLine{00037\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ setLocalSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ localBox.size\ =\ point;}
+\DoxyCodeLine{00042\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00043\ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ setLocalXSize(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ localBox.size.x\ =\ x;}
+\DoxyCodeLine{00046\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ setLocalYSize(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ localBox.size.y\ =\ y;}
+\DoxyCodeLine{00050\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00051\ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ changeLocalSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ localBox.size\ +=\ change;}
+\DoxyCodeLine{00054\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00055\ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ setLocalWithCenter(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ localBox.setWithCenter(point);}
+\DoxyCodeLine{00059\ \ \ \ \ updateGlobalBox();}
+\DoxyCodeLine{00060\ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ GLOBAL\ POSITIONS}}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getPosition()\ \{\ \textcolor{keywordflow}{return}\ globalBox.position;\ \}}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getSize()\ \{\ \textcolor{keywordflow}{return}\ globalBox.size;\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ globalBox.position\ =\ point;}
+\DoxyCodeLine{00068\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00069\ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ setXPosition(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ globalBox.position.x\ =\ x;}
+\DoxyCodeLine{00072\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ setYPosition(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ globalBox.position.y\ =\ y;}
+\DoxyCodeLine{00076\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ changePosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ globalBox.position\ +=\ change;}
+\DoxyCodeLine{00080\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00081\ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ setSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ globalBox.size\ =\ point;}
+\DoxyCodeLine{00085\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00086\ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ setXSize(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ globalBox.size.x\ =\ x;}
+\DoxyCodeLine{00089\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ setYSize(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ globalBox.size.y\ =\ y;}
+\DoxyCodeLine{00093\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00094\ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{void}\ changeSize(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ globalBox.size\ +=\ change;}
+\DoxyCodeLine{00097\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00098\ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ setScale(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ globalBox.getCenter();}
+\DoxyCodeLine{00101\ \ \ \ \ setSize(point);}
+\DoxyCodeLine{00102\ \ \ \ \ setWithCenter(center);}
+\DoxyCodeLine{00103\ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ changeScale(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ globalBox.getCenter();}
+\DoxyCodeLine{00106\ \ \ \ \ changeSize(change);}
+\DoxyCodeLine{00107\ \ \ \ \ setWithCenter(center);}
+\DoxyCodeLine{00108\ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{void}\ setWithCenter(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ globalBox.setWithCenter(point);}
+\DoxyCodeLine{00112\ \ \ \ \ updateLocalBox();}
+\DoxyCodeLine{00113\ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \mbox{\hyperlink{structBox}{Box}}\ getLocalBox()\ \{\ \textcolor{keywordflow}{return}\ localBox;\ \}}
+\DoxyCodeLine{00116\ \ \ \mbox{\hyperlink{structBox}{Box}}\ getBox()\ \{\ \textcolor{keywordflow}{return}\ globalBox;\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getScreenPosition();}
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getUIPosition();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ updateGlobalBox();}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ updateLocalBox();}
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{void}\ print();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ slide(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&move,\ \textcolor{keyword}{const}\ std::vector<Entity\ *>\ \&solids,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pushOut\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ useMoveBox\ =\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Start}}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ movement\ =\ move;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ Create\ Horizonal\ check\ box}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ The\ check\ box\ is\ sized\ to\ the\ move\ to\ prevent\ clipping}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ at\ high\ speeds\ and\ low\ framerates}}
+\DoxyCodeLine{00135\ \ \ \ \ changePosition(\{movement.x,\ 0\});}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (!useMoveBox)}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ getBox()\ =\ getBox();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ Horizontal\ check\ and\ move}}
+\DoxyCodeLine{00140\ \ \ HORREDO:}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!getBox().checkCollision(col-\/>box-\/>getBox()))}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ out.hitList.push\_back(col);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pushOut)}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.x\ >\ 0)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ setXPosition(other-\/>box-\/>getBox().getLeft()\ -\/\ getSize().x);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.x\ <\ 0)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ setXPosition(other-\/>box-\/>getBox().getRight());}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ HORREDO;}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ Create\ verticle\ check\ box}}
+\DoxyCodeLine{00162\ \ \ \ \ changePosition(\{0,\ movement.y\});}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{if}\ (!useMoveBox)}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ getBox()\ =\ getBox();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\ Verticle\ collision\ check\ and\ move}}
+\DoxyCodeLine{00167\ \ \ VERREDO:}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!getBox().checkCollision(col-\/>box-\/>getBox()))}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ out.hitList.push\_back(col);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pushOut)}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.y\ >\ 0)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ setYPosition(other-\/>box-\/>getBox().getTop()\ -\/\ getSize().y);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.y\ <\ 0)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ setYPosition(other-\/>box-\/>getBox().getBottom());}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ VERREDO;}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00189\ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *entity\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordtype}{int}\ anchor\ =\ 0;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00196\ \ \ \mbox{\hyperlink{structBox}{Box}}\ globalBox;}
+\DoxyCodeLine{00197\ \ \ \mbox{\hyperlink{structBox}{Box}}\ localBox;}
+\DoxyCodeLine{00198\ \};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

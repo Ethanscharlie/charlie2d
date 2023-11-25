@@ -1,0 +1,241 @@
+\doxysection{physics\+Body.\+h}
+\hypertarget{physicsBody_8h_source}{}\label{physicsBody_8h_source}\index{include/physicsBody.h@{include/physicsBody.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Collider.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Math.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classphysicsBody}{physicsBody}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{classphysicsBody}{physicsBody}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}physicsBody"{}})\{\};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{void}\ start()\textcolor{keyword}{\ override\ }\{\ entity-\/>require<\mbox{\hyperlink{classCollider}{Collider}}>();\ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Adjusts\ velocity\ if\ greater\ then\ max}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (maxVelocity.x\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(velocity.x)\ >\ abs(maxVelocity.x))}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ velocity.x\ =\ velocity.x\ /\ abs(velocity.x)\ *\ maxVelocity.x;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (maxVelocity.y\ !=\ -\/1)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(velocity.y)\ >\ abs(maxVelocity.y))}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ velocity.y\ =\ velocity.y\ /\ abs(velocity.y)\ *\ maxVelocity.y;}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ Prevents\ teleporting\ if\ people\ click\ of\ the\ window\ and\ }}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ make\ deltatime\ bigger\ than...\ idk\ something\ problably}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (deltaTime\ >\ 0.2)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ std::cout\ <<\ deltaTime\ <<\ std::endl;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (deltaTime\ >\ 0.2)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Check\ for\ pointless\ move}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (velocity.x\ ==\ 0\ \&\&\ velocity.y\ ==\ 0)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00035\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out\ =\ entity-\/>box-\/>slide(velocity\ *\ deltaTime,\ scene-\/>getTag(\textcolor{stringliteral}{"{}Ground"{}}));}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ if\ (out.horizontalHit)\ velocity.x\ =\ 0;}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (out.verticleHit)\ velocity.y\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ \ \ //\ Start}}
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ \ \ Vector2f\ movement\ =\ velocity\ *\ deltaTime;}}
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ \ \ //\ Create\ Horizonal\ check\ box}}
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//\ \ \ //\ The\ check\ box\ is\ sized\ to\ the\ move\ to\ prevent\ clipping}}
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ \ \ //\ at\ high\ speeds\ and\ low\ framerates}}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ \ \ Box\ checkBox\ =\ entity-\/>box-\/>getBox();}}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ \ \ //\ checkBox.size.x\ +=\ abs(movement.x);}}
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//\ \ \ //\ if\ (movement.x\ <\ 0)\ \{}}
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ \ \ //\ \ \ checkBox.position.x\ +=\ movement.x;}}
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ \ \ //}}
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ \ \ //\ \}}}
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ \ \ entity-\/>box-\/>changePosition(\{movement.x,\ 0\});}}
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ \ \ checkBox\ =\ entity-\/>box-\/>getBox();}}
+\DoxyCodeLine{00055\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00056\ \ \ \textcolor{comment}{//\ \ \ //\ Horizontal\ check\ and\ move}}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ \ \ for\ (auto\ *col\ :\ scene-\/>getGroup<Collider>())\ \{}}
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (!col-\/>solid)}}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00060\ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (!checkBox.checkCollision(col-\/>entity-\/>box-\/>getBox()))}}
+\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ \ \ \ \ Entity\ *other\ =\ col-\/>entity;}}
+\DoxyCodeLine{00064\ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (movement.x\ >\ 0)\ \{}}
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ entity-\/>box-\/>setXPosition(other-\/>box-\/>getBox().getLeft()\ -\/}}
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entity-\/>box-\/>getSize().x);}}
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ velocity.x\ =\ 0;}}
+\DoxyCodeLine{00068\ \ \ \textcolor{comment}{//\ \ \ \ \ \}\ else\ if\ (movement.x\ <\ 0)\ \{}}
+\DoxyCodeLine{00069\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ entity-\/>box-\/>setXPosition(other-\/>box-\/>getBox().getRight());}}
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ velocity.x\ =\ 0;}}
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ \ \ //\ Create\ verticle\ check\ box}}
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//\ \ \ checkBox\ =\ entity-\/>box-\/>getBox();}}
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ \ \ //\ checkBox.size.y\ +=\ abs(movement.y);}}
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ \ \ //\ if\ (movement.y\ <\ 0)\ \{}}
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ \ \ //\ \ \ checkBox.position.y\ +=\ movement.y;}}
+\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ \ \ //\ \}}}
+\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00081\ \ \ \textcolor{comment}{//\ \ \ entity-\/>box-\/>changePosition(\{0,\ movement.y\});}}
+\DoxyCodeLine{00082\ \ \ \textcolor{comment}{//\ \ \ checkBox\ =\ entity-\/>box-\/>getBox();}}
+\DoxyCodeLine{00083\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00084\ \ \ \textcolor{comment}{//\ \ \ //\ Verticle\ collision\ check\ and\ move}}
+\DoxyCodeLine{00085\ \ \ \textcolor{comment}{//\ \ \ for\ (auto\ *col\ :\ scene-\/>getGroup<Collider>())\ \{}}
+\DoxyCodeLine{00086\ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (!col-\/>solid)}}
+\DoxyCodeLine{00087\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00088\ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (!checkBox.checkCollision(col-\/>entity-\/>box-\/>getBox()))}}
+\DoxyCodeLine{00089\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00090\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00091\ \ \ \textcolor{comment}{//\ \ \ \ \ Entity\ *other\ =\ col-\/>entity;}}
+\DoxyCodeLine{00092\ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (movement.y\ >\ 0)\ \{}}
+\DoxyCodeLine{00093\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ entity-\/>box-\/>setYPosition(other-\/>box-\/>getBox().getTop()\ -\/}}
+\DoxyCodeLine{00094\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entity-\/>box-\/>getSize().y);}}
+\DoxyCodeLine{00095\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ velocity.y\ =\ 0;}}
+\DoxyCodeLine{00096\ \ \ \textcolor{comment}{//\ \ \ \ \ \}\ else\ if\ (movement.y\ <\ 0)\ \{}}
+\DoxyCodeLine{00097\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ entity-\/>box-\/>setYPosition(other-\/>box-\/>getBox().getBottom());}}
+\DoxyCodeLine{00098\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ velocity.y\ =\ 0;}}
+\DoxyCodeLine{00099\ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00100\ \ \ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00101\ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ velocity;}
+\DoxyCodeLine{00104\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ maxVelocity\ =\ \{-\/1,\ -\/1\};}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ \#pragma\ once}}
+\DoxyCodeLine{00107\ \textcolor{comment}{//}}
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ \#include\ "{}Collider.h"{}}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ \#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ \#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ \#include\ "{}Math.h"{}}}
+\DoxyCodeLine{00112\ \textcolor{comment}{//}}
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ class\ physicsBody\ :\ public\ Component\ \{}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ public:}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ \ \ physicsBody()\ :\ Component("{}physicsBody"{})\{\};}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//}}
+\DoxyCodeLine{00117\ \textcolor{comment}{//\ \ \ void\ start()\ override\ \{\ entity-\/>require<Collider>();\ \}}}
+\DoxyCodeLine{00118\ \textcolor{comment}{//}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//\ \ \ void\ update(float\ deltaTime)\ override\ \{}}
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ \ \ \ \ //\ Adjusts\ velocity\ if\ greater\ then\ max}}
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ \ \ \ \ if\ (maxVelocity.x\ !=\ -\/1)\ \{}}
+\DoxyCodeLine{00122\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (abs(velocity.x)\ >\ abs(maxVelocity.x))}}
+\DoxyCodeLine{00123\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ velocity.x\ =\ velocity.x\ /\ abs(velocity.x)\ *\ maxVelocity.x;}}
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ \ \ \ \ if\ (maxVelocity.y\ !=\ -\/1)\ \{}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (abs(velocity.y)\ >\ abs(maxVelocity.y))}}
+\DoxyCodeLine{00127\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ velocity.y\ =\ velocity.y\ /\ abs(velocity.y)\ *\ maxVelocity.y;}}
+\DoxyCodeLine{00128\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00129\ \textcolor{comment}{//}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ \ \ \ \ //\ Prevents\ teleporting\ if\ people\ click\ of\ the\ window\ and}}
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ \ \ \ \ //\ make\ deltatime\ bigger\ than...\ idk\ something\ problably}}
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ \ \ \ \ if\ (deltaTime\ >\ 0.2)}}
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ \ \ \ \ \ \ std::cout\ <<\ deltaTime\ <<\ std::endl;}}
+\DoxyCodeLine{00134\ \textcolor{comment}{//\ \ \ \ \ if\ (deltaTime\ >\ 0.2)}}
+\DoxyCodeLine{00135\ \textcolor{comment}{//\ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{00136\ \textcolor{comment}{//}}
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ \ \ \ \ //\ Check\ for\ pointless\ move}}
+\DoxyCodeLine{00138\ \textcolor{comment}{//\ \ \ \ \ if\ (velocity.x\ ==\ 0\ \&\&\ velocity.y\ ==\ 0)}}
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{00140\ \textcolor{comment}{//}}
+\DoxyCodeLine{00141\ \textcolor{comment}{//\ \ \ \ \ //\ Start}}
+\DoxyCodeLine{00142\ \textcolor{comment}{//\ \ \ \ \ Vector2f\ movement\ =\ velocity\ *\ deltaTime;}}
+\DoxyCodeLine{00143\ \textcolor{comment}{//}}
+\DoxyCodeLine{00144\ \textcolor{comment}{//\ \ \ \ \ //\ Create\ Horizonal\ check\ box}}
+\DoxyCodeLine{00145\ \textcolor{comment}{//\ \ \ \ \ //\ The\ check\ box\ is\ sized\ to\ the\ move\ to\ prevent\ clipping}}
+\DoxyCodeLine{00146\ \textcolor{comment}{//\ \ \ \ \ //\ at\ high\ speeds\ and\ low\ framerates}}
+\DoxyCodeLine{00147\ \textcolor{comment}{//\ \ \ \ \ Box\ checkBox\ =\ entity-\/>box-\/>getBox();}}
+\DoxyCodeLine{00148\ \textcolor{comment}{//\ \ \ \ \ checkBox.size.x\ +=\ abs(movement.x);}}
+\DoxyCodeLine{00149\ \textcolor{comment}{//\ \ \ \ \ if\ (movement.x\ <\ 0)\ \{}}
+\DoxyCodeLine{00150\ \textcolor{comment}{//\ \ \ \ \ \ \ checkBox.position.x\ +=\ movement.x;}}
+\DoxyCodeLine{00151\ \textcolor{comment}{//\ \ \ \ \ \ \ //\ checkBox.position.x\ -\/=\ entity-\/>box-\/>getSize().x;}}
+\DoxyCodeLine{00152\ \textcolor{comment}{//\ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ \ \ \ \ \ \ //\ checkBox.position.x\ +=\ entity-\/>box-\/>getSize().x;}}
+\DoxyCodeLine{00154\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00155\ \textcolor{comment}{//}}
+\DoxyCodeLine{00156\ \textcolor{comment}{//\ \ \ \ \ entity-\/>box-\/>changePosition(\{movement.x,\ 0\});}}
+\DoxyCodeLine{00157\ \textcolor{comment}{//}}
+\DoxyCodeLine{00158\ \textcolor{comment}{//\ \ \ \ \ //\ Horizontal\ check\ and\ move}}
+\DoxyCodeLine{00159\ \textcolor{comment}{//\ \ \ \ \ Entity\ *horizontalHit\ =\ nullptr;}}
+\DoxyCodeLine{00160\ \textcolor{comment}{//\ \ \ \ \ for\ (auto\ *col\ :\ scene-\/>getGroup<Collider>())\ \{}}
+\DoxyCodeLine{00161\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (!col-\/>solid)}}
+\DoxyCodeLine{00162\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00163\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (!checkBox.checkCollision(col-\/>entity-\/>box-\/>getBox()))}}
+\DoxyCodeLine{00164\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00165\ \textcolor{comment}{//}}
+\DoxyCodeLine{00166\ \textcolor{comment}{//\ \ \ \ \ \ \ Entity\ *other\ =\ col-\/>entity;}}
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (horizontalHit\ ==\ nullptr)\ \{}}
+\DoxyCodeLine{00168\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ horizontalHit\ =\ other;}}
+\DoxyCodeLine{00169\ \textcolor{comment}{//\ \ \ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{00170\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (abs(abs(entity-\/>box-\/>getPosition().x)\ -\/}}
+\DoxyCodeLine{00171\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ abs(horizontalHit-\/>box-\/>getPosition().x))\ >}}
+\DoxyCodeLine{00172\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ abs(abs(entity-\/>box-\/>getPosition().x)\ -\/}}
+\DoxyCodeLine{00173\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ abs(other-\/>box-\/>getPosition().x)))\ \{}}
+\DoxyCodeLine{00174\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00175\ \textcolor{comment}{//\ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00177\ \textcolor{comment}{//}}
+\DoxyCodeLine{00178\ \textcolor{comment}{//\ \ \ \ \ if\ (horizontalHit\ !=\ nullptr)\ \{}}
+\DoxyCodeLine{00179\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (movement.x\ >\ 0)\ \{}}
+\DoxyCodeLine{00180\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ entity-\/>box-\/>setXPosition(horizontalHit-\/>box-\/>getBox().getLeft()\ -\/}}
+\DoxyCodeLine{00181\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entity-\/>box-\/>getSize().x);}}
+\DoxyCodeLine{00182\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ velocity.x\ =\ 0;}}
+\DoxyCodeLine{00183\ \textcolor{comment}{//\ \ \ \ \ \ \ \}\ else\ if\ (movement.x\ <\ 0)\ \{}}
+\DoxyCodeLine{00184\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ entity-\/>box-\/>setXPosition(horizontalHit-\/>box-\/>getBox().getRight());}}
+\DoxyCodeLine{00185\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ velocity.x\ =\ 0;}}
+\DoxyCodeLine{00186\ \textcolor{comment}{//\ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00187\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00188\ \textcolor{comment}{//}}
+\DoxyCodeLine{00189\ \textcolor{comment}{//\ \ \ \ \ //\ Create\ verticle\ check\ box}}
+\DoxyCodeLine{00190\ \textcolor{comment}{//\ \ \ \ \ checkBox\ =\ entity-\/>box-\/>getBox();}}
+\DoxyCodeLine{00191\ \textcolor{comment}{//\ \ \ \ \ checkBox.size.y\ +=\ abs(movement.y);}}
+\DoxyCodeLine{00192\ \textcolor{comment}{//\ \ \ \ \ if\ (movement.y\ <\ 0)\ \{}}
+\DoxyCodeLine{00193\ \textcolor{comment}{//\ \ \ \ \ \ \ checkBox.position.y\ +=\ movement.y;}}
+\DoxyCodeLine{00194\ \textcolor{comment}{//\ \ \ \ \ \ \ //\ checkBox.position.y\ -\/=\ entity-\/>box-\/>getSize().y;}}
+\DoxyCodeLine{00195\ \textcolor{comment}{//\ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{00196\ \textcolor{comment}{//\ \ \ \ \ \ \ //\ checkBox.position.y\ +=\ entity-\/>box-\/>getSize().y;}}
+\DoxyCodeLine{00197\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00198\ \textcolor{comment}{//}}
+\DoxyCodeLine{00199\ \textcolor{comment}{//\ \ \ \ \ entity-\/>box-\/>changePosition(\{0,\ movement.y\});}}
+\DoxyCodeLine{00200\ \textcolor{comment}{//}}
+\DoxyCodeLine{00201\ \textcolor{comment}{//\ \ \ \ \ //\ Verticle\ collision\ check\ and\ move}}
+\DoxyCodeLine{00202\ \textcolor{comment}{//\ \ \ \ \ Entity\ *verticleHit\ =\ nullptr;}}
+\DoxyCodeLine{00203\ \textcolor{comment}{//\ \ \ \ \ for\ (auto\ *col\ :\ scene-\/>getGroup<Collider>())\ \{}}
+\DoxyCodeLine{00204\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (!col-\/>solid)}}
+\DoxyCodeLine{00205\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00206\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (!checkBox.checkCollision(col-\/>entity-\/>box-\/>getBox()))}}
+\DoxyCodeLine{00207\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ continue;}}
+\DoxyCodeLine{00208\ \textcolor{comment}{//}}
+\DoxyCodeLine{00209\ \textcolor{comment}{//\ \ \ \ \ \ \ Entity\ *other\ =\ col-\/>entity;}}
+\DoxyCodeLine{00210\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (verticleHit\ ==\ nullptr)\ \{}}
+\DoxyCodeLine{00211\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ verticleHit\ =\ other;}}
+\DoxyCodeLine{00212\ \textcolor{comment}{//\ \ \ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{00213\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (abs(abs(entity-\/>box-\/>getPosition().y)\ -\/}}
+\DoxyCodeLine{00214\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ abs(verticleHit-\/>box-\/>getPosition().y))\ >}}
+\DoxyCodeLine{00215\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ abs(abs(entity-\/>box-\/>getPosition().y)\ -\/}}
+\DoxyCodeLine{00216\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ abs(other-\/>box-\/>getPosition().y)))\ \{}}
+\DoxyCodeLine{00217\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00219\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00220\ \textcolor{comment}{//}}
+\DoxyCodeLine{00221\ \textcolor{comment}{//\ \ \ \ \ if\ (verticleHit\ !=\ nullptr)\ \{}}
+\DoxyCodeLine{00222\ \textcolor{comment}{//\ \ \ \ \ \ \ if\ (movement.y\ >\ 0)\ \{}}
+\DoxyCodeLine{00223\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ entity-\/>box-\/>setYPosition(verticleHit-\/>box-\/>getBox().getTop()\ -\/}}
+\DoxyCodeLine{00224\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entity-\/>box-\/>getSize().y);}}
+\DoxyCodeLine{00225\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ velocity.y\ =\ 0;}}
+\DoxyCodeLine{00226\ \textcolor{comment}{//\ \ \ \ \ \ \ \}\ else\ if\ (movement.y\ <\ 0)\ \{}}
+\DoxyCodeLine{00227\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ entity-\/>box-\/>setYPosition(verticleHit-\/>box-\/>getBox().getBottom());}}
+\DoxyCodeLine{00228\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ velocity.y\ =\ 0;}}
+\DoxyCodeLine{00229\ \textcolor{comment}{//\ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00230\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00231\ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00232\ \textcolor{comment}{//}}
+\DoxyCodeLine{00233\ \textcolor{comment}{//\ \ \ Vector2f\ velocity;}}
+\DoxyCodeLine{00234\ \textcolor{comment}{//\ \ \ Vector2f\ maxVelocity\ =\ \{-\/1,\ -\/1\};}}
+\DoxyCodeLine{00235\ \textcolor{comment}{//\ \};}}
+
+\end{DoxyCode}

@@ -1,0 +1,120 @@
+\doxysection{Text Class Reference}
+\hypertarget{classText}{}\label{classText}\index{Text@{Text}}
+Inheritance diagram for Text\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classText}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classText_a7c7391c29820a87f72dd30c92e71c85f}{start}} () override
+\item 
+void \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{classText_affaab7133b97efad656ceddefa93c819}{on\+Screen\+Change}} () override
+\item 
+\Hypertarget{classText_a902c7fd99475f2628a9c565bf1da959b}\label{classText_a902c7fd99475f2628a9c565bf1da959b} 
+void {\bfseries change\+Font} (std\+::string font\+File, int size)
+\item 
+\Hypertarget{classText_a41ddc0c12816b74ecf2b06f12ef08ae3}\label{classText_a41ddc0c12816b74ecf2b06f12ef08ae3} 
+void {\bfseries render\+Text\+In\+Rect} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const std\+::string \&text, const SDL\+\_\+\+Rect \&rect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classText_ae6cfee33d66e57a82c268bf902dbfd81}\label{classText_ae6cfee33d66e57a82c268bf902dbfd81} 
+\mbox{\hyperlink{structBox}{Box}} {\bfseries text\+Box}
+\item 
+\Hypertarget{classText_aacef942c163c3fdc6258d1aff924d27c}\label{classText_aacef942c163c3fdc6258d1aff924d27c} 
+std\+::string {\bfseries text}
+\item 
+\Hypertarget{classText_a54c87d79cfd95c0eeee7be2026cd5d3c}\label{classText_a54c87d79cfd95c0eeee7be2026cd5d3c} 
+SDL\+\_\+\+Color {\bfseries text\+\_\+color} = \{0, 0, 0\}
+\item 
+\Hypertarget{classText_a1dd23afaf3a32cb6bf2763c76dfee11c}\label{classText_a1dd23afaf3a32cb6bf2763c76dfee11c} 
+int {\bfseries original\+\_\+font\+\_\+size} = 20
+\item 
+\Hypertarget{classText_af1b0c4c5d94f1a5338398f37e7b9ebbe}\label{classText_af1b0c4c5d94f1a5338398f37e7b9ebbe} 
+int {\bfseries font\+Size}
+\item 
+\Hypertarget{classText_a831df9ecf72841c3a7a2b7cfc63ea5d3}\label{classText_a831df9ecf72841c3a7a2b7cfc63ea5d3} 
+std\+::string {\bfseries mfont\+File} = "{}"{}
+\item 
+\Hypertarget{classText_ae23ac53acb57e760b91c81d8c4aec8c7}\label{classText_ae23ac53acb57e760b91c81d8c4aec8c7} 
+TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*} {\bfseries font} = TTF\+\_\+\+Open\+Font(mfont\+File.\+c\+\_\+str(), font\+Size)
+\item 
+\Hypertarget{classText_aff932128299acba7f0ca6faacb0f0685}\label{classText_aff932128299acba7f0ca6faacb0f0685} 
+SDL\+\_\+\+Color {\bfseries text\+Color}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classText_affaab7133b97efad656ceddefa93c819}\label{classText_affaab7133b97efad656ceddefa93c819} 
+\index{Text@{Text}!onScreenChange@{onScreenChange}}
+\index{onScreenChange@{onScreenChange}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{onScreenChange()}{onScreenChange()}}
+{\footnotesize\ttfamily void Text\+::on\+Screen\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classText_a7c7391c29820a87f72dd30c92e71c85f}\label{classText_a7c7391c29820a87f72dd30c92e71c85f} 
+\index{Text@{Text}!start@{start}}
+\index{start@{start}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Text\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classText_a57e755e59705824aeaa36d72bd6a8ff3}\label{classText_a57e755e59705824aeaa36d72bd6a8ff3} 
+\index{Text@{Text}!update@{update}}
+\index{update@{update}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Text\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Text.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\doxysection{Component Class Reference}
+\hypertarget{classComponent}{}\label{classComponent}\index{Component@{Component}}
+Inheritance diagram for Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classComponent}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classComponent_a5d72c9763c12b6073a92a51ac1d6c590}\label{classComponent_a5d72c9763c12b6073a92a51ac1d6c590} 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+\Hypertarget{classComponent_adef0f642e0ed12a9b29afe587b912972}\label{classComponent_adef0f642e0ed12a9b29afe587b912972} 
+virtual void {\bfseries start} ()=0
+\item 
+\Hypertarget{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}\label{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b} 
+virtual void {\bfseries update} (float delta\+Time)=0
+\item 
+\Hypertarget{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}\label{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2} 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+\Hypertarget{classComponent_ae54013904603c2a15d9963d28e666d78}\label{classComponent_ae54013904603c2a15d9963d28e666d78} 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+\Hypertarget{classComponent_a7a539c336fe7bcb8ab37b57030acd7e6}\label{classComponent_a7a539c336fe7bcb8ab37b57030acd7e6} 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classComponent_a374bdfccd617fc1919f9022cecf42251}\label{classComponent_a374bdfccd617fc1919f9022cecf42251} 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\Hypertarget{classComponent_a6acb3f00c9d114d961c8763ede390d2c}\label{classComponent_a6acb3f00c9d114d961c8763ede390d2c} 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\Hypertarget{classComponent_a681344c0ff97f7dd2162b59799ed4c0a}\label{classComponent_a681344c0ff97f7dd2162b59799ed4c0a} 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+\Hypertarget{classComponent_a9dda7de19221b9351c969517de715fe7}\label{classComponent_a9dda7de19221b9351c969517de715fe7} 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+\Hypertarget{classComponent_a7122d36fac96efccec8bcb4a6c32a8a1}\label{classComponent_a7122d36fac96efccec8bcb4a6c32a8a1} 
+bool {\bfseries is\+Init} = false
+\item 
+\Hypertarget{classComponent_adf18bc31ffaf50ea287ca1ffd2a5e866}\label{classComponent_adf18bc31ffaf50ea287ca1ffd2a5e866} 
+int {\bfseries layer} = 0
+\item 
+\Hypertarget{classComponent_a480e312ce44abfa2e6502d49876bbb3d}\label{classComponent_a480e312ce44abfa2e6502d49876bbb3d} 
+int {\bfseries index}
+\item 
+\Hypertarget{classComponent_a302b94be874440b798b1ec4d941ea8d0}\label{classComponent_a302b94be874440b798b1ec4d941ea8d0} 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+\Hypertarget{classComponent_acc6b6f489071d8549dc0f2976225e051}\label{classComponent_acc6b6f489071d8549dc0f2976225e051} 
+bool {\bfseries use\+Layer} = false
+\item 
+\Hypertarget{classComponent_ad1e24bf474dadd687bef5bd5658cec28}\label{classComponent_ad1e24bf474dadd687bef5bd5658cec28} 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Component.\+h\end{DoxyCompactItemize}

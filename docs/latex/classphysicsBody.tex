@@ -1,0 +1,86 @@
+\doxysection{physics\+Body Class Reference}
+\hypertarget{classphysicsBody}{}\label{classphysicsBody}\index{physicsBody@{physicsBody}}
+Inheritance diagram for physics\+Body\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classphysicsBody}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{start}} () override
+\item 
+void \mbox{\hyperlink{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}{update}} (float delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}\label{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries velocity}
+\item 
+\Hypertarget{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14}\label{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries max\+Velocity} = \{-\/1, -\/1\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}\label{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107} 
+\index{physicsBody@{physicsBody}!start@{start}}
+\index{start@{start}!physicsBody@{physicsBody}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void physics\+Body\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}\label{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234} 
+\index{physicsBody@{physicsBody}!update@{update}}
+\index{update@{update}!physicsBody@{physicsBody}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void physics\+Body\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/physics\+Body.\+h\end{DoxyCompactItemize}

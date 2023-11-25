@@ -1,0 +1,119 @@
+\doxysection{UISlice\+Renderer.\+h}
+\hypertarget{UISliceRenderer_8h_source}{}\label{UISliceRenderer_8h_source}\index{include/UISliceRenderer.h@{include/UISliceRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUISliceRenderer}{UISliceRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classUISliceRenderer}{UISliceRenderer}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}UISliceRenderer"{}})\ \{\};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ setColor(std::array<Uint8,\ 3>\ color)\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ texture\ =\ ResourceManager::getInstance(GameManager::renderer).getColoredTexture(color,\ textureName);}
+\DoxyCodeLine{00015\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ start()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ loadTexture(textureName);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ layer\ =\ 65;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ useLayer\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexture(std::string\ name)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ textureName\ =\ name;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ texture\ =\ ResourceManager::getInstance(GameManager::renderer).getTexture(textureName);}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ SDL\_Rect\ spriteRect\ =\ \{0,0,0,0\};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//spriteRect.x\ =\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().x)\ +\ GameManager::currentWindowSize.x/2;\ }}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//spriteRect.y\ =\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().y)\ +\ GameManager::currentWindowSize.y/2;\ \ \ \ }}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scaler\ =\ GameManager::screen\_change\_scale\ *\ ((GameManager::gameWindowSize.x\ +\ GameManager::gameWindowSize.y)\ /\ (GameManager::camera.size.x\ +\ GameManager::camera.size.y));}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ renderPos\ =\ entity-\/>box-\/>getUIPosition();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ spriteRect.x\ =\ renderPos.x;\textcolor{comment}{//+\ GameManager::camera.getCenter().x;}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ spriteRect.y\ =\ renderPos.y;\textcolor{comment}{//+\ GameManager::camera.getCenter().y;}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ spriteRect.x\ <<\ "{},\ "{}\ <<\ spriteRect.y\ <<\ std::endl;}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ spriteRect.w\ =\ box-\/>getSize().x\ *\ GameManager::screen\_change\_scale;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ spriteRect.h\ =\ box-\/>getSize().y\ *\ GameManager::screen\_change\_scale;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//spriteRect.x\ =\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().x)\ ;//+\ GameManager::windowWidth/2;\ }}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//spriteRect.y\ =\ GameManager::screen\_change\_scale\ *\ (box-\/>getPosition().y)\ ;//+\ GameManager::windowHeight/2;\ \ \ \ }}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//spriteRect.w\ =\ box-\/>getSize().x\ *\ GameManager::screen\_change\_scale;}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//spriteRect.h\ =\ box-\/>getSize().y\ *\ GameManager::screen\_change\_scale;}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ Draw9SlicedTexture(GameManager::renderer,\ texture,\ spriteRect,\ 10);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ Draw9SlicedTexture(SDL\_Renderer*\ renderer,\ SDL\_Texture*\ texture,\ SDL\_Rect\ destRect,\ \textcolor{keywordtype}{int}\ borderSize)}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ textureWidth,\ textureHeight;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ SDL\_QueryTexture(texture,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ \&textureWidth,\ \&textureHeight);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Define\ the\ nine\ source\ rectangles}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ SDL\_Rect\ srcRect[9]\ =\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top-\/left\ corner}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 0,\ 0,\ borderSize,\ borderSize\ \},}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top\ edge}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ borderSize,\ 0,\ textureWidth\ -\/\ (2\ *\ borderSize),\ borderSize\ \},}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top-\/right\ corner}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ textureWidth\ -\/\ borderSize,\ 0,\ borderSize,\ borderSize\ \},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Left\ edge}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 0,\ borderSize,\ borderSize,\ textureHeight\ -\/\ (2\ *\ borderSize)\ \},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Center}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ borderSize,\ borderSize,\ textureWidth\ -\/\ (2\ *\ borderSize),\ textureHeight\ -\/\ (2\ *\ borderSize)\ \},}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Right\ edge}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ textureWidth\ -\/\ borderSize,\ borderSize,\ borderSize,\ textureHeight\ -\/\ (2\ *\ borderSize)\ \},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom-\/left\ corner}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 0,\ textureHeight\ -\/\ borderSize,\ borderSize,\ borderSize\ \},}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom\ edge}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ borderSize,\ textureHeight\ -\/\ borderSize,\ textureWidth\ -\/\ (2\ *\ borderSize),\ borderSize\ \},}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom-\/right\ corner}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ textureWidth\ -\/\ borderSize,\ textureHeight\ -\/\ borderSize,\ borderSize,\ borderSize\ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Define\ the\ nine\ destination\ rectangles}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ SDL\_Rect\ dstRect[9]\ =\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top-\/left\ corner}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x,\ destRect.y,\ borderSize,\ borderSize\ \},}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top\ edge}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x\ +\ borderSize,\ destRect.y,\ destRect.w\ -\/\ (2\ *\ borderSize),\ borderSize\ \},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Top-\/right\ corner}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x\ +\ destRect.w\ -\/\ borderSize,\ destRect.y,\ borderSize,\ borderSize\ \},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Left\ edge}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x,\ destRect.y\ +\ borderSize,\ borderSize,\ destRect.h\ -\/\ (2\ *\ borderSize)\ \},}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Center}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x\ +\ borderSize,\ destRect.y\ +\ borderSize,\ destRect.w\ -\/\ (2\ *\ borderSize),\ destRect.h\ -\/\ (2\ *\ borderSize)\ \},}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Right\ edge}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x\ +\ destRect.w\ -\/\ borderSize,\ destRect.y\ +\ borderSize,\ borderSize,\ destRect.h\ -\/\ (2\ *\ borderSize)\ \},}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom-\/left\ corner}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x,\ destRect.y\ +\ destRect.h\ -\/\ borderSize,\ borderSize,\ borderSize\ \},}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom\ edge}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x\ +\ borderSize,\ destRect.y\ +\ destRect.h\ -\/\ borderSize,\ destRect.w\ -\/\ (2\ *\ borderSize),\ borderSize\ \},}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Bottom-\/right\ corner}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ destRect.x\ +\ destRect.w\ -\/\ borderSize,\ destRect.y\ +\ destRect.h\ -\/\ borderSize,\ borderSize,\ borderSize\ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ the\ nine\ slices\ of\ the\ texture}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 9;\ i++)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ \&srcRect[i],\ \&dstRect[i]);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00111\ \ \ \ \ SDL\_Texture*\ texture;}
+\DoxyCodeLine{00112\ \ \ \ \ std::string\ textureName\ =\ \textcolor{stringliteral}{"{}img/panel.png"{}};}
+\DoxyCodeLine{00113\ \};}
+
+\end{DoxyCode}

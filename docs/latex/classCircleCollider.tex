@@ -1,0 +1,95 @@
+\doxysection{Circle\+Collider Class Reference}
+\hypertarget{classCircleCollider}{}\label{classCircleCollider}\index{CircleCollider@{CircleCollider}}
+Inheritance diagram for Circle\+Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCircleCollider}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d}{start}} () override
+\item 
+void \mbox{\hyperlink{classCircleCollider_af410c11f63576845aa343d8ff9b0e579}{update}} (float delta\+Time) override
+\item 
+\Hypertarget{classCircleCollider_ae01a223d53f70433005c38d037ff963e}\label{classCircleCollider_ae01a223d53f70433005c38d037ff963e} 
+std\+::vector$<$ \mbox{\hyperlink{classCircleCollider}{Circle\+Collider}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Collisions} (std\+::string tag="{}"{})
+\item 
+\Hypertarget{classCircleCollider_a67faf2aad5906fd1c5a004e94d8f1e50}\label{classCircleCollider_a67faf2aad5906fd1c5a004e94d8f1e50} 
+bool {\bfseries check\+Collision} (\mbox{\hyperlink{classCircleCollider}{Circle\+Collider}} \texorpdfstring{$\ast$}{*}col)
+\item 
+\Hypertarget{classCircleCollider_abc7a4b982b2a817dbbec64922959e06b}\label{classCircleCollider_abc7a4b982b2a817dbbec64922959e06b} 
+bool {\bfseries check\+Circle\+Collision} (\mbox{\hyperlink{classCircleCollider}{Circle\+Collider}} \texorpdfstring{$\ast$}{*}col)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCircleCollider_a60da2a858fc57a2eb4c82745d012ca60}\label{classCircleCollider_a60da2a858fc57a2eb4c82745d012ca60} 
+float {\bfseries radius} = 0
+\item 
+\Hypertarget{classCircleCollider_a51625e501a1afbbb4512391a95822be0}\label{classCircleCollider_a51625e501a1afbbb4512391a95822be0} 
+bool {\bfseries solid} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d}\label{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d} 
+\index{CircleCollider@{CircleCollider}!start@{start}}
+\index{start@{start}!CircleCollider@{CircleCollider}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Circle\+Collider\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classCircleCollider_af410c11f63576845aa343d8ff9b0e579}\label{classCircleCollider_af410c11f63576845aa343d8ff9b0e579} 
+\index{CircleCollider@{CircleCollider}!update@{update}}
+\index{update@{update}!CircleCollider@{CircleCollider}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Circle\+Collider\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Circle\+Collider.\+h\end{DoxyCompactItemize}

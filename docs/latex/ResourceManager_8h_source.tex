@@ -1,0 +1,40 @@
+\doxysection{Resource\+Manager.\+h}
+\hypertarget{ResourceManager_8h_source}{}\label{ResourceManager_8h_source}\index{include/ResourceManager.h@{include/ResourceManager.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RESOURCE\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RESOURCE\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL\_mixer.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classResourceManager}{ResourceManager}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classResourceManager}{ResourceManager}}\ \&getInstance(SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00016\ \ \ SDL\_Texture\ *getTexture(std::string\ filename);}
+\DoxyCodeLine{00017\ \ \ SDL\_Texture\ *getColoredTexture(std::array<Uint8,\ 3>\ color,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ textureName);}
+\DoxyCodeLine{00019\ \ \ SDL\_Texture\ *getWhiteTexture(std::string\ textureName);}
+\DoxyCodeLine{00020\ \ \ Mix\_Chunk\ *getAudio(std::string\ filename);}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classResourceManager}{ResourceManager}}(SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classResourceManager}{ResourceManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classResourceManager}{ResourceManager}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classResourceManager}{ResourceManager}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classResourceManager}{ResourceManager}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classResourceManager}{\string~ResourceManager}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ SDL\_Renderer\ *renderer\_;}
+\DoxyCodeLine{00030\ \ \ std::map<std::string,\ SDL\_Texture\ *>\ textures\_;}
+\DoxyCodeLine{00031\ \ \ std::map<std::string,\ Mix\_Chunk\ *>\ sounds\_;}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RESOURCE\_MANAGER\_H}}
+
+\end{DoxyCode}

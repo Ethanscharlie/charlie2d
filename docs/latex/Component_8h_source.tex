@@ -1,0 +1,79 @@
+\doxysection{Component.\+h}
+\hypertarget{Component_8h_source}{}\label{Component_8h_source}\index{include/Component.h@{include/Component.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COMPONENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COMPONENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\#include\ "{}EntityBox.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScene}{Scene}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structentityBox}{entityBox}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classComponent}{Component}}(std::string\ \_title=\textcolor{stringliteral}{"{}"{}})\ :\ title(\_title)\ \{\};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classComponent}{\string~Component}}()\ \{\}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ start()\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ onDestroy()\ \{\}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ onScreenChange()\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//template\ <typename\ C>}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//void\ addComponent()\ \{}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ \ \ \ return\ entity-\/>template\ addComponent<C>();}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//template\ <typename\ C>}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//C\&\ getComponent()\ \{}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ \ \ \ return\ entity-\/>template\ getComponent<C>();}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//template\ <typename\ C>}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//void\ addComponent()\ \{}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ \ \ \ C*\ component\ =\ new\ C();}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ \ \ \ component-\/>entity\ =\ this;}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ \ \ \ component-\/>box\ =\ box;}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ \ \ \ component-\/>scene\ =\ scene;}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ \ \ \ component-\/>start();}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ \ \ \ entity-\/>components[typeid(C)]\ =\ component;}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ \ \ \ scene-\/>template\ add<C>(entity-\/>getComponents()[typeid(C)]);}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//template\ <typename\ C>}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//C\&\ getComponent()\ \{}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ \ \ \ auto\ it\ =\ entity-\/>getComponents().find(typeid(C));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ \ \ \ if\ (it\ !=\ entity-\/>getComponents().end())\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ return\ *static\_cast<C*>(it-\/>second);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ \ \ \ else\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ throw\ std::runtime\_error("{}Component\ not\ found!"{});\ \ }}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkComponent()\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ checkComponent<C>();}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{structentityBox}{entityBox}}*\ box;}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}*\ entity\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classScene}{Scene}}*\ scene;}
+\DoxyCodeLine{00062\ \ \ \ \ std::string\ title\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ layer\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ index;}
+\DoxyCodeLine{00066\ \ \ \ \ std::string\ entityTag\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ useLayer\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ standardUpdate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00073\ }
+
+\end{DoxyCode}

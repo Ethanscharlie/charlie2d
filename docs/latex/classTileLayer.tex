@@ -1,0 +1,93 @@
+\doxysection{Tile\+Layer Class Reference}
+\hypertarget{classTileLayer}{}\label{classTileLayer}\index{TileLayer@{TileLayer}}
+Inheritance diagram for Tile\+Layer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTileLayer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTileLayer_a5800e39c6e110a8595a841dc806433db}{start}} () override
+\item 
+void \mbox{\hyperlink{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea}{update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{classTileLayer_a7f3410a6fb557d5fb1474191c5b0fac4}{on\+Destroy}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTileLayer_ae8e391d7b6a2c0819bd12e00af1402db}\label{classTileLayer_ae8e391d7b6a2c0819bd12e00af1402db} 
+std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries tiles}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTileLayer_a7f3410a6fb557d5fb1474191c5b0fac4}\label{classTileLayer_a7f3410a6fb557d5fb1474191c5b0fac4} 
+\index{TileLayer@{TileLayer}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!TileLayer@{TileLayer}}
+\doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
+{\footnotesize\ttfamily void Tile\+Layer\+::on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classTileLayer_a5800e39c6e110a8595a841dc806433db}\label{classTileLayer_a5800e39c6e110a8595a841dc806433db} 
+\index{TileLayer@{TileLayer}!start@{start}}
+\index{start@{start}!TileLayer@{TileLayer}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Tile\+Layer\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea}\label{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea} 
+\index{TileLayer@{TileLayer}!update@{update}}
+\index{update@{update}!TileLayer@{TileLayer}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Tile\+Layer\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Tile.\+h\end{DoxyCompactItemize}

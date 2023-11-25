@@ -1,0 +1,113 @@
+\doxysection{Jump\+Man Class Reference}
+\hypertarget{classJumpMan}{}\label{classJumpMan}\index{JumpMan@{JumpMan}}
+Inheritance diagram for Jump\+Man\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classJumpMan}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}{start}} () override
+\item 
+void \mbox{\hyperlink{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}{update}} (float delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Destroy} ()
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\item 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classJumpMan_a039026d20cf8685da6b4255fbab6b2e7}\label{classJumpMan_a039026d20cf8685da6b4255fbab6b2e7} 
+float {\bfseries gravity} = 1500
+\item 
+\Hypertarget{classJumpMan_a1ec9fe2f6e96cb610c43156b608e79c7}\label{classJumpMan_a1ec9fe2f6e96cb610c43156b608e79c7} 
+float {\bfseries speed} = 40
+\item 
+\Hypertarget{classJumpMan_a8db547103cbba6174c77e9e3105bac45}\label{classJumpMan_a8db547103cbba6174c77e9e3105bac45} 
+float {\bfseries air\+Speed} = 40
+\item 
+\Hypertarget{classJumpMan_a6d3b341f99be4ce36bd4ddbc8ada24ab}\label{classJumpMan_a6d3b341f99be4ce36bd4ddbc8ada24ab} 
+float {\bfseries max\+Speed} = 200
+\item 
+\Hypertarget{classJumpMan_aead99e8ee4ba96535eb41d4131ac29fb}\label{classJumpMan_aead99e8ee4ba96535eb41d4131ac29fb} 
+float {\bfseries tracktion} = 1000
+\item 
+\Hypertarget{classJumpMan_aea89d5e9442578d9544021e85cf83cd9}\label{classJumpMan_aea89d5e9442578d9544021e85cf83cd9} 
+float {\bfseries jump\+Peak} = 80
+\item 
+\Hypertarget{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8}\label{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8} 
+float {\bfseries jump\+Change} = 300
+\item 
+\Hypertarget{classJumpMan_a4a5929e16b40585e7b7da7503ea6d8ee}\label{classJumpMan_a4a5929e16b40585e7b7da7503ea6d8ee} 
+int {\bfseries jumps} = 1
+\item 
+\Hypertarget{classJumpMan_ac01ea884648d305d0cef9eb567f9931a}\label{classJumpMan_ac01ea884648d305d0cef9eb567f9931a} 
+bool {\bfseries allow\+Jump} = true
+\item 
+\Hypertarget{classJumpMan_a1547f2011e0d04367bde5a4da048ef75}\label{classJumpMan_a1547f2011e0d04367bde5a4da048ef75} 
+bool {\bfseries need\+Ground} = true
+\item 
+\Hypertarget{classJumpMan_a358ede774827117039acb993885646f0}\label{classJumpMan_a358ede774827117039acb993885646f0} 
+bool {\bfseries touching\+Ground} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\item 
+\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
+\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\item 
+bool {\bfseries standard\+Update} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}\label{classJumpMan_a9edfdb170af06e76632923f2b5d439e6} 
+\index{JumpMan@{JumpMan}!start@{start}}
+\index{start@{start}!JumpMan@{JumpMan}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Jump\+Man\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+\Hypertarget{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}\label{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40} 
+\index{JumpMan@{JumpMan}!update@{update}}
+\index{update@{update}!JumpMan@{JumpMan}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Jump\+Man\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classComponent}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Jump\+Man.\+h\end{DoxyCompactItemize}
