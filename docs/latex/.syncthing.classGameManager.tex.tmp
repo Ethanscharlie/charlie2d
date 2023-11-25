@@ -1,0 +1,169 @@
+\doxysection{Game\+Manager Class Reference}
+\hypertarget{classGameManager}{}\label{classGameManager}\index{GameManager@{GameManager}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classGameManager_ad89996045a7158a3be2357228fc25579}{init}} (\mbox{\hyperlink{structVector2f}{Vector2f}} original\+Size=\{1920, 1080\})
+\item 
+static void \mbox{\hyperlink{classGameManager_a45e27686f841937a4ee6169b4e50ae00}{Add\+Scene}} (const std\+::string \&name, \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*}scene)
+\item 
+static void \mbox{\hyperlink{classGameManager_aa640c880991156f05b8ca7ab9a06953a}{Load\+Scene}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Unloads all entities and loads the set scene. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGameManager_ac1ed3052470a4a0bb8aae5d4011b0bec}{get\+Current\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current scene loaded by \doxylink{classGameManager_aa640c880991156f05b8ca7ab9a06953a}{Load\+Scene()} \end{DoxyCompactList}\item 
+\Hypertarget{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}\label{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124} 
+static void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em the main charlie2d update loop method \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classGameManager_a10cdc97d611120cb3e0ca203ef11d0c4}{play\+Sound}} (std\+::string filename, bool loop=false)
+\begin{DoxyCompactList}\small\item\em plays a soundfile, uses the \doxylink{classResourceManager}{Resource\+Manager} so there is no need to worry about managing the file loading yourself \end{DoxyCompactList}\item 
+\Hypertarget{classGameManager_ac63aa477ce3707e03b42968d364a6ce6}\label{classGameManager_ac63aa477ce3707e03b42968d364a6ce6} 
+static void {\bfseries quit} ()
+\begin{DoxyCompactList}\small\item\em Ends the program... I think... if it doesn\textquotesingle{}t then ill find out eventually. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}{do\+Update\+Loop}} ()
+\item 
+static void \mbox{\hyperlink{classGameManager_acfabcca795eb1f8f1583aefa1951ffde}{set\+Window\+Size}} (\mbox{\hyperlink{structVector2f}{Vector2f}} size)
+\item 
+static void \mbox{\hyperlink{classGameManager_a58cc9095a89c14b79e9fdb79506e7f7d}{do\+Fade}} (std\+::function$<$ void()$>$ middle=\mbox{[}$\,$\mbox{]}() \{\}, int fade\+Time=300)
+\item 
+\Hypertarget{classGameManager_ad4fb2e33864d8bf0178998ad0fb8d069}\label{classGameManager_ad4fb2e33864d8bf0178998ad0fb8d069} 
+static void {\bfseries set\+Camera} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGameManager_ae580e2a620b45956a4685a6585f6ca8b}\label{classGameManager_ae580e2a620b45956a4685a6585f6ca8b} 
+static SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*} {\bfseries window} = nullptr
+\item 
+\Hypertarget{classGameManager_af903e4517f8fb60cbaadcf659f861cfe}\label{classGameManager_af903e4517f8fb60cbaadcf659f861cfe} 
+static SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} {\bfseries renderer} = nullptr
+\item 
+\Hypertarget{classGameManager_ac3bddd006bb35ab95860f4c5918e0e91}\label{classGameManager_ac3bddd006bb35ab95860f4c5918e0e91} 
+static SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries screen\+Texture}
+\item 
+\Hypertarget{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}\label{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc} 
+static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries game\+Window\+Size} = \{0, 0\}
+\item 
+\Hypertarget{classGameManager_abb18b130f0f509697c19bbded946d135}\label{classGameManager_abb18b130f0f509697c19bbded946d135} 
+static \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries current\+Window\+Size} = \{0, 0\}
+\item 
+\Hypertarget{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}\label{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d} 
+static float {\bfseries screen\+\_\+change\+\_\+scale} = 0
+\item 
+\Hypertarget{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d}\label{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d} 
+static bool {\bfseries running} = true
+\item 
+\Hypertarget{classGameManager_aa7dc06b7277c7c0afe7ba947e99834a0}\label{classGameManager_aa7dc06b7277c7c0afe7ba947e99834a0} 
+static \mbox{\hyperlink{structBox}{Box}} {\bfseries camera} = \{0, 0, 0, 0\}
+\item 
+\Hypertarget{classGameManager_a430ff3ba4c0af776be071993a08798ab}\label{classGameManager_a430ff3ba4c0af776be071993a08798ab} 
+static \mbox{\hyperlink{structBox}{Box}} {\bfseries camera\+Limit\+Box} = \{0, 0, 0, 0\}
+\item 
+\Hypertarget{classGameManager_a7e027ded125d9e5c6dfd88fccefd26b7}\label{classGameManager_a7e027ded125d9e5c6dfd88fccefd26b7} 
+static int {\bfseries transition} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameManager_a45e27686f841937a4ee6169b4e50ae00}\label{classGameManager_a45e27686f841937a4ee6169b4e50ae00} 
+\index{GameManager@{GameManager}!AddScene@{AddScene}}
+\index{AddScene@{AddScene}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{AddScene()}{AddScene()}}
+{\footnotesize\ttfamily void Game\+Manager\+::\+Add\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*}}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Adds a \doxylink{classScene}{Scene} to the scene map 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name given to the scene (used for loading) \\
+\hline
+{\em scene} & the scene to be added \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGameManager_a58cc9095a89c14b79e9fdb79506e7f7d}\label{classGameManager_a58cc9095a89c14b79e9fdb79506e7f7d} 
+\index{GameManager@{GameManager}!doFade@{doFade}}
+\index{doFade@{doFade}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{doFade()}{doFade()}}
+{\footnotesize\ttfamily void Game\+Manager\+::do\+Fade (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{middle = {\ttfamily \mbox{[}\mbox{]}()~\{\}},  }\item[{int}]{fade\+Time = {\ttfamily 300} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}\label{classGameManager_a23446d4fc037d61ba06422cb0d0f7937} 
+\index{GameManager@{GameManager}!doUpdateLoop@{doUpdateLoop}}
+\index{doUpdateLoop@{doUpdateLoop}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{doUpdateLoop()}{doUpdateLoop()}}
+{\footnotesize\ttfamily void Game\+Manager\+::do\+Update\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGameManager_ac1ed3052470a4a0bb8aae5d4011b0bec}\label{classGameManager_ac1ed3052470a4a0bb8aae5d4011b0bec} 
+\index{GameManager@{GameManager}!getCurrentScene@{getCurrentScene}}
+\index{getCurrentScene@{getCurrentScene}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{getCurrentScene()}{getCurrentScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} Game\+Manager\+::get\+Current\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets the current scene loaded by \doxylink{classGameManager_aa640c880991156f05b8ca7ab9a06953a}{Load\+Scene()} 
+
+\begin{DoxyReturn}{Returns}
+the current \doxylink{classScene}{Scene} 
+\end{DoxyReturn}
+\Hypertarget{classGameManager_ad89996045a7158a3be2357228fc25579}\label{classGameManager_ad89996045a7158a3be2357228fc25579} 
+\index{GameManager@{GameManager}!init@{init}}
+\index{init@{init}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Game\+Manager\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structVector2f}{Vector2f}}}]{original\+Size = {\ttfamily \{1920,~1080\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Must Be Called before anything in charlie2d can also set the original screen resolution \Hypertarget{classGameManager_aa640c880991156f05b8ca7ab9a06953a}\label{classGameManager_aa640c880991156f05b8ca7ab9a06953a} 
+\index{GameManager@{GameManager}!LoadScene@{LoadScene}}
+\index{LoadScene@{LoadScene}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{LoadScene()}{LoadScene()}}
+{\footnotesize\ttfamily void Game\+Manager\+::\+Load\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Unloads all entities and loads the set scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the scenes name \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGameManager_a10cdc97d611120cb3e0ca203ef11d0c4}\label{classGameManager_a10cdc97d611120cb3e0ca203ef11d0c4} 
+\index{GameManager@{GameManager}!playSound@{playSound}}
+\index{playSound@{playSound}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{playSound()}{playSound()}}
+{\footnotesize\ttfamily void Game\+Manager\+::play\+Sound (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{bool}]{loop = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+plays a soundfile, uses the \doxylink{classResourceManager}{Resource\+Manager} so there is no need to worry about managing the file loading yourself 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file \\
+\hline
+{\em loop} & yeah you get the idea \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGameManager_acfabcca795eb1f8f1583aefa1951ffde}\label{classGameManager_acfabcca795eb1f8f1583aefa1951ffde} 
+\index{GameManager@{GameManager}!setWindowSize@{setWindowSize}}
+\index{setWindowSize@{setWindowSize}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{setWindowSize()}{setWindowSize()}}
+{\footnotesize\ttfamily void Game\+Manager\+::set\+Window\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structVector2f}{Vector2f}}}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+Manager.\+h\item 
+source/Game\+Manager.\+cpp\end{DoxyCompactItemize}
