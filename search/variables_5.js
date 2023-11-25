@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['running_0',['running',['../classGameManager.html#acc57c7a6d727dd91ecda08b0e63b407d',1,'GameManager']]]
+  ['layer_0',['layer',['../classComponent.html#adf18bc31ffaf50ea287ca1ffd2a5e866',1,'Component']]]
 ];

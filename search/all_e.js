@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['quickstart_0',['Quickstart',['../md_README.html#autotoc_md3',1,'']]],
-  ['quit_1',['quit',['../classGameManager.html#ac63aa477ce3707e03b42968d364a6ce6',1,'GameManager']]]
+  ['physicsbody_0',['physicsBody',['../classphysicsBody.html',1,'']]],
+  ['play_1',['play',['../classAnimation.html#aa94dcb6f0f23ebd169573d9e039b2975',1,'Animation']]],
+  ['playsound_2',['playSound',['../classGameManager.html#a10cdc97d611120cb3e0ca203ef11d0c4',1,'GameManager']]]
 ];
