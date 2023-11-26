@@ -13,6 +13,9 @@
 
 class Entity;
 
+/**
+ * \brief Made to optimize tile rendering by not sorting each tile individualy
+ */
 class TileLayer : public Component {
     public:
     TileLayer() : Component("TileLayer") {} 

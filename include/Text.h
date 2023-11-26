@@ -7,6 +7,10 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
+/**
+ * \brief A simple UI text Component (good with UISliceRenderer)
+ * Don't forget to use a UICanvas
+ */
 class Text : public Component {
 public:
   Text() : Component("Text"){};
@@ -53,6 +57,12 @@ public:
 
   void onScreenChange() override { changeFont(mfontFile, fontSize); }
 
+  /** 
+   * \brief Sets the font and text size,
+   * This MUST be called for text to work
+   * \param fontFile A filepath to a ttf font
+   * \param size Fontsize
+   */
   void changeFont(std::string fontFile, int size) {
     fontSize = size;
     mfontFile = fontFile;
@@ -60,6 +70,9 @@ public:
                         fontSize * GameManager::screen_change_scale);
   }
 
+  /**
+   * \brief Renders the text (is called in updateloop don't worry about this)
+   */
   void renderTextInRect(SDL_Renderer *renderer, const std::string &text,
                         const SDL_Rect &rect) {
     // Create a surface from the text
@@ -101,6 +114,9 @@ public:
 
   std::string text;
 
+  /**
+   * \brief Sets the text color
+   */
   SDL_Color text_color = {0, 0, 0};
   int original_font_size = 20;
   int fontSize;

@@ -77,6 +77,11 @@ $(function() {
   <div class="headertitle"><div class="title">entityBox Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>entityBoxs are a class for local and global positioning relitive to a parent If no parent is set than you can ignore tho local part  
+ <a href="structentityBox.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="EntityBox_8h_source.html">EntityBox.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -85,99 +90,130 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae8f0bd27ce4396bc841eb8dbf3939a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13ab6eb360e37543e6db39715c21a9f5" id="r_a13ab6eb360e37543e6db39715c21a9f5"><td class="memItemLeft" align="right" valign="top"><a id="a13ab6eb360e37543e6db39715c21a9f5" name="a13ab6eb360e37543e6db39715c21a9f5"></a>
 <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getLocalPosition</b> ()</td></tr>
+<tr class="memdesc:a13ab6eb360e37543e6db39715c21a9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the position of the local box. <br /></td></tr>
 <tr class="separator:a13ab6eb360e37543e6db39715c21a9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ae7c03065892fc6eb6f5b7f80c3ec47" id="r_a4ae7c03065892fc6eb6f5b7f80c3ec47"><td class="memItemLeft" align="right" valign="top"><a id="a4ae7c03065892fc6eb6f5b7f80c3ec47" name="a4ae7c03065892fc6eb6f5b7f80c3ec47"></a>
 <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getLocalSize</b> ()</td></tr>
+<tr class="memdesc:a4ae7c03065892fc6eb6f5b7f80c3ec47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the local box. <br /></td></tr>
 <tr class="separator:a4ae7c03065892fc6eb6f5b7f80c3ec47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8849b82a9400c9ad85f001e7640ccd07" id="r_a8849b82a9400c9ad85f001e7640ccd07"><td class="memItemLeft" align="right" valign="top"><a id="a8849b82a9400c9ad85f001e7640ccd07" name="a8849b82a9400c9ad85f001e7640ccd07"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalPosition</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:a8849b82a9400c9ad85f001e7640ccd07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the local box. <br /></td></tr>
 <tr class="separator:a8849b82a9400c9ad85f001e7640ccd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8efa7b972186d2d09432996d8755f0a3" id="r_a8efa7b972186d2d09432996d8755f0a3"><td class="memItemLeft" align="right" valign="top"><a id="a8efa7b972186d2d09432996d8755f0a3" name="a8efa7b972186d2d09432996d8755f0a3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalXPosition</b> (float x)</td></tr>
+<tr class="memdesc:a8efa7b972186d2d09432996d8755f0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the X position of the local box. <br /></td></tr>
 <tr class="separator:a8efa7b972186d2d09432996d8755f0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a16a09bc3041bacfe4d1f99d3f6cf4" id="r_ac6a16a09bc3041bacfe4d1f99d3f6cf4"><td class="memItemLeft" align="right" valign="top"><a id="ac6a16a09bc3041bacfe4d1f99d3f6cf4" name="ac6a16a09bc3041bacfe4d1f99d3f6cf4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalYPosition</b> (float y)</td></tr>
+<tr class="memdesc:ac6a16a09bc3041bacfe4d1f99d3f6cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Y position of the local box. <br /></td></tr>
 <tr class="separator:ac6a16a09bc3041bacfe4d1f99d3f6cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a842a4940c2f05f33a50aa5bd56a775b7" id="r_a842a4940c2f05f33a50aa5bd56a775b7"><td class="memItemLeft" align="right" valign="top"><a id="a842a4940c2f05f33a50aa5bd56a775b7" name="a842a4940c2f05f33a50aa5bd56a775b7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>changeLocalPosition</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;change)</td></tr>
+<tr class="memdesc:a842a4940c2f05f33a50aa5bd56a775b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes (Adds) the position of the local box. <br /></td></tr>
 <tr class="separator:a842a4940c2f05f33a50aa5bd56a775b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ae7e6ed7312cf370f07c687cbd887cd" id="r_a1ae7e6ed7312cf370f07c687cbd887cd"><td class="memItemLeft" align="right" valign="top"><a id="a1ae7e6ed7312cf370f07c687cbd887cd" name="a1ae7e6ed7312cf370f07c687cbd887cd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalSize</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:a1ae7e6ed7312cf370f07c687cbd887cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the local box. <br /></td></tr>
 <tr class="separator:a1ae7e6ed7312cf370f07c687cbd887cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9faa9ac3c70350075a89b497a23ad3c0" id="r_a9faa9ac3c70350075a89b497a23ad3c0"><td class="memItemLeft" align="right" valign="top"><a id="a9faa9ac3c70350075a89b497a23ad3c0" name="a9faa9ac3c70350075a89b497a23ad3c0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalXSize</b> (float x)</td></tr>
+<tr class="memdesc:a9faa9ac3c70350075a89b497a23ad3c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Width of the local box. <br /></td></tr>
 <tr class="separator:a9faa9ac3c70350075a89b497a23ad3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf2c28eeff21f8c652e70605c264523" id="r_acdf2c28eeff21f8c652e70605c264523"><td class="memItemLeft" align="right" valign="top"><a id="acdf2c28eeff21f8c652e70605c264523" name="acdf2c28eeff21f8c652e70605c264523"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalYSize</b> (float y)</td></tr>
+<tr class="memdesc:acdf2c28eeff21f8c652e70605c264523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Height of the local box. <br /></td></tr>
 <tr class="separator:acdf2c28eeff21f8c652e70605c264523"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ad8dac728244be68bcc67b726fe389d" id="r_a1ad8dac728244be68bcc67b726fe389d"><td class="memItemLeft" align="right" valign="top"><a id="a1ad8dac728244be68bcc67b726fe389d" name="a1ad8dac728244be68bcc67b726fe389d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>changeLocalSize</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;change)</td></tr>
+<tr class="memdesc:a1ad8dac728244be68bcc67b726fe389d"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes (Adds) the size of the local box <br /></td></tr>
 <tr class="separator:a1ad8dac728244be68bcc67b726fe389d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abedbe455c9b2f3dbab28764aa63dbe3f" id="r_abedbe455c9b2f3dbab28764aa63dbe3f"><td class="memItemLeft" align="right" valign="top"><a id="abedbe455c9b2f3dbab28764aa63dbe3f" name="abedbe455c9b2f3dbab28764aa63dbe3f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLocalWithCenter</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:abedbe455c9b2f3dbab28764aa63dbe3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the center postion to the point of the localbox. <br /></td></tr>
 <tr class="separator:abedbe455c9b2f3dbab28764aa63dbe3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e9e681b9d56bcdee60223e455d21b1" id="r_a48e9e681b9d56bcdee60223e455d21b1"><td class="memItemLeft" align="right" valign="top"><a id="a48e9e681b9d56bcdee60223e455d21b1" name="a48e9e681b9d56bcdee60223e455d21b1"></a>
 <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> ()</td></tr>
+<tr class="memdesc:a48e9e681b9d56bcdee60223e455d21b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the position of the global box. <br /></td></tr>
 <tr class="separator:a48e9e681b9d56bcdee60223e455d21b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44f303105c4e381ebfa79fbc071df779" id="r_a44f303105c4e381ebfa79fbc071df779"><td class="memItemLeft" align="right" valign="top"><a id="a44f303105c4e381ebfa79fbc071df779" name="a44f303105c4e381ebfa79fbc071df779"></a>
 <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> ()</td></tr>
+<tr class="memdesc:a44f303105c4e381ebfa79fbc071df779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the global box. <br /></td></tr>
 <tr class="separator:a44f303105c4e381ebfa79fbc071df779"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47702898c7025c858c1b53aec72734f2" id="r_a47702898c7025c858c1b53aec72734f2"><td class="memItemLeft" align="right" valign="top"><a id="a47702898c7025c858c1b53aec72734f2" name="a47702898c7025c858c1b53aec72734f2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:a47702898c7025c858c1b53aec72734f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the global box. <br /></td></tr>
 <tr class="separator:a47702898c7025c858c1b53aec72734f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9c29c278e367a7e027978aadc00a24f" id="r_ab9c29c278e367a7e027978aadc00a24f"><td class="memItemLeft" align="right" valign="top"><a id="ab9c29c278e367a7e027978aadc00a24f" name="ab9c29c278e367a7e027978aadc00a24f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setXPosition</b> (float x)</td></tr>
+<tr class="memdesc:ab9c29c278e367a7e027978aadc00a24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the X position of the global box. <br /></td></tr>
 <tr class="separator:ab9c29c278e367a7e027978aadc00a24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fdb9be5390f8f0b718f44b72ce86dee" id="r_a5fdb9be5390f8f0b718f44b72ce86dee"><td class="memItemLeft" align="right" valign="top"><a id="a5fdb9be5390f8f0b718f44b72ce86dee" name="a5fdb9be5390f8f0b718f44b72ce86dee"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setYPosition</b> (float y)</td></tr>
+<tr class="memdesc:a5fdb9be5390f8f0b718f44b72ce86dee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Y position of the global box. <br /></td></tr>
 <tr class="separator:a5fdb9be5390f8f0b718f44b72ce86dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7247902b1ee32ec32cf72abeaa90a99" id="r_ab7247902b1ee32ec32cf72abeaa90a99"><td class="memItemLeft" align="right" valign="top"><a id="ab7247902b1ee32ec32cf72abeaa90a99" name="ab7247902b1ee32ec32cf72abeaa90a99"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>changePosition</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;change)</td></tr>
+<tr class="memdesc:ab7247902b1ee32ec32cf72abeaa90a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes (Adds) the position of the global box. <br /></td></tr>
 <tr class="separator:ab7247902b1ee32ec32cf72abeaa90a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51f11ad4856be22a85182ba6f8fe924a" id="r_a51f11ad4856be22a85182ba6f8fe924a"><td class="memItemLeft" align="right" valign="top"><a id="a51f11ad4856be22a85182ba6f8fe924a" name="a51f11ad4856be22a85182ba6f8fe924a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:a51f11ad4856be22a85182ba6f8fe924a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the global box. <br /></td></tr>
 <tr class="separator:a51f11ad4856be22a85182ba6f8fe924a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5714ed8e9c5b171a2b89938f0ae5e32f" id="r_a5714ed8e9c5b171a2b89938f0ae5e32f"><td class="memItemLeft" align="right" valign="top"><a id="a5714ed8e9c5b171a2b89938f0ae5e32f" name="a5714ed8e9c5b171a2b89938f0ae5e32f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setXSize</b> (float x)</td></tr>
+<tr class="memdesc:a5714ed8e9c5b171a2b89938f0ae5e32f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Width of the global box. <br /></td></tr>
 <tr class="separator:a5714ed8e9c5b171a2b89938f0ae5e32f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02afa8d03a72cbfef6308ae4dc6bebec" id="r_a02afa8d03a72cbfef6308ae4dc6bebec"><td class="memItemLeft" align="right" valign="top"><a id="a02afa8d03a72cbfef6308ae4dc6bebec" name="a02afa8d03a72cbfef6308ae4dc6bebec"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setYSize</b> (float y)</td></tr>
+<tr class="memdesc:a02afa8d03a72cbfef6308ae4dc6bebec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Height of the global box. <br /></td></tr>
 <tr class="separator:a02afa8d03a72cbfef6308ae4dc6bebec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61c0ac45c85302a7422bcc439de1ea44" id="r_a61c0ac45c85302a7422bcc439de1ea44"><td class="memItemLeft" align="right" valign="top"><a id="a61c0ac45c85302a7422bcc439de1ea44" name="a61c0ac45c85302a7422bcc439de1ea44"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>changeSize</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;change)</td></tr>
+<tr class="memdesc:a61c0ac45c85302a7422bcc439de1ea44"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes (Adds) the size of the global box <br /></td></tr>
 <tr class="separator:a61c0ac45c85302a7422bcc439de1ea44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f7f03cacf99813d8f66648d1bcc7df" id="r_ae2f7f03cacf99813d8f66648d1bcc7df"><td class="memItemLeft" align="right" valign="top"><a id="ae2f7f03cacf99813d8f66648d1bcc7df" name="ae2f7f03cacf99813d8f66648d1bcc7df"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setScale</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:ae2f7f03cacf99813d8f66648d1bcc7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of global box with keep the center in the same place. <br /></td></tr>
 <tr class="separator:ae2f7f03cacf99813d8f66648d1bcc7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab92e11f77f67bd2411b399d7ce83a8b" id="r_aab92e11f77f67bd2411b399d7ce83a8b"><td class="memItemLeft" align="right" valign="top"><a id="aab92e11f77f67bd2411b399d7ce83a8b" name="aab92e11f77f67bd2411b399d7ce83a8b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>changeScale</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;change)</td></tr>
+<tr class="memdesc:aab92e11f77f67bd2411b399d7ce83a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes (Adds) the size of the global box <br /></td></tr>
 <tr class="separator:aab92e11f77f67bd2411b399d7ce83a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3960b28d7166bb6aad8e17b9f6fa9ec4" id="r_a3960b28d7166bb6aad8e17b9f6fa9ec4"><td class="memItemLeft" align="right" valign="top"><a id="a3960b28d7166bb6aad8e17b9f6fa9ec4" name="a3960b28d7166bb6aad8e17b9f6fa9ec4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setWithCenter</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:a3960b28d7166bb6aad8e17b9f6fa9ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the center postion to the point of the global box. <br /></td></tr>
 <tr class="separator:a3960b28d7166bb6aad8e17b9f6fa9ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afebaed3c6c7e16c95636d141dad25b06" id="r_afebaed3c6c7e16c95636d141dad25b06"><td class="memItemLeft" align="right" valign="top"><a id="afebaed3c6c7e16c95636d141dad25b06" name="afebaed3c6c7e16c95636d141dad25b06"></a>
 <a class="el" href="structBox.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getLocalBox</b> ()</td></tr>
+<tr class="memdesc:afebaed3c6c7e16c95636d141dad25b06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a copy the raw local box. <br /></td></tr>
 <tr class="separator:afebaed3c6c7e16c95636d141dad25b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09187aff76ffe8f74f584e27d311a890" id="r_a09187aff76ffe8f74f584e27d311a890"><td class="memItemLeft" align="right" valign="top"><a id="a09187aff76ffe8f74f584e27d311a890" name="a09187aff76ffe8f74f584e27d311a890"></a>
 <a class="el" href="structBox.html">Box</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getBox</b> ()</td></tr>
+<tr class="memdesc:a09187aff76ffe8f74f584e27d311a890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a copy the raw global box. <br /></td></tr>
 <tr class="separator:a09187aff76ffe8f74f584e27d311a890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaa1a37edf581035e69e147fe0a5ab72" id="r_adaa1a37edf581035e69e147fe0a5ab72"><td class="memItemLeft" align="right" valign="top"><a id="adaa1a37edf581035e69e147fe0a5ab72" name="adaa1a37edf581035e69e147fe0a5ab72"></a>
 <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getScreenPosition</b> ()</td></tr>
+<tr class="memdesc:adaa1a37edf581035e69e147fe0a5ab72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Screen position (Used for rendering) <br /></td></tr>
 <tr class="separator:adaa1a37edf581035e69e147fe0a5ab72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a273788c96c3aa125bdde2d0c39dfdd" id="r_a8a273788c96c3aa125bdde2d0c39dfdd"><td class="memItemLeft" align="right" valign="top"><a id="a8a273788c96c3aa125bdde2d0c39dfdd" name="a8a273788c96c3aa125bdde2d0c39dfdd"></a>
 <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getUIPosition</b> ()</td></tr>
+<tr class="memdesc:a8a273788c96c3aa125bdde2d0c39dfdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the UI position (Used for UI rendering) <br /></td></tr>
 <tr class="separator:a8a273788c96c3aa125bdde2d0c39dfdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6861f0516f502aad77ca058a80294a02" id="r_a6861f0516f502aad77ca058a80294a02"><td class="memItemLeft" align="right" valign="top"><a id="a6861f0516f502aad77ca058a80294a02" name="a6861f0516f502aad77ca058a80294a02"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateGlobalBox</b> ()</td></tr>
+<tr class="memdesc:a6861f0516f502aad77ca058a80294a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called automaticaly, upadates when local box is changed. <br /></td></tr>
 <tr class="separator:a6861f0516f502aad77ca058a80294a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670bf4224a480c885e1a8207cba2b676" id="r_a670bf4224a480c885e1a8207cba2b676"><td class="memItemLeft" align="right" valign="top"><a id="a670bf4224a480c885e1a8207cba2b676" name="a670bf4224a480c885e1a8207cba2b676"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateLocalBox</b> ()</td></tr>
+<tr class="memdesc:a670bf4224a480c885e1a8207cba2b676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called automaticaly, upadates when global box is changed. <br /></td></tr>
 <tr class="separator:a670bf4224a480c885e1a8207cba2b676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84a976ea54b8ffd3dc90e20947e44f55" id="r_a84a976ea54b8ffd3dc90e20947e44f55"><td class="memItemLeft" align="right" valign="top"><a id="a84a976ea54b8ffd3dc90e20947e44f55" name="a84a976ea54b8ffd3dc90e20947e44f55"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="memdesc:a84a976ea54b8ffd3dc90e20947e44f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs the global box. <br /></td></tr>
 <tr class="separator:a84a976ea54b8ffd3dc90e20947e44f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a86c6422cbadf7d00ae5098738ba1ba" id="r_a2a86c6422cbadf7d00ae5098738ba1ba"><td class="memItemLeft" align="right" valign="top"><a id="a2a86c6422cbadf7d00ae5098738ba1ba" name="a2a86c6422cbadf7d00ae5098738ba1ba"></a>
-<a class="el" href="structslideOut.html">slideOut</a>&#160;</td><td class="memItemRight" valign="bottom"><b>slide</b> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;move, const std::vector&lt; <a class="el" href="classEntity.html">Entity</a> * &gt; &amp;solids, bool pushOut=true, bool useMoveBox=true)</td></tr>
+<tr class="memitem:a2a86c6422cbadf7d00ae5098738ba1ba" id="r_a2a86c6422cbadf7d00ae5098738ba1ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structslideOut.html">slideOut</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structentityBox.html#a2a86c6422cbadf7d00ae5098738ba1ba">slide</a> (const <a class="el" href="structVector2f.html">Vector2f</a> &amp;move, const std::vector&lt; <a class="el" href="classEntity.html">Entity</a> * &gt; &amp;solids, bool pushOut=true, bool useMoveBox=true)</td></tr>
+<tr class="memdesc:a2a86c6422cbadf7d00ae5098738ba1ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the global box while using entites as walls that it can't pass through.  <br /></td></tr>
 <tr class="separator:a2a86c6422cbadf7d00ae5098738ba1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -189,6 +225,72 @@ Public Attributes</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>anchor</b> = 0</td></tr>
 <tr class="separator:a79bbed9109b703c785d324ae4e4acc54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>entityBoxs are a class for local and global positioning relitive to a parent If no parent is set than you can ignore tho local part </p>
+<p>Every entity has an <a class="el" href="structentityBox.html" title="entityBoxs are a class for local and global positioning relitive to a parent If no parent is set than...">entityBox</a> (Think of these like Unity Transforms) These will be</p>
+<p>Changes either local or global box with change the oppite box as well to fix with your changes</p>
+<p>This will be switched to a <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> at some because because that makes more sense </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2a86c6422cbadf7d00ae5098738ba1ba" name="a2a86c6422cbadf7d00ae5098738ba1ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a86c6422cbadf7d00ae5098738ba1ba">&#9670;&#160;</a></span>slide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structslideOut.html">slideOut</a> entityBox::slide </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structVector2f.html">Vector2f</a> &amp;&#160;</td>
+          <td class="paramname"><em>move</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classEntity.html">Entity</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>solids</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>pushOut</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useMoveBox</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves the global box while using entites as walls that it can't pass through. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">move</td><td>the change (You may want to multiply this by deltaTime) </td></tr>
+    <tr><td class="paramname">solids</td><td>Entitys that this object can't go through and will be pushed out of </td></tr>
+    <tr><td class="paramname">pushOut</td><td>When false it won't use solids as walls and allows pass through</td></tr>
+    <tr><td class="paramname">useMoveBox</td><td>Used for continueing collsion detection (Currently buggy, don't use with pushOut being true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structslideOut.html" title="An output for the entityBox slide method.">slideOut</a> which contains data about what occured during the slide </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li>include/<a class="el" href="EntityBox_8h_source.html">EntityBox.h</a></li>
 <li>source/<b>EntityBox.cpp</b></li>

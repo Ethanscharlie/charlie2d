@@ -91,201 +91,241 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span><a class="code hl_class" href="classEntity.html">Entity</a>;</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structslideOut.html">   10</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structslideOut.html">slideOut</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  std::vector&lt;Entity *&gt; hitList;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keywordtype">bool</span> horizontalHit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keywordtype">bool</span> verticleHit = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structslideOut.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structslideOut.html">slideOut</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  std::vector&lt;Entity *&gt; hitList;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordtype">bool</span> horizontalHit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keywordtype">bool</span> verticleHit = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structentityBox.html">   16</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structentityBox.html">entityBox</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <a class="code hl_struct" href="structentityBox.html">entityBox</a>(<a class="code hl_class" href="classEntity.html">Entity</a> *_entity);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <a class="code hl_struct" href="structentityBox.html">~entityBox</a>() {}</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> getLocalPosition() { <span class="keywordflow">return</span> localBox.position; }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> getLocalSize() { <span class="keywordflow">return</span> localBox.size; }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keywordtype">void</span> setLocalPosition(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    localBox.position = point;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  }</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">void</span> setLocalXPosition(<span class="keywordtype">float</span> x) {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    localBox.position.x = x;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  }</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">void</span> setLocalYPosition(<span class="keywordtype">float</span> y) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    localBox.position.y = y;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">void</span> changeLocalPosition(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    localBox.position += change;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">void</span> setLocalSize(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    localBox.size = point;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keywordtype">void</span> setLocalXSize(<span class="keywordtype">float</span> x) {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    localBox.size.x = x;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keywordtype">void</span> setLocalYSize(<span class="keywordtype">float</span> y) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    localBox.size.y = y;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    updateGlobalBox();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structentityBox.html">   32</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structentityBox.html">entityBox</a> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_struct" href="structentityBox.html">entityBox</a>(<a class="code hl_class" href="classEntity.html">Entity</a> *_entity);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <a class="code hl_struct" href="structentityBox.html">~entityBox</a>() {}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structentityBox.html#a13ab6eb360e37543e6db39715c21a9f5">   39</a></span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> <a class="code hl_function" href="structentityBox.html#a13ab6eb360e37543e6db39715c21a9f5">getLocalPosition</a>() { <span class="keywordflow">return</span> localBox.position; }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structentityBox.html#a4ae7c03065892fc6eb6f5b7f80c3ec47">   43</a></span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> <a class="code hl_function" href="structentityBox.html#a4ae7c03065892fc6eb6f5b7f80c3ec47">getLocalSize</a>() { <span class="keywordflow">return</span> localBox.size; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structentityBox.html#a8849b82a9400c9ad85f001e7640ccd07">   48</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a8849b82a9400c9ad85f001e7640ccd07">setLocalPosition</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    localBox.position = point;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordtype">void</span> changeLocalSize(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    localBox.size += change;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="keywordtype">void</span> setLocalWithCenter(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    localBox.<a class="code hl_function" href="structBox.html#a5bd186f19afe17b920554875ae6da468">setWithCenter</a>(point);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    updateGlobalBox();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="comment">// GLOBAL POSITIONS</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> getPosition() { <span class="keywordflow">return</span> globalBox.position; }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> getSize() { <span class="keywordflow">return</span> globalBox.size; }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keywordtype">void</span> setPosition(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    globalBox.position = point;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    updateLocalBox();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keywordtype">void</span> setXPosition(<span class="keywordtype">float</span> x) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    globalBox.position.x = x;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    updateLocalBox();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keywordtype">void</span> setYPosition(<span class="keywordtype">float</span> y) {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    globalBox.position.y = y;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    updateLocalBox();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keywordtype">void</span> changePosition(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    globalBox.position += change;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    updateLocalBox();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keywordtype">void</span> setSize(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    globalBox.size = point;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    updateLocalBox();</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keywordtype">void</span> setXSize(<span class="keywordtype">float</span> x) {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    globalBox.size.x = x;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    updateLocalBox();</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keywordtype">void</span> setYSize(<span class="keywordtype">float</span> y) {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    globalBox.size.y = y;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    updateLocalBox();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="keywordtype">void</span> changeSize(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    globalBox.size += change;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    updateLocalBox();</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keywordtype">void</span> setScale(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_struct" href="structVector2f.html">Vector2f</a> center = globalBox.getCenter();</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    setSize(point);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    setWithCenter(center);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  }</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <span class="keywordtype">void</span> changeScale(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_struct" href="structVector2f.html">Vector2f</a> center = globalBox.getCenter();</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    changeSize(change);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    setWithCenter(center);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="keywordtype">void</span> setWithCenter(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    globalBox.<a class="code hl_function" href="structBox.html#a5bd186f19afe17b920554875ae6da468">setWithCenter</a>(point);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    updateLocalBox();</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  }</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <a class="code hl_struct" href="structBox.html">Box</a> getLocalBox() { <span class="keywordflow">return</span> localBox; }</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <a class="code hl_struct" href="structBox.html">Box</a> getBox() { <span class="keywordflow">return</span> globalBox; }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> getScreenPosition();</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> getUIPosition();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="keywordtype">void</span> updateGlobalBox();</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <span class="keywordtype">void</span> updateLocalBox();</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  <span class="keywordtype">void</span> print();</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  <a class="code hl_struct" href="structslideOut.html">slideOut</a> slide(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;move, <span class="keyword">const</span> std::vector&lt;Entity *&gt; &amp;solids,</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                 <span class="keywordtype">bool</span> pushOut = <span class="keyword">true</span>, <span class="keywordtype">bool</span> useMoveBox = <span class="keyword">true</span>) {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_struct" href="structslideOut.html">slideOut</a> out;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment">// Start</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_struct" href="structVector2f.html">Vector2f</a> movement = move;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// Create Horizonal check box</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">// The check box is sized to the move to prevent clipping</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="comment">// at high speeds and low framerates</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    changePosition({movement.x, 0});</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">if</span> (!useMoveBox)</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>      getBox() = getBox();</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment">// Horizontal check and move</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  HORREDO:</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classEntity.html">Entity</a> *col : solids) {</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      <span class="keywordflow">if</span> (!getBox().<a class="code hl_function" href="structBox.html#a72eaeb8321c2ecbada97f2470f74b633">checkCollision</a>(col-&gt;box-&gt;getBox()))</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>      out.hitList.push_back(col);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>      <span class="keywordflow">if</span> (!pushOut)</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      <a class="code hl_class" href="classEntity.html">Entity</a> *other = col;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      <span class="keywordflow">if</span> (movement.x &gt; 0) {</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        setXPosition(other-&gt;box-&gt;getBox().<a class="code hl_function" href="structBox.html#ab1c7dd3089ac82bd2f3e2014fc9cac34">getLeft</a>() - getSize().x);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        out.horizontalHit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (movement.x &lt; 0) {</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        setXPosition(other-&gt;box-&gt;getBox().<a class="code hl_function" href="structBox.html#a27d49c9803fd13d084d8e6ea559e8e72">getRight</a>());</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        out.horizontalHit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      }</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      <span class="keywordflow">goto</span> HORREDO;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="comment">// Create verticle check box</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    changePosition({0, movement.y});</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordflow">if</span> (!useMoveBox)</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      getBox() = getBox();</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="comment">// Verticle collision check and move</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  VERREDO:</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classEntity.html">Entity</a> *col : solids) {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>      <span class="keywordflow">if</span> (!getBox().<a class="code hl_function" href="structBox.html#a72eaeb8321c2ecbada97f2470f74b633">checkCollision</a>(col-&gt;box-&gt;getBox()))</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>      out.hitList.push_back(col);</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>      <span class="keywordflow">if</span> (!pushOut)</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>      <a class="code hl_class" href="classEntity.html">Entity</a> *other = col;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>      <span class="keywordflow">if</span> (movement.y &gt; 0) {</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        setYPosition(other-&gt;box-&gt;getBox().<a class="code hl_function" href="structBox.html#a39836d0d3bc07f256afe08ce2ca6989b">getTop</a>() - getSize().y);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        out.verticleHit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (movement.y &lt; 0) {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        setYPosition(other-&gt;box-&gt;getBox().<a class="code hl_function" href="structBox.html#af77f09a22d0797b474cec178d52de182">getBottom</a>());</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        out.verticleHit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>      }</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>      <span class="keywordflow">goto</span> VERREDO;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  }</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  <a class="code hl_class" href="classEntity.html">Entity</a> *entity = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <span class="keywordtype">int</span> anchor = 0;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  <a class="code hl_struct" href="structBox.html">Box</a> globalBox;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>  <a class="code hl_struct" href="structBox.html">Box</a> localBox;</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>};</div>
 </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="preprocessor">#endif</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structentityBox.html#a8efa7b972186d2d09432996d8755f0a3">   55</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a8efa7b972186d2d09432996d8755f0a3">setLocalXPosition</a>(<span class="keywordtype">float</span> x) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    localBox.position.x = x;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structentityBox.html#ac6a16a09bc3041bacfe4d1f99d3f6cf4">   62</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#ac6a16a09bc3041bacfe4d1f99d3f6cf4">setLocalYPosition</a>(<span class="keywordtype">float</span> y) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    localBox.position.y = y;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structentityBox.html#a842a4940c2f05f33a50aa5bd56a775b7">   69</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a842a4940c2f05f33a50aa5bd56a775b7">changeLocalPosition</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    localBox.position += change;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  }</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structentityBox.html#a1ae7e6ed7312cf370f07c687cbd887cd">   77</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a1ae7e6ed7312cf370f07c687cbd887cd">setLocalSize</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    localBox.size = point;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structentityBox.html#a9faa9ac3c70350075a89b497a23ad3c0">   84</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a9faa9ac3c70350075a89b497a23ad3c0">setLocalXSize</a>(<span class="keywordtype">float</span> x) {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    localBox.size.x = x;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="structentityBox.html#acdf2c28eeff21f8c652e70605c264523">   91</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#acdf2c28eeff21f8c652e70605c264523">setLocalYSize</a>(<span class="keywordtype">float</span> y) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    localBox.size.y = y;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structentityBox.html#a1ad8dac728244be68bcc67b726fe389d">   98</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a1ad8dac728244be68bcc67b726fe389d">changeLocalSize</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    localBox.size += change;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  }</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="structentityBox.html#abedbe455c9b2f3dbab28764aa63dbe3f">  106</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#abedbe455c9b2f3dbab28764aa63dbe3f">setLocalWithCenter</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    localBox.<a class="code hl_function" href="structBox.html#a5bd186f19afe17b920554875ae6da468">setWithCenter</a>(point);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  }</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="comment">// GLOBAL POSITIONS</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="structentityBox.html#a48e9e681b9d56bcdee60223e455d21b1">  115</a></span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> <a class="code hl_function" href="structentityBox.html#a48e9e681b9d56bcdee60223e455d21b1">getPosition</a>() { <span class="keywordflow">return</span> globalBox.position; }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="structentityBox.html#a44f303105c4e381ebfa79fbc071df779">  119</a></span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> <a class="code hl_function" href="structentityBox.html#a44f303105c4e381ebfa79fbc071df779">getSize</a>() { <span class="keywordflow">return</span> globalBox.size; }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="structentityBox.html#a47702898c7025c858c1b53aec72734f2">  124</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a47702898c7025c858c1b53aec72734f2">setPosition</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    globalBox.position = point;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="structentityBox.html#ab9c29c278e367a7e027978aadc00a24f">  131</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#ab9c29c278e367a7e027978aadc00a24f">setXPosition</a>(<span class="keywordtype">float</span> x) {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    globalBox.position.x = x;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="structentityBox.html#a5fdb9be5390f8f0b718f44b72ce86dee">  138</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a5fdb9be5390f8f0b718f44b72ce86dee">setYPosition</a>(<span class="keywordtype">float</span> y) {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    globalBox.position.y = y;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="structentityBox.html#ab7247902b1ee32ec32cf72abeaa90a99">  145</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#ab7247902b1ee32ec32cf72abeaa90a99">changePosition</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    globalBox.position += change;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="structentityBox.html#a51f11ad4856be22a85182ba6f8fe924a">  153</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a51f11ad4856be22a85182ba6f8fe924a">setSize</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    globalBox.size = point;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="structentityBox.html#a5714ed8e9c5b171a2b89938f0ae5e32f">  160</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a5714ed8e9c5b171a2b89938f0ae5e32f">setXSize</a>(<span class="keywordtype">float</span> x) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    globalBox.size.x = x;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="structentityBox.html#a02afa8d03a72cbfef6308ae4dc6bebec">  167</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a02afa8d03a72cbfef6308ae4dc6bebec">setYSize</a>(<span class="keywordtype">float</span> y) {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    globalBox.size.y = y;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="structentityBox.html#a61c0ac45c85302a7422bcc439de1ea44">  174</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a61c0ac45c85302a7422bcc439de1ea44">changeSize</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    globalBox.size += change;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="structentityBox.html#ae2f7f03cacf99813d8f66648d1bcc7df">  181</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#ae2f7f03cacf99813d8f66648d1bcc7df">setScale</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <a class="code hl_struct" href="structVector2f.html">Vector2f</a> center = globalBox.getCenter();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <a class="code hl_function" href="structentityBox.html#a51f11ad4856be22a85182ba6f8fe924a">setSize</a>(point);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <a class="code hl_function" href="structentityBox.html#a3960b28d7166bb6aad8e17b9f6fa9ec4">setWithCenter</a>(center);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00189" data-start="{" data-end="}">
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="structentityBox.html#aab92e11f77f67bd2411b399d7ce83a8b">  189</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#aab92e11f77f67bd2411b399d7ce83a8b">changeScale</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;change) {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_struct" href="structVector2f.html">Vector2f</a> center = globalBox.getCenter();</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <a class="code hl_function" href="structentityBox.html#a61c0ac45c85302a7422bcc439de1ea44">changeSize</a>(change);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <a class="code hl_function" href="structentityBox.html#a3960b28d7166bb6aad8e17b9f6fa9ec4">setWithCenter</a>(center);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00198" data-start="{" data-end="}">
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="structentityBox.html#a3960b28d7166bb6aad8e17b9f6fa9ec4">  198</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a3960b28d7166bb6aad8e17b9f6fa9ec4">setWithCenter</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;point) {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    globalBox.<a class="code hl_function" href="structBox.html#a5bd186f19afe17b920554875ae6da468">setWithCenter</a>(point);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>  }</div>
+</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="structentityBox.html#afebaed3c6c7e16c95636d141dad25b06">  206</a></span>  <a class="code hl_struct" href="structBox.html">Box</a> <a class="code hl_function" href="structentityBox.html#afebaed3c6c7e16c95636d141dad25b06">getLocalBox</a>() { <span class="keywordflow">return</span> localBox; }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">  210</a></span>  <a class="code hl_struct" href="structBox.html">Box</a> <a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>() { <span class="keywordflow">return</span> globalBox; }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> <a class="code hl_function" href="structentityBox.html#adaa1a37edf581035e69e147fe0a5ab72">getScreenPosition</a>();</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  <a class="code hl_struct" href="structVector2f.html">Vector2f</a> <a class="code hl_function" href="structentityBox.html#a8a273788c96c3aa125bdde2d0c39dfdd">getUIPosition</a>();</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">updateGlobalBox</a>();</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">updateLocalBox</a>();</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structentityBox.html#a84a976ea54b8ffd3dc90e20947e44f55">print</a>();</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="foldopen" id="foldopen00244" data-start="{" data-end="}">
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="structentityBox.html#a2a86c6422cbadf7d00ae5098738ba1ba">  244</a></span>  <a class="code hl_struct" href="structslideOut.html">slideOut</a> <a class="code hl_function" href="structentityBox.html#a2a86c6422cbadf7d00ae5098738ba1ba">slide</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structVector2f.html">Vector2f</a> &amp;move, <span class="keyword">const</span> std::vector&lt;Entity *&gt; &amp;solids,</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                 <span class="keywordtype">bool</span> pushOut = <span class="keyword">true</span>, <span class="keywordtype">bool</span> useMoveBox = <span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <a class="code hl_struct" href="structslideOut.html">slideOut</a> out;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="comment">// Start</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <a class="code hl_struct" href="structVector2f.html">Vector2f</a> movement = move;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="comment">// Create Horizonal check box</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="comment">// The check box is sized to the move to prevent clipping</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="comment">// at high speeds and low framerates</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <a class="code hl_function" href="structentityBox.html#ab7247902b1ee32ec32cf72abeaa90a99">changePosition</a>({movement.x, 0});</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordflow">if</span> (!useMoveBox)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>      <a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>() = <a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>();</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="comment">// Horizontal check and move</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>  HORREDO:</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classEntity.html">Entity</a> *col : solids) {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>().<a class="code hl_function" href="structBox.html#a72eaeb8321c2ecbada97f2470f74b633">checkCollision</a>(col-&gt;box-&gt;getBox()))</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>      out.hitList.push_back(col);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>      <span class="keywordflow">if</span> (!pushOut)</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>      <a class="code hl_class" href="classEntity.html">Entity</a> *other = col;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      <span class="keywordflow">if</span> (movement.x &gt; 0) {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <a class="code hl_function" href="structentityBox.html#ab9c29c278e367a7e027978aadc00a24f">setXPosition</a>(other-&gt;box-&gt;<a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>().<a class="code hl_function" href="structBox.html#ab1c7dd3089ac82bd2f3e2014fc9cac34">getLeft</a>() - <a class="code hl_function" href="structentityBox.html#a44f303105c4e381ebfa79fbc071df779">getSize</a>().x);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        out.horizontalHit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (movement.x &lt; 0) {</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        <a class="code hl_function" href="structentityBox.html#ab9c29c278e367a7e027978aadc00a24f">setXPosition</a>(other-&gt;box-&gt;<a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>().<a class="code hl_function" href="structBox.html#a27d49c9803fd13d084d8e6ea559e8e72">getRight</a>());</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        out.horizontalHit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>      }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>      <span class="keywordflow">goto</span> HORREDO;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="comment">// Create verticle check box</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <a class="code hl_function" href="structentityBox.html#ab7247902b1ee32ec32cf72abeaa90a99">changePosition</a>({0, movement.y});</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordflow">if</span> (!useMoveBox)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>      <a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>() = <a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>();</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="comment">// Verticle collision check and move</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>  VERREDO:</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordflow">for</span> (<a class="code hl_class" href="classEntity.html">Entity</a> *col : solids) {</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>().<a class="code hl_function" href="structBox.html#a72eaeb8321c2ecbada97f2470f74b633">checkCollision</a>(col-&gt;box-&gt;getBox()))</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>      out.hitList.push_back(col);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      <span class="keywordflow">if</span> (!pushOut)</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>      <a class="code hl_class" href="classEntity.html">Entity</a> *other = col;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>      <span class="keywordflow">if</span> (movement.y &gt; 0) {</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <a class="code hl_function" href="structentityBox.html#a5fdb9be5390f8f0b718f44b72ce86dee">setYPosition</a>(other-&gt;box-&gt;<a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>().<a class="code hl_function" href="structBox.html#a39836d0d3bc07f256afe08ce2ca6989b">getTop</a>() - <a class="code hl_function" href="structentityBox.html#a44f303105c4e381ebfa79fbc071df779">getSize</a>().y);</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        out.verticleHit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (movement.y &lt; 0) {</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <a class="code hl_function" href="structentityBox.html#a5fdb9be5390f8f0b718f44b72ce86dee">setYPosition</a>(other-&gt;box-&gt;<a class="code hl_function" href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">getBox</a>().<a class="code hl_function" href="structBox.html#af77f09a22d0797b474cec178d52de182">getBottom</a>());</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        out.verticleHit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      }</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>      <span class="keywordflow">goto</span> VERREDO;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>  }</div>
+</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>  <a class="code hl_class" href="classEntity.html">Entity</a> *entity = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>  <span class="keywordtype">int</span> anchor = 0;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  <a class="code hl_struct" href="structBox.html">Box</a> globalBox;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>  <a class="code hl_struct" href="structBox.html">Box</a> localBox;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>};</div>
+</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aMath_8h_html"><div class="ttname"><a href="Math_8h.html">Math.h</a></div></div>
 <div class="ttc" id="aclassEntity_html"><div class="ttname"><a href="classEntity.html">Entity</a></div><div class="ttdoc">Entitys are containers for an EnityBox and components.</div><div class="ttdef"><b>Definition</b> Entity.h:20</div></div>
 <div class="ttc" id="astructBox_html"><div class="ttname"><a href="structBox.html">Box</a></div><div class="ttdoc">Two Vector2f s put together.</div><div class="ttdef"><b>Definition</b> Math.h:70</div></div>
@@ -296,8 +336,40 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="astructBox_html_ab1c7dd3089ac82bd2f3e2014fc9cac34"><div class="ttname"><a href="structBox.html#ab1c7dd3089ac82bd2f3e2014fc9cac34">Box::getLeft</a></div><div class="ttdeci">float getLeft()</div><div class="ttdoc">Gets the X position for the left side.</div><div class="ttdef"><b>Definition</b> Math.h:83</div></div>
 <div class="ttc" id="astructBox_html_af77f09a22d0797b474cec178d52de182"><div class="ttname"><a href="structBox.html#af77f09a22d0797b474cec178d52de182">Box::getBottom</a></div><div class="ttdeci">float getBottom()</div><div class="ttdoc">Gets the Y position for the Bottom side.</div><div class="ttdef"><b>Definition</b> Math.h:91</div></div>
 <div class="ttc" id="astructVector2f_html"><div class="ttname"><a href="structVector2f.html">Vector2f</a></div><div class="ttdoc">A simple Vector2 float class, with an x &amp; y property that supports math with floats and other Vectors...</div><div class="ttdef"><b>Definition</b> Vector2f.h:8</div></div>
-<div class="ttc" id="astructentityBox_html"><div class="ttname"><a href="structentityBox.html">entityBox</a></div><div class="ttdef"><b>Definition</b> EntityBox.h:16</div></div>
-<div class="ttc" id="astructslideOut_html"><div class="ttname"><a href="structslideOut.html">slideOut</a></div><div class="ttdef"><b>Definition</b> EntityBox.h:10</div></div>
+<div class="ttc" id="astructentityBox_html"><div class="ttname"><a href="structentityBox.html">entityBox</a></div><div class="ttdoc">entityBoxs are a class for local and global positioning relitive to a parent If no parent is set than...</div><div class="ttdef"><b>Definition</b> EntityBox.h:32</div></div>
+<div class="ttc" id="astructentityBox_html_a02afa8d03a72cbfef6308ae4dc6bebec"><div class="ttname"><a href="structentityBox.html#a02afa8d03a72cbfef6308ae4dc6bebec">entityBox::setYSize</a></div><div class="ttdeci">void setYSize(float y)</div><div class="ttdoc">Sets the Height of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:167</div></div>
+<div class="ttc" id="astructentityBox_html_a09187aff76ffe8f74f584e27d311a890"><div class="ttname"><a href="structentityBox.html#a09187aff76ffe8f74f584e27d311a890">entityBox::getBox</a></div><div class="ttdeci">Box getBox()</div><div class="ttdoc">Gets a copy the raw global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:210</div></div>
+<div class="ttc" id="astructentityBox_html_a13ab6eb360e37543e6db39715c21a9f5"><div class="ttname"><a href="structentityBox.html#a13ab6eb360e37543e6db39715c21a9f5">entityBox::getLocalPosition</a></div><div class="ttdeci">Vector2f getLocalPosition()</div><div class="ttdoc">Gets the position of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:39</div></div>
+<div class="ttc" id="astructentityBox_html_a1ad8dac728244be68bcc67b726fe389d"><div class="ttname"><a href="structentityBox.html#a1ad8dac728244be68bcc67b726fe389d">entityBox::changeLocalSize</a></div><div class="ttdeci">void changeLocalSize(const Vector2f &amp;change)</div><div class="ttdoc">changes (Adds) the size of the local box</div><div class="ttdef"><b>Definition</b> EntityBox.h:98</div></div>
+<div class="ttc" id="astructentityBox_html_a1ae7e6ed7312cf370f07c687cbd887cd"><div class="ttname"><a href="structentityBox.html#a1ae7e6ed7312cf370f07c687cbd887cd">entityBox::setLocalSize</a></div><div class="ttdeci">void setLocalSize(const Vector2f &amp;point)</div><div class="ttdoc">Sets the size of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:77</div></div>
+<div class="ttc" id="astructentityBox_html_a2a86c6422cbadf7d00ae5098738ba1ba"><div class="ttname"><a href="structentityBox.html#a2a86c6422cbadf7d00ae5098738ba1ba">entityBox::slide</a></div><div class="ttdeci">slideOut slide(const Vector2f &amp;move, const std::vector&lt; Entity * &gt; &amp;solids, bool pushOut=true, bool useMoveBox=true)</div><div class="ttdoc">Moves the global box while using entites as walls that it can't pass through.</div><div class="ttdef"><b>Definition</b> EntityBox.h:244</div></div>
+<div class="ttc" id="astructentityBox_html_a3960b28d7166bb6aad8e17b9f6fa9ec4"><div class="ttname"><a href="structentityBox.html#a3960b28d7166bb6aad8e17b9f6fa9ec4">entityBox::setWithCenter</a></div><div class="ttdeci">void setWithCenter(const Vector2f &amp;point)</div><div class="ttdoc">Sets the center postion to the point of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:198</div></div>
+<div class="ttc" id="astructentityBox_html_a44f303105c4e381ebfa79fbc071df779"><div class="ttname"><a href="structentityBox.html#a44f303105c4e381ebfa79fbc071df779">entityBox::getSize</a></div><div class="ttdeci">Vector2f getSize()</div><div class="ttdoc">Gets the size of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:119</div></div>
+<div class="ttc" id="astructentityBox_html_a47702898c7025c858c1b53aec72734f2"><div class="ttname"><a href="structentityBox.html#a47702898c7025c858c1b53aec72734f2">entityBox::setPosition</a></div><div class="ttdeci">void setPosition(const Vector2f &amp;point)</div><div class="ttdoc">Sets the position of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:124</div></div>
+<div class="ttc" id="astructentityBox_html_a48e9e681b9d56bcdee60223e455d21b1"><div class="ttname"><a href="structentityBox.html#a48e9e681b9d56bcdee60223e455d21b1">entityBox::getPosition</a></div><div class="ttdeci">Vector2f getPosition()</div><div class="ttdoc">Gets the position of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:115</div></div>
+<div class="ttc" id="astructentityBox_html_a4ae7c03065892fc6eb6f5b7f80c3ec47"><div class="ttname"><a href="structentityBox.html#a4ae7c03065892fc6eb6f5b7f80c3ec47">entityBox::getLocalSize</a></div><div class="ttdeci">Vector2f getLocalSize()</div><div class="ttdoc">Gets the size of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:43</div></div>
+<div class="ttc" id="astructentityBox_html_a51f11ad4856be22a85182ba6f8fe924a"><div class="ttname"><a href="structentityBox.html#a51f11ad4856be22a85182ba6f8fe924a">entityBox::setSize</a></div><div class="ttdeci">void setSize(const Vector2f &amp;point)</div><div class="ttdoc">Sets the size of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:153</div></div>
+<div class="ttc" id="astructentityBox_html_a5714ed8e9c5b171a2b89938f0ae5e32f"><div class="ttname"><a href="structentityBox.html#a5714ed8e9c5b171a2b89938f0ae5e32f">entityBox::setXSize</a></div><div class="ttdeci">void setXSize(float x)</div><div class="ttdoc">Sets the Width of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:160</div></div>
+<div class="ttc" id="astructentityBox_html_a5fdb9be5390f8f0b718f44b72ce86dee"><div class="ttname"><a href="structentityBox.html#a5fdb9be5390f8f0b718f44b72ce86dee">entityBox::setYPosition</a></div><div class="ttdeci">void setYPosition(float y)</div><div class="ttdoc">Sets the Y position of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:138</div></div>
+<div class="ttc" id="astructentityBox_html_a61c0ac45c85302a7422bcc439de1ea44"><div class="ttname"><a href="structentityBox.html#a61c0ac45c85302a7422bcc439de1ea44">entityBox::changeSize</a></div><div class="ttdeci">void changeSize(const Vector2f &amp;change)</div><div class="ttdoc">changes (Adds) the size of the global box</div><div class="ttdef"><b>Definition</b> EntityBox.h:174</div></div>
+<div class="ttc" id="astructentityBox_html_a670bf4224a480c885e1a8207cba2b676"><div class="ttname"><a href="structentityBox.html#a670bf4224a480c885e1a8207cba2b676">entityBox::updateLocalBox</a></div><div class="ttdeci">void updateLocalBox()</div><div class="ttdoc">Called automaticaly, upadates when global box is changed.</div><div class="ttdef"><b>Definition</b> EntityBox.cpp:63</div></div>
+<div class="ttc" id="astructentityBox_html_a6861f0516f502aad77ca058a80294a02"><div class="ttname"><a href="structentityBox.html#a6861f0516f502aad77ca058a80294a02">entityBox::updateGlobalBox</a></div><div class="ttdeci">void updateGlobalBox()</div><div class="ttdoc">Called automaticaly, upadates when local box is changed.</div><div class="ttdef"><b>Definition</b> EntityBox.cpp:14</div></div>
+<div class="ttc" id="astructentityBox_html_a842a4940c2f05f33a50aa5bd56a775b7"><div class="ttname"><a href="structentityBox.html#a842a4940c2f05f33a50aa5bd56a775b7">entityBox::changeLocalPosition</a></div><div class="ttdeci">void changeLocalPosition(const Vector2f &amp;change)</div><div class="ttdoc">Changes (Adds) the position of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:69</div></div>
+<div class="ttc" id="astructentityBox_html_a84a976ea54b8ffd3dc90e20947e44f55"><div class="ttname"><a href="structentityBox.html#a84a976ea54b8ffd3dc90e20947e44f55">entityBox::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Outputs the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.cpp:9</div></div>
+<div class="ttc" id="astructentityBox_html_a8849b82a9400c9ad85f001e7640ccd07"><div class="ttname"><a href="structentityBox.html#a8849b82a9400c9ad85f001e7640ccd07">entityBox::setLocalPosition</a></div><div class="ttdeci">void setLocalPosition(const Vector2f &amp;point)</div><div class="ttdoc">Sets the position of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:48</div></div>
+<div class="ttc" id="astructentityBox_html_a8a273788c96c3aa125bdde2d0c39dfdd"><div class="ttname"><a href="structentityBox.html#a8a273788c96c3aa125bdde2d0c39dfdd">entityBox::getUIPosition</a></div><div class="ttdeci">Vector2f getUIPosition()</div><div class="ttdoc">Gets the UI position (Used for UI rendering)</div><div class="ttdef"><b>Definition</b> EntityBox.cpp:121</div></div>
+<div class="ttc" id="astructentityBox_html_a8efa7b972186d2d09432996d8755f0a3"><div class="ttname"><a href="structentityBox.html#a8efa7b972186d2d09432996d8755f0a3">entityBox::setLocalXPosition</a></div><div class="ttdeci">void setLocalXPosition(float x)</div><div class="ttdoc">Sets the X position of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:55</div></div>
+<div class="ttc" id="astructentityBox_html_a9faa9ac3c70350075a89b497a23ad3c0"><div class="ttname"><a href="structentityBox.html#a9faa9ac3c70350075a89b497a23ad3c0">entityBox::setLocalXSize</a></div><div class="ttdeci">void setLocalXSize(float x)</div><div class="ttdoc">Sets the Width of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:84</div></div>
+<div class="ttc" id="astructentityBox_html_aab92e11f77f67bd2411b399d7ce83a8b"><div class="ttname"><a href="structentityBox.html#aab92e11f77f67bd2411b399d7ce83a8b">entityBox::changeScale</a></div><div class="ttdeci">void changeScale(const Vector2f &amp;change)</div><div class="ttdoc">changes (Adds) the size of the global box</div><div class="ttdef"><b>Definition</b> EntityBox.h:189</div></div>
+<div class="ttc" id="astructentityBox_html_ab7247902b1ee32ec32cf72abeaa90a99"><div class="ttname"><a href="structentityBox.html#ab7247902b1ee32ec32cf72abeaa90a99">entityBox::changePosition</a></div><div class="ttdeci">void changePosition(const Vector2f &amp;change)</div><div class="ttdoc">Changes (Adds) the position of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:145</div></div>
+<div class="ttc" id="astructentityBox_html_ab9c29c278e367a7e027978aadc00a24f"><div class="ttname"><a href="structentityBox.html#ab9c29c278e367a7e027978aadc00a24f">entityBox::setXPosition</a></div><div class="ttdeci">void setXPosition(float x)</div><div class="ttdoc">Sets the X position of the global box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:131</div></div>
+<div class="ttc" id="astructentityBox_html_abedbe455c9b2f3dbab28764aa63dbe3f"><div class="ttname"><a href="structentityBox.html#abedbe455c9b2f3dbab28764aa63dbe3f">entityBox::setLocalWithCenter</a></div><div class="ttdeci">void setLocalWithCenter(const Vector2f &amp;point)</div><div class="ttdoc">Sets the center postion to the point of the localbox.</div><div class="ttdef"><b>Definition</b> EntityBox.h:106</div></div>
+<div class="ttc" id="astructentityBox_html_ac6a16a09bc3041bacfe4d1f99d3f6cf4"><div class="ttname"><a href="structentityBox.html#ac6a16a09bc3041bacfe4d1f99d3f6cf4">entityBox::setLocalYPosition</a></div><div class="ttdeci">void setLocalYPosition(float y)</div><div class="ttdoc">Sets the Y position of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:62</div></div>
+<div class="ttc" id="astructentityBox_html_acdf2c28eeff21f8c652e70605c264523"><div class="ttname"><a href="structentityBox.html#acdf2c28eeff21f8c652e70605c264523">entityBox::setLocalYSize</a></div><div class="ttdeci">void setLocalYSize(float y)</div><div class="ttdoc">Sets the Height of the local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:91</div></div>
+<div class="ttc" id="astructentityBox_html_adaa1a37edf581035e69e147fe0a5ab72"><div class="ttname"><a href="structentityBox.html#adaa1a37edf581035e69e147fe0a5ab72">entityBox::getScreenPosition</a></div><div class="ttdeci">Vector2f getScreenPosition()</div><div class="ttdoc">Gets the Screen position (Used for rendering)</div><div class="ttdef"><b>Definition</b> EntityBox.cpp:111</div></div>
+<div class="ttc" id="astructentityBox_html_ae2f7f03cacf99813d8f66648d1bcc7df"><div class="ttname"><a href="structentityBox.html#ae2f7f03cacf99813d8f66648d1bcc7df">entityBox::setScale</a></div><div class="ttdeci">void setScale(const Vector2f &amp;point)</div><div class="ttdoc">Sets the size of global box with keep the center in the same place.</div><div class="ttdef"><b>Definition</b> EntityBox.h:181</div></div>
+<div class="ttc" id="astructentityBox_html_afebaed3c6c7e16c95636d141dad25b06"><div class="ttname"><a href="structentityBox.html#afebaed3c6c7e16c95636d141dad25b06">entityBox::getLocalBox</a></div><div class="ttdeci">Box getLocalBox()</div><div class="ttdoc">Gets a copy the raw local box.</div><div class="ttdef"><b>Definition</b> EntityBox.h:206</div></div>
+<div class="ttc" id="astructslideOut_html"><div class="ttname"><a href="structslideOut.html">slideOut</a></div><div class="ttdoc">An output for the entityBox slide method.</div><div class="ttdef"><b>Definition</b> EntityBox.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

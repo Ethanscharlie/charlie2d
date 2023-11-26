@@ -77,6 +77,11 @@ $(function() {
   <div class="headertitle"><div class="title">Text Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A simple UI text <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> (good with <a class="el" href="classUISliceRenderer.html" title="Renders a texture without stretching the corners Don&#39;t forget to use a UICanvas.">UISliceRenderer</a>) Don't forget to use a <a class="el" href="classUICanvas.html" title="Sets the box to be the size of the screen (For UI anchoring) For UI please add a canvas entity and ad...">UICanvas</a>.  
+ <a href="classText.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Text_8h_source.html">Text.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Text:</div>
 <div class="dyncontent">
@@ -98,11 +103,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:affaab7133b97efad656ceddefa93c819" id="r_affaab7133b97efad656ceddefa93c819"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classText.html#affaab7133b97efad656ceddefa93c819">onScreenChange</a> () override</td></tr>
 <tr class="memdesc:affaab7133b97efad656ceddefa93c819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs when the screen size is changed.  <br /></td></tr>
 <tr class="separator:affaab7133b97efad656ceddefa93c819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902c7fd99475f2628a9c565bf1da959b" id="r_a902c7fd99475f2628a9c565bf1da959b"><td class="memItemLeft" align="right" valign="top"><a id="a902c7fd99475f2628a9c565bf1da959b" name="a902c7fd99475f2628a9c565bf1da959b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changeFont</b> (std::string fontFile, int size)</td></tr>
+<tr class="memitem:a902c7fd99475f2628a9c565bf1da959b" id="r_a902c7fd99475f2628a9c565bf1da959b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classText.html#a902c7fd99475f2628a9c565bf1da959b">changeFont</a> (std::string fontFile, int size)</td></tr>
+<tr class="memdesc:a902c7fd99475f2628a9c565bf1da959b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the font and text size, This MUST be called for text to work.  <br /></td></tr>
 <tr class="separator:a902c7fd99475f2628a9c565bf1da959b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41ddc0c12816b74ecf2b06f12ef08ae3" id="r_a41ddc0c12816b74ecf2b06f12ef08ae3"><td class="memItemLeft" align="right" valign="top"><a id="a41ddc0c12816b74ecf2b06f12ef08ae3" name="a41ddc0c12816b74ecf2b06f12ef08ae3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>renderTextInRect</b> (SDL_Renderer *renderer, const std::string &amp;text, const SDL_Rect &amp;rect)</td></tr>
+<tr class="memdesc:a41ddc0c12816b74ecf2b06f12ef08ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the text (is called in updateloop don't worry about this) <br /></td></tr>
 <tr class="separator:a41ddc0c12816b74ecf2b06f12ef08ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classComponent')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classComponent.html">Component</a></td></tr>
 <tr class="memitem:a5d72c9763c12b6073a92a51ac1d6c590 inherit pub_methods_classComponent" id="r_a5d72c9763c12b6073a92a51ac1d6c590"><td class="memItemLeft" align="right" valign="top">
@@ -122,6 +128,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>text</b></td><
 <tr class="separator:aacef942c163c3fdc6258d1aff924d27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54c87d79cfd95c0eeee7be2026cd5d3c" id="r_a54c87d79cfd95c0eeee7be2026cd5d3c"><td class="memItemLeft" align="right" valign="top"><a id="a54c87d79cfd95c0eeee7be2026cd5d3c" name="a54c87d79cfd95c0eeee7be2026cd5d3c"></a>
 SDL_Color&#160;</td><td class="memItemRight" valign="bottom"><b>text_color</b> = {0, 0, 0}</td></tr>
+<tr class="memdesc:a54c87d79cfd95c0eeee7be2026cd5d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the text color. <br /></td></tr>
 <tr class="separator:a54c87d79cfd95c0eeee7be2026cd5d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dd23afaf3a32cb6bf2763c76dfee11c" id="r_a1dd23afaf3a32cb6bf2763c76dfee11c"><td class="memItemLeft" align="right" valign="top"><a id="a1dd23afaf3a32cb6bf2763c76dfee11c" name="a1dd23afaf3a32cb6bf2763c76dfee11c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>original_font_size</b> = 20</td></tr>
@@ -174,7 +181,54 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 <tr class="memdesc:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will update the <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> in the game loop. <br /></td></tr>
 <tr class="separator:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A simple UI text <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> (good with <a class="el" href="classUISliceRenderer.html" title="Renders a texture without stretching the corners Don&#39;t forget to use a UICanvas.">UISliceRenderer</a>) Don't forget to use a <a class="el" href="classUICanvas.html" title="Sets the box to be the size of the screen (For UI anchoring) For UI please add a canvas entity and ad...">UICanvas</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a902c7fd99475f2628a9c565bf1da959b" name="a902c7fd99475f2628a9c565bf1da959b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a902c7fd99475f2628a9c565bf1da959b">&#9670;&#160;</a></span>changeFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Text::changeFont </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>fontFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the font and text size, This MUST be called for text to work. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fontFile</td><td>A filepath to a ttf font </td></tr>
+    <tr><td class="paramname">size</td><td>Fontsize </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="affaab7133b97efad656ceddefa93c819" name="affaab7133b97efad656ceddefa93c819"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#affaab7133b97efad656ceddefa93c819">&#9670;&#160;</a></span>onScreenChange()</h2>
 

@@ -1,5 +1,14 @@
 \doxysection{UISlice\+Renderer Class Reference}
 \hypertarget{classUISliceRenderer}{}\label{classUISliceRenderer}\index{UISliceRenderer@{UISliceRenderer}}
+
+
+Renders a texture without stretching the corners Don\textquotesingle{}t forget to use a \doxylink{classUICanvas}{UICanvas}.  
+
+
+
+
+{\ttfamily \#include $<$UISlice\+Renderer.\+h$>$}
+
 Inheritance diagram for UISlice\+Renderer\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,7 +25,7 @@ void \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{st
 \begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
 \Hypertarget{classUISliceRenderer_a302898c1059db0f852d41ba37c055bf2}\label{classUISliceRenderer_a302898c1059db0f852d41ba37c055bf2} 
 void {\bfseries load\+Texture} (std\+::string name)
-\item 
+\begin{DoxyCompactList}\small\item\em Loads a texture from filepath, this is meant to be square for a panel of some sort. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{update}} (float delta\+Time) override
 \begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
 \Hypertarget{classUISliceRenderer_a639b0e41f6d925ceac3544890ee1d692}\label{classUISliceRenderer_a639b0e41f6d925ceac3544890ee1d692} 
@@ -56,6 +65,9 @@ bool {\bfseries use\+Layer} = false
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Renders a texture without stretching the corners Don\textquotesingle{}t forget to use a \doxylink{classUICanvas}{UICanvas}. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}\label{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0} 

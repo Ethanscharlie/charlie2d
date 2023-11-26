@@ -7,6 +7,10 @@
 #include "ResourceManager.h"
 #include "EntityBox.h"
 
+/**
+ * \brief Sets the box to be the size of the screen (For UI anchoring)
+ * For UI please add a canvas entity and add this Component then use setParent to set this as the parent
+ */
 class UICanvas : public Component {
     public:
     UICanvas() : Component("UICanvas") {};

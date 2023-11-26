@@ -5,7 +5,12 @@
 #include <SDL_image.h>
 #include "GameManager.h"
 #include "ResourceManager.h"
+#include "EntityBox.h"
 
+/**
+ * \brief Renders a texture without stretching the corners
+ * Don't forget to use a UICanvas
+ */
 class UISliceRenderer : public Component {
     public:
     UISliceRenderer() : Component("UISliceRenderer") {};
@@ -20,6 +25,9 @@ class UISliceRenderer : public Component {
         useLayer = true;
     }
 
+    /**
+     * \brief Loads a texture from filepath, this is meant to be square for a panel of some sort
+     */
     void loadTexture(std::string name) {
         textureName = name;
         texture = ResourceManager::getInstance(GameManager::renderer).getTexture(textureName);

@@ -1,5 +1,14 @@
 \doxysection{Text Class Reference}
 \hypertarget{classText}{}\label{classText}\index{Text@{Text}}
+
+
+A simple UI text \doxylink{classComponent}{Component} (good with \doxylink{classUISliceRenderer}{UISlice\+Renderer}) Don\textquotesingle{}t forget to use a \doxylink{classUICanvas}{UICanvas}.  
+
+
+
+
+{\ttfamily \#include $<$Text.\+h$>$}
+
 Inheritance diagram for Text\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,12 +24,11 @@ void \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{update}} (flo
 \begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classText_affaab7133b97efad656ceddefa93c819}{on\+Screen\+Change}} () override
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\item 
-\Hypertarget{classText_a902c7fd99475f2628a9c565bf1da959b}\label{classText_a902c7fd99475f2628a9c565bf1da959b} 
-void {\bfseries change\+Font} (std\+::string font\+File, int size)
-\item 
+void \mbox{\hyperlink{classText_a902c7fd99475f2628a9c565bf1da959b}{change\+Font}} (std\+::string font\+File, int size)
+\begin{DoxyCompactList}\small\item\em Sets the font and text size, This MUST be called for text to work. \end{DoxyCompactList}\item 
 \Hypertarget{classText_a41ddc0c12816b74ecf2b06f12ef08ae3}\label{classText_a41ddc0c12816b74ecf2b06f12ef08ae3} 
 void {\bfseries render\+Text\+In\+Rect} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, const std\+::string \&text, const SDL\+\_\+\+Rect \&rect)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Renders the text (is called in updateloop don\textquotesingle{}t worry about this) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,7 +47,7 @@ std\+::string {\bfseries text}
 \item 
 \Hypertarget{classText_a54c87d79cfd95c0eeee7be2026cd5d3c}\label{classText_a54c87d79cfd95c0eeee7be2026cd5d3c} 
 SDL\+\_\+\+Color {\bfseries text\+\_\+color} = \{0, 0, 0\}
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the text color. \end{DoxyCompactList}\item 
 \Hypertarget{classText_a1dd23afaf3a32cb6bf2763c76dfee11c}\label{classText_a1dd23afaf3a32cb6bf2763c76dfee11c} 
 int {\bfseries original\+\_\+font\+\_\+size} = 20
 \item 
@@ -80,7 +88,27 @@ bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A simple UI text \doxylink{classComponent}{Component} (good with \doxylink{classUISliceRenderer}{UISlice\+Renderer}) Don\textquotesingle{}t forget to use a \doxylink{classUICanvas}{UICanvas}. 
+
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classText_a902c7fd99475f2628a9c565bf1da959b}\label{classText_a902c7fd99475f2628a9c565bf1da959b} 
+\index{Text@{Text}!changeFont@{changeFont}}
+\index{changeFont@{changeFont}!Text@{Text}}
+\doxysubsubsection{\texorpdfstring{changeFont()}{changeFont()}}
+{\footnotesize\ttfamily void Text\+::change\+Font (\begin{DoxyParamCaption}\item[{std\+::string}]{font\+File,  }\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the font and text size, This MUST be called for text to work. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em font\+File} & A filepath to a ttf font \\
+\hline
+{\em size} & Fontsize \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classText_affaab7133b97efad656ceddefa93c819}\label{classText_affaab7133b97efad656ceddefa93c819} 
 \index{Text@{Text}!onScreenChange@{onScreenChange}}
 \index{onScreenChange@{onScreenChange}!Text@{Text}}
