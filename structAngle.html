@@ -80,17 +80,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a706dcfa785f8f07133e3a0c56448e7f8" id="r_a706dcfa785f8f07133e3a0c56448e7f8"><td class="memItemLeft" align="right" valign="top"><a id="a706dcfa785f8f07133e3a0c56448e7f8" name="a706dcfa785f8f07133e3a0c56448e7f8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lookAt</b> (const <a class="el" href="structVector2f.html">Vector2f</a> center, const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memitem:a706dcfa785f8f07133e3a0c56448e7f8" id="r_a706dcfa785f8f07133e3a0c56448e7f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAngle.html#a706dcfa785f8f07133e3a0c56448e7f8">lookAt</a> (const <a class="el" href="structVector2f.html">Vector2f</a> center, const <a class="el" href="structVector2f.html">Vector2f</a> &amp;point)</td></tr>
+<tr class="memdesc:a706dcfa785f8f07133e3a0c56448e7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates to be pointing at something.  <br /></td></tr>
 <tr class="separator:a706dcfa785f8f07133e3a0c56448e7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3606d02938728a4a6951dfbecac118f2" id="r_a3606d02938728a4a6951dfbecac118f2"><td class="memItemLeft" align="right" valign="top"><a id="a3606d02938728a4a6951dfbecac118f2" name="a3606d02938728a4a6951dfbecac118f2"></a>
-<a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getVector</b> ()</td></tr>
+<tr class="memitem:a3606d02938728a4a6951dfbecac118f2" id="r_a3606d02938728a4a6951dfbecac118f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAngle.html#a3606d02938728a4a6951dfbecac118f2">getVector</a> ()</td></tr>
+<tr class="memdesc:a3606d02938728a4a6951dfbecac118f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a direction vector (Good for directional movement)  <br /></td></tr>
 <tr class="separator:a3606d02938728a4a6951dfbecac118f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96c3a2b1745d3282ffbf9f6b1ccf3d78" id="r_a96c3a2b1745d3282ffbf9f6b1ccf3d78"><td class="memItemLeft" align="right" valign="top"><a id="a96c3a2b1745d3282ffbf9f6b1ccf3d78" name="a96c3a2b1745d3282ffbf9f6b1ccf3d78"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setWithVector</b> (<a class="el" href="structVector2f.html">Vector2f</a> vector)</td></tr>
+<tr class="memdesc:a96c3a2b1745d3282ffbf9f6b1ccf3d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the angle with a vector (Doesn't need to be normalized) <br /></td></tr>
 <tr class="separator:a96c3a2b1745d3282ffbf9f6b1ccf3d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf6535aa28888477e87c8fe749b3a402" id="r_abf6535aa28888477e87c8fe749b3a402"><td class="memItemLeft" align="right" valign="top"><a id="abf6535aa28888477e87c8fe749b3a402" name="abf6535aa28888477e87c8fe749b3a402"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>rotate</b> (float angle)</td></tr>
+<tr class="memitem:abf6535aa28888477e87c8fe749b3a402" id="r_abf6535aa28888477e87c8fe749b3a402"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAngle.html#abf6535aa28888477e87c8fe749b3a402">rotate</a> (float angle)</td></tr>
+<tr class="memdesc:abf6535aa28888477e87c8fe749b3a402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates in degrees.  <br /></td></tr>
 <tr class="separator:abf6535aa28888477e87c8fe749b3a402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -99,6 +100,114 @@ Public Attributes</h2></td></tr>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>radians</b> = 0</td></tr>
 <tr class="separator:a9669042955ffa31e441943f6b7fc6214"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3606d02938728a4a6951dfbecac118f2" name="a3606d02938728a4a6951dfbecac118f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3606d02938728a4a6951dfbecac118f2">&#9670;&#160;</a></span>getVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVector2f.html">Vector2f</a> Angle::getVector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a direction vector (Good for directional movement) </p>
+<dl class="section return"><dt>Returns</dt><dd>A normalized vector of this angle </dd></dl>
+
+</div>
+</div>
+<a id="a706dcfa785f8f07133e3a0c56448e7f8" name="a706dcfa785f8f07133e3a0c56448e7f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a706dcfa785f8f07133e3a0c56448e7f8">&#9670;&#160;</a></span>lookAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Angle::lookAt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structVector2f.html">Vector2f</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rotates to be pointing at something. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">center</td><td>Should be the position of the entity to be rotated </td></tr>
+    <tr><td class="paramname">point</td><td>What are you lookin at?! </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf6535aa28888477e87c8fe749b3a402" name="abf6535aa28888477e87c8fe749b3a402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6535aa28888477e87c8fe749b3a402">&#9670;&#160;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Angle::rotate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rotates in degrees. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>float for degrees </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="Math_8h_source.html">Math.h</a></li>
 </ul>
