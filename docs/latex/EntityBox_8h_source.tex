@@ -6,7 +6,7 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENTITY\_BOX\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Math.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8h}{Math.h}}"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
@@ -59,7 +59,7 @@
 \DoxyCodeLine{00055\ \ \ \}}
 \DoxyCodeLine{00056\ }
 \DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ setLocalWithCenter(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00058\ \ \ \ \ localBox.setWithCenter(point);}
+\DoxyCodeLine{00058\ \ \ \ \ localBox.\mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(point);}
 \DoxyCodeLine{00059\ \ \ \ \ updateGlobalBox();}
 \DoxyCodeLine{00060\ \ \ \}}
 \DoxyCodeLine{00061\ }
@@ -112,7 +112,7 @@
 \DoxyCodeLine{00108\ \ \ \}}
 \DoxyCodeLine{00109\ }
 \DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{void}\ setWithCenter(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00111\ \ \ \ \ globalBox.setWithCenter(point);}
+\DoxyCodeLine{00111\ \ \ \ \ globalBox.\mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(point);}
 \DoxyCodeLine{00112\ \ \ \ \ updateLocalBox();}
 \DoxyCodeLine{00113\ \ \ \}}
 \DoxyCodeLine{00114\ }
@@ -143,7 +143,7 @@
 \DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ Horizontal\ check\ and\ move}}
 \DoxyCodeLine{00140\ \ \ HORREDO:}
 \DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!getBox().checkCollision(col-\/>box-\/>getBox()))}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!getBox().\mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(col-\/>box-\/>getBox()))}
 \DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{00144\ }
 \DoxyCodeLine{00145\ \ \ \ \ \ \ out.hitList.push\_back(col);}
@@ -152,10 +152,10 @@
 \DoxyCodeLine{00148\ }
 \DoxyCodeLine{00149\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
 \DoxyCodeLine{00150\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.x\ >\ 0)\ \{}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ setXPosition(other-\/>box-\/>getBox().getLeft()\ -\/\ getSize().x);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ setXPosition(other-\/>box-\/>getBox().\mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ -\/\ getSize().x);}
 \DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00153\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.x\ <\ 0)\ \{}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ setXPosition(other-\/>box-\/>getBox().getRight());}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ setXPosition(other-\/>box-\/>getBox().\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}());}
 \DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00156\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00157\ }
@@ -170,7 +170,7 @@
 \DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\ Verticle\ collision\ check\ and\ move}}
 \DoxyCodeLine{00167\ \ \ VERREDO:}
 \DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!getBox().checkCollision(col-\/>box-\/>getBox()))}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!getBox().\mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(col-\/>box-\/>getBox()))}
 \DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{00171\ }
 \DoxyCodeLine{00172\ \ \ \ \ \ \ out.hitList.push\_back(col);}
@@ -179,10 +179,10 @@
 \DoxyCodeLine{00175\ }
 \DoxyCodeLine{00176\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
 \DoxyCodeLine{00177\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.y\ >\ 0)\ \{}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ setYPosition(other-\/>box-\/>getBox().getTop()\ -\/\ getSize().y);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ setYPosition(other-\/>box-\/>getBox().\mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}()\ -\/\ getSize().y);}
 \DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00180\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.y\ <\ 0)\ \{}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ setYPosition(other-\/>box-\/>getBox().getBottom());}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ setYPosition(other-\/>box-\/>getBox().\mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}());}
 \DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00183\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00184\ }

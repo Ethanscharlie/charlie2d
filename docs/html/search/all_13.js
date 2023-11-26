@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['uicanvas_0',['UICanvas',['../classUICanvas.html',1,'']]],
-  ['uislicerenderer_1',['UISliceRenderer',['../classUISliceRenderer.html',1,'']]],
-  ['update_2',['update',['../classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb',1,'LDTKEntity::update()'],['../classGameManager.html#af3bb4452ac262ec8a68dcc3eea2f0124',1,'GameManager::Update()'],['../classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679',1,'UISliceRenderer::update()'],['../classUICanvas.html#ac8b11ae5b4b7a89c5da3d0d6034591e5',1,'UICanvas::update()'],['../classTileLayer.html#a1db294a23904e414861e8ebbf1a3f4ea',1,'TileLayer::update()'],['../classText.html#a57e755e59705824aeaa36d72bd6a8ff3',1,'Text::update()'],['../classSprite.html#aea1bb193b0b1a47512ef1e7751a38f2f',1,'Sprite::update()'],['../classphysicsBody.html#adf53b6cb40bd3e506c7b79113ac3c234',1,'physicsBody::update()'],['../classJumpMan.html#a0cfd390cb9f6148fb7c391314c1bad40',1,'JumpMan::update()'],['../classInputManager.html#a136d6afa55ee74eeda5eb72e78e3ee97',1,'InputManager::update()'],['../classComponent.html#a9152b930559c4ece4ea5ddd3e6e4b22b',1,'Component::update()'],['../classCollider.html#accd99a67e32b8c4d56f5e346c06b1530',1,'Collider::update()'],['../classCircleCollider.html#af410c11f63576845aa343d8ff9b0e579',1,'CircleCollider::update()'],['../classButton.html#af3d3e83faa0a146d66faeec9cc4c484e',1,'Button::update()'],['../classAnimation.html#a4318baf0b0735e7da87b2c6d3d3a2705',1,'Animation::update()']]],
-  ['uselayer_3',['useLayer',['../classComponent.html#acc6b6f489071d8549dc0f2976225e051',1,'Component']]]
+  ['tag_0',['tag',['../classEntity.html#a164f61a1e96badb6bc873ec2ef01ea6d',1,'Entity']]],
+  ['text_1',['Text',['../classText.html',1,'']]],
+  ['the_20main_20fuction_2',['The main fuction',['../md_README.html#autotoc_md4',1,'']]],
+  ['tilelayer_3',['TileLayer',['../classTileLayer.html',1,'']]],
+  ['todestroy_4',['toDestroy',['../classEntity.html#ac2076343cde9e2901fd22912759d6176',1,'Entity']]],
+  ['transition_5',['transition',['../classGameManager.html#a7e027ded125d9e5c6dfd88fccefd26b7',1,'GameManager']]]
 ];

@@ -1,5 +1,14 @@
 \doxysection{Box Struct Reference}
 \hypertarget{structBox}{}\label{structBox}\index{Box@{Box}}
+
+
+Two \doxylink{structVector2f}{Vector2f} s put together.  
+
+
+
+
+{\ttfamily \#include $<$Math.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -8,16 +17,16 @@
 \item 
 \Hypertarget{structBox_a27d49c9803fd13d084d8e6ea559e8e72}\label{structBox_a27d49c9803fd13d084d8e6ea559e8e72} 
 float {\bfseries get\+Right} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the X position for the right side. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}\label{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34} 
 float {\bfseries get\+Left} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the X position for the left side. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_a39836d0d3bc07f256afe08ce2ca6989b}\label{structBox_a39836d0d3bc07f256afe08ce2ca6989b} 
 float {\bfseries get\+Top} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the Y position for the Top side. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_af77f09a22d0797b474cec178d52de182}\label{structBox_af77f09a22d0797b474cec178d52de182} 
 float {\bfseries get\+Bottom} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the Y position for the Bottom side. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_a2f19bd3b782c5163b1d1a261b8ee5b3f}\label{structBox_a2f19bd3b782c5163b1d1a261b8ee5b3f} 
 \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Top\+Left\+Corner} ()
 \item 
@@ -41,19 +50,19 @@ float {\bfseries get\+Bottom} ()
 \item 
 \Hypertarget{structBox_a7738def139a86833bab2064234118fc8}\label{structBox_a7738def139a86833bab2064234118fc8} 
 void {\bfseries set\+Scale} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the size but also moves the object to still be centered in the same position. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_a8cbd3f8ec11e4811eb29f9a79295780a}\label{structBox_a8cbd3f8ec11e4811eb29f9a79295780a} 
 void {\bfseries change\+Scale} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&change)
-\item 
+\begin{DoxyCompactList}\small\item\em Changes the size (Adds) but also moves the object to still be centered in the same position. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_a5bd186f19afe17b920554875ae6da468}\label{structBox_a5bd186f19afe17b920554875ae6da468} 
 void {\bfseries set\+With\+Center} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the center of the box to the point. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_a72eaeb8321c2ecbada97f2470f74b633}\label{structBox_a72eaeb8321c2ecbada97f2470f74b633} 
 bool {\bfseries check\+Collision} (\mbox{\hyperlink{structBox}{Box}} other)
-\item 
+\begin{DoxyCompactList}\small\item\em AABB Collision detection with another box. \end{DoxyCompactList}\item 
 \Hypertarget{structBox_a7f9cef3d9324289ae0fb4ec1aa50db9d}\label{structBox_a7f9cef3d9324289ae0fb4ec1aa50db9d} 
 void {\bfseries print} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Output data to console. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -65,6 +74,13 @@ void {\bfseries print} ()
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Two \doxylink{structVector2f}{Vector2f} s put together. 
+
+Boxes are simple datatypes composed of two vectors, a position (top left corner) and size
+
+Don\textquotesingle{}t mix these up with \doxylink{structentityBox}{entity\+Box} (used for parent based positioning) 
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/Math.\+h\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{Math_8h}{Math.\+h}}\end{DoxyCompactItemize}

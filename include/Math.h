@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Vector2f.h"
 #include <SDL.h>
 #include <cmath>
 #include <cstdlib>
@@ -7,96 +8,25 @@
 #include <iostream>
 #include <random>
 
-struct Vector2f {
-  Vector2f() : x(0.0f), y(0.0f) {}
-
-  Vector2f(float p_x, float p_y) : x(p_x), y(p_y) {}
-
-  Vector2f &operator=(const Vector2f &v) {
-    x = v.x;
-    y = v.y;
-    return *this;
-  }
-
-  Vector2f operator+(const Vector2f &v) { return Vector2f(x + v.x, y + v.y); }
-  Vector2f operator-(const Vector2f &v) { return Vector2f(x - v.x, y - v.y); }
-  Vector2f operator*(const Vector2f &v) { return Vector2f(x * v.x, y * v.y); }
-  Vector2f operator/(const Vector2f &v) { return Vector2f(x / v.x, y / v.y); }
-
-  Vector2f &operator+=(const Vector2f &v) {
-    x += v.x;
-    y += v.y;
-    return *this;
-  }
-  Vector2f &operator-=(Vector2f &v) {
-    x -= v.x;
-    y -= v.y;
-    return *this;
-  }
-  Vector2f &operator*=(Vector2f &v) {
-    x *= v.x;
-    y *= v.y;
-    return *this;
-  }
-  Vector2f &operator/=(Vector2f &v) {
-    x /= v.x;
-    y /= v.y;
-    return *this;
-  }
-
-  Vector2f &operator+=(float s) {
-    x += s;
-    y += s;
-    return *this;
-  }
-  Vector2f &operator-=(float s) {
-    x -= s;
-    y -= s;
-    return *this;
-  }
-  Vector2f &operator*=(float s) {
-    x *= s;
-    y *= s;
-    return *this;
-  }
-  Vector2f &operator/=(float s) {
-    x /= s;
-    y /= s;
-    return *this;
-  }
-
-  Vector2f operator+(const float num) { return Vector2f(x + num, y + num); }
-
-  Vector2f operator-(const float num) { return Vector2f(x - num, y - num); }
-  Vector2f operator*(const float num) { return Vector2f(x * num, y * num); }
-  Vector2f operator/(const float num) { return Vector2f(x / num, y / num); }
-
-  Vector2f &normalize() {
-    if (length() == 0)
-      return *this;
-    *this *= (1.0 / length());
-    return *this;
-  }
-
-  float length() const { return std::sqrt(x * x + y * y); }
-
-  void print() { std::cout << x << ", " << y << std::endl; }
-
-  float dist(Vector2f point) {
-    return sqrt(pow(point.x - x, 2) + pow(point.y - y, 2));
-  }
-
-  float x, y;
-};
+/** @file */
 
 struct Angle {
 public:
   Angle() {}
 
+  /**
+   * \brief Rotates to be pointing at something
+   * \param center Should be the position of the entity to be rotated
+   * \param point What are you lookin at?!
+   */
   void lookAt(const Vector2f center, const Vector2f &point) {
     setWithVector({point.x - center.x, point.y - center.y});
   }
 
+  /**
+   * \brief Gets a direction vector (Good for directional movement)
+   * \return A normalized vector of this angle
+   */
   Vector2f getVector() {
     Vector2f vector = {std::cos(radians), std::sin(radians)};
 
@@ -111,10 +41,17 @@ public:
     return vector;
   }
 
+  /**
+   * \brief Sets the angle with a vector (Doesn't need to be normalized)
+   */
   void setWithVector(Vector2f vector) {
     radians = std::atan2(vector.y, vector.x);
   }
 
+  /**
+   * \brief Rotates in degrees
+   * \param angle float for degrees
+   */
   void rotate(float angle) {
     radians += angle * (180.0 / 3.141592653589793238463);
   }
@@ -122,17 +59,35 @@ public:
   float radians = 0;
 };
 
+/**
+ * \brief Two Vector2f s put together
+ *
+ * Boxes are simple datatypes composed of two vectors, a position (top left
+ * corner) and size
+ *
+ * Don't mix these up with entityBox (used for parent based positioning)
+ */
 struct Box {
-  Box()
-  //: x(0.0f), y(0.0f)
-  {}
+  Box() {}
 
   Box(float p_x, float p_y, float p_w, float p_h)
       : position(p_x, p_y), size(p_w, p_h) {}
 
+  /**
+   * \brief Gets the X position for the right side
+   */
   float getRight() { return position.x + size.x; }
+  /**
+   * \brief Gets the X position for the left side
+   */
   float getLeft() { return position.x; }
+  /**
+   * \brief Gets the Y position for the Top side
+   */
   float getTop() { return position.y; }
+  /**
+   * \brief Gets the Y position for the Bottom side
+   */
   float getBottom() { return position.y + size.y; }
 
   Vector2f getTopLeftCorner() { return position; }
@@ -145,42 +100,57 @@ struct Box {
     return {position.x + size.x / 2, position.y + size.y / 2};
   }
 
+  /**
+   * \brief Sets the size but also moves the object to still be centered in the
+   * same position
+   */
   void setScale(const Vector2f &point) {
     Vector2f center = getCenter();
     size = (point);
     setWithCenter(center);
   }
+
+  /**
+   * \brief Changes the size (Adds) but also moves the object to still be
+   * centered in the same position
+   */
   void changeScale(const Vector2f &change) {
     Vector2f center = getCenter();
     size = (change);
     setWithCenter(center);
   }
 
+  /**
+   * \brief Sets the center of the box to the point
+   */
   void setWithCenter(const Vector2f &point) {
     position.x = point.x - size.x / 2;
     position.y = point.y - size.y / 2;
   }
 
+  /**
+   * \brief AABB Collision detection with another box
+   */
   bool checkCollision(Box other) {
-    // if (entity->checkComponent<Sprite>() &&
-    // !entity->getComponent<Sprite>().onScreen) {
-    //   return false;
-    // }
-
     return getLeft() < other.getRight() && getRight() > other.getLeft() &&
            getTop() < other.getBottom() && getBottom() > other.getTop();
   }
 
+  /**
+   * \brief Output data to console
+   */
   void print() {
     std::cout << position.x << ", " << position.y << ", " << size.x << ", "
               << size.y << std::endl;
   }
 
-
   Vector2f position;
   Vector2f size;
 };
 
+/**
+ * \brief Random floating point number
+ */
 inline float randFloat(float min, float max) {
   static std::random_device rd;
   static std::mt19937 gen(rd());
@@ -188,6 +158,9 @@ inline float randFloat(float min, float max) {
   return dis(gen);
 }
 
+/**
+ * \brief Grabs a random element from an array
+ */
 template <typename T, std::size_t N> T getRandomElement(const T (&arr)[N]) {
   // Generate a random index within the array bounds
   std::size_t randomIndex = std::rand() % N;
@@ -197,7 +170,8 @@ template <typename T, std::size_t N> T getRandomElement(const T (&arr)[N]) {
 }
 
 // // Function to check if a line (start + direction * t) intersects with a box
-// bool doesLineIntersect(const Vector2f& start, const Vector2f& direction, const Box& box) {
+// bool doesLineIntersect(const Vector2f& start, const Vector2f& direction,
+// const Box& box) {
 //     float tmin = 0.0f;
 //     float tmax = 1.0f;
 //
