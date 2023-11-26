@@ -90,7 +90,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (<a c
 <tr class="memdesc:ad89996045a7158a3be2357228fc25579"><td class="mdescLeft">&#160;</td><td class="mdescRight">initalizer for charlie2d Must Be Called before anything in charlie2d can also set the original screen resolution <br /></td></tr>
 <tr class="separator:ad89996045a7158a3be2357228fc25579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45e27686f841937a4ee6169b4e50ae00" id="r_a45e27686f841937a4ee6169b4e50ae00"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameManager.html#a45e27686f841937a4ee6169b4e50ae00">AddScene</a> (const std::string &amp;name, <a class="el" href="classScene.html">Scene</a> *scene)</td></tr>
-<tr class="memdesc:a45e27686f841937a4ee6169b4e50ae00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classScene.html">Scene</a> to the scene map.  <br /></td></tr>
+<tr class="memdesc:a45e27686f841937a4ee6169b4e50ae00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classScene.html" title="Made for inheritence (With the load method), handles the update loop and can be added and loaded insi...">Scene</a> to the scene map.  <br /></td></tr>
 <tr class="separator:a45e27686f841937a4ee6169b4e50ae00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa640c880991156f05b8ca7ab9a06953a" id="r_aa640c880991156f05b8ca7ab9a06953a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameManager.html#aa640c880991156f05b8ca7ab9a06953a">LoadScene</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:aa640c880991156f05b8ca7ab9a06953a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads all entities and loads the set scene.  <br /></td></tr>
@@ -103,7 +103,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()<
 <tr class="memdesc:af3bb4452ac262ec8a68dcc3eea2f0124"><td class="mdescLeft">&#160;</td><td class="mdescRight">the main charlie2d update loop method <br /></td></tr>
 <tr class="separator:af3bb4452ac262ec8a68dcc3eea2f0124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10cdc97d611120cb3e0ca203ef11d0c4" id="r_a10cdc97d611120cb3e0ca203ef11d0c4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameManager.html#a10cdc97d611120cb3e0ca203ef11d0c4">playSound</a> (std::string filename, bool loop=false)</td></tr>
-<tr class="memdesc:a10cdc97d611120cb3e0ca203ef11d0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">plays a soundfile, uses the <a class="el" href="classResourceManager.html">ResourceManager</a> so there is no need to worry about managing the file loading yourself  <br /></td></tr>
+<tr class="memdesc:a10cdc97d611120cb3e0ca203ef11d0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">plays a soundfile, uses the <a class="el" href="classResourceManager.html" title="The ResourceManager is a static class which is uses for managing image and audio files.">ResourceManager</a> so there is no need to worry about managing the file loading yourself  <br /></td></tr>
 <tr class="separator:a10cdc97d611120cb3e0ca203ef11d0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac63aa477ce3707e03b42968d364a6ce6" id="r_ac63aa477ce3707e03b42968d364a6ce6"><td class="memItemLeft" align="right" valign="top"><a id="ac63aa477ce3707e03b42968d364a6ce6" name="ac63aa477ce3707e03b42968d364a6ce6"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b> ()</td></tr>
@@ -200,7 +200,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>transition</b> 
 </table>
 </div><div class="memdoc">
 
-<p>Adds a <a class="el" href="classScene.html">Scene</a> to the scene map. </p>
+<p>Adds a <a class="el" href="classScene.html" title="Made for inheritence (With the load method), handles the update loop and can be added and loaded insi...">Scene</a> to the scene map. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>The name given to the scene (used for loading) </td></tr>
@@ -308,7 +308,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>transition</b> 
 </div><div class="memdoc">
 
 <p>Gets the current scene loaded by <a class="el" href="classGameManager.html#aa640c880991156f05b8ca7ab9a06953a" title="Unloads all entities and loads the set scene.">LoadScene()</a> </p>
-<dl class="section return"><dt>Returns</dt><dd>the current <a class="el" href="classScene.html">Scene</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the current <a class="el" href="classScene.html" title="Made for inheritence (With the load method), handles the update loop and can be added and loaded insi...">Scene</a> </dd></dl>
 
 </div>
 </div>
@@ -380,7 +380,7 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>transition</b> 
 </table>
 </div><div class="memdoc">
 
-<p>plays a soundfile, uses the <a class="el" href="classResourceManager.html">ResourceManager</a> so there is no need to worry about managing the file loading yourself </p>
+<p>plays a soundfile, uses the <a class="el" href="classResourceManager.html" title="The ResourceManager is a static class which is uses for managing image and audio files.">ResourceManager</a> so there is no need to worry about managing the file loading yourself </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>the name of the file </td></tr>

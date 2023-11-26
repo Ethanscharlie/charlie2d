@@ -77,6 +77,11 @@ $(function() {
   <div class="headertitle"><div class="title">physicsBody Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A simple movement physics class Made mainly for players It uses a <a class="el" href="structVector2f.html" title="A simple Vector2 float class, with an x &amp; y property that supports math with floats and other Vectors...">Vector2f</a> velocity and the <a class="el" href="structentityBox.html">entityBox</a> slide method.  
+ <a href="classphysicsBody.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="physicsBody_8h_source.html">physicsBody.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for physicsBody:</div>
 <div class="dyncontent">
@@ -110,9 +115,10 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa33cc4abec54d4891a2baef648fdddad" id="r_aa33cc4abec54d4891a2baef648fdddad"><td class="memItemLeft" align="right" valign="top"><a id="aa33cc4abec54d4891a2baef648fdddad" name="aa33cc4abec54d4891a2baef648fdddad"></a>
 <a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>velocity</b></td></tr>
+<tr class="memdesc:aa33cc4abec54d4891a2baef648fdddad"><td class="mdescLeft">&#160;</td><td class="mdescRight">The velocity for this body. <br /></td></tr>
 <tr class="separator:aa33cc4abec54d4891a2baef648fdddad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1be2be12c04bd03711fb622a88e87b14" id="r_a1be2be12c04bd03711fb622a88e87b14"><td class="memItemLeft" align="right" valign="top"><a id="a1be2be12c04bd03711fb622a88e87b14" name="a1be2be12c04bd03711fb622a88e87b14"></a>
-<a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>maxVelocity</b> = {-1, -1}</td></tr>
+<tr class="memitem:a1be2be12c04bd03711fb622a88e87b14" id="r_a1be2be12c04bd03711fb622a88e87b14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVector2f.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classphysicsBody.html#a1be2be12c04bd03711fb622a88e87b14">maxVelocity</a> = {-1, -1}</td></tr>
+<tr class="memdesc:a1be2be12c04bd03711fb622a88e87b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevents the velocity from getting to big.  <br /></td></tr>
 <tr class="separator:a1be2be12c04bd03711fb622a88e87b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classComponent')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classComponent.html">Component</a></td></tr>
 <tr class="memitem:a374bdfccd617fc1919f9022cecf42251 inherit pub_attribs_classComponent" id="r_a374bdfccd617fc1919f9022cecf42251"><td class="memItemLeft" align="right" valign="top">
@@ -150,7 +156,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 <tr class="memdesc:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will update the <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> in the game loop. <br /></td></tr>
 <tr class="separator:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A simple movement physics class Made mainly for players It uses a <a class="el" href="structVector2f.html" title="A simple Vector2 float class, with an x &amp; y property that supports math with floats and other Vectors...">Vector2f</a> velocity and the <a class="el" href="structentityBox.html">entityBox</a> slide method. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3f61ad0d22479bdea0ca431e7bbab107" name="a3f61ad0d22479bdea0ca431e7bbab107"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f61ad0d22479bdea0ca431e7bbab107">&#9670;&#160;</a></span>start()</h2>
 
@@ -207,6 +215,24 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 <p>Updates in the update loop. </p>
 
 <p>Implements <a class="el" href="classComponent.html#a9152b930559c4ece4ea5ddd3e6e4b22b">Component</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1be2be12c04bd03711fb622a88e87b14" name="a1be2be12c04bd03711fb622a88e87b14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1be2be12c04bd03711fb622a88e87b14">&#9670;&#160;</a></span>maxVelocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVector2f.html">Vector2f</a> physicsBody::maxVelocity = {-1, -1}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prevents the velocity from getting to big. </p>
+<p>This works with abs so it doens't matter for negtive and positive values Default its set to -1, -1 (Which tells the body to ignore it and let velocity go any amount) </p>
 
 </div>
 </div>

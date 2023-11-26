@@ -8,5 +8,8 @@ var searchData=
   ['checkcomponent_5',['checkComponent',['../classEntity.html#aaa08bd4404c74e38d426fb395411c3a6',1,'Entity']]],
   ['checkhorizontal_6',['checkHorizontal',['../classInputManager.html#abba7a775276179958f0aea1ebeff9614',1,'InputManager']]],
   ['checkinput_7',['checkInput',['../classInputManager.html#a59438046010e85ae15abf22de7c11644',1,'InputManager']]],
-  ['checkvertical_8',['checkVertical',['../classInputManager.html#a07f199764155999b43a7bb4e23131d77',1,'InputManager']]]
+  ['checkoutsidebounds_8',['checkOutsideBounds',['../classLDTK.html#a4a7f1156ceac70f9acb72e4a37c2953b',1,'LDTK']]],
+  ['checkvertical_9',['checkVertical',['../classInputManager.html#a07f199764155999b43a7bb4e23131d77',1,'InputManager']]],
+  ['clear_10',['clear',['../classResourceManager.html#a50cf42daa0ff355fef64431740e498ab',1,'ResourceManager']]],
+  ['createentity_11',['createEntity',['../classScene.html#aea5510be8aa57aae76558f6228c665c1',1,'Scene']]]
 ];

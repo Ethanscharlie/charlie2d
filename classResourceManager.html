@@ -77,31 +77,82 @@ $(function() {
   <div class="headertitle"><div class="title">ResourceManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="classResourceManager.html" title="The ResourceManager is a static class which is uses for managing image and audio files.">ResourceManager</a> is a static class which is uses for managing image and audio files.  
+ <a href="classResourceManager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ResourceManager_8h_source.html">ResourceManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa01c08c99dab97a35648275c6f5b50c0" id="r_aa01c08c99dab97a35648275c6f5b50c0"><td class="memItemLeft" align="right" valign="top"><a id="aa01c08c99dab97a35648275c6f5b50c0" name="aa01c08c99dab97a35648275c6f5b50c0"></a>
 SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>getTexture</b> (std::string filename)</td></tr>
+<tr class="memdesc:aa01c08c99dab97a35648275c6f5b50c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a texture from filename, also loads the texture permenently into textures_. <br /></td></tr>
 <tr class="separator:aa01c08c99dab97a35648275c6f5b50c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c902316962060a5b0df99bcc0dcb403" id="r_a4c902316962060a5b0df99bcc0dcb403"><td class="memItemLeft" align="right" valign="top"><a id="a4c902316962060a5b0df99bcc0dcb403" name="a4c902316962060a5b0df99bcc0dcb403"></a>
-SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>getColoredTexture</b> (std::array&lt; Uint8, 3 &gt; color, std::string textureName)</td></tr>
+<tr class="memitem:a4c902316962060a5b0df99bcc0dcb403" id="r_a4c902316962060a5b0df99bcc0dcb403"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classResourceManager.html#a4c902316962060a5b0df99bcc0dcb403">getColoredTexture</a> (std::array&lt; Uint8, 3 &gt; color, std::string textureName)</td></tr>
+<tr class="memdesc:a4c902316962060a5b0df99bcc0dcb403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Works like getTexture but adds a colored tint.  <br /></td></tr>
 <tr class="separator:a4c902316962060a5b0df99bcc0dcb403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05b43d3507246f5fa006578e9c17a682" id="r_a05b43d3507246f5fa006578e9c17a682"><td class="memItemLeft" align="right" valign="top"><a id="a05b43d3507246f5fa006578e9c17a682" name="a05b43d3507246f5fa006578e9c17a682"></a>
 SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>getWhiteTexture</b> (std::string textureName)</td></tr>
+<tr class="memdesc:a05b43d3507246f5fa006578e9c17a682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Works like getColoredTexture but gets it as pure white. <br /></td></tr>
 <tr class="separator:a05b43d3507246f5fa006578e9c17a682"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f922027974f45178d19b09b149c3ec9" id="r_a1f922027974f45178d19b09b149c3ec9"><td class="memItemLeft" align="right" valign="top"><a id="a1f922027974f45178d19b09b149c3ec9" name="a1f922027974f45178d19b09b149c3ec9"></a>
 Mix_Chunk *&#160;</td><td class="memItemRight" valign="bottom"><b>getAudio</b> (std::string filename)</td></tr>
+<tr class="memdesc:a1f922027974f45178d19b09b149c3ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a audio from filename, also loads the file permenently into sounds_. <br /></td></tr>
 <tr class="separator:a1f922027974f45178d19b09b149c3ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50cf42daa0ff355fef64431740e498ab" id="r_a50cf42daa0ff355fef64431740e498ab"><td class="memItemLeft" align="right" valign="top"><a id="a50cf42daa0ff355fef64431740e498ab" name="a50cf42daa0ff355fef64431740e498ab"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memdesc:a50cf42daa0ff355fef64431740e498ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all sounds and textures. <br /></td></tr>
 <tr class="separator:a50cf42daa0ff355fef64431740e498ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a93af7a4a4652391163e5135982a00d56" id="r_a93af7a4a4652391163e5135982a00d56"><td class="memItemLeft" align="right" valign="top"><a id="a93af7a4a4652391163e5135982a00d56" name="a93af7a4a4652391163e5135982a00d56"></a>
 static <a class="el" href="classResourceManager.html">ResourceManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a93af7a4a4652391163e5135982a00d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the manager, use as <code>ResourceManager::getInstance(GameManager::renderer)</code> <br /></td></tr>
 <tr class="separator:a93af7a4a4652391163e5135982a00d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="classResourceManager.html" title="The ResourceManager is a static class which is uses for managing image and audio files.">ResourceManager</a> is a static class which is uses for managing image and audio files. </p>
+<p>It loads them into a map so there is no need to worry about calling getTexture multiple times</p>
+<p>It can be accessed by <code>ResourceManager::getInstance(GameManager::renderer)</code> </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4c902316962060a5b0df99bcc0dcb403" name="a4c902316962060a5b0df99bcc0dcb403"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c902316962060a5b0df99bcc0dcb403">&#9670;&#160;</a></span>getColoredTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * ResourceManager::getColoredTexture </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; Uint8, 3 &gt;&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>textureName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Works like getTexture but adds a colored tint. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>The color tint, Ex <code>{255, 24, 100}</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="ResourceManager_8h_source.html">ResourceManager.h</a></li>
 <li>source/<b>ResourceManager.cpp</b></li>

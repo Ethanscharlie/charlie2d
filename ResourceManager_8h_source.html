@@ -94,31 +94,37 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classResourceManager.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classResourceManager.html">ResourceManager</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">static</span> <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;getInstance(SDL_Renderer *renderer);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  SDL_Texture *getTexture(std::string filename);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  SDL_Texture *getColoredTexture(std::array&lt;Uint8, 3&gt; color,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                                 std::string textureName);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  SDL_Texture *getWhiteTexture(std::string textureName);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  Mix_Chunk *getAudio(std::string filename);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keywordtype">void</span> clear();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <a class="code hl_class" href="classResourceManager.html">ResourceManager</a>(SDL_Renderer *renderer);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <a class="code hl_class" href="classResourceManager.html">ResourceManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <a class="code hl_class" href="classResourceManager.html">~ResourceManager</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  SDL_Renderer *renderer_;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  std::map&lt;std::string, SDL_Texture *&gt; textures_;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  std::map&lt;std::string, Mix_Chunk *&gt; sounds_;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classResourceManager.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classResourceManager.html">ResourceManager</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keyword">static</span> <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;<a class="code hl_function" href="classResourceManager.html#a93af7a4a4652391163e5135982a00d56">getInstance</a>(SDL_Renderer *renderer);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  SDL_Texture *<a class="code hl_function" href="classResourceManager.html#aa01c08c99dab97a35648275c6f5b50c0">getTexture</a>(std::string filename);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  SDL_Texture *<a class="code hl_function" href="classResourceManager.html#a4c902316962060a5b0df99bcc0dcb403">getColoredTexture</a>(std::array&lt;Uint8, 3&gt; color,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                                 std::string textureName);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  SDL_Texture *<a class="code hl_function" href="classResourceManager.html#a05b43d3507246f5fa006578e9c17a682">getWhiteTexture</a>(std::string textureName);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  Mix_Chunk *<a class="code hl_function" href="classResourceManager.html#a1f922027974f45178d19b09b149c3ec9">getAudio</a>(std::string filename);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classResourceManager.html#a50cf42daa0ff355fef64431740e498ab">clear</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_class" href="classResourceManager.html">ResourceManager</a>(SDL_Renderer *renderer);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <a class="code hl_class" href="classResourceManager.html">ResourceManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;operator=(<span class="keyword">const</span> <a class="code hl_class" href="classResourceManager.html">ResourceManager</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <a class="code hl_class" href="classResourceManager.html">~ResourceManager</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  SDL_Renderer *renderer_;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  std::map&lt;std::string, SDL_Texture *&gt; textures_;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  std::map&lt;std::string, Mix_Chunk *&gt; sounds_;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
 </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">// RESOURCE_MANAGER_H</span></div>
-<div class="ttc" id="aclassResourceManager_html"><div class="ttname"><a href="classResourceManager.html">ResourceManager</a></div><div class="ttdef"><b>Definition</b> ResourceManager.h:13</div></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// RESOURCE_MANAGER_H</span></div>
+<div class="ttc" id="aclassResourceManager_html"><div class="ttname"><a href="classResourceManager.html">ResourceManager</a></div><div class="ttdoc">The ResourceManager is a static class which is uses for managing image and audio files.</div><div class="ttdef"><b>Definition</b> ResourceManager.h:22</div></div>
+<div class="ttc" id="aclassResourceManager_html_a05b43d3507246f5fa006578e9c17a682"><div class="ttname"><a href="classResourceManager.html#a05b43d3507246f5fa006578e9c17a682">ResourceManager::getWhiteTexture</a></div><div class="ttdeci">SDL_Texture * getWhiteTexture(std::string textureName)</div><div class="ttdoc">Works like getColoredTexture but gets it as pure white.</div><div class="ttdef"><b>Definition</b> ResourceManager.cpp:59</div></div>
+<div class="ttc" id="aclassResourceManager_html_a1f922027974f45178d19b09b149c3ec9"><div class="ttname"><a href="classResourceManager.html#a1f922027974f45178d19b09b149c3ec9">ResourceManager::getAudio</a></div><div class="ttdeci">Mix_Chunk * getAudio(std::string filename)</div><div class="ttdoc">Gets a audio from filename, also loads the file permenently into sounds_.</div><div class="ttdef"><b>Definition</b> ResourceManager.cpp:119</div></div>
+<div class="ttc" id="aclassResourceManager_html_a4c902316962060a5b0df99bcc0dcb403"><div class="ttname"><a href="classResourceManager.html#a4c902316962060a5b0df99bcc0dcb403">ResourceManager::getColoredTexture</a></div><div class="ttdeci">SDL_Texture * getColoredTexture(std::array&lt; Uint8, 3 &gt; color, std::string textureName)</div><div class="ttdoc">Works like getTexture but adds a colored tint.</div><div class="ttdef"><b>Definition</b> ResourceManager.cpp:30</div></div>
+<div class="ttc" id="aclassResourceManager_html_a50cf42daa0ff355fef64431740e498ab"><div class="ttname"><a href="classResourceManager.html#a50cf42daa0ff355fef64431740e498ab">ResourceManager::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears all sounds and textures.</div><div class="ttdef"><b>Definition</b> ResourceManager.cpp:149</div></div>
+<div class="ttc" id="aclassResourceManager_html_a93af7a4a4652391163e5135982a00d56"><div class="ttname"><a href="classResourceManager.html#a93af7a4a4652391163e5135982a00d56">ResourceManager::getInstance</a></div><div class="ttdeci">static ResourceManager &amp; getInstance(SDL_Renderer *renderer)</div><div class="ttdoc">Gets the manager, use as ResourceManager::getInstance(GameManager::renderer)</div><div class="ttdef"><b>Definition</b> ResourceManager.cpp:4</div></div>
+<div class="ttc" id="aclassResourceManager_html_aa01c08c99dab97a35648275c6f5b50c0"><div class="ttname"><a href="classResourceManager.html#aa01c08c99dab97a35648275c6f5b50c0">ResourceManager::getTexture</a></div><div class="ttdeci">SDL_Texture * getTexture(std::string filename)</div><div class="ttdoc">Gets a texture from filename, also loads the texture permenently into textures_.</div><div class="ttdef"><b>Definition</b> ResourceManager.cpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
