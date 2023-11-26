@@ -37,14 +37,14 @@
 \DoxyCodeLine{00039\ \ \ \ \ components[\textcolor{keyword}{typeid}(C)]\ =\ component;}
 \DoxyCodeLine{00040\ }
 \DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ scene-\/>template\ add<C>(components[typeid(C)]);}}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>components.count(\textcolor{keyword}{typeid}(C))\ ==}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>\mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}}.count(\textcolor{keyword}{typeid}(C))\ ==}
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ 0)\ \{\ \textcolor{comment}{//\&\&\ std::find(componentTypes.begin(),\ componentTypes.end(),}}
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//typeid(C))\ ==\ componentTypes.end())\ \{}}
 \DoxyCodeLine{00045\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}added\ type\ "{}}\ <<\ component-\/>title\ <<\ std::endl;}
 \DoxyCodeLine{00046\ \ \ \ \ \}}
 \DoxyCodeLine{00047\ }
 \DoxyCodeLine{00048\ \ \ \ \ component-\/>index\ =\ 0;\ \textcolor{comment}{//\ components[typeid(C)].size();}}
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>components[\textcolor{keyword}{typeid}(C)].push\_back(component);}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>\mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}}[\textcolor{keyword}{typeid}(C)].push\_back(component);}
 \DoxyCodeLine{00050\ \ \ \}}
 \DoxyCodeLine{00051\ }
 \DoxyCodeLine{00055\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ C\ \&\mbox{\hyperlink{classEntity_a9d714a24a0ed3fc151e9ffef94602e95}{getComponent}}()\ \{}
@@ -66,14 +66,14 @@
 \DoxyCodeLine{00074\ \ \ \ \ components[\textcolor{keyword}{typeid}(C)]\ =\ component;}
 \DoxyCodeLine{00075\ }
 \DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ scene-\/>template\ add<C>(components[typeid(C)]);}}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>components.count(\textcolor{keyword}{typeid}(C))\ ==}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>\mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}}.count(\textcolor{keyword}{typeid}(C))\ ==}
 \DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ 0)\ \{\ \textcolor{comment}{//\&\&\ std::find(componentTypes.begin(),\ componentTypes.end(),}}
 \DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//typeid(C))\ ==\ componentTypes.end())\ \{}}
 \DoxyCodeLine{00080\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}added\ type\ "{}}\ <<\ component-\/>title\ <<\ std::endl;}
 \DoxyCodeLine{00081\ \ \ \ \ \}}
 \DoxyCodeLine{00082\ }
 \DoxyCodeLine{00083\ \ \ \ \ component-\/>index\ =\ 0;\ \textcolor{comment}{//\ components[typeid(C)].size();}}
-\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>components[\textcolor{keyword}{typeid}(C)].push\_back(component);}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classEntity_a4032af8b661246231eaa5823451f69ed}{scene}}-\/>\mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}}[\textcolor{keyword}{typeid}(C)].push\_back(component);}
 \DoxyCodeLine{00085\ }
 \DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
 \DoxyCodeLine{00087\ \ \ \}}

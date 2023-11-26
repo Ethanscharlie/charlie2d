@@ -1,5 +1,14 @@
 \doxysection{physics\+Body Class Reference}
 \hypertarget{classphysicsBody}{}\label{classphysicsBody}\index{physicsBody@{physicsBody}}
+
+
+A simple movement physics class Made mainly for players It uses a \doxylink{structVector2f}{Vector2f} velocity and the \doxylink{structentityBox}{entity\+Box} slide method.  
+
+
+
+
+{\ttfamily \#include $<$physics\+Body.\+h$>$}
+
 Inheritance diagram for physics\+Body\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,10 +36,9 @@ virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{
 \item 
 \Hypertarget{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}\label{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad} 
 \mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries velocity}
-\item 
-\Hypertarget{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14}\label{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14} 
-\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries max\+Velocity} = \{-\/1, -\/1\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The velocity for this body. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structVector2f}{Vector2f}} \mbox{\hyperlink{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14}{max\+Velocity}} = \{-\/1, -\/1\}
+\begin{DoxyCompactList}\small\item\em Prevents the velocity from getting to big. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,6 +63,9 @@ bool {\bfseries use\+Layer} = false
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A simple movement physics class Made mainly for players It uses a \doxylink{structVector2f}{Vector2f} velocity and the \doxylink{structentityBox}{entity\+Box} slide method. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}\label{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107} 
@@ -86,6 +97,19 @@ Updates in the update loop.
 Implements \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14}\label{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14} 
+\index{physicsBody@{physicsBody}!maxVelocity@{maxVelocity}}
+\index{maxVelocity@{maxVelocity}!physicsBody@{physicsBody}}
+\doxysubsubsection{\texorpdfstring{maxVelocity}{maxVelocity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVector2f}{Vector2f}} physics\+Body\+::max\+Velocity = \{-\/1, -\/1\}}
+
+
+
+Prevents the velocity from getting to big. 
+
+This works with abs so it doens\textquotesingle{}t matter for negtive and positive values Default its set to -\/1, -\/1 (Which tells the body to ignore it and let velocity go any amount) 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

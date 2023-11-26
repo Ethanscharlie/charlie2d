@@ -2,40 +2,39 @@
 \hypertarget{Sprite_8h_source}{}\label{Sprite_8h_source}\index{include/Sprite.h@{include/Sprite.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Animation.h"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Collider.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8h}{Math.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Animation.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8h}{Math.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAnimation}{Animation}};}
 \DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSprite}{Sprite}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classSprite}{Sprite}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}sprite"{}})\ \{\};}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSprite_ad69637776e32e93bda17fe7a108dbb86}{start}}()\textcolor{keyword}{\ override\ }\{}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_acc6b6f489071d8549dc0f2976225e051}{useLayer}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSprite}{Sprite}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classSprite}{Sprite}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}sprite"{}})\{\};}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSprite_ad69637776e32e93bda17fe7a108dbb86}{start}}()\textcolor{keyword}{\ override\ }\{\ \mbox{\hyperlink{classComponent_acc6b6f489071d8549dc0f2976225e051}{useLayer}}\ =\ \textcolor{keyword}{true};\ \}}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexture(\textcolor{keyword}{const}\ std::string\&\ image,\ \textcolor{keywordtype}{bool}\ setSize=\textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ keepCentered=\textcolor{keyword}{true});}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ addAnimation(std::string\ title,\ std::vector<std::string>\ frames,\ \textcolor{keywordtype}{float}\ fps);}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ SDL\_Rect\ sourceRect\ =\ \{0,\ 0,\ 0,\ 0\};}
-\DoxyCodeLine{00026\ \ \ \ \ SDL\_Texture*\ texture\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00027\ \ \ \ \ std::string\ textureName\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ showBorders\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structAngle}{Angle}}\ angle;}
-\DoxyCodeLine{00030\ \ \ \ \ std::unordered\_map<std::string,\ Animation*>\ animations;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ onScreen\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ renderAsUI\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00033\ \ \ \ \ SDL\_RendererFlip\ flip\ =\ SDL\_FLIP\_NONE;}
-\DoxyCodeLine{00034\ \};}
-\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSprite_ac45edbbc803151dcd90cb1edd75d4f22}{loadTexture}}(\textcolor{keyword}{const}\ std::string\ \&image,\ \textcolor{keywordtype}{bool}\ setSize\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ keepCentered\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSprite_aa970296e2b70c509fc960d67371e5cad}{addAnimation}}(std::string\ title,\ std::vector<std::string>\ frames,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ fps);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ SDL\_Rect\ \mbox{\hyperlink{classSprite_ac7f28a7d727ca4ac33a9a56a49669a9d}{sourceRect}}\ =\ \{0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{00047\ \ \ SDL\_Texture\ *texture\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00051\ \ \ std::string\ \mbox{\hyperlink{classSprite_aca40d3e107c6d8102932e9e680d01a33}{textureName}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSprite_ac45a960b0f941204b2b691bcd7e2289c}{showBorders}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{structAngle}{Angle}}\ \mbox{\hyperlink{classSprite_af1d735afbe55a5f5142d9a84ab6148d9}{angle}};}
+\DoxyCodeLine{00063\ \ \ std::unordered\_map<std::string,\ Animation\ *>\ \mbox{\hyperlink{classSprite_a5e9e997bdf8c3c18534355d5f29e3656}{animations}};}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSprite_a44b05ec74e2e39472be7c5b85e61d5d9}{onScreen}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSprite_a0479879d21660801d2345b291a941c53}{renderAsUI}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00076\ \ \ SDL\_RendererFlip\ \mbox{\hyperlink{classSprite_a0479774247c6e8d902ece6aec2a1960f}{flip}}\ =\ SDL\_FLIP\_NONE;}
+\DoxyCodeLine{00077\ \};}
 
 \end{DoxyCode}

@@ -93,35 +93,41 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using </span>json = nlohmann::json;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classLDTK.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classLDTK.html">LDTK</a> {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="classLDTK.html">LDTK</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> deltaTime);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> unload(std::vector&lt;Entity*&gt; enlist=entities);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">static</span> std::string findTraveledLevel(<a class="code hl_class" href="classEntity.html">Entity</a>* player);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> checkOutsideBounds(<a class="code hl_class" href="classEntity.html">Entity</a>* player);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> loadLevel(std::string iid, <a class="code hl_class" href="classScene.html">Scene</a>* scene);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> loadJson(std::string file=<span class="stringliteral">&quot;img/ldtk/space.ldtk&quot;</span>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">static</span> <a class="code hl_struct" href="structBox.html">Box</a> worldBox;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">static</span> <a class="code hl_class" href="classEntity.html">Entity</a>* ldtkPlayer;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">static</span> std::vector&lt;Entity*&gt; entities;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> json fullJSON;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">static</span> json currentLevel;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> std::map&lt;std::string, json&gt; levels;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">static</span> std::function&lt;void()&gt; onLoadLevel;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classLDTK.html#a4a32938cc43d2845a1ea86f83d5f311c">   12</a></span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classLDTK.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classLDTK.html">LDTK</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_class" href="classLDTK.html">LDTK</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLDTK.html#ab63a9f213ad8af16007789387f3fde6b">unload</a>(std::vector&lt;Entity *&gt; enlist = <a class="code hl_variable" href="classLDTK.html#aaf61f56f261e0f06117c0c5b60c29384">entities</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">static</span> std::string <a class="code hl_function" href="classLDTK.html#a19e2bb47b0c692d2cdafc120b01da449">findTraveledLevel</a>(<a class="code hl_class" href="classEntity.html">Entity</a> *player);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLDTK.html#a4a7f1156ceac70f9acb72e4a37c2953b">checkOutsideBounds</a>(<a class="code hl_class" href="classEntity.html">Entity</a> *player);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLDTK.html#a8bce8f0c9933762c0ec931ae0d7f799e">loadLevel</a>(std::string iid, <a class="code hl_class" href="classScene.html">Scene</a> *scene);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLDTK.html#a7c00a34dbf047f8bf2cdd1d3b8ddead1">loadJson</a>(std::string file = <span class="stringliteral">&quot;img/ldtk/space.ldtk&quot;</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keyword">static</span> <a class="code hl_struct" href="structBox.html">Box</a> worldBox;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keyword">static</span> <a class="code hl_class" href="classEntity.html">Entity</a> *ldtkPlayer;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classLDTK.html#aaf61f56f261e0f06117c0c5b60c29384">   59</a></span>  <span class="keyword">static</span> std::vector&lt;Entity *&gt; <a class="code hl_variable" href="classLDTK.html#aaf61f56f261e0f06117c0c5b60c29384">entities</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keyword">static</span> json fullJSON;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keyword">static</span> json currentLevel;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">static</span> std::map&lt;std::string, json&gt; levels;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keyword">static</span> std::function&lt;void()&gt; <a class="code hl_variable" href="classLDTK.html#a4a32938cc43d2845a1ea86f83d5f311c">onLoadLevel</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="ttc" id="aclassEntity_html"><div class="ttname"><a href="classEntity.html">Entity</a></div><div class="ttdoc">Entitys are containers for an EnityBox and components.</div><div class="ttdef"><b>Definition</b> Entity.h:20</div></div>
-<div class="ttc" id="aclassLDTK_html"><div class="ttname"><a href="classLDTK.html">LDTK</a></div><div class="ttdef"><b>Definition</b> ldtk.h:14</div></div>
-<div class="ttc" id="aclassScene_html"><div class="ttname"><a href="classScene.html">Scene</a></div><div class="ttdef"><b>Definition</b> Scene.h:20</div></div>
+<div class="ttc" id="aclassLDTK_html"><div class="ttname"><a href="classLDTK.html">LDTK</a></div><div class="ttdoc">A loader for the Level Design Toolkit The entity tag is set to the name of the entity within ldtk Til...</div><div class="ttdef"><b>Definition</b> ldtk.h:18</div></div>
+<div class="ttc" id="aclassLDTK_html_a19e2bb47b0c692d2cdafc120b01da449"><div class="ttname"><a href="classLDTK.html#a19e2bb47b0c692d2cdafc120b01da449">LDTK::findTraveledLevel</a></div><div class="ttdeci">static std::string findTraveledLevel(Entity *player)</div><div class="ttdoc">Where did the player go?</div><div class="ttdef"><b>Definition</b> ldtk.cpp:32</div></div>
+<div class="ttc" id="aclassLDTK_html_a4a32938cc43d2845a1ea86f83d5f311c"><div class="ttname"><a href="classLDTK.html#a4a32938cc43d2845a1ea86f83d5f311c">LDTK::onLoadLevel</a></div><div class="ttdeci">static std::function&lt; void()&gt; onLoadLevel</div><div class="ttdoc">Runs when any level has finished loading.</div><div class="ttdef"><b>Definition</b> ldtk.h:12</div></div>
+<div class="ttc" id="aclassLDTK_html_a4a7f1156ceac70f9acb72e4a37c2953b"><div class="ttname"><a href="classLDTK.html#a4a7f1156ceac70f9acb72e4a37c2953b">LDTK::checkOutsideBounds</a></div><div class="ttdeci">static bool checkOutsideBounds(Entity *player)</div><div class="ttdoc">Checks to see in the player is outside the bounds of the level.</div><div class="ttdef"><b>Definition</b> ldtk.cpp:55</div></div>
+<div class="ttc" id="aclassLDTK_html_a7c00a34dbf047f8bf2cdd1d3b8ddead1"><div class="ttname"><a href="classLDTK.html#a7c00a34dbf047f8bf2cdd1d3b8ddead1">LDTK::loadJson</a></div><div class="ttdeci">static void loadJson(std::string file=&quot;img/ldtk/space.ldtk&quot;)</div><div class="ttdoc">Loads up the json for your world (Please do before anything else here)</div><div class="ttdef"><b>Definition</b> ldtk.cpp:150</div></div>
+<div class="ttc" id="aclassLDTK_html_a8bce8f0c9933762c0ec931ae0d7f799e"><div class="ttname"><a href="classLDTK.html#a8bce8f0c9933762c0ec931ae0d7f799e">LDTK::loadLevel</a></div><div class="ttdeci">static void loadLevel(std::string iid, Scene *scene)</div><div class="ttdoc">Loads a level via iid.</div><div class="ttdef"><b>Definition</b> ldtk.cpp:67</div></div>
+<div class="ttc" id="aclassLDTK_html_aaf61f56f261e0f06117c0c5b60c29384"><div class="ttname"><a href="classLDTK.html#aaf61f56f261e0f06117c0c5b60c29384">LDTK::entities</a></div><div class="ttdeci">static std::vector&lt; Entity * &gt; entities</div><div class="ttdoc">List of all current entities loaded by ldtk.</div><div class="ttdef"><b>Definition</b> ldtk.h:59</div></div>
+<div class="ttc" id="aclassLDTK_html_ab63a9f213ad8af16007789387f3fde6b"><div class="ttname"><a href="classLDTK.html#ab63a9f213ad8af16007789387f3fde6b">LDTK::unload</a></div><div class="ttdeci">static void unload(std::vector&lt; Entity * &gt; enlist=entities)</div><div class="ttdoc">Removes all entites created by ldtk.</div><div class="ttdef"><b>Definition</b> ldtk.cpp:22</div></div>
+<div class="ttc" id="aclassScene_html"><div class="ttname"><a href="classScene.html">Scene</a></div><div class="ttdoc">Made for inheritence (With the load method), handles the update loop and can be added and loaded insi...</div><div class="ttdef"><b>Definition</b> Scene.h:24</div></div>
 <div class="ttc" id="astructBox_html"><div class="ttname"><a href="structBox.html">Box</a></div><div class="ttdoc">Two Vector2f s put together.</div><div class="ttdef"><b>Definition</b> Math.h:70</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

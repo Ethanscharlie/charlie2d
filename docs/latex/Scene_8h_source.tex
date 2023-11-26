@@ -5,82 +5,79 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SCENE\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SCENE\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <typeindex>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <typeindex>}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
-\DoxyCodeLine{00014\ \textcolor{comment}{//\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \#include\ "{}Entity.h"{}}}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ std::vector<Component*>\ Group;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ std::vector<Component\ *>\ Group;}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScene}{Scene}}\ \{}
-\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classScene}{\string~Scene}}();}
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classScene}{Scene}}();}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//void\ add(Entity*\ entity,\ const\ std::string\&\ group);}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\mbox{\hyperlink{classComponent}{Component}}*\ component)\ \{}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ (components.count(typeid(C))\ ==\ 0)\ \{\ //\&\&\ std::find(componentTypes.begin(),\ componentTypes.end(),\ typeid(C))\ ==\ componentTypes.end())\ \{}}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ componentTypes.push\_back(typeid(C));}}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ std::cout\ <<\ "{}added\ type\ "{}\ <<\ component-\/>title\ <<\ std::endl;}}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\}}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//component-\/>index\ =\ 0;//components[typeid(C)].size();}}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//components[typeid(C)].push\_back(component);}}
-\DoxyCodeLine{00036\ \ \ \ \ \}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ std::vector<C*>\ getGroup(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}})\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::vector<C*>\ hits;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ components.find(\textcolor{keyword}{typeid}(C));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ components.end())\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ component\ :\ it-\/>second)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Static\ cast\ each\ Component*\ to\ C*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (component-\/>entityTag\ ==\ tag\ ||\ tag\ ==\ \textcolor{stringliteral}{"{}"{}})\ \{}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hits.push\_back(\textcolor{keyword}{static\_cast<}C*\textcolor{keyword}{>}(component));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ components[\textcolor{keyword}{typeid}(C)];}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ throw\ std::runtime\_error("{}Component\ group\ not\ found!"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hits;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00056\ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ std::vector<Entity*>\ getTag(std::string\ tag);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}*\ createEntity(std::string\ tag=\textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//void\ addToParent(Entity*\ entity,\ Entity*\ parent);}}
-\DoxyCodeLine{00062\ \ \ \ \ std::vector<Entity*>\ getAllObjects();}
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ update();}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ load()\ =\ 0;}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ unload();}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScene}{Scene}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classScene}{\string~Scene}}();}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classScene}{Scene}}();}
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ void\ add(Entity*\ entity,\ const\ std::string\&\ group);}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScene_a17df0f0e7c9ece0c4ad92a89568c3250}{add}}(\mbox{\hyperlink{classComponent}{Component}}\ *component)\ \{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ if\ (components.count(typeid(C))\ ==\ 0)\ \{\ //\&\&}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ std::find(componentTypes.begin(),\ componentTypes.end(),\ typeid(C))\ ==}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ componentTypes.end())\ \{}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ componentTypes.push\_back(typeid(C));}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ std::cout\ <<\ "{}added\ type\ "{}\ <<\ component-\/>title\ <<\ std::endl;}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ component-\/>index\ =\ 0;//components[typeid(C)].size();}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ components[typeid(C)].push\_back(component);}}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ std::vector<C\ *>\ \mbox{\hyperlink{classScene_a48a1b8c82aa16caddfbc1d6665294f08}{getGroup}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<C\ *>\ hits;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}}.find(\textcolor{keyword}{typeid}(C));}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ \mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}}.end())\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ component\ :\ it-\/>second)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Static\ cast\ each\ Component*\ to\ C*}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (component-\/>entityTag\ ==\ tag\ ||\ tag\ ==\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ hits.push\_back(\textcolor{keyword}{static\_cast<}C\ *\textcolor{keyword}{>}(component));}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}}[\textcolor{keyword}{typeid}(C)];}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ throw\ std::runtime\_error("{}Component\ group\ not\ found!"{});}}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ updateEntities\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ deltaTime\ =\ 0;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ hits;}
+\DoxyCodeLine{00068\ \ \ \}}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{comment}{//private:}}
-\DoxyCodeLine{00072\ \ \ \ \ Uint64\ lastTime;}
-\DoxyCodeLine{00073\ \ \ \ \ std::unordered\_map<std::string,\ std::vector<Entity*>>\ tags;}
-\DoxyCodeLine{00074\ \ \ \ \ std::vector<Entity*>\ allObjects;}
-\DoxyCodeLine{00075\ \ \ \ \ std::map<std::type\_index,\ Group>\ components;\ }
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//std::vector<std::string>\ layers;}}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//std::vector<Entity*>\ entitys;}}
-\DoxyCodeLine{00078\ \};}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00075\ \ \ std::vector<Entity\ *>\ \mbox{\hyperlink{classScene_a779e4c0b0da5facec8ed4684d47c9463}{getTag}}(std::string\ tag);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classScene_aea5510be8aa57aae76558f6228c665c1}{createEntity}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00086\ \ \ std::vector<Entity\ *>\ \mbox{\hyperlink{classScene_a57d4a1fde712ed8b600d5ffb906f5fec}{getAllObjects}}();}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScene_a336954e2a7dcbc5d0edb9f83a9897153}{load}}()\ =\ 0;}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScene_a38611b40431bd8b94c29d87382990534}{unload}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classScene_a874815615370b5847cae6ef266a9aab5}{updateEntities}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{float}\ deltaTime\ =\ 0;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{comment}{//\ private:}}
+\DoxyCodeLine{00105\ \ \ Uint64\ lastTime;}
+\DoxyCodeLine{00109\ \ \ std::unordered\_map<std::string,\ std::vector<Entity\ *>>\ \mbox{\hyperlink{classScene_a4a06b104b35e1e53cb44b343cb8c45c7}{tags}};}
+\DoxyCodeLine{00110\ \ \ std::vector<Entity\ *>\ allObjects;}
+\DoxyCodeLine{00114\ \ \ std::map<std::type\_index,\ Group>\ \mbox{\hyperlink{classScene_ac67f53c05c61146778160c33e7cc0e94}{components}};}
+\DoxyCodeLine{00115\ \ \ \textcolor{comment}{//\ std::vector<std::string>\ layers;}}
+\DoxyCodeLine{00116\ \ \ \textcolor{comment}{//\ std::vector<Entity*>\ entitys;}}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -15,7 +15,7 @@
 \DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classUISliceRenderer}{UISliceRenderer}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}UISliceRenderer"{}})\ \{\};}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ setColor(std::array<Uint8,\ 3>\ color)\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ texture\ =\ ResourceManager::getInstance(GameManager::renderer).getColoredTexture(color,\ textureName);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ texture\ =\ \mbox{\hyperlink{classResourceManager_a93af7a4a4652391163e5135982a00d56}{ResourceManager::getInstance}}(GameManager::renderer).\mbox{\hyperlink{classResourceManager_a4c902316962060a5b0df99bcc0dcb403}{getColoredTexture}}(color,\ textureName);}
 \DoxyCodeLine{00015\ \ \ \ \ \}}
 \DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{start}}()\textcolor{keyword}{\ override\ }\{}
@@ -26,7 +26,7 @@
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexture(std::string\ name)\ \{}
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ textureName\ =\ name;}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ texture\ =\ ResourceManager::getInstance(GameManager::renderer).getTexture(textureName);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ texture\ =\ \mbox{\hyperlink{classResourceManager_a93af7a4a4652391163e5135982a00d56}{ResourceManager::getInstance}}(GameManager::renderer).\mbox{\hyperlink{classResourceManager_aa01c08c99dab97a35648275c6f5b50c0}{getTexture}}(textureName);}
 \DoxyCodeLine{00026\ \ \ \ \ \}}
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}

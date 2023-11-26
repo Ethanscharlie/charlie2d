@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['running_0',['running',['../classGameManager.html#acc57c7a6d727dd91ecda08b0e63b407d',1,'GameManager']]]
+  ['keys_0',['keys',['../classInputManager.html#ab1b21316900a6008ba1214c5e9976a53',1,'InputManager']]]
 ];

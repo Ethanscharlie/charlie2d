@@ -5,6 +5,11 @@
 #include "Entity.h"
 #include "Math.h"
 
+/**
+ * \brief A simple movement physics class
+ * Made mainly for players
+ * It uses a Vector2f velocity and the entityBox slide method
+ */
 class physicsBody : public Component {
 public:
   physicsBody() : Component("physicsBody"){};
@@ -22,7 +27,7 @@ public:
         velocity.y = velocity.y / abs(velocity.y) * maxVelocity.y;
     }
 
-    // Prevents teleporting if people click of the window and 
+    // Prevents teleporting if people click of the window and
     // make deltatime bigger than... idk something problably
     if (deltaTime > 0.2)
       std::cout << deltaTime << std::endl;
@@ -32,10 +37,12 @@ public:
     // Check for pointless move
     if (velocity.x == 0 && velocity.y == 0)
       return;
-    
-    slideOut out = entity->box->slide(velocity * deltaTime, scene->getTag("Ground"));
+
+    slideOut out =
+        entity->box->slide(velocity * deltaTime, scene->getTag("Ground"));
     // if (out.horizontalHit) velocity.x = 0;
-    if (out.verticleHit) velocity.y = 0;
+    if (out.verticleHit)
+      velocity.y = 0;
   }
 
   //   // Start
@@ -100,7 +107,17 @@ public:
   //   }
   // }
 
+  /**
+   * \brief The velocity for this body
+   */
   Vector2f velocity;
+  /**
+   * \brief Prevents the velocity from getting to big
+   *
+   * This works with abs so it doens't matter for negtive and positive values
+   * Default its set to -1, -1 (Which tells the body to ignore it and let
+   * velocity go any amount)
+   */
   Vector2f maxVelocity = {-1, -1};
 };
 // #pragma once

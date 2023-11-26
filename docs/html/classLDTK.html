@@ -77,26 +77,31 @@ $(function() {
   <div class="headertitle"><div class="title">LDTK Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A loader for the Level Design Toolkit The entity tag is set to the name of the entity within ldtk Tiles are put of <a class="el" href="classTileLayer.html">TileLayer</a> s (But will also be tag named the same way)  
+ <a href="classLDTK.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ldtk_8h_source.html">ldtk.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3319d6db47d17a3ef0fbc6fb38cfbe21" id="r_a3319d6db47d17a3ef0fbc6fb38cfbe21"><td class="memItemLeft" align="right" valign="top"><a id="a3319d6db47d17a3ef0fbc6fb38cfbe21" name="a3319d6db47d17a3ef0fbc6fb38cfbe21"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (float deltaTime)</td></tr>
 <tr class="separator:a3319d6db47d17a3ef0fbc6fb38cfbe21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab63a9f213ad8af16007789387f3fde6b" id="r_ab63a9f213ad8af16007789387f3fde6b"><td class="memItemLeft" align="right" valign="top"><a id="ab63a9f213ad8af16007789387f3fde6b" name="ab63a9f213ad8af16007789387f3fde6b"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>unload</b> (std::vector&lt; <a class="el" href="classEntity.html">Entity</a> * &gt; enlist=entities)</td></tr>
+<tr class="memitem:ab63a9f213ad8af16007789387f3fde6b" id="r_ab63a9f213ad8af16007789387f3fde6b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLDTK.html#ab63a9f213ad8af16007789387f3fde6b">unload</a> (std::vector&lt; <a class="el" href="classEntity.html">Entity</a> * &gt; enlist=<a class="el" href="classLDTK.html#aaf61f56f261e0f06117c0c5b60c29384">entities</a>)</td></tr>
+<tr class="memdesc:ab63a9f213ad8af16007789387f3fde6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entites created by ldtk.  <br /></td></tr>
 <tr class="separator:ab63a9f213ad8af16007789387f3fde6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19e2bb47b0c692d2cdafc120b01da449" id="r_a19e2bb47b0c692d2cdafc120b01da449"><td class="memItemLeft" align="right" valign="top"><a id="a19e2bb47b0c692d2cdafc120b01da449" name="a19e2bb47b0c692d2cdafc120b01da449"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>findTraveledLevel</b> (<a class="el" href="classEntity.html">Entity</a> *player)</td></tr>
+<tr class="memitem:a19e2bb47b0c692d2cdafc120b01da449" id="r_a19e2bb47b0c692d2cdafc120b01da449"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLDTK.html#a19e2bb47b0c692d2cdafc120b01da449">findTraveledLevel</a> (<a class="el" href="classEntity.html">Entity</a> *player)</td></tr>
+<tr class="memdesc:a19e2bb47b0c692d2cdafc120b01da449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Where did the player go?  <br /></td></tr>
 <tr class="separator:a19e2bb47b0c692d2cdafc120b01da449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a7f1156ceac70f9acb72e4a37c2953b" id="r_a4a7f1156ceac70f9acb72e4a37c2953b"><td class="memItemLeft" align="right" valign="top"><a id="a4a7f1156ceac70f9acb72e4a37c2953b" name="a4a7f1156ceac70f9acb72e4a37c2953b"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>checkOutsideBounds</b> (<a class="el" href="classEntity.html">Entity</a> *player)</td></tr>
+<tr class="memitem:a4a7f1156ceac70f9acb72e4a37c2953b" id="r_a4a7f1156ceac70f9acb72e4a37c2953b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLDTK.html#a4a7f1156ceac70f9acb72e4a37c2953b">checkOutsideBounds</a> (<a class="el" href="classEntity.html">Entity</a> *player)</td></tr>
+<tr class="memdesc:a4a7f1156ceac70f9acb72e4a37c2953b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see in the player is outside the bounds of the level.  <br /></td></tr>
 <tr class="separator:a4a7f1156ceac70f9acb72e4a37c2953b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bce8f0c9933762c0ec931ae0d7f799e" id="r_a8bce8f0c9933762c0ec931ae0d7f799e"><td class="memItemLeft" align="right" valign="top"><a id="a8bce8f0c9933762c0ec931ae0d7f799e" name="a8bce8f0c9933762c0ec931ae0d7f799e"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>loadLevel</b> (std::string iid, <a class="el" href="classScene.html">Scene</a> *scene)</td></tr>
+<tr class="memitem:a8bce8f0c9933762c0ec931ae0d7f799e" id="r_a8bce8f0c9933762c0ec931ae0d7f799e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLDTK.html#a8bce8f0c9933762c0ec931ae0d7f799e">loadLevel</a> (std::string iid, <a class="el" href="classScene.html">Scene</a> *scene)</td></tr>
+<tr class="memdesc:a8bce8f0c9933762c0ec931ae0d7f799e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a level via iid.  <br /></td></tr>
 <tr class="separator:a8bce8f0c9933762c0ec931ae0d7f799e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c00a34dbf047f8bf2cdd1d3b8ddead1" id="r_a7c00a34dbf047f8bf2cdd1d3b8ddead1"><td class="memItemLeft" align="right" valign="top"><a id="a7c00a34dbf047f8bf2cdd1d3b8ddead1" name="a7c00a34dbf047f8bf2cdd1d3b8ddead1"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>loadJson</b> (std::string file=&quot;img/ldtk/space.ldtk&quot;)</td></tr>
+<tr class="memitem:a7c00a34dbf047f8bf2cdd1d3b8ddead1" id="r_a7c00a34dbf047f8bf2cdd1d3b8ddead1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLDTK.html#a7c00a34dbf047f8bf2cdd1d3b8ddead1">loadJson</a> (std::string file=&quot;img/ldtk/space.ldtk&quot;)</td></tr>
+<tr class="memdesc:a7c00a34dbf047f8bf2cdd1d3b8ddead1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads up the json for your world (Please do before anything else here)  <br /></td></tr>
 <tr class="separator:a7c00a34dbf047f8bf2cdd1d3b8ddead1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
@@ -109,6 +114,7 @@ static <a class="el" href="classEntity.html">Entity</a> *&#160;</td><td class="m
 <tr class="separator:ac60d5ca2fa3f38a98df49012ea700152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf61f56f261e0f06117c0c5b60c29384" id="r_aaf61f56f261e0f06117c0c5b60c29384"><td class="memItemLeft" align="right" valign="top"><a id="aaf61f56f261e0f06117c0c5b60c29384" name="aaf61f56f261e0f06117c0c5b60c29384"></a>
 static std::vector&lt; <a class="el" href="classEntity.html">Entity</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>entities</b></td></tr>
+<tr class="memdesc:aaf61f56f261e0f06117c0c5b60c29384"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of all current entities loaded by ldtk. <br /></td></tr>
 <tr class="separator:aaf61f56f261e0f06117c0c5b60c29384"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeeb17a04d6ec9a4104d6b70da94ab2b" id="r_aaeeb17a04d6ec9a4104d6b70da94ab2b"><td class="memItemLeft" align="right" valign="top"><a id="aaeeb17a04d6ec9a4104d6b70da94ab2b" name="aaeeb17a04d6ec9a4104d6b70da94ab2b"></a>
 static json&#160;</td><td class="memItemRight" valign="bottom"><b>fullJSON</b></td></tr>
@@ -119,10 +125,215 @@ static json&#160;</td><td class="memItemRight" valign="bottom"><b>currentLevel</
 <tr class="memitem:a6fe48d9b4955d31a2cd48d66e4e83901" id="r_a6fe48d9b4955d31a2cd48d66e4e83901"><td class="memItemLeft" align="right" valign="top"><a id="a6fe48d9b4955d31a2cd48d66e4e83901" name="a6fe48d9b4955d31a2cd48d66e4e83901"></a>
 static std::map&lt; std::string, json &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>levels</b></td></tr>
 <tr class="separator:a6fe48d9b4955d31a2cd48d66e4e83901"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a32938cc43d2845a1ea86f83d5f311c" id="r_a4a32938cc43d2845a1ea86f83d5f311c"><td class="memItemLeft" align="right" valign="top"><a id="a4a32938cc43d2845a1ea86f83d5f311c" name="a4a32938cc43d2845a1ea86f83d5f311c"></a>
-static std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onLoadLevel</b> = [](){}</td></tr>
+<tr class="memitem:a4a32938cc43d2845a1ea86f83d5f311c" id="r_a4a32938cc43d2845a1ea86f83d5f311c"><td class="memItemLeft" align="right" valign="top">static std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLDTK.html#a4a32938cc43d2845a1ea86f83d5f311c">onLoadLevel</a> = [](){}</td></tr>
+<tr class="memdesc:a4a32938cc43d2845a1ea86f83d5f311c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs when any level has finished loading.  <br /></td></tr>
 <tr class="separator:a4a32938cc43d2845a1ea86f83d5f311c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A loader for the Level Design Toolkit The entity tag is set to the name of the entity within ldtk Tiles are put of <a class="el" href="classTileLayer.html">TileLayer</a> s (But will also be tag named the same way) </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4a7f1156ceac70f9acb72e4a37c2953b" name="a4a7f1156ceac70f9acb72e4a37c2953b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7f1156ceac70f9acb72e4a37c2953b">&#9670;&#160;</a></span>checkOutsideBounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LDTK::checkOutsideBounds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEntity.html">Entity</a> *&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks to see in the player is outside the bounds of the level. </p>
+<p>Made to be used with findTraveledLevel </p>
+
+</div>
+</div>
+<a id="a19e2bb47b0c692d2cdafc120b01da449" name="a19e2bb47b0c692d2cdafc120b01da449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19e2bb47b0c692d2cdafc120b01da449">&#9670;&#160;</a></span>findTraveledLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string LDTK::findTraveledLevel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEntity.html">Entity</a> *&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Where did the player go? </p>
+<p>Made to be used with checkOutsideBounds </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>The player <a class="el" href="classEntity.html" title="Entitys are containers for an EnityBox and components.">Entity</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7c00a34dbf047f8bf2cdd1d3b8ddead1" name="a7c00a34dbf047f8bf2cdd1d3b8ddead1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c00a34dbf047f8bf2cdd1d3b8ddead1">&#9670;&#160;</a></span>loadJson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LDTK::loadJson </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file</em> = <code>&quot;img/ldtk/space.ldtk&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads up the json for your world (Please do before anything else here) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>The filepath </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8bce8f0c9933762c0ec931ae0d7f799e" name="a8bce8f0c9933762c0ec931ae0d7f799e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bce8f0c9933762c0ec931ae0d7f799e">&#9670;&#160;</a></span>loadLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LDTK::loadLevel </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>iid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classScene.html">Scene</a> *&#160;</td>
+          <td class="paramname"><em>scene</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads a level via iid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iid</td><td>The iid of the ldtk level </td></tr>
+    <tr><td class="paramname">scene</td><td>the current scene </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab63a9f213ad8af16007789387f3fde6b" name="ab63a9f213ad8af16007789387f3fde6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63a9f213ad8af16007789387f3fde6b">&#9670;&#160;</a></span>unload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LDTK::unload </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classEntity.html">Entity</a> * &gt;&#160;</td>
+          <td class="paramname"><em>enlist</em> = <code><a class="el" href="classLDTK.html#aaf61f56f261e0f06117c0c5b60c29384">entities</a></code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes all entites created by ldtk. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enlist</td><td>Defaults to ldtk entities but can be any list of entities </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4a32938cc43d2845a1ea86f83d5f311c" name="a4a32938cc43d2845a1ea86f83d5f311c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a32938cc43d2845a1ea86f83d5f311c">&#9670;&#160;</a></span>onLoadLevel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt; void()&gt; LDTK::onLoadLevel = [](){}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs when any level has finished loading. </p>
+<p>Here you can loop through the entities std::vector and check the propertys The entity tag is set to the name of the entity within ldtk, so you can check for it in the loop and add components to different entity types </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="ldtk_8h_source.html">ldtk.h</a></li>
 <li>source/<b>ldtk.cpp</b></li>

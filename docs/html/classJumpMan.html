@@ -77,6 +77,11 @@ $(function() {
   <div class="headertitle"><div class="title">JumpMan Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is made to be a simple Platformer player controller that uses the <a class="el" href="classphysicsBody.html" title="A simple movement physics class Made mainly for players It uses a Vector2f velocity and the entityBox...">physicsBody</a>.  
+ <a href="classJumpMan.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="JumpMan_8h_source.html">JumpMan.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for JumpMan:</div>
 <div class="dyncontent">
@@ -110,36 +115,47 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a039026d20cf8685da6b4255fbab6b2e7" id="r_a039026d20cf8685da6b4255fbab6b2e7"><td class="memItemLeft" align="right" valign="top"><a id="a039026d20cf8685da6b4255fbab6b2e7" name="a039026d20cf8685da6b4255fbab6b2e7"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>gravity</b> = 1500</td></tr>
+<tr class="memdesc:a039026d20cf8685da6b4255fbab6b2e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fall go brrr (is multipyed by deltaTime so it should be a large number) <br /></td></tr>
 <tr class="separator:a039026d20cf8685da6b4255fbab6b2e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ec9fe2f6e96cb610c43156b608e79c7" id="r_a1ec9fe2f6e96cb610c43156b608e79c7"><td class="memItemLeft" align="right" valign="top"><a id="a1ec9fe2f6e96cb610c43156b608e79c7" name="a1ec9fe2f6e96cb610c43156b608e79c7"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b> = 40</td></tr>
+<tr class="memdesc:a1ec9fe2f6e96cb610c43156b608e79c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Horizontal move speed (Adds up like gravity until maxSpeed) <br /></td></tr>
 <tr class="separator:a1ec9fe2f6e96cb610c43156b608e79c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8db547103cbba6174c77e9e3105bac45" id="r_a8db547103cbba6174c77e9e3105bac45"><td class="memItemLeft" align="right" valign="top"><a id="a8db547103cbba6174c77e9e3105bac45" name="a8db547103cbba6174c77e9e3105bac45"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>airSpeed</b> = 40</td></tr>
+<tr class="memdesc:a8db547103cbba6174c77e9e3105bac45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Horizontal move speed but in air. <br /></td></tr>
 <tr class="separator:a8db547103cbba6174c77e9e3105bac45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d3b341f99be4ce36bd4ddbc8ada24ab" id="r_a6d3b341f99be4ce36bd4ddbc8ada24ab"><td class="memItemLeft" align="right" valign="top"><a id="a6d3b341f99be4ce36bd4ddbc8ada24ab" name="a6d3b341f99be4ce36bd4ddbc8ada24ab"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>maxSpeed</b> = 200</td></tr>
+<tr class="memdesc:a6d3b341f99be4ce36bd4ddbc8ada24ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max the speed can increase too. <br /></td></tr>
 <tr class="separator:a6d3b341f99be4ce36bd4ddbc8ada24ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aead99e8ee4ba96535eb41d4131ac29fb" id="r_aead99e8ee4ba96535eb41d4131ac29fb"><td class="memItemLeft" align="right" valign="top"><a id="aead99e8ee4ba96535eb41d4131ac29fb" name="aead99e8ee4ba96535eb41d4131ac29fb"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>tracktion</b> = 1000</td></tr>
+<tr class="memdesc:aead99e8ee4ba96535eb41d4131ac29fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">How fast Horizontal movment slows down. <br /></td></tr>
 <tr class="separator:aead99e8ee4ba96535eb41d4131ac29fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea89d5e9442578d9544021e85cf83cd9" id="r_aea89d5e9442578d9544021e85cf83cd9"><td class="memItemLeft" align="right" valign="top"><a id="aea89d5e9442578d9544021e85cf83cd9" name="aea89d5e9442578d9544021e85cf83cd9"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>jumpPeak</b> = 80</td></tr>
+<tr class="memdesc:aea89d5e9442578d9544021e85cf83cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">How high jumpChange and get (Soon to be replaced with a time value) <br /></td></tr>
 <tr class="separator:aea89d5e9442578d9544021e85cf83cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f745ccb23d799a4c25cc1fc8ed24f8" id="r_a98f745ccb23d799a4c25cc1fc8ed24f8"><td class="memItemLeft" align="right" valign="top"><a id="a98f745ccb23d799a4c25cc1fc8ed24f8" name="a98f745ccb23d799a4c25cc1fc8ed24f8"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>jumpChange</b> = 300</td></tr>
+<tr class="memdesc:a98f745ccb23d799a4c25cc1fc8ed24f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">How much your jump changes while holding down the space key. <br /></td></tr>
 <tr class="separator:a98f745ccb23d799a4c25cc1fc8ed24f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a5929e16b40585e7b7da7503ea6d8ee" id="r_a4a5929e16b40585e7b7da7503ea6d8ee"><td class="memItemLeft" align="right" valign="top"><a id="a4a5929e16b40585e7b7da7503ea6d8ee" name="a4a5929e16b40585e7b7da7503ea6d8ee"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>jumps</b> = 1</td></tr>
+<tr class="memdesc:a4a5929e16b40585e7b7da7503ea6d8ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">For double jumping and stuffs. <br /></td></tr>
 <tr class="separator:a4a5929e16b40585e7b7da7503ea6d8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac01ea884648d305d0cef9eb567f9931a" id="r_ac01ea884648d305d0cef9eb567f9931a"><td class="memItemLeft" align="right" valign="top"><a id="ac01ea884648d305d0cef9eb567f9931a" name="ac01ea884648d305d0cef9eb567f9931a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>allowJump</b> = true</td></tr>
+<tr class="memdesc:ac01ea884648d305d0cef9eb567f9931a"><td class="mdescLeft">&#160;</td><td class="mdescRight">No more jumping. <br /></td></tr>
 <tr class="separator:ac01ea884648d305d0cef9eb567f9931a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1547f2011e0d04367bde5a4da048ef75" id="r_a1547f2011e0d04367bde5a4da048ef75"><td class="memItemLeft" align="right" valign="top"><a id="a1547f2011e0d04367bde5a4da048ef75" name="a1547f2011e0d04367bde5a4da048ef75"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>needGround</b> = true</td></tr>
+<tr class="memdesc:a1547f2011e0d04367bde5a4da048ef75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Who even cares about physics mid are jumps are the future. <br /></td></tr>
 <tr class="separator:a1547f2011e0d04367bde5a4da048ef75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a358ede774827117039acb993885646f0" id="r_a358ede774827117039acb993885646f0"><td class="memItemLeft" align="right" valign="top"><a id="a358ede774827117039acb993885646f0" name="a358ede774827117039acb993885646f0"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>touchingGround</b> = true</td></tr>
+<tr class="memdesc:a358ede774827117039acb993885646f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uhh this should probably be a private value... <br /></td></tr>
 <tr class="separator:a358ede774827117039acb993885646f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classComponent')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classComponent.html">Component</a></td></tr>
 <tr class="memitem:a374bdfccd617fc1919f9022cecf42251 inherit pub_attribs_classComponent" id="r_a374bdfccd617fc1919f9022cecf42251"><td class="memItemLeft" align="right" valign="top">
@@ -177,7 +193,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 <tr class="memdesc:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will update the <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> in the game loop. <br /></td></tr>
 <tr class="separator:ad1e24bf474dadd687bef5bd5658cec28 inherit pub_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is made to be a simple Platformer player controller that uses the <a class="el" href="classphysicsBody.html" title="A simple movement physics class Made mainly for players It uses a Vector2f velocity and the entityBox...">physicsBody</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9edfdb170af06e76632923f2b5d439e6" name="a9edfdb170af06e76632923f2b5d439e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9edfdb170af06e76632923f2b5d439e6">&#9670;&#160;</a></span>start()</h2>
 

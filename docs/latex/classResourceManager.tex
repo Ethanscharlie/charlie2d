@@ -1,29 +1,62 @@
 \doxysection{Resource\+Manager Class Reference}
 \hypertarget{classResourceManager}{}\label{classResourceManager}\index{ResourceManager@{ResourceManager}}
+
+
+The \doxylink{classResourceManager}{Resource\+Manager} is a static class which is uses for managing image and audio files.  
+
+
+
+
+{\ttfamily \#include $<$Resource\+Manager.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classResourceManager_aa01c08c99dab97a35648275c6f5b50c0}\label{classResourceManager_aa01c08c99dab97a35648275c6f5b50c0} 
 SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries get\+Texture} (std\+::string filename)
-\item 
-\Hypertarget{classResourceManager_a4c902316962060a5b0df99bcc0dcb403}\label{classResourceManager_a4c902316962060a5b0df99bcc0dcb403} 
-SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries get\+Colored\+Texture} (std\+::array$<$ Uint8, 3 $>$ color, std\+::string texture\+Name)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets a texture from filename, also loads the texture permenently into textures\+\_\+. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classResourceManager_a4c902316962060a5b0df99bcc0dcb403}{get\+Colored\+Texture}} (std\+::array$<$ Uint8, 3 $>$ color, std\+::string texture\+Name)
+\begin{DoxyCompactList}\small\item\em Works like get\+Texture but adds a colored tint. \end{DoxyCompactList}\item 
 \Hypertarget{classResourceManager_a05b43d3507246f5fa006578e9c17a682}\label{classResourceManager_a05b43d3507246f5fa006578e9c17a682} 
 SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries get\+White\+Texture} (std\+::string texture\+Name)
-\item 
+\begin{DoxyCompactList}\small\item\em Works like get\+Colored\+Texture but gets it as pure white. \end{DoxyCompactList}\item 
 \Hypertarget{classResourceManager_a1f922027974f45178d19b09b149c3ec9}\label{classResourceManager_a1f922027974f45178d19b09b149c3ec9} 
 Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*} {\bfseries get\+Audio} (std\+::string filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets a audio from filename, also loads the file permenently into sounds\+\_\+. \end{DoxyCompactList}\item 
 \Hypertarget{classResourceManager_a50cf42daa0ff355fef64431740e498ab}\label{classResourceManager_a50cf42daa0ff355fef64431740e498ab} 
 void {\bfseries clear} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clears all sounds and textures. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classResourceManager_a93af7a4a4652391163e5135982a00d56}\label{classResourceManager_a93af7a4a4652391163e5135982a00d56} 
 static \mbox{\hyperlink{classResourceManager}{Resource\+Manager}} \& {\bfseries get\+Instance} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the manager, use as {\ttfamily Resource\+Manager\+::get\+Instance(\+Game\+Manager\+::renderer)} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classResourceManager}{Resource\+Manager} is a static class which is uses for managing image and audio files. 
+
+It loads them into a map so there is no need to worry about calling get\+Texture multiple times
+
+It can be accessed by {\ttfamily Resource\+Manager\+::get\+Instance(\+Game\+Manager\+::renderer)} 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classResourceManager_a4c902316962060a5b0df99bcc0dcb403}\label{classResourceManager_a4c902316962060a5b0df99bcc0dcb403} 
+\index{ResourceManager@{ResourceManager}!getColoredTexture@{getColoredTexture}}
+\index{getColoredTexture@{getColoredTexture}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getColoredTexture()}{getColoredTexture()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} Resource\+Manager\+::get\+Colored\+Texture (\begin{DoxyParamCaption}\item[{std\+::array$<$ Uint8, 3 $>$}]{color,  }\item[{std\+::string}]{texture\+Name }\end{DoxyParamCaption})}
+
+
+
+Works like get\+Texture but adds a colored tint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color tint, Ex {\ttfamily \{255, 24, 100\}} \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
