@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Charlie2D: Main Page</title>
+<title>Charlie2D: Project Overview</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,10 +69,79 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Charlie2D Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Project Overview </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><div class="fragment"></div><!-- fragment --> <h1><a class="anchor" id="autotoc_md0"></a>
+charlie2d</h1>
+<p>A simple c++ w/SDL2 game engine</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+&lt;a href="https://ethanscharlie.github.io/charlie2d/" &gt;DOCS&lt;/a&gt;</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Examples</h2>
+<p>tbd</p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Quickstart</h2>
+<h4><a class="anchor" id="autotoc_md4"></a>
+The main fuction</h4>
+<div class="fragment"><div class="line">int main()</div>
+<div class="line">{   </div>
+<div class="line">    GameManager::init({1920, 1080});</div>
+<div class="line">    GameManager::AddScene(&quot;game&quot;, new gameScene());</div>
+<div class="line">    GameManager::AddScene(&quot;menu&quot;, new menuScene());</div>
+<div class="line">    GameManager::LoadScene(&quot;menu&quot;);</div>
+<div class="line">    GameManager::doUpdateLoop();</div>
+<div class="line">    return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> This is what the main should look like, the init() must be ran first and will also set the 'original' resolution, note that this should be set once and left because changing it will change game behavior</p>
+<h4><a class="anchor" id="autotoc_md5"></a>
+Scenes</h4>
+<div class="fragment"><div class="line">class menuScene : public Scene {</div>
+<div class="line">    void load() override {</div>
+<div class="line"> </div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> Scenes are the containers for every entity, and can be defined as above </p><div class="fragment"><div class="line">GameManager::AddScene(&quot;menu&quot;, new menuScene());</div>
+<div class="line">GameManager::LoadScene(&quot;menu&quot;);</div>
+</div><!-- fragment --><p> To be loaded they must be added to the scene map in the <a class="el" href="classGameManager.html" title="A static class for charlie2d.">GameManager</a>. And then loaded with the string name</p>
+<h4><a class="anchor" id="autotoc_md6"></a>
+Entities</h4>
+<div class="fragment"><div class="line">class gameScene : public Scene</div>
+<div class="line">{</div>
+<div class="line">    void load() override</div>
+<div class="line">    {</div>
+<div class="line">        Entity* player = createEntity(&quot;Player&quot;);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> Entites can be created with the createEntity method (inside of scenes). In the instance above the <a class="el" href="classEntity.html" title="Entitys are containers for an EnityBox and components.">Entity</a> is given the tag "Player".</p>
+<h4><a class="anchor" id="autotoc_md7"></a>
+Components</h4>
+<div class="fragment"><div class="line">class gameScene : public Scene</div>
+<div class="line">{</div>
+<div class="line">    void load() override</div>
+<div class="line">    {</div>
+<div class="line">        Entity* background = createEntity(&quot;Background&quot;);</div>
+<div class="line">        background-&gt;addComponent&lt;Sprite&gt;();</div>
+<div class="line">        background-&gt;getComponent&lt;Sprite&gt;().loadTexture(&quot;img/background.png&quot;);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p>Components can be created an added (Kinda like scripts) </p><div class="fragment"><div class="line">class Player : public Component {</div>
+<div class="line">    public:</div>
+<div class="line">    Player() : Component(&quot;Player&quot;) {}</div>
+<div class="line"> </div>
+<div class="line">    void start() override {</div>
+<div class="line">        addComponent&lt;Sprite&gt;();</div>
+<div class="line">        getComponent&lt;Sprite&gt;().loadTexture(&quot;img/player.png&quot;);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    void update(float deltaTime) override {</div>
+<div class="line">        getComponent&lt;Sprite&gt;().angle.lookAt(box-&gt;getBox().getCenter(), InputManager::getMousePosition());</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> <code>Player() : <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a>("Player") {}</code> This will set the title of the Components The start method will run during the component initalization Update will of course run every game loop And then can be added to Entities </p><div class="fragment"><div class="line">Entity* player = createEntity(&quot;Player&quot;);</div>
+<div class="line">player-&gt;addComponent&lt;Player&gt;();</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

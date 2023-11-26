@@ -1,3 +1,5 @@
+@mainpage Project Overview
+@include README.md
 # charlie2d
 A simple c++ w/SDL2 game engine
 

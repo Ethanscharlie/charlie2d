@@ -12,141 +12,141 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <random>}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAngle}{Angle}}\ \{}
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{structAngle}{Angle}}()\ \{\}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAngle_a706dcfa785f8f07133e3a0c56448e7f8}{lookAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structAngle_a96c3a2b1745d3282ffbf9f6b1ccf3d78}{setWithVector}}(\{point.x\ -\/\ center.x,\ point.y\ -\/\ center.y\});}
-\DoxyCodeLine{00024\ \ \ \}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structAngle_a3606d02938728a4a6951dfbecac118f2}{getVector}}()\ \{}
-\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ vector\ =\ \{std::cos(radians),\ std::sin(radians)\};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ length\ =\ std::sqrt(vector.x\ *\ vector.x\ +\ vector.y\ *\ vector.y);}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (length\ >\ 0)\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ vector.x\ =\ vector.x\ /\ length;}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ vector.y\ =\ vector.y\ /\ length;}
-\DoxyCodeLine{00037\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ vector\ =\ \{0.0f,\ 0.0f\};}
-\DoxyCodeLine{00039\ \ \ \ \ \}}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ vector;}
-\DoxyCodeLine{00042\ \ \ \}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAngle_a96c3a2b1745d3282ffbf9f6b1ccf3d78}{setWithVector}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ vector)\ \{}
-\DoxyCodeLine{00048\ \ \ \ \ radians\ =\ std::atan2(vector.y,\ vector.x);}
-\DoxyCodeLine{00049\ \ \ \}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAngle_abf6535aa28888477e87c8fe749b3a402}{rotate}}(\textcolor{keywordtype}{float}\ angle)\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ radians\ +=\ angle\ *\ (180.0\ /\ 3.141592653589793238463);}
-\DoxyCodeLine{00057\ \ \ \}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{float}\ radians\ =\ 0;}
-\DoxyCodeLine{00060\ \};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00070\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBox}{Box}}\ \{}
-\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{structBox}{Box}}()\ \{\}}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{structBox}{Box}}(\textcolor{keywordtype}{float}\ p\_x,\ \textcolor{keywordtype}{float}\ p\_y,\ \textcolor{keywordtype}{float}\ p\_w,\ \textcolor{keywordtype}{float}\ p\_h)}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ :\ position(p\_x,\ p\_y),\ size(p\_w,\ p\_h)\ \{\}}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}()\ \{\ \textcolor{keywordflow}{return}\ position.x\ +\ size.x;\ \}}
-\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ \{\ \textcolor{keywordflow}{return}\ position.x;\ \}}
-\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}()\ \{\ \textcolor{keywordflow}{return}\ position.y;\ \}}
-\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\ \{\ \textcolor{keywordflow}{return}\ position.y\ +\ size.y;\ \}}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopLeftCorner()\ \{\ \textcolor{keywordflow}{return}\ position;\ \}}
-\DoxyCodeLine{00094\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopMiddle()\ \{\ \textcolor{keywordflow}{return}\ \{position.x\ +\ size.x\ /\ 2,\ position.y\};\ \}}
-\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopRightCorner()\ \{\ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}(),\ position.y\};\ \}}
-\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomLeftCorner()\ \{\ \textcolor{keywordflow}{return}\ \{position.x,\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\};\ \}}
-\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomMiddle()\ \{\ \textcolor{keywordflow}{return}\ \{position.x\ +\ size.x\ /\ 2,\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\};\ \}}
-\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomRightCorner()\ \{\ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}(),\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\};\ \}}
-\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getCenter()\ \{}
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ \{position.x\ +\ size.x\ /\ 2,\ position.y\ +\ size.y\ /\ 2\};}
-\DoxyCodeLine{00101\ \ \ \}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a7738def139a86833bab2064234118fc8}{setScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ getCenter();}
-\DoxyCodeLine{00109\ \ \ \ \ size\ =\ (point);}
-\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(center);}
-\DoxyCodeLine{00111\ \ \ \}}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a8cbd3f8ec11e4811eb29f9a79295780a}{changeScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
-\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ getCenter();}
-\DoxyCodeLine{00119\ \ \ \ \ size\ =\ (change);}
-\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(center);}
-\DoxyCodeLine{00121\ \ \ \}}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00126\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00127\ \ \ \ \ position.x\ =\ point.x\ -\/\ size.x\ /\ 2;}
-\DoxyCodeLine{00128\ \ \ \ \ position.y\ =\ point.y\ -\/\ size.y\ /\ 2;}
-\DoxyCodeLine{00129\ \ \ \}}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(\mbox{\hyperlink{structBox}{Box}}\ other)\ \{}
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ <\ other.\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}()\ \&\&\ \mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}()\ >\ other.\mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ \&\&}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}()\ <\ other.\mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\ \&\&\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\ >\ other.\mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}();}
-\DoxyCodeLine{00137\ \ \ \}}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00142\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a7f9cef3d9324289ae0fb4ec1aa50db9d}{print}}()\ \{}
-\DoxyCodeLine{00143\ \ \ \ \ std::cout\ <<\ position.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ position.y\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ size.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ size.y\ <<\ std::endl;}
-\DoxyCodeLine{00145\ \ \ \}}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ position;}
-\DoxyCodeLine{00148\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ size;}
-\DoxyCodeLine{00149\ \};}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00154\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{Math_8h_a2f5480bd60924b64a3793e77d985f692}{randFloat}}(\textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max)\ \{}
-\DoxyCodeLine{00155\ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
-\DoxyCodeLine{00156\ \ \ \textcolor{keyword}{static}\ std::mt19937\ gen(rd());}
-\DoxyCodeLine{00157\ \ \ std::uniform\_real\_distribution<float>\ dis(min,\ max);}
-\DoxyCodeLine{00158\ \ \ \textcolor{keywordflow}{return}\ dis(gen);}
-\DoxyCodeLine{00159\ \}}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00164\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>\ T\ \mbox{\hyperlink{Math_8h_a4cc9a573ffeeaeebd465a8defc6da5c0}{getRandomElement}}(\textcolor{keyword}{const}\ T\ (\&arr)[N])\ \{}
-\DoxyCodeLine{00165\ \ \ \textcolor{comment}{//\ Generate\ a\ random\ index\ within\ the\ array\ bounds}}
-\DoxyCodeLine{00166\ \ \ std::size\_t\ randomIndex\ =\ std::rand()\ \%\ N;}
-\DoxyCodeLine{00167\ }
-\DoxyCodeLine{00168\ \ \ \textcolor{comment}{//\ Return\ the\ randomly\ selected\ element}}
-\DoxyCodeLine{00169\ \ \ \textcolor{keywordflow}{return}\ arr[randomIndex];}
-\DoxyCodeLine{00170\ \}}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \textcolor{comment}{//\ //\ Function\ to\ check\ if\ a\ line\ (start\ +\ direction\ *\ t)\ intersects\ with\ a\ box}}
-\DoxyCodeLine{00173\ \textcolor{comment}{//\ bool\ doesLineIntersect(const\ Vector2f\&\ start,\ const\ Vector2f\&\ direction,}}
-\DoxyCodeLine{00174\ \textcolor{comment}{//\ const\ Box\&\ box)\ \{}}
-\DoxyCodeLine{00175\ \textcolor{comment}{//\ \ \ \ \ float\ tmin\ =\ 0.0f;}}
-\DoxyCodeLine{00176\ \textcolor{comment}{//\ \ \ \ \ float\ tmax\ =\ 1.0f;}}
-\DoxyCodeLine{00177\ \textcolor{comment}{//}}
-\DoxyCodeLine{00178\ \textcolor{comment}{//\ \ \ \ \ for\ (int\ i\ =\ 0;\ i\ <\ 2;\ ++i)\ \{}}
-\DoxyCodeLine{00179\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ invDir\ =\ 1.0f\ /\ direction.x;\ //\ Assuming\ direction.x\ !=\ 0}}
-\DoxyCodeLine{00180\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ t0\ =\ (box.position.x\ -\/\ start.x)\ *\ invDir;}}
-\DoxyCodeLine{00181\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ t1\ =\ (box.position.x\ +\ box.size.x\ -\/\ start.x)\ *\ invDir;}}
-\DoxyCodeLine{00182\ \textcolor{comment}{//}}
-\DoxyCodeLine{00183\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (invDir\ <\ 0.0f)}}
-\DoxyCodeLine{00184\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(t0,\ t1);}}
-\DoxyCodeLine{00185\ \textcolor{comment}{//}}
-\DoxyCodeLine{00186\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ tmin\ =\ std::max(tmin,\ t0);}}
-\DoxyCodeLine{00187\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ tmax\ =\ std::min(tmax,\ t1);}}
-\DoxyCodeLine{00188\ \textcolor{comment}{//}}
-\DoxyCodeLine{00189\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (tmin\ >\ tmax)}}
-\DoxyCodeLine{00190\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ return\ false;}}
-\DoxyCodeLine{00191\ \textcolor{comment}{//}}
-\DoxyCodeLine{00192\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ invDirY\ =\ 1.0f\ /\ direction.y;\ //\ Assuming\ direction.y\ !=\ 0}}
-\DoxyCodeLine{00193\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ ty0\ =\ (box.position.y\ -\/\ start.y)\ *\ invDirY;}}
-\DoxyCodeLine{00194\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ ty1\ =\ (box.position.y\ +\ box.size.y\ -\/\ start.y)\ *\ invDirY;}}
-\DoxyCodeLine{00195\ \textcolor{comment}{//}}
-\DoxyCodeLine{00196\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (invDirY\ <\ 0.0f)}}
-\DoxyCodeLine{00197\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(ty0,\ ty1);}}
-\DoxyCodeLine{00198\ \textcolor{comment}{//}}
-\DoxyCodeLine{00199\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ tymin\ =\ std::max(tmin,\ ty0);}}
-\DoxyCodeLine{00200\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ tymax\ =\ std::min(tmax,\ ty1);}}
-\DoxyCodeLine{00201\ \textcolor{comment}{//}}
-\DoxyCodeLine{00202\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (tymin\ >\ tymax\ ||\ tmin\ >\ tymax\ ||\ tymin\ >\ tmax)}}
-\DoxyCodeLine{00203\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ return\ false;}}
-\DoxyCodeLine{00204\ \textcolor{comment}{//\ \ \ \ \ \}}}
-\DoxyCodeLine{00205\ \textcolor{comment}{//}}
-\DoxyCodeLine{00206\ \textcolor{comment}{//\ \ \ \ \ return\ true;}}
-\DoxyCodeLine{00207\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAngle}{Angle}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{structAngle}{Angle}}()\ \{\}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAngle_a706dcfa785f8f07133e3a0c56448e7f8}{lookAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structAngle_a96c3a2b1745d3282ffbf9f6b1ccf3d78}{setWithVector}}(\{point.x\ -\/\ center.x,\ point.y\ -\/\ center.y\});}
+\DoxyCodeLine{00026\ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structAngle_a3606d02938728a4a6951dfbecac118f2}{getVector}}()\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ vector\ =\ \{std::cos(radians),\ std::sin(radians)\};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ length\ =\ std::sqrt(vector.x\ *\ vector.x\ +\ vector.y\ *\ vector.y);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (length\ >\ 0)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ vector.x\ =\ vector.x\ /\ length;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ vector.y\ =\ vector.y\ /\ length;}
+\DoxyCodeLine{00039\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ vector\ =\ \{0.0f,\ 0.0f\};}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ vector;}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAngle_a96c3a2b1745d3282ffbf9f6b1ccf3d78}{setWithVector}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ vector)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ radians\ =\ std::atan2(vector.y,\ vector.x);}
+\DoxyCodeLine{00051\ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structAngle_abf6535aa28888477e87c8fe749b3a402}{rotate}}(\textcolor{keywordtype}{float}\ angle)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ radians\ +=\ angle\ *\ (180.0\ /\ 3.141592653589793238463);}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{float}\ radians\ =\ 0;}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBox}{Box}}\ \{}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{structBox}{Box}}()\ \{\}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{structBox}{Box}}(\textcolor{keywordtype}{float}\ p\_x,\ \textcolor{keywordtype}{float}\ p\_y,\ \textcolor{keywordtype}{float}\ p\_w,\ \textcolor{keywordtype}{float}\ p\_h)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ :\ position(p\_x,\ p\_y),\ size(p\_w,\ p\_h)\ \{\}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}()\ \{\ \textcolor{keywordflow}{return}\ position.x\ +\ size.x;\ \}}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ \{\ \textcolor{keywordflow}{return}\ position.x;\ \}}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}()\ \{\ \textcolor{keywordflow}{return}\ position.y;\ \}}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\ \{\ \textcolor{keywordflow}{return}\ position.y\ +\ size.y;\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopLeftCorner()\ \{\ \textcolor{keywordflow}{return}\ position;\ \}}
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopMiddle()\ \{\ \textcolor{keywordflow}{return}\ \{position.x\ +\ size.x\ /\ 2,\ position.y\};\ \}}
+\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopRightCorner()\ \{\ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}(),\ position.y\};\ \}}
+\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomLeftCorner()\ \{\ \textcolor{keywordflow}{return}\ \{position.x,\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\};\ \}}
+\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomMiddle()\ \{\ \textcolor{keywordflow}{return}\ \{position.x\ +\ size.x\ /\ 2,\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\};\ \}}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomRightCorner()\ \{\ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}(),\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\};\ \}}
+\DoxyCodeLine{00101\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getCenter()\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{return}\ \{position.x\ +\ size.x\ /\ 2,\ position.y\ +\ size.y\ /\ 2\};}
+\DoxyCodeLine{00103\ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a7738def139a86833bab2064234118fc8}{setScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ getCenter();}
+\DoxyCodeLine{00111\ \ \ \ \ size\ =\ (point);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(center);}
+\DoxyCodeLine{00113\ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a8cbd3f8ec11e4811eb29f9a79295780a}{changeScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ getCenter();}
+\DoxyCodeLine{00121\ \ \ \ \ size\ =\ (change);}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(center);}
+\DoxyCodeLine{00123\ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ position.x\ =\ point.x\ -\/\ size.x\ /\ 2;}
+\DoxyCodeLine{00130\ \ \ \ \ position.y\ =\ point.y\ -\/\ size.y\ /\ 2;}
+\DoxyCodeLine{00131\ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(\mbox{\hyperlink{structBox}{Box}}\ other)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ <\ other.\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}()\ \&\&\ \mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}()\ >\ other.\mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ \&\&}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}()\ <\ other.\mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\ \&\&\ \mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}()\ >\ other.\mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}();}
+\DoxyCodeLine{00139\ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a7f9cef3d9324289ae0fb4ec1aa50db9d}{print}}()\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ std::cout\ <<\ position.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ position.y\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ size.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ size.y\ <<\ std::endl;}
+\DoxyCodeLine{00147\ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ position;}
+\DoxyCodeLine{00150\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ size;}
+\DoxyCodeLine{00151\ \};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{Math_8h_a2f5480bd60924b64a3793e77d985f692}{randFloat}}(\textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max)\ \{}
+\DoxyCodeLine{00157\ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{00158\ \ \ \textcolor{keyword}{static}\ std::mt19937\ gen(rd());}
+\DoxyCodeLine{00159\ \ \ std::uniform\_real\_distribution<float>\ dis(min,\ max);}
+\DoxyCodeLine{00160\ \ \ \textcolor{keywordflow}{return}\ dis(gen);}
+\DoxyCodeLine{00161\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>\ T\ \mbox{\hyperlink{Math_8h_a4cc9a573ffeeaeebd465a8defc6da5c0}{getRandomElement}}(\textcolor{keyword}{const}\ T\ (\&arr)[N])\ \{}
+\DoxyCodeLine{00167\ \ \ \textcolor{comment}{//\ Generate\ a\ random\ index\ within\ the\ array\ bounds}}
+\DoxyCodeLine{00168\ \ \ std::size\_t\ randomIndex\ =\ std::rand()\ \%\ N;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \textcolor{comment}{//\ Return\ the\ randomly\ selected\ element}}
+\DoxyCodeLine{00171\ \ \ \textcolor{keywordflow}{return}\ arr[randomIndex];}
+\DoxyCodeLine{00172\ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{comment}{//\ //\ Function\ to\ check\ if\ a\ line\ (start\ +\ direction\ *\ t)\ intersects\ with\ a\ box}}
+\DoxyCodeLine{00175\ \textcolor{comment}{//\ bool\ doesLineIntersect(const\ Vector2f\&\ start,\ const\ Vector2f\&\ direction,}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ const\ Box\&\ box)\ \{}}
+\DoxyCodeLine{00177\ \textcolor{comment}{//\ \ \ \ \ float\ tmin\ =\ 0.0f;}}
+\DoxyCodeLine{00178\ \textcolor{comment}{//\ \ \ \ \ float\ tmax\ =\ 1.0f;}}
+\DoxyCodeLine{00179\ \textcolor{comment}{//}}
+\DoxyCodeLine{00180\ \textcolor{comment}{//\ \ \ \ \ for\ (int\ i\ =\ 0;\ i\ <\ 2;\ ++i)\ \{}}
+\DoxyCodeLine{00181\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ invDir\ =\ 1.0f\ /\ direction.x;\ //\ Assuming\ direction.x\ !=\ 0}}
+\DoxyCodeLine{00182\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ t0\ =\ (box.position.x\ -\/\ start.x)\ *\ invDir;}}
+\DoxyCodeLine{00183\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ t1\ =\ (box.position.x\ +\ box.size.x\ -\/\ start.x)\ *\ invDir;}}
+\DoxyCodeLine{00184\ \textcolor{comment}{//}}
+\DoxyCodeLine{00185\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (invDir\ <\ 0.0f)}}
+\DoxyCodeLine{00186\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(t0,\ t1);}}
+\DoxyCodeLine{00187\ \textcolor{comment}{//}}
+\DoxyCodeLine{00188\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ tmin\ =\ std::max(tmin,\ t0);}}
+\DoxyCodeLine{00189\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ tmax\ =\ std::min(tmax,\ t1);}}
+\DoxyCodeLine{00190\ \textcolor{comment}{//}}
+\DoxyCodeLine{00191\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (tmin\ >\ tmax)}}
+\DoxyCodeLine{00192\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ return\ false;}}
+\DoxyCodeLine{00193\ \textcolor{comment}{//}}
+\DoxyCodeLine{00194\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ invDirY\ =\ 1.0f\ /\ direction.y;\ //\ Assuming\ direction.y\ !=\ 0}}
+\DoxyCodeLine{00195\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ ty0\ =\ (box.position.y\ -\/\ start.y)\ *\ invDirY;}}
+\DoxyCodeLine{00196\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ ty1\ =\ (box.position.y\ +\ box.size.y\ -\/\ start.y)\ *\ invDirY;}}
+\DoxyCodeLine{00197\ \textcolor{comment}{//}}
+\DoxyCodeLine{00198\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (invDirY\ <\ 0.0f)}}
+\DoxyCodeLine{00199\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(ty0,\ ty1);}}
+\DoxyCodeLine{00200\ \textcolor{comment}{//}}
+\DoxyCodeLine{00201\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ tymin\ =\ std::max(tmin,\ ty0);}}
+\DoxyCodeLine{00202\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ float\ tymax\ =\ std::min(tmax,\ ty1);}}
+\DoxyCodeLine{00203\ \textcolor{comment}{//}}
+\DoxyCodeLine{00204\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (tymin\ >\ tymax\ ||\ tmin\ >\ tymax\ ||\ tymin\ >\ tmax)}}
+\DoxyCodeLine{00205\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ return\ false;}}
+\DoxyCodeLine{00206\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00207\ \textcolor{comment}{//}}
+\DoxyCodeLine{00208\ \textcolor{comment}{//\ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00209\ \textcolor{comment}{//\ \}}}
 
 \end{DoxyCode}

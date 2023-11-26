@@ -31,6 +31,6 @@ var searchData=
   ['getuiposition_28',['getUIPosition',['../structentityBox.html#a8a273788c96c3aa125bdde2d0c39dfdd',1,'entityBox']]],
   ['getvector_29',['getVector',['../structAngle.html#a3606d02938728a4a6951dfbecac118f2',1,'Angle']]],
   ['getwhitetexture_30',['getWhiteTexture',['../classResourceManager.html#a05b43d3507246f5fa006578e9c17a682',1,'ResourceManager']]],
-  ['github_20io_20charlie2d_20docs_20a_31',['&lt;a href=&quot;https://ethanscharlie.github.io/charlie2d/&quot; &gt;DOCS&lt;/a&gt;',['../md_README.html#autotoc_md1',1,'']]],
+  ['github_20io_20charlie2d_20docs_20a_31',['&lt;a href=&quot;https://ethanscharlie.github.io/charlie2d/&quot; &gt;DOCS&lt;/a&gt;',['../index.html#autotoc_md1',1,'']]],
   ['gravity_32',['gravity',['../classJumpMan.html#a039026d20cf8685da6b4255fbab6b2e7',1,'JumpMan']]]
 ];
