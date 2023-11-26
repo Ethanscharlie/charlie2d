@@ -9,7 +9,9 @@
 #include <random>
 
 /** @file */
-
+/**
+ * \brief A simple class for manageing angles (used in Sprite)
+ */
 struct Angle {
 public:
   Angle() {}
