@@ -34,7 +34,7 @@ class menuScene : public Scene {
 ```
 Scenes are the containers for every entity, and can be defined as above
 ```
-GameManager::AddScene("menu", new menuScene());
+GameManager::AddScene("menu", new MenuScene());
 GameManager::LoadScene("menu");
 ```
 To be loaded they must be added to the scene map in the GameManager.
@@ -42,7 +42,7 @@ And then loaded with the string name
 
 #### Entities
 ```
-class gameScene : public Scene
+class GameScene : public Scene
 {
     void load() override
     {
@@ -55,7 +55,7 @@ In the instance above the Entity is given the tag "Player".
 
 #### Components
 ```
-class gameScene : public Scene
+class GameScene : public Scene
 {
     void load() override
     {
@@ -73,12 +73,12 @@ class Player : public Component {
     Player() : Component("Player") {}
 
     void start() override {
-        addComponent<Sprite>();
-        getComponent<Sprite>().loadTexture("img/player.png");
+        entity->require<Sprite>(); // Adds or gets based on if the component has already been added to the entity
+        entity->get<Sprite>()->loadTexture("img/player.png");
     }
 
     void update(float deltaTime) override {
-        getComponent<Sprite>().angle.lookAt(box->getBox().getCenter(), InputManager::getMousePosition());
+        get<Sprite>()->angle.lookAt(box->getBox().getCenter(), InputManager::getMousePosition());
     }
 };
 ```
@@ -88,6 +88,6 @@ Update will of course run every game loop
 And then can be added to Entities
 ```
 Entity* player = createEntity("Player");
-player->addComponent<Player>();
+player->add<Player>();
 ```
 
