@@ -90,4 +90,3 @@ And then can be added to Entities
 Entity* player = createEntity("Player");
 player->add<Player>();
 ```
-
