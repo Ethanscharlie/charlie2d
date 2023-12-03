@@ -2,6 +2,7 @@
 
 #include "LDTKEntity.h"
 #include "Tile.h"
+#include "Camera.h"
 
 #include <iostream>
 #include <vector>

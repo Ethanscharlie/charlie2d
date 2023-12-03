@@ -7,6 +7,7 @@
 #include "Animation.h"
 #include "Component.h"
 #include "GameManager.h"
+#include "Camera.h"
 
 // Components
 #include "EntityBox.h"

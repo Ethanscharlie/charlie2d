@@ -116,23 +116,6 @@ public:
    * \brief Is the game running? Well it should be...
    */
   static bool running;
-
-  /**
-   * \brief Sets the camera position
-   *
-   * Note that you can set the position without the method, thought this method
-   * is better because it keeps the camera inside the cameraLimitBox \param
-   * position the position the camera should move to
-   */
-  static void setCamera(const Vector2f &position);
-  /**
-   * \brief the camera, yup... very fanthy
-   */
-  static Box camera;
-  /**
-   * \brief A jail that the camera can't leave
-   */
-  static Box cameraLimitBox;
   /**
    * \brief transition state for fade transitions
    */

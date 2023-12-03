@@ -150,9 +150,10 @@ Vector2f InputManager::getMouseWorldPosition() {
     SDL_GetMouseState(&mouseX, &mouseY);
     Vector2f mouse = {static_cast<float>(mouseX), static_cast<float>(mouseY)};
 
-    float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x +              
-                GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));         
-    return (mouse - GameManager::currentWindowSize / 2) / scaler + GameManager::camera.getCenter();
+    // float scaler = GameManager::screen_change_scale * ((GameManager::gameWindowSize.x +              
+    //             GameManager::gameWindowSize.y) / (GameManager::camera.size.x + GameManager::camera.size.y));         
+    // return (mouse - GameManager::currentWindowSize / 2) / scaler + GameManager::camera.getCenter();
+    return {0,0};
 }
 
 Vector2f InputManager::getMouseUIPosition() {

@@ -117,6 +117,7 @@ void Scene::unload()
     for (auto& [tag, vector] : tags)
     {
       for (Entity* entity : vector) {
+        delete entity->box;
         delete entity;
       }
       vector.clear();

@@ -1,9 +1,9 @@
 #pragma once
-#include "Camera.h"
 #include "Entity.h"
 #include "EntityBox.h"
 #include "GameManager.h"
 #include "ResourceManager.h"
+#include "Camera.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -38,8 +38,7 @@ public:
     float height_scale =
         (float)GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
 
-    Vector2f renderPos =
-        entity->box->getPosition() + GameManager::gameWindowSize / 2;
+    Vector2f renderPos = entity->box->getPosition() + GameManager::gameWindowSize/2;
     spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
     spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
 
@@ -51,7 +50,7 @@ public:
 
   void onScreenChange() override { changeFont(mfontFile, fontSize); }
 
-  /**
+  /** 
    * \brief Sets the font and text size,
    * This MUST be called for text to work
    * \param fontFile A filepath to a ttf font
@@ -61,7 +60,7 @@ public:
     fontSize = size;
     mfontFile = fontFile;
     font = TTF_OpenFont(fontFile.c_str(),
-                        fontSize);
+                        fontSize * GameManager::screen_change_scale);
   }
 
   /**

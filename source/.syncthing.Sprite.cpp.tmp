@@ -5,14 +5,12 @@
 void Sprite::update(float deltaTime) {
     SDL_Rect renderRect;
 
-    Vector2f renderPos = entity->box->getPosition() - Camera::getPosition();
-    renderPos = renderPos * Camera::getScale();
-    renderPos += GameManager::gameWindowSize/2;
+    Vector2f renderPos = entity->box->getPosition() - Camera::getPosition() + GameManager::gameWindowSize/2;
     renderRect.x = renderPos.x;
     renderRect.y = renderPos.y;
 
-    renderRect.w = entity->box->getSize().x * Camera::getScale() + 1;
-    renderRect.h = entity->box->getSize().y * Camera::getScale() + 1;
+    renderRect.w = entity->box->getSize().x;// * scaler + 1;
+    renderRect.h = entity->box->getSize().y;// * scaler + 1;
 
     if (renderAsUI) {
         renderRect.x = entity->box->getPosition().x + GameManager::gameWindowSize.x/2;

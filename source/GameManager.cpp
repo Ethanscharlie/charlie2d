@@ -19,9 +19,6 @@ Vector2f GameManager::currentWindowSize = {0, 0};
 
 float GameManager::screen_change_scale = 0;
 
-Box GameManager::camera = {0, 0, 0, 0};
-Box GameManager::cameraLimitBox = {0, 0, 0, 0};
-
 SDL_Window *GameManager::window = nullptr;
 SDL_Renderer *GameManager::renderer = nullptr;
 std::function<void()> GameManager::onMiddleFade = []() {};
@@ -65,7 +62,7 @@ void GameManager::init(Vector2f windowSize) {
 
   gameWindowSize = windowSize;
   currentWindowSize = windowSize;
-  camera.size = windowSize;
+
 
   screen_change_scale =
       ((float)currentWindowSize.x + (float)currentWindowSize.y) /
@@ -75,6 +72,8 @@ void GameManager::init(Vector2f windowSize) {
                             SDL_WINDOWPOS_CENTERED, currentWindowSize.x,
                             currentWindowSize.y, SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+  SDL_RenderSetLogicalSize(renderer, windowSize.x, windowSize.y);
 
 #ifdef __EMSCRIPTEN__
   resize_callback();
@@ -139,6 +138,9 @@ void GameManager::Update() {
             }
           }
         }
+
+        // Change camera aspect ratio
+
         break;
       }
       break;
@@ -191,13 +193,6 @@ void GameManager::Update() {
       transition = 2;
       fadeStartTime = SDL_GetTicks();
 
-      // ON MIDDLE
-      // if (currentScene) {
-      //  currentScene->unload();
-      //}
-
-      // loadingScene->load();
-      // currentScene = loadingScene;
       onMiddleFade();
     }
   }
@@ -281,25 +276,25 @@ void GameManager::playSound(std::string filename, bool loop) {
   }
 }
 
-void GameManager::setCamera(const Vector2f &position) {
-  if (camera.size.y / camera.size.x !=
-      currentWindowSize.x / currentWindowSize.y) {
-    // currentWindowSize = camera.size;
-  }
-  camera.setWithCenter(position);
-
-  if (cameraLimitBox.size.x == 0 && cameraLimitBox.size.y == 0)
-    return;
-
-  if (camera.position.x < cameraLimitBox.position.x)
-    camera.position.x = cameraLimitBox.position.x;
-  if (camera.getRight() > cameraLimitBox.getRight())
-    camera.position.x = cameraLimitBox.getRight() - camera.size.x;
-  if (camera.position.y < cameraLimitBox.position.y)
-    camera.position.y = cameraLimitBox.position.y;
-  if (camera.getBottom() > cameraLimitBox.getBottom())
-    camera.position.y = cameraLimitBox.getBottom() - camera.size.y;
-}
+// void GameManager::setCamera(const Vector2f &position) {
+//   if (camera.size.y / camera.size.x !=
+//       currentWindowSize.x / currentWindowSize.y) {
+//     // currentWindowSize = camera.size;
+//   }
+//   camera.setWithCenter(position);
+//
+//   if (cameraLimitBox.size.x == 0 && cameraLimitBox.size.y == 0)
+//     return;
+//
+//   if (camera.position.x < cameraLimitBox.position.x)
+//     camera.position.x = cameraLimitBox.position.x;
+//   if (camera.getRight() > cameraLimitBox.getRight())
+//     camera.position.x = cameraLimitBox.getRight() - camera.size.x;
+//   if (camera.position.y < cameraLimitBox.position.y)
+//     camera.position.y = cameraLimitBox.position.y;
+//   if (camera.getBottom() > cameraLimitBox.getBottom())
+//     camera.position.y = cameraLimitBox.getBottom() - camera.size.y;
+// }
 
 void GameManager::quit() {
   SDL_DestroyRenderer(GameManager::renderer);

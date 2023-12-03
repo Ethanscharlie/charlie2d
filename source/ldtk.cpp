@@ -141,7 +141,7 @@ void LDTK::loadLevel(std::string iid, Scene* scene) {
     onLoadLevel();
     scene->updateEntities = false;
     GameManager::doFade([lastEntities, scene]() {
-        GameManager::cameraLimitBox = worldBox;
+        Camera::cameraLimitBox = worldBox;
         unload(lastEntities);
         scene->updateEntities = true;
     }, 150);

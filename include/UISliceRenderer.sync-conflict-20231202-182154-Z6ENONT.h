@@ -45,8 +45,8 @@ public:
     spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
     spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
 
-    spriteRect.w = box->getSize().x; 
-    spriteRect.h = box->getSize().y; 
+    spriteRect.w = box->getSize().x * GameManager::screen_change_scale;
+    spriteRect.h = box->getSize().y * GameManager::screen_change_scale;
 
     Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);
   }

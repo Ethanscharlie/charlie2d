@@ -23,7 +23,7 @@ public:
       // box = new entityBox(this);
   };
 
-  ~Entity() { delete box; }
+  ~Entity() {  }
 
   /**
    * \brief OLD DON'T USE THIS
