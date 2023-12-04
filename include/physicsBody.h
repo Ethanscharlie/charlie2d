@@ -38,8 +38,14 @@ public:
     if (velocity.x == 0 && velocity.y == 0)
       return;
 
+    std::vector<Entity*> solids;
+    for (Collider* col : scene->getGroup<Collider>()) {
+      if (!col->solid) continue;
+      solids.push_back(col->entity);
+    }
+
     slideOut out =
-        entity->box->slide(velocity * deltaTime, scene->getTag("Ground"));
+        entity->box->slide(velocity * deltaTime, solids);
 
     if (out.horizontalHit)
       velocity.x = 0;

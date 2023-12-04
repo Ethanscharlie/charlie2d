@@ -1,6 +1,7 @@
 #ifndef ENTITY_BOX_H
 #define ENTITY_BOX_H
 
+#include "Component.h"
 #include "Entity.h"
 #include "Math.h"
 #include <vector>
@@ -29,9 +30,12 @@ struct slideOut {
  * This will be switched to a Component at some because because that makes more
  * sense
  */
-struct entityBox {
-  entityBox(Entity *_entity);
+class entityBox : public Component {
+  public:
+  entityBox();
   ~entityBox() {}
+  void start() override {}
+  void update(float deltaTime) override {}
 
   /**
    * \brief Gets the position of the local box
@@ -303,8 +307,6 @@ struct entityBox {
 
     return out;
   }
-
-  Entity *entity = nullptr;
 
   int anchor = 0;
 

@@ -33,9 +33,9 @@ void Sprite::update(float deltaTime) {
         //onScreen = true;
     if (texture != nullptr &&
             renderRect.x+renderRect.w/1*5 > 0-renderRect.w/1 && 
-            renderRect.x+renderRect.w/1 < GameManager::currentWindowSize.x+renderRect.w/1*5 && 
+            renderRect.x+renderRect.w/1 < GameManager::gameWindowSize.x+renderRect.w/1*5 && 
             renderRect.y+renderRect.h/1*5 > 0-renderRect.h/1 
-            && renderRect.y+renderRect.h/1 < GameManager::currentWindowSize.y+renderRect.h/1*5) {
+            && renderRect.y+renderRect.h/1 < GameManager::gameWindowSize.y+renderRect.h/1*5) {
 
         onScreen = true;
         SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect, (180 / M_PI) * angle.radians, nullptr, flip);

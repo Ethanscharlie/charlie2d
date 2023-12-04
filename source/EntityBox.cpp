@@ -4,8 +4,8 @@
 #include "Scene.h"
 #include "Camera.h"
 
-entityBox::entityBox(Entity *_entity)
-    : entity(_entity), localBox(), globalBox() {}
+entityBox::entityBox()
+    :  localBox(), globalBox() {}
 
 void entityBox::print() {
   globalBox.print();

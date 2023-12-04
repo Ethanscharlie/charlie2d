@@ -14,12 +14,12 @@ Scene::Scene()
 
 Entity* Scene::createEntity(std::string tag) {
     Entity* entity = new Entity();
-    entity->box = new entityBox(entity);
     entity->scene = this;
     entity->tag = tag;
     entity->iid = allObjects.size();
     tags[tag].push_back(entity);
     allObjects.push_back(entity);
+    entity->box = entity->require<entityBox>();
     return entity;
 }
 
@@ -31,11 +31,8 @@ std::vector<Entity*> Scene::getTag(std::string tag) {
 void Scene::update()
 {
     Uint64 currentTime = SDL_GetPerformanceCounter();
-    //float deltaTime = (currentTime - lastTime) / 1000.0f;
     deltaTime = static_cast<float>((currentTime - lastTime) * 1000 /
             static_cast<double>(SDL_GetPerformanceFrequency())) * 0.001;
-
-    //if (deltaTime > 900) deltaTime = 0;
 
     lastTime = currentTime;
     lastTime = SDL_GetPerformanceCounter();
