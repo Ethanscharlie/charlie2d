@@ -1,8 +1,8 @@
 #include "GameManager.h"
 #include "Entity.h"
+#include "EntityBox.h"
 #include "InputManager.h"
 #include "Math.h"
-#include "Scene.h"
 
 int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
 Uint32 GameManager::fadeStartTime = 0;
@@ -10,9 +10,9 @@ int GameManager::fade_time = 300;
 
 bool GameManager::running = true;
 
-std::unordered_map<std::string, Scene *> GameManager::scenes;
-Scene *GameManager::currentScene = nullptr;
-Scene *GameManager::loadingScene = nullptr;
+std::map<std::type_index, std::vector<Component *>> GameManager::components;
+std::map<std::string, std::vector<Entity *>>
+    GameManager::entities; // Sorted by tags
 
 Vector2f GameManager::gameWindowSize = {0, 0};
 Vector2f GameManager::currentWindowSize = {0, 0};
@@ -22,6 +22,10 @@ float GameManager::screen_change_scale = 0;
 SDL_Window *GameManager::window = nullptr;
 SDL_Renderer *GameManager::renderer = nullptr;
 std::function<void()> GameManager::onMiddleFade = []() {};
+
+bool GameManager::updateEntities = true;
+float GameManager::deltaTime = 0;
+Uint64 GameManager::lastTime;
 
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
@@ -46,9 +50,22 @@ void EMSCRIPTEN_KEEPALIVE on_resize(int width, int height) {
 GameManager::GameManager() {}
 
 GameManager::~GameManager() {
-  for (auto &[name, scene] : scenes) {
-    delete scene;
+
+  for (auto &[type, vector] : components) {
+    for (Component *component : vector) {
+      delete component;
+    }
+    vector.clear();
   }
+  components.clear();
+
+  for (auto &[tag, vector] : entities) {
+    for (Entity *entity : vector) {
+      delete entity;
+    }
+    vector.clear();
+  }
+  entities.clear();
 }
 
 void GameManager::init(Vector2f windowSize) {
@@ -58,11 +75,10 @@ void GameManager::init(Vector2f windowSize) {
   SDL_Init(SDL_INIT_TIMER);
   TTF_Init();
   IMG_Init(IMG_INIT_PNG);
-  SDL_SetWindowResizable(window, SDL_TRUE);
+  // SDL_SetWindowResizable(window, SDL_TRUE);
 
   gameWindowSize = windowSize;
   currentWindowSize = windowSize;
-
 
   screen_change_scale =
       ((float)currentWindowSize.x + (float)currentWindowSize.y) /
@@ -83,38 +99,8 @@ void GameManager::init(Vector2f windowSize) {
 #endif
 }
 
-void GameManager::AddScene(const std::string &name, Scene *scene) {
-  scenes[name] = scene;
-}
-
-void GameManager::LoadScene(const std::string &name) {
-  Scene *scene = scenes[name];
-  if (scene) {
-    loadingScene = scene;
-    if (!transition) {
-      doFade([]() {
-        if (currentScene) {
-          currentScene->unload();
-        }
-
-        loadingScene->load();
-        currentScene = loadingScene;
-      });
-      // transition = 1;
-      // fadeStartTime = SDL_GetTicks();
-    }
-  }
-}
-
-Scene *GameManager::getCurrentScene() { return currentScene; }
-
-#ifdef __EMSCRIPTEN__
-#endif
-
 void GameManager::Update() {
   InputManager::update();
-#ifdef __EMSCRIPTEN__
-#endif
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
     if (event.type == SDL_QUIT) {
@@ -131,11 +117,9 @@ void GameManager::Update() {
             ((float)currentWindowSize.x + (float)currentWindowSize.y) /
             (gameWindowSize.x + gameWindowSize.y);
 
-        if (getCurrentScene()) {
-          for (auto &c : getCurrentScene()->components) {
-            for (Component *component : c.second) {
-              component->onScreenChange();
-            }
+        for (auto &c : components) {
+          for (Component *component : c.second) {
+            component->onScreenChange();
           }
         }
 
@@ -146,7 +130,7 @@ void GameManager::Update() {
       break;
     } else if (event.type == SDL_KEYDOWN) {
       if (event.key.keysym.sym <= 256) {
-        if (true || InputManager::keysUped[event.key.keysym.sym]) { 
+        if (true || InputManager::keysUped[event.key.keysym.sym]) {
           InputManager::keys[event.key.keysym.sym] = true;
           // InputManager::keysUped[event.key.keysym.sym] = false;
         } else {
@@ -157,20 +141,107 @@ void GameManager::Update() {
       switch (event.key.keysym.sym) {
       case SDLK_SPACE:
         InputManager::jumpPressed = true;
-      }     
-    } else if (event.type == SDL_KEYUP) {
-      if (event.key.keysym.sym <= 256) {
-        // std::cout << "KEYUP" << std::endl;
-        // InputManager::keys[event.key.keysym.sym] = false;
-        // InputManager::keysUped[event.key.keysym.sym] = true;
       }
     }
-
   }
 
-  if (currentScene) {
-    currentScene->update();
+  // OLD SCENE UPDATE LOOP
+  Uint64 currentTime = SDL_GetPerformanceCounter();
+  deltaTime =
+      static_cast<float>((currentTime - lastTime) * 1000 /
+                         static_cast<double>(SDL_GetPerformanceFrequency())) *
+      0.001;
+
+  lastTime = currentTime;
+  lastTime = SDL_GetPerformanceCounter();
+
+  // if (1.0f / deltaTime < 200) std::cout << "FPS: " << 1.0f / deltaTime <<
+  // std::endl;
+
+  SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
+  SDL_RenderClear(GameManager::renderer);
+
+  std::vector<Component *> layeredComponents;
+  std::vector<Entity *> entitesToRemove;
+  for (auto &c : components) {
+    std::vector<Component *> *clist = &c.second;
+
+    for (auto it = clist->begin(); it != clist->end();) {
+      Component *component = *it;
+      if (component == nullptr)
+        continue;
+      Entity *entity = component->entity;
+
+      if (entity->toDestroy) {
+        // for (Entity *e : entity->getChildren()) {
+        //   e->toDestroy = true;
+        // }
+
+        component->onDestroy();
+        // it = clist->erase(it);
+        // allObjects.erase(
+        //     std::remove(allObjects.begin(), allObjects.end(), entity),
+        //     allObjects.end());
+
+        // delete component;
+
+        // Delete Entity if there are no remaining components
+        // if (entity->gets().size() <= 0) {
+        //   delete entity;
+        // }
+        ++it;
+      } else if (entity->skipUpdate) {
+        entity->skipUpdate = false;
+      } else if (!entity->active) {
+        ++it;
+      } else {
+        if (component->standardUpdate) {
+          if (component->useLayer) {
+            layeredComponents.push_back(component);
+          } else if (updateEntities) {
+            component->update(deltaTime);
+          }
+        }
+
+        ++it;
+      }
+    }
   }
+
+  // Destroyer
+  for (Entity *entity : entitesToRemove) {
+    for (Entity *child : entity->getChildren()) {
+      child->toDestroy = true;
+    }
+
+    // components
+    for (auto [ctype, component] : entity->components) {
+      components[ctype].erase(std::remove(components[ctype].begin(),
+                                          components[ctype].end(), component),
+                              components[ctype].end());
+
+      delete component;
+    }
+
+    // Entity
+    entities[entity->tag].erase(std::remove(entities[entity->tag].begin(),
+                                            entities[entity->tag].end(),
+                                            entity),
+                                entities[entity->tag].end());
+    delete entity;
+  }
+
+  std::sort(layeredComponents.begin(), layeredComponents.end(),
+            [](Component *a, Component *b) {
+              if (a->layer == b->layer)
+                return a->entity->iid < b->entity->iid;
+              return a->layer < b->layer;
+            });
+
+  for (Component *component : layeredComponents) {
+    component->update(deltaTime);
+  }
+  // END OF OLD SCENE LOOP
 
   if (transition == 1) {
     // Calculate the elapsed time since the start of the transition
@@ -236,11 +307,9 @@ void GameManager::setWindowSize(Vector2f size) {
       ((float)currentWindowSize.x + (float)currentWindowSize.y) /
       (gameWindowSize.x + gameWindowSize.y);
 
-  if (getCurrentScene()) {
-    for (auto &c : getCurrentScene()->components) {
-      for (Component *component : c.second) {
-        component->onScreenChange();
-      }
+  for (auto &c : components) {
+    for (Component *component : c.second) {
+      component->onScreenChange();
     }
   }
 }
@@ -276,26 +345,6 @@ void GameManager::playSound(std::string filename, bool loop) {
   }
 }
 
-// void GameManager::setCamera(const Vector2f &position) {
-//   if (camera.size.y / camera.size.x !=
-//       currentWindowSize.x / currentWindowSize.y) {
-//     // currentWindowSize = camera.size;
-//   }
-//   camera.setWithCenter(position);
-//
-//   if (cameraLimitBox.size.x == 0 && cameraLimitBox.size.y == 0)
-//     return;
-//
-//   if (camera.position.x < cameraLimitBox.position.x)
-//     camera.position.x = cameraLimitBox.position.x;
-//   if (camera.getRight() > cameraLimitBox.getRight())
-//     camera.position.x = cameraLimitBox.getRight() - camera.size.x;
-//   if (camera.position.y < cameraLimitBox.position.y)
-//     camera.position.y = cameraLimitBox.position.y;
-//   if (camera.getBottom() > cameraLimitBox.getBottom())
-//     camera.position.y = cameraLimitBox.getBottom() - camera.size.y;
-// }
-
 void GameManager::quit() {
   SDL_DestroyRenderer(GameManager::renderer);
   SDL_DestroyWindow(GameManager::window);
@@ -312,4 +361,27 @@ void GameManager::doFade(std::function<void()> middle, int fadeTime) {
   onMiddleFade = middle;
   transition = 1;
   fadeStartTime = SDL_GetTicks();
+}
+
+void GameManager::destroyAll(Entity doNotDestroy[]) {}
+
+std::vector<Entity *> GameManager::getEntities(std::string tag) {
+  return entities[tag];
+}
+
+std::vector<Entity *> GameManager::getAllObjects() {
+  std::vector<Entity *> out;
+  for (const auto &pair : entities) {
+    const std::vector<Entity *> &entityPointers = pair.second;
+    out.insert(out.end(), entityPointers.begin(), entityPointers.end());
+  }
+  return out;
+}
+
+Entity *GameManager::createEntity(std::string tag) {
+  Entity *entity = new Entity();
+  entity->tag = tag;
+  entity->iid = getAllObjects().size();
+  entities[tag].push_back(entity);
+  return entity;
 }

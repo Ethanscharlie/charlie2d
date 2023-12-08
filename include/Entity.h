@@ -1,5 +1,6 @@
 #ifndef ENTITY_H
 #define ENTITY_H
+#include "GameManager.h"
 #include "Math.h"
 #include "Scene.h"
 #include <SDL.h>
@@ -11,7 +12,6 @@
 #include <unordered_map>
 #include <vector>
 
-class Scene;
 class Animation;
 class Component;
 
@@ -34,19 +34,18 @@ public:
 
     component->entity = this;
     component->entityTag = tag;
-    component->scene = scene;
     component->start();
     components[typeid(C)] = component;
 
     // scene->template add<C>(components[typeid(C)]);
-    if (scene->components.count(typeid(C)) ==
+    if (GameManager::components.count(typeid(C)) ==
         0) { //&& std::find(componentTypes.begin(), componentTypes.end(),
              // typeid(C)) == componentTypes.end()) {
       std::cout << "added type " << component->title << std::endl;
     }
 
     component->index = 0; // components[typeid(C)].size();
-    scene->components[typeid(C)].push_back(component);
+    GameManager::components[typeid(C)].push_back(component);
 
     return component;
   }
@@ -112,10 +111,6 @@ public:
    * deleted from memory
    */
   bool toDestroy = false;
-  /**
-   * \brief The Current Scene
-   */
-  Scene *scene = nullptr;
   /**
    * \brief String tag for the entity
    */

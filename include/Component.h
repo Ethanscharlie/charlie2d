@@ -6,7 +6,6 @@
 // #include "Entity.h"
 // #include "EntityBox.h"
 
-class Scene;
 struct entityBox;
 class Entity;
 
@@ -39,7 +38,6 @@ public:
    * \brief The attached entity
    */
   Entity *entity = nullptr;
-  Scene *scene;
   std::string title = "";
   bool isInit = false;
   /**

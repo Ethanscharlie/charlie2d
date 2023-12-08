@@ -36,7 +36,7 @@ public:
     radius = entity->require<entityBox>()->getSize().y / 2;
     std::vector<CircleCollider *> hits;
 
-    for (auto *col : entity->scene->getGroup<CircleCollider>(tag)) {
+    for (auto *col : GameManager::getComponents<CircleCollider>(tag)) {
       if (col->entity == entity)
         continue;
       if (checkCircleCollision(col)) {

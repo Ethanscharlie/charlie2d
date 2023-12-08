@@ -64,9 +64,9 @@ bool LDTK::checkOutsideBounds(Entity* player) {
     return true;
 }
 
-void LDTK::loadLevel(std::string iid, Scene* scene) {
+void LDTK::loadLevel(std::string iid) {
     if (iid == "") return;
-    //scene->updateEntities = false;
+    //GameManager::updateEntities = false;
     std::vector<Entity*> lastEntities = entities;
 
     currentLevel = levels[iid];
@@ -80,16 +80,18 @@ void LDTK::loadLevel(std::string iid, Scene* scene) {
             int tileWidth = layer ["__gridSize"];
             int tileHeight = layer["__gridSize"];
 
-            Entity* layerObject = scene->createEntity(layer["__identifier"]);
-            layerObject->add<TileLayer>();
+            Entity* layerObject = GameManager::createEntity(layer["__identifier"]);
+            layerObject->require<TileLayer>();
             layerObject->get<TileLayer>()->useLayer = true;
+
             entities.push_back(layerObject);
 
             for (auto const& tile : layer["gridTiles"]) {
-                Entity* tileObject = scene->createEntity(layer["__identifier"]);
+                Entity* tileObject = GameManager::createEntity(layer["__identifier"]);
 
-                tileObject->add<Sprite>();
-                tileObject->add<LDTKEntity>();
+                tileObject->require<Sprite>();
+                tileObject->require<LDTKEntity>();
+
                 tileObject->get<LDTKEntity>()->entityJson = tile;
 
                 std::string imageFileLocation;
@@ -122,10 +124,11 @@ void LDTK::loadLevel(std::string iid, Scene* scene) {
 
         else if (layer["__type"] == "Entities") {
             for (auto const& entity : layer["entityInstances"]) {
-                Entity* object = scene->createEntity(entity["__identifier"]);
+                Entity* object = GameManager::createEntity(entity["__identifier"]);
 
-                object->add<Sprite>();
-                object->add<LDTKEntity>();
+                object->require<Sprite>();
+                object->require<LDTKEntity>();
+
                 object->get<LDTKEntity>()->entityJson = entity;
 
                 object->require<entityBox>()->setPosition({entity["px"][0], entity["px"][1]});
@@ -139,11 +142,11 @@ void LDTK::loadLevel(std::string iid, Scene* scene) {
     }
 
     onLoadLevel();
-    scene->updateEntities = false;
-    GameManager::doFade([lastEntities, scene]() {
+    GameManager::updateEntities = false;
+    GameManager::doFade([lastEntities]() {
         Camera::cameraLimitBox = worldBox;
         unload(lastEntities);
-        scene->updateEntities = true;
+        GameManager::updateEntities = true;
     }, 150);
 }
 

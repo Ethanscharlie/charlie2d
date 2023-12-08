@@ -16,7 +16,7 @@ std::vector<Collider*> Collider::getCollisions(std::string tag) {
     colliderBox = entity->require<entityBox>()->getBox();
     std::vector<Collider*> hits; 
 
-    for (auto* col : entity->scene->getGroup<Collider>(tag)) {
+    for (auto* col : GameManager::getComponents<Collider>(tag)) {
         if (col->entity == entity) continue;
         if (checkBoxCollision(col->colliderBox)) {
             hits.push_back(col);

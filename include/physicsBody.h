@@ -39,7 +39,7 @@ public:
       return;
 
     std::vector<Entity*> solids;
-    for (Collider* col : scene->getGroup<Collider>()) {
+    for (Collider* col : GameManager::getComponents<Collider>()) {
       if (!col->solid) continue;
       solids.push_back(col->entity);
     }

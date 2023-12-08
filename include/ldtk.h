@@ -44,7 +44,7 @@ public:
    * \param iid The iid of the ldtk level
    * \param scene the current scene
    */
-  static void loadLevel(std::string iid, Scene *scene);
+  static void loadLevel(std::string iid);
   /**
    * \brief Loads up the json for your world (Please do before anything else
    * here) \param file The filepath
