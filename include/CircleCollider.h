@@ -19,13 +19,13 @@ public:
   /**
    * \brief Sets the radius to the height/2 ig
    */
-  void start() override { radius = entity->box->getSize().y / 2; }
+  void start() override { radius = entity->require<entityBox>()->getSize().y / 2; }
 
   /**
    * \brief Keeps sets the radius? Probably needs to be fixed
    */
   void update(float deltaTime) override {
-    radius = entity->box->getSize().y / 2;
+    radius = entity->require<entityBox>()->getSize().y / 2;
   }
 
   /**
@@ -33,7 +33,7 @@ public:
    * \param tag allowes you to narrow collisions down to only with a certain tag
    */
   std::vector<CircleCollider *> getCollisions(std::string tag = "") {
-    radius = entity->box->getSize().y / 2;
+    radius = entity->require<entityBox>()->getSize().y / 2;
     std::vector<CircleCollider *> hits;
 
     for (auto *col : entity->scene->getGroup<CircleCollider>(tag)) {
@@ -57,11 +57,11 @@ public:
    */
   bool checkCircleCollision(CircleCollider *col) {
     float distance =
-        std::sqrt(std::pow(col->entity->box->getBox().getCenter().x -
-                               entity->box->getBox().getCenter().x,
+        std::sqrt(std::pow(col->entity->require<entityBox>()->getBox().getCenter().x -
+                               entity->require<entityBox>()->getBox().getCenter().x,
                            2) +
-                  std::pow(col->entity->box->getBox().getCenter().y -
-                               entity->box->getBox().getCenter().y,
+                  std::pow(col->entity->require<entityBox>()->getBox().getCenter().y -
+                               entity->require<entityBox>()->getBox().getCenter().y,
                            2));
 
     // bool c = distance <= radius + col->radius;

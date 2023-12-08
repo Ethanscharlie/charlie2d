@@ -1,124 +1,140 @@
 #include "Scene.h"
-#include "Entity.h"
 #include "Component.h"
+#include "Entity.h"
 #include "EntityBox.h"
 
 Scene::~Scene() {
-    // destroy all entitys
-    unload();
+  // destroy all entitys
+  unload();
 }
 
-Scene::Scene()
-{   
+Scene::Scene() {}
+
+Entity *Scene::createEntity(std::string tag) {
+  Entity *entity = new Entity();
+  entity->scene = this;
+  entity->tag = tag;
+  entity->iid = allObjects.size();
+  tags[tag].push_back(entity);
+  allObjects.push_back(entity);
+  // entity->box = entity->require<entityBox>();
+  return entity;
 }
 
-Entity* Scene::createEntity(std::string tag) {
-    Entity* entity = new Entity();
-    entity->scene = this;
-    entity->tag = tag;
-    entity->iid = allObjects.size();
-    tags[tag].push_back(entity);
-    allObjects.push_back(entity);
-    entity->box = entity->require<entityBox>();
-    return entity;
-}
+std::vector<Entity *> Scene::getTag(std::string tag) { return tags[tag]; }
 
+void Scene::update() {
+  Uint64 currentTime = SDL_GetPerformanceCounter();
+  deltaTime =
+      static_cast<float>((currentTime - lastTime) * 1000 /
+                         static_cast<double>(SDL_GetPerformanceFrequency())) *
+      0.001;
 
-std::vector<Entity*> Scene::getTag(std::string tag) {
-    return tags[tag];
-}
+  lastTime = currentTime;
+  lastTime = SDL_GetPerformanceCounter();
 
-void Scene::update()
-{
-    Uint64 currentTime = SDL_GetPerformanceCounter();
-    deltaTime = static_cast<float>((currentTime - lastTime) * 1000 /
-            static_cast<double>(SDL_GetPerformanceFrequency())) * 0.001;
+  // if (1.0f / deltaTime < 200) std::cout << "FPS: " << 1.0f / deltaTime <<
+  // std::endl;
 
-    lastTime = currentTime;
-    lastTime = SDL_GetPerformanceCounter();
+  SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
+  SDL_RenderClear(GameManager::renderer);
 
-    //if (1.0f / deltaTime < 200) std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
+  std::vector<Component *> layeredComponents;
+  std::vector<Entity *> entitesToRemove;
+  for (auto &c : components) {
+    std::vector<Component *> *clist = &c.second;
 
-    SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
-    SDL_RenderClear(GameManager::renderer);
+    for (auto it = clist->begin(); it != clist->end();) {
+      Component *component = *it;
+      if (component == nullptr)
+        continue;
+      Entity *entity = component->entity;
 
-    std::vector<Component*> layeredComponents;
-    std::vector<Component*> toRemove;
-    for (auto& c : components) {
-        std::vector<Component*>* clist = &c.second;
+      if (entity->toDestroy) {
+        // for (Entity *e : entity->getChildren()) {
+        //   e->toDestroy = true;
+        // }
 
-        for (auto it = clist->begin(); it != clist->end();) {
-            Component* component = *it;
-            if (component == nullptr) continue;
-            Entity* entity = component->entity;
+        component->onDestroy();
+        // it = clist->erase(it);
+        // allObjects.erase(
+        //     std::remove(allObjects.begin(), allObjects.end(), entity),
+        //     allObjects.end());
 
-              if (entity->toDestroy) {
-                  for (Entity* e : entity->getChildren()) {
-                        e->toDestroy = true;
-                  }
+        // delete component;
 
-                  component->onDestroy();
-                  it = clist->erase(it);
-                  allObjects.erase(std::remove(allObjects.begin(), allObjects.end(), entity), allObjects.end());
-
-                  delete component;
-
-                  // Delete Entity if there are no remaining components
-                  if (entity->getComponents().size() <= 0) {
-                    delete entity;
-                  }
-              }
-              else if (entity->skipUpdate) {
-                    entity->skipUpdate = false;
-              }
-              else if (!entity->active) { ++it;}
-              else {
-                  if (component->standardUpdate) {
-                      if (component->useLayer) {
-                          layeredComponents.push_back(component);
-                      } else if (updateEntities) {
-                          component->update(deltaTime);
-                      }
-                  }
-
-                  ++it;
-              }
+        // Delete Entity if there are no remaining components
+        // if (entity->gets().size() <= 0) {
+        //   delete entity;
+        // }
+        ++it;
+      } else if (entity->skipUpdate) {
+        entity->skipUpdate = false;
+      } else if (!entity->active) {
+        ++it;
+      } else {
+        if (component->standardUpdate) {
+          if (component->useLayer) {
+            layeredComponents.push_back(component);
+          } else if (updateEntities) {
+            component->update(deltaTime);
+          }
         }
+
+        ++it;
+      }
+    }
+  }
+
+  // Destroyer
+  for (Entity *entity : entitesToRemove) {
+    for (Entity *child : entity->getChildren()) {
+      child->toDestroy = true;
     }
 
-    std::sort(layeredComponents.begin(), layeredComponents.end(), [](Component* a, Component* b){
-            if (a->layer == b->layer) return a->entity->iid < b->entity->iid;
-            return a->layer < b->layer;
+    // components
+    for (auto [ctype, component] : entity->components) {
+      components[ctype].erase(std::remove(components[ctype].begin(),
+                                          components[ctype].end(), component),
+                              components[ctype].end());
+
+      delete component;
+    }
+
+    // Entity
+    allObjects.erase(std::remove(allObjects.begin(), allObjects.end(), entity),
+                     allObjects.end());
+    delete entity;
+  }
+
+  std::sort(layeredComponents.begin(), layeredComponents.end(),
+            [](Component *a, Component *b) {
+              if (a->layer == b->layer)
+                return a->entity->iid < b->entity->iid;
+              return a->layer < b->layer;
             });
 
-    for (Component* component : layeredComponents) {
-        component->update(deltaTime);
-    }
+  for (Component *component : layeredComponents) {
+    component->update(deltaTime);
+  }
 }
 
-std::vector<Entity*> Scene::getAllObjects() {
-    return allObjects;
-}
+std::vector<Entity *> Scene::getAllObjects() { return allObjects; }
 
-void Scene::unload()
-{
-    for (auto& [type, vector] : components)
-    {
-      for (Component* component : vector) {
-        delete component;
-      }
-      vector.clear();
+void Scene::unload() {
+  for (auto &[type, vector] : components) {
+    for (Component *component : vector) {
+      delete component;
     }
-    components.clear();
+    vector.clear();
+  }
+  components.clear();
 
-    for (auto& [tag, vector] : tags)
-    {
-      for (Entity* entity : vector) {
-        delete entity->box;
-        delete entity;
-      }
-      vector.clear();
+  for (auto &[tag, vector] : tags) {
+    for (Entity *entity : vector) {
+      delete entity;
     }
-    tags.clear();
+    vector.clear();
+  }
+  tags.clear();
 }
-

@@ -6,7 +6,6 @@
 #include <cmath>
 #include <map>
 #include <memory>
-#include <stdexcept>
 #include <typeindex>
 #include <unordered_map>
 #include <vector>
@@ -68,12 +67,9 @@ public:
    */
   template <typename C> C *get() {
     auto it = components.find(typeid(C));
-    if (it != components.end()) {
-      if (it->second == nullptr)
-        throw std::runtime_error("Component was nullptr");
+    if (it != components.end())
       return static_cast<C *>(it->second);
-
-    } else
+    else
       throw std::runtime_error("Component not found!");
   }
 

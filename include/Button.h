@@ -19,10 +19,10 @@ class Button : public Component {
     }
 
     void update(float deltaTime) override {
-        bool touching =  box->getBox().getLeft()   < InputManager::getMouseUIPosition().x && 
-                         box->getBox().getRight()  > InputManager::getMouseUIPosition().x && 
-                         box->getBox().getTop()    < InputManager::getMouseUIPosition().y && 
-                         box->getBox().getBottom() > InputManager::getMouseUIPosition().y;
+        bool touching =  entity->require<entityBox>()->getBox().getLeft()   < InputManager::getMouseUIPosition().x && 
+                         entity->require<entityBox>()->getBox().getRight()  > InputManager::getMouseUIPosition().x && 
+                         entity->require<entityBox>()->getBox().getTop()    < InputManager::getMouseUIPosition().y && 
+                         entity->require<entityBox>()->getBox().getBottom() > InputManager::getMouseUIPosition().y;
 
         if (touching) {
             onHover();

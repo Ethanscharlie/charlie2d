@@ -25,6 +25,6 @@ public:
   static Box cameraLimitBox;
   static float scale;
 
-private:
+// private:
   static Vector2f position;
 };

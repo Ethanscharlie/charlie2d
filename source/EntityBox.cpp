@@ -1,11 +1,8 @@
 #include "EntityBox.h"
+#include "Camera.h"
 #include "Entity.h"
 #include "GameManager.h"
 #include "Scene.h"
-#include "Camera.h"
-
-entityBox::entityBox()
-    :  localBox(), globalBox() {}
 
 void entityBox::print() {
   globalBox.print();
@@ -21,42 +18,53 @@ void entityBox::updateGlobalBox() {
     if (anchor == 0) // Top Left
     {
       globalBox.position =
-          localBox.position +
-          entity->getParent()->box->globalBox.getTopLeftCorner();
+          localBox.position + entity->getParent()
+                                  ->require<entityBox>()
+                                  ->globalBox.getTopLeftCorner();
 
     } else if (anchor == 1) // Top Middle
     {
-      globalBox.position = localBox.position +
-                           entity->getParent()->box->globalBox.getTopMiddle();
-    } else if (anchor == 2) {
       globalBox.position =
           localBox.position +
-          entity->getParent()->box->globalBox.getTopRightCorner();
+          entity->getParent()->require<entityBox>()->globalBox.getTopMiddle();
+    } else if (anchor == 2) {
+      globalBox.position =
+          localBox.position + entity->getParent()
+                                  ->require<entityBox>()
+                                  ->globalBox.getTopRightCorner();
 
     } else if (anchor == 3) {
     } else if (anchor == 4) // Middle
     {
       globalBox.position =
-          localBox.position + entity->getParent()->box->globalBox.getCenter();
+          localBox.position +
+          entity->getParent()->require<entityBox>()->globalBox.getCenter();
     } else if (anchor == 5) {
 
     } else if (anchor == 6) {
       globalBox.position =
-          localBox.position +
-          entity->getParent()->box->globalBox.getBottomLeftCorner();
+          localBox.position + entity->getParent()
+                                  ->require<entityBox>()
+                                  ->globalBox.getBottomLeftCorner();
     } else if (anchor == 7) // Botton Middle
     {
       globalBox.position =
-          localBox.position +
-          entity->getParent()->box->globalBox.getBottomMiddle();
+          localBox.position + entity->getParent()
+                                  ->require<entityBox>()
+                                  ->globalBox.getBottomMiddle();
     } else if (anchor == 8) {
       globalBox.position =
-          localBox.position +
-          entity->getParent()->box->globalBox.getBottomRightCorner();
+          localBox.position + entity->getParent()
+                                  ->require<entityBox>()
+                                  ->globalBox.getBottomRightCorner();
     }
 
     for (Entity *child : entity->getChildren()) {
-      child->box->updateGlobalBox();
+      if (child == nullptr) {
+        std::cout << "Nullptr child" << std::endl;
+        continue;
+      }
+      child->require<entityBox>()->updateGlobalBox();
     }
   }
 }
@@ -70,42 +78,54 @@ void entityBox::updateLocalBox() {
     if (anchor == 0) // Top Left
     {
       localBox.position =
-          globalBox.position -
-          entity->getParent()->box->globalBox.getTopLeftCorner();
+          globalBox.position - entity->getParent()
+                                   ->require<entityBox>()
+                                   ->globalBox.getTopLeftCorner();
 
     } else if (anchor == 1) // Top Middle
     {
-      localBox.position = globalBox.position -
-                          entity->getParent()->box->globalBox.getTopMiddle();
-    } else if (anchor == 2) {
       localBox.position =
           globalBox.position -
-          entity->getParent()->box->globalBox.getTopRightCorner();
+          entity->getParent()->require<entityBox>()->globalBox.getTopMiddle();
+    } else if (anchor == 2) {
+      localBox.position =
+          globalBox.position - entity->getParent()
+                                   ->require<entityBox>()
+                                   ->globalBox.getTopRightCorner();
 
     } else if (anchor == 3) {
     } else if (anchor == 4) // Middle
     {
       localBox.position =
-          globalBox.position - entity->getParent()->box->globalBox.getCenter();
+          globalBox.position -
+          entity->getParent()->require<entityBox>()->globalBox.getCenter();
     } else if (anchor == 5) {
 
     } else if (anchor == 6) {
       localBox.position =
-          globalBox.position -
-          entity->getParent()->box->globalBox.getBottomLeftCorner();
+          globalBox.position - entity->getParent()
+                                   ->require<entityBox>()
+                                   ->globalBox.getBottomLeftCorner();
     } else if (anchor == 7) // Botton Middle
     {
-      localBox.position = globalBox.position -
-                          entity->getParent()->box->globalBox.getBottomMiddle();
+      localBox.position =
+          globalBox.position - entity->getParent()
+                                   ->require<entityBox>()
+                                   ->globalBox.getBottomMiddle();
     } else if (anchor == 8) {
       localBox.position =
-          globalBox.position -
-          entity->getParent()->box->globalBox.getBottomRightCorner();
+          globalBox.position - entity->getParent()
+                                   ->require<entityBox>()
+                                   ->globalBox.getBottomRightCorner();
     }
   }
 
   for (Entity *child : entity->getChildren()) {
-    child->box->updateGlobalBox();
+    if (child == nullptr) {
+      std::cout << "Nullptr child" << std::endl;
+      continue;
+    }
+    child->require<entityBox>()->updateGlobalBox();
   }
 }
 
@@ -114,14 +134,16 @@ void entityBox::updateLocalBox() {
 //       GameManager::screen_change_scale * Camera::getScale();
 //       // ((GameManager::gameWindowSize.x + GameManager::gameWindowSize.y) /
 //       //  (GameManager::camera.size.x + GameManager::camera.size.y));
-//   Vector2f renderPos = entity->box->getPosition() * scaler;
+//   Vector2f renderPos = entity->require<entityBox>()->getPosition() * scaler;
 //   return renderPos - (Camera::getPosition() * scaler -
 //                       GameManager::currentWindowSize / 2);
 // }
 //
 // Vector2f entityBox::getUIPosition() {
-//   return {GameManager::screen_change_scale * (entity->box->getPosition().x) +
+//   return {GameManager::screen_change_scale *
+//   (entity->require<entityBox>()->getPosition().x) +
 //               GameManager::currentWindowSize.x / 2,
-//           GameManager::screen_change_scale * (entity->box->getPosition().y) +
+//           GameManager::screen_change_scale *
+//           (entity->require<entityBox>()->getPosition().y) +
 //               GameManager::currentWindowSize.y / 2};
 // }

@@ -41,12 +41,12 @@ public:
     SDL_Rect spriteRect = {0, 0, 0, 0};
 
     // float scaler = GameManager::screen_change_scale * Camera::getScale();
-    Vector2f renderPos = entity->box->getPosition() + GameManager::gameWindowSize/2;
+    Vector2f renderPos = entity->require<entityBox>()->getPosition() + GameManager::gameWindowSize/2;
     spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
     spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
 
-    spriteRect.w = box->getSize().x; 
-    spriteRect.h = box->getSize().y; 
+    spriteRect.w = entity->require<entityBox>()->getSize().x; 
+    spriteRect.h = entity->require<entityBox>()->getSize().y; 
 
     Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);
   }

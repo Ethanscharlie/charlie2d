@@ -15,30 +15,30 @@ public:
   void update(float deltaTime) override {
     if (deltaTime > 0.2)
       return;
-    if (abs(entity->getComponent<physicsBody>().velocity.x) < maxSpeed) {
+    if (abs(entity->get<physicsBody>()->velocity.x) < maxSpeed) {
       if (touchingGround) {
-        entity->getComponent<physicsBody>().velocity.x +=
+        entity->get<physicsBody>()->velocity.x +=
           InputManager::checkHorizontal() * speed;
       } else {
-        entity->getComponent<physicsBody>().velocity.x +=
+        entity->get<physicsBody>()->velocity.x +=
           InputManager::checkHorizontal() * airSpeed;
       }
     }
 
-    if (abs(entity->getComponent<physicsBody>().velocity.x) < 1) {
-      entity->getComponent<physicsBody>().velocity.x = 0;
+    if (abs(entity->get<physicsBody>()->velocity.x) < 1) {
+      entity->get<physicsBody>()->velocity.x = 0;
     } else {
-      if (entity->getComponent<physicsBody>().velocity.x > 0) {
-        entity->getComponent<physicsBody>().velocity.x -= tracktion * deltaTime;
+      if (entity->get<physicsBody>()->velocity.x > 0) {
+        entity->get<physicsBody>()->velocity.x -= tracktion * deltaTime;
       } else {
-        entity->getComponent<physicsBody>().velocity.x += tracktion * deltaTime;
+        entity->get<physicsBody>()->velocity.x += tracktion * deltaTime;
       }
     }
 
     touchingGround = false;
-    groundCheckBox = entity->box->getBox();
-    groundCheckBox = entity->box->getBox();
-    groundCheckBox.position.y += entity->box->getSize().y;
+    groundCheckBox = entity->require<entityBox>()->getBox();
+    groundCheckBox = entity->require<entityBox>()->getBox();
+    groundCheckBox.position.y += entity->require<entityBox>()->getSize().y;
     for (Collider *col : entity->scene->getGroup<Collider>()) {
       if (col->solid) {
         if (col->checkBoxCollision(groundCheckBox)) {
@@ -53,8 +53,8 @@ public:
 
       bool checkground = false;
       if (needGround) {
-        groundCheckBox = entity->box->getBox();
-        groundCheckBox.position.y += entity->box->getSize().y;
+        groundCheckBox = entity->require<entityBox>()->getBox();
+        groundCheckBox.position.y += entity->require<entityBox>()->getSize().y;
         for (Collider *col : entity->scene->getGroup<Collider>()) {
           if (col->solid) {
             if (col->checkBoxCollision(groundCheckBox)) {
@@ -72,19 +72,19 @@ public:
         jumpsCounter--;
         // Start Jump
         if (!jumping)
-          entity->getComponent<physicsBody>().velocity.y = 0;
+          entity->get<physicsBody>()->velocity.y = 0;
         jumping = true;
         // gravity = 1500;
       }
     }
 
-    entity->getComponent<physicsBody>().velocity.y += gravity * deltaTime;
+    entity->get<physicsBody>()->velocity.y += gravity * deltaTime;
 
     if (InputManager::checkInput("jump")) {
       // Keep Jump
       if (jumping) {
         if (jumpAmount <= jumpPeak) {
-          entity->getComponent<physicsBody>().velocity.y = -jumpChange;
+          entity->get<physicsBody>()->velocity.y = -jumpChange;
           jumpAmount += jumpChange * deltaTime;
         }
       }

@@ -45,7 +45,7 @@ public:
     }
 
     slideOut out =
-        entity->box->slide(velocity * deltaTime, solids);
+        entity->require<entityBox>()->slide(velocity * deltaTime, solids);
 
     if (out.horizontalHit)
       velocity.x = 0;

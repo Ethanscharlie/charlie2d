@@ -35,7 +35,6 @@ public:
    */
   virtual void onScreenChange() {}
 
-  entityBox *box;
   /**
    * \brief The attached entity
    */

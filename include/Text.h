@@ -39,12 +39,12 @@ public:
         (float)GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
 
     Vector2f renderPos =
-        entity->box->getPosition() + GameManager::gameWindowSize / 2;
+        entity->require<entityBox>()->getPosition() + GameManager::gameWindowSize / 2;
     spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
     spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
 
-    spriteRect.w = box->getSize().x;
-    spriteRect.h = box->getSize().y;
+    spriteRect.w = entity->require<entityBox>()->getSize().x;
+    spriteRect.h = entity->require<entityBox>()->getSize().y;
 
     renderTextInRect(GameManager::renderer, text, spriteRect);
   }

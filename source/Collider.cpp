@@ -5,15 +5,15 @@
 #include "Entity.h"
 
 void Collider::start() {
-    colliderBox = entity->box->getBox();
+    colliderBox = entity->require<entityBox>()->getBox();
 }
 
 void Collider::update(float deltaTime) {
-    colliderBox = entity->box->getBox();
+    colliderBox = entity->require<entityBox>()->getBox();
 }
 
 std::vector<Collider*> Collider::getCollisions(std::string tag) {
-    colliderBox = entity->box->getBox();
+    colliderBox = entity->require<entityBox>()->getBox();
     std::vector<Collider*> hits; 
 
     for (auto* col : entity->scene->getGroup<Collider>(tag)) {
@@ -31,7 +31,7 @@ bool Collider::checkCollision(Collider col) {
 }
 
 bool Collider::checkBoxCollision(Box otherBox) {
-    if (entity->checkComponent<Sprite>() && !entity->getComponent<Sprite>().onScreen) {
+    if (entity->checkComponent<Sprite>() && !entity->get<Sprite>()->onScreen) {
         return false;
     }
 

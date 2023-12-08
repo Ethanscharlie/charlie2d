@@ -5,21 +5,21 @@
 void Sprite::update(float deltaTime) {
     SDL_Rect renderRect;
 
-    Vector2f renderPos = entity->box->getPosition() - Camera::getPosition();
+    Vector2f renderPos = entity->require<entityBox>()->getPosition() - Camera::getPosition();
     renderPos = renderPos * Camera::getScale();
     renderPos += GameManager::gameWindowSize/2;
     renderRect.x = renderPos.x;
     renderRect.y = renderPos.y;
 
-    renderRect.w = entity->box->getSize().x * Camera::getScale() + 1;
-    renderRect.h = entity->box->getSize().y * Camera::getScale() + 1;
+    renderRect.w = entity->require<entityBox>()->getSize().x * Camera::getScale() + 1;
+    renderRect.h = entity->require<entityBox>()->getSize().y * Camera::getScale() + 1;
 
     if (renderAsUI) {
-        renderRect.x = entity->box->getPosition().x + GameManager::gameWindowSize.x/2;
-        renderRect.y = entity->box->getPosition().y + GameManager::gameWindowSize.y/2;
+        renderRect.x = entity->require<entityBox>()->getPosition().x + GameManager::gameWindowSize.x/2;
+        renderRect.y = entity->require<entityBox>()->getPosition().y + GameManager::gameWindowSize.y/2;
 
-        renderRect.w = entity->box->getSize().x;
-        renderRect.h = entity->box->getSize().y;
+        renderRect.w = entity->require<entityBox>()->getSize().x;
+        renderRect.h = entity->require<entityBox>()->getSize().y;
     }
 
 
@@ -52,12 +52,12 @@ void Sprite::update(float deltaTime) {
     }
 
     //if (entity->checkComponent<Collider>()) {
-    //    Vector2f renderPos = entity->getComponent<Collider>().colliderBox.position * GameManager::screen_change_scale;
+    //    Vector2f renderPos = entity->get<Collider>().colliderBox.position * GameManager::screen_change_scale;
     //    renderRect.x = renderPos.x - (GameManager::screen_change_scale * GameManager::camera.x - GameManager::currentWindowSize.x  / 2); 
     //    renderRect.y = renderPos.y - (GameManager::screen_change_scale * GameManager::camera.y - GameManager::currentWindowSize.y / 2);   
 
-    //    renderRect.w = entity->getComponent<Collider>().colliderBox.size.x * GameManager::screen_change_scale;
-    //    renderRect.h = entity->getComponent<Collider>().colliderBox.size.y * GameManager::screen_change_scale;
+    //    renderRect.w = entity->get<Collider>().colliderBox.size.x * GameManager::screen_change_scale;
+    //    renderRect.h = entity->get<Collider>().colliderBox.size.y * GameManager::screen_change_scale;
 
     //    SDL_SetRenderDrawColor(GameManager::renderer, 0, 255, 0, 255);
     //    SDL_RenderDrawRect(GameManager::renderer, &renderRect);  
@@ -74,9 +74,9 @@ void Sprite::loadTexture(const std::string& image, bool setSize, bool keepCenter
 
     if (setSize) {
         if (keepCentered) {
-            entity->box->setScale({static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
+            entity->require<entityBox>()->setScale({static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
         } else {
-            entity->box->setSize({static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
+            entity->require<entityBox>()->setSize({static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
         }
     }
 }

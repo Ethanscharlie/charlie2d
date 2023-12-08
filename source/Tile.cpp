@@ -8,7 +8,7 @@ void TileLayer::start() {
 
 void TileLayer::update(float deltaTime) {
     for (Entity* tile : tiles) {
-        tile->getComponent<Sprite>().update(deltaTime);
+        tile->get<Sprite>()->update(deltaTime);
     }
 }
 

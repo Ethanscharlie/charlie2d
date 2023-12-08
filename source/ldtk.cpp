@@ -40,10 +40,10 @@ std::string LDTK::findTraveledLevel(Entity* player) {
 
         Box levelBox = {level["worldX"], level["worldY"], level["pxWid"], level["pxHei"]};
 
-        if (player->box->getBox().getLeft()   < levelBox.getRight() && 
-                player->box->getBox().getRight()  > levelBox.getLeft() && 
-                player->box->getBox().getTop()    < levelBox.getBottom() && 
-                player->box->getBox().getBottom() > levelBox.getTop()) 
+        if (player->require<entityBox>()->getBox().getLeft()   < levelBox.getRight() && 
+                player->require<entityBox>()->getBox().getRight()  > levelBox.getLeft() && 
+                player->require<entityBox>()->getBox().getTop()    < levelBox.getBottom() && 
+                player->require<entityBox>()->getBox().getBottom() > levelBox.getTop()) 
         {
             return iid;
         }
@@ -53,10 +53,10 @@ std::string LDTK::findTraveledLevel(Entity* player) {
 }
 
 bool LDTK::checkOutsideBounds(Entity* player) {
-    if (player->box->getBox().getCenter().x < worldBox.getRight() && 
-            player->box->getBox().getCenter().x > worldBox.getLeft() && 
-            player->box->getBox().getCenter().y < worldBox.getBottom() && 
-            player->box->getBox().getCenter().y > worldBox.getTop()) 
+    if (player->require<entityBox>()->getBox().getCenter().x < worldBox.getRight() && 
+            player->require<entityBox>()->getBox().getCenter().x > worldBox.getLeft() && 
+            player->require<entityBox>()->getBox().getCenter().y < worldBox.getBottom() && 
+            player->require<entityBox>()->getBox().getCenter().y > worldBox.getTop()) 
     {
         return false;
     }
@@ -81,16 +81,16 @@ void LDTK::loadLevel(std::string iid, Scene* scene) {
             int tileHeight = layer["__gridSize"];
 
             Entity* layerObject = scene->createEntity(layer["__identifier"]);
-            layerObject->addComponent<TileLayer>();
-            layerObject->getComponent<TileLayer>().useLayer = true;
+            layerObject->add<TileLayer>();
+            layerObject->get<TileLayer>()->useLayer = true;
             entities.push_back(layerObject);
 
             for (auto const& tile : layer["gridTiles"]) {
                 Entity* tileObject = scene->createEntity(layer["__identifier"]);
 
-                tileObject->addComponent<Sprite>();
-                tileObject->addComponent<LDTKEntity>();
-                tileObject->getComponent<LDTKEntity>().entityJson = tile;
+                tileObject->add<Sprite>();
+                tileObject->add<LDTKEntity>();
+                tileObject->get<LDTKEntity>()->entityJson = tile;
 
                 std::string imageFileLocation;
 
@@ -98,23 +98,23 @@ void LDTK::loadLevel(std::string iid, Scene* scene) {
                 imageFileLocation.append("/"); 
                 imageFileLocation.append(layer["__tilesetRelPath"]);
 
-                tileObject->getComponent<Sprite>().loadTexture(imageFileLocation);
+                tileObject->get<Sprite>()->loadTexture(imageFileLocation);
 
-                tileObject->getComponent<Sprite>().sourceRect.x = tile["src"][0];
-                tileObject->getComponent<Sprite>().sourceRect.y = tile["src"][1];
-                tileObject->getComponent<Sprite>().sourceRect.w = layer["__gridSize"];
-                tileObject->getComponent<Sprite>().sourceRect.h = layer["__gridSize"];
+                tileObject->get<Sprite>()->sourceRect.x = tile["src"][0];
+                tileObject->get<Sprite>()->sourceRect.y = tile["src"][1];
+                tileObject->get<Sprite>()->sourceRect.w = layer["__gridSize"];
+                tileObject->get<Sprite>()->sourceRect.h = layer["__gridSize"];
 
-                tileObject->getComponent<Sprite>().standardUpdate = false;
+                tileObject->get<Sprite>()->standardUpdate = false;
 
-                tileObject->box->setSize({layer["__gridSize"], layer["__gridSize"]});
+                tileObject->require<entityBox>()->setSize({layer["__gridSize"], layer["__gridSize"]});
 
-                tileObject->box->setPosition({tile["px"][0], tile["px"][1]});
-                tileObject->box->changePosition(worldBox.position);
+                tileObject->require<entityBox>()->setPosition({tile["px"][0], tile["px"][1]});
+                tileObject->require<entityBox>()->changePosition(worldBox.position);
 
-                tileObject->box->setSize({static_cast<float>(tileWidth), static_cast<float>(tileHeight)});
+                tileObject->require<entityBox>()->setSize({static_cast<float>(tileWidth), static_cast<float>(tileHeight)});
 
-                layerObject->getComponent<TileLayer>().tiles.push_back(tileObject);
+                layerObject->get<TileLayer>()->tiles.push_back(tileObject);
 
                 //entities.push_back(tileObject);
             }
@@ -124,14 +124,14 @@ void LDTK::loadLevel(std::string iid, Scene* scene) {
             for (auto const& entity : layer["entityInstances"]) {
                 Entity* object = scene->createEntity(entity["__identifier"]);
 
-                object->addComponent<Sprite>();
-                object->addComponent<LDTKEntity>();
-                object->getComponent<LDTKEntity>().entityJson = entity;
+                object->add<Sprite>();
+                object->add<LDTKEntity>();
+                object->get<LDTKEntity>()->entityJson = entity;
 
-                object->box->setPosition({entity["px"][0], entity["px"][1]});
-                object->box->changePosition(worldBox.position);
+                object->require<entityBox>()->setPosition({entity["px"][0], entity["px"][1]});
+                object->require<entityBox>()->changePosition(worldBox.position);
 
-                object->box->setSize({entity["width"], entity["height"]});
+                object->require<entityBox>()->setSize({entity["width"], entity["height"]});
 
                 entities.push_back(object);
             }

@@ -32,7 +32,7 @@ struct slideOut {
  */
 class entityBox : public Component {
   public:
-  entityBox();
+  entityBox() : Component("entityBox"){};
   ~entityBox() {}
   void start() override {}
   void update(float deltaTime) override {}
@@ -259,7 +259,7 @@ class entityBox : public Component {
     // Horizontal check and move
   HORREDO:
     for (Entity *col : solids) {
-      if (!getBox().checkCollision(col->box->getBox()))
+      if (!getBox().checkCollision(col->require<entityBox>()->getBox()))
         continue;
 
       out.hitList.push_back(col);
@@ -268,10 +268,10 @@ class entityBox : public Component {
 
       Entity *other = col;
       if (movement.x > 0) {
-        setXPosition(other->box->getBox().getLeft() - getSize().x);
+        setXPosition(other->require<entityBox>()->getBox().getLeft() - getSize().x);
         out.horizontalHit = true;
       } else if (movement.x < 0) {
-        setXPosition(other->box->getBox().getRight());
+        setXPosition(other->require<entityBox>()->getBox().getRight());
         out.horizontalHit = true;
       }
 
@@ -286,7 +286,7 @@ class entityBox : public Component {
     // Verticle collision check and move
   VERREDO:
     for (Entity *col : solids) {
-      if (!getBox().checkCollision(col->box->getBox()))
+      if (!getBox().checkCollision(col->require<entityBox>()->getBox()))
         continue;
 
       out.hitList.push_back(col);
@@ -295,10 +295,10 @@ class entityBox : public Component {
 
       Entity *other = col;
       if (movement.y > 0) {
-        setYPosition(other->box->getBox().getTop() - getSize().y);
+        setYPosition(other->require<entityBox>()->getBox().getTop() - getSize().y);
         out.verticleHit = true;
       } else if (movement.y < 0) {
-        setYPosition(other->box->getBox().getBottom());
+        setYPosition(other->require<entityBox>()->getBox().getBottom());
         out.verticleHit = true;
       }
 
