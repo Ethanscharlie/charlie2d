@@ -16,7 +16,9 @@ DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG
 int main()
 {   
     GameManager::init({1920, 1080});
-    mainScene();
+
+    GameManager::createEntity("Player");
+
     GameManager::doUpdateLoop();
     return 0;
 }
