@@ -10,32 +10,29 @@
 \DoxyCodeLine{00006\ \textcolor{comment}{//\ \#include\ "{}Entity.h"{}}}
 \DoxyCodeLine{00007\ \textcolor{comment}{//\ \#include\ "{}EntityBox.h"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScene}{Scene}};}
-\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structentityBox}{entityBox}};}
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classComponent}{Component}}\ \{}
-\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{classComponent}{Component}}(std::string\ \_title\ =\ \textcolor{stringliteral}{"{}"{}})\ :\ title(\_title)\{\};}
-\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classComponent}{\string~Component}}()\ \{\}}
-\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{start}}()\ =\ 0;}
-\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ =\ 0;}
-\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{onDestroy}}()\ \{\}}
-\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{onScreenChange}}()\ \{\}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{structentityBox}{entityBox}}\ *box;}
-\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classScene}{Scene}}\ *scene;}
-\DoxyCodeLine{00044\ \ \ std::string\ title\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{bool}\ isInit\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classComponent_adf18bc31ffaf50ea287ca1ffd2a5e866}{layer}}\ =\ 0;}
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{int}\ index;}
-\DoxyCodeLine{00051\ \ \ std::string\ entityTag\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classComponent_acc6b6f489071d8549dc0f2976225e051}{useLayer}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classComponent_ad1e24bf474dadd687bef5bd5658cec28}{standardUpdate}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00061\ \};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{classentityBox}{entityBox}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classComponent}{Component}}(std::string\ \_title\ =\ \textcolor{stringliteral}{"{}"{}})\ :\ title(\_title)\{\};}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classComponent}{\string~Component}}()\ \{\}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{start}}()\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{onDestroy}}()\ \{\}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{onScreenChange}}()\ \{\}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00041\ \ \ std::string\ title\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{bool}\ isInit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classComponent_adf18bc31ffaf50ea287ca1ffd2a5e866}{layer}}\ =\ 0;}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{int}\ index;}
+\DoxyCodeLine{00048\ \ \ std::string\ entityTag\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classComponent_acc6b6f489071d8549dc0f2976225e051}{useLayer}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classComponent_ad1e24bf474dadd687bef5bd5658cec28}{standardUpdate}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

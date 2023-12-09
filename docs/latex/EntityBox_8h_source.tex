@@ -5,200 +5,205 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENTITY\_BOX\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENTITY\_BOX\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8h}{Math.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structslideOut}{slideOut}}\ \{}
-\DoxyCodeLine{00014\ \ \ std::vector<Entity\ *>\ hitList;}
-\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{bool}\ horizontalHit\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{bool}\ verticleHit\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00017\ \};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structentityBox}{entityBox}}\ \{}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{structentityBox}{entityBox}}(\mbox{\hyperlink{classEntity}{Entity}}\ *\_entity);}
-\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{structentityBox}{\string~entityBox}}()\ \{\}}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structentityBox_a13ab6eb360e37543e6db39715c21a9f5}{getLocalPosition}}()\ \{\ \textcolor{keywordflow}{return}\ localBox.position;\ \}}
-\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structentityBox_a4ae7c03065892fc6eb6f5b7f80c3ec47}{getLocalSize}}()\ \{\ \textcolor{keywordflow}{return}\ localBox.size;\ \}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a8849b82a9400c9ad85f001e7640ccd07}{setLocalPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00049\ \ \ \ \ localBox.position\ =\ point;}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00051\ \ \ \}}
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a8efa7b972186d2d09432996d8755f0a3}{setLocalXPosition}}(\textcolor{keywordtype}{float}\ x)\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ localBox.position.x\ =\ x;}
-\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00058\ \ \ \}}
-\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_ac6a16a09bc3041bacfe4d1f99d3f6cf4}{setLocalYPosition}}(\textcolor{keywordtype}{float}\ y)\ \{}
-\DoxyCodeLine{00063\ \ \ \ \ localBox.position.y\ =\ y;}
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00065\ \ \ \}}
-\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a842a4940c2f05f33a50aa5bd56a775b7}{changeLocalPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ localBox.position\ +=\ change;}
-\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00072\ \ \ \}}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a1ae7e6ed7312cf370f07c687cbd887cd}{setLocalSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00078\ \ \ \ \ localBox.size\ =\ point;}
-\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00080\ \ \ \}}
-\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a9faa9ac3c70350075a89b497a23ad3c0}{setLocalXSize}}(\textcolor{keywordtype}{float}\ x)\ \{}
-\DoxyCodeLine{00085\ \ \ \ \ localBox.size.x\ =\ x;}
-\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00087\ \ \ \}}
-\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_acdf2c28eeff21f8c652e70605c264523}{setLocalYSize}}(\textcolor{keywordtype}{float}\ y)\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ localBox.size.y\ =\ y;}
-\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00094\ \ \ \}}
-\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a1ad8dac728244be68bcc67b726fe389d}{changeLocalSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
-\DoxyCodeLine{00099\ \ \ \ \ localBox.size\ +=\ change;}
-\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00101\ \ \ \}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_abedbe455c9b2f3dbab28764aa63dbe3f}{setLocalWithCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00107\ \ \ \ \ localBox.\mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(point);}
-\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00109\ \ \ \}}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \ \ \textcolor{comment}{//\ GLOBAL\ POSITIONS}}
-\DoxyCodeLine{00115\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structentityBox_a48e9e681b9d56bcdee60223e455d21b1}{getPosition}}()\ \{\ \textcolor{keywordflow}{return}\ globalBox.position;\ \}}
-\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structentityBox_a44f303105c4e381ebfa79fbc071df779}{getSize}}()\ \{\ \textcolor{keywordflow}{return}\ globalBox.size;\ \}}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a47702898c7025c858c1b53aec72734f2}{setPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00125\ \ \ \ \ globalBox.position\ =\ point;}
-\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00127\ \ \ \}}
-\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_ab9c29c278e367a7e027978aadc00a24f}{setXPosition}}(\textcolor{keywordtype}{float}\ x)\ \{}
-\DoxyCodeLine{00132\ \ \ \ \ globalBox.position.x\ =\ x;}
-\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00134\ \ \ \}}
-\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a5fdb9be5390f8f0b718f44b72ce86dee}{setYPosition}}(\textcolor{keywordtype}{float}\ y)\ \{}
-\DoxyCodeLine{00139\ \ \ \ \ globalBox.position.y\ =\ y;}
-\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00141\ \ \ \}}
-\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_ab7247902b1ee32ec32cf72abeaa90a99}{changePosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
-\DoxyCodeLine{00146\ \ \ \ \ globalBox.position\ +=\ change;}
-\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00148\ \ \ \}}
-\DoxyCodeLine{00153\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a51f11ad4856be22a85182ba6f8fe924a}{setSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00154\ \ \ \ \ globalBox.size\ =\ point;}
-\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00156\ \ \ \}}
-\DoxyCodeLine{00160\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a5714ed8e9c5b171a2b89938f0ae5e32f}{setXSize}}(\textcolor{keywordtype}{float}\ x)\ \{}
-\DoxyCodeLine{00161\ \ \ \ \ globalBox.size.x\ =\ x;}
-\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00163\ \ \ \}}
-\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a02afa8d03a72cbfef6308ae4dc6bebec}{setYSize}}(\textcolor{keywordtype}{float}\ y)\ \{}
-\DoxyCodeLine{00168\ \ \ \ \ globalBox.size.y\ =\ y;}
-\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00170\ \ \ \}}
-\DoxyCodeLine{00174\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a61c0ac45c85302a7422bcc439de1ea44}{changeSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
-\DoxyCodeLine{00175\ \ \ \ \ globalBox.size\ +=\ change;}
-\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00177\ \ \ \}}
-\DoxyCodeLine{00181\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_ae2f7f03cacf99813d8f66648d1bcc7df}{setScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ globalBox.getCenter();}
-\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{structentityBox_a51f11ad4856be22a85182ba6f8fe924a}{setSize}}(point);}
-\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{structentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}{setWithCenter}}(center);}
-\DoxyCodeLine{00185\ \ \ \}}
-\DoxyCodeLine{00189\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_aab92e11f77f67bd2411b399d7ce83a8b}{changeScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
-\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ globalBox.getCenter();}
-\DoxyCodeLine{00191\ \ \ \ \ \mbox{\hyperlink{structentityBox_a61c0ac45c85302a7422bcc439de1ea44}{changeSize}}(change);}
-\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{structentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}{setWithCenter}}(center);}
-\DoxyCodeLine{00193\ \ \ \}}
-\DoxyCodeLine{00198\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}{setWithCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
-\DoxyCodeLine{00199\ \ \ \ \ globalBox.\mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(point);}
-\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00201\ \ \ \}}
-\DoxyCodeLine{00202\ }
-\DoxyCodeLine{00206\ \ \ \mbox{\hyperlink{structBox}{Box}}\ \mbox{\hyperlink{structentityBox_afebaed3c6c7e16c95636d141dad25b06}{getLocalBox}}()\ \{\ \textcolor{keywordflow}{return}\ localBox;\ \}}
-\DoxyCodeLine{00210\ \ \ \mbox{\hyperlink{structBox}{Box}}\ \mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()\ \{\ \textcolor{keywordflow}{return}\ globalBox;\ \}}
-\DoxyCodeLine{00211\ }
-\DoxyCodeLine{00215\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structentityBox_adaa1a37edf581035e69e147fe0a5ab72}{getScreenPosition}}();}
-\DoxyCodeLine{00219\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{structentityBox_a8a273788c96c3aa125bdde2d0c39dfdd}{getUIPosition}}();}
-\DoxyCodeLine{00220\ }
-\DoxyCodeLine{00224\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
-\DoxyCodeLine{00228\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
-\DoxyCodeLine{00232\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structentityBox_a84a976ea54b8ffd3dc90e20947e44f55}{print}}();}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00244\ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ \mbox{\hyperlink{structentityBox_a2a86c6422cbadf7d00ae5098738ba1ba}{slide}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&move,\ \textcolor{keyword}{const}\ std::vector<Entity\ *>\ \&solids,}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pushOut\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ useMoveBox\ =\ \textcolor{keyword}{true})\ \{}
-\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out;}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{//\ Start}}
-\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ movement\ =\ move;}
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00251\ \ \ \ \ \textcolor{comment}{//\ Create\ Horizonal\ check\ box}}
-\DoxyCodeLine{00252\ \ \ \ \ \textcolor{comment}{//\ The\ check\ box\ is\ sized\ to\ the\ move\ to\ prevent\ clipping}}
-\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//\ at\ high\ speeds\ and\ low\ framerates}}
-\DoxyCodeLine{00254\ \ \ \ \ \mbox{\hyperlink{structentityBox_ab7247902b1ee32ec32cf72abeaa90a99}{changePosition}}(\{movement.x,\ 0\});}
-\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (!useMoveBox)}
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()\ =\ \mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}();}
-\DoxyCodeLine{00257\ }
-\DoxyCodeLine{00258\ \ \ \ \ \textcolor{comment}{//\ Horizontal\ check\ and\ move}}
-\DoxyCodeLine{00259\ \ \ HORREDO:}
-\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
-\DoxyCodeLine{00261\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(col-\/>box-\/>getBox()))}
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00263\ }
-\DoxyCodeLine{00264\ \ \ \ \ \ \ out.hitList.push\_back(col);}
-\DoxyCodeLine{00265\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pushOut)}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00267\ }
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.x\ >\ 0)\ \{}
-\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentityBox_ab9c29c278e367a7e027978aadc00a24f}{setXPosition}}(other-\/>box-\/>\mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ -\/\ \mbox{\hyperlink{structentityBox_a44f303105c4e381ebfa79fbc071df779}{getSize}}().x);}
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.x\ <\ 0)\ \{}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentityBox_ab9c29c278e367a7e027978aadc00a24f}{setXPosition}}(other-\/>box-\/>\mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}());}
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ HORREDO;}
-\DoxyCodeLine{00278\ \ \ \ \ \}}
-\DoxyCodeLine{00279\ }
-\DoxyCodeLine{00280\ \ \ \ \ \textcolor{comment}{//\ Create\ verticle\ check\ box}}
-\DoxyCodeLine{00281\ \ \ \ \ \mbox{\hyperlink{structentityBox_ab7247902b1ee32ec32cf72abeaa90a99}{changePosition}}(\{0,\ movement.y\});}
-\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{if}\ (!useMoveBox)}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()\ =\ \mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}();}
-\DoxyCodeLine{00284\ }
-\DoxyCodeLine{00285\ \ \ \ \ \textcolor{comment}{//\ Verticle\ collision\ check\ and\ move}}
-\DoxyCodeLine{00286\ \ \ VERREDO:}
-\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(col-\/>box-\/>getBox()))}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \ \ \ \ \ \ out.hitList.push\_back(col);}
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pushOut)}
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.y\ >\ 0)\ \{}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentityBox_a5fdb9be5390f8f0b718f44b72ce86dee}{setYPosition}}(other-\/>box-\/>\mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}()\ -\/\ \mbox{\hyperlink{structentityBox_a44f303105c4e381ebfa79fbc071df779}{getSize}}().y);}
-\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00299\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.y\ <\ 0)\ \{}
-\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentityBox_a5fdb9be5390f8f0b718f44b72ce86dee}{setYPosition}}(other-\/>box-\/>\mbox{\hyperlink{structentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}());}
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00302\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00303\ }
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ VERREDO;}
-\DoxyCodeLine{00305\ \ \ \ \ \}}
-\DoxyCodeLine{00306\ }
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
-\DoxyCodeLine{00308\ \ \ \}}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00310\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *entity\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00311\ }
-\DoxyCodeLine{00312\ \ \ \textcolor{keywordtype}{int}\ anchor\ =\ 0;}
-\DoxyCodeLine{00313\ }
-\DoxyCodeLine{00314\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00315\ \ \ \mbox{\hyperlink{structBox}{Box}}\ globalBox;}
-\DoxyCodeLine{00316\ \ \ \mbox{\hyperlink{structBox}{Box}}\ localBox;}
-\DoxyCodeLine{00317\ \};}
-\DoxyCodeLine{00318\ }
-\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8h}{Math.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structslideOut}{slideOut}}\ \{}
+\DoxyCodeLine{00015\ \ \ std::vector<Entity\ *>\ hitList;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{bool}\ horizontalHit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{bool}\ verticleHit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classentityBox}{entityBox}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{classentityBox}{entityBox}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}entityBox"{}})\{\};}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{classentityBox}{\string~entityBox}}()\ \{\}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a97964f06526bec8bbed4dffab167578b}{start}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a3f520eae5a09d1a5300238a75272d7b6}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classentityBox_a13ab6eb360e37543e6db39715c21a9f5}{getLocalPosition}}()\ \{\ \textcolor{keywordflow}{return}\ localBox.position;\ \}}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classentityBox_a4ae7c03065892fc6eb6f5b7f80c3ec47}{getLocalSize}}()\ \{\ \textcolor{keywordflow}{return}\ localBox.size;\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a8849b82a9400c9ad85f001e7640ccd07}{setLocalPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ localBox.position\ =\ point;}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00055\ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a8efa7b972186d2d09432996d8755f0a3}{setLocalXPosition}}(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ localBox.position.x\ =\ x;}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00062\ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_ac6a16a09bc3041bacfe4d1f99d3f6cf4}{setLocalYPosition}}(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ localBox.position.y\ =\ y;}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00069\ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a842a4940c2f05f33a50aa5bd56a775b7}{changeLocalPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ localBox.position\ +=\ change;}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a1ae7e6ed7312cf370f07c687cbd887cd}{setLocalSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ localBox.size\ =\ point;}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00084\ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a9faa9ac3c70350075a89b497a23ad3c0}{setLocalXSize}}(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ localBox.size.x\ =\ x;}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00091\ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_acdf2c28eeff21f8c652e70605c264523}{setLocalYSize}}(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ localBox.size.y\ =\ y;}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00098\ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a1ad8dac728244be68bcc67b726fe389d}{changeLocalSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ localBox.size\ +=\ change;}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00105\ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_abedbe455c9b2f3dbab28764aa63dbe3f}{setLocalWithCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ localBox.\mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(point);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00113\ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \textcolor{comment}{//\ GLOBAL\ POSITIONS}}
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classentityBox_a48e9e681b9d56bcdee60223e455d21b1}{getPosition}}()\ \{\ \textcolor{keywordflow}{return}\ globalBox.position;\ \}}
+\DoxyCodeLine{00123\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classentityBox_a44f303105c4e381ebfa79fbc071df779}{getSize}}()\ \{\ \textcolor{keywordflow}{return}\ globalBox.size;\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a47702898c7025c858c1b53aec72734f2}{setPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ globalBox.position\ =\ point;}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00131\ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_ab9c29c278e367a7e027978aadc00a24f}{setXPosition}}(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ globalBox.position.x\ =\ x;}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00138\ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a5fdb9be5390f8f0b718f44b72ce86dee}{setYPosition}}(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ globalBox.position.y\ =\ y;}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00145\ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_ab7247902b1ee32ec32cf72abeaa90a99}{changePosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ globalBox.position\ +=\ change;}
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00152\ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a51f11ad4856be22a85182ba6f8fe924a}{setSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ globalBox.size\ =\ point;}
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00160\ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a5714ed8e9c5b171a2b89938f0ae5e32f}{setXSize}}(\textcolor{keywordtype}{float}\ x)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ globalBox.size.x\ =\ x;}
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00167\ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a02afa8d03a72cbfef6308ae4dc6bebec}{setYSize}}(\textcolor{keywordtype}{float}\ y)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ globalBox.size.y\ =\ y;}
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00174\ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a61c0ac45c85302a7422bcc439de1ea44}{changeSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ globalBox.size\ +=\ change;}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00181\ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_ae2f7f03cacf99813d8f66648d1bcc7df}{setScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ globalBox.getCenter();}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{classentityBox_a51f11ad4856be22a85182ba6f8fe924a}{setSize}}(point);}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{classentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}{setWithCenter}}(center);}
+\DoxyCodeLine{00189\ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_aab92e11f77f67bd2411b399d7ce83a8b}{changeScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ center\ =\ globalBox.getCenter();}
+\DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{classentityBox_a61c0ac45c85302a7422bcc439de1ea44}{changeSize}}(change);}
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{classentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}{setWithCenter}}(center);}
+\DoxyCodeLine{00197\ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}{setWithCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ globalBox.\mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(point);}
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00205\ \ \ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00210\ \ \ \mbox{\hyperlink{structBox}{Box}}\ \mbox{\hyperlink{classentityBox_afebaed3c6c7e16c95636d141dad25b06}{getLocalBox}}()\ \{\ \textcolor{keywordflow}{return}\ localBox;\ \}}
+\DoxyCodeLine{00214\ \ \ \mbox{\hyperlink{structBox}{Box}}\ \mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()\ \{\ \textcolor{keywordflow}{return}\ globalBox;\ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00219\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a6861f0516f502aad77ca058a80294a02}{updateGlobalBox}}();}
+\DoxyCodeLine{00223\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a670bf4224a480c885e1a8207cba2b676}{updateLocalBox}}();}
+\DoxyCodeLine{00227\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classentityBox_a84a976ea54b8ffd3dc90e20947e44f55}{print}}();}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00239\ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ \mbox{\hyperlink{classentityBox_a2a86c6422cbadf7d00ae5098738ba1ba}{slide}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&move,\ \textcolor{keyword}{const}\ std::vector<Entity\ *>\ \&solids,}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pushOut\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ useMoveBox\ =\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out;}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{comment}{//\ Start}}
+\DoxyCodeLine{00244\ \ \ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ movement\ =\ move;}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{comment}{//\ This\ system\ checks\ collisions\ for\ horizontal\ and\ vericle\ movment}}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{comment}{//\ seperatly\ If\ there\ is\ a\ collsion\ the\ entityBox\ can\ be\ moved\ in\ the}}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{//\ opposite\ direction\ outside\ the\ collided\ box}}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{comment}{//\ Collsions\ are\ restarted\ if\ there\ is\ any\ colllsion\ at\ all\ to\ prevent}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{comment}{//\ clipping}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{comment}{//\ Create\ Horizonal\ check\ box}}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//\ The\ check\ box\ is\ sized\ to\ the\ move\ to\ prevent\ clipping}}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{//\ at\ high\ speeds\ and\ low\ framerates}}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{classentityBox_ab7247902b1ee32ec32cf72abeaa90a99}{changePosition}}(\{movement.x,\ 0\});}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{if}\ (!useMoveBox)}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()\ =\ \mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}();}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{//\ Horizontal\ check\ and\ move}}
+\DoxyCodeLine{00260\ \ \ HORREDO:}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(col-\/>require<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()))}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \ \ out.hitList.push\_back(col);}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pushOut)}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.x\ >\ 0)\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classentityBox_ab9c29c278e367a7e027978aadc00a24f}{setXPosition}}(other-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_ab1c7dd3089ac82bd2f3e2014fc9cac34}{getLeft}}()\ -\/\ \mbox{\hyperlink{classentityBox_a44f303105c4e381ebfa79fbc071df779}{getSize}}().x);}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.x\ <\ 0)\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classentityBox_ab9c29c278e367a7e027978aadc00a24f}{setXPosition}}(other-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a27d49c9803fd13d084d8e6ea559e8e72}{getRight}}());}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ out.horizontalHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ HORREDO;}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{comment}{//\ Create\ verticle\ check\ box}}
+\DoxyCodeLine{00282\ \ \ \ \ \mbox{\hyperlink{classentityBox_ab7247902b1ee32ec32cf72abeaa90a99}{changePosition}}(\{0,\ movement.y\});}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{if}\ (!useMoveBox)}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()\ =\ \mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}();}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{comment}{//\ Verticle\ collision\ check\ and\ move}}
+\DoxyCodeLine{00287\ \ \ VERREDO:}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classEntity}{Entity}}\ *col\ :\ solids)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a72eaeb8321c2ecbada97f2470f74b633}{checkCollision}}(col-\/>require<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}()))}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ out.hitList.push\_back(col);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pushOut)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *other\ =\ col;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (movement.y\ >\ 0)\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classentityBox_a5fdb9be5390f8f0b718f44b72ce86dee}{setYPosition}}(other-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_a39836d0d3bc07f256afe08ce2ca6989b}{getTop}}()\ -\/\ \mbox{\hyperlink{classentityBox_a44f303105c4e381ebfa79fbc071df779}{getSize}}().y);}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (movement.y\ <\ 0)\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classentityBox_a5fdb9be5390f8f0b718f44b72ce86dee}{setYPosition}}(other-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>\mbox{\hyperlink{classentityBox_a09187aff76ffe8f74f584e27d311a890}{getBox}}().\mbox{\hyperlink{structBox_af77f09a22d0797b474cec178d52de182}{getBottom}}());}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ out.verticleHit\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ VERREDO;}
+\DoxyCodeLine{00306\ \ \ \ \ \}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00309\ \ \ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \textcolor{keywordtype}{int}\ anchor\ =\ 0;}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00314\ \ \ \mbox{\hyperlink{structBox}{Box}}\ globalBox;}
+\DoxyCodeLine{00315\ \ \ \mbox{\hyperlink{structBox}{Box}}\ localBox;}
+\DoxyCodeLine{00316\ \};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

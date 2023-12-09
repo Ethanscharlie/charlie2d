@@ -12,32 +12,26 @@ Entitys are containers for an Enity\+Box and components.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classEntity_ab532e29a83a49f2a41ad535da534457a}\label{classEntity_ab532e29a83a49f2a41ad535da534457a} 
-{\footnotesize template$<$\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{typename}} \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} $>$ }\\\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{void}} {\bfseries add\+Component} ()
-\begin{DoxyCompactList}\small\item\em OLD DON\textquotesingle{}T USE THIS. \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_a9d714a24a0ed3fc151e9ffef94602e95}\label{classEntity_a9d714a24a0ed3fc151e9ffef94602e95} 
-{\footnotesize template$<$\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{typename}} \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} $>$ }\\\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} \& {\bfseries get\+Component} ()
-\begin{DoxyCompactList}\small\item\em OLD DON\textquotesingle{}T USE THIS. \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_adb247dffdb69e5967f36a30056a7dba7}\label{classEntity_adb247dffdb69e5967f36a30056a7dba7} 
-{\footnotesize template$<$\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{typename}} \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} $>$ }\\\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} \texorpdfstring{$\ast$}{*} {\bfseries add} ()
-\begin{DoxyCompactList}\small\item\em Adds a component to the entity Ex\+: \doxylink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{add$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries add} ()
+\begin{DoxyCompactList}\small\item\em Adds a component to the entity Ex\+: \doxylink{classEntity_adb247dffdb69e5967f36a30056a7dba7}{add$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_abe66cdc587c335147849833216ca5c77}\label{classEntity_abe66cdc587c335147849833216ca5c77} 
-{\footnotesize template$<$\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{typename}} \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} $>$ }\\\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} \texorpdfstring{$\ast$}{*} {\bfseries require} ()
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries require} ()
 \begin{DoxyCompactList}\small\item\em Either adds or gets a \doxylink{classComponent}{Component} depending on its existance (won\textquotesingle{}t override components) \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}\label{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a} 
-{\footnotesize template$<$\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{typename}} \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} $>$ }\\\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{C}} \texorpdfstring{$\ast$}{*} {\bfseries get} ()
-\begin{DoxyCompactList}\small\item\em Gets a component from the entity Ex\+: \doxylink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{get$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries get} ()
+\begin{DoxyCompactList}\small\item\em Gets a component from the entity Ex\+: \doxylink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_aaa08bd4404c74e38d426fb395411c3a6}\label{classEntity_aaa08bd4404c74e38d426fb395411c3a6} 
 {\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
 \begin{DoxyCompactList}\small\item\em Does the enity have this? Ex\+: \doxylink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{check\+Component$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_af06539684263ef18099d8b726c933230}\label{classEntity_af06539684263ef18099d8b726c933230} 
-std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Components} ()
+\Hypertarget{classEntity_aaa195326122c2565110c11fffb8e38e2}\label{classEntity_aaa195326122c2565110c11fffb8e38e2} 
+std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries gets} ()
 \item 
 \Hypertarget{classEntity_ab554f9ad736bc1251620b022d2713b50}\label{classEntity_ab554f9ad736bc1251620b022d2713b50} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{void}} {\bfseries add\+Child} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+void {\bfseries add\+Child} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
 \item 
 \Hypertarget{classEntity_a9e8a940b1f46ccba3607c1de727c9cb8}\label{classEntity_a9e8a940b1f46ccba3607c1de727c9cb8} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{void}} {\bfseries set\+Parent} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
+void {\bfseries set\+Parent} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
 \item 
 \Hypertarget{classEntity_a6485d6af764cf54bb6723fe57bec91fa}\label{classEntity_a6485d6af764cf54bb6723fe57bec91fa} 
 \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Parent} ()
@@ -46,34 +40,28 @@ std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component
 std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Children} ()
 \item 
 \Hypertarget{classEntity_ad426cf6d2a1b7e17d1a6a201a03941c9}\label{classEntity_ad426cf6d2a1b7e17d1a6a201a03941c9} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{void}} {\bfseries remove\+Parent} ()
+void {\bfseries remove\+Parent} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classEntity_ac2076343cde9e2901fd22912759d6176}\label{classEntity_ac2076343cde9e2901fd22912759d6176} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{bool}} {\bfseries to\+Destroy} = \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{false}}
+bool {\bfseries to\+Destroy} = false
 \begin{DoxyCompactList}\small\item\em If marked true the entity and all its components will be removed and deleted from memory. \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_a4032af8b661246231eaa5823451f69ed}\label{classEntity_a4032af8b661246231eaa5823451f69ed} 
-\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene} = \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{nullptr}}
-\begin{DoxyCompactList}\small\item\em The Current \doxylink{classScene}{Scene}. \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_a67938508c7ff28ee37d9d7f027307c53}\label{classEntity_a67938508c7ff28ee37d9d7f027307c53} 
-\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
-\item 
 \Hypertarget{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d}\label{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d} 
 std\+::string {\bfseries tag} = "{}"{}
 \begin{DoxyCompactList}\small\item\em String tag for the entity. \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a6086dd8c4ea133261317ad01fc6695c6}\label{classEntity_a6086dd8c4ea133261317ad01fc6695c6} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{bool}} {\bfseries debug} = \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{false}}
+bool {\bfseries debug} = false
 \item 
 \Hypertarget{classEntity_a7578d68b827bee22bf32c7adb2d5a2fa}\label{classEntity_a7578d68b827bee22bf32c7adb2d5a2fa} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{int}} {\bfseries iid}
+int {\bfseries iid}
 \item 
 \Hypertarget{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928}\label{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{bool}} {\bfseries skip\+Update} = \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{false}}
+bool {\bfseries skip\+Update} = false
 \begin{DoxyCompactList}\small\item\em Skips the update loop for the next frame (Resets to true after) \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a939da33e8b67b1d2ee227930aa72da3b}\label{classEntity_a939da33e8b67b1d2ee227930aa72da3b} 
-\mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{bool}} {\bfseries active} = \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{true}}
+bool {\bfseries active} = true
 \begin{DoxyCompactList}\small\item\em NO MORE UPDATES. \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a3fc3002d66c3643d7688982e5ffc7f6d}\label{classEntity_a3fc3002d66c3643d7688982e5ffc7f6d} 
 std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries components}

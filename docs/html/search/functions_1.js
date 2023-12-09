@@ -1,11 +1,11 @@
 var searchData=
 [
   ['changefont_0',['changeFont',['../classText.html#a902c7fd99475f2628a9c565bf1da959b',1,'Text']]],
-  ['changelocalposition_1',['changeLocalPosition',['../structentityBox.html#a842a4940c2f05f33a50aa5bd56a775b7',1,'entityBox']]],
-  ['changelocalsize_2',['changeLocalSize',['../structentityBox.html#a1ad8dac728244be68bcc67b726fe389d',1,'entityBox']]],
-  ['changeposition_3',['changePosition',['../structentityBox.html#ab7247902b1ee32ec32cf72abeaa90a99',1,'entityBox']]],
-  ['changescale_4',['changescale',['../structentityBox.html#aab92e11f77f67bd2411b399d7ce83a8b',1,'entityBox::changeScale()'],['../structBox.html#a8cbd3f8ec11e4811eb29f9a79295780a',1,'Box::changeScale()']]],
-  ['changesize_5',['changeSize',['../structentityBox.html#a61c0ac45c85302a7422bcc439de1ea44',1,'entityBox']]],
+  ['changelocalposition_1',['changeLocalPosition',['../classentityBox.html#a842a4940c2f05f33a50aa5bd56a775b7',1,'entityBox']]],
+  ['changelocalsize_2',['changeLocalSize',['../classentityBox.html#a1ad8dac728244be68bcc67b726fe389d',1,'entityBox']]],
+  ['changeposition_3',['changePosition',['../classentityBox.html#ab7247902b1ee32ec32cf72abeaa90a99',1,'entityBox']]],
+  ['changescale_4',['changescale',['../classentityBox.html#aab92e11f77f67bd2411b399d7ce83a8b',1,'entityBox::changeScale()'],['../structBox.html#a8cbd3f8ec11e4811eb29f9a79295780a',1,'Box::changeScale()']]],
+  ['changesize_5',['changeSize',['../classentityBox.html#a61c0ac45c85302a7422bcc439de1ea44',1,'entityBox']]],
   ['checkaxis_6',['checkAxis',['../classInputManager.html#af52401c3d20a16b6011f04f9681afaa8',1,'InputManager']]],
   ['checkboxcollision_7',['checkBoxCollision',['../classCollider.html#aefba4ca2e639502bb578461ffe6e5117',1,'Collider']]],
   ['checkcirclecollision_8',['checkCircleCollision',['../classCircleCollider.html#abc7a4b982b2a817dbbec64922959e06b',1,'CircleCollider']]],
@@ -16,5 +16,5 @@ var searchData=
   ['checkoutsidebounds_13',['checkOutsideBounds',['../classLDTK.html#a4a7f1156ceac70f9acb72e4a37c2953b',1,'LDTK']]],
   ['checkvertical_14',['checkVertical',['../classInputManager.html#a07f199764155999b43a7bb4e23131d77',1,'InputManager']]],
   ['clear_15',['clear',['../classResourceManager.html#a50cf42daa0ff355fef64431740e498ab',1,'ResourceManager']]],
-  ['createentity_16',['createEntity',['../classScene.html#aea5510be8aa57aae76558f6228c665c1',1,'Scene']]]
+  ['createentity_16',['createEntity',['../classGameManager.html#a7a442fba2b349bd59cdc0bb93e35961b',1,'GameManager']]]
 ];

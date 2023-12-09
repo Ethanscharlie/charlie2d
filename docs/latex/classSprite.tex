@@ -49,7 +49,7 @@ std\+::string {\bfseries texture\+Name} = "{}"{}
 \begin{DoxyCompactList}\small\item\em The filename of the loaded texture. \end{DoxyCompactList}\item 
 \Hypertarget{classSprite_ac45a960b0f941204b2b691bcd7e2289c}\label{classSprite_ac45a960b0f941204b2b691bcd7e2289c} 
 bool {\bfseries show\+Borders} = false
-\begin{DoxyCompactList}\small\item\em Will show the \doxylink{structentityBox}{entity\+Box} as a green box (for debuging) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Will show the \doxylink{classentityBox}{entity\+Box} as a green box (for debuging) \end{DoxyCompactList}\item 
 \Hypertarget{classSprite_af1d735afbe55a5f5142d9a84ab6148d9}\label{classSprite_af1d735afbe55a5f5142d9a84ab6148d9} 
 \mbox{\hyperlink{structAngle}{Angle}} {\bfseries angle}
 \begin{DoxyCompactList}\small\item\em Allows for rotation. \end{DoxyCompactList}\item 
@@ -68,12 +68,8 @@ SDL\+\_\+\+Renderer\+Flip {\bfseries flip} = SDL\+\_\+\+FLIP\+\_\+\+NONE
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structentityBox}{entity\+Box}} \texorpdfstring{$\ast$}{*} {\bfseries box}
-\item 
 \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
 \begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classScene}{Scene}} \texorpdfstring{$\ast$}{*} {\bfseries scene}
-\item 
 std\+::string {\bfseries title} = "{}"{}
 \item 
 bool {\bfseries is\+Init} = false
@@ -127,7 +123,7 @@ Sets the texture.
 \hline
 {\em set\+Size} & Default is true and when true it will change the entityes box to the images size so it doesn\textquotesingle{}t strech\\
 \hline
-{\em keep\+Centered} & Only matters if set\+Size is true, keeps the center of the \doxylink{structentityBox}{entity\+Box} when resizing (uses set\+Scale) \\
+{\em keep\+Centered} & Only matters if set\+Size is true, keeps the center of the \doxylink{classentityBox}{entity\+Box} when resizing (uses set\+Scale) \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classSprite_ad69637776e32e93bda17fe7a108dbb86}\label{classSprite_ad69637776e32e93bda17fe7a108dbb86} 

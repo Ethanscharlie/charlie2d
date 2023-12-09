@@ -1,0 +1,217 @@
+\doxysection{entity\+Box Class Reference}
+\hypertarget{classentityBox}{}\label{classentityBox}\index{entityBox@{entityBox}}
+
+
+entity\+Boxs are a class for local and global positioning relitive to a parent If no parent is set than you can ignore tho local part  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Box.\+h$>$}
+
+Inheritance diagram for entity\+Box\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classentityBox}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classentityBox_a97964f06526bec8bbed4dffab167578b}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classentityBox_a3f520eae5a09d1a5300238a75272d7b6}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a13ab6eb360e37543e6db39715c21a9f5}\label{classentityBox_a13ab6eb360e37543e6db39715c21a9f5} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Local\+Position} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a4ae7c03065892fc6eb6f5b7f80c3ec47}\label{classentityBox_a4ae7c03065892fc6eb6f5b7f80c3ec47} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Local\+Size} ()
+\begin{DoxyCompactList}\small\item\em Gets the size of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a8849b82a9400c9ad85f001e7640ccd07}\label{classentityBox_a8849b82a9400c9ad85f001e7640ccd07} 
+void {\bfseries set\+Local\+Position} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
+\begin{DoxyCompactList}\small\item\em Sets the position of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a8efa7b972186d2d09432996d8755f0a3}\label{classentityBox_a8efa7b972186d2d09432996d8755f0a3} 
+void {\bfseries set\+Local\+XPosition} (float x)
+\begin{DoxyCompactList}\small\item\em Sets the X position of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_ac6a16a09bc3041bacfe4d1f99d3f6cf4}\label{classentityBox_ac6a16a09bc3041bacfe4d1f99d3f6cf4} 
+void {\bfseries set\+Local\+YPosition} (float y)
+\begin{DoxyCompactList}\small\item\em Sets the Y position of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a842a4940c2f05f33a50aa5bd56a775b7}\label{classentityBox_a842a4940c2f05f33a50aa5bd56a775b7} 
+void {\bfseries change\+Local\+Position} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&change)
+\begin{DoxyCompactList}\small\item\em Changes (Adds) the position of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a1ae7e6ed7312cf370f07c687cbd887cd}\label{classentityBox_a1ae7e6ed7312cf370f07c687cbd887cd} 
+void {\bfseries set\+Local\+Size} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
+\begin{DoxyCompactList}\small\item\em Sets the size of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a9faa9ac3c70350075a89b497a23ad3c0}\label{classentityBox_a9faa9ac3c70350075a89b497a23ad3c0} 
+void {\bfseries set\+Local\+XSize} (float x)
+\begin{DoxyCompactList}\small\item\em Sets the Width of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_acdf2c28eeff21f8c652e70605c264523}\label{classentityBox_acdf2c28eeff21f8c652e70605c264523} 
+void {\bfseries set\+Local\+YSize} (float y)
+\begin{DoxyCompactList}\small\item\em Sets the Height of the local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a1ad8dac728244be68bcc67b726fe389d}\label{classentityBox_a1ad8dac728244be68bcc67b726fe389d} 
+void {\bfseries change\+Local\+Size} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&change)
+\begin{DoxyCompactList}\small\item\em changes (Adds) the size of the local box \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_abedbe455c9b2f3dbab28764aa63dbe3f}\label{classentityBox_abedbe455c9b2f3dbab28764aa63dbe3f} 
+void {\bfseries set\+Local\+With\+Center} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
+\begin{DoxyCompactList}\small\item\em Sets the center postion to the point of the localbox. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a48e9e681b9d56bcdee60223e455d21b1}\label{classentityBox_a48e9e681b9d56bcdee60223e455d21b1} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Position} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a44f303105c4e381ebfa79fbc071df779}\label{classentityBox_a44f303105c4e381ebfa79fbc071df779} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Size} ()
+\begin{DoxyCompactList}\small\item\em Gets the size of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a47702898c7025c858c1b53aec72734f2}\label{classentityBox_a47702898c7025c858c1b53aec72734f2} 
+void {\bfseries set\+Position} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
+\begin{DoxyCompactList}\small\item\em Sets the position of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_ab9c29c278e367a7e027978aadc00a24f}\label{classentityBox_ab9c29c278e367a7e027978aadc00a24f} 
+void {\bfseries set\+XPosition} (float x)
+\begin{DoxyCompactList}\small\item\em Sets the X position of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a5fdb9be5390f8f0b718f44b72ce86dee}\label{classentityBox_a5fdb9be5390f8f0b718f44b72ce86dee} 
+void {\bfseries set\+YPosition} (float y)
+\begin{DoxyCompactList}\small\item\em Sets the Y position of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_ab7247902b1ee32ec32cf72abeaa90a99}\label{classentityBox_ab7247902b1ee32ec32cf72abeaa90a99} 
+void {\bfseries change\+Position} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&change)
+\begin{DoxyCompactList}\small\item\em Changes (Adds) the position of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a51f11ad4856be22a85182ba6f8fe924a}\label{classentityBox_a51f11ad4856be22a85182ba6f8fe924a} 
+void {\bfseries set\+Size} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
+\begin{DoxyCompactList}\small\item\em Sets the size of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a5714ed8e9c5b171a2b89938f0ae5e32f}\label{classentityBox_a5714ed8e9c5b171a2b89938f0ae5e32f} 
+void {\bfseries set\+XSize} (float x)
+\begin{DoxyCompactList}\small\item\em Sets the Width of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a02afa8d03a72cbfef6308ae4dc6bebec}\label{classentityBox_a02afa8d03a72cbfef6308ae4dc6bebec} 
+void {\bfseries set\+YSize} (float y)
+\begin{DoxyCompactList}\small\item\em Sets the Height of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a61c0ac45c85302a7422bcc439de1ea44}\label{classentityBox_a61c0ac45c85302a7422bcc439de1ea44} 
+void {\bfseries change\+Size} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&change)
+\begin{DoxyCompactList}\small\item\em changes (Adds) the size of the global box \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_ae2f7f03cacf99813d8f66648d1bcc7df}\label{classentityBox_ae2f7f03cacf99813d8f66648d1bcc7df} 
+void {\bfseries set\+Scale} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
+\begin{DoxyCompactList}\small\item\em Sets the size of global box with keep the center in the same place. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_aab92e11f77f67bd2411b399d7ce83a8b}\label{classentityBox_aab92e11f77f67bd2411b399d7ce83a8b} 
+void {\bfseries change\+Scale} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&change)
+\begin{DoxyCompactList}\small\item\em changes (Adds) the size of the global box \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}\label{classentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4} 
+void {\bfseries set\+With\+Center} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
+\begin{DoxyCompactList}\small\item\em Sets the center postion to the point of the global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_afebaed3c6c7e16c95636d141dad25b06}\label{classentityBox_afebaed3c6c7e16c95636d141dad25b06} 
+\mbox{\hyperlink{structBox}{Box}} {\bfseries get\+Local\+Box} ()
+\begin{DoxyCompactList}\small\item\em Gets a copy the raw local box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a09187aff76ffe8f74f584e27d311a890}\label{classentityBox_a09187aff76ffe8f74f584e27d311a890} 
+\mbox{\hyperlink{structBox}{Box}} {\bfseries get\+Box} ()
+\begin{DoxyCompactList}\small\item\em Gets a copy the raw global box. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a6861f0516f502aad77ca058a80294a02}\label{classentityBox_a6861f0516f502aad77ca058a80294a02} 
+void {\bfseries update\+Global\+Box} ()
+\begin{DoxyCompactList}\small\item\em Called automaticaly, upadates when local box is changed. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a670bf4224a480c885e1a8207cba2b676}\label{classentityBox_a670bf4224a480c885e1a8207cba2b676} 
+void {\bfseries update\+Local\+Box} ()
+\begin{DoxyCompactList}\small\item\em Called automaticaly, upadates when global box is changed. \end{DoxyCompactList}\item 
+\Hypertarget{classentityBox_a84a976ea54b8ffd3dc90e20947e44f55}\label{classentityBox_a84a976ea54b8ffd3dc90e20947e44f55} 
+void {\bfseries print} ()
+\begin{DoxyCompactList}\small\item\em Outputs the global box. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structslideOut}{slide\+Out}} \mbox{\hyperlink{classentityBox_a2a86c6422cbadf7d00ae5098738ba1ba}{slide}} (const \mbox{\hyperlink{structVector2f}{Vector2f}} \&move, const std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&solids, bool push\+Out=true, bool use\+Move\+Box=true)
+\begin{DoxyCompactList}\small\item\em Moves the global box while using entites as walls that it can\textquotesingle{}t pass through. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classentityBox_a79bbed9109b703c785d324ae4e4acc54}\label{classentityBox_a79bbed9109b703c785d324ae4e4acc54} 
+int {\bfseries anchor} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries layer} = 0
+\begin{DoxyCompactList}\small\item\em Layer to update on (requires use\+Layer=true) \end{DoxyCompactList}\item 
+int {\bfseries index}
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries use\+Layer} = false
+\begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+entity\+Boxs are a class for local and global positioning relitive to a parent If no parent is set than you can ignore tho local part 
+
+Every entity has an \doxylink{classentityBox}{entity\+Box} (Think of these like Unity Transforms) These will be
+
+Changes either local or global box with change the oppite box as well to fix with your changes
+
+This will be switched to a \doxylink{classComponent}{Component} at some because because that makes more sense 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classentityBox_a2a86c6422cbadf7d00ae5098738ba1ba}\label{classentityBox_a2a86c6422cbadf7d00ae5098738ba1ba} 
+\index{entityBox@{entityBox}!slide@{slide}}
+\index{slide@{slide}!entityBox@{entityBox}}
+\doxysubsubsection{\texorpdfstring{slide()}{slide()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structslideOut}{slide\+Out}} entity\+Box\+::slide (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structVector2f}{Vector2f}} \&}]{move,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{solids,  }\item[{bool}]{push\+Out = {\ttfamily true},  }\item[{bool}]{use\+Move\+Box = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moves the global box while using entites as walls that it can\textquotesingle{}t pass through. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & the change (You may want to multiply this by delta\+Time) \\
+\hline
+{\em solids} & Entitys that this object can\textquotesingle{}t go through and will be pushed out of \\
+\hline
+{\em push\+Out} & When false it won\textquotesingle{}t use solids as walls and allows pass through\\
+\hline
+{\em use\+Move\+Box} & Used for continueing collsion detection (Currently buggy, don\textquotesingle{}t use with push\+Out being true) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{structslideOut}{slide\+Out} which contains data about what occured during the slide 
+\end{DoxyReturn}
+\Hypertarget{classentityBox_a97964f06526bec8bbed4dffab167578b}\label{classentityBox_a97964f06526bec8bbed4dffab167578b} 
+\index{entityBox@{entityBox}!start@{start}}
+\index{start@{start}!entityBox@{entityBox}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void entity\+Box\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{Component}}.
+
+\Hypertarget{classentityBox_a3f520eae5a09d1a5300238a75272d7b6}\label{classentityBox_a3f520eae5a09d1a5300238a75272d7b6} 
+\index{entityBox@{entityBox}!update@{update}}
+\index{update@{update}!entityBox@{entityBox}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void entity\+Box\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Implements \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Entity\+Box.\+h\item 
+source/Entity\+Box.\+cpp\end{DoxyCompactItemize}

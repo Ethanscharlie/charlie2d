@@ -4,32 +4,33 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.h"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}EntityBox.h"{}}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUICanvas}{UICanvas}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classUICanvas}{UICanvas}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}UICanvas"{}})\ \{\};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{start}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}EntityBox.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}UISliceRenderer.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUICanvas}{UICanvas}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classUICanvas}{UICanvas}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}UICanvas"{}})\{\};}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//float\ scaler\ =\ (float)\ GameManager::windowWidth\ /\ GameManager::originalWidth\ /\ GameManager::screen\_change\_scale;}}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//box-\/>setSize(\{GameManager::originalWidth\ \ *\ scaler,\ GameManager::originalHeight\ *\ scaler\});}}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ box-\/>\mbox{\hyperlink{structentityBox_a51f11ad4856be22a85182ba6f8fe924a}{setSize}}(\{\mbox{\hyperlink{classGameManager_abb18b130f0f509697c19bbded946d135}{GameManager::currentWindowSize}}.x/\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{GameManager::screen\_change\_scale}},\ \mbox{\hyperlink{classGameManager_abb18b130f0f509697c19bbded946d135}{GameManager::currentWindowSize}}.y\ /\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{GameManager::screen\_change\_scale}}\});}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{start}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>setSize(\mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}});}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Margin}}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//box-\/>changeSize(\{-\/10,\ -\/10\});}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Margin}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ entity-\/>require<entityBox>()-\/>changeScale(\{-\/10,\ -\/10\});}}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ box-\/>\mbox{\hyperlink{structentityBox_a3960b28d7166bb6aad8e17b9f6fa9ec4}{setWithCenter}}(\{0,0\});}
-\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>setWithCenter(\{0,\ 0\});}
+\DoxyCodeLine{00028\ \ \ \}}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{start}}();}
-\DoxyCodeLine{00032\ \ \ \ \ \}}
-\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_ac2076343cde9e2901fd22912759d6176}{toDestroy}})}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{start}}();}
+\DoxyCodeLine{00034\ \ \ \}}
+\DoxyCodeLine{00035\ \};}
 
 \end{DoxyCode}
