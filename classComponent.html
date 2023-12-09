@@ -98,7 +98,8 @@ Inheritance diagram for Component:</div>
 <area href="classTileLayer.html" title="Made to optimize tile rendering by not sorting each tile individualy." alt="TileLayer" shape="rect" coords="114,448,218,472"/>
 <area href="classUICanvas.html" title="Sets the box to be the size of the screen (For UI anchoring) For UI please add a canvas entity and ad..." alt="UICanvas" shape="rect" coords="114,504,218,528"/>
 <area href="classUISliceRenderer.html" title="Renders a texture without stretching the corners Don&#39;t forget to use a UICanvas." alt="UISliceRenderer" shape="rect" coords="114,560,218,584"/>
-<area href="classphysicsBody.html" title="A simple movement physics class Made mainly for players It uses a Vector2f velocity and the entityBox..." alt="physicsBody" shape="rect" coords="114,616,218,640"/>
+<area href="classentityBox.html" title="entityBoxs are a class for local and global positioning relitive to a parent If no parent is set than..." alt="entityBox" shape="rect" coords="114,616,218,640"/>
+<area href="classphysicsBody.html" title="A simple movement physics class Made mainly for players It uses a Vector2f velocity and the entityBox..." alt="physicsBody" shape="rect" coords="114,672,218,696"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -122,16 +123,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a374bdfccd617fc1919f9022cecf42251" id="r_a374bdfccd617fc1919f9022cecf42251"><td class="memItemLeft" align="right" valign="top"><a id="a374bdfccd617fc1919f9022cecf42251" name="a374bdfccd617fc1919f9022cecf42251"></a>
-<a class="el" href="structentityBox.html">entityBox</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>box</b></td></tr>
-<tr class="separator:a374bdfccd617fc1919f9022cecf42251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6acb3f00c9d114d961c8763ede390d2c" id="r_a6acb3f00c9d114d961c8763ede390d2c"><td class="memItemLeft" align="right" valign="top"><a id="a6acb3f00c9d114d961c8763ede390d2c" name="a6acb3f00c9d114d961c8763ede390d2c"></a>
 <a class="el" href="classEntity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>entity</b> = nullptr</td></tr>
 <tr class="memdesc:a6acb3f00c9d114d961c8763ede390d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The attached entity. <br /></td></tr>
 <tr class="separator:a6acb3f00c9d114d961c8763ede390d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a681344c0ff97f7dd2162b59799ed4c0a" id="r_a681344c0ff97f7dd2162b59799ed4c0a"><td class="memItemLeft" align="right" valign="top"><a id="a681344c0ff97f7dd2162b59799ed4c0a" name="a681344c0ff97f7dd2162b59799ed4c0a"></a>
-<a class="el" href="classScene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>scene</b></td></tr>
-<tr class="separator:a681344c0ff97f7dd2162b59799ed4c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dda7de19221b9351c969517de715fe7" id="r_a9dda7de19221b9351c969517de715fe7"><td class="memItemLeft" align="right" valign="top"><a id="a9dda7de19221b9351c969517de715fe7" name="a9dda7de19221b9351c969517de715fe7"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>title</b> = &quot;&quot;</td></tr>
 <tr class="separator:a9dda7de19221b9351c969517de715fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -243,7 +238,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 
 <p>Runs after <a class="el" href="classComponent.html" title="Components are made to attach to Entity s Sprite Components with handle rendering while Collider s wi...">Component</a> data is set in entity.add. </p>
 
-<p>Implemented in <a class="el" href="classButton.html#af20597b66882388602fa34959bcd2008">Button</a>, <a class="el" href="classCircleCollider.html#a8d99b540a3931b6b0e81e6d1ed3b850d">CircleCollider</a>, <a class="el" href="classCollider.html#afc2cd70c2772433aaba405d1fc1a5beb">Collider</a>, <a class="el" href="classJumpMan.html#a9edfdb170af06e76632923f2b5d439e6">JumpMan</a>, <a class="el" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#a3f61ad0d22479bdea0ca431e7bbab107">physicsBody</a>, <a class="el" href="classSprite.html#ad69637776e32e93bda17fe7a108dbb86">Sprite</a>, <a class="el" href="classText.html#a7c7391c29820a87f72dd30c92e71c85f">Text</a>, <a class="el" href="classTileLayer.html#a5800e39c6e110a8595a841dc806433db">TileLayer</a>, <a class="el" href="classUICanvas.html#a3b1a84d0f2bc7157e7f5414011cc0b29">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0">UISliceRenderer</a>.</p>
+<p>Implemented in <a class="el" href="classButton.html#af20597b66882388602fa34959bcd2008">Button</a>, <a class="el" href="classCircleCollider.html#a8d99b540a3931b6b0e81e6d1ed3b850d">CircleCollider</a>, <a class="el" href="classCollider.html#afc2cd70c2772433aaba405d1fc1a5beb">Collider</a>, <a class="el" href="classentityBox.html#a97964f06526bec8bbed4dffab167578b">entityBox</a>, <a class="el" href="classJumpMan.html#a9edfdb170af06e76632923f2b5d439e6">JumpMan</a>, <a class="el" href="classLDTKEntity.html#acc210d0da97de9dcabc8a0e93024ba5b">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#a3f61ad0d22479bdea0ca431e7bbab107">physicsBody</a>, <a class="el" href="classSprite.html#ad69637776e32e93bda17fe7a108dbb86">Sprite</a>, <a class="el" href="classText.html#a7c7391c29820a87f72dd30c92e71c85f">Text</a>, <a class="el" href="classTileLayer.html#a5800e39c6e110a8595a841dc806433db">TileLayer</a>, <a class="el" href="classUICanvas.html#a3b1a84d0f2bc7157e7f5414011cc0b29">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0">UISliceRenderer</a>.</p>
 
 </div>
 </div>
@@ -273,7 +268,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>standardUpdate</b> = 
 
 <p>Updates in the update loop. </p>
 
-<p>Implemented in <a class="el" href="classButton.html#af3d3e83faa0a146d66faeec9cc4c484e">Button</a>, <a class="el" href="classCircleCollider.html#af410c11f63576845aa343d8ff9b0e579">CircleCollider</a>, <a class="el" href="classCollider.html#accd99a67e32b8c4d56f5e346c06b1530">Collider</a>, <a class="el" href="classJumpMan.html#a0cfd390cb9f6148fb7c391314c1bad40">JumpMan</a>, <a class="el" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#adf53b6cb40bd3e506c7b79113ac3c234">physicsBody</a>, <a class="el" href="classSprite.html#aea1bb193b0b1a47512ef1e7751a38f2f">Sprite</a>, <a class="el" href="classText.html#a57e755e59705824aeaa36d72bd6a8ff3">Text</a>, <a class="el" href="classTileLayer.html#a1db294a23904e414861e8ebbf1a3f4ea">TileLayer</a>, <a class="el" href="classUICanvas.html#ac8b11ae5b4b7a89c5da3d0d6034591e5">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679">UISliceRenderer</a>.</p>
+<p>Implemented in <a class="el" href="classButton.html#af3d3e83faa0a146d66faeec9cc4c484e">Button</a>, <a class="el" href="classCircleCollider.html#af410c11f63576845aa343d8ff9b0e579">CircleCollider</a>, <a class="el" href="classCollider.html#accd99a67e32b8c4d56f5e346c06b1530">Collider</a>, <a class="el" href="classentityBox.html#a3f520eae5a09d1a5300238a75272d7b6">entityBox</a>, <a class="el" href="classJumpMan.html#a0cfd390cb9f6148fb7c391314c1bad40">JumpMan</a>, <a class="el" href="classLDTKEntity.html#a4ed891a674daf27e44a3802cd89bb2eb">LDTKEntity</a>, <a class="el" href="classphysicsBody.html#adf53b6cb40bd3e506c7b79113ac3c234">physicsBody</a>, <a class="el" href="classSprite.html#aea1bb193b0b1a47512ef1e7751a38f2f">Sprite</a>, <a class="el" href="classText.html#a57e755e59705824aeaa36d72bd6a8ff3">Text</a>, <a class="el" href="classTileLayer.html#a1db294a23904e414861e8ebbf1a3f4ea">TileLayer</a>, <a class="el" href="classUICanvas.html#ac8b11ae5b4b7a89c5da3d0d6034591e5">UICanvas</a>, and <a class="el" href="classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679">UISliceRenderer</a>.</p>
 
 </div>
 </div>
