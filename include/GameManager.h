@@ -87,6 +87,11 @@ public:
   static std::vector<C *> getComponents(std::string tag = "");
 
   /**
+   * \brief Removes a component
+   */
+  static void removeComponent(Component *component, std::type_index type);
+
+  /**
    * \brief Gets entitys via their tags
    * \param tag string for the tag
    * \return An std::vector of entitys

@@ -20,9 +20,7 @@ class Component;
  */
 class Entity {
 public:
-  Entity(){
-      // box = new entityBox(this);
-  };
+  Entity() {}
 
   ~Entity() {}
 
@@ -37,10 +35,7 @@ public:
     component->start();
     components[typeid(C)] = component;
 
-    // scene->template add<C>(components[typeid(C)]);
-    if (GameManager::components.count(typeid(C)) ==
-        0) { //&& std::find(componentTypes.begin(), componentTypes.end(),
-             // typeid(C)) == componentTypes.end()) {
+    if (GameManager::components.count(typeid(C)) == 0) {
       std::cout << "added type " << component->title << std::endl;
     }
 
@@ -77,6 +72,22 @@ public:
   }
 
   /**
+   * \brief Removes and deletes a component
+   */
+  template <typename C> void remove() {
+    // Remove from GameManager
+    C* component = get<C>();
+    GameManager::removeComponent(component, typeid(C));
+
+    // Remove from entity
+    components.erase(typeid(C));
+
+    delete component;
+
+    std::cout << "Removed component " << typeid(C).name() << std::endl;
+  }
+
+  /**
    * \brief Does the enity have this? Ex: checkComponent<Sprite>()
    */
   template <typename C> bool checkComponent() {
@@ -84,15 +95,18 @@ public:
     return it != components.end();
   }
 
+  /**
+   * Gets the entitys components
+   */
   std::map<std::type_index, Component *> gets() { return components; };
 
   /**
-   * \brief
+   * \brief Adds a child to the entity
    */
   void addChild(Entity *entity) { children.push_back(entity); }
 
   /**
-   * \brief
+   * \brief Sets the parent of the entity 
    */
   void setParent(Entity *entity) {
     parent = entity;
@@ -100,7 +114,7 @@ public:
   }
 
   /**
-   * \brief
+   * \brief Gets the parent of the entity
    */
   Entity *getParent() { return parent; }
   std::vector<Entity *> getChildren() { return children; }

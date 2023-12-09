@@ -216,10 +216,12 @@ void GameManager::Update() {
 
     // components
     for (auto [ctype, component] : entity->components) {
-      components[ctype].erase(std::remove(components[ctype].begin(),
-                                          components[ctype].end(), component),
-                              components[ctype].end());
+      // components[ctype].erase(std::remove(components[ctype].begin(),
+      //                                     components[ctype].end(),
+      //                                     component),
+      //                         components[ctype].end());
 
+      removeComponent(component, ctype);
       delete component;
     }
 
@@ -384,4 +386,10 @@ Entity *GameManager::createEntity(std::string tag) {
   entity->iid = getAllObjects().size();
   entities[tag].push_back(entity);
   return entity;
+}
+
+void GameManager::removeComponent(Component *component, std::type_index type) {
+  components[type].erase(
+      std::remove(components[type].begin(), components[type].end(), component),
+      components[type].end());
 }
