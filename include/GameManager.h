@@ -159,6 +159,11 @@ public:
       entities; // Sorted by tags
 
 private:
+  /**
+   * Deletes
+   */
+  static void destroyEntity(Entity* entity);
+
   static Uint32 fadeStartTime;
   static int fade_time;
 

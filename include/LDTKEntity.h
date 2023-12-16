@@ -18,6 +18,8 @@ public:
 
   void update(float deltaTime) override {}
 
+  void onDestroy() override;
+
   /**
    * \brief A nlohmann json file from ldtk for this entity
    */

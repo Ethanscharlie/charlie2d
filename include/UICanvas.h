@@ -28,8 +28,8 @@ public:
   }
 
   void update(float deltaTime) override {
-    if (entity->toDestroy)
-      return;
+    // if (entity->toDestroy)
+    //   return;
     start();
   }
 };

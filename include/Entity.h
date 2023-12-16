@@ -28,6 +28,10 @@ public:
    * \brief Adds a component to the entity Ex: add<Sprite>()
    */
   template <typename C> C *add() {
+    if (checkComponent<C>()) {
+      return get<C>();
+    }    
+
     C *component = new C();
 
     component->entity = this;
@@ -142,9 +146,11 @@ public:
 
   std::map<std::type_index, Component *> components;
 
-private:
   std::vector<Entity *> children;
+
   Entity *parent = nullptr;
+
+private:
 };
 
 #endif // ENTITY_H

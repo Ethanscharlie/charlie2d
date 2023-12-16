@@ -178,6 +178,13 @@ void GameManager::Update() {
         // }
 
         component->onDestroy();
+
+        // EACH COMPONENT WAS APPENDING TO entitesToRemove
+        if (std::find(entitesToRemove.begin(), entitesToRemove.end(), entity) ==
+            entitesToRemove.end()) {
+
+          entitesToRemove.push_back(entity);
+        }
         // it = clist->erase(it);
         // allObjects.erase(
         //     std::remove(allObjects.begin(), allObjects.end(), entity),
@@ -208,31 +215,6 @@ void GameManager::Update() {
     }
   }
 
-  // Destroyer
-  for (Entity *entity : entitesToRemove) {
-    for (Entity *child : entity->getChildren()) {
-      child->toDestroy = true;
-    }
-
-    // components
-    for (auto [ctype, component] : entity->components) {
-      // components[ctype].erase(std::remove(components[ctype].begin(),
-      //                                     components[ctype].end(),
-      //                                     component),
-      //                         components[ctype].end());
-
-      removeComponent(component, ctype);
-      delete component;
-    }
-
-    // Entity
-    entities[entity->tag].erase(std::remove(entities[entity->tag].begin(),
-                                            entities[entity->tag].end(),
-                                            entity),
-                                entities[entity->tag].end());
-    delete entity;
-  }
-
   std::sort(layeredComponents.begin(), layeredComponents.end(),
             [](Component *a, Component *b) {
               if (a->layer == b->layer)
@@ -243,6 +225,7 @@ void GameManager::Update() {
   for (Component *component : layeredComponents) {
     component->update(deltaTime);
   }
+  //
   // END OF OLD SCENE LOOP
 
   if (transition == 1) {
@@ -294,6 +277,11 @@ void GameManager::Update() {
   }
 
   SDL_RenderPresent(renderer);
+
+  // Destroyer
+  for (Entity *entity : entitesToRemove) {
+    destroyEntity(entity);
+  }
 }
 
 void GameManager::setWindowSize(Vector2f size) {
@@ -392,4 +380,38 @@ void GameManager::removeComponent(Component *component, std::type_index type) {
   components[type].erase(
       std::remove(components[type].begin(), components[type].end(), component),
       components[type].end());
+}
+
+void GameManager::destroyEntity(Entity *entity) {
+  if (entity == nullptr)
+    return;
+  if (std::find(getAllObjects().begin(), getAllObjects().end(), entity) ==
+      getAllObjects().end())
+    return;
+  for (Entity *child : entity->getChildren()) {
+    if (child == nullptr)
+      continue;
+    child->toDestroy = true;
+    child->parent = nullptr;
+    destroyEntity(child);
+  }
+
+  // components
+  for (auto [ctype, component] : entity->components) {
+    removeComponent(component, ctype);
+    delete component;
+  }
+
+  entities[entity->tag].erase(std::remove(entities[entity->tag].begin(),
+                                          entities[entity->tag].end(), entity),
+                              entities[entity->tag].end());
+
+  if (entity->getParent() != nullptr) {
+    entity->getParent()->children.erase(
+        std::remove(entity->getParent()->children.begin(),
+                    entity->getParent()->children.end(), entity),
+        entity->getParent()->children.end());
+  }
+
+  delete entity;
 }
