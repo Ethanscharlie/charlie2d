@@ -74,7 +74,7 @@
 //         ++it;
 //       } else {
 //         if (component->standardUpdate) {
-//           if (component->useLayer) {
+//           if (component->entity->useLayer) {
 //             layeredComponents.push_back(component);
 //           } else if (updateEntities) {
 //             component->update(deltaTime);
@@ -109,7 +109,7 @@
 //
 //   std::sort(layeredComponents.begin(), layeredComponents.end(),
 //             [](Component *a, Component *b) {
-//               if (a->layer == b->layer)
+//               if (a->entity->layer == b->layer)
 //                 return a->entity->iid < b->entity->iid;
 //               return a->layer < b->layer;
 //             });

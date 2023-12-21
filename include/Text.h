@@ -20,8 +20,8 @@ public:
     text = "";
     fontSize = original_font_size;
     changeFont(mfontFile, original_font_size);
-    layer = 70;
-    useLayer = true;
+    entity->layer = 70;
+    entity->useLayer = true;
   }
 
   void update(float deltaTime) override {

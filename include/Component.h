@@ -40,17 +40,9 @@ public:
   Entity *entity = nullptr;
   std::string title = "";
   bool isInit = false;
-  /**
-   * \brief Layer to update on (requires useLayer=true)
-   */
-  int layer = 0;
   int index;
   std::string entityTag = "";
 
-  /**
-   * \brief Tells the engine to update with a sorting algorithim (made for sprites)
-   */
-  bool useLayer = false;
   /**
    * \brief Will update the Component in the game loop
    */

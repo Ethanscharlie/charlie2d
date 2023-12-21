@@ -121,7 +121,7 @@ public:
    * \param fadeTime the time it takes to finish the transition
    */
   static void doFade(
-      std::function<void()> middle = []() {}, int fadeTime = 300);
+      std::function<void()> middle = []() {}, int fadeTime = 300, std::function<void()> post = []() {});
 
   static SDL_Window *window;
   static SDL_Renderer *renderer;
@@ -170,6 +170,7 @@ private:
   static Uint64 lastTime;
 
   static std::function<void()> onMiddleFade;
+  static std::function<void()> onPostFade;
 };
 
 template <typename C>

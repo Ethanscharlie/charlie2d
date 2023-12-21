@@ -48,6 +48,7 @@ public:
     }
 
     if (InputManager::checkInput("jumpTrigger")) {
+      std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
       if (!allowJump)
         return;
 

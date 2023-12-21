@@ -10,14 +10,14 @@ class Animation;
 class Entity;
 
 /**
- * \brief Components made for 2D rendering (uses useLayer) which makes it sort
+ * \brief Components made for 2D rendering (uses entity->useLayer) which makes it sort
  * in the update loop
  */
 class Sprite : public Component {
 public:
   Sprite() : Component("sprite"){};
 
-  void start() override { useLayer = true; }
+  void start() override { entity->useLayer = true; }
 
   void update(float deltaTime) override;
 

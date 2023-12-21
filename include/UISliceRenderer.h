@@ -23,8 +23,8 @@ public:
 
   void start() override {
     loadTexture(textureName);
-    layer = 65;
-    useLayer = true;
+    entity->layer = 65;
+    entity->useLayer = true;
   }
 
   /**

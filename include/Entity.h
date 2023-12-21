@@ -30,7 +30,7 @@ public:
   template <typename C> C *add() {
     if (checkComponent<C>()) {
       return get<C>();
-    }    
+    }
 
     C *component = new C();
 
@@ -80,7 +80,7 @@ public:
    */
   template <typename C> void remove() {
     // Remove from GameManager
-    C* component = get<C>();
+    C *component = get<C>();
     GameManager::removeComponent(component, typeid(C));
 
     // Remove from entity
@@ -99,6 +99,16 @@ public:
     return it != components.end();
   }
 
+  void update() {
+    for (auto [type, component] : components) {
+      if (!component->standardUpdate)
+        continue;
+      if (!GameManager::updateEntities && component->title != "sprite" && component->title != "TileLayer")
+        continue;
+      component->update(GameManager::deltaTime);
+    }
+  }
+
   /**
    * Gets the entitys components
    */
@@ -110,7 +120,7 @@ public:
   void addChild(Entity *entity) { children.push_back(entity); }
 
   /**
-   * \brief Sets the parent of the entity 
+   * \brief Sets the parent of the entity
    */
   void setParent(Entity *entity) {
     parent = entity;
@@ -143,6 +153,15 @@ public:
    * \brief NO MORE UPDATES
    */
   bool active = true;
+  /**
+   * \brief Layer to update on (requires entity->useLayer=true)
+   */
+  int layer = 0;
+  /**
+   * \brief Tells the engine to update with a sorting algorithim (made for
+   * sprites)
+   */
+  bool useLayer = false;
 
   std::map<std::type_index, Component *> components;
 

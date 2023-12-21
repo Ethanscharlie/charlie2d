@@ -3,12 +3,12 @@
 #include "Entity.h"
 
 void TileLayer::start() {
-    useLayer = true;
+    entity->useLayer = true;
 }
 
 void TileLayer::update(float deltaTime) {
     for (Entity* tile : tiles) {
-        tile->get<Sprite>()->update(deltaTime);
+        tile->update();
     }
 }
 

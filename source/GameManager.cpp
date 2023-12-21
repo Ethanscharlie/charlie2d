@@ -1,8 +1,10 @@
 #include "GameManager.h"
+#include "Component.h"
 #include "Entity.h"
 #include "EntityBox.h"
 #include "InputManager.h"
 #include "Math.h"
+#include <functional>
 
 int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
 Uint32 GameManager::fadeStartTime = 0;
@@ -22,6 +24,7 @@ float GameManager::screen_change_scale = 0;
 SDL_Window *GameManager::window = nullptr;
 SDL_Renderer *GameManager::renderer = nullptr;
 std::function<void()> GameManager::onMiddleFade = []() {};
+std::function<void()> GameManager::onPostFade = []() {};
 
 bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;
@@ -155,75 +158,51 @@ void GameManager::Update() {
   lastTime = currentTime;
   lastTime = SDL_GetPerformanceCounter();
 
-  // if (1.0f / deltaTime < 200) std::cout << "FPS: " << 1.0f / deltaTime <<
-  // std::endl;
+  // if (1.0f / deltaTime < 20)
+  //   std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
 
   SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
   SDL_RenderClear(GameManager::renderer);
 
-  std::vector<Component *> layeredComponents;
+  std::vector<Entity *> layeredEntities;
   std::vector<Entity *> entitesToRemove;
-  for (auto &c : components) {
-    std::vector<Component *> *clist = &c.second;
-
-    for (auto it = clist->begin(); it != clist->end();) {
-      Component *component = *it;
-      if (component == nullptr)
-        continue;
-      Entity *entity = component->entity;
-
-      if (entity->toDestroy) {
-        // for (Entity *e : entity->getChildren()) {
-        //   e->toDestroy = true;
-        // }
-
+  for (Entity *entity : getAllObjects()) {
+    if (entity->toDestroy) {
+      entitesToRemove.push_back(entity);
+      for (auto [type, component] : entity->components) {
         component->onDestroy();
-
-        // EACH COMPONENT WAS APPENDING TO entitesToRemove
-        if (std::find(entitesToRemove.begin(), entitesToRemove.end(), entity) ==
-            entitesToRemove.end()) {
-
-          entitesToRemove.push_back(entity);
-        }
-        // it = clist->erase(it);
-        // allObjects.erase(
-        //     std::remove(allObjects.begin(), allObjects.end(), entity),
-        //     allObjects.end());
-
-        // delete component;
-
-        // Delete Entity if there are no remaining components
-        // if (entity->gets().size() <= 0) {
-        //   delete entity;
-        // }
-        ++it;
-      } else if (entity->skipUpdate) {
-        entity->skipUpdate = false;
-      } else if (!entity->active) {
-        ++it;
-      } else {
-        if (component->standardUpdate) {
-          if (component->useLayer) {
-            layeredComponents.push_back(component);
-          } else if (updateEntities) {
-            component->update(deltaTime);
-          }
-        }
-
-        ++it;
       }
+      continue;
     }
+    if (entity->skipUpdate) {
+      entity->skipUpdate = false;
+      continue;
+    }
+    if (!entity->active)
+      continue;
+    if (entity->useLayer) {
+      layeredEntities.push_back(entity);
+      continue;
+    }
+    // if (!updateEntities)
+    //   continue;
+
+    entity->update();
   }
 
-  std::sort(layeredComponents.begin(), layeredComponents.end(),
-            [](Component *a, Component *b) {
+  std::sort(layeredEntities.begin(), layeredEntities.end(),
+            [](Entity *a, Entity *b) {
               if (a->layer == b->layer)
-                return a->entity->iid < b->entity->iid;
+                return a->iid < b->iid;
               return a->layer < b->layer;
             });
 
-  for (Component *component : layeredComponents) {
-    component->update(deltaTime);
+  for (Entity *entity : layeredEntities) {
+    entity->update();
+  }
+  // Destroyer
+  for (Entity *entity : entitesToRemove) {
+    destroyEntity(entity);
   }
   //
   // END OF OLD SCENE LOOP
@@ -237,8 +216,8 @@ void GameManager::Update() {
                            static_cast<Uint8>(255 * elapsedTime / fade_time));
 
     SDL_Rect fill_dst;
-    fill_dst.w = currentWindowSize.x;
-    fill_dst.h = currentWindowSize.y;
+    fill_dst.w = gameWindowSize.x;
+    fill_dst.h = gameWindowSize.y;
     fill_dst.x = 0;
     fill_dst.y = 0;
 
@@ -263,8 +242,8 @@ void GameManager::Update() {
         static_cast<Uint8>(255 - 255 * elapsedTime / fade_time));
 
     SDL_Rect fill_dst;
-    fill_dst.w = currentWindowSize.x;
-    fill_dst.h = currentWindowSize.y;
+    fill_dst.w = gameWindowSize.x;
+    fill_dst.h = gameWindowSize.y;
     fill_dst.x = 0;
     fill_dst.y = 0;
 
@@ -273,15 +252,11 @@ void GameManager::Update() {
     // Check if the fade transition is complete
     if (elapsedTime >= fade_time) {
       transition = 0;
+      onPostFade();
     }
   }
 
   SDL_RenderPresent(renderer);
-
-  // Destroyer
-  for (Entity *entity : entitesToRemove) {
-    destroyEntity(entity);
-  }
 }
 
 void GameManager::setWindowSize(Vector2f size) {
@@ -346,9 +321,11 @@ void GameManager::quit() {
   GameManager::running = false;
 }
 
-void GameManager::doFade(std::function<void()> middle, int fadeTime) {
+void GameManager::doFade(std::function<void()> middle, int fadeTime,
+                         std::function<void()> post) {
   fade_time = fadeTime;
   onMiddleFade = middle;
+  onPostFade = post;
   transition = 1;
   fadeStartTime = SDL_GetTicks();
 }

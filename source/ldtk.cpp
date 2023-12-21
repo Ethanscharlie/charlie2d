@@ -24,18 +24,18 @@ void LDTK::unload(std::vector<Entity *> enlist) {
   if (ldtkPlayer != nullptr)
     ldtkPlayer->skipUpdate = true;
   for (Entity *entity : enlist) {
-    if (entity == nullptr)
-      continue;
     if (entity == ldtkPlayer)
       continue;
     entities.erase(std::remove(entities.begin(), entities.end(), entity),
                    entities.end());
 
-    if (std::find(GameManager::getAllObjects().begin(),
-                  GameManager::getAllObjects().end(),
-                  entity) == GameManager::getAllObjects().end()) {
+    if (entity == nullptr)
       continue;
-    }
+    // if (std::find(GameManager::getAllObjects().begin(),
+    //               GameManager::getAllObjects().end(),
+    //               entity) == GameManager::getAllObjects().end()) {
+    //   continue;
+    // }
     // std::cout << entity->tag << std::endl;
     entity->toDestroy = true;
   }
@@ -106,7 +106,7 @@ void LDTK::loadLevel(std::string iid) {
 
       Entity *layerObject = GameManager::createEntity(layer["__identifier"]);
       layerObject->require<TileLayer>();
-      layerObject->get<TileLayer>()->useLayer = true;
+      layerObject->useLayer = true;
 
       entities.push_back(layerObject);
 
@@ -131,7 +131,7 @@ void LDTK::loadLevel(std::string iid) {
         tileObject->get<Sprite>()->sourceRect.w = layer["__gridSize"];
         tileObject->get<Sprite>()->sourceRect.h = layer["__gridSize"];
 
-        tileObject->get<Sprite>()->standardUpdate = false;
+        tileObject->active = false;
 
         tileObject->require<entityBox>()->setSize(
             {layer["__gridSize"], layer["__gridSize"]});
@@ -178,7 +178,7 @@ void LDTK::loadLevel(std::string iid) {
         unload(lastEntities);
         GameManager::updateEntities = true;
       },
-      150);
+      150, [lastEntities]() {});
 }
 
 void LDTK::loadJson(std::string file) {
