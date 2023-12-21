@@ -20,11 +20,11 @@ public:
   /**
    * \brief Runs after Component data is set in entity.add
    */
-  virtual void start() = 0;
+  virtual void start() {}
   /**
    * \brief Updates in the update loop
    */
-  virtual void update(float deltaTime) = 0;
+  virtual void update(float deltaTime) {}
   /**
    * \brief Is called when entity->toDestory = true
    */
