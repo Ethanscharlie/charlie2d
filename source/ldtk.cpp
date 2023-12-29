@@ -86,7 +86,7 @@ bool LDTK::checkOutsideBounds(Entity *player) {
   return true;
 }
 
-void LDTK::loadLevel(std::string iid) {
+void LDTK::loadLevel(std::string iid, bool handleUnload) {
   if (iid == "")
     return;
   // GameManager::updateEntities = false;
@@ -171,14 +171,20 @@ void LDTK::loadLevel(std::string iid) {
   }
 
   onLoadLevel();
-  GameManager::updateEntities = false;
-  GameManager::doFade(
-      [lastEntities]() {
-        Camera::cameraLimitBox = worldBox;
-        unload(lastEntities);
-        GameManager::updateEntities = true;
-      },
-      150, [lastEntities]() {});
+
+  if (handleUnload) {
+    GameManager::updateEntities = false;
+    GameManager::doFade(
+        [lastEntities]() {
+          Camera::cameraLimitBox = worldBox;
+          unload(lastEntities);
+          GameManager::updateEntities = true;
+        },
+        150, [lastEntities]() {});
+  } else {
+
+    Camera::cameraLimitBox = worldBox;
+  }
 }
 
 void LDTK::loadJson(std::string file) {

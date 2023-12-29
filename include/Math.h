@@ -7,6 +7,7 @@
 #include <ctime>
 #include <iostream>
 #include <random>
+#include <sstream>
 
 /** @file */
 /**
@@ -150,6 +151,25 @@ struct Box {
   Vector2f size;
 };
 
+struct Circle {
+  Circle(Vector2f _position, float _radius)
+      : position(_position), radius(_radius) {}
+
+  Circle() : position({0, 0}), radius(0.0f) {}
+
+  bool checkCollision(const Circle &other) {
+    float distance = std::sqrt(std::pow(other.position.x - position.x, 2) +
+                               std::pow(other.position.y - position.y, 2));
+
+    return distance <= radius + other.radius;
+  }
+
+  Vector2f position;
+  float radius;
+};
+
+bool checkCollision(Box box, Circle circle);
+
 /**
  * \brief Random floating point number
  */
@@ -171,39 +191,4 @@ template <typename T, std::size_t N> T getRandomElement(const T (&arr)[N]) {
   return arr[randomIndex];
 }
 
-// // Function to check if a line (start + direction * t) intersects with a box
-// bool doesLineIntersect(const Vector2f& start, const Vector2f& direction,
-// const Box& box) {
-//     float tmin = 0.0f;
-//     float tmax = 1.0f;
-//
-//     for (int i = 0; i < 2; ++i) {
-//         float invDir = 1.0f / direction.x; // Assuming direction.x != 0
-//         float t0 = (box.position.x - start.x) * invDir;
-//         float t1 = (box.position.x + box.size.x - start.x) * invDir;
-//
-//         if (invDir < 0.0f)
-//             std::swap(t0, t1);
-//
-//         tmin = std::max(tmin, t0);
-//         tmax = std::min(tmax, t1);
-//
-//         if (tmin > tmax)
-//             return false;
-//
-//         float invDirY = 1.0f / direction.y; // Assuming direction.y != 0
-//         float ty0 = (box.position.y - start.y) * invDirY;
-//         float ty1 = (box.position.y + box.size.y - start.y) * invDirY;
-//
-//         if (invDirY < 0.0f)
-//             std::swap(ty0, ty1);
-//
-//         float tymin = std::max(tmin, ty0);
-//         float tymax = std::min(tmax, ty1);
-//
-//         if (tymin > tymax || tmin > tymax || tymin > tmax)
-//             return false;
-//     }
-//
-//     return true;
-// }
+std::string floatToString(float value);

@@ -39,7 +39,6 @@ void Sprite::update(float deltaTime) {
 
         onScreen = true;
         SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect, (180 / M_PI) * angle.radians, nullptr, flip);
-//std::atan2(angle.vector.y, angle.vector.x)
     } else {onScreen = false;}
 
     if (showBorders) {

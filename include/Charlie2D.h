@@ -25,6 +25,8 @@
 #include "Text.h"
 #include "UICanvas.h"
 #include "Button.h"
+
+#include "Templates.h"
 //#include "UICanvas.h"
 //#include "UIElement.h"
 //#include "UIPanel.h"
