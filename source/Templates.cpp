@@ -6,8 +6,8 @@ Entity *Templates::createUIPanel(Entity *canvas, Box setBox, std::string text,
   entity->setParent(canvas);
   entityBox *box = entity->add<entityBox>();
   box->anchor = 4;
-  box->setPosition(setBox.position);
   box->setSize(setBox.size);
+  box->setLocalWithCenter(setBox.position);
   entity->add<UISliceRenderer>();
   entity->add<Text>()->changeFont("img/fonts/prstart.ttf", 30);
   entity->get<Text>()->text = text;

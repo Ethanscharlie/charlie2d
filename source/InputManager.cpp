@@ -5,6 +5,7 @@
 
 bool InputManager::mousePressed = false;
 bool InputManager::jumpPressed = false;
+bool InputManager::mouseHeld = false;
 
 bool InputManager::keys[NUM_KEYS];
 bool InputManager::keysUped[NUM_KEYS];

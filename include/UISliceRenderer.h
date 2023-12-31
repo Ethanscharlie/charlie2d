@@ -40,13 +40,23 @@ public:
   void update(float deltaTime) override {
     SDL_Rect spriteRect = {0, 0, 0, 0};
 
-    // float scaler = GameManager::screen_change_scale * Camera::getScale();
-    Vector2f renderPos = entity->require<entityBox>()->getPosition() + GameManager::gameWindowSize/2;
-    spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
-    spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
+    if (!rendererInWorld) {
+      // float scaler = GameManager::screen_change_scale * Camera::getScale();
+      Vector2f renderPos = entity->require<entityBox>()->getPosition() +
+                           GameManager::gameWindowSize / 2;
+      spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
+      spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
+    } else {
+      Vector2f renderPos =
+          entity->require<entityBox>()->getPosition() - Camera::getPosition();
+      renderPos = renderPos * Camera::getScale();
+      renderPos += GameManager::gameWindowSize / 2;
+      spriteRect.x = renderPos.x;
+      spriteRect.y = renderPos.y;
+    }
 
-    spriteRect.w = entity->require<entityBox>()->getSize().x; 
-    spriteRect.h = entity->require<entityBox>()->getSize().y; 
+    spriteRect.w = entity->require<entityBox>()->getSize().x;
+    spriteRect.h = entity->require<entityBox>()->getSize().y;
 
     Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);
   }
@@ -115,6 +125,8 @@ public:
       SDL_RenderCopy(renderer, texture, &srcRect[i], &dstRect[i]);
     }
   }
+
+  bool rendererInWorld = false;
 
 private:
   SDL_Texture *texture;

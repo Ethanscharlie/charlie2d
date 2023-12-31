@@ -4,6 +4,7 @@
 #include "EntityBox.h"
 #include "InputManager.h"
 #include "Math.h"
+#include "SDL_events.h"
 #include <functional>
 
 int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
@@ -110,6 +111,9 @@ void GameManager::Update() {
       quit();
     } else if (event.type == SDL_MOUSEBUTTONDOWN) {
       InputManager::mousePressed = true;
+      InputManager::mouseHeld = true;
+    } else if (event.type == SDL_MOUSEBUTTONUP) {
+      InputManager::mouseHeld = false;
     } else if (event.type == SDL_WINDOWEVENT) {
       switch (event.window.event) {
       case SDL_WINDOWEVENT_RESIZED:
@@ -372,7 +376,6 @@ void GameManager::destroyEntity(Entity *entity) {
     child->toDestroy = true;
     child->parent = nullptr;
     // destroyEntity(child);
-    
   }
 
   // components
