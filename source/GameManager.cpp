@@ -5,6 +5,9 @@
 #include "InputManager.h"
 #include "Math.h"
 #include "SDL_events.h"
+#include "imgui.h"
+#include "imgui_impl_sdl2.h"
+#include "imgui_impl_sdlrenderer2.h"
 #include <functional>
 
 int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
@@ -95,6 +98,17 @@ void GameManager::init(Vector2f windowSize) {
 
   SDL_RenderSetLogicalSize(renderer, windowSize.x, windowSize.y);
 
+  // IMGUI -------------------------------------------------------
+
+  IMGUI_CHECKVERSION();
+  ImGui::CreateContext();
+  // ImGui& io = ImGui::GetIO(); (void)io;
+
+  ImGui_ImplSDL2_InitForSDLRenderer(window, renderer);
+  ImGui_ImplSDLRenderer2_Init(renderer);
+
+  // -------------------------------------------------------------
+
 #ifdef __EMSCRIPTEN__
   resize_callback();
   float width = emscripten_run_script_int("window.innerWidth");
@@ -107,8 +121,13 @@ void GameManager::Update() {
   InputManager::update();
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.MousePos = {InputManager::getMouseScreenPosition().x, InputManager::getMouseScreenPosition().y};
+    ImGui_ImplSDL2_ProcessEvent(&event);
+
     if (event.type == SDL_QUIT) {
       quit();
+      return;
     } else if (event.type == SDL_MOUSEBUTTONDOWN) {
       InputManager::mousePressed = true;
       InputManager::mouseHeld = true;
@@ -130,7 +149,7 @@ void GameManager::Update() {
           }
         }
 
-        // Change camera aspect ratio
+        // Change camera aspect ratio                
 
         break;
       }
@@ -260,6 +279,7 @@ void GameManager::Update() {
     }
   }
 
+  ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData());
   SDL_RenderPresent(renderer);
 }
 
@@ -315,6 +335,10 @@ void GameManager::playSound(std::string filename, bool loop) {
 }
 
 void GameManager::quit() {
+  ImGui_ImplSDLRenderer2_Shutdown();
+  ImGui_ImplSDL2_Shutdown();
+  ImGui::DestroyContext();
+
   SDL_DestroyRenderer(GameManager::renderer);
   SDL_DestroyWindow(GameManager::window);
 
