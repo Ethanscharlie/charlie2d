@@ -13,6 +13,9 @@ target_include_directories(charlie2D PUBLIC
     /usr/include/SDL2
     /usr/include/nlohmann
     ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/core
+    ${PROJECT_SOURCE_DIR}/include/components
+    ${PROJECT_SOURCE_DIR}/include/imgui
     ${PROJECT_SOURCE_DIR}/source
     ${PROJECT_SOURCE_DIR}/imgui
     )      
