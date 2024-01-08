@@ -107,6 +107,8 @@ void GameManager::init(Vector2f windowSize) {
   ImGui_ImplSDL2_InitForSDLRenderer(window, renderer);
   ImGui_ImplSDLRenderer2_Init(renderer);
 
+  ImGui::StyleColorsLight();
+
   // -------------------------------------------------------------
 
 #ifdef __EMSCRIPTEN__
@@ -279,7 +281,7 @@ void GameManager::Update() {
     }
   }
 
-  ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData());
+  // ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData());
   SDL_RenderPresent(renderer);
 }
 
