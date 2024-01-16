@@ -5,6 +5,8 @@
 #include "InputManager.h"
 #include "Math.h"
 #include "SDL_events.h"
+#include "SDL_render.h"
+#include "SDL_surface.h"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
@@ -33,6 +35,8 @@ std::function<void()> GameManager::onPostFade = []() {};
 bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;
 Uint64 GameManager::lastTime;
+
+SDL_Texture *GameManager::targetRenderSurface;
 
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
@@ -96,6 +100,11 @@ void GameManager::init(Vector2f windowSize) {
                             currentWindowSize.y, SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+  targetRenderSurface =
+      SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
+                        SDL_TEXTUREACCESS_TARGET, windowSize.x, windowSize.y);
+  // SDL_SetRenderTarget(GameManager::renderer, targetRenderSurface);
+
   SDL_RenderSetLogicalSize(renderer, windowSize.x, windowSize.y);
 
   // IMGUI -------------------------------------------------------
@@ -123,8 +132,10 @@ void GameManager::Update() {
   InputManager::update();
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.MousePos = {InputManager::getMouseScreenPosition().x, InputManager::getMouseScreenPosition().y};
+    ImGuiIO &io = ImGui::GetIO();
+    (void)io;
+    io.MousePos = {InputManager::getMouseScreenPosition().x,
+                   InputManager::getMouseScreenPosition().y};
     ImGui_ImplSDL2_ProcessEvent(&event);
 
     if (event.type == SDL_QUIT) {
@@ -151,7 +162,14 @@ void GameManager::Update() {
           }
         }
 
-        // Change camera aspect ratio                
+        // IMGUI
+        ImGuiIO &io = ImGui::GetIO();
+        io.DisplaySize =
+            ImVec2((float)currentWindowSize.x, (float)currentWindowSize.y);
+        io.DisplayFramebufferScale =
+            ImVec2(io.DisplaySize.x / gameWindowSize.x,
+                   io.DisplaySize.y / gameWindowSize.y);
+        // Change camera aspect ratio
 
         break;
       }

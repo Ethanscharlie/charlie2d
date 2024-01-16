@@ -192,3 +192,9 @@ template <typename T, std::size_t N> T getRandomElement(const T (&arr)[N]) {
 }
 
 std::string floatToString(float value);
+
+Vector2f getLogcialPosition(Vector2f screenPos);
+Vector2f getScreenPosition(Vector2f logicalPos);                                                    
+Vector2f getImGuiPosition(Vector2f pos);
+
+SDL_Rect UpdateLogicalPresentation(SDL_Renderer *renderer);

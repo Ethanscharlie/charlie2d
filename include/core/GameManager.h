@@ -17,6 +17,8 @@
 #include <vector>
 
 // IMGUI
+#include "SDL_render.h"
+#include "SDL_surface.h"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
@@ -162,6 +164,8 @@ public:
   static std::map<std::type_index, std::vector<Component *>> components;
   static std::map<std::string, std::vector<Entity *>>
       entities; // Sorted by tags
+                //
+  static SDL_Texture* targetRenderSurface;
 
 private:
   /**

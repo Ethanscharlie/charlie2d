@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 
+#include "SDL_render.h"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
@@ -21,4 +22,5 @@ public:
 
   std::string text = "";
   ImVec4 frameColor = ImVec4(1, 1, 1, 1);
+  SDL_Texture* renderingTexture;
 };
