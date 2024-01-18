@@ -38,19 +38,24 @@ public:
     if (velocity.x == 0 && velocity.y == 0)
       return;
 
-    std::vector<Entity*> solids;
-    for (Collider* col : GameManager::getComponents<Collider>()) {
-      if (!col->solid) continue;
+    std::vector<Entity *> solids;
+    for (Collider *col : GameManager::getComponents<Collider>()) {
+      if (!col->solid)
+        continue;
       solids.push_back(col->entity);
     }
 
-    slideOut out =
-        entity->require<entityBox>()->slide(velocity * deltaTime, solids);
+    if (pushOut) {
+      slideOut out =
+          entity->require<entityBox>()->slide(velocity * deltaTime, solids);
 
-    if (out.horizontalHit)
-      velocity.x = 0;
-    if (out.verticleHit)
-      velocity.y = 0;
+      if (out.horizontalHit)
+        velocity.x = 0;
+      if (out.verticleHit)
+        velocity.y = 0;
+    } else {
+      entity->require<entityBox>()->changePosition(velocity * deltaTime);
+    }
   }
 
   /**
@@ -65,4 +70,8 @@ public:
    * velocity go any amount)
    */
   Vector2f maxVelocity = {-1, -1};
+  /**
+   * \brief If false will ignore solid colliders and pass through
+   */
+  bool pushOut = true;
 };
