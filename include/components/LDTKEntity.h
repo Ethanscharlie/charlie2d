@@ -1,9 +1,9 @@
 #pragma once
-#include "Charlie2D.h"
 #include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <vector>
+#include "Component.h"
 
 using json = nlohmann::json;
 
