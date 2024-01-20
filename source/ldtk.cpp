@@ -7,7 +7,7 @@ std::vector<Entity *> LDTK::entities;
 
 json LDTK::fullJSON;
 json LDTK::currentLevel;
-std::map<std::string, json> LDTK::levels;
+std::map<std::string, std::map<std::string, json>> LDTK::worlds;
 
 Entity *LDTK::ldtkPlayer = nullptr;
 std::function<void()> LDTK::onLoadLevel = []() {};
@@ -31,12 +31,6 @@ void LDTK::unload(std::vector<Entity *> enlist) {
 
     if (entity == nullptr)
       continue;
-    // if (std::find(GameManager::getAllObjects().begin(),
-    //               GameManager::getAllObjects().end(),
-    //               entity) == GameManager::getAllObjects().end()) {
-    //   continue;
-    // }
-    // std::cout << entity->tag << std::endl;
     entity->toDestroy = true;
   }
 
@@ -51,7 +45,7 @@ std::string LDTK::findTraveledLevel(Entity *player) {
 
   for (json hit : currentLevel["__neighbours"]) {
     std::string iid = hit["levelIid"];
-    json level = levels[iid];
+    json level = getLevelJson(iid);
 
     Box levelBox = {level["worldX"], level["worldY"], level["pxWid"],
                     level["pxHei"]};
@@ -86,13 +80,27 @@ bool LDTK::checkOutsideBounds(Entity *player) {
   return true;
 }
 
+json LDTK::getLevelJson(std::string iid) {
+  for (auto [worldName, levels] : worlds) {
+    auto it = levels.find(iid);
+    if (it != levels.end()) {
+      json level = it->second;
+      return level;
+    }
+  }
+
+  std::cout << "Level Not Found"
+            << "\n";
+  return {};
+}
+
 void LDTK::loadLevel(std::string iid, bool handleUnload) {
   if (iid == "")
     return;
   // GameManager::updateEntities = false;
   std::vector<Entity *> lastEntities = entities;
 
-  currentLevel = levels[iid];
+  currentLevel = getLevelJson(iid);
   auto &layerInstances = currentLevel["layerInstances"];
 
   worldBox = {currentLevel["worldX"], currentLevel["worldY"],
@@ -191,7 +199,19 @@ void LDTK::loadJson(std::string file) {
   std::ifstream f(file);
   fullJSON = json::parse(f);
 
-  for (json level : fullJSON["levels"]) {
-    levels[level["iid"]] = level;
+  auto flags = fullJSON["flags"];
+  bool isMultiworld =
+      std::find(flags.begin(), flags.end(), "MultiWorlds") != flags.end();
+  if (isMultiworld) {
+    for (json world : fullJSON["worlds"]) {
+      for (json level : world["levels"]) {
+        worlds[world["identifier"]][level["iid"]] = level;
+      }
+    }
+
+  } else {
+    for (json level : fullJSON["levels"]) {
+      worlds["World"][level["iid"]] = level;
+    }
   }
 }

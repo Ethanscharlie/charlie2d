@@ -1,8 +1,8 @@
 #pragma once
 
+#include "Camera.h"
 #include "LDTKEntity.h"
 #include "Tile.h"
-#include "Camera.h"
 
 #include <iostream>
 #include <vector>
@@ -44,12 +44,14 @@ public:
    * \param iid The iid of the ldtk level
    * \param scene the current scene
    */
-  static void loadLevel(std::string iid, bool handleUnload=true);
+  static void loadLevel(std::string iid, bool handleUnload = true);
   /**
    * \brief Loads up the json for your world (Please do before anything else
    * here) \param file The filepath
    */
   static void loadJson(std::string file = "img/ldtk/space.ldtk");
+
+  static json getLevelJson(std::string iid);
 
   static Box worldBox;
   static Entity *ldtkPlayer;
@@ -61,7 +63,7 @@ public:
 
   static json fullJSON;
   static json currentLevel;
-  static std::map<std::string, json> levels;
+  static std::map<std::string, std::map<std::string, json>> worlds;
 
   /**
    * \brief Runs when any level has finished loading
