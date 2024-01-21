@@ -122,14 +122,6 @@ public:
    */
   static void setWindowSize(Vector2f size);
 
-  /**
-   * \brief Performs a screen fade to black and back transition
-   * \param middle code to run at the middle or *black* part of the transition
-   * \param fadeTime the time it takes to finish the transition
-   */
-  static void doFade(
-      std::function<void()> middle = []() {}, int fadeTime = 300, std::function<void()> post = []() {});
-
   static SDL_Window *window;
   static SDL_Renderer *renderer;
   static SDL_Texture *screenTexture;
@@ -150,36 +142,30 @@ public:
    * \brief Is the game running? Well it should be...
    */
   static bool running;
-  /**
-   * \brief transition state for fade transitions
-   */
-  static int transition; // 0 -> Not Going, 1 -> Going, 2 -> Finished
 
   /**
    * \brief Pause mode
    */
   static bool updateEntities;
-  static float deltaTime;
+
+  /**
+   * \breif Time in between frames, you should multiply this to any frame base
+iteration, like player movement static float deltaTime;
+  */
 
   static std::map<std::type_index, std::vector<Component *>> components;
   static std::map<std::string, std::vector<Entity *>>
       entities; // Sorted by tags
                 //
-  static SDL_Texture* targetRenderSurface;
+  static SDL_Texture *targetRenderSurface;
 
 private:
   /**
    * Deletes
    */
-  static void destroyEntity(Entity* entity);
-
-  static Uint32 fadeStartTime;
-  static int fade_time;
+  static void destroyEntity(Entity *entity);
 
   static Uint64 lastTime;
-
-  static std::function<void()> onMiddleFade;
-  static std::function<void()> onPostFade;
 };
 
 template <typename C>

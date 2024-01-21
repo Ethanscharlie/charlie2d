@@ -250,56 +250,6 @@ void GameManager::Update() {
   //
   // END OF OLD SCENE LOOP
 
-  if (transition == 1) {
-    // Calculate the elapsed time since the start of the transition
-    Uint32 elapsedTime = SDL_GetTicks() - fadeStartTime;
-
-    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0,
-                           static_cast<Uint8>(255 * elapsedTime / fade_time));
-
-    SDL_Rect fill_dst;
-    fill_dst.w = gameWindowSize.x;
-    fill_dst.h = gameWindowSize.y;
-    fill_dst.x = 0;
-    fill_dst.y = 0;
-
-    SDL_RenderFillRect(GameManager::renderer, &fill_dst);
-
-    // Check if the fade transition is complete
-    if (elapsedTime >= fade_time) {
-      transition = 2;
-      fadeStartTime = SDL_GetTicks();
-
-      onMiddleFade();
-    }
-  }
-
-  if (transition == 2) {
-    // Calculate the elapsed time since the start of the transition
-    Uint32 elapsedTime = SDL_GetTicks() - fadeStartTime;
-
-    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor(
-        renderer, 0, 0, 0,
-        static_cast<Uint8>(255 - 255 * elapsedTime / fade_time));
-
-    SDL_Rect fill_dst;
-    fill_dst.w = gameWindowSize.x;
-    fill_dst.h = gameWindowSize.y;
-    fill_dst.x = 0;
-    fill_dst.y = 0;
-
-    SDL_RenderFillRect(renderer, &fill_dst);
-
-    // Check if the fade transition is complete
-    if (elapsedTime >= fade_time) {
-      transition = 0;
-      onPostFade();
-    }
-  }
-
-  // ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData());
   SDL_RenderPresent(renderer);
 }
 
@@ -367,15 +317,6 @@ void GameManager::quit() {
   SDL_Quit();
 
   GameManager::running = false;
-}
-
-void GameManager::doFade(std::function<void()> middle, int fadeTime,
-                         std::function<void()> post) {
-  fade_time = fadeTime;
-  onMiddleFade = middle;
-  onPostFade = post;
-  transition = 1;
-  fadeStartTime = SDL_GetTicks();
 }
 
 void GameManager::destroyAll(Entity doNotDestroy[]) {}
