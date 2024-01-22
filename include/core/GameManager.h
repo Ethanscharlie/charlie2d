@@ -148,6 +148,8 @@ public:
    */
   static bool updateEntities;
 
+  static float deltaTime;
+
   /**
    * \breif Time in between frames, you should multiply this to any frame base
 iteration, like player movement static float deltaTime;

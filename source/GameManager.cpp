@@ -12,10 +12,6 @@
 #include "imgui_impl_sdlrenderer2.h"
 #include <functional>
 
-int GameManager::transition = 0; // 0 -> Not Going, 1 -> Going, 2 -> Finished
-Uint32 GameManager::fadeStartTime = 0;
-int GameManager::fade_time = 300;
-
 bool GameManager::running = true;
 
 std::map<std::type_index, std::vector<Component *>> GameManager::components;
@@ -29,8 +25,6 @@ float GameManager::screen_change_scale = 0;
 
 SDL_Window *GameManager::window = nullptr;
 SDL_Renderer *GameManager::renderer = nullptr;
-std::function<void()> GameManager::onMiddleFade = []() {};
-std::function<void()> GameManager::onPostFade = []() {};
 
 bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;

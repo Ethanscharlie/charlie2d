@@ -22,6 +22,7 @@ public:
     changeFont(mfontFile, original_font_size);
     entity->layer = 70;
     entity->useLayer = true;
+    typeIsRendering = true;
   }
 
   void update(float deltaTime) override {
@@ -38,8 +39,8 @@ public:
     float height_scale =
         (float)GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
 
-    Vector2f renderPos =
-        entity->require<entityBox>()->getPosition() + GameManager::gameWindowSize / 2;
+    Vector2f renderPos = entity->require<entityBox>()->getPosition() +
+                         GameManager::gameWindowSize / 2;
     spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
     spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
 
@@ -60,8 +61,7 @@ public:
   void changeFont(std::string fontFile, int size) {
     fontSize = size;
     mfontFile = fontFile;
-    font = TTF_OpenFont(fontFile.c_str(),
-                        fontSize);
+    font = TTF_OpenFont(fontFile.c_str(), fontSize);
   }
 
   /**

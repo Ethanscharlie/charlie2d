@@ -25,6 +25,7 @@ public:
     loadTexture(textureName);
     entity->layer = 65;
     entity->useLayer = true;
+    typeIsRendering = true;
   }
 
   /**

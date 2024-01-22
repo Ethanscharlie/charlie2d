@@ -41,6 +41,7 @@ public:
   std::string title = "";
   bool isInit = false;
   int index;
+  bool typeIsRendering = false;
   std::string entityTag = "";
 
   /**

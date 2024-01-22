@@ -103,7 +103,7 @@ public:
     for (auto [type, component] : components) {
       if (!component->standardUpdate)
         continue;
-      if (!GameManager::updateEntities && component->title != "sprite" && component->title != "TileLayer")
+      if (!GameManager::updateEntities && !component->typeIsRendering)
         continue;
       component->update(GameManager::deltaTime);
     }

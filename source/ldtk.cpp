@@ -1,5 +1,6 @@
 #include "ldtk.h"
 #include "Entity.h"
+#include "FadeTransition.h"
 #include "GameManager.h"
 
 Box LDTK::worldBox;
@@ -182,8 +183,20 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
 
   if (handleUnload) {
     GameManager::updateEntities = false;
-    GameManager::doFade(
+    FadeTransition *Fader = nullptr;
+    if (GameManager::getComponents<FadeTransition>().size() > 0) {
+      Fader = GameManager::getComponents<FadeTransition>()[0];
+      std::cout << "There was a fader\n";
+    } else {
+      Fader = GameManager::createEntity("Fader")->add<FadeTransition>();
+      std::cout << "There was not a fader\n";
+    }
+
+    std::cout << "Tag: " << Fader->entity->tag << "\n";
+
+    Fader->doFade(
         [lastEntities]() {
+          std::cout << "On middle ran\n";
           Camera::cameraLimitBox = worldBox;
           unload(lastEntities);
           GameManager::updateEntities = true;
