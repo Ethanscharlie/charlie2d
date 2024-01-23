@@ -10,6 +10,9 @@
 
 void TextCentered(std::string text);
 
+/**
+ * \brief A drop in imgui replacement for UISliceRenderer s
+ */
 class SimpleImGuiPanel : public Component {
 public:
   void start() override;
