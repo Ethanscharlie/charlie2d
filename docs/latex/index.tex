@@ -2,12 +2,79 @@
 \hypertarget{index}{}\label{index}\index{Project Overview@{Project Overview}}
 
 \begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{@mainpage\ Project\ Overview}
+\DoxyCodeLine{@include\ README.md}
+\DoxyCodeLine{\#\ charlie2d}
+\DoxyCodeLine{A\ simple\ c++\ w/SDL2\ game\ engine}
+\DoxyCodeLine{}
+\DoxyCodeLine{DOCS\ HAVE\ BEEN\ FINISHED\ HOLY\ HELL\ THAT\ TOOK\ SO\ LONG}
+\DoxyCodeLine{\#\ [DOCS](https://ethanscharlie.github.io/charlie2d/)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Examples\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{[ICNTBall](https://github.com/Ethanscharlie/ICNTBall/),\ a\ 2D\ metroidvania\ platformer}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Quickstart}
+\DoxyCodeLine{\#\#\#\#\ The\ main\ fuction}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{int\ main()}
+\DoxyCodeLine{\{\ \ \ }
+\DoxyCodeLine{\ \ \ \ GameManager::init(\{1920,\ 1080\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ GameManager::createEntity("{}Player"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ GameManager::doUpdateLoop();}
+\DoxyCodeLine{\ \ \ \ return\ 0;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{This\ is\ what\ the\ main\ should\ look\ like,\ the\ init()\ must\ be\ ran\ first\ and\ will\ also\ set\ }
+\DoxyCodeLine{the\ 'original'\ resolution,\ note\ that\ this\ should\ be\ set\ once\ and\ left\ because\ changing\ it\ will\ change}
+\DoxyCodeLine{game\ behavior}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\ Entities}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{Entity*\ player\ =\ GameManager::createEntity("{}Player"{});}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{Entites\ can\ be\ created\ with\ the\ GameManager::createEntity\ method.}
+\DoxyCodeLine{In\ the\ instance\ above\ the\ Entity\ is\ given\ the\ tag\ "{}Player"{}.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\ Components}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{Entity*\ background\ =\ GameManager::createEntity("{}Background"{});}
+\DoxyCodeLine{background-\/>add<Sprite>();}
+\DoxyCodeLine{background-\/>get<Sprite>()-\/>loadTexture("{}img/background.png"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{Entity*\ background2\ =\ GameManager::createEntity("{}Background"{});}
+\DoxyCodeLine{//\ Require\ adds\ or\ gets\ depending\ on\ if\ the\ entity\ has\ the\ component}
+\DoxyCodeLine{background2-\/>require<Sprite>()-\/>loadTexture("{}img/background.png"{});}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Components\ can\ be\ created\ an\ added\ (Kinda\ like\ scripts)}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{class\ Player\ :\ public\ Component\ \{}
+\DoxyCodeLine{\ \ \ \ public:}
+\DoxyCodeLine{\ \ \ \ void\ start()\ override\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ entity-\/>require<Sprite>()-\/>loadTexture("{}img/player.png"{});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ void\ update(float\ deltaTime)\ override\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ entity-\/>get<Sprite>()-\/>angle.lookAt(box-\/>getBox().getCenter(),\ InputManager::getMousePosition());}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{The\ start\ method\ will\ run\ during\ the\ component\ initalization}
+\DoxyCodeLine{Update\ will\ of\ course\ run\ every\ game\ loop}
+\DoxyCodeLine{And\ then\ can\ be\ added\ to\ Entities}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{Entity*\ player\ =\ createEntity("{}Player"{});}
+\DoxyCodeLine{player-\/>add<Player>();}
+\DoxyCodeLine{\`{}\`{}\`{}}
 
 \end{DoxyCodeInclude}
  \hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{charlie2d}{charlie2d}}\label{index_autotoc_md0}
 A simple c++ w/\+SDL2 game engine
 
-DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{$<$a href="{}https\+://ethanscharlie.\+github.\+io/charlie2d/"{} $>$\+DOCS$<$/a$>$}{<a href="https://ethanscharlie.github.io/charlie2d/" >DOCS</a>}}\label{index_autotoc_md1}
+DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{\href{https://ethanscharlie.github.io/charlie2d/}{\texttt{ DOCS}}}{\href{https://ethanscharlie.github.io/charlie2d/}{\texttt{ DOCS}}}}\label{index_autotoc_md1}
 \hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{index_autotoc_md2}
 \href{https://github.com/Ethanscharlie/ICNTBall/}{\texttt{ ICNTBall}}, a 2D metroidvania platformer\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Quickstart}{Quickstart}}\label{index_autotoc_md3}
 \hypertarget{index_autotoc_md4}{}\doxyparagraph{\texorpdfstring{The main fuction}{The main fuction}}\label{index_autotoc_md4}
@@ -16,7 +83,9 @@ DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG \hypertarget{index_autotoc_m
 \DoxyCodeLine{int\ main()}
 \DoxyCodeLine{\{\ \ \ }
 \DoxyCodeLine{\ \ \ \ GameManager::init(\{1920,\ 1080\});}
-\DoxyCodeLine{\ \ \ \ mainScene();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ GameManager::createEntity("{}Player"{});}
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ GameManager::doUpdateLoop();}
 \DoxyCodeLine{\ \ \ \ return\ 0;}
 \DoxyCodeLine{\}}
@@ -28,7 +97,7 @@ DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG \hypertarget{index_autotoc_m
 \DoxyCodeLine{Entity*\ player\ =\ GameManager::createEntity("{}Player"{});}
 
 \end{DoxyCode}
- Entites can be created with the \doxylink{classGameManager_a7a442fba2b349bd59cdc0bb93e35961b}{Game\+Manager\+::create\+Entity} method. In the instance above the \doxylink{classEntity}{Entity} is given the tag "{}\+Player"{}.\hypertarget{index_autotoc_md6}{}\doxyparagraph{\texorpdfstring{Components}{Components}}\label{index_autotoc_md6}
+ Entites can be created with the Game\+Manager\+::create\+Entity method. In the instance above the Entity is given the tag "{}\+Player"{}.\hypertarget{index_autotoc_md6}{}\doxyparagraph{\texorpdfstring{Components}{Components}}\label{index_autotoc_md6}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Entity*\ background\ =\ GameManager::createEntity("{}Background"{});}
