@@ -191,10 +191,26 @@ template <typename T, std::size_t N> T getRandomElement(const T (&arr)[N]) {
   return arr[randomIndex];
 }
 
+/**
+ * \brief Converts a float to a string without unnessessary zeros
+ */
 std::string floatToString(float value);
 
+/**
+ * \brief Gets a screen position as a logical position
+ */
 Vector2f getLogcialPosition(Vector2f screenPos);
-Vector2f getScreenPosition(Vector2f logicalPos);                                                    
+/**
+ * \brief Gets a logical position as a screen position
+ */
+Vector2f getScreenPosition(Vector2f logicalPos);
+/**
+ * \brief Should be used for all imgui frames, to use please render imgui
+ * without logical rendering first and then turn it back on
+ */
 Vector2f getImGuiPosition(Vector2f pos);
 
-SDL_Rect UpdateLogicalPresentation(SDL_Renderer *renderer);
+/**
+ * \brief Gets sdl2's logical rect because sdl doesn't offer a way too (Ur Welcome)
+ */
+SDL_Rect getLogicalRect();
