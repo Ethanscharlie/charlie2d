@@ -7,6 +7,12 @@
 
 using json = nlohmann::json;
 
+struct LDTKEntityValue {
+  std::string identifier;
+  std::string type;
+  json value;
+};
+
 /**
  * \brief A simple Component container for LDTK entity json data
  */
