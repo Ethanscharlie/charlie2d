@@ -40,7 +40,12 @@ virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{
 \begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classUISliceRenderer_ab1e06761ca42ba31465c67149606ac3d}\label{classUISliceRenderer_ab1e06761ca42ba31465c67149606ac3d} 
+bool {\bfseries renderer\+In\+World} = false
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,14 +55,12 @@ std\+::string {\bfseries title} = "{}"{}
 \item 
 bool {\bfseries is\+Init} = false
 \item 
-int {\bfseries layer} = 0
-\begin{DoxyCompactList}\small\item\em Layer to update on (requires use\+Layer=true) \end{DoxyCompactList}\item 
 int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
-bool {\bfseries use\+Layer} = false
-\begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -78,7 +81,7 @@ Runs after \doxylink{classComponent}{Component} data is set in entity.\+add.
 
 
 
-Implements \mbox{\hyperlink{classComponent_adef0f642e0ed12a9b29afe587b912972}{Component}}.
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
 
 \Hypertarget{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}\label{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679} 
 \index{UISliceRenderer@{UISliceRenderer}!update@{update}}
@@ -92,10 +95,10 @@ Updates in the update loop.
 
 
 
-Implements \mbox{\hyperlink{classComponent_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/UISlice\+Renderer.\+h\end{DoxyCompactItemize}
+include/components/UISlice\+Renderer.\+h\end{DoxyCompactItemize}

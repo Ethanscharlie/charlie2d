@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['uicanvas_0',['UICanvas',['../classUICanvas.html',1,'']]],
-  ['uislicerenderer_1',['UISliceRenderer',['../classUISliceRenderer.html',1,'']]]
+  ['text_0',['Text',['../classText.html',1,'']]],
+  ['tilelayer_1',['TileLayer',['../classTileLayer.html',1,'']]]
 ];

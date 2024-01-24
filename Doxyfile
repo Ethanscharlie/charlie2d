@@ -946,6 +946,8 @@ WARN_LOGFILE           =
 INPUT                  = README.md \
                          source \
                          include \
+                         include/core \
+                         include/components \
 
 USE_MDFILE_AS_MAINPAGE = README.md
 

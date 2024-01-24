@@ -1,5 +1,5 @@
 \doxysection{Game\+Manager.\+h}
-\hypertarget{GameManager_8h_source}{}\label{GameManager_8h_source}\index{include/GameManager.h@{include/GameManager.h}}
+\hypertarget{GameManager_8h_source}{}\label{GameManager_8h_source}\index{include/core/GameManager.h@{include/core/GameManager.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_MANAGER\_H}}
@@ -20,85 +20,90 @@
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ \_\_EMSCRIPTEN\_\_}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <emscripten.h>}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <emscripten/html5.h>}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ IMGUI}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}SDL\_surface.h"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}imgui.h"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_sdl2.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_sdlrenderer2.h"{}}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGameManager}{GameManager}}\ \{}
-\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classGameManager}{GameManager}}();}
-\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classGameManager}{\string~GameManager}}();}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_ad89996045a7158a3be2357228fc25579}{init}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{originalSize}}\ =\ \{1920,\ 1080\});}
-\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a77c596a5ed06b3d5008b4187f58480d2}{Load}}(\textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{name}});}
-\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}{Update}}();}
-\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a10cdc97d611120cb3e0ca203ef11d0c4}{playSound}}(std::string\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{filename}},\ \textcolor{keywordtype}{bool}\ loop\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_ac63aa477ce3707e03b42968d364a6ce6}{quit}}();}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a4d4e1cc96dda00f97d53d29692893252}{destroyAll}}(\mbox{\hyperlink{classEntity}{Entity}}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{doNotDestroy}}[]);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classGameManager_a7a442fba2b349bd59cdc0bb93e35961b}{createEntity}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifdef\ \_\_EMSCRIPTEN\_\_}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <emscripten.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <emscripten/html5.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGameManager}{GameManager}}\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{classGameManager}{GameManager}}();}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classGameManager}{\string~GameManager}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_ad89996045a7158a3be2357228fc25579}{init}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{originalSize}}\ =\ \{1920,\ 1080\});}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a77c596a5ed06b3d5008b4187f58480d2}{Load}}(\textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{name}});}
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}{Update}}();}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a10cdc97d611120cb3e0ca203ef11d0c4}{playSound}}(std::string\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{filename}},\ \textcolor{keywordtype}{bool}\ loop\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_ac63aa477ce3707e03b42968d364a6ce6}{quit}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a4d4e1cc96dda00f97d53d29692893252}{destroyAll}}(\mbox{\hyperlink{classEntity}{Entity}}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{doNotDestroy}}[]);}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classGameManager_a4b19d17b9700b92b69d04a974eec97dd}{getAllObjects}}();}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
-\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{static}\ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{getComponents}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classGameManager_a22861623b0a79f789810fb348f3ffb4a}{getEntities}}(std::string\ tag);}
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classGameManager_a7a442fba2b349bd59cdc0bb93e35961b}{createEntity}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classGameManager_a4b19d17b9700b92b69d04a974eec97dd}{getAllObjects}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{static}\ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{getComponents}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{00095\ }
-\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}{doUpdateLoop}}();}
-\DoxyCodeLine{00111\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_acfabcca795eb1f8f1583aefa1951ffde}{setWindowSize}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ size);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a58cc9095a89c14b79e9fdb79506e7f7d}{doFade}}(}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{middle}}\ =\ []()\ \{\},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{fadeTime}}\ =\ 300);}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\_Window}}\ *window;}
-\DoxyCodeLine{00122\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\_Renderer}}\ *renderer;}
-\DoxyCodeLine{00123\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\_Texture}}\ *screenTexture;}
-\DoxyCodeLine{00127\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{gameWindowSize}};}
-\DoxyCodeLine{00131\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_abb18b130f0f509697c19bbded946d135}{currentWindowSize}};}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00136\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{screen\_change\_scale}};}
-\DoxyCodeLine{00140\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d}{running}};}
-\DoxyCodeLine{00144\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGameManager_a7e027ded125d9e5c6dfd88fccefd26b7}{transition}};\ \textcolor{comment}{//\ 0\ -\/>\ Not\ Going,\ 1\ -\/>\ Going,\ 2\ -\/>\ Finished}}
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_aebd481948ba7fb05754e529cc3b47be2}{removeComponent}}(\mbox{\hyperlink{classComponent}{Component}}\ *\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}},\ std::type\_index\ type);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classGameManager_a22861623b0a79f789810fb348f3ffb4a}{getEntities}}(std::string\ tag);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00115\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}{doUpdateLoop}}();}
+\DoxyCodeLine{00123\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_acfabcca795eb1f8f1583aefa1951ffde}{setWindowSize}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ size);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\_Window}}\ *window;}
+\DoxyCodeLine{00126\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\_Renderer}}\ *renderer;}
+\DoxyCodeLine{00127\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\_Texture}}\ *screenTexture;}
+\DoxyCodeLine{00131\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{gameWindowSize}};}
+\DoxyCodeLine{00135\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_abb18b130f0f509697c19bbded946d135}{currentWindowSize}};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00140\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{screen\_change\_scale}};}
+\DoxyCodeLine{00144\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d}{running}};}
 \DoxyCodeLine{00145\ }
 \DoxyCodeLine{00149\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGameManager_aad180c86f385db5da0eb0e14a473b26c}{updateEntities}};}
-\DoxyCodeLine{00150\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ deltaTime;}
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{static}\ std::map<std::type\_index,\ std::vector<Component\ *>>\ components;}
-\DoxyCodeLine{00153\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::vector<Entity\ *>>}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ entities;\ \textcolor{comment}{//\ Sorted\ by\ tags}}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00157\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{Uint32}}\ fadeStartTime;}
-\DoxyCodeLine{00158\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ fade\_time;}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{Uint64}}\ lastTime;}
-\DoxyCodeLine{00161\ }
-\DoxyCodeLine{00162\ \ \ \textcolor{keyword}{static}\ std::function<\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}}()>\ onMiddleFade;}
-\DoxyCodeLine{00163\ \};}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
-\DoxyCodeLine{00166\ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{GameManager::getComponents}}(std::string\ tag)\ \{}
-\DoxyCodeLine{00167\ \ \ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{hits}};}
-\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{it}}\ =\ components.find(\textcolor{keyword}{typeid}(\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{C}}));}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ deltaTime;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keyword}{static}\ std::map<std::type\_index,\ std::vector<Component\ *>>\ \mbox{\hyperlink{classGameManager_a78947a0bd7883b7fafe307432cb936fa}{components}};}
+\DoxyCodeLine{00159\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::vector<Entity\ *>>}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ entities;\ \textcolor{comment}{//\ Sorted\ by\ tags}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00162\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\_Texture}}\ *targetRenderSurface;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ destroyEntity(\mbox{\hyperlink{classEntity}{Entity}}\ *entity);}
 \DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{it}}\ !=\ components.end())\ \{}
-\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}}\ :\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{it}}-\/>second)\ \{}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \textcolor{comment}{//\ Static\ cast\ each\ Component*\ to\ C*}}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}}-\/>entityTag\ ==\ tag\ ||\ tag\ ==\ \textcolor{stringliteral}{"{}"{}})\ \{}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{hits}}.push\_back(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{C}}\ *\textcolor{keyword}{>}(\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}}));}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00176\ \ \ \ \ \}}
-\DoxyCodeLine{00177\ \ \ \}\ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00178\ \ \ \ \ components[\textcolor{keyword}{typeid}(\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{C}})];}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{hits}};}
-\DoxyCodeLine{00181\ \}}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{Uint64}}\ lastTime;}
+\DoxyCodeLine{00171\ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
+\DoxyCodeLine{00174\ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{GameManager::getComponents}}(std::string\ tag)\ \{}
+\DoxyCodeLine{00175\ \ \ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{hits}};}
+\DoxyCodeLine{00176\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{it}}\ =\ \mbox{\hyperlink{classGameManager_a78947a0bd7883b7fafe307432cb936fa}{components}}.find(\textcolor{keyword}{typeid}(\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{C}}));}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{it}}\ !=\ \mbox{\hyperlink{classGameManager_a78947a0bd7883b7fafe307432cb936fa}{components}}.end())\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}}\ :\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{it}}-\/>second)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \textcolor{comment}{//\ Static\ cast\ each\ Component*\ to\ C*}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}}-\/>entityTag\ ==\ tag\ ||\ tag\ ==\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{hits}}.push\_back(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{C}}\ *\textcolor{keyword}{>}(\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}}));}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{classGameManager_a78947a0bd7883b7fafe307432cb936fa}{components}}[\textcolor{keyword}{typeid}(\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{C}})];}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{hits}};}
+\DoxyCodeLine{00189\ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

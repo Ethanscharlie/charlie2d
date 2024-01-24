@@ -1,5 +1,5 @@
 \doxysection{Jump\+Man.\+h}
-\hypertarget{JumpMan_8h_source}{}\label{JumpMan_8h_source}\index{include/JumpMan.h@{include/JumpMan.h}}
+\hypertarget{JumpMan_8h_source}{}\label{JumpMan_8h_source}\index{include/components/JumpMan.h@{include/components/JumpMan.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -49,70 +49,71 @@
 \DoxyCodeLine{00048\ \ \ \ \ \}}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classInputManager_a59438046010e85ae15abf22de7c11644}{InputManager::checkInput}}(\textcolor{stringliteral}{"{}jumpTrigger"{}}))\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classJumpMan_ac01ea884648d305d0cef9eb567f9931a}{allowJump}})}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ checkground\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classJumpMan_a1547f2011e0d04367bde5a4da048ef75}{needGround}})\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ groundCheckBox\ =\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox();}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ groundCheckBox.position.y\ +=\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getSize().y;}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classCollider}{Collider}}\ *col\ :\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{GameManager::getComponents<Collider>}}())\ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col-\/>solid)\ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col-\/>checkBoxCollision(groundCheckBox))\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ checkground\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ checkground\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkground\ ||\ jumpsCounter\ >\ 0)\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkground)}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ jumpsCounter\ =\ \mbox{\hyperlink{classJumpMan_a4a5929e16b40585e7b7da7503ea6d8ee}{jumps}};}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ jumpsCounter-\/-\/;}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ Jump}}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!jumping)}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}<\mbox{\hyperlink{classphysicsBody}{physicsBody}}>()-\/>velocity.y\ =\ 0;}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ jumping\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ gravity\ =\ 1500;}}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00079\ \ \ \ \ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}<\mbox{\hyperlink{classphysicsBody}{physicsBody}}>()-\/>velocity.y\ +=\ \mbox{\hyperlink{classJumpMan_a039026d20cf8685da6b4255fbab6b2e7}{gravity}}\ *\ deltaTime;}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classInputManager_a59438046010e85ae15abf22de7c11644}{InputManager::checkInput}}(\textcolor{stringliteral}{"{}jump"{}}))\ \{}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{comment}{//\ Keep\ Jump}}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jumping)\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jumpAmount\ <=\ \mbox{\hyperlink{classJumpMan_aea89d5e9442578d9544021e85cf83cd9}{jumpPeak}})\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}<\mbox{\hyperlink{classphysicsBody}{physicsBody}}>()-\/>velocity.y\ =\ -\/\mbox{\hyperlink{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8}{jumpChange}};}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ jumpAmount\ +=\ \mbox{\hyperlink{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8}{jumpChange}}\ *\ deltaTime;}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00091\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ jumpAmount\ =\ 0;}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ jumping\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00094\ \ \ \ \ \}}
-\DoxyCodeLine{00095\ \ \ \}}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a039026d20cf8685da6b4255fbab6b2e7}{gravity}}\ =\ 1500;}
-\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a1ec9fe2f6e96cb610c43156b608e79c7}{speed}}\ =\ 40;}
-\DoxyCodeLine{00108\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a8db547103cbba6174c77e9e3105bac45}{airSpeed}}\ =\ 40;}
-\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a6d3b341f99be4ce36bd4ddbc8ada24ab}{maxSpeed}}\ =\ 200;}
-\DoxyCodeLine{00116\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_aead99e8ee4ba96535eb41d4131ac29fb}{tracktion}}\ =\ 1000;}
-\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_aea89d5e9442578d9544021e85cf83cd9}{jumpPeak}}\ =\ 80;}
-\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8}{jumpChange}}\ =\ 300;}
-\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classJumpMan_a4a5929e16b40585e7b7da7503ea6d8ee}{jumps}}\ =\ 1;}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJumpMan_ac01ea884648d305d0cef9eb567f9931a}{allowJump}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJumpMan_a1547f2011e0d04367bde5a4da048ef75}{needGround}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJumpMan_a358ede774827117039acb993885646f0}{touchingGround}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{float}\ jumpsCounter;}
-\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{float}\ jumpAmount\ =\ 0;}
-\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{bool}\ jumping\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00147\ \ \ \mbox{\hyperlink{structBox}{Box}}\ groundCheckBox\ =\ \{0,\ 0,\ 0,\ 0\};}
-\DoxyCodeLine{00148\ \};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}FPS:\ "{}}\ <<\ 1.0f\ /\ deltaTime\ <<\ std::endl;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classJumpMan_ac01ea884648d305d0cef9eb567f9931a}{allowJump}})}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ checkground\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classJumpMan_a1547f2011e0d04367bde5a4da048ef75}{needGround}})\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ groundCheckBox\ =\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ groundCheckBox.position.y\ +=\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getSize().y;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classCollider}{Collider}}\ *col\ :\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{GameManager::getComponents<Collider>}}())\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col-\/>solid)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col-\/>checkBoxCollision(groundCheckBox))\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ checkground\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ checkground\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkground\ ||\ jumpsCounter\ >\ 0)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (checkground)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ jumpsCounter\ =\ \mbox{\hyperlink{classJumpMan_a4a5929e16b40585e7b7da7503ea6d8ee}{jumps}};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ jumpsCounter-\/-\/;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ Jump}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!jumping)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}<\mbox{\hyperlink{classphysicsBody}{physicsBody}}>()-\/>velocity.y\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ jumping\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ gravity\ =\ 1500;}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}<\mbox{\hyperlink{classphysicsBody}{physicsBody}}>()-\/>velocity.y\ +=\ \mbox{\hyperlink{classJumpMan_a039026d20cf8685da6b4255fbab6b2e7}{gravity}}\ *\ deltaTime;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classInputManager_a59438046010e85ae15abf22de7c11644}{InputManager::checkInput}}(\textcolor{stringliteral}{"{}jump"{}}))\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{comment}{//\ Keep\ Jump}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jumping)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jumpAmount\ <=\ \mbox{\hyperlink{classJumpMan_aea89d5e9442578d9544021e85cf83cd9}{jumpPeak}})\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}<\mbox{\hyperlink{classphysicsBody}{physicsBody}}>()-\/>velocity.y\ =\ -\/\mbox{\hyperlink{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8}{jumpChange}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ jumpAmount\ +=\ \mbox{\hyperlink{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8}{jumpChange}}\ *\ deltaTime;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ jumpAmount\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ jumping\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a039026d20cf8685da6b4255fbab6b2e7}{gravity}}\ =\ 1500;}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a1ec9fe2f6e96cb610c43156b608e79c7}{speed}}\ =\ 40;}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a8db547103cbba6174c77e9e3105bac45}{airSpeed}}\ =\ 40;}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a6d3b341f99be4ce36bd4ddbc8ada24ab}{maxSpeed}}\ =\ 200;}
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_aead99e8ee4ba96535eb41d4131ac29fb}{tracktion}}\ =\ 1000;}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_aea89d5e9442578d9544021e85cf83cd9}{jumpPeak}}\ =\ 80;}
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classJumpMan_a98f745ccb23d799a4c25cc1fc8ed24f8}{jumpChange}}\ =\ 300;}
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classJumpMan_a4a5929e16b40585e7b7da7503ea6d8ee}{jumps}}\ =\ 1;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJumpMan_ac01ea884648d305d0cef9eb567f9931a}{allowJump}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJumpMan_a1547f2011e0d04367bde5a4da048ef75}{needGround}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00142\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJumpMan_a358ede774827117039acb993885646f0}{touchingGround}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{float}\ jumpsCounter;}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{float}\ jumpAmount\ =\ 0;}
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordtype}{bool}\ jumping\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00148\ \ \ \mbox{\hyperlink{structBox}{Box}}\ groundCheckBox\ =\ \{0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{00149\ \};}
 
 \end{DoxyCode}

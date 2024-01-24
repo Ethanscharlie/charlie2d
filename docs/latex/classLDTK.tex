@@ -21,10 +21,13 @@ static std\+::string \mbox{\hyperlink{classLDTK_a19e2bb47b0c692d2cdafc120b01da44
 \begin{DoxyCompactList}\small\item\em Where did the player go? \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{classLDTK_a4a7f1156ceac70f9acb72e4a37c2953b}{check\+Outside\+Bounds}} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}player)
 \begin{DoxyCompactList}\small\item\em Checks to see in the player is outside the bounds of the level. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classLDTK_a1c3e63dc19d6a46ba2ddd48e91f6784c}{load\+Level}} (std\+::string iid)
+static void \mbox{\hyperlink{classLDTK_aed928cd94db7eb39a1d646a477a30dda}{load\+Level}} (std\+::string iid, bool handle\+Unload=true)
 \begin{DoxyCompactList}\small\item\em Loads a level via iid. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1}{load\+Json}} (std\+::string file="{}img/ldtk/space.\+ldtk"{})
-\begin{DoxyCompactList}\small\item\em Loads up the json for your world (Please do before anything else here) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Loads up the json for your world (Please do before anything else here) \end{DoxyCompactList}\item 
+\Hypertarget{classLDTK_a865ffaa73e8e164ca92bc39e0029a254}\label{classLDTK_a865ffaa73e8e164ca92bc39e0029a254} 
+static json {\bfseries get\+Level\+Json} (std\+::string iid)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,10 +46,10 @@ static json {\bfseries full\+JSON}
 \Hypertarget{classLDTK_aa2e896c7e8044bd1331e4d717bd6885c}\label{classLDTK_aa2e896c7e8044bd1331e4d717bd6885c} 
 static json {\bfseries current\+Level}
 \item 
-\Hypertarget{classLDTK_a6fe48d9b4955d31a2cd48d66e4e83901}\label{classLDTK_a6fe48d9b4955d31a2cd48d66e4e83901} 
-static std\+::map$<$ std\+::string, json $>$ {\bfseries levels}
+\Hypertarget{classLDTK_aa20caf146f0c7105b273f7c94185e87d}\label{classLDTK_aa20caf146f0c7105b273f7c94185e87d} 
+static std\+::map$<$ std\+::string, std\+::map$<$ std\+::string, json $>$ $>$ {\bfseries worlds}
 \item 
-static std\+::function$<$ void()$>$ \mbox{\hyperlink{classLDTK_a4a32938cc43d2845a1ea86f83d5f311c}{on\+Load\+Level}} = \mbox{[}$\,$\mbox{]}()\{\}
+static std\+::function$<$ void()$>$ \mbox{\hyperlink{classLDTK_a4a32938cc43d2845a1ea86f83d5f311c}{on\+Load\+Level}} = \mbox{[}$\,$\mbox{]}() \{\}
 \begin{DoxyCompactList}\small\item\em Runs when any level has finished loading. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -94,11 +97,11 @@ Loads up the json for your world (Please do before anything else here)
 {\em file} & The filepath \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classLDTK_a1c3e63dc19d6a46ba2ddd48e91f6784c}\label{classLDTK_a1c3e63dc19d6a46ba2ddd48e91f6784c} 
+\Hypertarget{classLDTK_aed928cd94db7eb39a1d646a477a30dda}\label{classLDTK_aed928cd94db7eb39a1d646a477a30dda} 
 \index{LDTK@{LDTK}!loadLevel@{loadLevel}}
 \index{loadLevel@{loadLevel}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{loadLevel()}{loadLevel()}}
-{\footnotesize\ttfamily void LDTK\+::load\+Level (\begin{DoxyParamCaption}\item[{std\+::string}]{iid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void LDTK\+::load\+Level (\begin{DoxyParamCaption}\item[{std\+::string}]{iid,  }\item[{bool}]{handle\+Unload = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -133,7 +136,7 @@ Removes all entites created by ldtk.
 \index{LDTK@{LDTK}!onLoadLevel@{onLoadLevel}}
 \index{onLoadLevel@{onLoadLevel}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{onLoadLevel}{onLoadLevel}}
-{\footnotesize\ttfamily std\+::function$<$ void()$>$ LDTK\+::on\+Load\+Level = \mbox{[}$\,$\mbox{]}()\{\}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily std\+::function$<$ void()$>$ LDTK\+::on\+Load\+Level = \mbox{[}$\,$\mbox{]}() \{\}\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -143,5 +146,5 @@ Here you can loop through the entities std\+::vector and check the propertys The
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/ldtk.\+h\item 
+include/components/ldtk.\+h\item 
 source/ldtk.\+cpp\end{DoxyCompactItemize}

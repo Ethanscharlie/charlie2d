@@ -1,5 +1,5 @@
-\doxysection{include/\+Math.h File Reference}
-\hypertarget{Math_8h}{}\label{Math_8h}\index{include/Math.h@{include/Math.h}}
+\doxysection{include/core/\+Math.h File Reference}
+\hypertarget{Math_8h}{}\label{Math_8h}\index{include/core/Math.h@{include/core/Math.h}}
 {\ttfamily \#include "{}Vector2f.\+h"{}}\newline
 {\ttfamily \#include $<$SDL.\+h$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
@@ -7,19 +7,40 @@
 {\ttfamily \#include $<$ctime$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structAngle}{Angle}}
 \begin{DoxyCompactList}\small\item\em A simple class for manageing angles (used in \doxylink{classSprite}{Sprite}) \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structBox}{Box}}
-\begin{DoxyCompactList}\small\item\em Two \doxylink{structVector2f}{Vector2f} s put together. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Two \doxylink{structVector2f}{Vector2f} s put together. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCircle}{Circle}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{Math_8h_ab3517c7ca4f1af89b1118e4641b348f7}\label{Math_8h_ab3517c7ca4f1af89b1118e4641b348f7} 
+bool {\bfseries check\+Collision} (\mbox{\hyperlink{structBox}{Box}} box, \mbox{\hyperlink{structCircle}{Circle}} circle)
 \item 
 \Hypertarget{Math_8h_a2f5480bd60924b64a3793e77d985f692}\label{Math_8h_a2f5480bd60924b64a3793e77d985f692} 
 float {\bfseries rand\+Float} (float min, float max)
 \begin{DoxyCompactList}\small\item\em Random floating point number. \end{DoxyCompactList}\item 
 \Hypertarget{Math_8h_a4cc9a573ffeeaeebd465a8defc6da5c0}\label{Math_8h_a4cc9a573ffeeaeebd465a8defc6da5c0} 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\T {\bfseries get\+Random\+Element} (const T(\&arr)\mbox{[}N\mbox{]})
-\begin{DoxyCompactList}\small\item\em Grabs a random element from an array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Grabs a random element from an array. \end{DoxyCompactList}\item 
+\Hypertarget{Math_8h_ad9482163d7c8ab70b2a82604a7587b1f}\label{Math_8h_ad9482163d7c8ab70b2a82604a7587b1f} 
+std\+::string {\bfseries float\+To\+String} (float value)
+\begin{DoxyCompactList}\small\item\em Converts a float to a string without unnessessary zeros. \end{DoxyCompactList}\item 
+\Hypertarget{Math_8h_a44bece9dbe1c004ff62e83aad1bf8e42}\label{Math_8h_a44bece9dbe1c004ff62e83aad1bf8e42} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Logcial\+Position} (\mbox{\hyperlink{structVector2f}{Vector2f}} screen\+Pos)
+\begin{DoxyCompactList}\small\item\em Gets a screen position as a logical position. \end{DoxyCompactList}\item 
+\Hypertarget{Math_8h_a5d01e9bed27c3fabba28d34daecf0232}\label{Math_8h_a5d01e9bed27c3fabba28d34daecf0232} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Screen\+Position} (\mbox{\hyperlink{structVector2f}{Vector2f}} logical\+Pos)
+\begin{DoxyCompactList}\small\item\em Gets a logical position as a screen position. \end{DoxyCompactList}\item 
+\Hypertarget{Math_8h_ac628621c950aea54f0641a1684c3d161}\label{Math_8h_ac628621c950aea54f0641a1684c3d161} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries get\+Im\+Gui\+Position} (\mbox{\hyperlink{structVector2f}{Vector2f}} pos)
+\begin{DoxyCompactList}\small\item\em Should be used for all imgui frames, to use please render imgui without logical rendering first and then turn it back on. \end{DoxyCompactList}\item 
+\Hypertarget{Math_8h_ad0d584b564b712a0e007719e9eda81f1}\label{Math_8h_ad0d584b564b712a0e007719e9eda81f1} 
+SDL\+\_\+\+Rect {\bfseries get\+Logical\+Rect} ()
+\begin{DoxyCompactList}\small\item\em Gets sdl2\textquotesingle{}s logical rect because sdl doesn\textquotesingle{}t offer a way too (Ur Welcome) \end{DoxyCompactList}\end{DoxyCompactItemize}

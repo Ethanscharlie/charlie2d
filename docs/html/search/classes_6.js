@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jumpman_0',['JumpMan',['../classJumpMan.html',1,'']]]
+  ['inputmanager_0',['InputManager',['../classInputManager.html',1,'']]]
 ];

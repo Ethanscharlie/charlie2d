@@ -1,43 +1,50 @@
 \doxysection{Button.\+h}
-\hypertarget{Button_8h_source}{}\label{Button_8h_source}\index{include/Button.h@{include/Button.h}}
+\hypertarget{Button_8h_source}{}\label{Button_8h_source}\index{include/components/Button.h@{include/components/Button.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once\ }}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8h}{Math.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}InputManager.h"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}EntityBox.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}EntityBox.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}InputManager.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8h}{Math.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classButton}{Button}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classButton}{Button}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}Button"{}})\ \{\};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classButton}{Button}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}Button"{}})\{\};}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{start}}()\textcolor{keyword}{\ override\ }\{}
-\DoxyCodeLine{00019\ \ \ \ \ \}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ touching\ =\ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getLeft()\ \ \ <\ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().x\ \&\&\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getRight()\ \ >\ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().x\ \&\&\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getTop()\ \ \ \ <\ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().y\ \&\&\ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getBottom()\ >\ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().y;}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (touching)\ \{}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ onHover();}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classInputManager_a59438046010e85ae15abf22de7c11644}{InputManager::checkInput}}(\textcolor{stringliteral}{"{}fire"{}}))\ \{}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ onClick();}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ offHover();}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00035\ \ \ \ \ \}}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ std::function<void()>\ onClick\ =\ []()\{\};}
-\DoxyCodeLine{00038\ \ \ \ \ std::function<void()>\ onHover\ =\ []()\{\};}
-\DoxyCodeLine{00039\ \ \ \ \ std::function<void()>\ offHover\ =\ []()\{\};}
-\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{start}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ touching\ =\ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getLeft()\ <}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().x\ \&\&}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getRight()\ >}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().x\ \&\&}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getTop()\ <}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().y\ \&\&}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>getBox().getBottom()\ >}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classInputManager_a052fa79825bafc35f695f45f07d477b6}{InputManager::getMouseUIPosition}}().y;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (touching)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ onHover();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classInputManager_a59438046010e85ae15abf22de7c11644}{InputManager::checkInput}}(\textcolor{stringliteral}{"{}fire"{}}))\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ onClick();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputManager::mouseHeld)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ onHold();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ offHover();}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ std::function<void()>\ onClick\ =\ []()\ \{\};}
+\DoxyCodeLine{00044\ \ \ std::function<void()>\ onHold\ =\ []()\ \{\};}
+\DoxyCodeLine{00045\ \ \ std::function<void()>\ onHover\ =\ []()\ \{\};}
+\DoxyCodeLine{00046\ \ \ std::function<void()>\ offHover\ =\ []()\ \{\};}
+\DoxyCodeLine{00047\ \};}
 
 \end{DoxyCode}

@@ -1,25 +1,33 @@
 \doxysection{LDTKEntity.\+h}
-\hypertarget{LDTKEntity_8h_source}{}\label{LDTKEntity_8h_source}\index{include/LDTKEntity.h@{include/LDTKEntity.h}}
+\hypertarget{LDTKEntity_8h_source}{}\label{LDTKEntity_8h_source}\index{include/components/LDTKEntity.h@{include/components/LDTKEntity.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Charlie2D.h"{}}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <fstream>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLDTKEntity}{LDTKEntity}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{classLDTKEntity}{LDTKEntity}}()\ \{\}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}{start}}()\textcolor{keyword}{\ override\ }\{\}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{\}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00024\ \ \ json\ \mbox{\hyperlink{classLDTKEntity_a68fe140bf6ea44ade76639a7293ee0de}{entityJson}};}
-\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLDTKEntityValue}{LDTKEntityValue}}\ \{}
+\DoxyCodeLine{00011\ \ \ std::string\ identifier;}
+\DoxyCodeLine{00012\ \ \ std::string\ type;}
+\DoxyCodeLine{00013\ \ \ json\ value;}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLDTKEntity}{LDTKEntity}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classLDTKEntity}{LDTKEntity}}()\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}{start}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb}{onDestroy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ json\ \mbox{\hyperlink{classLDTKEntity_a68fe140bf6ea44ade76639a7293ee0de}{entityJson}};}
+\DoxyCodeLine{00033\ \};}
 
 \end{DoxyCode}

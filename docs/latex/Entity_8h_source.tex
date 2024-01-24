@@ -1,5 +1,5 @@
 \doxysection{Entity.\+h}
-\hypertarget{Entity_8h_source}{}\label{Entity_8h_source}\index{include/Entity.h@{include/Entity.h}}
+\hypertarget{Entity_8h_source}{}\label{Entity_8h_source}\index{include/core/Entity.h@{include/core/Entity.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENTITY\_H}}
@@ -21,84 +21,110 @@
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}}\ \{}
 \DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classEntity}{Entity}}()\{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{comment}{//\ box\ =\ new\ entityBox(this);}}
-\DoxyCodeLine{00025\ \ \ \};}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classEntity}{Entity}}()\ \{\}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classEntity}{\string~Entity}}()\ \{\}}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classEntity}{\string~Entity}}()\ \{\}}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ C\ *\mbox{\hyperlink{classEntity_adb247dffdb69e5967f36a30056a7dba7}{add}}()\ \{}
-\DoxyCodeLine{00033\ \ \ \ \ C\ *component\ =\ \textcolor{keyword}{new}\ C();}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ C\ *\mbox{\hyperlink{classEntity_adb247dffdb69e5967f36a30056a7dba7}{add}}()\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (checkComponent<C>())\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ get<C>();}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ component-\/>entity\ =\ \textcolor{keyword}{this};}
-\DoxyCodeLine{00036\ \ \ \ \ component-\/>entityTag\ =\ \mbox{\hyperlink{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d}{tag}};}
-\DoxyCodeLine{00037\ \ \ \ \ component-\/>start();}
-\DoxyCodeLine{00038\ \ \ \ \ components[\textcolor{keyword}{typeid}(C)]\ =\ component;}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ scene-\/>template\ add<C>(components[typeid(C)]);}}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (GameManager::components.count(\textcolor{keyword}{typeid}(C))\ ==}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ 0)\ \{\ \textcolor{comment}{//\&\&\ std::find(componentTypes.begin(),\ componentTypes.end(),}}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ typeid(C))\ ==\ componentTypes.end())\ \{}}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}added\ type\ "{}}\ <<\ component-\/>title\ <<\ std::endl;}
-\DoxyCodeLine{00045\ \ \ \ \ \}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ component-\/>index\ =\ 0;\ \textcolor{comment}{//\ components[typeid(C)].size();}}
-\DoxyCodeLine{00048\ \ \ \ \ GameManager::components[\textcolor{keyword}{typeid}(C)].push\_back(component);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
-\DoxyCodeLine{00051\ \ \ \}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ C\ *\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}()\ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (checkComponent<C>())\ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ get<C>();}
-\DoxyCodeLine{00060\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ add<C>();}
-\DoxyCodeLine{00062\ \ \ \ \ \}}
-\DoxyCodeLine{00063\ \ \ \}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ C\ *\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}()\ \{}
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ components.find(\textcolor{keyword}{typeid}(C));}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ components.end())\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it-\/>second\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Component\ was\ nullptr"{}});}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}C\ *\textcolor{keyword}{>}(it-\/>second);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Component\ not\ found!"{}});}
-\DoxyCodeLine{00077\ \ \ \}}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{checkComponent}}()\ \{}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ components.find(\textcolor{keyword}{typeid}(C));}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ !=\ components.end();}
-\DoxyCodeLine{00085\ \ \ \}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ std::map<std::type\_index,\ Component\ *>\ gets()\ \{\ \textcolor{keywordflow}{return}\ components;\ \};}
+\DoxyCodeLine{00035\ \ \ \ \ C\ *component\ =\ \textcolor{keyword}{new}\ C();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ component-\/>entity\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00038\ \ \ \ \ component-\/>entityTag\ =\ \mbox{\hyperlink{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d}{tag}};}
+\DoxyCodeLine{00039\ \ \ \ \ component-\/>start();}
+\DoxyCodeLine{00040\ \ \ \ \ components[\textcolor{keyword}{typeid}(C)]\ =\ component;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classGameManager_a78947a0bd7883b7fafe307432cb936fa}{GameManager::components}}.count(\textcolor{keyword}{typeid}(C))\ ==\ 0)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}added\ type\ "{}}\ <<\ component-\/>title\ <<\ std::endl;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ component-\/>index\ =\ 0;\ \textcolor{comment}{//\ components[typeid(C)].size();}}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classGameManager_a78947a0bd7883b7fafe307432cb936fa}{GameManager::components}}[\textcolor{keyword}{typeid}(C)].push\_back(component);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
+\DoxyCodeLine{00050\ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ C\ *\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}()\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (checkComponent<C>())\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ get<C>();}
+\DoxyCodeLine{00059\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ add<C>();}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ C\ *\mbox{\hyperlink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get}}()\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ components.find(\textcolor{keyword}{typeid}(C));}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ components.end())\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it-\/>second\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Component\ was\ nullptr"{}});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}C\ *\textcolor{keyword}{>}(it-\/>second);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Component\ not\ found!"{}});}
+\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_a37fcaa0ff788d31bd63c9b4907b1dcce}{remove}}()\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Remove\ from\ GameManager}}
+\DoxyCodeLine{00083\ \ \ \ \ C\ *component\ =\ get<C>();}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classGameManager_aebd481948ba7fb05754e529cc3b47be2}{GameManager::removeComponent}}(component,\ \textcolor{keyword}{typeid}(C));}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Remove\ from\ entity}}
+\DoxyCodeLine{00087\ \ \ \ \ components.erase(\textcolor{keyword}{typeid}(C));}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ addChild(\mbox{\hyperlink{classEntity}{Entity}}\ *entity)\ \{\ children.push\_back(entity);\ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{delete}\ component;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Removed\ component\ "{}}\ <<\ \textcolor{keyword}{typeid}(C).name()\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \ \ \}}
 \DoxyCodeLine{00093\ }
-\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ setParent(\mbox{\hyperlink{classEntity}{Entity}}\ *entity)\ \{}
-\DoxyCodeLine{00098\ \ \ \ \ parent\ =\ entity;}
-\DoxyCodeLine{00099\ \ \ \ \ entity-\/>addChild(\textcolor{keyword}{this});}
+\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{checkComponent}}()\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ components.find(\textcolor{keyword}{typeid}(C));}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ !=\ components.end();}
 \DoxyCodeLine{00100\ \ \ \}}
 \DoxyCodeLine{00101\ }
-\DoxyCodeLine{00105\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *getParent()\ \{\ \textcolor{keywordflow}{return}\ parent;\ \}}
-\DoxyCodeLine{00106\ \ \ std::vector<Entity\ *>\ getChildren()\ \{\ \textcolor{keywordflow}{return}\ children;\ \}}
-\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{void}\ removeParent()\{\};}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_ac2076343cde9e2901fd22912759d6176}{toDestroy}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00117\ \ \ std::string\ \mbox{\hyperlink{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d}{tag}}\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{bool}\ debug\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{int}\ iid;}
-\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928}{skipUpdate}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_a939da33e8b67b1d2ee227930aa72da3b}{active}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ std::map<std::type\_index,\ Component\ *>\ components;}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00132\ \ \ std::vector<Entity\ *>\ children;}
-\DoxyCodeLine{00133\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *parent\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00134\ \};}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ENTITY\_H}}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ update()\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ [type,\ component]\ :\ components)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!component-\/>standardUpdate)}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classGameManager_aad180c86f385db5da0eb0e14a473b26c}{GameManager::updateEntities}}\ \&\&\ !component-\/>typeIsRendering)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ component-\/>update(GameManager::deltaTime);}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ std::map<std::type\_index,\ Component\ *>\ \mbox{\hyperlink{classEntity_aaa195326122c2565110c11fffb8e38e2}{gets}}()\ \{\ \textcolor{keywordflow}{return}\ components;\ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_ab554f9ad736bc1251620b022d2713b50}{addChild}}(\mbox{\hyperlink{classEntity}{Entity}}\ *entity)\ \{\ children.push\_back(entity);\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEntity_a9e8a940b1f46ccba3607c1de727c9cb8}{setParent}}(\mbox{\hyperlink{classEntity}{Entity}}\ *entity)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ parent\ =\ entity;}
+\DoxyCodeLine{00127\ \ \ \ \ entity-\/>\mbox{\hyperlink{classEntity_ab554f9ad736bc1251620b022d2713b50}{addChild}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{00128\ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classEntity_a6485d6af764cf54bb6723fe57bec91fa}{getParent}}()\ \{\ \textcolor{keywordflow}{return}\ parent;\ \}}
+\DoxyCodeLine{00134\ \ \ std::vector<Entity\ *>\ getChildren()\ \{\ \textcolor{keywordflow}{return}\ children;\ \}}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{void}\ removeParent()\{\};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_ac2076343cde9e2901fd22912759d6176}{toDestroy}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00145\ \ \ std::string\ \mbox{\hyperlink{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d}{tag}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{bool}\ debug\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordtype}{int}\ iid;}
+\DoxyCodeLine{00151\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928}{skipUpdate}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_a939da33e8b67b1d2ee227930aa72da3b}{active}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00159\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEntity_a93e93a3c916d2c83ae398c3a87b5a8d0}{layer}}\ =\ 0;}
+\DoxyCodeLine{00164\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEntity_a56175a9ad78b7bfac545821b2ce0321f}{useLayer}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ std::map<std::type\_index,\ Component\ *>\ components;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ std::vector<Entity\ *>\ children;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *parent\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ENTITY\_H}}
 
 \end{DoxyCode}

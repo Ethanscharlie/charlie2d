@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['slideout_0',['slideOut',['../structslideOut.html',1,'']]],
-  ['sprite_1',['Sprite',['../classSprite.html',1,'']]]
+  ['resourcemanager_0',['ResourceManager',['../classResourceManager.html',1,'']]]
 ];

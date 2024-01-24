@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gamemanager_0',['GameManager',['../classGameManager.html',1,'']]]
+  ['fadetransition_0',['FadeTransition',['../classFadeTransition.html',1,'']]]
 ];

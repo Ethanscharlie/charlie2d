@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ldtk_0',['LDTK',['../classLDTK.html',1,'']]],
-  ['ldtkentity_1',['LDTKEntity',['../classLDTKEntity.html',1,'']]]
+  ['jumpman_0',['JumpMan',['../classJumpMan.html',1,'']]]
 ];

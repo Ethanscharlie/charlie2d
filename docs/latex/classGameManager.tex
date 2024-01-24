@@ -34,14 +34,15 @@ A static class for charlie2d.
 \begin{DoxyCompactList}\small\item\em A Vector of very entity in the scene. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename C $>$ }\\static std\+::vector$<$ C \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{get\+Components}} (std\+::string tag="{}"{})
 \begin{DoxyCompactList}\small\item\em Gets Components via their type. \end{DoxyCompactList}\item 
+\Hypertarget{classGameManager_aebd481948ba7fb05754e529cc3b47be2}\label{classGameManager_aebd481948ba7fb05754e529cc3b47be2} 
+\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}} {\bfseries remove\+Component} (\mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{component}}, std\+::type\+\_\+index type)
+\begin{DoxyCompactList}\small\item\em Removes a component. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classGameManager_a22861623b0a79f789810fb348f3ffb4a}{get\+Entities}} (std\+::string tag)
 \begin{DoxyCompactList}\small\item\em Gets entitys via their tags. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}} \mbox{\hyperlink{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}{do\+Update\+Loop}} ()
 \begin{DoxyCompactList}\small\item\em starts the update loop \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}} \mbox{\hyperlink{classGameManager_acfabcca795eb1f8f1583aefa1951ffde}{set\+Window\+Size}} (\mbox{\hyperlink{structVector2f}{Vector2f}} size)
-\begin{DoxyCompactList}\small\item\em Changes the windows size. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}} \mbox{\hyperlink{classGameManager_a58cc9095a89c14b79e9fdb79506e7f7d}{do\+Fade}} (std\+::function$<$ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}}()$>$ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{middle}}=\mbox{[}$\,$\mbox{]}() \{\}, \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{int}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{fade\+Time}}=300)
-\begin{DoxyCompactList}\small\item\em Performs a screen fade to black and back transition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Changes the windows size. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -66,20 +67,19 @@ A static class for charlie2d.
 \Hypertarget{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d}\label{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d} 
 \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{bool}} {\bfseries running} = \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{true}}
 \begin{DoxyCompactList}\small\item\em Is the game running? Well it should be... \end{DoxyCompactList}\item 
-\Hypertarget{classGameManager_a7e027ded125d9e5c6dfd88fccefd26b7}\label{classGameManager_a7e027ded125d9e5c6dfd88fccefd26b7} 
-\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{int}} {\bfseries transition} = 0
-\begin{DoxyCompactList}\small\item\em transition state for fade transitions \end{DoxyCompactList}\item 
 \Hypertarget{classGameManager_aad180c86f385db5da0eb0e14a473b26c}\label{classGameManager_aad180c86f385db5da0eb0e14a473b26c} 
 \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{bool}} {\bfseries update\+Entities} = \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{true}}
 \begin{DoxyCompactList}\small\item\em Pause mode. \end{DoxyCompactList}\item 
 \Hypertarget{classGameManager_a0d02f4e1f3f2097fea34ed9a8d680c25}\label{classGameManager_a0d02f4e1f3f2097fea34ed9a8d680c25} 
 \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{float}} {\bfseries delta\+Time} = 0
 \item 
-\Hypertarget{classGameManager_a78947a0bd7883b7fafe307432cb936fa}\label{classGameManager_a78947a0bd7883b7fafe307432cb936fa} 
-\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} std\+::map$<$ std\+::type\+\_\+index, std\+::vector$<$ \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ $>$ {\bfseries components}
+\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} std\+::map$<$ std\+::type\+\_\+index, std\+::vector$<$ \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ $>$ \mbox{\hyperlink{classGameManager_a78947a0bd7883b7fafe307432cb936fa}{components}}
 \item 
 \Hypertarget{classGameManager_af21c08b62ebcb0202cb3ec1f89561b5e}\label{classGameManager_af21c08b62ebcb0202cb3ec1f89561b5e} 
 \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} std\+::map$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ $>$ {\bfseries entities}
+\item 
+\Hypertarget{classGameManager_afd2f9df80df770931355787c61d19f15}\label{classGameManager_afd2f9df80df770931355787c61d19f15} 
+\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{static}} \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{SDL\+\_\+\+Texture}} \texorpdfstring{$\ast$}{*} {\bfseries target\+Render\+Surface}
 \end{DoxyCompactItemize}
 
 
@@ -113,24 +113,7 @@ The newly made \doxylink{classEntity}{Entity}
 \doxysubsubsection{\texorpdfstring{destroyAll()}{destroyAll()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}} Game\+Manager\+::destroy\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}}}]{do\+Not\+Destroy\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-\textbackslash{}breif Destroys all entities currently alive \Hypertarget{classGameManager_a58cc9095a89c14b79e9fdb79506e7f7d}\label{classGameManager_a58cc9095a89c14b79e9fdb79506e7f7d} 
-\index{GameManager@{GameManager}!doFade@{doFade}}
-\index{doFade@{doFade}!GameManager@{GameManager}}
-\doxysubsubsection{\texorpdfstring{doFade()}{doFade()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}} Game\+Manager\+::do\+Fade (\begin{DoxyParamCaption}\item[{std\+::function$<$ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{void}}()$>$}]{middle = {\ttfamily \mbox{[}\mbox{]}()~\{\}},  }\item[{\mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{int}}}]{fade\+Time = {\ttfamily 300} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Performs a screen fade to black and back transition. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em middle} & code to run at the middle or {\itshape black} part of the transition \\
-\hline
-{\em fade\+Time} & the time it takes to finish the transition \\
-\hline
-\end{DoxyParams}
-\Hypertarget{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}\label{classGameManager_a23446d4fc037d61ba06422cb0d0f7937} 
+\textbackslash{}breif Destroys all entities currently alive \Hypertarget{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}\label{classGameManager_a23446d4fc037d61ba06422cb0d0f7937} 
 \index{GameManager@{GameManager}!doUpdateLoop@{doUpdateLoop}}
 \index{doUpdateLoop@{doUpdateLoop}!GameManager@{GameManager}}
 \doxysubsubsection{\texorpdfstring{doUpdateLoop()}{doUpdateLoop()}}
@@ -223,7 +206,18 @@ This doesn\textquotesingle{}t effect the original size and yes charlie2d support
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classGameManager_a78947a0bd7883b7fafe307432cb936fa}\label{classGameManager_a78947a0bd7883b7fafe307432cb936fa} 
+\index{GameManager@{GameManager}!components@{components}}
+\index{components@{components}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{components}{components}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::type\+\_\+index, std\+::vector$<$ \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ $>$ Game\+Manager\+::components\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb} \breif Time in between frames, you should multiply this to any frame base
+\end{DoxyVerb}
+ iteration, like player movement static float delta\+Time; 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/Game\+Manager.\+h\item 
+include/core/Game\+Manager.\+h\item 
 source/Game\+Manager.\+cpp\end{DoxyCompactItemize}

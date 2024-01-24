@@ -1,5 +1,5 @@
 \doxysection{physics\+Body.\+h}
-\hypertarget{physicsBody_8h_source}{}\label{physicsBody_8h_source}\index{include/physicsBody.h@{include/physicsBody.h}}
+\hypertarget{physicsBody_8h_source}{}\label{physicsBody_8h_source}\index{include/components/physicsBody.h@{include/components/physicsBody.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -37,23 +37,29 @@
 \DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}.x\ ==\ 0\ \&\&\ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}.y\ ==\ 0)}
 \DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ std::vector<Entity*>\ solids;}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classCollider}{Collider}}*\ col\ :\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{GameManager::getComponents<Collider>}}())\ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!col-\/>solid)\ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ solids.push\_back(col-\/>entity);}
-\DoxyCodeLine{00045\ \ \ \ \ \}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out\ =}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>slide(\mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}\ *\ deltaTime,\ solids);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (out.horizontalHit)}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}.x\ =\ 0;}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (out.verticleHit)}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}.y\ =\ 0;}
-\DoxyCodeLine{00054\ \ \ \}}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}};}
-\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14}{maxVelocity}}\ =\ \{-\/1,\ -\/1\};}
-\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Entity\ *>\ solids;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classCollider}{Collider}}\ *col\ :\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{GameManager::getComponents<Collider>}}())\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!col-\/>solid)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ solids.push\_back(col-\/>entity);}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classphysicsBody_a2403035c0d252db50328509e9426a3b5}{pushOut}})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ out\ =}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>slide(\mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}\ *\ deltaTime,\ solids);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (out.horizontalHit)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}.x\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (out.verticleHit)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}.y\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_abe66cdc587c335147849833216ca5c77}{require}}<\mbox{\hyperlink{classentityBox}{entityBox}}>()-\/>changePosition(\mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}}\ *\ deltaTime);}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}};}
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14}{maxVelocity}}\ =\ \{-\/1,\ -\/1\};}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classphysicsBody_a2403035c0d252db50328509e9426a3b5}{pushOut}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00077\ \};}
 
 \end{DoxyCode}

@@ -8,6 +8,5 @@ var searchData=
   ['tilelayer_5',['TileLayer',['../classTileLayer.html',1,'']]],
   ['todestroy_6',['toDestroy',['../classEntity.html#ac2076343cde9e2901fd22912759d6176',1,'Entity']]],
   ['touchingground_7',['touchingGround',['../classJumpMan.html#a358ede774827117039acb993885646f0',1,'JumpMan']]],
-  ['tracktion_8',['tracktion',['../classJumpMan.html#aead99e8ee4ba96535eb41d4131ac29fb',1,'JumpMan']]],
-  ['transition_9',['transition',['../classGameManager.html#a7e027ded125d9e5c6dfd88fccefd26b7',1,'GameManager']]]
+  ['tracktion_8',['tracktion',['../classJumpMan.html#aead99e8ee4ba96535eb41d4131ac29fb',1,'JumpMan']]]
 ];
