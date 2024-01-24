@@ -129,7 +129,7 @@ public:
 
   static SDL_Window *window;
   static SDL_Renderer *renderer;
-  static SDL_Texture *screenTexture;
+
   /**
    * \brief the original resolution
    */

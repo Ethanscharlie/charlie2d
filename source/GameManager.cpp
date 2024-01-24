@@ -30,16 +30,11 @@ bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;
 Uint64 GameManager::lastTime;
 
-SDL_Texture *GameManager::targetRenderSurface;
-
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
   window.addEventListener(
-      'resize', function() {
-        // Call the function _on_resize from JavaScript
-        // Module['_on_resize'](window.innerWidth, window.innerHeight);
-        _on_resize(window.innerWidth, window.innerHeight);
-      });
+      'resize',
+      function() { _on_resize(window.innerWidth, window.innerHeight); });
 });
 
 extern "C" {
@@ -80,7 +75,6 @@ void GameManager::init(Vector2f windowSize) {
   SDL_Init(SDL_INIT_TIMER);
   TTF_Init();
   IMG_Init(IMG_INIT_PNG);
-  // SDL_SetWindowResizable(window, SDL_TRUE);
 
   gameWindowSize = windowSize;
   currentWindowSize = windowSize;
@@ -94,18 +88,12 @@ void GameManager::init(Vector2f windowSize) {
                             currentWindowSize.y, SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  targetRenderSurface =
-      SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
-                        SDL_TEXTUREACCESS_TARGET, windowSize.x, windowSize.y);
-  // SDL_SetRenderTarget(GameManager::renderer, targetRenderSurface);
-
   SDL_RenderSetLogicalSize(renderer, windowSize.x, windowSize.y);
 
   // IMGUI -------------------------------------------------------
 
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
-  // ImGui& io = ImGui::GetIO(); (void)io;
 
   ImGui_ImplSDL2_InitForSDLRenderer(window, renderer);
   ImGui_ImplSDLRenderer2_Init(renderer);
@@ -172,9 +160,6 @@ void GameManager::Update() {
       if (event.key.keysym.sym <= 256) {
         if (true || InputManager::keysUped[event.key.keysym.sym]) {
           InputManager::keys[event.key.keysym.sym] = true;
-          // InputManager::keysUped[event.key.keysym.sym] = false;
-        } else {
-          // InputManager::keys[event.key.keysym.sym] = false;
         }
       }
 
@@ -221,8 +206,6 @@ void GameManager::Update() {
       layeredEntities.push_back(entity);
       continue;
     }
-    // if (!updateEntities)
-    //   continue;
 
     entity->update();
   }
