@@ -1,7 +1,6 @@
 #include "Collider.h"
 #include "EntityBox.h"
 #include "Sprite.h"
-#include "Scene.h"
 #include "Entity.h"
 
 void Collider::start() {

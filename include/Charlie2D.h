@@ -6,7 +6,6 @@
 #include "InputManager.h"
 #include "Math.h"
 #include "ResourceManager.h"
-#include "Scene.h"
 
 // Components
 #include "CircleCollider.h"

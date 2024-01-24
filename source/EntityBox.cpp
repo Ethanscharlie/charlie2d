@@ -2,7 +2,6 @@
 #include "Camera.h"
 #include "Entity.h"
 #include "GameManager.h"
-#include "Scene.h"
 
 void entityBox::print() {
   globalBox.print();

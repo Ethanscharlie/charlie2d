@@ -2,7 +2,6 @@
 #define ENTITY_H
 #include "GameManager.h"
 #include "Math.h"
-#include "Scene.h"
 #include <SDL.h>
 #include <cmath>
 #include <map>
