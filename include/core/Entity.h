@@ -38,12 +38,8 @@ public:
     component->start();
     components[typeid(C)] = component;
 
-    if (GameManager::components.count(typeid(C)) == 0) {
-      std::cout << "added type " << component->title << std::endl;
-    }
-
-    component->index = 0; // components[typeid(C)].size();
-    GameManager::components[typeid(C)].push_back(component);
+    component->index = iid; // components[typeid(C)].size();
+    GameManager::addComponent<C>(component);
 
     return component;
   }

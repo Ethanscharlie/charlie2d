@@ -122,6 +122,11 @@ public:
    */
   static void setWindowSize(Vector2f size);
 
+  /**
+   * \breif Adds a component to the components map (Used by Entity class)
+   */
+  template <typename C> static void addComponent(Component *component);
+
   static SDL_Window *window;
   static SDL_Renderer *renderer;
   static SDL_Texture *screenTexture;
@@ -155,7 +160,6 @@ public:
 iteration, like player movement static float deltaTime;
   */
 
-  static std::map<std::type_index, std::vector<Component *>> components;
   static std::map<std::string, std::vector<Entity *>>
       entities; // Sorted by tags
                 //
@@ -166,6 +170,8 @@ private:
    * Deletes
    */
   static void destroyEntity(Entity *entity);
+
+  static std::map<std::type_index, std::vector<Component *>> components;
 
   static Uint64 lastTime;
 };
@@ -186,6 +192,10 @@ std::vector<C *> GameManager::getComponents(std::string tag) {
     components[typeid(C)];
 
   return hits;
+}
+
+template <typename C> void GameManager::addComponent(Component *component) {
+  components[typeid(C)].push_back(component);
 }
 
 #endif
