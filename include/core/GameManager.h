@@ -70,7 +70,7 @@ public:
   /**
    * \breif Destroys all entities currently alive
    */
-  static void destroyAll(Entity doNotDestroy[]);
+  static void destroyAll();
 
   /**
    * \brief Creates and Entity

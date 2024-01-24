@@ -313,7 +313,11 @@ void GameManager::quit() {
   GameManager::running = false;
 }
 
-void GameManager::destroyAll(Entity doNotDestroy[]) {}
+void GameManager::destroyAll() {
+  for (Entity *entity : getAllObjects()) {
+    entity->toDestroy = true;
+  }
+}
 
 std::vector<Entity *> GameManager::getEntities(std::string tag) {
   return entities[tag];
@@ -354,7 +358,6 @@ void GameManager::destroyEntity(Entity *entity) {
       continue;
     child->toDestroy = true;
     child->parent = nullptr;
-    // destroyEntity(child);
   }
 
   // components
