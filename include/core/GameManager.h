@@ -160,9 +160,6 @@ public:
 iteration, like player movement static float deltaTime;
   */
 
-  static std::map<std::string, std::vector<Entity *>>
-      entities; // Sorted by tags
-                //
   static SDL_Texture *targetRenderSurface;
 
 private:
@@ -172,6 +169,8 @@ private:
   static void destroyEntity(Entity *entity);
 
   static std::map<std::type_index, std::vector<Component *>> components;
+
+  static std::map<std::string, std::vector<Entity *>> entities;
 
   static Uint64 lastTime;
 };
