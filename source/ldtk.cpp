@@ -182,7 +182,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
   onLoadLevel();
 
   if (handleUnload) {
-    GameManager::updateEntities = false;
+    // GameManager::updateEntities = false;
     FadeTransition *Fader = nullptr;
     if (GameManager::getComponents<FadeTransition>().size() > 0) {
       Fader = GameManager::getComponents<FadeTransition>()[0];

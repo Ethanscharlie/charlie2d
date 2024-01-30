@@ -253,8 +253,6 @@ class entityBox : public Component {
     // The check box is sized to the move to prevent clipping
     // at high speeds and low framerates
     changePosition({movement.x, 0});
-    if (!useMoveBox)
-      getBox() = getBox();
 
     // Horizontal check and move
   HORREDO:
@@ -280,8 +278,6 @@ class entityBox : public Component {
 
     // Create verticle check box
     changePosition({0, movement.y});
-    if (!useMoveBox)
-      getBox() = getBox();
 
     // Verticle collision check and move
   VERREDO:

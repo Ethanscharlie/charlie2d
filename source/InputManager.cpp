@@ -129,16 +129,8 @@ Vector2f InputManager::getMouseWorldPosition() {
 }
 
 Vector2f InputManager::getMouseUIPosition() {
-  // return {GameManager::screen_change_scale *
-  // (entity->require<entityBox>()->getPosition().x) +
-  // GameManager::currentWindowSize.x/2, GameManager::screen_change_scale *
-  // (entity->require<entityBox>()->getPosition().y) +
-  // GameManager::currentWindowSize.y/2};
   Vector2f mouse = getMouseScreenPosition();
-  return {(mouse.x - GameManager::currentWindowSize.x / 2) /
-              GameManager::screen_change_scale,
-          (mouse.y - GameManager::currentWindowSize.y / 2) /
-              GameManager::screen_change_scale};
+  return (mouse - GameManager::gameWindowSize / 2);
 }
 
 Vector2f InputManager::getMouseScreenPosition() {

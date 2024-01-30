@@ -55,8 +55,12 @@ public:
    * \brief Rotates in degrees
    * \param angle float for degrees
    */
-  void rotate(float angle) {
-    radians += angle * (180.0 / 3.141592653589793238463);
+  void rotate(float degrees) {
+    radians += degrees * (M_PI / 180.0);
+    radians = fmod(radians, 2 * M_PI);
+    if (radians < 0) {
+      radians += 2 * M_PI;
+    }
   }
 
   float radians = 0;
@@ -211,6 +215,7 @@ Vector2f getScreenPosition(Vector2f logicalPos);
 Vector2f getImGuiPosition(Vector2f pos);
 
 /**
- * \brief Gets sdl2's logical rect because sdl doesn't offer a way too (Ur Welcome)
+ * \brief Gets sdl2's logical rect because sdl doesn't offer a way too (Ur
+ * Welcome)
  */
 SDL_Rect getLogicalRect();
