@@ -1,0 +1,108 @@
+\doxysection{Simple\+Im\+Gui\+Panel Class Reference}
+\hypertarget{classSimpleImGuiPanel}{}\label{classSimpleImGuiPanel}\index{SimpleImGuiPanel@{SimpleImGuiPanel}}
+
+
+A drop in imgui replacement for \doxylink{classUISliceRenderer}{UISlice\+Renderer} s.  
+
+
+
+
+{\ttfamily \#include $<$imgui\+Utils.\+h$>$}
+
+Inheritance diagram for Simple\+Im\+Gui\+Panel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSimpleImGuiPanel}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSimpleImGuiPanel_a9b84b6a47785bff310b22828fea02af9}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimpleImGuiPanel_a5d5a633e5d9991e3ea2da9468d03630e}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+\Hypertarget{classSimpleImGuiPanel_a92064b32ed2fe8d2265b1201d73e493c}\label{classSimpleImGuiPanel_a92064b32ed2fe8d2265b1201d73e493c} 
+void {\bfseries set\+Color} (std\+::array$<$ Uint8, 3 $>$ color, float alpha=1)
+\item 
+\Hypertarget{classSimpleImGuiPanel_a9631fe77fa5abdc4d9d4ff129d7ead8c}\label{classSimpleImGuiPanel_a9631fe77fa5abdc4d9d4ff129d7ead8c} 
+void {\bfseries change\+Font} (std\+::string font\+File, int size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSimpleImGuiPanel_a9d2af869a5176a31b21387cde4825dab}\label{classSimpleImGuiPanel_a9d2af869a5176a31b21387cde4825dab} 
+std\+::string {\bfseries text} = "{}"{}
+\item 
+\Hypertarget{classSimpleImGuiPanel_a6920e5470a37ae98e93264f1d0fcad7d}\label{classSimpleImGuiPanel_a6920e5470a37ae98e93264f1d0fcad7d} 
+Im\+Vec4 {\bfseries frame\+Color} = Im\+Vec4(1, 1, 1, 1)
+\item 
+\Hypertarget{classSimpleImGuiPanel_adcc6f75174ed3eb240524bcd66d2dda7}\label{classSimpleImGuiPanel_adcc6f75174ed3eb240524bcd66d2dda7} 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries rendering\+Texture}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A drop in imgui replacement for \doxylink{classUISliceRenderer}{UISlice\+Renderer} s. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSimpleImGuiPanel_a9b84b6a47785bff310b22828fea02af9}\label{classSimpleImGuiPanel_a9b84b6a47785bff310b22828fea02af9} 
+\index{SimpleImGuiPanel@{SimpleImGuiPanel}!start@{start}}
+\index{start@{start}!SimpleImGuiPanel@{SimpleImGuiPanel}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Simple\+Im\+Gui\+Panel\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
+
+\Hypertarget{classSimpleImGuiPanel_a5d5a633e5d9991e3ea2da9468d03630e}\label{classSimpleImGuiPanel_a5d5a633e5d9991e3ea2da9468d03630e} 
+\index{SimpleImGuiPanel@{SimpleImGuiPanel}!update@{update}}
+\index{update@{update}!SimpleImGuiPanel@{SimpleImGuiPanel}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Simple\+Im\+Gui\+Panel\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/components/imgui\+Utils.\+h\item 
+source/imgui\+Utils.\+cpp\end{DoxyCompactItemize}

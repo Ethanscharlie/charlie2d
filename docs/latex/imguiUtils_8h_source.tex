@@ -1,0 +1,31 @@
+\doxysection{imgui\+Utils.\+h}
+\hypertarget{imguiUtils_8h_source}{}\label{imguiUtils_8h_source}\index{include/components/imguiUtils.h@{include/components/imguiUtils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}imgui.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_sdl2.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_sdlrenderer2.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ TextCentered(std::string\ text);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSimpleImGuiPanel}{SimpleImGuiPanel}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSimpleImGuiPanel_a9b84b6a47785bff310b22828fea02af9}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSimpleImGuiPanel_a5d5a633e5d9991e3ea2da9468d03630e}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ setColor(std::array<Uint8,\ 3>\ color,\ \textcolor{keywordtype}{float}\ alpha\ =\ 1);}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ changeFont(std::string\ fontFile,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ std::string\ text\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00026\ \ \ ImVec4\ frameColor\ =\ ImVec4(1,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{00027\ \ \ SDL\_Texture\ *renderingTexture;}
+\DoxyCodeLine{00028\ \};}
+
+\end{DoxyCode}

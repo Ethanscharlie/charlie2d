@@ -1,0 +1,92 @@
+\doxysection{Fade\+Transition.\+h}
+\hypertarget{FadeTransition_8h_source}{}\label{FadeTransition_8h_source}\index{include/components/FadeTransition.h@{include/components/FadeTransition.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}GameManager.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SDL\_stdinc.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}SDL\_timer.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{enum}\ Section\ \{\ FadingOut,\ FadingIn,\ Finished\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFadeTransition}{FadeTransition}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFadeTransition_ae658a5ad0dce9e31220ea3ab5d3f0f04}{start}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a56175a9ad78b7bfac545821b2ce0321f}{useLayer}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a93e93a3c916d2c83ae398c3a87b5a8d0}{layer}}\ =\ 120;}
+\DoxyCodeLine{00016\ \ \ \ \ typeIsRendering\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00017\ \ \ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFadeTransition_a2990c9bc595c7ac4ceab0e0b867a47ad}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fade\ update\(\backslash\)n"{}};}
+\DoxyCodeLine{00021\ \ \ \ \ SDL\_Rect\ fill\_dst;}
+\DoxyCodeLine{00022\ \ \ \ \ Uint32\ elapsedTime;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Used\ for\ FadingOut\ and\ FadingIn\ so\ why\ repeat\ the\ code}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentSection\ !=\ Finished)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ fill\_dst.w\ =\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.x;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ fill\_dst.h\ =\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.y;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ fill\_dst.x\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ fill\_dst.y\ =\ 0;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ elapsedTime\ =\ SDL\_GetTicks()\ -\/\ fadeStartTime;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{switch}\ (currentSection)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{case}\ Finished:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{case}\ FadingOut:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fading\ out\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ SDL\_SetRenderDrawBlendMode(GameManager::renderer,\ SDL\_BLENDMODE\_BLEND);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ SDL\_SetRenderDrawColor(GameManager::renderer,\ 0,\ 0,\ 0,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}Uint8\textcolor{keyword}{>}(255\ *\ elapsedTime\ /\ fade\_time));}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ SDL\_RenderFillRect(GameManager::renderer,\ \&fill\_dst);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (elapsedTime\ >=\ fade\_time)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ currentSection\ =\ FadingIn;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ fadeStartTime\ =\ SDL\_GetTicks();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ onMiddleFade();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{case}\ FadingIn:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fading\ in\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ SDL\_SetRenderDrawBlendMode(GameManager::renderer,\ SDL\_BLENDMODE\_BLEND);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ SDL\_SetRenderDrawColor(}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ GameManager::renderer,\ 0,\ 0,\ 0,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}Uint8\textcolor{keyword}{>}(255\ -\/\ 255\ *\ elapsedTime\ /\ fade\_time));}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ SDL\_RenderFillRect(GameManager::renderer,\ \&fill\_dst);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (elapsedTime\ >=\ fade\_time)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ currentSection\ =\ Finished;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ onPostFade();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFadeTransition_a6836efec9d5cb1332556a926b393a19d}{doFade}}(}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ middle\ =\ []()\ \{\},\ \textcolor{keywordtype}{int}\ fadeTime\ =\ 300,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ std::function<void()>\ post\ =\ []()\ \{\})\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ fade\_time\ =\ fadeTime;}
+\DoxyCodeLine{00080\ \ \ \ \ onMiddleFade\ =\ middle;}
+\DoxyCodeLine{00081\ \ \ \ \ onPostFade\ =\ post;}
+\DoxyCodeLine{00082\ \ \ \ \ currentSection\ =\ FadingOut;}
+\DoxyCodeLine{00083\ \ \ \ \ fadeStartTime\ =\ SDL\_GetTicks();}
+\DoxyCodeLine{00084\ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ Section\ currentSection\ =\ Finished;}
+\DoxyCodeLine{00087\ \ \ Uint32\ fadeStartTime;}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{int}\ fade\_time;}
+\DoxyCodeLine{00089\ \ \ std::function<void()>\ onMiddleFade;}
+\DoxyCodeLine{00090\ \ \ std::function<void()>\ onPostFade;}
+\DoxyCodeLine{00091\ \};}
+
+\end{DoxyCode}

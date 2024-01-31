@@ -1,0 +1,63 @@
+\doxysection{Scheduler.\+h}
+\hypertarget{Scheduler_8h_source}{}\label{Scheduler_8h_source}\index{include/components/Scheduler.h@{include/components/Scheduler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SDL\_stdinc.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SDL\_timer.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSchedule}{Schedule}}\ \{}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{structSchedule}{Schedule}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{structSchedule}{Schedule}}(std::function<\textcolor{keywordtype}{void}()>\ \_function,\ Uint32\ \_millisecondWaitTime,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_removeTimerOnFinish)}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ :\ function(\_function),\ millisecondWaitTime(\_millisecondWaitTime),}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ timerStartTime(SDL\_GetTicks()),}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ removeTimerOnFinish(\_removeTimerOnFinish)\ \{\}}
+\DoxyCodeLine{00022\ \ \ std::function<void()>\ function\ =\ []()\ \{\};}
+\DoxyCodeLine{00023\ \ \ Uint32\ millisecondWaitTime\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ Uint32\ timerStartTime\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{bool}\ removeTimerOnFinish\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScheduler}{Scheduler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScheduler_a92853b420d439bd49fc0c690b1c02bfd}{start}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScheduler_a12580d9d2584e1c2204631460f1a6051}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<std::string>\ toRemove;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&[name,\ schedule]\ :\ schedules)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (schedule.timerStartTime\ +\ schedule.millisecondWaitTime\ <}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ SDL\_GetTicks())\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ schedule.function();}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ schedule.timerStartTime\ =\ SDL\_GetTicks();}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (schedule.removeTimerOnFinish)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ toRemove.push\_back(name);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::string\ name\ :\ toRemove)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ removeSchedule(name);}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScheduler_a840000136f5cb4277e8888e4eafbed3e}{addSchedule}}(\textcolor{keyword}{const}\ std::string\ \&name,\ Uint32\ millisecondWaitTime,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ function,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ removeTimerOnFinish\ =\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ schedules[name]\ =\ \{function,\ millisecondWaitTime,\ removeTimerOnFinish\};}
+\DoxyCodeLine{00065\ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ removeSchedule(\textcolor{keyword}{const}\ std::string\ \&name)\ \{\ schedules.erase(name);\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ std::map<std::string,\ Schedule>\ schedules;}
+\DoxyCodeLine{00071\ \};}
+
+\end{DoxyCode}
