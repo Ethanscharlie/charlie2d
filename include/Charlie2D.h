@@ -15,6 +15,7 @@
 #include "Scheduler.h"
 #include "Sprite.h"
 #include "physicsBody.h"
+#include "ExtendedComponent.h"
 
 #include "imguiUtils.h"
 #include "ldtk.h"
