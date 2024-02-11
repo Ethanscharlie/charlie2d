@@ -26,21 +26,25 @@ void entityBox::updateGlobalBox() {
       globalBox.position =
           localBox.position +
           entity->getParent()->require<entityBox>()->globalBox.getTopMiddle();
-    } else if (anchor == 2) {
+    } else if (anchor == 2) { // Top Right
       globalBox.position =
           localBox.position + entity->getParent()
                                   ->require<entityBox>()
                                   ->globalBox.getTopRightCorner();
-
-    } else if (anchor == 3) {
+    } else if (anchor == 3) { // Middle Left
+      globalBox.position =
+          localBox.position +
+          entity->getParent()->require<entityBox>()->globalBox.getMiddleLeft();
     } else if (anchor == 4) // Middle
     {
       globalBox.position =
           localBox.position +
           entity->getParent()->require<entityBox>()->globalBox.getCenter();
-    } else if (anchor == 5) {
-
-    } else if (anchor == 6) {
+    } else if (anchor == 5) { // Middle Right
+      globalBox.position =
+          localBox.position +
+          entity->getParent()->require<entityBox>()->globalBox.getMiddleRight();
+    } else if (anchor == 6) { // Bottom Left
       globalBox.position =
           localBox.position + entity->getParent()
                                   ->require<entityBox>()
@@ -80,7 +84,6 @@ void entityBox::updateLocalBox() {
           globalBox.position - entity->getParent()
                                    ->require<entityBox>()
                                    ->globalBox.getTopLeftCorner();
-
     } else if (anchor == 1) // Top Middle
     {
       localBox.position =
@@ -91,14 +94,19 @@ void entityBox::updateLocalBox() {
           globalBox.position - entity->getParent()
                                    ->require<entityBox>()
                                    ->globalBox.getTopRightCorner();
-
     } else if (anchor == 3) {
+      localBox.position =
+          globalBox.position -
+          entity->getParent()->require<entityBox>()->globalBox.getMiddleLeft();
     } else if (anchor == 4) // Middle
     {
       localBox.position =
           globalBox.position -
           entity->getParent()->require<entityBox>()->globalBox.getCenter();
     } else if (anchor == 5) {
+      localBox.position =
+          globalBox.position -
+          entity->getParent()->require<entityBox>()->globalBox.getMiddleRight();
 
     } else if (anchor == 6) {
       localBox.position =

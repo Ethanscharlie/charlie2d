@@ -102,6 +102,8 @@ struct Box {
   Vector2f getTopRightCorner() { return {getRight(), position.y}; }
   Vector2f getBottomLeftCorner() { return {position.x, getBottom()}; }
   Vector2f getBottomMiddle() { return {position.x + size.x / 2, getBottom()}; }
+  Vector2f getMiddleLeft() { return {position.x, position.y + size.y / 2}; }
+  Vector2f getMiddleRight() { return {getRight(), position.y + size.y / 2}; }
   Vector2f getBottomRightCorner() { return {getRight(), getBottom()}; }
   Vector2f getCenter() {
     return {position.x + size.x / 2, position.y + size.y / 2};

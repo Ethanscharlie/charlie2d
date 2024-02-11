@@ -6,6 +6,16 @@
 #include "Math.h"
 #include <vector>
 
+const int EBOX_TOP_LEFT      = 0;
+const int EBOX_TOP_MIDDLE    = 1;
+const int EBOX_TOP_RIGHT     = 2;
+const int EBOX_MIDDLE_LEFT   = 3;
+const int EBOX_CENTER        = 4;
+const int EBOX_MIDDLE_RIGHT  = 5;
+const int EBOX_BOTTOM_LEFT   = 6;
+const int EBOX_BOTTOM_MIDDLE = 7;
+const int EBOX_BOTTOM_RIGHT  = 8;
+
 class Entity;
 
 /**
