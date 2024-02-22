@@ -5,13 +5,10 @@
 
 class ExtendedComponent : public Component {
     public:
-    void additionalStart() 
-    {
-        box = entity->add<entityBox>();
-    }
-    void start() override { additionalStart(); }
+    virtual void start() override { }
     void update(float deltaTime) override { update(); }
     virtual void update() {}
+    virtual void onDestroy() override {}
     
     template <typename C> 
     C *add() { 
@@ -27,6 +24,4 @@ class ExtendedComponent : public Component {
     bool checkComponent() { 
         return entity->checkComponent<C>();
     }
-    
-    entityBox *box = nullptr;
 };
