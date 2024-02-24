@@ -324,7 +324,7 @@ Entity *GameManager::createEntity(std::string tag) {
   entity->tag = tag;
   entity->iid = getAllObjects().size();
   entities[tag].push_back(entity);
-  entity->add<entityBox>();
+  entity->box = entity->add<entityBox>();
   return entity;
 }
 

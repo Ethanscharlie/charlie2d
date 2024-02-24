@@ -1,18 +1,16 @@
 #ifndef ENTITY_H
 #define ENTITY_H
+
 #include "GameManager.h"
-#include "Math.h"
 #include <SDL.h>
-#include <cmath>
 #include <map>
-#include <memory>
 #include <stdexcept>
 #include <typeindex>
-#include <unordered_map>
 #include <vector>
 
 class Animation;
 class Component;
+class entityBox;
 
 /**
  * \brief Entitys are containers for an EnityBox and components
@@ -157,6 +155,11 @@ public:
    * sprites)
    */
   bool useLayer = false;
+
+  /**
+   *\brief A pointer to the entitys entityBox
+   */
+  entityBox* box = nullptr;
 
   std::map<std::type_index, Component *> components;
 
