@@ -2,6 +2,8 @@
 #include "Entity.h"
 #include "FadeTransition.h"
 #include "GameManager.h"
+#include "LDTKEntity.h"
+#include "Tile.h"
 
 Box LDTK::worldBox;
 std::vector<Entity *> LDTK::entities;
@@ -121,42 +123,77 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
 
       entities.push_back(layerObject);
 
+      std::vector<TileRaw> rawTiles;
       for (auto const &tile : layer["gridTiles"]) {
-        Entity *tileObject = GameManager::createEntity(layer["__identifier"]);
-
-        tileObject->require<Sprite>();
-        tileObject->require<LDTKEntity>();
-
-        tileObject->get<LDTKEntity>()->entityJson = tile;
+        TileRaw rawTile;
 
         std::string imageFileLocation;
-
         imageFileLocation.append("img/ldtk");
         imageFileLocation.append("/");
         imageFileLocation.append(layer["__tilesetRelPath"]);
+        rawTile.image = imageFileLocation;
 
-        tileObject->get<Sprite>()->loadTexture(imageFileLocation);
+        rawTile.srcRect.x = tile["src"][0];
+        rawTile.srcRect.y = tile["src"][1];
+        rawTile.srcRect.w = layer["__gridSize"];
+        rawTile.srcRect.h = layer["__gridSize"];
 
-        tileObject->get<Sprite>()->sourceRect.x = tile["src"][0];
-        tileObject->get<Sprite>()->sourceRect.y = tile["src"][1];
-        tileObject->get<Sprite>()->sourceRect.w = layer["__gridSize"];
-        tileObject->get<Sprite>()->sourceRect.h = layer["__gridSize"];
+        rawTile.box = {tile["px"][0], tile["px"][1], layer["__gridSize"],
+                       layer["__gridSize"]};
 
-        tileObject->active = false;
+        rawTiles.push_back(rawTile);
 
-        tileObject->require<entityBox>()->setSize(
-            {layer["__gridSize"], layer["__gridSize"]});
+        // Entity *tileObject =
+        // GameManager::createEntity(layer["__identifier"]);
+        //
+        // tileObject->require<Sprite>();
+        // tileObject->require<LDTKEntity>();
+        //
+        // tileObject->get<LDTKEntity>()->entityJson = tile;
+        //
+        // std::string imageFileLocation;
+        //
+        // imageFileLocation.append("img/ldtk");
+        // imageFileLocation.append("/");
+        // imageFileLocation.append(layer["__tilesetRelPath"]);
+        //
+        // tileObject->get<Sprite>()->loadTexture(imageFileLocation);
+        //
+        // tileObject->get<Sprite>()->sourceRect.x = tile["src"][0];
+        // tileObject->get<Sprite>()->sourceRect.y = tile["src"][1];
+        // tileObject->get<Sprite>()->sourceRect.w = layer["__gridSize"];
+        // tileObject->get<Sprite>()->sourceRect.h = layer["__gridSize"];
+        //
+        // tileObject->active = false;
+        //
+        // tileObject->require<entityBox>()->setSize(
+        //     {layer["__gridSize"], layer["__gridSize"]});
+        //
+        // tileObject->require<entityBox>()->setPosition(
+        //     {tile["px"][0], tile["px"][1]});
+        // tileObject->require<entityBox>()->changePosition(worldBox.position);
+        //
+        // tileObject->require<entityBox>()->setSize(
+        //     {static_cast<float>(tileWidth), static_cast<float>(tileHeight)});
+        //
+        // layerObject->get<TileLayer>()->tiles.push_back(tileObject);
+      }
 
-        tileObject->require<entityBox>()->setPosition(
-            {tile["px"][0], tile["px"][1]});
-        tileObject->require<entityBox>()->changePosition(worldBox.position);
+      for (TileGroup groupedTile : tileGroup(rawTiles)) {
+        Entity *tile = GameManager::createEntity(layer["__identifier"]);
 
-        tileObject->require<entityBox>()->setSize(
-            {static_cast<float>(tileWidth), static_cast<float>(tileHeight)});
+        tile->box->setPosition(groupedTile.box.position);
+        tile->box->setSize(groupedTile.box.size);
+        tile->box->changePosition(worldBox.position);
 
-        layerObject->get<TileLayer>()->tiles.push_back(tileObject);
+        // tile->add<Sprite>()->loadTexture(groupedTile.image, false);
+        tile->add<Sprite>()->texture = groupedTile.render();
+        // tile->add<Sprite>()->sourceRect = groupedTile.srcRect;
 
-        // entities.push_back(tileObject);
+        tile->get<Sprite>()->showBorders = true;
+
+        tile->active = false;
+        layerObject->get<TileLayer>()->tiles.push_back(tile);
       }
     }
 
