@@ -12,7 +12,7 @@ void Animation::update()
 {
     if (playing && timer + fps*1000 < SDL_GetTicks())
     {
-        sprite->loadTexture(frames[frameCounter]);
+        sprite->loadTexture(frames[frameCounter], false);
         
         if (direction == 1)
         {

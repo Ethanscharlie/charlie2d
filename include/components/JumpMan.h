@@ -48,7 +48,6 @@ public:
     }
 
     if (InputManager::checkInput("jumpTrigger")) {
-      std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
       if (!allowJump)
         return;
 
@@ -141,8 +140,9 @@ public:
    */
   bool touchingGround = true;
 
-private:
   float jumpsCounter;
+
+private:
   float jumpAmount = 0;
   bool jumping = false;
   Box groundCheckBox = {0, 0, 0, 0};

@@ -96,6 +96,8 @@ json LDTK::getLevelJson(std::string iid) {
 }
 
 void LDTK::loadLevel(std::string iid, bool handleUnload) {
+  std::cout << "staring to load level 117\n";
+
   if (iid == "")
     return;
   // GameManager::updateEntities = false;
@@ -186,22 +188,28 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
     FadeTransition *Fader = nullptr;
     if (GameManager::getComponents<FadeTransition>().size() > 0) {
       Fader = GameManager::getComponents<FadeTransition>()[0];
-      std::cout << "There was a fader\n";
+      // std::cout << "There was a fader\n";
     } else {
       Fader = GameManager::createEntity("Fader")->add<FadeTransition>();
-      std::cout << "There was not a fader\n";
+      // std::cout << "There was not a fader\n";
     }
 
-    std::cout << "Tag: " << Fader->entity->tag << "\n";
+    // std::cout << "Tag: " << Fader->entity->tag << "\n";
 
-    Fader->doFade(
-        [lastEntities]() {
-          std::cout << "On middle ran\n";
-          Camera::cameraLimitBox = worldBox;
-          unload(lastEntities);
-          GameManager::updateEntities = true;
-        },
-        150, [lastEntities]() {});
+    // Fader->doFade(
+    //     [lastEntities]() {
+    //       std::cout << "On middle ran\n";
+    //       Camera::cameraLimitBox = worldBox;
+    //       unload(lastEntities);
+    //       GameManager::updateEntities = true;
+    //     },
+    //     150, [lastEntities]() {});
+    Camera::cameraLimitBox = worldBox;
+    Camera::setPosition(worldBox.getCenter());
+    std::cout << "preparing to unload 117\n";
+    unload(lastEntities);
+    std::cout << "finished unload 117\n";
+    GameManager::updateEntities = true;
   } else {
 
     Camera::cameraLimitBox = worldBox;

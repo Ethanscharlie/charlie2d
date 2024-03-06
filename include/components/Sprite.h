@@ -43,6 +43,9 @@ public:
   void addAnimation(std::string title, std::vector<std::string> frames,
                     float fps);
 
+
+  void setAlpha(Uint8 alpha);
+
   /**
    * \brief Allows you to grab only a part of an image
    */
@@ -77,4 +80,8 @@ public:
    * \brief SDL Flips
    */
   SDL_RendererFlip flip = SDL_FLIP_NONE;
+
+  Uint8 alpha = 255;
+
+  bool preventWeirdBorder = true;
 };

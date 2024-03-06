@@ -21,6 +21,15 @@ public:
    */
   static Box getBox();
 
+  /**
+   * \brief Fully resets the camera
+   */
+  static void resetCamera() {
+    cameraLimitBox = {0, 0, 0, 0};
+    scale = 1;
+    position = {0, 0};
+  }
+
 
   static Box cameraLimitBox;
   static float scale;

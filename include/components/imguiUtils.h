@@ -25,6 +25,6 @@ public:
 
   std::string text = "";
   ImVec4 frameColor = ImVec4(1, 1, 1, 1);
-  SDL_Texture *renderingTexture;
   std::function<void()> addToPanel = [](){};
+
 };

@@ -3,11 +3,32 @@
 #include "Entity.h"
 #include "EntityBox.h"
 #include "GameManager.h"
+#include "InputManager.h"
 #include "Math.h"
 #include "SDL_blendmode.h"
+#include "SDL_keycode.h"
 #include "SDL_render.h"
+#include "SDL_video.h"
 #include "Text.h"
 #include "Vector2f.h"
+#include <cmath>
+#include <string>
+
+bool funnyTest = false;
+int funnyNumber = -200;
+
+Vector2f getWindowPosition(Vector2f gamePosition) {
+  int widthInPixels, heightInPixels;
+  int widthInPoints, heightInPoints;
+  SDL_GetWindowSize(GameManager::window, &widthInPoints, &heightInPoints);
+  SDL_GL_GetDrawableSize(GameManager::window, &widthInPixels, &heightInPixels);
+  float dpiScaleX = widthInPixels / (float)widthInPoints;
+  float dpiScaleY = heightInPixels / (float)heightInPoints;
+
+  SDL_Rect logicalDst = getLogicalRect();
+  // return {(logicalDst.x + gamePosition.x) * (GameManager::gameWindowSize.x/logicalDst.w), gamePosition.y};
+  return {(gamePosition.x  * (logicalDst.w - GameManager::gameWindowSize.x)) + logicalDst.x, gamePosition.y};
+}
 
 void TextCentered(std::string text) {
   ImVec2 windowSize = ImGui::GetWindowSize();
@@ -39,21 +60,22 @@ void SimpleImGuiPanel::start() {
   entity->useLayer = true;
   entity->layer = 80;
   typeIsRendering = true;
-  renderingTexture = SDL_CreateTexture(
-      GameManager::renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,
-      GameManager::gameWindowSize.x, GameManager::gameWindowSize.y);
-  SDL_SetTextureBlendMode(renderingTexture, SDL_BLENDMODE_BLEND);
 }
 
 void SimpleImGuiPanel::update(float deltaTime) {
-  SDL_SetRenderTarget(GameManager::renderer, renderingTexture);
-
+  if (InputManager::keys[SDLK_e]) {
+    funnyTest = !funnyTest;
+    funnyNumber += 5;
+    std::cout << "FUNNY NUMBER " << funnyNumber << "\n";
+  }
   ImGui_ImplSDLRenderer2_NewFrame();
   ImGui_ImplSDL2_NewFrame(GameManager::window);
 
   ImGui::NewFrame();
   Vector2f framePosition =
-      getImGuiPosition(entity->get<entityBox>()->getPosition() + 0);
+      getWindowPosition(entity->get<entityBox>()->getPosition() +
+                        GameManager::gameWindowSize / 2);
+  // framePosition.print();
 
   ImGui::SetNextWindowPos(ImVec2(framePosition.x, framePosition.y),
                           ImGuiCond_None);
@@ -84,11 +106,9 @@ void SimpleImGuiPanel::update(float deltaTime) {
 
   SDL_Rect rect = getLogicalRect();
 
-  SDL_SetRenderTarget(GameManager::renderer, nullptr);
   SDL_RenderSetLogicalSize(GameManager::renderer,
                            GameManager::currentWindowSize.x,
                            GameManager::currentWindowSize.y);
-  SDL_RenderCopy(GameManager::renderer, renderingTexture, nullptr, &rect);
   SDL_RenderSetLogicalSize(GameManager::renderer, GameManager::gameWindowSize.x,
                            GameManager::gameWindowSize.y);
 }

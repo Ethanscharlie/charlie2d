@@ -76,8 +76,8 @@ public:
     schedules[name] = schedule;
   }
 
+
   void removeSchedule(const std::string &name) { schedules.erase(name); }
 
-private:
   std::map<std::string, Schedule> schedules;
 };
