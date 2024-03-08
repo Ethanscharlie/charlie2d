@@ -4,6 +4,7 @@
 #include "GameManager.h"
 #include "LDTKEntity.h"
 #include "SDL_error.h"
+#include "SDL_render.h"
 #include "Tile.h"
 
 Box LDTK::worldBox;
@@ -153,6 +154,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
         tile->box->changePosition(worldBox.position);
 
         tile->add<Sprite>()->texture = groupedTile.render();
+
         tile->add<Sprite>()->showBorders = true;
 
         tile->active = false;

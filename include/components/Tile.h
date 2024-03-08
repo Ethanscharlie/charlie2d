@@ -13,6 +13,8 @@
 #include "SDL_rect.h"
 #include "SDL_render.h"
 #include "Sprite.h"
+#include <numeric>
+#include <vector>
 
 class Entity;
 
@@ -23,51 +25,50 @@ struct TileRaw {
 };
 
 struct TileGroup {
-  TileGroup(){};
-
-  TileGroup(TileRaw _tileRaw, Box newBox) {
-    image = _tileRaw.image;
-    srcRect = _tileRaw.srcRect;
-    tileSize = _tileRaw.box.size.x;
+  TileGroup(std::vector<TileRaw> &_tiles, Box newBox) {
+    // image = _tileRaw.image;
+    // srcRect = _tileRaw.srcRect;
+    tiles = _tiles;
 
     box = newBox;
   }
 
-  ~TileGroup() { 
+  ~TileGroup() {
     if (renderTexture != nullptr) {
       SDL_DestroyTexture(renderTexture);
     }
   }
 
   SDL_Texture *render() {
+    if (renderTexture != nullptr) {
+      SDL_DestroyTexture(renderTexture);
+    }
 
-    renderTexture =
+    SDL_Texture *renderTexture =
         SDL_CreateTexture(GameManager::renderer, SDL_PIXELFORMAT_RGBA8888,
                           SDL_TEXTUREACCESS_TARGET, box.size.x, box.size.y);
 
-    SDL_Texture *tileTexture =
-        ResourceManager::getInstance(GameManager::renderer).getTexture(image);
-
     SDL_SetRenderTarget(GameManager::renderer, renderTexture);
-    SDL_SetRenderDrawBlendMode(GameManager::renderer, SDL_BLENDMODE_BLEND);
 
-    for (float y = 0; y < box.size.y; y += tileSize) {
-      SDL_Rect boxRect = SDL_Rect(0, y, tileSize, tileSize);
-      SDL_RenderCopy(GameManager::renderer, tileTexture, &srcRect, &boxRect);
+    for (TileRaw rawTile : tiles) {
+      SDL_Texture *tileTexture =
+          ResourceManager::getInstance(GameManager::renderer).getTexture(rawTile.image);
+
+      SDL_Rect boxRect =
+          SDL_Rect(rawTile.box.position.x, rawTile.box.position.y,
+                   rawTile.box.size.x, rawTile.box.size.y);
+
+      SDL_RenderCopy(GameManager::renderer, tileTexture, &rawTile.srcRect,
+                     &boxRect);
     }
-
-    SDL_Rect boxRect = SDL_Rect(box.position.x, box.position.y, box.size.x, box.size.y);
-    SDL_RenderCopy(GameManager::renderer, tileTexture, nullptr, &boxRect);
 
     SDL_SetRenderTarget(GameManager::renderer, nullptr);
 
     return renderTexture;
   }
 
-  std::string image;
-  SDL_Rect srcRect;
   Box box;
-  int tileSize;
+  std::vector<TileRaw> tiles;
 
 private:
   SDL_Texture *renderTexture = nullptr;
