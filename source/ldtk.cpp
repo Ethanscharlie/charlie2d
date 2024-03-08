@@ -3,6 +3,7 @@
 #include "FadeTransition.h"
 #include "GameManager.h"
 #include "LDTKEntity.h"
+#include "SDL_error.h"
 #include "Tile.h"
 
 Box LDTK::worldBox;
@@ -142,41 +143,6 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
                        layer["__gridSize"]};
 
         rawTiles.push_back(rawTile);
-
-        // Entity *tileObject =
-        // GameManager::createEntity(layer["__identifier"]);
-        //
-        // tileObject->require<Sprite>();
-        // tileObject->require<LDTKEntity>();
-        //
-        // tileObject->get<LDTKEntity>()->entityJson = tile;
-        //
-        // std::string imageFileLocation;
-        //
-        // imageFileLocation.append("img/ldtk");
-        // imageFileLocation.append("/");
-        // imageFileLocation.append(layer["__tilesetRelPath"]);
-        //
-        // tileObject->get<Sprite>()->loadTexture(imageFileLocation);
-        //
-        // tileObject->get<Sprite>()->sourceRect.x = tile["src"][0];
-        // tileObject->get<Sprite>()->sourceRect.y = tile["src"][1];
-        // tileObject->get<Sprite>()->sourceRect.w = layer["__gridSize"];
-        // tileObject->get<Sprite>()->sourceRect.h = layer["__gridSize"];
-        //
-        // tileObject->active = false;
-        //
-        // tileObject->require<entityBox>()->setSize(
-        //     {layer["__gridSize"], layer["__gridSize"]});
-        //
-        // tileObject->require<entityBox>()->setPosition(
-        //     {tile["px"][0], tile["px"][1]});
-        // tileObject->require<entityBox>()->changePosition(worldBox.position);
-        //
-        // tileObject->require<entityBox>()->setSize(
-        //     {static_cast<float>(tileWidth), static_cast<float>(tileHeight)});
-        //
-        // layerObject->get<TileLayer>()->tiles.push_back(tileObject);
       }
 
       for (TileGroup groupedTile : tileGroup(rawTiles)) {
@@ -186,11 +152,8 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
         tile->box->setSize(groupedTile.box.size);
         tile->box->changePosition(worldBox.position);
 
-        // tile->add<Sprite>()->loadTexture(groupedTile.image, false);
         tile->add<Sprite>()->texture = groupedTile.render();
-        // tile->add<Sprite>()->sourceRect = groupedTile.srcRect;
-
-        tile->get<Sprite>()->showBorders = true;
+        tile->add<Sprite>()->showBorders = true;
 
         tile->active = false;
         layerObject->get<TileLayer>()->tiles.push_back(tile);
