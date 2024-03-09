@@ -25,7 +25,7 @@ struct TileRaw {
 };
 
 struct TileGroup {
-  TileGroup(std::vector<TileRaw> &_tiles, Box newBox) {
+  TileGroup(std::vector<TileRaw> _tiles, Box newBox) {
     // image = _tileRaw.image;
     // srcRect = _tileRaw.srcRect;
     tiles = _tiles;
@@ -52,11 +52,11 @@ struct TileGroup {
 
     for (TileRaw rawTile : tiles) {
       SDL_Texture *tileTexture =
-          ResourceManager::getInstance(GameManager::renderer).getTexture(rawTile.image);
+          ResourceManager::getInstance(GameManager::renderer)
+              .getTexture(rawTile.image);
 
-      SDL_Rect boxRect =
-          SDL_Rect(rawTile.box.position.x, rawTile.box.position.y,
-                   rawTile.box.size.x, rawTile.box.size.y);
+      SDL_Rect boxRect = SDL_Rect(0, rawTile.box.position.y - box.position.y,
+                                  rawTile.box.size.x, rawTile.box.size.y);
 
       SDL_RenderCopy(GameManager::renderer, tileTexture, &rawTile.srcRect,
                      &boxRect);
