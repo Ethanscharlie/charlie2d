@@ -2,6 +2,11 @@
 #include "Entity.h"
 #include "FadeTransition.h"
 #include "GameManager.h"
+#include "LDTKEntity.h"
+#include "SDL_error.h"
+#include "SDL_render.h"
+#include "Tile.h"
+#include <utility>
 
 Box LDTK::worldBox;
 std::vector<Entity *> LDTK::entities;
@@ -12,6 +17,8 @@ std::map<std::string, std::map<std::string, json>> LDTK::worlds;
 
 Entity *LDTK::ldtkPlayer = nullptr;
 std::function<void()> LDTK::onLoadLevel = []() {};
+
+std::map<std::string, std::map<std::string, TileLayer>> LDTK::preloadedTiles;
 
 LDTK::LDTK() {}
 
@@ -95,11 +102,55 @@ json LDTK::getLevelJson(std::string iid) {
   return {};
 }
 
-void LDTK::loadLevel(std::string iid, bool handleUnload) {
-  std::cout << "staring to load level 117\n";
+void LDTK::preload(std::string iid) {
+  auto thelevel = getLevelJson(iid);
+  auto &layerInstances = thelevel["layerInstances"];
 
+  for (auto it = layerInstances.rbegin(); it != layerInstances.rend(); ++it) {
+    auto const &layer = *it;
+    if (layer["__type"] == "Tiles") {
+      int tileWidth = layer["__gridSize"];
+      int tileHeight = layer["__gridSize"];
+
+      std::vector<TileRaw> rawTiles;
+      for (auto const &tile : layer["gridTiles"]) {
+        TileRaw rawTile;
+
+        std::string imageFileLocation;
+        imageFileLocation.append("img/ldtk");
+        imageFileLocation.append("/");
+        imageFileLocation.append(layer["__tilesetRelPath"]);
+        rawTile.image = imageFileLocation;
+
+        rawTile.srcRect.x = tile["src"][0];
+        rawTile.srcRect.y = tile["src"][1];
+        rawTile.srcRect.w = layer["__gridSize"];
+        rawTile.srcRect.h = layer["__gridSize"];
+
+        rawTile.box = {tile["px"][0], tile["px"][1], layer["__gridSize"],
+                       layer["__gridSize"]};
+
+        rawTiles.push_back(rawTile);
+      }
+
+      std::string layerName = layer["__identifier"];
+      preloadedTiles[iid][layerName] = TileLayer(layerName, tileGroup(rawTiles));
+
+      for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
+        groupedTile.render();
+      }
+    }
+  }
+}
+
+void LDTK::loadLevel(std::string iid, bool handleUnload) {
   if (iid == "")
     return;
+
+  if (preloadedTiles.find(iid) == preloadedTiles.end()) {
+    preload(iid);
+  }
+
   // GameManager::updateEntities = false;
   std::vector<Entity *> lastEntities = entities;
 
@@ -109,58 +160,38 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
   worldBox = {currentLevel["worldX"], currentLevel["worldY"],
               currentLevel["pxWid"], currentLevel["pxHei"]};
 
+  std::cout << "load level with id " << iid << "\n";
+  for (auto &[layerName, tileLayer] : preloadedTiles[iid]) {
+    Entity *layerObject = GameManager::createEntity(layerName);
+    layerObject->require<TileLayerComponent>();
+    layerObject->useLayer = true;
+
+    entities.push_back(layerObject);
+
+    std::cout << "Loading layer " << layerName << "\n";
+
+    for (TileGroup &groupedTile : tileLayer.tiles) {
+      Entity *tile = GameManager::createEntity(layerName);
+
+      tile->box->setPosition(groupedTile.box.position);
+      tile->box->setSize(groupedTile.box.size);
+      tile->box->changePosition(worldBox.position);
+
+      tile->add<Sprite>()->texture = groupedTile.getPreviousRender();
+
+      tile->add<Sprite>()->showBorders = true;
+
+      tile->active = false;
+      layerObject->get<TileLayerComponent>()->tiles.push_back(tile);
+
+      entities.push_back(tile);
+    }
+  }
+
   for (auto it = layerInstances.rbegin(); it != layerInstances.rend(); ++it) {
     auto const &layer = *it;
-    if (layer["__type"] == "Tiles") {
-      int tileWidth = layer["__gridSize"];
-      int tileHeight = layer["__gridSize"];
 
-      Entity *layerObject = GameManager::createEntity(layer["__identifier"]);
-      layerObject->require<TileLayer>();
-      layerObject->useLayer = true;
-
-      entities.push_back(layerObject);
-
-      for (auto const &tile : layer["gridTiles"]) {
-        Entity *tileObject = GameManager::createEntity(layer["__identifier"]);
-
-        tileObject->require<Sprite>();
-        tileObject->require<LDTKEntity>();
-
-        tileObject->get<LDTKEntity>()->entityJson = tile;
-
-        std::string imageFileLocation;
-
-        imageFileLocation.append("img/ldtk");
-        imageFileLocation.append("/");
-        imageFileLocation.append(layer["__tilesetRelPath"]);
-
-        tileObject->get<Sprite>()->loadTexture(imageFileLocation);
-
-        tileObject->get<Sprite>()->sourceRect.x = tile["src"][0];
-        tileObject->get<Sprite>()->sourceRect.y = tile["src"][1];
-        tileObject->get<Sprite>()->sourceRect.w = layer["__gridSize"];
-        tileObject->get<Sprite>()->sourceRect.h = layer["__gridSize"];
-
-        tileObject->active = false;
-
-        tileObject->require<entityBox>()->setSize(
-            {layer["__gridSize"], layer["__gridSize"]});
-
-        tileObject->require<entityBox>()->setPosition(
-            {tile["px"][0], tile["px"][1]});
-        tileObject->require<entityBox>()->changePosition(worldBox.position);
-
-        tileObject->require<entityBox>()->setSize(
-            {static_cast<float>(tileWidth), static_cast<float>(tileHeight)});
-
-        layerObject->get<TileLayer>()->tiles.push_back(tileObject);
-
-        // entities.push_back(tileObject);
-      }
-    }
-
-    else if (layer["__type"] == "Entities") {
+    if (layer["__type"] == "Entities") {
       for (auto const &entity : layer["entityInstances"]) {
         Entity *object = GameManager::createEntity(entity["__identifier"]);
 

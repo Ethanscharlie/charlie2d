@@ -64,23 +64,6 @@ void Sprite::update(float deltaTime) {
   for (std::pair<std::string, Animation *> animation : animations) {
     animation.second->update();
   }
-
-  // if (entity->checkComponent<Collider>()) {
-  //     Vector2f renderPos = entity->get<Collider>().colliderBox.position *
-  //     GameManager::screen_change_scale; renderRect.x = renderPos.x -
-  //     (GameManager::screen_change_scale * GameManager::camera.x -
-  //     GameManager::currentWindowSize.x  / 2); renderRect.y = renderPos.y -
-  //     (GameManager::screen_change_scale * GameManager::camera.y -
-  //     GameManager::currentWindowSize.y / 2);
-
-  //    renderRect.w = entity->get<Collider>().colliderBox.size.x *
-  //    GameManager::screen_change_scale; renderRect.h =
-  //    entity->get<Collider>().colliderBox.size.y *
-  //    GameManager::screen_change_scale;
-
-  //    SDL_SetRenderDrawColor(GameManager::renderer, 0, 255, 0, 255);
-  //    SDL_RenderDrawRect(GameManager::renderer, &renderRect);
-  //}
 }
 
 void Sprite::setAlpha(Uint8 alpha) { this->alpha = alpha; }

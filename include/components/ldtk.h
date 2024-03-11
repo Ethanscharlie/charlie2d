@@ -73,4 +73,9 @@ public:
    * check for it in the loop and add components to different entity types
    */
   static std::function<void()> onLoadLevel;
+
+  static void preload(std::string iid);
+
+  static std::map<std::string, std::map<std::string, TileLayer>>
+      preloadedTiles;
 };
