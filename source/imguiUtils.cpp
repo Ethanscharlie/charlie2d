@@ -3,19 +3,12 @@
 #include "Entity.h"
 #include "EntityBox.h"
 #include "GameManager.h"
-#include "InputManager.h"
 #include "Math.h"
-#include "SDL_blendmode.h"
-#include "SDL_keycode.h"
 #include "SDL_render.h"
 #include "SDL_video.h"
 #include "Text.h"
 #include "Vector2f.h"
-#include <cmath>
 #include <string>
-
-bool funnyTest = false;
-int funnyNumber = -200;
 
 Vector2f getWindowPosition(Vector2f gamePosition) {
   int widthInPixels, heightInPixels;
@@ -26,8 +19,10 @@ Vector2f getWindowPosition(Vector2f gamePosition) {
   float dpiScaleY = heightInPixels / (float)heightInPoints;
 
   SDL_Rect logicalDst = getLogicalRect();
-  // return {(logicalDst.x + gamePosition.x) * (GameManager::gameWindowSize.x/logicalDst.w), gamePosition.y};
-  return {(gamePosition.x  * (logicalDst.w - GameManager::gameWindowSize.x)) + logicalDst.x, gamePosition.y};
+  return {gamePosition.x * (logicalDst.w / GameManager::gameWindowSize.x) +
+              logicalDst.x,
+          gamePosition.y * (logicalDst.h / GameManager::gameWindowSize.y) +
+              logicalDst.y};
 }
 
 void TextCentered(std::string text) {
@@ -63,11 +58,10 @@ void SimpleImGuiPanel::start() {
 }
 
 void SimpleImGuiPanel::update(float deltaTime) {
-  if (InputManager::keys[SDLK_e]) {
-    funnyTest = !funnyTest;
-    funnyNumber += 5;
-    std::cout << "FUNNY NUMBER " << funnyNumber << "\n";
-  }
+  SDL_RenderSetLogicalSize(GameManager::renderer,
+                           GameManager::currentWindowSize.x,
+                           GameManager::currentWindowSize.y);
+
   ImGui_ImplSDLRenderer2_NewFrame();
   ImGui_ImplSDL2_NewFrame(GameManager::window);
 
@@ -75,7 +69,6 @@ void SimpleImGuiPanel::update(float deltaTime) {
   Vector2f framePosition =
       getWindowPosition(entity->get<entityBox>()->getPosition() +
                         GameManager::gameWindowSize / 2);
-  // framePosition.print();
 
   ImGui::SetNextWindowPos(ImVec2(framePosition.x, framePosition.y),
                           ImGuiCond_None);
@@ -90,9 +83,9 @@ void SimpleImGuiPanel::update(float deltaTime) {
                ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse |
                    ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar);
 
-  TextCentered(text);
+  // TextCentered(text);
 
-  addToPanel();
+  // addToPanel();
 
   ImGui::End();
   ImGui::PopStyleColor();
@@ -100,15 +93,12 @@ void SimpleImGuiPanel::update(float deltaTime) {
   ImGui::Render();
   ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData());
 
-  if (entity->checkComponent<Text>()) {
-    entity->get<Text>()->update(deltaTime);
-  }
+  // if (entity->checkComponent<Text>()) {
+  //   entity->get<Text>()->update(deltaTime);
+  // }
 
   SDL_Rect rect = getLogicalRect();
 
-  SDL_RenderSetLogicalSize(GameManager::renderer,
-                           GameManager::currentWindowSize.x,
-                           GameManager::currentWindowSize.y);
   SDL_RenderSetLogicalSize(GameManager::renderer, GameManager::gameWindowSize.x,
                            GameManager::gameWindowSize.y);
 }

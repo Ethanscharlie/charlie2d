@@ -11,6 +11,6 @@ Entity *Templates::createUIPanel(Entity *canvas, Box setBox, std::string text,
   box->setLocalWithCenter(setBox.position);
   entity->add<SimpleImGuiPanel>();
   entity->add<Text>()->changeFont("img/fonts/prstart.ttf", 30);
-  // entity->get<Text>()->text = text;
+  entity->get<Text>()->text = text;
   return entity;
 }
