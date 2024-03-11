@@ -6,6 +6,7 @@
 #include "SDL_error.h"
 #include "SDL_render.h"
 #include "Tile.h"
+#include <utility>
 
 Box LDTK::worldBox;
 std::vector<Entity *> LDTK::entities;
@@ -16,6 +17,8 @@ std::map<std::string, std::map<std::string, json>> LDTK::worlds;
 
 Entity *LDTK::ldtkPlayer = nullptr;
 std::function<void()> LDTK::onLoadLevel = []() {};
+
+std::map<std::string, std::map<std::string, TileLayer>> LDTK::preloadedTiles;
 
 LDTK::LDTK() {}
 
@@ -99,31 +102,15 @@ json LDTK::getLevelJson(std::string iid) {
   return {};
 }
 
-void LDTK::loadLevel(std::string iid, bool handleUnload) {
-  std::cout << "staring to load level 117\n";
-
-  if (iid == "")
-    return;
-  // GameManager::updateEntities = false;
-  std::vector<Entity *> lastEntities = entities;
-
-  currentLevel = getLevelJson(iid);
-  auto &layerInstances = currentLevel["layerInstances"];
-
-  worldBox = {currentLevel["worldX"], currentLevel["worldY"],
-              currentLevel["pxWid"], currentLevel["pxHei"]};
+void LDTK::preload(std::string iid) {
+  auto thelevel = getLevelJson(iid);
+  auto &layerInstances = thelevel["layerInstances"];
 
   for (auto it = layerInstances.rbegin(); it != layerInstances.rend(); ++it) {
     auto const &layer = *it;
     if (layer["__type"] == "Tiles") {
       int tileWidth = layer["__gridSize"];
       int tileHeight = layer["__gridSize"];
-
-      Entity *layerObject = GameManager::createEntity(layer["__identifier"]);
-      layerObject->require<TileLayer>();
-      layerObject->useLayer = true;
-
-      entities.push_back(layerObject);
 
       std::vector<TileRaw> rawTiles;
       for (auto const &tile : layer["gridTiles"]) {
@@ -146,23 +133,65 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
         rawTiles.push_back(rawTile);
       }
 
-      for (TileGroup groupedTile : tileGroup(rawTiles)) {
-        Entity *tile = GameManager::createEntity(layer["__identifier"]);
+      std::string layerName = layer["__identifier"];
+      preloadedTiles[iid][layerName] = TileLayer(layerName, tileGroup(rawTiles));
 
-        tile->box->setPosition(groupedTile.box.position);
-        tile->box->setSize(groupedTile.box.size);
-        tile->box->changePosition(worldBox.position);
-
-        tile->add<Sprite>()->texture = groupedTile.render();
-
-        tile->add<Sprite>()->showBorders = true;
-
-        tile->active = false;
-        layerObject->get<TileLayer>()->tiles.push_back(tile);
+      for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
+        groupedTile.render();
       }
     }
+  }
+}
 
-    else if (layer["__type"] == "Entities") {
+void LDTK::loadLevel(std::string iid, bool handleUnload) {
+  if (iid == "")
+    return;
+
+  if (preloadedTiles.find(iid) == preloadedTiles.end()) {
+    preload(iid);
+  }
+
+  // GameManager::updateEntities = false;
+  std::vector<Entity *> lastEntities = entities;
+
+  currentLevel = getLevelJson(iid);
+  auto &layerInstances = currentLevel["layerInstances"];
+
+  worldBox = {currentLevel["worldX"], currentLevel["worldY"],
+              currentLevel["pxWid"], currentLevel["pxHei"]};
+
+  std::cout << "load level with id " << iid << "\n";
+  for (auto &[layerName, tileLayer] : preloadedTiles[iid]) {
+    Entity *layerObject = GameManager::createEntity(layerName);
+    layerObject->require<TileLayerComponent>();
+    layerObject->useLayer = true;
+
+    entities.push_back(layerObject);
+
+    std::cout << "Loading layer " << layerName << "\n";
+
+    for (TileGroup &groupedTile : tileLayer.tiles) {
+      Entity *tile = GameManager::createEntity(layerName);
+
+      tile->box->setPosition(groupedTile.box.position);
+      tile->box->setSize(groupedTile.box.size);
+      tile->box->changePosition(worldBox.position);
+
+      tile->add<Sprite>()->texture = groupedTile.getPreviousRender();
+
+      tile->add<Sprite>()->showBorders = true;
+
+      tile->active = false;
+      layerObject->get<TileLayerComponent>()->tiles.push_back(tile);
+
+      entities.push_back(tile);
+    }
+  }
+
+  for (auto it = layerInstances.rbegin(); it != layerInstances.rend(); ++it) {
+    auto const &layer = *it;
+
+    if (layer["__type"] == "Entities") {
       for (auto const &entity : layer["entityInstances"]) {
         Entity *object = GameManager::createEntity(entity["__identifier"]);
 

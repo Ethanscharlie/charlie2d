@@ -8,12 +8,9 @@
 // Components
 #include "EntityBox.h"
 #include "ResourceManager.h"
-#include "SDL_blendmode.h"
-#include "SDL_error.h"
 #include "SDL_rect.h"
 #include "SDL_render.h"
 #include "Sprite.h"
-#include <numeric>
 #include <vector>
 
 class Entity;
@@ -26,10 +23,7 @@ struct TileRaw {
 
 struct TileGroup {
   TileGroup(std::vector<TileRaw> _tiles, Box newBox) {
-    // image = _tileRaw.image;
-    // srcRect = _tileRaw.srcRect;
     tiles = _tiles;
-
     box = newBox;
   }
 
@@ -44,7 +38,7 @@ struct TileGroup {
       SDL_DestroyTexture(renderTexture);
     }
 
-    SDL_Texture *renderTexture =
+    renderTexture =
         SDL_CreateTexture(GameManager::renderer, SDL_PIXELFORMAT_RGBA8888,
                           SDL_TEXTUREACCESS_TARGET, box.size.x, box.size.y);
 
@@ -67,6 +61,10 @@ struct TileGroup {
     return renderTexture;
   }
 
+  SDL_Texture* getPreviousRender() {
+    return renderTexture;
+  }
+
   Box box;
   std::vector<TileRaw> tiles;
 
@@ -74,14 +72,23 @@ private:
   SDL_Texture *renderTexture = nullptr;
 };
 
+struct TileLayer {
+  TileLayer() : name("") {}
+  TileLayer(std::string _name, std::vector<TileGroup> _tiles) : name(_name) {
+    tiles = _tiles;
+  }
+  std::vector<TileGroup> tiles;
+  std::string name;
+};
+
 std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles);
 
 /**
  * \brief Made to optimize tile rendering by not sorting each tile individualy
  */
-class TileLayer : public Component {
+class TileLayerComponent : public Component {
 public:
-  TileLayer() : Component("TileLayer") {}
+  TileLayerComponent() : Component("TileLayer") {}
 
   void start() override;
   void update(float deltaTime) override;

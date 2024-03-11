@@ -49,15 +49,15 @@ std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles) {
   return aabbPool;
 }
 
-void TileLayer::start() { entity->useLayer = true; }
+void TileLayerComponent::start() { entity->useLayer = true; }
 
-void TileLayer::update(float deltaTime) {
+void TileLayerComponent::update(float deltaTime) {
   for (Entity *tile : tiles) {
     tile->update();
   }
 }
 
-void TileLayer::onDestroy() {
+void TileLayerComponent::onDestroy() {
   for (Entity *tile : tiles) {
     tile->toDestroy = true;
   }
