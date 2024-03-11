@@ -179,8 +179,6 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
 
       tile->add<Sprite>()->texture = groupedTile.getPreviousRender();
 
-      tile->add<Sprite>()->showBorders = true;
-
       tile->active = false;
       layerObject->get<TileLayerComponent>()->tiles.push_back(tile);
 
