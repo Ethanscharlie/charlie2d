@@ -135,7 +135,8 @@ void LDTK::preload(std::string iid) {
 
       std::string layerName = layer["__identifier"];
       preloadedTiles[iid][layerName] =
-          TileLayer(layerName, tileGroup(rawTiles, layer["__gridSize"]));
+          TileLayer(layerName, it - layerInstances.rbegin(),
+                    tileGroup(rawTiles, layer["__gridSize"]));
 
       for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
         groupedTile.render();
@@ -166,6 +167,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
     Entity *layerObject = GameManager::createEntity(layerName);
     layerObject->require<TileLayerComponent>();
     layerObject->useLayer = true;
+    layerObject->layer = tileLayer.layer;
 
     entities.push_back(layerObject);
 
