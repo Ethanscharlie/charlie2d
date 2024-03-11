@@ -81,7 +81,7 @@ struct TileLayer {
   std::string name;
 };
 
-std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles);
+std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles, int tilesize);
 
 /**
  * \brief Made to optimize tile rendering by not sorting each tile individualy

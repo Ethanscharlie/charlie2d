@@ -2,13 +2,13 @@
 #include "Entity.h"
 #include "Sprite.h"
 
-std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles) {
+std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles, int tilesize) {
   std::vector<TileGroup> aabbPool;
   std::vector<std::pair<Vector2f, std::vector<TileRaw>>> xMap;
 
   for (const auto &tile : tiles) {
     Box box = tile.box;
-    if (box.size.x != 16) {
+    if (box.size.x != tilesize) {
       aabbPool.push_back(TileGroup(std::vector<TileRaw>{tile}, box));
     } else {
       bool foundX = false;
@@ -31,17 +31,17 @@ std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles) {
       float curY = curList[0].box.position.y;
       int curH = 1;
       for (size_t i = 1; i < curList.size(); ++i) {
-        if (curY + curH * 16 == curList[i].box.position.y) {
+        if (curY + curH * tilesize == curList[i].box.position.y) {
           ++curH;
         } else {
           aabbPool.emplace_back(TileGroup(
-              entry.second, {entry.first.x, curY, 16, (float)curH * 16}));
+              entry.second, {entry.first.x, curY, (float)tilesize, (float)curH * tilesize}));
           curY = curList[i].box.position.y;
           curH = 1;
         }
       }
       aabbPool.emplace_back(
-          TileGroup(entry.second, {entry.first.x, curY, 16, (float)curH * 16}));
+          TileGroup(entry.second, {entry.first.x, curY, (float)tilesize, (float)curH * tilesize}));
 
     }
   }

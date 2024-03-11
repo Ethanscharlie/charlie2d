@@ -134,7 +134,8 @@ void LDTK::preload(std::string iid) {
       }
 
       std::string layerName = layer["__identifier"];
-      preloadedTiles[iid][layerName] = TileLayer(layerName, tileGroup(rawTiles));
+      preloadedTiles[iid][layerName] =
+          TileLayer(layerName, tileGroup(rawTiles, layer["__gridSize"]));
 
       for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
         groupedTile.render();
@@ -178,6 +179,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
       tile->box->changePosition(worldBox.position);
 
       tile->add<Sprite>()->texture = groupedTile.getPreviousRender();
+      tile->get<Sprite>()->showBorders = true;
 
       tile->active = false;
       layerObject->get<TileLayerComponent>()->tiles.push_back(tile);
@@ -213,32 +215,9 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
   onLoadLevel();
 
   if (handleUnload) {
-    // GameManager::updateEntities = false;
-    FadeTransition *Fader = nullptr;
-    if (GameManager::getComponents<FadeTransition>().size() > 0) {
-      Fader = GameManager::getComponents<FadeTransition>()[0];
-      // std::cout << "There was a fader\n";
-    } else {
-      Fader = GameManager::createEntity("Fader")->add<FadeTransition>();
-      // std::cout << "There was not a fader\n";
-    }
-
-    // std::cout << "Tag: " << Fader->entity->tag << "\n";
-
-    // Fader->doFade(
-    //     [lastEntities]() {
-    //       std::cout << "On middle ran\n";
-    //       Camera::cameraLimitBox = worldBox;
-    //       unload(lastEntities);
-    //       GameManager::updateEntities = true;
-    //     },
-    //     150, [lastEntities]() {});
+    unload(lastEntities);
     Camera::cameraLimitBox = worldBox;
     Camera::setPosition(worldBox.getCenter());
-    std::cout << "preparing to unload 117\n";
-    unload(lastEntities);
-    std::cout << "finished unload 117\n";
-    GameManager::updateEntities = true;
   } else {
 
     Camera::cameraLimitBox = worldBox;
