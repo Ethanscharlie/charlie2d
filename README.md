@@ -3,13 +3,6 @@
 # charlie2d
 A simple c++ w/SDL2 game engine
 
-TODO:
-Fix fade transitions
-Try to fix imgui positioning
-Fix scedules bad agrument organizaiton
-Fix up documention and quickstart guide
-Write up a full game guide
-
 DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG
 # [DOCS](https://ethanscharlie.github.io/charlie2d/)
 
