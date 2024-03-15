@@ -181,7 +181,6 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
       tile->box->changePosition(worldBox.position);
 
       tile->add<Sprite>()->texture = groupedTile.getPreviousRender();
-      tile->get<Sprite>()->showBorders = true;
 
       tile->active = false;
       layerObject->get<TileLayerComponent>()->tiles.push_back(tile);

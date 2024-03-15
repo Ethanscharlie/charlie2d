@@ -9,7 +9,18 @@ file(GLOB_RECURSE CHARLIE_SOURCES
   ${PROJECT_SOURCE_DIR}/imgui/*.cpp 
   )
 
-add_library(charlie2D STATIC ${CHARLIE_SOURCES})                                                            
+
+file(GLOB_RECURSE CHARLIE_HEADERS  
+  ${PROJECT_SOURCE_DIR}/include/core/*.h
+  ${PROJECT_SOURCE_DIR}/include/components/*.h
+  ${PROJECT_SOURCE_DIR}/include/imgui/*.h
+  ${PROJECT_SOURCE_DIR}/imgui/*.h
+  ${PROJECT_SOURCE_DIR}/include/charlie2D.h
+)
+
+# set (CHARLIE_HEADERS "${PROJECT_SOURCE_DIR}/include")
+
+add_library(charlie2D STATIC ${CHARLIE_SOURCES} ${CHARLIE_HEADERS})                                                            
 
 target_include_directories(charlie2D PUBLIC 
   /usr/include/SDL2
@@ -29,9 +40,8 @@ target_link_libraries(charlie2D
   SDL2_image
   )
 
-set(EDV_PUBLIC_INCLUDE_DIRECTORIES include include/core include/components include/imgui )
+set_target_properties(charlie2D PROPERTIES PUBLIC_HEADER "${CHARLIE_HEADERS}")      
 
 install(TARGETS charlie2D
   LIBRARY DESTINATION lib  
-  PUBLIC_HEADER DESTINATION include/charlie2D
-  )
+  PUBLIC_HEADER DESTINATION include/charlie2D/  )

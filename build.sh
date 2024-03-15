@@ -1,1 +1,1 @@
-rm -rf build; mkdir build; cd build; cmake ..; make; sudo make install .
+rm -rf build; mkdir build; cd build; cmake ..; make; sudo cmake --install .
