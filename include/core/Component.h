@@ -1,10 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include <iostream>
-
-// #include "Entity.h"
-// #include "EntityBox.h"
+#include <string>
 
 struct entityBox;
 class Entity;
