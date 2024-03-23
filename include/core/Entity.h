@@ -3,6 +3,7 @@
 
 #include "GameManager.h"
 #include <SDL.h>
+#include <functional>
 #include <map>
 #include <stdexcept>
 #include <typeindex>
@@ -11,6 +12,9 @@
 class Animation;
 class Component;
 class entityBox;
+//
+
+class Entity;
 
 /**
  * \brief Entitys are containers for an EnityBox and components
@@ -159,7 +163,7 @@ public:
   /**
    *\brief A pointer to the entitys entityBox
    */
-  entityBox* box = nullptr;
+  entityBox *box = nullptr;
 
   std::map<std::type_index, Component *> components;
 
@@ -167,7 +171,9 @@ public:
 
   Entity *parent = nullptr;
 
+
 private:
 };
+
 
 #endif // ENTITY_H

@@ -28,6 +28,7 @@
 #include <emscripten/html5.h>
 #endif
 
+template <typename T> class ComponentData;
 class Entity;
 
 /**
@@ -125,7 +126,7 @@ public:
   /**
    * \breif Adds a component to the components map (Used by Entity class)
    */
-  template <typename C> static void addComponent(Component *component);
+  template <typename C> static void addComponent(C *component);
 
   static SDL_Window *window;
   static SDL_Renderer *renderer;
@@ -162,6 +163,9 @@ iteration, like player movement static float deltaTime;
 
   static SDL_Texture *targetRenderSurface;
 
+  static std::map<std::string, std::function<Component *(Entity *)>>
+      componentRegistry;
+
 private:
   /**
    * Deletes
@@ -193,9 +197,10 @@ std::vector<C *> GameManager::getComponents(std::string tag) {
   return hits;
 }
 
-template <typename C> void GameManager::addComponent(Component *component) {
+template <typename C> void GameManager::addComponent(C *component) {
   components[typeid(C)].push_back(component);
 }
+
 
 #endif
 /**

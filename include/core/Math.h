@@ -8,6 +8,7 @@
 #include <iostream>
 #include <random>
 #include <sstream>
+#include <typeindex>
 
 /** @file */
 /**
@@ -220,4 +221,11 @@ Vector2f getImGuiPosition(Vector2f pos);
  * \brief Gets sdl2's logical rect because sdl doesn't offer a way too (Ur
  * Welcome)
  */
+
 SDL_Rect getLogicalRect();
+
+Vector2f getWindowPosition(Vector2f gamePosition);
+
+Vector2f getFullLogicalToWindowPosition(Vector2f fullLogicalPosition);
+
+std::string getTypeNameWithoutNumbers(std::type_index typeIndex);

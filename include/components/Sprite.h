@@ -15,7 +15,9 @@ class Entity;
  */
 class Sprite : public Component {
 public:
-  Sprite() : Component("sprite"){};
+  Sprite() {
+    propertyRegister = {{"Show Borders", &showBorders}};
+  };
 
   void start() override {
     entity->useLayer = true;
@@ -42,7 +44,6 @@ public:
    */
   void addAnimation(std::string title, std::vector<std::string> frames,
                     float fps);
-
 
   void setAlpha(Uint8 alpha);
 

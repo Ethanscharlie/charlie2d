@@ -11,11 +11,12 @@ file(GLOB_RECURSE CHARLIE_SOURCES
 
 
 file(GLOB_RECURSE CHARLIE_HEADERS  
-  ${PROJECT_SOURCE_DIR}/include/core/*.h
-  ${PROJECT_SOURCE_DIR}/include/components/*.h
-  ${PROJECT_SOURCE_DIR}/include/imgui/*.h
-  ${PROJECT_SOURCE_DIR}/imgui/*.h
-  ${PROJECT_SOURCE_DIR}/include/charlie2D.h
+  # ${PROJECT_SOURCE_DIR}/include/core/*.h
+  # ${PROJECT_SOURCE_DIR}/include/components/*.h
+  # ${PROJECT_SOURCE_DIR}/include/imgui/*.h
+  # ${PROJECT_SOURCE_DIR}/imgui/*.h
+  # ${PROJECT_SOURCE_DIR}/include/charlie2D.h
+  ${PROJECT_SOURCE_DIR}/include/*.h
 )
 
 # set (CHARLIE_HEADERS "${PROJECT_SOURCE_DIR}/include")

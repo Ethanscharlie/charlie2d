@@ -6,6 +6,7 @@
 #include "GameManager.h"
 #include "InputManager.h"
 #include "Math.h"
+#include "Vector2f.h"
 #include <SDL.h>
 
 /**
@@ -18,14 +19,19 @@ public:
   void start() override {}
 
   void update(float deltaTime) override {
-    bool touching = entity->require<entityBox>()->getBox().getLeft() <
-                        InputManager::getMouseUIPosition().x &&
-                    entity->require<entityBox>()->getBox().getRight() >
-                        InputManager::getMouseUIPosition().x &&
-                    entity->require<entityBox>()->getBox().getTop() <
-                        InputManager::getMouseUIPosition().y &&
-                    entity->require<entityBox>()->getBox().getBottom() >
-                        InputManager::getMouseUIPosition().y;
+    bool touching = false;
+    Vector2f mousePos;
+    if (checkInWorld) {
+      mousePos = InputManager::getMouseUIPosition();
+    }
+    else {
+      mousePos = InputManager::getMouseWorldPosition();
+    }
+
+    touching = entity->require<entityBox>()->getBox().getLeft() < mousePos.x &&
+               entity->require<entityBox>()->getBox().getRight() > mousePos.x &&
+               entity->require<entityBox>()->getBox().getTop() < mousePos.y &&
+               entity->require<entityBox>()->getBox().getBottom() > mousePos.y;
 
     if (touching) {
       onHover();
@@ -44,4 +50,6 @@ public:
   std::function<void()> onHold = []() {};
   std::function<void()> onHover = []() {};
   std::function<void()> offHover = []() {};
+
+  bool checkInWorld = false;
 };

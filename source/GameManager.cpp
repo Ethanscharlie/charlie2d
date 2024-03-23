@@ -3,14 +3,12 @@
 #include "Entity.h"
 #include "EntityBox.h"
 #include "InputManager.h"
-#include "Math.h"
 #include "SDL_events.h"
+#include "SDL_mouse.h"
 #include "SDL_render.h"
-#include "SDL_surface.h"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
-#include <functional>
 
 bool GameManager::running = true;
 
@@ -29,6 +27,9 @@ SDL_Renderer *GameManager::renderer = nullptr;
 bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;
 Uint64 GameManager::lastTime;
+
+std::map<std::string, std::function<Component *(Entity *)>>
+    GameManager::componentRegistry;
 
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
@@ -113,12 +114,19 @@ void GameManager::init(Vector2f windowSize) {
 void GameManager::Update() {
   InputManager::update();
   SDL_Event event;
+
+  ImGuiIO &io = ImGui::GetIO();
+  (void)io;
+
+  int mouseX, mouseY;
+  SDL_GetMouseState(&mouseX, &mouseY);
+  Vector2f realMouse = (Vector2f(mouseX, mouseY));
+  io.MousePos = {realMouse.x, realMouse.y};
+
   while (SDL_PollEvent(&event)) {
-    ImGuiIO &io = ImGui::GetIO();
-    (void)io;
-    io.MousePos = {InputManager::getMouseScreenPosition().x,
-                   InputManager::getMouseScreenPosition().y};
-    ImGui_ImplSDL2_ProcessEvent(&event);
+    if (event.type != SDL_MOUSEMOTION) {
+      ImGui_ImplSDL2_ProcessEvent(&event);
+    }
 
     if (event.type == SDL_QUIT) {
       quit();
@@ -126,6 +134,9 @@ void GameManager::Update() {
     } else if (event.type == SDL_MOUSEBUTTONDOWN) {
       InputManager::mousePressed = true;
       InputManager::mouseHeld = true;
+      if (event.button.button == SDL_BUTTON_RIGHT) {
+        InputManager::rightClick = true;
+      }
     } else if (event.type == SDL_MOUSEBUTTONUP) {
       InputManager::mouseHeld = false;
     } else if (event.type == SDL_WINDOWEVENT) {
@@ -179,7 +190,7 @@ void GameManager::Update() {
 
   if (deltaTime >= 1) {
     deltaTime = 0;
-  } 
+  }
 
   lastTime = currentTime;
   lastTime = SDL_GetPerformanceCounter();

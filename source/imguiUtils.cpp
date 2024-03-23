@@ -10,20 +10,6 @@
 #include "Vector2f.h"
 #include <string>
 
-Vector2f getWindowPosition(Vector2f gamePosition) {
-  int widthInPixels, heightInPixels;
-  int widthInPoints, heightInPoints;
-  SDL_GetWindowSize(GameManager::window, &widthInPoints, &heightInPoints);
-  SDL_GL_GetDrawableSize(GameManager::window, &widthInPixels, &heightInPixels);
-  float dpiScaleX = widthInPixels / (float)widthInPoints;
-  float dpiScaleY = heightInPixels / (float)heightInPoints;
-
-  SDL_Rect logicalDst = getLogicalRect();
-  return {gamePosition.x * (logicalDst.w / GameManager::gameWindowSize.x) +
-              logicalDst.x,
-          gamePosition.y * (logicalDst.h / GameManager::gameWindowSize.y) +
-              logicalDst.y};
-}
 
 void TextCentered(std::string text) {
   ImVec2 windowSize = ImGui::GetWindowSize();

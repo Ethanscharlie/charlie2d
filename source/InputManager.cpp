@@ -6,6 +6,7 @@
 bool InputManager::mousePressed = false;
 bool InputManager::jumpPressed = false;
 bool InputManager::mouseHeld = false;
+bool InputManager::rightClick = false;
 
 bool InputManager::keys[NUM_KEYS];
 bool InputManager::keysUped[NUM_KEYS];
@@ -20,6 +21,7 @@ InputManager::InputManager() {
 void InputManager::update() {
   mousePressed = false;
   jumpPressed = false;
+  rightClick = false;
 
   for (int i = 0; i < NUM_KEYS; ++i) {
     keys[i] = false; // Initialize all keys as released

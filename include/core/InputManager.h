@@ -84,6 +84,7 @@ public:
   static bool mousePressed;
   static bool jumpPressed;
   static bool mouseHeld;
+  static bool rightClick;
 
   /**
    * \brief Made for check events (Not holding down) 
