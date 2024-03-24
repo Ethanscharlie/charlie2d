@@ -28,12 +28,14 @@ template <typename T> bool registerComponentType(const std::string &typeName) {
 // Vector2f
 // Box
 // bool
+// Image
 json serialize(Entity *entity); 
 
 // Can Handle:
 // float
 // Vector2f
 // bool
+// Image
 void deserialize(json jsonData);
 
 void serializeAndWrite(Entity *entity, std::string filepath = "data.json");

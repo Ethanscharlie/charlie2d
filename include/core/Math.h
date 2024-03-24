@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SDL_render.h"
 #include "Vector2f.h"
 #include <SDL.h>
 #include <cmath>
@@ -8,9 +9,22 @@
 #include <iostream>
 #include <random>
 #include <sstream>
+#include <string>
 #include <typeindex>
 
 /** @file */
+
+struct Image {
+  Image() {
+    texture = nullptr;
+    path = "";
+  }
+  Image(std::string _path);
+  Image(SDL_Texture *_texture) : path(""), texture(_texture) {}
+  SDL_Texture *texture;
+  std::string path;
+};
+
 /**
  * \brief A simple class for manageing angles (used in Sprite)
  */

@@ -25,6 +25,12 @@ std::string floatToString(float value) {
 }
 
 #include "GameManager.h"
+#include "ResourceManager.h"
+
+Image::Image(std::string _path) : path(_path) {
+  texture =
+      ResourceManager::getInstance(GameManager::renderer).getTexture(path);
+}
 
 Vector2f getLogcialPosition(Vector2f screenPos) {
   int virtualWidth, virtualHeight;

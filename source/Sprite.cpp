@@ -15,9 +15,11 @@ void Sprite::update(float deltaTime) {
   renderRect.y = renderPos.y;
 
   renderRect.w =
-      entity->require<entityBox>()->getSize().x * Camera::getScale() + preventWeirdBorder;
+      entity->require<entityBox>()->getSize().x * Camera::getScale() +
+      preventWeirdBorder;
   renderRect.h =
-      entity->require<entityBox>()->getSize().y * Camera::getScale() + preventWeirdBorder;
+      entity->require<entityBox>()->getSize().y * Camera::getScale() +
+      preventWeirdBorder;
 
   if (renderAsUI) {
     renderRect.x = entity->require<entityBox>()->getPosition().x +
@@ -36,10 +38,10 @@ void Sprite::update(float deltaTime) {
     srcrect = &sourceRect;
   }
 
-  SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-  SDL_SetTextureAlphaMod(texture, alpha);
+  SDL_SetTextureBlendMode(this->image.texture, SDL_BLENDMODE_BLEND);
+  SDL_SetTextureAlphaMod(this->image.texture, alpha);
 
-  if (texture != nullptr &&
+  if (this->image.texture != nullptr &&
       renderRect.x + renderRect.w / 1 * 5 > 0 - renderRect.w / 1 &&
       renderRect.x + (float)renderRect.w / 1 <
           GameManager::gameWindowSize.x + (float)renderRect.w / 1 * 5 &&
@@ -48,10 +50,10 @@ void Sprite::update(float deltaTime) {
           GameManager::gameWindowSize.y + (float)renderRect.h / 1 * 5) {
 
     onScreen = true;
-    SDL_RenderCopyEx(GameManager::renderer, texture, srcrect, &renderRect,
+    SDL_RenderCopyEx(GameManager::renderer, this->image.texture, srcrect, &renderRect,
                      (180 / M_PI) * angle.radians, nullptr, flip);
 
-    SDL_SetTextureAlphaMod(texture, 255);
+    SDL_SetTextureAlphaMod(this->image.texture, 255);
   } else {
     onScreen = false;
   }
@@ -70,12 +72,11 @@ void Sprite::setAlpha(Uint8 alpha) { this->alpha = alpha; }
 
 void Sprite::loadTexture(const std::string &image, bool setSize,
                          bool keepCentered) {
-  texture =
-      ResourceManager::getInstance(GameManager::renderer).getTexture(image);
-  textureName = image;
+  this->image = Image(image);
 
   SDL_Rect spriteRect;
-  SDL_QueryTexture(texture, nullptr, nullptr, &spriteRect.w, &spriteRect.h);
+  SDL_QueryTexture(this->image.texture, nullptr, nullptr, &spriteRect.w,
+                   &spriteRect.h);
 
   if (setSize) {
     if (keepCentered) {

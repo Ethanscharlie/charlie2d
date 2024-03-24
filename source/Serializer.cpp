@@ -34,16 +34,17 @@ json serialize(Entity *entity) {
       else if (data.type == typeid(bool)) {
         prop = *static_cast<bool *>(data.value);
       }
+
+      else if (data.type == typeid(Image)) {
+        Image *image = static_cast<Image *>(data.value);
+        prop = image->path;
+      }
     }
   }
 
   return jsonData;
 }
 
-// Can Handle:
-// float
-// Vector2f
-// bool
 void deserialize(json jsonData) {
   std::string tag = jsonData["tag"];
   Entity *entity = GameManager::createEntity(tag);
@@ -56,8 +57,7 @@ void deserialize(json jsonData) {
   entity->box->setPosition(Vector2f(x, y));
   entity->box->setSize(Vector2f(w, h));
 
-  for (auto [componentName, componentJson] :
-       jsonData["Components"].items()) {
+  for (auto [componentName, componentJson] : jsonData["Components"].items()) {
     Component *component =
         GameManager::componentRegistry[componentName](entity);
     for (PropertyData &data : component->propertyRegister) {
@@ -86,6 +86,12 @@ void deserialize(json jsonData) {
                      propJson["h"]};
         Box *ptr = static_cast<Box *>(data.value);
         *ptr = value;
+      }
+
+      else if (data.type == typeid(Image)) {
+        Image *ptr = static_cast<Image *>(data.value);
+        Image newImage = Image(propJson);
+        *ptr = newImage;
       }
     }
   }

@@ -17,7 +17,7 @@ class Entity;
 class Sprite : public Component {
 public:
   Sprite() {
-    propertyRegister = {GET_PROP(showBorders)};
+    propertyRegister = {GET_PROP(image), GET_PROP(showBorders)};
   };
 
   void start() override {
@@ -52,11 +52,9 @@ public:
    * \brief Allows you to grab only a part of an image
    */
   SDL_Rect sourceRect = {0, 0, 0, 0};
-  SDL_Texture *texture = nullptr;
-  /**
-   * \brief The filename of the loaded texture
-   */
-  std::string textureName = "";
+
+  Image image;
+
   /**
    * \brief Will show the entityBox as a green box (for debuging)
    */
