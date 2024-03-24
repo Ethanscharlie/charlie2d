@@ -197,6 +197,9 @@ std::vector<C *> GameManager::getComponents(std::string tag) {
   return hits;
 }
 
+inline std::map<std::string, std::function<Component *(Entity *)>>
+    GameManager::componentRegistry;
+
 template <typename C> void GameManager::addComponent(C *component) {
   components[typeid(C)].push_back(component);
 }

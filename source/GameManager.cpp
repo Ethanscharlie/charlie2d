@@ -28,8 +28,6 @@ bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;
 Uint64 GameManager::lastTime;
 
-std::map<std::string, std::function<Component *(Entity *)>>
-    GameManager::componentRegistry;
 
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
@@ -99,7 +97,10 @@ void GameManager::init(Vector2f windowSize) {
   ImGui_ImplSDL2_InitForSDLRenderer(window, renderer);
   ImGui_ImplSDLRenderer2_Init(renderer);
 
-  ImGui::StyleColorsLight();
+  // ImGui::StyleColorsLight();
+
+  ImGuiIO &io = ImGui::GetIO();
+  io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
   // -------------------------------------------------------------
 

@@ -28,6 +28,7 @@
 #include "UISliceRenderer.h"
 
 #include "Templates.h"
+#include "Serializer.h"
 // #include "UICanvas.h"
 // #include "UIElement.h"
 // #include "UIPanel.h"

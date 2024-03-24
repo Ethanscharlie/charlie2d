@@ -49,7 +49,7 @@ void SimpleImGuiPanel::update(float deltaTime) {
                            GameManager::currentWindowSize.y);
 
   ImGui_ImplSDLRenderer2_NewFrame();
-  ImGui_ImplSDL2_NewFrame(GameManager::window);
+  ImGui_ImplSDL2_NewFrame();
 
   ImGui::NewFrame();
   Vector2f framePosition =

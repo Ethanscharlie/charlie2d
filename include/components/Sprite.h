@@ -5,6 +5,7 @@
 #include "GameManager.h"
 #include "Math.h"
 #include <SDL.h>
+#include "Serializer.h"
 
 class Animation;
 class Entity;
@@ -86,3 +87,4 @@ public:
 
   bool preventWeirdBorder = true;
 };
+REGISTER_COMPONENT_TYPE(Sprite);
