@@ -17,7 +17,7 @@ class Entity;
 class Sprite : public Component {
 public:
   Sprite() {
-    propertyRegister = {{"Show Borders", &showBorders}};
+    propertyRegister = {GET_PROP(showBorders)};
   };
 
   void start() override {

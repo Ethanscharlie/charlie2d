@@ -57,7 +57,7 @@ void deserialize(json jsonData) {
   entity->box->setSize(Vector2f(w, h));
 
   for (auto [componentName, componentJson] :
-       jsonData[tag]["Components"].items()) {
+       jsonData["Components"].items()) {
     Component *component =
         GameManager::componentRegistry[componentName](entity);
     for (PropertyData &data : component->propertyRegister) {

@@ -10,18 +10,6 @@
 struct entityBox;
 class Entity;
 
-// struct EditorDataItem {
-//   EditorDataItem(std::string _name, void *_value, std::type_index _type,
-//                  std::type_index _componentType)
-//       : name(_name), value(_value), type(_type),
-//       componentType(_componentType) {
-//   }
-//
-//   std::string name;
-//   void *value;
-//   std::type_index type;
-//   std::type_index componentType;
-// };
 struct PropertyData {
   template <typename T>
   PropertyData(std::string _name, T *_value)
