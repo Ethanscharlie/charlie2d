@@ -3,6 +3,7 @@
 #include "Collider.h"
 #include "Component.h"
 #include "Entity.h"
+#include "Serializer.h"
 #include "Math.h"
 
 /**
@@ -75,3 +76,5 @@ public:
    */
   bool pushOut = true;
 };
+
+REGISTER_COMPONENT_TYPE(physicsBody);

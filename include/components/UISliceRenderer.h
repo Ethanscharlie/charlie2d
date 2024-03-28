@@ -4,6 +4,8 @@
 #include "EntityBox.h"
 #include "GameManager.h"
 #include "ResourceManager.h"
+#include "SDL_stdinc.h"
+#include "Serializer.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -14,7 +16,15 @@
  */
 class UISliceRenderer : public Component {
 public:
-  UISliceRenderer() : Component("UISliceRenderer"){};
+  UISliceRenderer() {
+    propertyRegister = {
+        GET_PROP(rendererInWorld),
+        GET_PROP(alpha),
+    };
+
+    loadTexture(textureName);
+    typeIsRendering = true;
+  };
 
   void setColor(std::array<Uint8, 3> color) {
     texture = ResourceManager::getInstance(GameManager::renderer)
@@ -22,10 +32,8 @@ public:
   }
 
   void start() override {
-    loadTexture(textureName);
     entity->layer = 65;
     entity->useLayer = true;
-    typeIsRendering = true;
   }
 
   /**
@@ -58,6 +66,9 @@ public:
 
     spriteRect.w = entity->require<entityBox>()->getSize().x;
     spriteRect.h = entity->require<entityBox>()->getSize().y;
+
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_SetTextureAlphaMod(texture, alpha);
 
     Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);
   }
@@ -128,8 +139,10 @@ public:
   }
 
   bool rendererInWorld = false;
+  Uint8 alpha = 255;
 
 private:
   SDL_Texture *texture;
   std::string textureName = "img/panel.png";
 };
+REGISTER_COMPONENT_TYPE(UISliceRenderer);

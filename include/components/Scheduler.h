@@ -8,6 +8,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "Serializer.h"
 
 /**
  * \brief Based struct for schedules used in the Scheduler
@@ -81,3 +82,4 @@ public:
 
   std::map<std::string, Schedule> schedules;
 };
+REGISTER_COMPONENT_TYPE(Scheduler);

@@ -1,4 +1,6 @@
 #include "Serializer.h"
+#include "Text.h"
+#include <string>
 
 json serialize(Entity *entity) {
   json jsonData;
@@ -39,13 +41,24 @@ json serialize(Entity *entity) {
         Image *image = static_cast<Image *>(data.value);
         prop = image->path;
       }
+
+      else if (data.type == typeid(std::string)) {
+        std::string *string = static_cast<std::string *>(data.value);
+        prop = *string;
+      }
+
+      else if (data.type == typeid(Font)) {
+        Font *font = static_cast<Font *>(data.value);
+        prop["path"] = font->filepath;
+        prop["size"] = font->size;
+      }
     }
   }
 
   return jsonData;
 }
 
-void deserialize(json jsonData) {
+Entity *deserialize(json jsonData) {
   std::string tag = jsonData["tag"];
   Entity *entity = GameManager::createEntity(tag);
 
@@ -62,6 +75,12 @@ void deserialize(json jsonData) {
         GameManager::componentRegistry[componentName](entity);
     for (PropertyData &data : component->propertyRegister) {
       std::cout << data.name << "\n";
+
+      if (componentJson.find(data.name) == componentJson.end())
+        continue;
+
+      std::cout << "FIRE\n";
+
       json propJson = componentJson[data.name];
       if (data.type == typeid(float)) {
         float value = propJson;
@@ -93,8 +112,20 @@ void deserialize(json jsonData) {
         Image newImage = Image(propJson);
         *ptr = newImage;
       }
+
+      else if (data.type == typeid(std::string)) {
+        std::string *ptr = static_cast<std::string *>(data.value);
+        *ptr = propJson;
+      }
+
+      else if (data.type == typeid(Font)) {
+        Font *ptr = static_cast<Font *>(data.value);
+        *ptr = Font(propJson["path"], propJson["size"]);
+      }
     }
   }
+
+  return entity;
 }
 
 void serializeAndWrite(Entity *entity, std::string filepath) {

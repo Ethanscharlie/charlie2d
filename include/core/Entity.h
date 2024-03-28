@@ -28,7 +28,7 @@ public:
   /**
    * \brief Adds a component to the entity Ex: add<Sprite>()
    */
-  template <typename C> C *add() {
+  template <typename C> C *add(bool start = true) {
     if (checkComponent<C>()) {
       return get<C>();
     }
@@ -37,7 +37,8 @@ public:
 
     component->entity = this;
     component->entityTag = tag;
-    component->start();
+    if (start)
+      component->start();
     components[typeid(C)] = component;
 
     component->index = iid; // components[typeid(C)].size();
@@ -88,6 +89,19 @@ public:
     std::cout << "Removed component " << typeid(C).name() << std::endl;
   }
 
+  void remove(std::type_index type) {
+    // Remove from GameManager
+    Component *component = components[type];
+    GameManager::removeComponent(component, type);
+
+    // Remove from entity
+    components.erase(type);
+
+    delete component;
+
+    std::cout << "Removed component " << type.name() << std::endl;
+  }
+
   /**
    * \brief Does the enity have this? Ex: checkComponent<Sprite>()
    */
@@ -104,6 +118,10 @@ public:
         continue;
       component->update(GameManager::deltaTime);
     }
+  }
+
+  void changeTag(std::string newTag) {
+    GameManager::changeEntityTag(this, newTag);
   }
 
   /**
@@ -171,9 +189,7 @@ public:
 
   Entity *parent = nullptr;
 
-
 private:
 };
-
 
 #endif // ENTITY_H

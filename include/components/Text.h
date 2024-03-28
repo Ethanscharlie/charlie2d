@@ -4,9 +4,26 @@
 #include "EntityBox.h"
 #include "GameManager.h"
 #include "ResourceManager.h"
+#include "Serializer.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+
+struct Font {
+  Font(std::string _filepath, int _size) : filepath(_filepath), size(_size) {
+    font = TTF_OpenFont(_filepath.c_str(), _size);
+  }
+
+  void changeFont(std::string fontFile, int size) {
+    size = size;
+    filepath = fontFile;
+    font = TTF_OpenFont(fontFile.c_str(), size);
+  }
+
+  std::string filepath = "";
+  int size = 0;
+  TTF_Font *font = nullptr; // TTF_OpenFont(mfontFile.c_str(), fontSize);
+};
 
 /**
  * \brief A simple UI text Component (good with UISliceRenderer)
@@ -14,22 +31,23 @@
  */
 class Text : public Component {
 public:
-  Text() : Component("Text"){};
+  Text() {
+    propertyRegister = {GET_PROP(text), GET_PROP(text_color), GET_PROP(font),
+                        GET_PROP(renderInWorld)};
+
+    typeIsRendering = true;
+  };
 
   void start() override {
-    text = "";
-    fontSize = original_font_size;
-    changeFont(mfontFile, original_font_size);
     entity->layer = 70;
     entity->useLayer = true;
-    typeIsRendering = true;
   }
 
   void update(float deltaTime) override {
     if (text.length() <= 0)
       return;
     // if (fontFile == "") return;
-    if (fontSize == 0)
+    if (font.size == 0)
       return;
 
     SDL_Rect spriteRect = {0, 0, 0, 0};
@@ -39,10 +57,18 @@ public:
     float height_scale =
         (float)GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
 
-    Vector2f renderPos = entity->require<entityBox>()->getPosition() +
-                         GameManager::gameWindowSize / 2;
-    spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
-    spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
+    if (!renderInWorld) {
+      // float scaler = GameManager::screen_change_scale * Camera::getScale();
+      Vector2f renderPos = entity->require<entityBox>()->getPosition() +
+                           GameManager::gameWindowSize / 2;
+      spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
+      spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
+    } else {
+      Vector2f renderPos = entity->require<entityBox>()->getPosition() +
+                           GameManager::gameWindowSize / 2;
+      spriteRect.x = renderPos.x;
+      spriteRect.y = renderPos.y;
+    }
 
     spriteRect.w = entity->require<entityBox>()->getSize().x;
     spriteRect.h = entity->require<entityBox>()->getSize().y;
@@ -50,7 +76,7 @@ public:
     renderTextInRect(GameManager::renderer, text, spriteRect);
   }
 
-  void onScreenChange() override { changeFont(mfontFile, fontSize); }
+  // void onScreenChange() override { changeFont(mfontFile, fontSize); }
 
   /**
    * \brief Sets the font and text size,
@@ -59,9 +85,10 @@ public:
    * \param size Fontsize
    */
   void changeFont(std::string fontFile, int size) {
-    fontSize = size;
-    mfontFile = fontFile;
-    font = TTF_OpenFont(fontFile.c_str(), fontSize);
+    // fontSize = size;
+    // mfontFile = fontFile;
+    // font = TTF_OpenFont(fontFile.c_str(), fontSize);
+    font.changeFont(fontFile, size);
   }
 
   /**
@@ -70,9 +97,9 @@ public:
   void renderTextInRect(SDL_Renderer *renderer, const std::string &text,
                         const SDL_Rect &rect) {
     // Create a surface from the text
-    TTF_SetFontWrappedAlign(font, TTF_WRAPPED_ALIGN_CENTER);
-    SDL_Surface *textSurface =
-        TTF_RenderText_Blended_Wrapped(font, text.c_str(), text_color, rect.w);
+    TTF_SetFontWrappedAlign(font.font, TTF_WRAPPED_ALIGN_CENTER);
+    SDL_Surface *textSurface = TTF_RenderText_Blended_Wrapped(
+        font.font, text.c_str(), text_color, rect.w);
 
     if (textSurface == nullptr) {
       std::cerr << "Error creating surface: " << SDL_GetError() << std::endl;
@@ -106,15 +133,17 @@ public:
 
   Box textBox;
 
-  std::string text;
+  std::string text = "Sample Text";
 
   /**
    * \brief Sets the text color
    */
-  SDL_Color text_color = {0, 0, 0};
-  int original_font_size = 20;
-  int fontSize;
-  std::string mfontFile = "";
-  TTF_Font *font = TTF_OpenFont(mfontFile.c_str(), fontSize);
+  SDL_Color text_color = {255, 255, 0};
+  // int original_font_size = 20;
+  // int fontSize;
+  // std::string mfontFile = "";
+  Font font = {"", 20};
   SDL_Color textColor;
+  bool renderInWorld = false;
 };
+REGISTER_COMPONENT_TYPE(Text);

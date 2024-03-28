@@ -123,6 +123,8 @@ public:
    */
   static void setWindowSize(Vector2f size);
 
+  static void changeEntityTag(Entity *entity, std::string newTag); 
+
   /**
    * \breif Adds a component to the components map (Used by Entity class)
    */

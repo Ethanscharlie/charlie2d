@@ -4,8 +4,8 @@
 #include "Collider.h"
 #include "GameManager.h"
 #include "Math.h"
-#include <SDL.h>
 #include "Serializer.h"
+#include <SDL.h>
 
 class Animation;
 class Entity;
@@ -17,13 +17,19 @@ class Entity;
 class Sprite : public Component {
 public:
   Sprite() {
-    propertyRegister = {GET_PROP(image), GET_PROP(showBorders)};
+    propertyRegister = {
+        GET_PROP(image),
+        GET_PROP(showBorders),
+        GET_PROP(alpha),
+        GET_PROP(angle),
+        GET_PROP(renderAsUI),
+        GET_PROP(flip),
+        GET_PROP(preventWeirdBorder),
+    };
+    typeIsRendering = true;
   };
 
-  void start() override {
-    entity->useLayer = true;
-    typeIsRendering = true;
-  }
+  void start() override { entity->useLayer = true; }
 
   void update(float deltaTime) override;
 

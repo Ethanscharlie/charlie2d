@@ -12,7 +12,7 @@
 
 template <typename T> bool registerComponentType(const std::string &typeName) {
   GameManager::componentRegistry[typeName] = [](Entity *entity) {
-    return entity->add<T>();
+    return entity->add<T>(false);
   };
 
   return true;
@@ -36,7 +36,7 @@ json serialize(Entity *entity);
 // Vector2f
 // bool
 // Image
-void deserialize(json jsonData);
+Entity* deserialize(json jsonData);
 
 void serializeAndWrite(Entity *entity, std::string filepath = "data.json");
 

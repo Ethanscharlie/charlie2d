@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include "Serializer.h"
 
 /**
  * \brief Sets the box to be the size of the screen (For UI anchoring)
@@ -20,16 +21,12 @@ public:
   void start() override {
 
     entity->require<entityBox>()->setSize(GameManager::gameWindowSize);
-
-    // Margin
-    // entity->require<entityBox>()->changeScale({-10, -10});
-
     entity->require<entityBox>()->setWithCenter({0, 0});
   }
 
   void update(float deltaTime) override {
-    // if (entity->toDestroy)
-    //   return;
     start();
   }
 };
+REGISTER_COMPONENT_TYPE(UICanvas);
+

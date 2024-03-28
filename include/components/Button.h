@@ -1,11 +1,12 @@
 #pragma once
-
+#include "Camera.h"
 #include "Component.h"
 #include "Entity.h"
 #include "EntityBox.h"
 #include "GameManager.h"
 #include "InputManager.h"
 #include "Math.h"
+#include "Serializer.h"
 #include "Vector2f.h"
 #include <SDL.h>
 
@@ -14,7 +15,12 @@
  */
 class Button : public Component {
 public:
-  Button() : Component("Button"){};
+  Button() {
+    propertyRegister = {
+        GET_PROP(onClick),  GET_PROP(onHold),       GET_PROP(onHover),
+        GET_PROP(offHover), GET_PROP(checkInWorld),
+    };
+  };
 
   void start() override {}
 
@@ -22,9 +28,8 @@ public:
     bool touching = false;
     Vector2f mousePos;
     if (checkInWorld) {
-      mousePos = InputManager::getMouseUIPosition();
-    }
-    else {
+      mousePos = InputManager::getMouseWorldPosition();
+    } else {
       mousePos = InputManager::getMouseWorldPosition();
     }
 
@@ -53,3 +58,4 @@ public:
 
   bool checkInWorld = false;
 };
+REGISTER_COMPONENT_TYPE(Button);

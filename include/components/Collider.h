@@ -5,6 +5,7 @@
 #include "EntityBox.h"
 #include "GameManager.h"
 #include "Math.h"
+#include "Serializer.h"
 #include <SDL.h>
 #include <iostream>
 
@@ -15,7 +16,7 @@ typedef std::vector<Component *> Group;
  */
 class Collider : public Component {
 public:
-  Collider() : Component("collider"){};
+  Collider() : Component("collider") { propertyRegister = {GET_PROP(solid)}; };
 
   void start() override;
   void update(float deltaTime) override;
@@ -40,5 +41,6 @@ public:
    */
   bool solid = false;
 };
+REGISTER_COMPONENT_TYPE(Collider);
 
 #endif

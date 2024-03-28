@@ -28,7 +28,6 @@ bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;
 Uint64 GameManager::lastTime;
 
-
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
   window.addEventListener(
@@ -240,7 +239,6 @@ void GameManager::Update() {
   for (Entity *entity : entitesToRemove) {
     destroyEntity(entity);
   }
-  //
   // END OF OLD SCENE LOOP
 
   SDL_RenderPresent(renderer);
@@ -264,6 +262,13 @@ void GameManager::setWindowSize(Vector2f size) {
       component->onScreenChange();
     }
   }
+}
+
+void GameManager::changeEntityTag(Entity *entity, std::string newTag) {
+  auto &list = entities[entity->tag];
+  list.erase(std::remove(list.begin(), list.end(), entity), list.end());
+  entities[newTag].push_back(entity);
+  entity->tag = newTag;
 }
 
 void GameManager::doUpdateLoop() {

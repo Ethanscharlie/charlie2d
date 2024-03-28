@@ -1,16 +1,25 @@
 #pragma once
 #include "Entity.h"
 #include "GameManager.h"
+#include "Serializer.h"
 #include "physicsBody.h"
 
 /**
- * \brief This class is made to be a simple Platformer player controller that uses the physicsBody
+ * \brief This class is made to be a simple Platformer player controller that
+ * uses the physicsBody
  */
 class JumpMan : public Component {
 public:
-  void start() override {
-    entity->require<physicsBody>();
+  JumpMan() {
+    propertyRegister = {
+        GET_PROP(gravity),    GET_PROP(speed),          GET_PROP(airSpeed),
+        GET_PROP(maxSpeed),   GET_PROP(tracktion),      GET_PROP(jumpPeak),
+        GET_PROP(jumpChange), GET_PROP(jumps),          GET_PROP(allowJump),
+        GET_PROP(needGround), GET_PROP(touchingGround),
+    };
   }
+
+  void start() override { entity->require<physicsBody>(); }
 
   void update(float deltaTime) override {
     if (deltaTime > 0.2)
@@ -18,10 +27,10 @@ public:
     if (abs(entity->get<physicsBody>()->velocity.x) < maxSpeed) {
       if (touchingGround) {
         entity->get<physicsBody>()->velocity.x +=
-          InputManager::checkHorizontal() * speed;
+            InputManager::checkHorizontal() * speed;
       } else {
         entity->get<physicsBody>()->velocity.x +=
-          InputManager::checkHorizontal() * airSpeed;
+            InputManager::checkHorizontal() * airSpeed;
       }
     }
 
@@ -96,7 +105,8 @@ public:
   }
 
   /**
-   * \brief Fall go brrr (is multipyed by deltaTime so it should be a large number)
+   * \brief Fall go brrr (is multipyed by deltaTime so it should be a large
+   * number)
    */
   float gravity = 1500;
   /**
@@ -133,7 +143,7 @@ public:
    */
   bool allowJump = true;
   /**
-   * \brief Who even cares about physics mid are jumps are the future 
+   * \brief Who even cares about physics mid are jumps are the future
    */
   bool needGround = true;
   /**
@@ -148,3 +158,4 @@ private:
   bool jumping = false;
   Box groundCheckBox = {0, 0, 0, 0};
 };
+REGISTER_COMPONENT_TYPE(JumpMan);
