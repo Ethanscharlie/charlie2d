@@ -9,6 +9,7 @@
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
+#include <random>
 
 bool GameManager::running = true;
 
@@ -339,7 +340,12 @@ std::vector<Entity *> GameManager::getAllObjects() {
 Entity *GameManager::createEntity(std::string tag) {
   Entity *entity = new Entity();
   entity->tag = tag;
-  entity->iid = getAllObjects().size();
+
+  std::random_device dev;
+  std::mt19937 rng(dev());
+  std::uniform_int_distribution<std::mt19937::result_type> dist(1, 100000); //
+  entity->iid = dist(rng);
+
   entities[tag].push_back(entity);
   entity->box = entity->add<entityBox>();
   return entity;

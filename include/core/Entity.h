@@ -138,6 +138,8 @@ public:
    * \brief Sets the parent of the entity
    */
   void setParent(Entity *entity) {
+    if (parent == entity)
+      return;
     parent = entity;
     entity->addChild(this);
   }
@@ -158,7 +160,16 @@ public:
    * \brief String tag for the entity
    */
   std::string tag = "";
+
+  std::string name = "";
+
+  std::string group = "";
+
   bool debug = false;
+  
+  /**
+   * \brief Unique int id
+   */
   int iid;
   /**
    * \brief Skips the update loop for the next frame (Resets to true after)
@@ -176,7 +187,7 @@ public:
    * \brief Tells the engine to update with a sorting algorithim (made for
    * sprites)
    */
-  bool useLayer = false;
+  bool useLayer = true;
 
   /**
    *\brief A pointer to the entitys entityBox

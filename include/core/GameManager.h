@@ -123,7 +123,7 @@ public:
    */
   static void setWindowSize(Vector2f size);
 
-  static void changeEntityTag(Entity *entity, std::string newTag); 
+  static void changeEntityTag(Entity *entity, std::string newTag);
 
   /**
    * \breif Adds a component to the components map (Used by Entity class)
@@ -168,6 +168,8 @@ iteration, like player movement static float deltaTime;
   static std::map<std::string, std::function<Component *(Entity *)>>
       componentRegistry;
 
+  static std::map<std::string, std::vector<Entity *>> entities;
+
 private:
   /**
    * Deletes
@@ -175,8 +177,6 @@ private:
   static void destroyEntity(Entity *entity);
 
   static std::map<std::type_index, std::vector<Component *>> components;
-
-  static std::map<std::string, std::vector<Entity *>> entities;
 
   static Uint64 lastTime;
 };
@@ -205,7 +205,6 @@ inline std::map<std::string, std::function<Component *(Entity *)>>
 template <typename C> void GameManager::addComponent(C *component) {
   components[typeid(C)].push_back(component);
 }
-
 
 #endif
 /**

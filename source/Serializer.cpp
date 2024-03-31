@@ -2,6 +2,8 @@
 #include "Text.h"
 #include <string>
 
+std::map<int, Entity *> entityIidMap;
+
 json serialize(Entity *entity) {
   json jsonData;
   jsonData["tag"] = entity->tag;
@@ -9,6 +11,9 @@ json serialize(Entity *entity) {
   jsonData["y"] = entity->box->getPosition().y;
   jsonData["w"] = entity->box->getSize().x;
   jsonData["h"] = entity->box->getSize().y;
+  jsonData["iid"] = entity->iid;
+  jsonData["name"] = entity->name;
+  jsonData["group"] = entity->group;
 
   for (auto [type, component] : entity->components) {
     for (PropertyData data : component->propertyRegister) {
@@ -52,13 +57,22 @@ json serialize(Entity *entity) {
         prop["path"] = font->filepath;
         prop["size"] = font->size;
       }
+
+      else if (data.type == typeid(Entity *)) {
+        Entity **entityPtr = static_cast<Entity **>(data.value);
+        Entity *entity = *entityPtr;
+        prop = 0;
+        if (entity != nullptr) {
+          prop = entity->iid;
+        }
+      }
     }
   }
 
   return jsonData;
 }
 
-Entity *deserialize(json jsonData) {
+Entity *deserialize(json jsonData, bool start) {
   std::string tag = jsonData["tag"];
   Entity *entity = GameManager::createEntity(tag);
 
@@ -70,6 +84,12 @@ Entity *deserialize(json jsonData) {
   entity->box->setPosition(Vector2f(x, y));
   entity->box->setSize(Vector2f(w, h));
 
+  entity->iid = jsonData["iid"];
+  entity->name = jsonData["name"];
+  entity->group = jsonData["group"];
+
+  entityIidMap[entity->iid] = entity;
+
   for (auto [componentName, componentJson] : jsonData["Components"].items()) {
     Component *component =
         GameManager::componentRegistry[componentName](entity);
@@ -78,8 +98,6 @@ Entity *deserialize(json jsonData) {
 
       if (componentJson.find(data.name) == componentJson.end())
         continue;
-
-      std::cout << "FIRE\n";
 
       json propJson = componentJson[data.name];
       if (data.type == typeid(float)) {
@@ -122,10 +140,43 @@ Entity *deserialize(json jsonData) {
         Font *ptr = static_cast<Font *>(data.value);
         *ptr = Font(propJson["path"], propJson["size"]);
       }
+
+      else if (data.type == typeid(Entity *)) {
+        int iid = static_cast<int>(propJson);
+        Entity **entityPtr = static_cast<Entity **>(data.value);
+        Entity *entity = *entityPtr;
+        *entityPtr = entityIidMap[iid];
+      }
     }
+
+    if (start)
+      component->start();
   }
 
   return entity;
+}
+
+json serializeList(std::vector<Entity *> entities) {
+  json entitiesListJson;
+  for (Entity *entity : entities) {
+    entitiesListJson["Scene"][entity->tag].push_back(serialize(entity));
+  }
+  return entitiesListJson;
+}
+
+std::vector<Entity *> deserializeList(json jsonData, bool active) {
+  std::vector<Entity *> entities;
+  for (json entityGroup : jsonData["Scene"]) {
+    for (json entityJson : entityGroup) {
+      Entity *dentity = deserialize(entityJson, active);
+
+      for (auto &[type, component] : dentity->components) {
+        if (!component->typeIsRendering)
+          component->standardUpdate = active;
+      }
+    }
+  }
+  return entities;
 }
 
 void serializeAndWrite(Entity *entity, std::string filepath) {
