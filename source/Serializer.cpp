@@ -14,6 +14,7 @@ json serialize(Entity *entity) {
   jsonData["iid"] = entity->iid;
   jsonData["name"] = entity->name;
   jsonData["group"] = entity->group;
+  jsonData["layer"] = entity->layer;
 
   for (auto [type, component] : entity->components) {
     for (PropertyData data : component->propertyRegister) {
@@ -22,6 +23,14 @@ json serialize(Entity *entity) {
 
       if (data.type == typeid(float)) {
         prop = *static_cast<float *>(data.value);
+      }
+
+      else if (data.type == typeid(int)) {
+        prop = *static_cast<int *>(data.value);
+      }
+
+      else if (data.type == typeid(Uint8)) {
+        prop = *static_cast<Uint8 *>(data.value);
       }
 
       else if (data.type == typeid(Vector2f)) {
@@ -87,6 +96,7 @@ Entity *deserialize(json jsonData, bool start) {
   entity->iid = jsonData["iid"];
   entity->name = jsonData["name"];
   entity->group = jsonData["group"];
+  entity->layer = jsonData["layer"];
 
   entityIidMap[entity->iid] = entity;
 
@@ -101,15 +111,19 @@ Entity *deserialize(json jsonData, bool start) {
 
       json propJson = componentJson[data.name];
       if (data.type == typeid(float)) {
-        float value = propJson;
-        float *ptr = static_cast<float *>(data.value);
-        *ptr = value;
+        deserializeBasicValue<float>(propJson, data);
+      }
+
+      else if (data.type == typeid(int)) {
+        deserializeBasicValue<int>(propJson, data);
+      }
+
+      else if (data.type == typeid(Uint8)) {
+        deserializeBasicValue<Uint8>(propJson, data);
       }
 
       else if (data.type == typeid(bool)) {
-        bool value = propJson;
-        bool *ptr = static_cast<bool *>(data.value);
-        *ptr = value;
+        deserializeBasicValue<bool>(propJson, data);
       }
 
       else if (data.type == typeid(Vector2f)) {

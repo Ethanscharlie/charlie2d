@@ -3,7 +3,8 @@
 #include <cmath>
 #include <iostream>
 /**
- * \brief A simple Vector2 float class, with an x & y property that supports math with floats and other Vectors
+ * \brief A simple Vector2 float class, with an x & y property that supports
+ * math with floats and other Vectors
  */
 struct Vector2f {
   Vector2f() : x(0.0f), y(0.0f) {}
@@ -63,6 +64,9 @@ struct Vector2f {
     return *this;
   }
 
+  bool operator==(Vector2f other) { return x == other.x && y == other.y; }
+  bool operator!=(Vector2f other) { return x != other.x || y != other.y; }
+
   Vector2f operator+(const float num) { return Vector2f(x + num, y + num); }
 
   Vector2f operator-(const float num) { return Vector2f(x - num, y - num); }
@@ -98,4 +102,3 @@ struct Vector2f {
 
   float x, y;
 };
-

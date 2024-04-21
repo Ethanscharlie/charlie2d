@@ -30,7 +30,7 @@ public:
    * \brief Gets a texture from filename, also loads the texture permenently
    * into textures_
    */
-  SDL_Texture *getTexture(std::string filename);
+  SDL_Texture *getTexture(std::string filename, bool forceReload = false);
   /**
    * \brief Works like getTexture but adds a colored tint
    * \param color The color tint, Ex `{255, 24, 100}`
@@ -50,6 +50,8 @@ public:
    * \brief Clears all sounds and textures
    */
   void clear();
+
+  void reloadAllTextures();
 
 private:
   ResourceManager(SDL_Renderer *renderer);

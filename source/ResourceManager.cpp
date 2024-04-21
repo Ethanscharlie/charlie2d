@@ -6,8 +6,9 @@ ResourceManager &ResourceManager::getInstance(SDL_Renderer *renderer) {
   return instance;
 }
 
-SDL_Texture *ResourceManager::getTexture(std::string filename) {
-  if (textures_.find(filename) == textures_.end()) {
+SDL_Texture *ResourceManager::getTexture(std::string filename,
+                                         bool forceReload) {
+  if (textures_.find(filename) == textures_.end() || forceReload) {
     std::cout << "Loading image " << filename << std::endl;
 
     SDL_Texture *texture = NULL;
@@ -27,12 +28,17 @@ SDL_Texture *ResourceManager::getTexture(std::string filename) {
   return textures_[filename];
 }
 
+void ResourceManager::reloadAllTextures() {
+  for (auto &[name, texture] : textures_) {
+    getTexture(name, true);
+  }
+}
+
 SDL_Texture *ResourceManager::getColoredTexture(std::array<Uint8, 3> color,
                                                 std::string textureName) {
   std::string name = std::to_string(color[0]) + " " + std::to_string(color[1]) +
                      " " + std::to_string(color[2]) + " " + textureName;
   if (textures_.find(name) == textures_.end()) {
-    // std::cout << "Loading color image " << name << std::endl;
 
     SDL_Surface *surface = IMG_Load(textureName.c_str());
 
@@ -50,7 +56,6 @@ SDL_Texture *ResourceManager::getColoredTexture(std::array<Uint8, 3> color,
     SDL_SetTextureColorMod(texture, color[0], color[1], color[2]);
 
     textures_[name] = texture;
-    // std::cout << "Loaded image " << name << std::endl;
   }
 
   return textures_[name];

@@ -30,7 +30,7 @@ public:
     if (checkInWorld) {
       mousePos = InputManager::getMouseWorldPosition();
     } else {
-      mousePos = InputManager::getMouseWorldPosition();
+      mousePos = InputManager::getMouseUIPosition();
     }
 
     touching = entity->require<entityBox>()->getBox().getLeft() < mousePos.x &&

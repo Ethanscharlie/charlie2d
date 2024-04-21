@@ -82,6 +82,8 @@ void GameManager::init(Vector2f windowSize) {
       ((float)currentWindowSize.x + (float)currentWindowSize.y) /
       (gameWindowSize.x + gameWindowSize.y);
 
+  SDL_SetHint(SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR, "0");
+
   window = SDL_CreateWindow("Charlie2D Game", SDL_WINDOWPOS_CENTERED,
                             SDL_WINDOWPOS_CENTERED, currentWindowSize.x,
                             currentWindowSize.y, SDL_WINDOW_SHOWN);
@@ -124,6 +126,8 @@ void GameManager::Update() {
   Vector2f realMouse = (Vector2f(mouseX, mouseY));
   io.MousePos = {realMouse.x, realMouse.y};
 
+  InputManager::mouseScroll = 0;
+
   while (SDL_PollEvent(&event)) {
     if (event.type != SDL_MOUSEMOTION) {
       ImGui_ImplSDL2_ProcessEvent(&event);
@@ -140,7 +144,13 @@ void GameManager::Update() {
       }
     } else if (event.type == SDL_MOUSEBUTTONUP) {
       InputManager::mouseHeld = false;
-    } else if (event.type == SDL_WINDOWEVENT) {
+    }
+
+    else if (event.type == SDL_MOUSEWHEEL) {
+      InputManager::mouseScroll = event.wheel.y;
+    }
+
+    else if (event.type == SDL_WINDOWEVENT) {
       switch (event.window.event) {
       case SDL_WINDOWEVENT_RESIZED:
         currentWindowSize.x = event.window.data1;

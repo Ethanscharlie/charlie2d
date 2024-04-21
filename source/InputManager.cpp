@@ -8,6 +8,8 @@ bool InputManager::jumpPressed = false;
 bool InputManager::mouseHeld = false;
 bool InputManager::rightClick = false;
 
+float InputManager::mouseScroll = 0;
+
 bool InputManager::keys[NUM_KEYS];
 bool InputManager::keysUped[NUM_KEYS];
 

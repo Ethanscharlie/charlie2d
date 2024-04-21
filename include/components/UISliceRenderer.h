@@ -50,11 +50,13 @@ public:
     SDL_Rect spriteRect = {0, 0, 0, 0};
 
     if (!rendererInWorld) {
-      // float scaler = GameManager::screen_change_scale * Camera::getScale();
       Vector2f renderPos = entity->require<entityBox>()->getPosition() +
                            GameManager::gameWindowSize / 2;
       spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
       spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
+      spriteRect.w = entity->require<entityBox>()->getSize().x;
+      spriteRect.h = entity->require<entityBox>()->getSize().y;
+
     } else {
       Vector2f renderPos =
           entity->require<entityBox>()->getPosition() - Camera::getPosition();
@@ -62,10 +64,12 @@ public:
       renderPos += GameManager::gameWindowSize / 2;
       spriteRect.x = renderPos.x;
       spriteRect.y = renderPos.y;
-    }
 
-    spriteRect.w = entity->require<entityBox>()->getSize().x;
-    spriteRect.h = entity->require<entityBox>()->getSize().y;
+      spriteRect.w =
+          entity->require<entityBox>()->getSize().x * Camera::getScale();
+      spriteRect.h =
+          entity->require<entityBox>()->getSize().y * Camera::getScale();
+    }
 
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod(texture, alpha);

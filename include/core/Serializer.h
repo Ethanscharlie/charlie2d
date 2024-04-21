@@ -1,5 +1,6 @@
 #ifndef SERIALIZER_H
 #define SERIALIZER_H
+#include "Component.h"
 #include "Entity.h"
 #include "EntityBox.h"
 #include "GameManager.h"
@@ -25,6 +26,13 @@ template <typename T> bool registerComponentType(const std::string &typeName) {
   }
 
 extern std::map<int, Entity *> entityIidMap;
+
+template <typename T>
+void deserializeBasicValue(json &propJson, PropertyData data) {
+  json value = propJson;
+  T *ptr = static_cast<T *>(data.value);
+  *ptr = value;
+}
 
 json serialize(Entity *entity);
 json serializeList(std::vector<Entity *> entities);

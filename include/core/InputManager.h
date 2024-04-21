@@ -86,6 +86,8 @@ public:
   static bool mouseHeld;
   static bool rightClick;
 
+  static float mouseScroll;
+
   /**
    * \brief Made for check events (Not holding down) 
    */
