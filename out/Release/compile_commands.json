@@ -1,0 +1,128 @@
+[
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/imgui/imgui.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui.cpp",
+  "output": "CMakeFiles/charlie2D.dir/imgui/imgui.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/imgui/imgui_demo.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_demo.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_demo.cpp",
+  "output": "CMakeFiles/charlie2D.dir/imgui/imgui_demo.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/imgui/imgui_draw.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_draw.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_draw.cpp",
+  "output": "CMakeFiles/charlie2D.dir/imgui/imgui_draw.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/imgui/imgui_impl_sdl2.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_impl_sdl2.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_impl_sdl2.cpp",
+  "output": "CMakeFiles/charlie2D.dir/imgui/imgui_impl_sdl2.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/imgui/imgui_impl_sdlrenderer2.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_impl_sdlrenderer2.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_impl_sdlrenderer2.cpp",
+  "output": "CMakeFiles/charlie2D.dir/imgui/imgui_impl_sdlrenderer2.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/imgui/imgui_tables.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_tables.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_tables.cpp",
+  "output": "CMakeFiles/charlie2D.dir/imgui/imgui_tables.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/imgui/imgui_widgets.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_widgets.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui/imgui_widgets.cpp",
+  "output": "CMakeFiles/charlie2D.dir/imgui/imgui_widgets.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/Animation.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Animation.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Animation.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/Animation.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/Camera.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Camera.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Camera.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/Camera.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/Collider.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Collider.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/Collider.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/EntityBox.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/EntityBox.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/EntityBox.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/GameManager.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/GameManager.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/GameManager.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/GameManager.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/InputManager.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputManager.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/InputManager.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/InputManager.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/LDTKEntity.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/LDTKEntity.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/LDTKEntity.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/LDTKEntity.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/Math.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Math.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Math.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/Math.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ResourceManager.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/ResourceManager.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/ResourceManager.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/Sprite.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Sprite.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Sprite.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/Sprite.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/Templates.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Templates.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Templates.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/Templates.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/Tile.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/Tile.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/Tile.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/Tile.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/imguiUtils.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/imguiUtils.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/imguiUtils.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/imguiUtils.cpp.o"
+},
+{
+  "directory": "/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Release",
+  "command": "/usr/bin/c++  -I/usr/include/SDL2 -I/usr/include/nlohmann -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/core -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/components -I/home/ethanscharlie/Projects/Code/Github/charlie2d/include/imgui -I/home/ethanscharlie/Projects/Code/Github/charlie2d/source -I/home/ethanscharlie/Projects/Code/Github/charlie2d/imgui -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/charlie2D.dir/source/ldtk.cpp.o -c /home/ethanscharlie/Projects/Code/Github/charlie2d/source/ldtk.cpp",
+  "file": "/home/ethanscharlie/Projects/Code/Github/charlie2d/source/ldtk.cpp",
+  "output": "CMakeFiles/charlie2D.dir/source/ldtk.cpp.o"
+}
+]

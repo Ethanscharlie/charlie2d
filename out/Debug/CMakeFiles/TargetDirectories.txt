@@ -1,0 +1,7 @@
+/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Debug/CMakeFiles/charlie2D.dir
+/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Debug/CMakeFiles/edit_cache.dir
+/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Debug/CMakeFiles/rebuild_cache.dir
+/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Debug/CMakeFiles/list_install_components.dir
+/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Debug/CMakeFiles/install.dir
+/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Debug/CMakeFiles/install/local.dir
+/home/ethanscharlie/Projects/Code/Github/charlie2d/out/Debug/CMakeFiles/install/strip.dir
