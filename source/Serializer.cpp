@@ -173,14 +173,14 @@ Entity *deserialize(json jsonData, bool start) {
 json serializeList(std::vector<Entity *> entities) {
   json entitiesListJson;
   for (Entity *entity : entities) {
-    entitiesListJson["Scene"][entity->tag].push_back(serialize(entity));
+    entitiesListJson[entity->tag].push_back(serialize(entity));
   }
   return entitiesListJson;
 }
 
 std::vector<Entity *> deserializeList(json jsonData, bool active) {
   std::vector<Entity *> entities;
-  for (json entityGroup : jsonData["Scene"]) {
+  for (json entityGroup : jsonData) {
     for (json entityJson : entityGroup) {
       Entity *dentity = deserialize(entityJson, active);
 
