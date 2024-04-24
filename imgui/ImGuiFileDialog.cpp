@@ -77,7 +77,7 @@ SOFTWARE.
 #ifdef USE_STD_FILESYSTEM
 #include <windows.h>
 #else
-#include "dirent/dirent.h"  // directly open the dirent file attached to this lib
+#include "dirent.h"  // directly open the dirent file attached to this lib
 #endif                      // USE_STD_FILESYSTEM
 #define PATH_SEP '\\'
 #ifndef PATH_MAX
@@ -404,7 +404,7 @@ private:
 
 public:
     IGFDException() : std::exception() {}
-    explicit IGFDException(char const* const vMsg) : 
+    explicit IGFDException(char const* const vMsg) :
         std::exception(), // std::exception(msg) is not availaiable on linux it seems... but on windos yes
           m_msg(vMsg) {
     }
@@ -3115,7 +3115,7 @@ bool IGFD::PlacesFeature::m_DrawPlacesPane(FileDialogInternal& vFileDialogIntern
                                 if (ImGui::IsItemHovered()) {
                                     ImGui::SetTooltip("%s", place.path.c_str());
                                 }
-                            }                            
+                            }
                         }
                     }
                     group_ptr->clipper.End();
@@ -4109,7 +4109,7 @@ void IGFD::FileDialog::m_DrawFileListView(ImVec2 vSize) {
 #endif  // USE_CUSTOM_SORTING_ICON
         ;
     auto listViewID = ImGui::GetID("##FileDialog_fileTable");
-    if (ImGui::BeginTableEx("##FileDialog_fileTable", listViewID, 4, flags, vSize, 0.0f)) { 
+    if (ImGui::BeginTableEx("##FileDialog_fileTable", listViewID, 4, flags, vSize, 0.0f)) {
         ImGui::TableSetupScrollFreeze(0, 1);  // Make header always visible
         ImGui::TableSetupColumn(fdi.headerFileName.c_str(), ImGuiTableColumnFlags_WidthStretch | (defaultSortOrderFilename ? ImGuiTableColumnFlags_PreferSortAscending : ImGuiTableColumnFlags_PreferSortDescending), -1, 0);
         ImGui::TableSetupColumn(fdi.headerFileType.c_str(),
@@ -4414,7 +4414,7 @@ void IGFD::FileDialog::m_DrawThumbnailsListView(ImVec2 vSize) {
                         m_SelectableItem(i, infos, selected, _str.c_str());
                         m_DisplayFileInfosTooltip(i, column_id++, infos);
                     }
-                    if (ImGui::TableNextColumn()) 
+                    if (ImGui::TableNextColumn())
                     {  // file type
                         ImGui::Text("%s", infos->fileExtLevels[0].c_str());
                         m_DisplayFileInfosTooltip(i, column_id++, infos);
@@ -4483,8 +4483,8 @@ void IGFD::FileDialog::m_DrawSidePane(float vHeight) {
     ImGui::BeginChild("##FileTypes", ImVec2(0, vHeight));
 
     m_FileDialogInternal.getDialogConfig().sidePane(
-        m_FileDialogInternal.filterManager.GetSelectedFilter().getFirstFilter().c_str(), 
-        m_FileDialogInternal.getDialogConfigRef().userDatas, 
+        m_FileDialogInternal.filterManager.GetSelectedFilter().getFirstFilter().c_str(),
+        m_FileDialogInternal.getDialogConfigRef().userDatas,
         &m_FileDialogInternal.canWeContinue);
     ImGui::EndChild();
 }
@@ -4669,7 +4669,7 @@ IGFD_C_API IGFD_FileDialog_Config IGFD_FileDialog_Config_Get() {
     res.countSelectionMax      = 1;
     res.userDatas              = nullptr;
     res.sidePane               = nullptr;
-    res.sidePaneWidth = 250.0f;     
+    res.sidePaneWidth = 250.0f;
     res.flags         = ImGuiFileDialogFlags_Default;
     return res;
 }
@@ -5051,7 +5051,7 @@ IGFD_C_API bool IGFD_RemovePlace(ImGuiFileDialog* vContextPtr, const char* vGrou
         }
     }
     return false;
-}     
+}
 
 #endif
 

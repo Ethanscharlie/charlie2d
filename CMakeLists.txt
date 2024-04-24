@@ -27,6 +27,12 @@ target_include_directories(charlie2D PUBLIC
   ${PROJECT_SOURCE_DIR}/imgui
   )      
 
+if (WIN32) 
+  target_include_directories(charlie2D PUBLIC 
+    ${PROJECT_SOURCE_DIR}/include/dirent
+    )      
+endif()
+
 target_link_libraries(charlie2D
   SDL2
   SDL2_ttf
