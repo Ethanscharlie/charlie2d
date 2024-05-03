@@ -98,6 +98,75 @@ Vector2f getImGuiPosition(Vector2f pos) {
   return out;
 }
 
+#include "Entity.h"
+slideOut Box::slide(const Vector2f &move, const std::vector<Entity *> &solids,
+                    bool pushOut, bool useMoveBox) {
+  slideOut out;
+
+  // Start
+  Vector2f movement = move;
+
+  // This system checks collisions for horizontal and vericle movment
+  // seperatly If there is a collsion the entityBox can be moved in the
+  // opposite direction outside the collided box
+  // Collsions are restarted if there is any colllsion at all to prevent
+  // clipping
+
+  // Create Horizonal check box
+  // The check box is sized to the move to prevent clipping
+  // at high speeds and low framerates
+  position += {movement.x, 0};
+
+  // Horizontal check and move
+HORREDO:
+  for (Entity *col : solids) {
+    if (!checkCollision(col->box))
+      continue;
+
+    out.hitList.push_back(col);
+    if (!pushOut)
+      continue;
+
+    Entity *other = col;
+    if (movement.x > 0) {
+      position.x = (other->box.getLeft() - size.x);
+      out.horizontalHit = true;
+    } else if (movement.x < 0) {
+      position.x = (other->box.getRight());
+      out.horizontalHit = true;
+    }
+
+    goto HORREDO;
+  }
+
+  // Create verticle check box
+  position += {0, movement.y};
+
+  // Verticle collision check and move
+VERREDO:
+  for (Entity *col : solids) {
+    if (!checkCollision(col->box))
+      continue;
+
+    out.hitList.push_back(col);
+    if (!pushOut)
+      continue;
+
+    Entity *other = col;
+    if (movement.y > 0) {
+      position.y = (other->box.getTop() - size.y);
+      out.verticleHit = true;
+    } else if (movement.y < 0) {
+      position.y = other->box.getBottom();
+      out.verticleHit = true;
+    }
+
+    goto VERREDO;
+  }
+
+  return out;
+}
+
 SDL_Rect getLogicalRect() {
   int logical_w = 1, logical_h = 1;
   int output_w = GameManager::currentWindowSize.x;

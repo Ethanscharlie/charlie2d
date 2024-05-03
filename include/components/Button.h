@@ -33,10 +33,10 @@ public:
       mousePos = InputManager::getMouseUIPosition();
     }
 
-    touching = entity->require<entityBox>()->getBox().getLeft() < mousePos.x &&
-               entity->require<entityBox>()->getBox().getRight() > mousePos.x &&
-               entity->require<entityBox>()->getBox().getTop() < mousePos.y &&
-               entity->require<entityBox>()->getBox().getBottom() > mousePos.y;
+    touching = entity->box.getLeft() < mousePos.x &&
+               entity->box.getRight() > mousePos.x &&
+               entity->box.getTop() < mousePos.y &&
+               entity->box.getBottom() > mousePos.y;
 
     if (touching) {
       onHover();

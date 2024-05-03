@@ -45,9 +45,9 @@ public:
     }
 
     touchingGround = false;
-    groundCheckBox = entity->require<entityBox>()->getBox();
-    groundCheckBox = entity->require<entityBox>()->getBox();
-    groundCheckBox.position.y += entity->require<entityBox>()->getSize().y;
+    groundCheckBox = entity->box;
+    groundCheckBox = entity->box;
+    groundCheckBox.position.y += entity->box.size.y;
     for (Collider *col : GameManager::getComponents<Collider>()) {
       if (col->solid) {
         if (col->checkBoxCollision(groundCheckBox)) {
@@ -63,8 +63,8 @@ public:
 
       bool checkground = false;
       if (needGround) {
-        groundCheckBox = entity->require<entityBox>()->getBox();
-        groundCheckBox.position.y += entity->require<entityBox>()->getSize().y;
+        groundCheckBox = entity->box;
+        groundCheckBox.position.y += entity->box.size.y;
         for (Collider *col : GameManager::getComponents<Collider>()) {
           if (col->solid) {
             if (col->checkBoxCollision(groundCheckBox)) {

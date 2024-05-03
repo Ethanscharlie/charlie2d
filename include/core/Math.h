@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Component.h"
 #include "SDL_rect.h"
 #include "SDL_render.h"
 #include "Vector2f.h"
@@ -82,13 +83,18 @@ public:
   float radians = 0;
 };
 
+class Entity;
+struct slideOut {
+  std::vector<Entity *> hitList;
+  bool horizontalHit = false;
+  bool verticleHit = false;
+};
+
 /**
  * \brief Two Vector2f s put together
  *
  * Boxes are simple datatypes composed of two vectors, a position (top left
  * corner) and size
- *
- * Don't mix these up with entityBox (used for parent based positioning)
  */
 struct Box {
   Box() {}
@@ -168,6 +174,9 @@ struct Box {
     std::cout << position.x << ", " << position.y << ", " << size.x << ", "
               << size.y << std::endl;
   }
+
+  slideOut slide(const Vector2f &move, const std::vector<Entity *> &solids,
+                 bool pushOut = true, bool useMoveBox = true);
 
   operator SDL_Rect() const {
     return SDL_Rect(position.x, position.y, size.x, size.y);

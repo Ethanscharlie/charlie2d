@@ -59,19 +59,19 @@ public:
 
     if (!renderInWorld) {
       // float scaler = GameManager::screen_change_scale * Camera::getScale();
-      Vector2f renderPos = entity->require<entityBox>()->getPosition() +
-                           GameManager::gameWindowSize / 2;
+      Vector2f renderPos =
+          entity->box.position + GameManager::gameWindowSize / 2;
       spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
       spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
     } else {
-      Vector2f renderPos = entity->require<entityBox>()->getPosition() +
-                           GameManager::gameWindowSize / 2;
+      Vector2f renderPos =
+          entity->box.position + GameManager::gameWindowSize / 2;
       spriteRect.x = renderPos.x;
       spriteRect.y = renderPos.y;
     }
 
-    spriteRect.w = entity->require<entityBox>()->getSize().x;
-    spriteRect.h = entity->require<entityBox>()->getSize().y;
+    spriteRect.w = entity->box.size.x;
+    spriteRect.h = entity->box.size.y;
 
     renderTextInRect(GameManager::renderer, text, spriteRect);
   }

@@ -58,14 +58,10 @@ std::string LDTK::findTraveledLevel(Entity *player) {
     Box levelBox = {level["worldX"], level["worldY"], level["pxWid"],
                     level["pxHei"]};
 
-    if (player->require<entityBox>()->getBox().getLeft() <
-            levelBox.getRight() &&
-        player->require<entityBox>()->getBox().getRight() >
-            levelBox.getLeft() &&
-        player->require<entityBox>()->getBox().getTop() <
-            levelBox.getBottom() &&
-        player->require<entityBox>()->getBox().getBottom() >
-            levelBox.getTop()) {
+    if (player->box.getLeft() < levelBox.getRight() &&
+        player->box.getRight() > levelBox.getLeft() &&
+        player->box.getTop() < levelBox.getBottom() &&
+        player->box.getBottom() > levelBox.getTop()) {
       return iid;
     }
   }
@@ -74,14 +70,10 @@ std::string LDTK::findTraveledLevel(Entity *player) {
 }
 
 bool LDTK::checkOutsideBounds(Entity *player) {
-  if (player->require<entityBox>()->getBox().getCenter().x <
-          worldBox.getRight() &&
-      player->require<entityBox>()->getBox().getCenter().x >
-          worldBox.getLeft() &&
-      player->require<entityBox>()->getBox().getCenter().y <
-          worldBox.getBottom() &&
-      player->require<entityBox>()->getBox().getCenter().y >
-          worldBox.getTop()) {
+  if (player->box.getCenter().x < worldBox.getRight() &&
+      player->box.getCenter().x > worldBox.getLeft() &&
+      player->box.getCenter().y < worldBox.getBottom() &&
+      player->box.getCenter().y > worldBox.getTop()) {
     return false;
   }
 
@@ -176,9 +168,9 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
     for (TileGroup &groupedTile : tileLayer.tiles) {
       Entity *tile = GameManager::createEntity(layerName);
 
-      tile->box->setPosition(groupedTile.box.position);
-      tile->box->setSize(groupedTile.box.size);
-      tile->box->changePosition(worldBox.position);
+      tile->box.position = (groupedTile.box.position);
+      tile->box.size = (groupedTile.box.size);
+      tile->box.position += (worldBox.position);
 
       tile->add<Sprite>()->image.texture = groupedTile.getPreviousRender();
 
@@ -201,12 +193,10 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
 
         object->get<LDTKEntity>()->entityJson = entity;
 
-        object->require<entityBox>()->setPosition(
-            {entity["px"][0], entity["px"][1]});
-        object->require<entityBox>()->changePosition(worldBox.position);
+        object->box.position = {entity["px"][0], entity["px"][1]};
+        object->box.position += (worldBox.position);
 
-        object->require<entityBox>()->setSize(
-            {entity["width"], entity["height"]});
+        object->box.size = {entity["width"], entity["height"]};
 
         entities.push_back(object);
       }

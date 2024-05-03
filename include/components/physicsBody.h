@@ -3,8 +3,8 @@
 #include "Collider.h"
 #include "Component.h"
 #include "Entity.h"
-#include "Serializer.h"
 #include "Math.h"
+#include "Serializer.h"
 
 /**
  * \brief A simple movement physics class
@@ -47,15 +47,14 @@ public:
     }
 
     if (pushOut) {
-      slideOut out =
-          entity->require<entityBox>()->slide(velocity * deltaTime, solids);
+      slideOut out = entity->box.slide(velocity * deltaTime, solids);
 
       if (out.horizontalHit)
         velocity.x = 0;
       if (out.verticleHit)
         velocity.y = 0;
     } else {
-      entity->require<entityBox>()->changePosition(velocity * deltaTime);
+      entity->box.position += (velocity * deltaTime);
     }
   }
 

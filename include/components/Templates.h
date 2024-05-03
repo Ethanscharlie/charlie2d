@@ -28,6 +28,4 @@
 
 namespace Templates {
 
-Entity *createUIPanel(Entity *canvas, Box setBox, std::string text,
-                      std::string tag = "UIPanel");
 } // namespace Templates

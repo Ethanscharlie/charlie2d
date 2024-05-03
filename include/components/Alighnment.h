@@ -26,10 +26,10 @@ public:
 
   void start() override {}
 
-  void update(float deltaTime) {
+  void update(float deltaTime) override {
     if (parent == nullptr)
       return;
-    entity->box->setWithCenter(parent->box->getBox().getCenter() + offset);
+    entity->box.setWithCenter(parent->box.getCenter() + offset);
   }
 
   AlignmentAnchor anchor;

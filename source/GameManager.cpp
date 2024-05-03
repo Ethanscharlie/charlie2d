@@ -357,7 +357,6 @@ Entity *GameManager::createEntity(std::string tag) {
   entity->iid = dist(rng);
 
   entities[tag].push_back(entity);
-  entity->box = entity->add<entityBox>();
   return entity;
 }
 
@@ -373,12 +372,6 @@ void GameManager::destroyEntity(Entity *entity) {
   if (std::find(getAllObjects().begin(), getAllObjects().end(), entity) ==
       getAllObjects().end())
     return;
-  for (Entity *child : entity->getChildren()) {
-    if (child == nullptr)
-      continue;
-    child->toDestroy = true;
-    child->parent = nullptr;
-  }
 
   // components
   for (auto [ctype, component] : entity->components) {
@@ -389,13 +382,6 @@ void GameManager::destroyEntity(Entity *entity) {
   entities[entity->tag].erase(std::remove(entities[entity->tag].begin(),
                                           entities[entity->tag].end(), entity),
                               entities[entity->tag].end());
-
-  if (entity->getParent() != nullptr) {
-    entity->getParent()->children.erase(
-        std::remove(entity->getParent()->children.begin(),
-                    entity->getParent()->children.end(), entity),
-        entity->getParent()->children.end());
-  }
 
   delete entity;
 }

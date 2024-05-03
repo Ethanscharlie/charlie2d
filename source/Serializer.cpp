@@ -7,10 +7,10 @@ std::map<int, Entity *> entityIidMap;
 json serialize(Entity *entity) {
   json jsonData;
   jsonData["tag"] = entity->tag;
-  jsonData["x"] = entity->box->getPosition().x;
-  jsonData["y"] = entity->box->getPosition().y;
-  jsonData["w"] = entity->box->getSize().x;
-  jsonData["h"] = entity->box->getSize().y;
+  jsonData["x"] = entity->box.position.x;
+  jsonData["y"] = entity->box.position.y;
+  jsonData["w"] = entity->box.size.x;
+  jsonData["h"] = entity->box.size.y;
   jsonData["iid"] = entity->iid;
   jsonData["name"] = entity->name;
   jsonData["group"] = entity->group;
@@ -90,8 +90,8 @@ Entity *deserialize(json jsonData, bool start) {
   float w = jsonData["w"];
   float h = jsonData["h"];
 
-  entity->box->setPosition(Vector2f(x, y));
-  entity->box->setSize(Vector2f(w, h));
+  entity->box.position = (Vector2f(x, y));
+  entity->box.size = (Vector2f(w, h));
 
   entity->iid = jsonData["iid"];
   entity->name = jsonData["name"];

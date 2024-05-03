@@ -7,28 +7,21 @@
 void Sprite::update(float deltaTime) {
   SDL_Rect renderRect;
 
-  Vector2f renderPos =
-      entity->require<entityBox>()->getPosition() - Camera::getPosition();
+  Vector2f renderPos = entity->box.position - Camera::getPosition();
   renderPos = renderPos * Camera::getScale();
   renderPos += GameManager::gameWindowSize / 2;
   renderRect.x = renderPos.x;
   renderRect.y = renderPos.y;
 
-  renderRect.w =
-      entity->require<entityBox>()->getSize().x * Camera::getScale() +
-      preventWeirdBorder;
-  renderRect.h =
-      entity->require<entityBox>()->getSize().y * Camera::getScale() +
-      preventWeirdBorder;
+  renderRect.w = entity->box.size.x * Camera::getScale() + preventWeirdBorder;
+  renderRect.h = entity->box.size.y * Camera::getScale() + preventWeirdBorder;
 
   if (renderAsUI) {
-    renderRect.x = entity->require<entityBox>()->getPosition().x +
-                   GameManager::gameWindowSize.x / 2;
-    renderRect.y = entity->require<entityBox>()->getPosition().y +
-                   GameManager::gameWindowSize.y / 2;
+    renderRect.x = entity->box.position.x + GameManager::gameWindowSize.x / 2;
+    renderRect.y = entity->box.position.y + GameManager::gameWindowSize.y / 2;
 
-    renderRect.w = entity->require<entityBox>()->getSize().x;
-    renderRect.h = entity->require<entityBox>()->getSize().y;
+    renderRect.w = entity->box.size.x;
+    renderRect.h = entity->box.size.y;
   }
 
   SDL_Rect *srcrect;
@@ -50,8 +43,8 @@ void Sprite::update(float deltaTime) {
           GameManager::gameWindowSize.y + (float)renderRect.h / 1 * 5) {
 
     onScreen = true;
-    SDL_RenderCopyEx(GameManager::renderer, this->image.texture, srcrect, &renderRect,
-                     (180 / M_PI) * angle.radians, nullptr, flip);
+    SDL_RenderCopyEx(GameManager::renderer, this->image.texture, srcrect,
+                     &renderRect, (180 / M_PI) * angle.radians, nullptr, flip);
 
     SDL_SetTextureAlphaMod(this->image.texture, 255);
   } else {
@@ -80,11 +73,11 @@ void Sprite::loadTexture(const std::string &image, bool setSize,
 
   if (setSize) {
     if (keepCentered) {
-      entity->require<entityBox>()->setScale(
+      entity->box.setScale(
           {static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
     } else {
-      entity->require<entityBox>()->setSize(
-          {static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
+      entity->box.size = {static_cast<float>(spriteRect.w),
+                          static_cast<float>(spriteRect.h)};
     }
   }
 }

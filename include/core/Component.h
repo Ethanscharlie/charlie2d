@@ -7,7 +7,6 @@
 #include <utility>
 #include <vector>
 
-struct entityBox;
 class Entity;
 
 struct PropertyData {

@@ -11,7 +11,6 @@
 
 class Animation;
 class Component;
-class entityBox;
 //
 
 class Entity;
@@ -130,28 +129,6 @@ public:
   std::map<std::type_index, Component *> gets() { return components; };
 
   /**
-   * \brief Adds a child to the entity
-   */
-  void addChild(Entity *entity) { children.push_back(entity); }
-
-  /**
-   * \brief Sets the parent of the entity
-   */
-  void setParent(Entity *entity) {
-    if (parent == entity)
-      return;
-    parent = entity;
-    entity->addChild(this);
-  }
-
-  /**
-   * \brief Gets the parent of the entity
-   */
-  Entity *getParent() { return parent; }
-  std::vector<Entity *> getChildren() { return children; }
-  void removeParent(){};
-
-  /**
    * \brief If marked true the entity and all its components will be removed and
    * deleted from memory
    */
@@ -192,13 +169,9 @@ public:
   /**
    *\brief A pointer to the entitys entityBox
    */
-  entityBox *box = nullptr;
+  Box box;
 
   std::map<std::type_index, Component *> components;
-
-  std::vector<Entity *> children;
-
-  Entity *parent = nullptr;
 
 private:
 };

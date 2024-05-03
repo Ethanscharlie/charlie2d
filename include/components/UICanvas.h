@@ -20,8 +20,8 @@ public:
 
   void start() override {
 
-    entity->require<entityBox>()->setSize(GameManager::gameWindowSize);
-    entity->require<entityBox>()->setWithCenter({0, 0});
+    entity->box.size = (GameManager::gameWindowSize);
+    entity->box.setWithCenter({0, 0});
   }
 
   void update(float deltaTime) override {

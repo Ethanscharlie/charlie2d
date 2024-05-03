@@ -4,15 +4,15 @@
 #include "Entity.h"
 
 void Collider::start() {
-    colliderBox = entity->require<entityBox>()->getBox();
+    colliderBox = entity->box;
 }
 
 void Collider::update(float deltaTime) {
-    colliderBox = entity->require<entityBox>()->getBox();
+    colliderBox = entity->box;
 }
 
 std::vector<Collider*> Collider::getCollisions(std::string tag) {
-    colliderBox = entity->require<entityBox>()->getBox();
+    colliderBox = entity->box;
     std::vector<Collider*> hits; 
 
     for (auto* col : GameManager::getComponents<Collider>(tag)) {

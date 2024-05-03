@@ -53,13 +53,13 @@ void SimpleImGuiPanel::update(float deltaTime) {
 
   ImGui::NewFrame();
   Vector2f framePosition =
-      getWindowPosition(entity->get<entityBox>()->getPosition() +
+      getWindowPosition(entity->box.position +
                         GameManager::gameWindowSize / 2);
 
   ImGui::SetNextWindowPos(ImVec2(framePosition.x, framePosition.y),
                           ImGuiCond_None);
-  ImGui::SetNextWindowSize({entity->get<entityBox>()->getSize().x * 1,
-                            entity->get<entityBox>()->getSize().y * 1},
+  ImGui::SetNextWindowSize({entity->box.size.x * 1,
+                            entity->box.size.y * 1},
                            ImGuiCond_Always);
 
   ImGui::PushStyleColor(ImGuiCol_WindowBg,
