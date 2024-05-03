@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SDL_rect.h"
 #include "SDL_render.h"
 #include "Vector2f.h"
 #include <SDL.h>
@@ -166,6 +167,10 @@ struct Box {
   void print() {
     std::cout << position.x << ", " << position.y << ", " << size.x << ", "
               << size.y << std::endl;
+  }
+
+  operator SDL_Rect() const {
+    return SDL_Rect(position.x, position.y, size.x, size.y);
   }
 
   Vector2f position;
