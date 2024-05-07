@@ -13,7 +13,7 @@ class Animation;
 class Component;
 //
 
-class Entity;
+enum class EntityRenderPositionType { World, Screen };
 
 /**
  * \brief Entitys are containers for an EnityBox and components
@@ -143,7 +143,9 @@ public:
   std::string group = "";
 
   bool debug = false;
-  
+
+  EntityRenderPositionType renderPositionType = EntityRenderPositionType::World;
+
   /**
    * \brief Unique int id
    */

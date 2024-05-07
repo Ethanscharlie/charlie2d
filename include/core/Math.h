@@ -90,6 +90,8 @@ struct slideOut {
   bool verticleHit = false;
 };
 
+enum class BoxCollisionCheck { All, VerticaleOnly, HorizontalOnly };
+
 /**
  * \brief Two Vector2f s put together
  *
@@ -162,7 +164,21 @@ struct Box {
   /**
    * \brief AABB Collision detection with another box
    */
-  bool checkCollision(Box other) {
+  bool
+  checkCollision(Box other,
+                 BoxCollisionCheck boxCollisionCheck = BoxCollisionCheck::All) {
+
+    switch (boxCollisionCheck) {
+    case BoxCollisionCheck::All:
+      break;
+
+    case BoxCollisionCheck::HorizontalOnly:
+      return getLeft() < other.getRight() && getRight() > other.getLeft();
+
+    case BoxCollisionCheck::VerticaleOnly:
+      return getTop() < other.getBottom() && getBottom() > other.getTop();
+    }
+
     return getLeft() < other.getRight() && getRight() > other.getLeft() &&
            getTop() < other.getBottom() && getBottom() > other.getTop();
   }
@@ -257,3 +273,5 @@ Vector2f getWindowPosition(Vector2f gamePosition);
 Vector2f getFullLogicalToWindowPosition(Vector2f fullLogicalPosition);
 
 std::string getTypeNameWithoutNumbers(std::type_index typeIndex);
+
+Box getRenderBox(Entity *entity);

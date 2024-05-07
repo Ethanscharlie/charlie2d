@@ -1,4 +1,5 @@
 #include "Math.h"
+#include "Camera.h"
 #include "Vector2f.h"
 #include <cmath>
 
@@ -129,7 +130,7 @@ HORREDO:
 
     Entity *other = col;
     if (movement.x > 0) {
-      position.x = (other->box.getLeft() - size.x);
+      position.x = (other->box.getLeft() - size.x - 0.0001);
       out.horizontalHit = true;
     } else if (movement.x < 0) {
       position.x = (other->box.getRight());
@@ -154,7 +155,7 @@ VERREDO:
 
     Entity *other = col;
     if (movement.y > 0) {
-      position.y = (other->box.getTop() - size.y);
+      position.y = (other->box.getTop() - size.y - 0.0001);
       out.verticleHit = true;
     } else if (movement.y < 0) {
       position.y = other->box.getBottom();
@@ -234,4 +235,26 @@ std::string getTypeNameWithoutNumbers(std::type_index typeIndex) {
 
   name = name.substr(pos);
   return name;
+}
+
+Box getRenderBox(Entity *entity) {
+  Box box = entity->box;
+  Box renderBox;
+
+  switch (entity->renderPositionType) {
+  case EntityRenderPositionType::World:
+    renderBox.position =
+        (box.position - Camera::getPosition()) * Camera::getScale() +
+        GameManager::gameWindowSize / 2;
+    renderBox.size = box.size * Camera::getScale();
+    break;
+
+  case EntityRenderPositionType::Screen:
+    renderBox.position = box.position + GameManager::gameWindowSize / 2;
+    renderBox.size = box.size;
+
+    break;
+  }
+
+  return renderBox;
 }

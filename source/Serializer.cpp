@@ -1,4 +1,5 @@
 #include "Serializer.h"
+#include "Entity.h"
 #include "Text.h"
 #include <string>
 
@@ -15,6 +16,7 @@ json serialize(Entity *entity) {
   jsonData["name"] = entity->name;
   jsonData["group"] = entity->group;
   jsonData["layer"] = entity->layer;
+  jsonData["renderType"] = static_cast<int>(entity->renderPositionType);
 
   for (auto [type, component] : entity->components) {
     for (PropertyData data : component->propertyRegister) {
@@ -97,6 +99,9 @@ Entity *deserialize(json jsonData, bool start) {
   entity->name = jsonData["name"];
   entity->group = jsonData["group"];
   entity->layer = jsonData["layer"];
+
+  entity->renderPositionType =
+      static_cast<EntityRenderPositionType>(jsonData["renderType"]);
 
   entityIidMap[entity->iid] = entity;
 

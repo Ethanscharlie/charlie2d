@@ -1,28 +1,12 @@
 #include "Sprite.h"
 #include "Camera.h"
 #include "Entity.h"
+#include "Math.h"
 #include "SDL_render.h"
 #include <string>
 
 void Sprite::update(float deltaTime) {
-  SDL_Rect renderRect;
-
-  Vector2f renderPos = entity->box.position - Camera::getPosition();
-  renderPos = renderPos * Camera::getScale();
-  renderPos += GameManager::gameWindowSize / 2;
-  renderRect.x = renderPos.x;
-  renderRect.y = renderPos.y;
-
-  renderRect.w = entity->box.size.x * Camera::getScale() + preventWeirdBorder;
-  renderRect.h = entity->box.size.y * Camera::getScale() + preventWeirdBorder;
-
-  if (renderAsUI) {
-    renderRect.x = entity->box.position.x + GameManager::gameWindowSize.x / 2;
-    renderRect.y = entity->box.position.y + GameManager::gameWindowSize.y / 2;
-
-    renderRect.w = entity->box.size.x;
-    renderRect.h = entity->box.size.y;
-  }
+  SDL_Rect renderRect = getRenderBox(entity);
 
   SDL_Rect *srcrect;
   if (sourceRect.w == 0 && sourceRect.h == 0) {
