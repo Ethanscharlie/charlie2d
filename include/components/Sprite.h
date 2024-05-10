@@ -4,6 +4,7 @@
 #include "Collider.h"
 #include "GameManager.h"
 #include "Math.h"
+#include "SDL_blendmode.h"
 #include "Serializer.h"
 #include <SDL.h>
 
@@ -86,6 +87,8 @@ public:
    * \brief SDL Flips
    */
   SDL_RendererFlip flip = SDL_FLIP_NONE;
+
+  SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND;
 
   Uint8 alpha = 255;
 

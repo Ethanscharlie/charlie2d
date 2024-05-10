@@ -15,7 +15,7 @@ void Sprite::update(float deltaTime) {
     srcrect = &sourceRect;
   }
 
-  SDL_SetTextureBlendMode(this->image.texture, SDL_BLENDMODE_BLEND);
+  SDL_SetTextureBlendMode(this->image.texture, blendMode);
   SDL_SetTextureAlphaMod(this->image.texture, alpha);
 
   if (this->image.texture != nullptr &&
