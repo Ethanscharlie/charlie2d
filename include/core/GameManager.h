@@ -9,6 +9,7 @@
 #include <SDL_image.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
+#include <array>
 #include <functional>
 #include <iostream>
 #include <string>
@@ -30,6 +31,7 @@
 
 template <typename T> class ComponentData;
 class Entity;
+class ShadowFilter;
 
 /**
  * \brief A static class for charlie2d
@@ -169,6 +171,8 @@ iteration, like player movement static float deltaTime;
       componentRegistry;
 
   static std::map<std::string, std::vector<Entity *>> entities;
+
+  static ShadowFilter *shadowFilter;
 
 private:
   /**

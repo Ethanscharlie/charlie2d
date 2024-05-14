@@ -6,9 +6,11 @@
 #include "SDL_events.h"
 #include "SDL_mouse.h"
 #include "SDL_render.h"
+#include "ShadowFilter.h"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
+#include <algorithm>
 #include <random>
 
 bool GameManager::running = true;
@@ -28,6 +30,8 @@ SDL_Renderer *GameManager::renderer = nullptr;
 bool GameManager::updateEntities = true;
 float GameManager::deltaTime = 0;
 Uint64 GameManager::lastTime;
+
+ShadowFilter *GameManager::shadowFilter;
 
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
@@ -105,6 +109,10 @@ void GameManager::init(Vector2f windowSize) {
   io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
   // -------------------------------------------------------------
+
+  shadowFilter = createEntity("ShadowFilter")->add<ShadowFilter>();
+  shadowFilter->entity->useLayer = true;
+  shadowFilter->entity->layer = 99;
 
 #ifdef __EMSCRIPTEN__
   resize_callback();
@@ -212,6 +220,8 @@ void GameManager::Update() {
   SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
   SDL_RenderClear(GameManager::renderer);
 
+  shadowFilter->resetShadowFilter();
+
   std::vector<Entity *> layeredEntities;
   std::vector<Entity *> entitesToRemove;
   for (Entity *entity : getAllObjects()) {
@@ -246,6 +256,7 @@ void GameManager::Update() {
   for (Entity *entity : layeredEntities) {
     entity->update();
   }
+
   // Destroyer
   for (Entity *entity : entitesToRemove) {
     destroyEntity(entity);
