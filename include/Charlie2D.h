@@ -8,8 +8,7 @@
 #include "ResourceManager.h"
 
 // Components
-#include "CircleCollider.h"
-#include "Collider.h"
+#include "SolidBody.h"
 #include "EntityBox.h"
 #include "JumpMan.h"
 #include "Scheduler.h"

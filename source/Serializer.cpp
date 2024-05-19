@@ -1,11 +1,18 @@
 #include "Serializer.h"
 #include "Entity.h"
+#include "ShadowFilter.h"
 #include "Text.h"
 #include <string>
 
 std::map<int, Entity *> entityIidMap;
 
 json serialize(Entity *entity) {
+  if (entity->checkComponent<ShadowFilter>()) {
+    if (entity->get<ShadowFilter>() == GameManager::shadowFilter) {
+      return {};
+    }
+  }
+
   json jsonData;
   jsonData["tag"] = entity->tag;
   jsonData["x"] = entity->box.position.x;
@@ -19,6 +26,7 @@ json serialize(Entity *entity) {
   jsonData["renderType"] = static_cast<int>(entity->renderPositionType);
 
   for (auto [type, component] : entity->components) {
+    jsonData["Components"][getTypeNameWithoutNumbers(type)];
     for (PropertyData data : component->propertyRegister) {
       json &prop =
           jsonData["Components"][getTypeNameWithoutNumbers(type)][data.name];
@@ -84,6 +92,9 @@ json serialize(Entity *entity) {
 }
 
 Entity *deserialize(json jsonData, bool start) {
+  if (jsonData.is_null())
+    return nullptr;
+
   std::string tag = jsonData["tag"];
   Entity *entity = GameManager::createEntity(tag);
 
@@ -188,6 +199,8 @@ std::vector<Entity *> deserializeList(json jsonData, bool active) {
   for (json entityGroup : jsonData) {
     for (json entityJson : entityGroup) {
       Entity *dentity = deserialize(entityJson, active);
+      if (dentity == nullptr)
+        continue;
 
       for (auto &[type, component] : dentity->components) {
         if (!component->typeIsRendering)

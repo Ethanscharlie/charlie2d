@@ -10,8 +10,6 @@
 #include "ResourceManager.h"
 
 // Components
-#include "CircleCollider.h"
-#include "Collider.h"
 #include "EntityBox.h"
 #include "JumpMan.h"
 #include "Sprite.h"

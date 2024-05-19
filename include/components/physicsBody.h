@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Collider.h"
+#include "SolidBody.h"
 #include "Component.h"
 #include "Entity.h"
 #include "Math.h"
@@ -15,7 +15,7 @@ class physicsBody : public Component {
 public:
   physicsBody() : Component("physicsBody"){};
 
-  void start() override { entity->require<Collider>(); }
+  void start() override { entity->require<SolidBody>(); }
 
   void update(float deltaTime) override {
     // Adjusts velocity if greater then max (Ignores if -1)
@@ -40,9 +40,7 @@ public:
       return;
 
     std::vector<Entity *> solids;
-    for (Collider *col : GameManager::getComponents<Collider>()) {
-      if (!col->solid)
-        continue;
+    for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
       solids.push_back(col->entity);
     }
 

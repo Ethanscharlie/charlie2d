@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Animation.h"
-#include "Collider.h"
 #include "GameManager.h"
 #include "Math.h"
 #include "SDL_blendmode.h"
