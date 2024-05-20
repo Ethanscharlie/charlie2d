@@ -341,6 +341,8 @@ void GameManager::quit() {
 
 void GameManager::destroyAll() {
   for (Entity *entity : getAllObjects()) {
+    if (entity == shadowFilter->entity)
+      continue;
     entity->toDestroy = true;
   }
 }

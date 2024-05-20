@@ -1,4 +1,7 @@
+#ifdef __EMSCRIPTEN__
+#else
 /*
+ *
  * Dirent interface for Microsoft Visual Studio
  *
  * Copyright (C) 1998-2019 Toni Ronkko
@@ -1158,4 +1161,4 @@ dirent_set_errno(
 }
 #endif
 #endif /*DIRENT_H*/
-
+#endif
