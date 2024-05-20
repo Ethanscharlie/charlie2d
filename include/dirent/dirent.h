@@ -1,5 +1,3 @@
-#ifdef __EMSCRIPTEN__
-#else
 /*
  *
  * Dirent interface for Microsoft Visual Studio
@@ -1161,4 +1159,4 @@ dirent_set_errno(
 }
 #endif
 #endif /*DIRENT_H*/
-#endif
+
