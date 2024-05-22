@@ -1,10 +1,10 @@
 #pragma once
 
-#include "SolidBody.h"
 #include "Component.h"
 #include "Entity.h"
 #include "Math.h"
 #include "Serializer.h"
+#include "SolidBody.h"
 
 /**
  * \brief A simple movement physics class
@@ -15,7 +15,7 @@ class physicsBody : public Component {
 public:
   physicsBody() : Component("physicsBody"){};
 
-  void start() override { entity->require<SolidBody>(); }
+  void start() override {}
 
   void update(float deltaTime) override {
     // Adjusts velocity if greater then max (Ignores if -1)
@@ -42,6 +42,8 @@ public:
     std::vector<Entity *> solids;
     for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
       solids.push_back(col->entity);
+      std::cout << "wait wtf thins are solid thats crazyb ro   "
+                << col->entity->tag << "\n";
     }
 
     if (pushOut) {
