@@ -1,9 +1,11 @@
 #include "GameManager.h"
 #include "Component.h"
+#include "ControllerManager.h"
 #include "Entity.h"
 #include "EntityBox.h"
 #include "InputManager.h"
 #include "SDL_events.h"
+#include "SDL_gamecontroller.h"
 #include "SDL_mouse.h"
 #include "SDL_render.h"
 #include "ShadowFilter.h"
@@ -76,6 +78,7 @@ void GameManager::init(Vector2f windowSize) {
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Init(SDL_INIT_AUDIO);
   SDL_Init(SDL_INIT_TIMER);
+  SDL_Init(SDL_INIT_GAMECONTROLLER);
   TTF_Init();
   IMG_Init(IMG_INIT_PNG);
 
@@ -124,6 +127,7 @@ void GameManager::init(Vector2f windowSize) {
 
 void GameManager::Update() {
   InputManager::update();
+  ControllerManager::resetTriggerButtons();
   SDL_Event event;
 
   ImGuiIO &io = ImGui::GetIO();
@@ -158,6 +162,22 @@ void GameManager::Update() {
       InputManager::mouseScroll = event.wheel.y;
     }
 
+    // Controller
+    else if (event.type == SDL_CONTROLLERDEVICEADDED) {
+      ControllerManager::onControllerConnect(event.cdevice.which);
+    }
+
+    else if (event.type == SDL_CONTROLLERDEVICEREMOVED) {
+      ControllerManager::onControllerDisconnect(event.cdevice.which);
+    }
+
+    else if (event.type == SDL_CONTROLLERBUTTONDOWN) {
+      std::cout << "SDL controller buttom down\n";
+      ControllerManager::findController(event.cdevice.which)
+          ->triggerButtons[event.cbutton.button] = true;
+    }
+
+    // Window
     else if (event.type == SDL_WINDOWEVENT) {
       switch (event.window.event) {
       case SDL_WINDOWEVENT_RESIZED:
@@ -188,9 +208,7 @@ void GameManager::Update() {
       break;
     } else if (event.type == SDL_KEYDOWN) {
       if (event.key.keysym.sym <= 256) {
-        if (true || InputManager::keysUped[event.key.keysym.sym]) {
-          InputManager::keys[event.key.keysym.sym] = true;
-        }
+        InputManager::keys[event.key.keysym.sym] = true;
       }
 
       switch (event.key.keysym.sym) {

@@ -202,6 +202,8 @@ std::vector<Entity *> deserializeList(json jsonData, bool active) {
       if (dentity == nullptr)
         continue;
 
+      entities.push_back(dentity);
+
       for (auto &[type, component] : dentity->components) {
         if (!component->typeIsRendering)
           component->standardUpdate = active;

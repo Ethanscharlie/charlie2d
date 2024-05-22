@@ -137,7 +137,7 @@ HORREDO:
       out.horizontalHit = true;
     }
 
-    goto HORREDO;
+    // goto HORREDO;
   }
 
   // Create verticle check box
@@ -162,7 +162,7 @@ VERREDO:
       out.verticleHit = true;
     }
 
-    goto VERREDO;
+    // goto VERREDO;
   }
 
   return out;
