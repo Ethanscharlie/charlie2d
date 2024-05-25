@@ -16,6 +16,7 @@
 #include <typeindex>
 #include <unordered_map>
 #include <vector>
+#include "SDL2_framerate.h"
 
 // IMGUI
 #include "SDL_render.h"
@@ -183,6 +184,8 @@ private:
   static std::map<std::type_index, std::vector<Component *>> components;
 
   static Uint64 lastTime;
+
+  static FPSmanager fpsManager;
 };
 
 template <typename C>

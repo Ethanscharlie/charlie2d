@@ -35,6 +35,8 @@ Uint64 GameManager::lastTime;
 
 ShadowFilter *GameManager::shadowFilter;
 
+FPSmanager GameManager::fpsManager;
+
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
   window.addEventListener(
@@ -81,6 +83,9 @@ void GameManager::init(Vector2f windowSize) {
   SDL_Init(SDL_INIT_GAMECONTROLLER);
   TTF_Init();
   IMG_Init(IMG_INIT_PNG);
+
+  SDL_initFramerate(&fpsManager);
+  SDL_setFramerate(&fpsManager, 200);
 
   gameWindowSize = windowSize;
   currentWindowSize = windowSize;
@@ -282,6 +287,7 @@ void GameManager::Update() {
   // END OF OLD SCENE LOOP
 
   SDL_RenderPresent(renderer);
+  SDL_framerateDelay(&fpsManager);
 }
 
 void GameManager::setWindowSize(Vector2f size) {

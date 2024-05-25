@@ -38,6 +38,7 @@ target_link_libraries(charlie2D
   SDL2_ttf
   SDL2_mixer
   SDL2_image
+  SDL2_gfx
   )
 
 set_target_properties(charlie2D PROPERTIES PUBLIC_HEADER "${CHARLIE_HEADERS}")      
