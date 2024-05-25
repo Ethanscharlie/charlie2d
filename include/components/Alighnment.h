@@ -3,7 +3,6 @@
 #include "ExtendedComponent.h"
 #include "Serializer.h"
 #include "Vector2f.h"
-#include <Charlie2D.h>
 
 enum class AlignmentAnchor {
   topLeft,
