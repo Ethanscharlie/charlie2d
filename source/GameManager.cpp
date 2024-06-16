@@ -177,9 +177,12 @@ void GameManager::Update() {
     }
 
     else if (event.type == SDL_CONTROLLERBUTTONDOWN) {
-      std::cout << "SDL controller buttom down\n";
       ControllerManager::findController(event.cdevice.which)
           ->triggerButtons[event.cbutton.button] = true;
+    }
+
+    else if (event.type == SDL_CONTROLLERAXISMOTION) {
+      ControllerManager::onStickEvent(event.cdevice.which, event.caxis.axis, event.caxis.value);
     }
 
     // Window

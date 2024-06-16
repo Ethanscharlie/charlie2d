@@ -42,8 +42,6 @@ public:
     std::vector<Entity *> solids;
     for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
       solids.push_back(col->entity);
-      std::cout << "wait wtf thins are solid thats crazyb ro   "
-                << col->entity->tag << "\n";
     }
 
     if (pushOut) {

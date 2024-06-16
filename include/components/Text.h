@@ -57,23 +57,12 @@ public:
     float height_scale =
         (float)GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
 
-    if (!renderInWorld) {
-      // float scaler = GameManager::screen_change_scale * Camera::getScale();
-      Vector2f renderPos =
-          entity->box.position + GameManager::gameWindowSize / 2;
-      spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
-      spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
-    } else {
-      Vector2f renderPos =
-          entity->box.position + GameManager::gameWindowSize / 2;
-      spriteRect.x = renderPos.x;
-      spriteRect.y = renderPos.y;
-    }
+    SDL_Rect renderRect = getRenderBox(entity);
 
-    spriteRect.w = entity->box.size.x;
-    spriteRect.h = entity->box.size.y;
+    // spriteRect.w = entity->box.size.x;
+    // spriteRect.h = entity->box.size.y;
 
-    renderTextInRect(GameManager::renderer, text, spriteRect);
+    renderTextInRect(GameManager::renderer, text, renderRect);
   }
 
   // void onScreenChange() override { changeFont(mfontFile, fontSize); }
@@ -143,7 +132,7 @@ public:
   // int fontSize;
   // std::string mfontFile = "";
   Font font = {"", 20};
-  SDL_Color textColor;
+  // SDL_Color textColor;
   bool renderInWorld = false;
 };
 REGISTER_COMPONENT_TYPE(Text);

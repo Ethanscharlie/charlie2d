@@ -183,6 +183,13 @@ Entity *deserialize(json jsonData, bool start) {
       component->start();
   }
 
+  if (!start) {
+    for (auto &[type, component] : entity->components) {
+      if (!component->typeIsRendering)
+        component->standardUpdate = false;
+    }
+  }
+
   return entity;
 }
 

@@ -44,8 +44,39 @@ void ControllerManager::resetTriggerButtons() {
   }
 }
 
+void ControllerManager::onStickEvent(int joystickID, Uint8 sdl2Axis,
+                                     Sint16 axisValue) {
+  Controller *controller = findController(joystickID);
+  switch (sdl2Axis) {
+  case SDL_CONTROLLER_AXIS_LEFTX:
+    controller->leftAxis.x = (float)axisValue / BIT16_MAX;
+    break;
+  case SDL_CONTROLLER_AXIS_LEFTY:
+    controller->leftAxis.y = (float)axisValue / BIT16_MAX;
+    break;
+  case SDL_CONTROLLER_AXIS_RIGHTX:
+    controller->rightAxis.x = (float)axisValue / BIT16_MAX;
+    break;
+  case SDL_CONTROLLER_AXIS_RIGHTY:
+    controller->rightAxis.y = (float)axisValue / BIT16_MAX;
+    break;
+  case SDL_CONTROLLER_AXIS_TRIGGERLEFT:
+    controller->leftTrigger = (float)axisValue / BIT16_MAX;
+    break;
+  case SDL_CONTROLLER_AXIS_TRIGGERRIGHT:
+    controller->rightTrigger = (float)axisValue / BIT16_MAX;
+    break;
+  case SDL_CONTROLLER_AXIS_MAX:
+    break;
+  case SDL_CONTROLLER_AXIS_INVALID:
+    break;
+  }
+}
+
 Controller *ControllerManager::findController(int joystickID) {
   for (Controller &controller : controllers) {
+    if (controller.controller == nullptr)
+      continue;
     int controllerJoystickID = SDL_JoystickInstanceID(
         SDL_GameControllerGetJoystick(controller.controller));
     if (controllerJoystickID == joystickID) {
