@@ -39,7 +39,6 @@ public:
   };
 
   void start() override {
-    entity->layer = 70;
     entity->useLayer = true;
   }
 
