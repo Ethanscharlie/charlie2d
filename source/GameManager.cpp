@@ -143,28 +143,16 @@ void GameManager::Update() {
   Vector2f realMouse = (Vector2f(mouseX, mouseY));
   io.MousePos = {realMouse.x, realMouse.y};
 
-  InputManager::mouseScroll = 0;
-
   while (SDL_PollEvent(&event)) {
     if (event.type != SDL_MOUSEMOTION) {
       ImGui_ImplSDL2_ProcessEvent(&event);
     }
 
+    InputManager::onEvent(event);
+
     if (event.type == SDL_QUIT) {
       quit();
       return;
-    } else if (event.type == SDL_MOUSEBUTTONDOWN) {
-      InputManager::mousePressed = true;
-      InputManager::mouseHeld = true;
-      if (event.button.button == SDL_BUTTON_RIGHT) {
-        InputManager::rightClick = true;
-      }
-    } else if (event.type == SDL_MOUSEBUTTONUP) {
-      InputManager::mouseHeld = false;
-    }
-
-    else if (event.type == SDL_MOUSEWHEEL) {
-      InputManager::mouseScroll = event.wheel.y;
     }
 
     // Controller
@@ -182,7 +170,8 @@ void GameManager::Update() {
     }
 
     else if (event.type == SDL_CONTROLLERAXISMOTION) {
-      ControllerManager::onStickEvent(event.cdevice.which, event.caxis.axis, event.caxis.value);
+      ControllerManager::onStickEvent(event.cdevice.which, event.caxis.axis,
+                                      event.caxis.value);
     }
 
     // Window
@@ -214,15 +203,6 @@ void GameManager::Update() {
         break;
       }
       break;
-    } else if (event.type == SDL_KEYDOWN) {
-      if (event.key.keysym.sym <= 256) {
-        InputManager::keys[event.key.keysym.sym] = true;
-      }
-
-      switch (event.key.keysym.sym) {
-      case SDLK_SPACE:
-        InputManager::jumpPressed = true;
-      }
     }
   }
 

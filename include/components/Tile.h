@@ -2,6 +2,7 @@
 #ifndef TILE_H
 #define TILE_H
 
+#include "Camera.h"
 #include "GameManager.h"
 #include "Math.h"
 
@@ -10,6 +11,7 @@
 #include "ResourceManager.h"
 #include "SDL_rect.h"
 #include "SDL_render.h"
+#include "Serializer.h"
 #include "Sprite.h"
 #include <vector>
 
@@ -61,9 +63,7 @@ struct TileGroup {
     return renderTexture;
   }
 
-  SDL_Texture* getPreviousRender() {
-    return renderTexture;
-  }
+  SDL_Texture *getPreviousRender() { return renderTexture; }
 
   Box box;
   std::vector<TileRaw> tiles;
@@ -74,7 +74,8 @@ private:
 
 struct TileLayer {
   TileLayer() : name("") {}
-  TileLayer(std::string _name, int _layer, std::vector<TileGroup> _tiles) : name(_name), layer(_layer) {
+  TileLayer(std::string _name, int _layer, std::vector<TileGroup> _tiles)
+      : name(_name), layer(_layer) {
     tiles = _tiles;
   }
   std::vector<TileGroup> tiles;
@@ -97,5 +98,124 @@ public:
 
   std::vector<Entity *> tiles;
 };
+
+struct GridTile {
+  GridTile(std::string _image, SDL_Rect _srcRect)
+      : image(_image), srcRect(_srcRect) {}
+  GridTile() {}
+  std::string image = "";
+  SDL_Rect srcRect = {0, 0, 16, 16};
+};
+
+struct TileGrid {
+  void setTile(GridTile tile, int x, int y) {
+    tiles[x][y] = tile;
+    onModify();
+  }
+
+  void removeTile(int x, int y) {
+    tiles[x].erase(y);
+    onModify();
+  }
+
+  GridTile &getTile(int x, int y) { return tiles[x][y]; }
+
+  std::vector<TileRaw> getTilesAsList() {
+    std::vector<TileRaw> out;
+
+    for (auto &[x, xlevel] : tiles) {
+      for (auto &[y, tile] : xlevel) {
+        TileRaw tileOut = TileRaw();
+        tileOut.image = tile.image;
+        tileOut.srcRect = tile.srcRect;
+        tileOut.box = {(float)x * gridSize, (float)y * gridSize,
+                       (float)gridSize, (float)gridSize};
+        out.push_back(tileOut);
+      }
+    }
+
+    return out;
+  }
+
+  void generateGroupedColliders() {
+    premadeColliders.clear();
+    std::vector<TileRaw> tiles = getTilesAsList();
+    premadeColliders = tiles;
+    // premadeColliders = tileGroup(tiles, gridSize);
+  }
+
+  void onModify() { generateGroupedColliders(); }
+
+  std::vector<Box> getTileGroups() {
+    std::vector<Box> out;
+
+    for (auto &tile : premadeColliders) {
+      out.push_back(tile.box);
+    }
+
+    return out;
+  }
+
+  bool checkCollision(Box box) {
+    auto tileGroups = getTileGroups();
+    for (Box &tileBox : tileGroups) {
+      if (box.checkCollision(tileBox)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  int gridSize = 16;
+  std::map<int, std::map<int, GridTile>> tiles;
+
+private:
+  std::vector<TileRaw> premadeColliders;
+};
+
+class Tilemap : public Component {
+public:
+  Tilemap() {
+    typeIsRendering = true;
+    propertyRegister = {GET_PROP(tileGrid), GET_PROP(solid)};
+  }
+
+  Box getRenderBox(Box box) {
+    Box renderBox;
+    renderBox.position =
+        (box.position - Camera::getPosition()) * Camera::getScale() +
+        GameManager::gameWindowSize / 2;
+    renderBox.size = box.size * Camera::getScale();
+    return renderBox;
+  }
+
+  void start() override {}
+
+  void update(float deltaTime) override { render(); }
+
+  void render() {
+    for (TileRaw &tile : tileGrid.getTilesAsList()) {
+      SDL_Texture *tileImageTexture = nullptr;
+      if (tile.image != "") {
+        tileImageTexture = ResourceManager::getInstance(GameManager::renderer)
+                               .getTexture(tile.image);
+      }
+
+      if (tileImageTexture != nullptr) {
+        SDL_Rect renderRect = getRenderBox(tile.box);
+        renderRect.w += 1;
+        renderRect.h += 1;
+        SDL_RenderCopy(GameManager::renderer, tileImageTexture, &tile.srcRect,
+                       &renderRect);
+      }
+    }
+  }
+
+  TileGrid tileGrid;
+  bool solid = false;
+  int gridSize = 16;
+};
+REGISTER_COMPONENT_TYPE(Tilemap);
 
 #endif

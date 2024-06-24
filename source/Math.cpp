@@ -100,7 +100,7 @@ Vector2f getImGuiPosition(Vector2f pos) {
 }
 
 #include "Entity.h"
-slideOut Box::slide(const Vector2f &move, const std::vector<Entity *> &solids,
+slideOut Box::slide(const Vector2f &move, const std::vector<Box *> &solids,
                     bool pushOut, bool useMoveBox) {
   slideOut out;
 
@@ -120,20 +120,20 @@ slideOut Box::slide(const Vector2f &move, const std::vector<Entity *> &solids,
 
   // Horizontal check and move
 HORREDO:
-  for (Entity *col : solids) {
-    if (!checkCollision(col->box))
+  for (Box *col : solids) {
+    if (!checkCollision(*col))
       continue;
 
     out.hitList.push_back(col);
     if (!pushOut)
       continue;
 
-    Entity *other = col;
+    Box *other = col;
     if (movement.x > 0) {
-      position.x = (other->box.getLeft() - size.x - 0.0001);
+      position.x = (other->getLeft() - size.x - 0.0001);
       out.horizontalHit = true;
     } else if (movement.x < 0) {
-      position.x = (other->box.getRight());
+      position.x = (other->getRight());
       out.horizontalHit = true;
     }
 
@@ -145,20 +145,23 @@ HORREDO:
 
   // Verticle collision check and move
 VERREDO:
-  for (Entity *col : solids) {
-    if (!checkCollision(col->box))
+  for (Box *col : solids) {
+    if (col->position.x == 0 && col->position.y == 0 && col->size.x == 0 &&
+        col->size.y == 0)
+      continue;
+    if (!checkCollision(*col))
       continue;
 
     out.hitList.push_back(col);
     if (!pushOut)
       continue;
 
-    Entity *other = col;
+    Box *other = col;
     if (movement.y > 0) {
-      position.y = (other->box.getTop() - size.y - 0.0001);
+      position.y = (other->getTop() - size.y - 0.0001);
       out.verticleHit = true;
     } else if (movement.y < 0) {
-      position.y = other->box.getBottom();
+      position.y = other->getBottom();
       out.verticleHit = true;
     }
 

@@ -84,8 +84,9 @@ public:
 };
 
 class Entity;
+struct Box;
 struct slideOut {
-  std::vector<Entity *> hitList;
+  std::vector<Box *> hitList;
   bool horizontalHit = false;
   bool verticleHit = false;
 };
@@ -191,7 +192,7 @@ struct Box {
               << size.y << std::endl;
   }
 
-  slideOut slide(const Vector2f &move, const std::vector<Entity *> &solids,
+  slideOut slide(const Vector2f &move, const std::vector<Box *> &solids,
                  bool pushOut = true, bool useMoveBox = true);
 
   operator SDL_Rect() const {

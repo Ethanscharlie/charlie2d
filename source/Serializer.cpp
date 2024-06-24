@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "ShadowFilter.h"
 #include "Text.h"
+#include "Tile.h"
 #include <string>
 
 std::map<int, Entity *> entityIidMap;
@@ -83,6 +84,25 @@ json serialize(Entity *entity) {
         prop = 0;
         if (entity != nullptr) {
           prop = entity->iid;
+        }
+      }
+
+      else if (data.type == typeid(TileGrid)) {
+        TileGrid tileGrid = *static_cast<TileGrid *>(data.value);
+
+        for (auto &[x, xlevel] : tileGrid.tiles) {
+          for (auto &[y, tile] : xlevel) {
+            json tileJson;
+            tileJson["image"] = tile.image;
+            tileJson["srcRectX"] = tile.srcRect.x;
+            tileJson["srcRectY"] = tile.srcRect.y;
+            tileJson["srcRectW"] = tile.srcRect.w;
+            tileJson["srcRectH"] = tile.srcRect.h;
+            tileJson["gridX"] = x;
+            tileJson["gridY"] = y;
+
+            prop["tiles"].push_back(tileJson);
+          }
         }
       }
     }
@@ -176,6 +196,21 @@ Entity *deserialize(json jsonData, bool start) {
         Entity **entityPtr = static_cast<Entity **>(data.value);
         Entity *entity = *entityPtr;
         *entityPtr = entityIidMap[iid];
+      }
+
+      else if (data.type == typeid(TileGrid)) {
+        TileGrid *tileGrid = static_cast<TileGrid *>(data.value);
+
+        for (json &tileJson : propJson["tiles"]) {
+          GridTile tile;
+          tile.image = tileJson["image"];
+          tile.srcRect.x = tileJson["srcRectX"];
+          tile.srcRect.y = tileJson["srcRectY"];
+          tile.srcRect.w = tileJson["srcRectW"];
+          tile.srcRect.h = tileJson["srcRectH"];
+
+          tileGrid->setTile(tile, tileJson["gridX"], tileJson["gridY"]);
+        }
       }
     }
 

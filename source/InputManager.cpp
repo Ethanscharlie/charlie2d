@@ -8,6 +8,9 @@ bool InputManager::jumpPressed = false;
 bool InputManager::mouseHeld = false;
 bool InputManager::rightClick = false;
 
+bool InputManager::leftMouseHeld = false;
+bool InputManager::rightMouseHeld = false;
+
 float InputManager::mouseScroll = 0;
 
 bool InputManager::keys[NUM_KEYS];
@@ -24,6 +27,7 @@ void InputManager::update() {
   mousePressed = false;
   jumpPressed = false;
   rightClick = false;
+  InputManager::mouseScroll = 0;
 
   for (int i = 0; i < NUM_KEYS; ++i) {
     keys[i] = false; // Initialize all keys as released
@@ -166,4 +170,45 @@ Vector2f InputManager::getMouseScreenPosition() {
   float logicalY = 1.0f * (mouseY - yOffset) / scale;
 
   return {logicalX, logicalY};
+}
+
+void InputManager::onEvent(SDL_Event event) {
+  if (event.type == SDL_MOUSEBUTTONDOWN) {
+    InputManager::mousePressed = true;
+    InputManager::mouseHeld = true;
+
+    if (event.button.button == SDL_BUTTON_RIGHT) {
+      InputManager::rightClick = true;
+      InputManager::rightMouseHeld = true;
+    }
+    if (event.button.button == SDL_BUTTON_LEFT) {
+      InputManager::leftMouseHeld = true;
+    }
+  }
+
+  else if (event.type == SDL_MOUSEBUTTONUP) {
+    InputManager::mouseHeld = false;
+
+    if (event.button.button == SDL_BUTTON_RIGHT) {
+      InputManager::rightMouseHeld = false;
+    }
+    if (event.button.button == SDL_BUTTON_LEFT) {
+      InputManager::leftMouseHeld = false;
+    }
+  }
+
+  else if (event.type == SDL_MOUSEWHEEL) {
+    InputManager::mouseScroll = event.wheel.y;
+  }
+
+  else if (event.type == SDL_KEYDOWN) {
+    if (event.key.keysym.sym <= 256) {
+      InputManager::keys[event.key.keysym.sym] = true;
+    }
+
+    switch (event.key.keysym.sym) {
+    case SDLK_SPACE:
+      InputManager::jumpPressed = true;
+    }
+  }
 }

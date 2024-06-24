@@ -5,6 +5,7 @@
 #include "Math.h"
 #include "Serializer.h"
 #include "SolidBody.h"
+#include "Tile.h"
 
 /**
  * \brief A simple movement physics class
@@ -39,9 +40,18 @@ public:
     if (velocity.x == 0 && velocity.y == 0)
       return;
 
-    std::vector<Entity *> solids;
+    std::vector<Box *> solids;
     for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
-      solids.push_back(col->entity);
+      solids.push_back(&col->entity->box);
+    }
+
+    for (Tilemap *tilemap : GameManager::getComponents<Tilemap>()) {
+      if (!tilemap->solid)
+        continue;
+      std::vector<Box> boxes = tilemap->tileGrid.getTileGroups();
+      for (Box &box : boxes) {
+        solids.push_back(&box);
+      }
     }
 
     if (pushOut) {
