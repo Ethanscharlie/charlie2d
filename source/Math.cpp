@@ -1,22 +1,19 @@
 #include "Math.h"
+#include "Box.h"
 #include "Camera.h"
+#include "Entity.h"
+#include "GameManager.h"
+#include "ResourceManager.h"
 #include "Vector2f.h"
-#include <cmath>
+#include <iostream>
+#include <random>
+#include <sstream>
 
-bool checkCollision(Box box, Circle circle) {
-  // Calculate the closest point to the circle within the rectangle
-  float closestX =
-      std::max(box.getLeft(), std::min(circle.position.x, box.getRight()));
-  float closestY =
-      std::max(box.getTop(), std::min(circle.position.y, box.getBottom()));
-
-  // Calculate the distance between the circle's center and this closest point
-  float distanceX = circle.position.x - closestX;
-  float distanceY = circle.position.y - closestY;
-  float distanceSquared = (distanceX * distanceX) + (distanceY * distanceY);
-
-  // Check if the distance is less than the circle's radius squared
-  return distanceSquared < (circle.radius * circle.radius);
+float randFloat(float min, float max) {
+  static std::random_device rd;
+  static std::mt19937 gen(rd());
+  std::uniform_real_distribution<float> dis(min, max);
+  return dis(gen);
 }
 
 std::string floatToString(float value) {
@@ -24,9 +21,6 @@ std::string floatToString(float value) {
   ss << value;
   return ss.str();
 }
-
-#include "GameManager.h"
-#include "ResourceManager.h"
 
 Image::Image(std::string _path) : path(_path) {
   texture =
@@ -99,78 +93,6 @@ Vector2f getImGuiPosition(Vector2f pos) {
   return out;
 }
 
-#include "Entity.h"
-slideOut Box::slide(const Vector2f &move, const std::vector<Box *> &solids,
-                    bool pushOut, bool useMoveBox) {
-  slideOut out;
-
-  // Start
-  Vector2f movement = move;
-
-  // This system checks collisions for horizontal and vericle movment
-  // seperatly If there is a collsion the entityBox can be moved in the
-  // opposite direction outside the collided box
-  // Collsions are restarted if there is any colllsion at all to prevent
-  // clipping
-
-  // Create Horizonal check box
-  // The check box is sized to the move to prevent clipping
-  // at high speeds and low framerates
-  position += {movement.x, 0};
-
-  // Horizontal check and move
-HORREDO:
-  for (Box *col : solids) {
-    if (!checkCollision(*col))
-      continue;
-
-    out.hitList.push_back(col);
-    if (!pushOut)
-      continue;
-
-    Box *other = col;
-    if (movement.x > 0) {
-      position.x = (other->getLeft() - size.x - 0.0001);
-      out.horizontalHit = true;
-    } else if (movement.x < 0) {
-      position.x = (other->getRight());
-      out.horizontalHit = true;
-    }
-
-    // goto HORREDO;
-  }
-
-  // Create verticle check box
-  position += {0, movement.y};
-
-  // Verticle collision check and move
-VERREDO:
-  for (Box *col : solids) {
-    if (col->position.x == 0 && col->position.y == 0 && col->size.x == 0 &&
-        col->size.y == 0)
-      continue;
-    if (!checkCollision(*col))
-      continue;
-
-    out.hitList.push_back(col);
-    if (!pushOut)
-      continue;
-
-    Box *other = col;
-    if (movement.y > 0) {
-      position.y = (other->getTop() - size.y - 0.0001);
-      out.verticleHit = true;
-    } else if (movement.y < 0) {
-      position.y = other->getBottom();
-      out.verticleHit = true;
-    }
-
-    // goto VERREDO;
-  }
-
-  return out;
-}
-
 SDL_Rect getLogicalRect() {
   int logical_w = 1, logical_h = 1;
   int output_w = GameManager::currentWindowSize.x;
@@ -240,11 +162,10 @@ std::string getTypeNameWithoutNumbers(std::type_index typeIndex) {
   return name;
 }
 
-Box getRenderBox(Entity *entity) {
-  Box box = entity->box;
+Box getRenderBox(Box box, EntityRenderPositionType renderPositionType) {
   Box renderBox;
 
-  switch (entity->renderPositionType) {
+  switch (renderPositionType) {
   case EntityRenderPositionType::World:
     renderBox.position =
         (box.position - Camera::getPosition()) * Camera::getScale() +
@@ -260,4 +181,16 @@ Box getRenderBox(Entity *entity) {
   }
 
   return renderBox;
+}
+
+Box getRenderBox(Entity *entity) {
+  Box box = entity->box;
+  return getRenderBox(box, entity->renderPositionType);
+}
+
+std::array<Uint8, 3> hexToRGB(int hexColor) {
+  Uint8 red = (hexColor >> 16) & 0xFF;
+  Uint8 green = (hexColor >> 8) & 0xFF;
+  Uint8 blue = hexColor & 0xFF;
+  return {red, green, blue};
 }

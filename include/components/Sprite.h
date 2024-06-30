@@ -6,6 +6,7 @@
 #include "SDL_blendmode.h"
 #include "Serializer.h"
 #include <SDL.h>
+#include "Angle.h"
 
 class Animation;
 class Entity;

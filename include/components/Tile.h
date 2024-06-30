@@ -7,7 +7,6 @@
 #include "Math.h"
 
 // Components
-#include "EntityBox.h"
 #include "ResourceManager.h"
 #include "SDL_rect.h"
 #include "SDL_render.h"

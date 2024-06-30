@@ -2,7 +2,6 @@
 #include "Camera.h"
 #include "Component.h"
 #include "Entity.h"
-#include "EntityBox.h"
 #include "GameManager.h"
 #include "InputManager.h"
 #include "Math.h"
@@ -24,32 +23,7 @@ public:
 
   void start() override {}
 
-  void update(float deltaTime) override {
-    bool touching = false;
-    Vector2f mousePos;
-    if (checkInWorld) {
-      mousePos = InputManager::getMouseWorldPosition();
-    } else {
-      mousePos = InputManager::getMouseUIPosition();
-    }
-
-    touching = entity->box.getLeft() < mousePos.x &&
-               entity->box.getRight() > mousePos.x &&
-               entity->box.getTop() < mousePos.y &&
-               entity->box.getBottom() > mousePos.y;
-
-    if (touching) {
-      onHover();
-      if (InputManager::checkInput("fire")) {
-        onClick();
-      }
-      if (InputManager::mouseHeld) {
-        onHold();
-      }
-    } else {
-      offHover();
-    }
-  }
+  void update(float deltaTime) override;
 
   std::function<void()> onClick = []() {};
   std::function<void()> onHold = []() {};

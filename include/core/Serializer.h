@@ -2,7 +2,6 @@
 #define SERIALIZER_H
 #include "Component.h"
 #include "Entity.h"
-#include "EntityBox.h"
 #include "GameManager.h"
 #include "LDTKEntity.h"
 #include "Vector2f.h"
@@ -41,5 +40,7 @@ Entity *deserialize(json jsonData, bool start = true);
 std::vector<Entity *> deserializeList(json jsonData, bool active = true);
 
 void serializeAndWrite(Entity *entity, std::string filepath = "data.json");
+
+std::vector<Entity *> loadCollection(std::filesystem::path path);
 
 #endif

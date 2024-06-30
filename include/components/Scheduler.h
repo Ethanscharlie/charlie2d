@@ -3,12 +3,12 @@
 #include "Component.h"
 #include "SDL_stdinc.h"
 #include "SDL_timer.h"
+#include "Serializer.h"
 #include <cstdio>
 #include <functional>
 #include <map>
 #include <string>
 #include <vector>
-#include "Serializer.h"
 
 /**
  * \brief Based struct for schedules used in the Scheduler
@@ -35,31 +35,7 @@ struct Schedule {
  */
 class Scheduler : public Component {
 public:
-  void start() override {}
-
-  void update(float deltaTime) override {
-    std::vector<std::string> toRemove;
-    for (auto &[name, schedule] : schedules) {
-      if (schedule.timerStartTime + schedule.millisecondWaitTime <
-          SDL_GetTicks()) {
-        schedule.function();
-        schedule.timerStartTime = SDL_GetTicks();
-
-        schedule.timesCounter--;
-        if (schedule.timesCounter <= 0) {
-          if (schedule.removeTimerOnFinish) {
-            schedule.onFinish();
-            toRemove.push_back(name);
-          }
-        }
-      }
-    }
-
-    for (std::string name : toRemove) {
-      removeSchedule(name);
-    }
-  }
-
+  void update(float deltaTime) override;
   /**
    * \brief Adds a schedule to the map
    * \param name The name to go in the map
@@ -67,18 +43,11 @@ public:
    * repeats \param function Code to run \param removeTimerOnFinish Disables
    * looping, only goes once (Good for cooldown wait timers)
    */
-  void addSchedule(
-      const std::string &name, Uint32 millisecondWaitTime,
-      std::function<void()> function, std::function<void()> onFinish = []() {},
-      bool removeTimerOnFinish = false, int removeAfterTimes = 0) {
-    Schedule schedule = {function, millisecondWaitTime, removeTimerOnFinish,
-                         removeAfterTimes};
-    schedule.onFinish = onFinish;
-    schedules[name] = schedule;
-  }
+  void addSchedule(const std::string &name, Uint32 millisecondWaitTime,
+                   std::function<void()> function,
+                   bool removeTimerOnFinish = false, int removeAfterTimes = 0);
 
-
-  void removeSchedule(const std::string &name) { schedules.erase(name); }
+  void removeSchedule(const std::string &name);
 
   std::map<std::string, Schedule> schedules;
 };

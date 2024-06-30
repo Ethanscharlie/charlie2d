@@ -35,7 +35,7 @@ void Camera::setPosition(const Vector2f &otherPosition) {
 Box Camera::getBox() {
   Box cameraBox;
 
-  Vector2f logicalSize; 
+  Vector2f logicalSize;
   cameraBox.size = (GameManager::gameWindowSize / scale);
   cameraBox.setWithCenter(position);
   return cameraBox;
@@ -44,3 +44,9 @@ Box Camera::getBox() {
 Vector2f Camera::getPosition() { return position; }
 
 float Camera::getScale() { return scale; }
+
+void Camera::resetCamera() {
+  cameraLimitBox = {0, 0, 0, 0};
+  scale = 1;
+  position = {0, 0};
+}

@@ -157,7 +157,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
   std::cout << "load level with id " << iid << "\n";
   for (auto &[layerName, tileLayer] : preloadedTiles[iid]) {
     Entity *layerObject = GameManager::createEntity(layerName);
-    layerObject->require<TileLayerComponent>();
+    layerObject->add<TileLayerComponent>();
     layerObject->useLayer = true;
     layerObject->layer = tileLayer.layer;
 
@@ -188,8 +188,8 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
       for (auto const &entity : layer["entityInstances"]) {
         Entity *object = GameManager::createEntity(entity["__identifier"]);
 
-        object->require<Sprite>();
-        object->require<LDTKEntity>();
+        object->add<Sprite>();
+        object->add<LDTKEntity>();
 
         object->get<LDTKEntity>()->entityJson = entity;
 

@@ -1,8 +1,10 @@
 #include "Serializer.h"
 #include "Entity.h"
+#include "Light.h"
 #include "ShadowFilter.h"
 #include "Text.h"
 #include "Tile.h"
+#include <fstream>
 #include <string>
 
 std::map<int, Entity *> entityIidMap;
@@ -261,4 +263,11 @@ void serializeAndWrite(Entity *entity, std::string filepath) {
   std::ofstream file(filepath);
   file << std::setw(2) << jsonData << std::endl;
   file.close();
+}
+
+std::vector<Entity *> loadCollection(std::filesystem::path path) {
+  std::ifstream file(path);
+  auto out = deserializeList(json::parse(file));
+  file.close();
+  return out;
 }

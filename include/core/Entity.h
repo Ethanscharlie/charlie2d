@@ -1,6 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "Box.h"
 #include "GameManager.h"
 #include <SDL.h>
 #include <functional>
@@ -11,9 +12,6 @@
 
 class Animation;
 class Component;
-//
-
-enum class EntityRenderPositionType { World, Screen };
 
 /**
  * \brief Entitys are containers for an EnityBox and components
@@ -27,102 +25,35 @@ public:
   /**
    * \brief Adds a component to the entity Ex: add<Sprite>()
    */
-  template <typename C> C *add(bool start = true) {
-    if (checkComponent<C>()) {
-      return get<C>();
-    }
-
-    C *component = new C();
-
-    component->entity = this;
-    component->entityTag = tag;
-    if (start)
-      component->start();
-    components[typeid(C)] = component;
-
-    component->index = iid; // components[typeid(C)].size();
-    GameManager::addComponent<C>(component);
-
-    return component;
-  }
-
-  /**
-   * \brief Either adds or gets a Component depending on its existance (won't
-   * override components)
-   */
-  template <typename C> C *require() {
-    if (checkComponent<C>()) {
-      return get<C>();
-    } else {
-      return add<C>();
-    }
-  }
-
+  template <typename C> C *add(bool start = true);
   /**
    * \brief Gets a component from the entity Ex: get<Sprite>()
    */
-  template <typename C> C *get() {
-    auto it = components.find(typeid(C));
-    if (it != components.end()) {
-      if (it->second == nullptr)
-        throw std::runtime_error("Component was nullptr");
-      return static_cast<C *>(it->second);
+  template <typename C> C *get();
 
-    } else
-      throw std::runtime_error("Component not found!");
-  }
+  /**
+   * \brief Adds a component to the entity
+   */
+  template <typename C> C &addComponent(bool start = true);
+  /**
+   * \brief Gets a component from the entity
+   */
+  template <typename C> C &getComponent();
 
   /**
    * \brief Removes and deletes a component
    */
-  template <typename C> void remove() {
-    // Remove from GameManager
-    C *component = get<C>();
-    GameManager::removeComponent(component, typeid(C));
-
-    // Remove from entity
-    components.erase(typeid(C));
-
-    delete component;
-
-    std::cout << "Removed component " << typeid(C).name() << std::endl;
-  }
-
-  void remove(std::type_index type) {
-    // Remove from GameManager
-    Component *component = components[type];
-    GameManager::removeComponent(component, type);
-
-    // Remove from entity
-    components.erase(type);
-
-    delete component;
-
-    std::cout << "Removed component " << type.name() << std::endl;
-  }
-
+  template <typename C> void remove();
   /**
    * \brief Does the enity have this? Ex: checkComponent<Sprite>()
    */
-  template <typename C> bool checkComponent() {
-    auto it = components.find(typeid(C));
-    return it != components.end();
-  }
+  template <typename C> bool checkComponent();
 
-  void update() {
-    for (auto [type, component] : components) {
-      if (!component->standardUpdate)
-        continue;
-      if (!GameManager::updateEntities && !component->typeIsRendering)
-        continue;
-      component->update(GameManager::deltaTime);
-    }
-  }
+  void remove(std::type_index type);
 
-  void changeTag(std::string newTag) {
-    GameManager::changeEntityTag(this, newTag);
-  }
+  void update();
 
+  void changeTag(std::string newTag);
   /**
    * Gets the entitys components
    */
@@ -177,5 +108,91 @@ public:
 
 private:
 };
+
+//
+//
+//
+//
+//
+//
+//
+
+template <typename C> C *Entity::add(bool start) {
+  if (checkComponent<C>()) {
+    return get<C>();
+  }
+
+  C *component = new C();
+
+  component->entity = this;
+  component->entityTag = tag;
+  if (start)
+    component->start();
+  components[typeid(C)] = component;
+
+  component->index = iid; // components[typeid(C)].size();
+  GameManager::addComponent<C>(component);
+
+  return component;
+}
+
+template <typename C> C *Entity::get() {
+  auto it = components.find(typeid(C));
+  if (it != components.end()) {
+    if (it->second == nullptr)
+      throw std::runtime_error("Component was nullptr");
+    return static_cast<C *>(it->second);
+
+  } else
+    throw std::runtime_error("Component not found!");
+}
+
+template <typename C> C &Entity::addComponent(bool start) {
+  if (checkComponent<C>()) {
+    return get<C>();
+  }
+
+  C *component = new C();
+
+  component->entity = this;
+  component->entityTag = tag;
+  if (start)
+    component->start();
+  components[typeid(C)] = component;
+
+  component->index = iid; // components[typeid(C)].size();
+  GameManager::addComponent<C>(component);
+
+  return component;
+}
+
+template <typename C> C &Entity::getComponent() {
+  auto it = components.find(typeid(C));
+  if (it != components.end()) {
+    if (it->second == nullptr)
+      throw std::runtime_error("Component was nullptr");
+    return static_cast<C *>(it->second);
+
+  } else
+    throw std::runtime_error("Component not found!");
+}
+
+template <typename C> void Entity::remove() {
+  // Remove from GameManager
+  C *component = get<C>();
+  GameManager::removeComponent(component, typeid(C));
+
+  // Remove from entity
+  components.erase(typeid(C));
+
+  delete component;
+
+  std::cout << "Removed component " << typeid(C).name() << std::endl;
+}
+
+template <typename C> bool Entity::checkComponent() {
+  auto it = components.find(typeid(C));
+  return it != components.end();
+}
 
 #endif // ENTITY_H

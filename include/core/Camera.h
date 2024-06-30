@@ -1,4 +1,5 @@
 #pragma once
+#include "Box.h"
 #include "Math.h"
 #include "Vector2f.h"
 
@@ -24,16 +25,11 @@ public:
   /**
    * \brief Fully resets the camera
    */
-  static void resetCamera() {
-    cameraLimitBox = {0, 0, 0, 0};
-    scale = 1;
-    position = {0, 0};
-  }
-
+  static void resetCamera();
 
   static Box cameraLimitBox;
   static float scale;
 
-// private:
+  // private:
   static Vector2f position;
 };

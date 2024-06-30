@@ -2,7 +2,6 @@
 #include "Component.h"
 #include "ControllerManager.h"
 #include "Entity.h"
-#include "EntityBox.h"
 #include "InputManager.h"
 #include "SDL_events.h"
 #include "SDL_gamecontroller.h"
