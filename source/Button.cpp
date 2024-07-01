@@ -1,7 +1,15 @@
 #include "Button.h"
+#include "Event.h"
+
+void Button::start() {
+  Event::addEventListener("LeftMouseButtonDown", [this]() {
+    if (touching)
+      onClick();
+  });
+}
 
 void Button::update(float deltaTime) {
-  bool touching = false;
+  touching = false;
   Vector2f mousePos;
   if (checkInWorld) {
     mousePos = InputManager::getMouseWorldPosition();
@@ -16,9 +24,6 @@ void Button::update(float deltaTime) {
 
   if (touching) {
     onHover();
-    if (InputManager::checkInput("fire")) {
-      onClick();
-    }
     if (InputManager::mouseHeld) {
       onHold();
     }

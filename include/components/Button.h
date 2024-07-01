@@ -21,7 +21,7 @@ public:
     };
   };
 
-  void start() override {}
+  void start() override;
 
   void update(float deltaTime) override;
 
@@ -31,5 +31,6 @@ public:
   std::function<void()> offHover = []() {};
 
   bool checkInWorld = false;
+  bool touching = false;
 };
 REGISTER_COMPONENT_TYPE(Button);

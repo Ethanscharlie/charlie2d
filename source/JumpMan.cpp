@@ -1,4 +1,45 @@
 #include "JumpMan.h"
+#include "Event.h"
+#include "SDL_keycode.h"
+#include "SDL_scancode.h"
+
+void JumpMan::start() {
+  Event::addEventListener("SpaceKeyDown", [this]() {
+    std::cout << "FPS: " << 1.0f / GameManager::deltaTime << std::endl;
+    if (!allowJump)
+      return;
+
+    bool checkground = false;
+    if (needGround) {
+      groundCheckBox = entity->box;
+      groundCheckBox.position.y += entity->box.size.y;
+      for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
+        if (col->entity->box.checkCollision(groundCheckBox)) {
+          checkground = true;
+          break;
+        }
+      }
+      for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
+        if (col->tileGrid.checkCollision(groundCheckBox)) {
+          checkground = true;
+          break;
+        }
+      }
+    } else
+      checkground = true;
+
+    if (checkground || jumpsCounter > 0) {
+      if (checkground)
+        jumpsCounter = jumps;
+      jumpsCounter--;
+      // Start Jump
+      if (!jumping)
+        entity->get<physicsBody>()->velocity.y = 0;
+      jumping = true;
+      // gravity = 1500;
+    }
+  });
+}
 
 void JumpMan::update(float deltaTime) {
   entity->add<physicsBody>();
@@ -40,45 +81,9 @@ void JumpMan::update(float deltaTime) {
     }
   }
 
-  if (InputManager::checkInput("jumpTrigger")) {
-    std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
-    if (!allowJump)
-      return;
-
-    bool checkground = false;
-    if (needGround) {
-      groundCheckBox = entity->box;
-      groundCheckBox.position.y += entity->box.size.y;
-      for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
-        if (col->entity->box.checkCollision(groundCheckBox)) {
-          checkground = true;
-          break;
-        }
-      }
-      for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
-        if (col->tileGrid.checkCollision(groundCheckBox)) {
-          checkground = true;
-          break;
-        }
-      }
-    } else
-      checkground = true;
-
-    if (checkground || jumpsCounter > 0) {
-      if (checkground)
-        jumpsCounter = jumps;
-      jumpsCounter--;
-      // Start Jump
-      if (!jumping)
-        entity->get<physicsBody>()->velocity.y = 0;
-      jumping = true;
-      // gravity = 1500;
-    }
-  }
-
   entity->get<physicsBody>()->velocity.y += gravity * deltaTime;
 
-  if (InputManager::checkInput("jump")) {
+  if (InputManager::checkKeyHeld(SDL_SCANCODE_SPACE)) {
     // Keep Jump
     if (jumping) {
       if (jumpAmount <= jumpPeak) {

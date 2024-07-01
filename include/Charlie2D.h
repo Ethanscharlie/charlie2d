@@ -7,6 +7,7 @@
 #include "Component.h"
 #include "ControllerManager.h"
 #include "Entity.h"
+#include "Event.h"
 #include "GameManager.h"
 #include "Image.h"
 #include "InputManager.h"

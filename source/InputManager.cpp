@@ -1,119 +1,45 @@
 #include "InputManager.h"
 #include "Camera.h"
+#include "Event.h"
 #include "GameManager.h"
+#include "SDL_scancode.h"
 #include "Vector2f.h"
 
-bool InputManager::mousePressed = false;
-bool InputManager::jumpPressed = false;
 bool InputManager::mouseHeld = false;
-bool InputManager::rightClick = false;
 
 bool InputManager::leftMouseHeld = false;
 bool InputManager::rightMouseHeld = false;
 
 float InputManager::mouseScroll = 0;
 
-bool InputManager::keys[NUM_KEYS];
-bool InputManager::keysUped[NUM_KEYS];
+bool InputManager::keyEvents[NUM_KEYS];
 
 InputManager::InputManager() {
   for (int i = 0; i < NUM_KEYS; ++i) {
-    keys[i] = false; // Initialize all keys as released
-    keysUped[i] = true;
+    keyEvents[i] = false; // Initialize all keys as released
   }
 }
 
 void InputManager::update() {
-  mousePressed = false;
-  jumpPressed = false;
-  rightClick = false;
   InputManager::mouseScroll = 0;
 
   for (int i = 0; i < NUM_KEYS; ++i) {
-    keys[i] = false; // Initialize all keys as released
+    keyEvents[i] = false; // Initialize all keys as released
   }
-}
-
-bool InputManager::checkInput(const std::string &input) {
-  SDL_PumpEvents();
-  const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
-  //    std::cout << keyboardState << std::endl;
-
-  if (input == "any") {
-    for (int i = 0; i < SDL_NUM_SCANCODES; i++) {
-      if (keyboardState[i]) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-  if (input == "fire") {
-    if (mousePressed) {
-      return true;
-    }
-  } else if (input == "jumpTrigger") {
-    if (jumpPressed) {
-      return true;
-    }
-  } else if (input == "jump") {
-    if (keyboardState[SDL_SCANCODE_SPACE]) {
-      return true;
-    }
-  } else if (input == "dash") {
-    if (keyboardState[SDL_SCANCODE_LSHIFT] ||
-        keyboardState[SDL_SCANCODE_LSHIFT]) {
-      return true;
-    }
-  } else if (input == "rightBump") {
-    if (keyboardState[SDL_SCANCODE_E]) {
-      return true;
-    }
-  } else if (input == "leftBump") {
-    if (keyboardState[SDL_SCANCODE_Q]) {
-      return true;
-    }
-  } else if (input == "hit") {
-    if (keyboardState[SDL_SCANCODE_F]) {
-      return true;
-    }
-  } else if (input == "take") {
-    if (keyboardState[SDL_SCANCODE_E]) {
-      return true;
-    }
-  } else if (input == "up") {
-    if (keyboardState[SDL_SCANCODE_W] or keyboardState[SDL_SCANCODE_UP]) {
-      return true;
-    }
-  } else if (input == "down") {
-    if (keyboardState[SDL_SCANCODE_S] or keyboardState[SDL_SCANCODE_DOWN]) {
-      return true;
-    }
-  } else if (input == "right") {
-    if (keyboardState[SDL_SCANCODE_D] or keyboardState[SDL_SCANCODE_RIGHT]) {
-      return true;
-    }
-  } else if (input == "left") {
-    if (keyboardState[SDL_SCANCODE_A] or keyboardState[SDL_SCANCODE_LEFT]) {
-      return true;
-    }
-  }
-
-  return false;
 }
 
 int InputManager::checkVertical() {
-  if (checkInput("up"))
+  if (checkKeyHeld(SDL_SCANCODE_W) || checkKeyHeld(SDL_SCANCODE_UP))
     return 1;
-  if (checkInput("down"))
+  if (checkKeyHeld(SDL_SCANCODE_S) || checkKeyHeld(SDL_SCANCODE_DOWN))
     return -1;
   return 0;
 }
 
 int InputManager::checkHorizontal() {
-  if (checkInput("right"))
+  if (checkKeyHeld(SDL_SCANCODE_D) || checkKeyHeld(SDL_SCANCODE_RIGHT))
     return 1;
-  if (checkInput("left"))
+  if (checkKeyHeld(SDL_SCANCODE_A) || checkKeyHeld(SDL_SCANCODE_LEFT))
     return -1;
   return 0;
 }
@@ -172,16 +98,23 @@ Vector2f InputManager::getMouseScreenPosition() {
   return {logicalX, logicalY};
 }
 
+bool InputManager::checkKeyHeld(SDL_Scancode scancode) {
+  SDL_PumpEvents();
+  const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
+  return keyboardState[scancode];
+}
+
 void InputManager::onEvent(SDL_Event event) {
   if (event.type == SDL_MOUSEBUTTONDOWN) {
-    InputManager::mousePressed = true;
+    Event::fireEvent("MouseButtonDown");
     InputManager::mouseHeld = true;
 
     if (event.button.button == SDL_BUTTON_RIGHT) {
-      InputManager::rightClick = true;
+      Event::fireEvent("RightMouseButtonDown");
       InputManager::rightMouseHeld = true;
     }
     if (event.button.button == SDL_BUTTON_LEFT) {
+      Event::fireEvent("LeftMouseButtonDown");
       InputManager::leftMouseHeld = true;
     }
   }
@@ -203,12 +136,12 @@ void InputManager::onEvent(SDL_Event event) {
 
   else if (event.type == SDL_KEYDOWN) {
     if (event.key.keysym.sym <= 256) {
-      InputManager::keys[event.key.keysym.sym] = true;
+      InputManager::keyEvents[event.key.keysym.sym] = true;
     }
 
     switch (event.key.keysym.sym) {
     case SDLK_SPACE:
-      InputManager::jumpPressed = true;
+      Event::fireEvent("SpaceKeyDown");
     }
   }
 }
