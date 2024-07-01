@@ -1,12 +1,13 @@
 #pragma once
 
+#include "Angle.h"
 #include "Animation.h"
 #include "GameManager.h"
+#include "Image.h"
 #include "Math.h"
 #include "SDL_blendmode.h"
 #include "Serializer.h"
 #include <SDL.h>
-#include "Angle.h"
 
 class Animation;
 class Entity;
@@ -21,10 +22,7 @@ public:
     propertyRegister = {
         GET_PROP(image),
         GET_PROP(showBorders),
-        GET_PROP(alpha),
         GET_PROP(angle),
-        GET_PROP(renderAsUI),
-        GET_PROP(flip),
         GET_PROP(preventWeirdBorder),
     };
     typeIsRendering = true;
@@ -55,11 +53,6 @@ public:
 
   void setAlpha(Uint8 alpha);
 
-  /**
-   * \brief Allows you to grab only a part of an image
-   */
-  SDL_Rect sourceRect = {0, 0, 0, 0};
-
   Image image;
 
   /**
@@ -80,17 +73,8 @@ public:
    */
   bool onScreen = false;
   /**
-   * \brief Makes it render in UI positioning (Use for images as UI)
-   */
-  bool renderAsUI = false;
-  /**
    * \brief SDL Flips
    */
-  SDL_RendererFlip flip = SDL_FLIP_NONE;
-
-  SDL_BlendMode blendMode = SDL_BLENDMODE_BLEND;
-
-  Uint8 alpha = 255;
 
   bool preventWeirdBorder = true;
 };

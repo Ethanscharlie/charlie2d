@@ -2,7 +2,10 @@
 #define ANIMATION_H
 
 #include "ResourceManager.h"
+#include "SDL_stdinc.h"
+#include "SDL_timer.h"
 #include <functional>
+#include <string>
 
 class Entity;
 class Sprite;
@@ -21,13 +24,14 @@ public:
    */
   Animation(Sprite *spriteIn, std::vector<std::string> framesIn, float fpsIn);
   /**
-   * \brief update loop for the animation 
+   * \brief update loop for the animation
    *
-   * Don't worry it still uses the timer inside it and doesn't just switch frames
+   * Don't worry it still uses the timer inside it and doesn't just switch
+   * frames
    */
   void update();
   /**
-   * \brief resets the frame counter 
+   * \brief resets the frame counter
    *
    * TODO remember what this method does because I forgor tbh
    */

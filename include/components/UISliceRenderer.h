@@ -8,6 +8,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include "Image.h"
 
 /**
  * \brief Renders a texture without stretching the corners
@@ -18,10 +19,9 @@ public:
   UISliceRenderer() {
     propertyRegister = {
         GET_PROP(rendererInWorld),
-        GET_PROP(alpha),
+        GET_PROP(image),
     };
 
-    loadTexture(textureName);
     typeIsRendering = true;
   };
 
@@ -38,10 +38,8 @@ public:
                           SDL_Rect destRect, int borderSize);
 
   bool rendererInWorld = false;
-  Uint8 alpha = 255;
 
 private:
-  SDL_Texture *texture;
-  std::string textureName = "img/panel.png";
+  Image image;
 };
 REGISTER_COMPONENT_TYPE(UISliceRenderer);

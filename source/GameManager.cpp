@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "Audio.h"
 #include "Component.h"
 #include "ControllerManager.h"
 #include "Entity.h"
@@ -310,24 +311,7 @@ void GameManager::doUpdateLoop() {
 }
 
 void GameManager::playSound(std::string filename, bool loop) {
-  Mix_Chunk *sound = ResourceManager::getInstance(renderer).getAudio(filename);
-
-  int maxChannels =
-      Mix_AllocateChannels(-1); // Get the total number of channels
-  int availableChannel = -1;
-
-  for (int channel = 0; channel < maxChannels; ++channel) {
-    if (Mix_Playing(channel) == 0) {
-      availableChannel = channel;
-      break;
-    }
-  }
-
-  if (availableChannel != -1) {
-    Mix_PlayChannel(availableChannel, sound, 0);
-  } else {
-    printf("Failed to play sound effect: %s\n", Mix_GetError());
-  }
+  Audio(filename).play(loop);
 }
 
 void GameManager::quit() {

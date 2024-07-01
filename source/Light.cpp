@@ -1,17 +1,16 @@
 #include "Light.h"
+#include "Math.h"
+#include "SDL_blendmode.h"
 
 void Light::update(float deltaTime) {
   if (image.path == "")
     return;
 
-  SDL_Texture *lightTexture =
-      ResourceManager::getInstance(GameManager::renderer)
-          .getColoredTexture({r, g, b}, image.path);
+  image.color = {r, g, b};
+  image.blendMode = SDL_BLENDMODE_ADD;
 
-  SDL_SetTextureBlendMode(lightTexture, SDL_BLENDMODE_ADD);
-  SDL_Rect l = getRenderBox(entity);
   SDL_SetRenderTarget(GameManager::renderer,
                       GameManager::shadowFilter->shadowFilter);
-  SDL_RenderCopy(GameManager::renderer, lightTexture, nullptr, &l);
+  image.render(getRenderBox(entity));
   SDL_SetRenderTarget(GameManager::renderer, nullptr);
 }

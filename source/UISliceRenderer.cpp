@@ -1,10 +1,5 @@
 #include "UISliceRenderer.h"
 
-void UISliceRenderer::setColor(std::array<Uint8, 3> color) {
-  texture = ResourceManager::getInstance(GameManager::renderer)
-                .getColoredTexture(color, textureName);
-}
-
 void UISliceRenderer::start() {
   entity->layer = 65;
   entity->useLayer = true;
@@ -14,12 +9,6 @@ void UISliceRenderer::start() {
  * \brief Loads a texture from filepath, this is meant to be square for a
  * panel of some sort
  */
-void UISliceRenderer::loadTexture(std::string name) {
-  textureName = name;
-  texture = ResourceManager::getInstance(GameManager::renderer)
-                .getTexture(textureName);
-}
-
 void UISliceRenderer::update(float deltaTime) {
   SDL_Rect spriteRect = {0, 0, 0, 0};
 
@@ -41,10 +30,10 @@ void UISliceRenderer::update(float deltaTime) {
     spriteRect.h = entity->box.size.y * Camera::getScale();
   }
 
-  SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-  SDL_SetTextureAlphaMod(texture, alpha);
+  SDL_SetTextureBlendMode(image.texture, image.blendMode);
+  SDL_SetTextureAlphaMod(image.texture, image.alpha);
 
-  Draw9SlicedTexture(GameManager::renderer, texture, spriteRect, 10);
+  Draw9SlicedTexture(GameManager::renderer, image.texture, spriteRect, 10);
 }
 
 void UISliceRenderer::Draw9SlicedTexture(SDL_Renderer *renderer,

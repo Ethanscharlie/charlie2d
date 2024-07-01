@@ -17,17 +17,6 @@ enum class EntityRenderPositionType { World, Screen };
 
 /** @file */
 
-struct Image {
-  Image() {
-    texture = nullptr;
-    path = "";
-  }
-  Image(std::string _path);
-  Image(SDL_Texture *_texture) : path(""), texture(_texture) {}
-  SDL_Texture *texture;
-  std::string path;
-};
-
 /**
  * \brief Random floating point number
  */

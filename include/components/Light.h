@@ -1,5 +1,6 @@
 #pragma once
 #include "GameManager.h"
+#include "Image.h"
 #include "Math.h"
 #include "ResourceManager.h"
 #include "SDL_render.h"

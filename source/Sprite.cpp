@@ -6,37 +6,13 @@
 #include <string>
 
 void Sprite::update(float deltaTime) {
-  SDL_Rect renderRect = getRenderBox(entity);
+  Box renderBox = getRenderBox(entity);
 
-  SDL_Rect *srcrect;
-  if (sourceRect.w == 0 && sourceRect.h == 0) {
-    srcrect = nullptr;
-  } else {
-    srcrect = &sourceRect;
-  }
-
-  SDL_SetTextureBlendMode(this->image.texture, blendMode);
-  SDL_SetTextureAlphaMod(this->image.texture, alpha);
-
-  if (this->image.texture != nullptr &&
-      renderRect.x + renderRect.w / 1 * 5 > 0 - renderRect.w / 1 &&
-      renderRect.x + (float)renderRect.w / 1 <
-          GameManager::gameWindowSize.x + (float)renderRect.w / 1 * 5 &&
-      renderRect.y + renderRect.h / 1 * 5 > 0 - renderRect.h / 1 &&
-      renderRect.y + (float)renderRect.h / 1 <
-          GameManager::gameWindowSize.y + (float)renderRect.h / 1 * 5) {
-
-    onScreen = true;
-    SDL_RenderCopyEx(GameManager::renderer, this->image.texture, srcrect,
-                     &renderRect, (180 / M_PI) * angle.radians, nullptr, flip);
-
-    SDL_SetTextureAlphaMod(this->image.texture, 255);
-  } else {
-    onScreen = false;
-  }
+  image.render(renderBox, angle);
 
   if (showBorders) {
     SDL_SetRenderDrawColor(GameManager::renderer, 0, 255, 0, 255);
+    SDL_Rect renderRect = renderBox;
     SDL_RenderDrawRect(GameManager::renderer, &renderRect);
   }
 
@@ -45,7 +21,7 @@ void Sprite::update(float deltaTime) {
   }
 }
 
-void Sprite::setAlpha(Uint8 alpha) { this->alpha = alpha; }
+void Sprite::setAlpha(Uint8 alpha) { this->image.alpha = alpha; }
 
 void Sprite::loadTexture(const std::string &image, bool setSize,
                          bool keepCentered) {

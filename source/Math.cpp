@@ -22,11 +22,6 @@ std::string floatToString(float value) {
   return ss.str();
 }
 
-Image::Image(std::string _path) : path(_path) {
-  texture =
-      ResourceManager::getInstance(GameManager::renderer).getTexture(path);
-}
-
 Vector2f getLogcialPosition(Vector2f screenPos) {
   int virtualWidth, virtualHeight;
   SDL_RenderGetLogicalSize(GameManager::renderer, &virtualWidth,

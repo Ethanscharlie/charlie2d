@@ -8,6 +8,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <map>
 #include <SDL_ttf.h>
 #include <array>
 #include <functional>

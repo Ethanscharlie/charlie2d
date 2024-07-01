@@ -46,9 +46,7 @@ struct TileGroup {
     SDL_SetRenderTarget(GameManager::renderer, renderTexture);
 
     for (TileRaw rawTile : tiles) {
-      SDL_Texture *tileTexture =
-          ResourceManager::getInstance(GameManager::renderer)
-              .getTexture(rawTile.image);
+      SDL_Texture *tileTexture = Image(rawTile.image).texture;
 
       SDL_Rect boxRect = SDL_Rect(0, rawTile.box.position.y - box.position.y,
                                   rawTile.box.size.x, rawTile.box.size.y);
@@ -195,18 +193,22 @@ public:
 
   void render() {
     for (TileRaw &tile : tileGrid.getTilesAsList()) {
-      SDL_Texture *tileImageTexture = nullptr;
+      Image tileImage;
       if (tile.image != "") {
-        tileImageTexture = ResourceManager::getInstance(GameManager::renderer)
-                               .getTexture(tile.image);
+        tileImage = tile.image;
       }
 
-      if (tileImageTexture != nullptr) {
-        SDL_Rect renderRect = getRenderBox(tile.box);
-        renderRect.w += 1;
-        renderRect.h += 1;
-        SDL_RenderCopy(GameManager::renderer, tileImageTexture, &tile.srcRect,
-                       &renderRect);
+      if (tileImage.texture != nullptr) {
+        Box renderBox = getRenderBox(tile.box);
+        renderBox.size.x += 1;
+        renderBox.size.y += 1;
+
+        tileImage.srcRect = tile.srcRect;
+        tileImage.render(renderBox);
+
+        // SDL_RenderCopy(GameManager::renderer, tileImageTexture,
+        // &tile.srcRect,
+        //                &renderRect);
       }
     }
   }
