@@ -32,7 +32,7 @@ Mix_Chunk *Audio::loadChunk(std::filesystem::path filename, bool forceReload) {
       return nullptr;
     }
 
-    Mix_Chunk *sound = Mix_LoadWAV(filename.c_str());
+    Mix_Chunk *sound = Mix_LoadWAV(filename.string().c_str());
     if (sound == NULL) {
       printf("Failed to load sound effect: %s\n", Mix_GetError());
       Mix_CloseAudio();

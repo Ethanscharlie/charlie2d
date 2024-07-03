@@ -1,4 +1,4 @@
-#include "Image.h"
+#include "Image.h"image.cp
 #include "Box.h"
 #include "GameManager.h"
 #include "Math.h"
@@ -31,7 +31,7 @@ SDL_Texture *Image::loadTexture(std::filesystem::path filename,
                                 bool forceReload) {
   if (loadedTextures.find(filename) == loadedTextures.end() || forceReload) {
     SDL_Texture *texture = NULL;
-    texture = IMG_LoadTexture(GameManager::renderer, filename.c_str());
+    texture = IMG_LoadTexture(GameManager::renderer, filename.string().c_str());
 
     if (texture == nullptr) {
       std::cout << "Failed to load image texture " << filename << std::endl;
