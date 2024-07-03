@@ -1,4 +1,4 @@
-#include "Image.h"image.cp
+#include "Image.h"
 #include "Box.h"
 #include "GameManager.h"
 #include "Math.h"
