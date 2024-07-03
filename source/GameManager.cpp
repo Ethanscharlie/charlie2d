@@ -98,7 +98,7 @@ void GameManager::init(Vector2f windowSize) {
 
   window = SDL_CreateWindow("Charlie2D Game", SDL_WINDOWPOS_CENTERED,
                             SDL_WINDOWPOS_CENTERED, currentWindowSize.x,
-                            currentWindowSize.y, SDL_WINDOW_SHOWN);
+                            currentWindowSize.y, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
   SDL_RenderSetLogicalSize(renderer, windowSize.x, windowSize.y);
