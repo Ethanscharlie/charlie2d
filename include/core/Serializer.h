@@ -25,6 +25,7 @@ template <typename T> bool registerComponentType(const std::string &typeName) {
   }
 
 extern std::map<int, Entity *> entityIidMap;
+extern std::map<int, std::vector<int>> entityNeedsEntityMap;
 
 template <typename T>
 void deserializeBasicValue(json &propJson, PropertyData data) {

@@ -4,10 +4,12 @@
 #include "ShadowFilter.h"
 #include "Text.h"
 #include "Tile.h"
+#include <algorithm>
 #include <fstream>
 #include <string>
 
 std::map<int, Entity *> entityIidMap;
+std::map<int, std::vector<int>> entityNeedsEntityMap;
 
 json serialize(Entity *entity) {
   if (entity->checkComponent<ShadowFilter>()) {
@@ -195,9 +197,11 @@ Entity *deserialize(json jsonData, bool start) {
 
       else if (data.type == typeid(Entity *)) {
         int iid = static_cast<int>(propJson);
-        Entity **entityPtr = static_cast<Entity **>(data.value);
-        Entity *entity = *entityPtr;
-        *entityPtr = entityIidMap[iid];
+        entityNeedsEntityMap[entity->iid].insert(
+            entityNeedsEntityMap[entity->iid].begin(), iid);
+        // Entity **entityPtr = static_cast<Entity **>(data.value);
+        // Entity *entity = *entityPtr;
+        // *entityPtr = entityIidMap[iid];
       }
 
       else if (data.type == typeid(TileGrid)) {
@@ -240,6 +244,9 @@ json serializeList(std::vector<Entity *> entities) {
 
 std::vector<Entity *> deserializeList(json jsonData, bool active) {
   std::vector<Entity *> entities;
+  entityIidMap.clear();
+  entityNeedsEntityMap.clear();
+
   for (json entityGroup : jsonData) {
     for (json entityJson : entityGroup) {
       Entity *dentity = deserialize(entityJson, active);
@@ -254,6 +261,20 @@ std::vector<Entity *> deserializeList(json jsonData, bool active) {
       }
     }
   }
+
+  for (Entity *entity : entities) {
+    for (auto &[type, component] : entity->components) {
+      for (PropertyData data : component->propertyRegister) {
+        if (data.type != typeid(Entity *))
+          continue;
+        Entity **entityPtr = static_cast<Entity **>(data.value);
+        // Entity *entity = *entityPtr;
+        *entityPtr = entityIidMap[entityNeedsEntityMap[entity->iid].back()];
+        entityNeedsEntityMap[entity->iid].pop_back();
+      }
+    }
+  }
+
   return entities;
 }
 
