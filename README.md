@@ -3,7 +3,9 @@
 # charlie2d
 A simple c++ w/SDL2 game engine
 
-DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG
+## Project Template
+https://github.com/Ethanscharlie/Charlie2D-Project-Template
+
 # [DOCS](https://ethanscharlie.github.io/charlie2d/)
 
 ## Examples 
@@ -50,7 +52,7 @@ Components can be created an added (Kinda like scripts)
 class Player : public Component {
     public:
     void start() override {
-        entity->require<Sprite>()->loadTexture("img/player.png");
+        entity->add<Sprite>()->loadTexture("img/player.png");
     }
 
     void update(float deltaTime) override {
