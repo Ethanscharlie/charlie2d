@@ -19,7 +19,7 @@ add_library(charlie2D STATIC ${CHARLIE_SOURCES} ${CHARLIE_HEADERS})
 if (WIN32) 
   set(sdl2_include_path "/usr/x86_64-w64-mingw32/include/SDL2")
   # file(COPY ${CMAKE_SOURCE_DIR}/dll/. DESTINATION ${CMAKE_BINARY_DIR})
-elseif(LINUX)
+elseif(LINUX OR EMSCRIPTEN)
   set(sdl2_include_path "/usr/include/SDL2")
 endif()
 
@@ -66,6 +66,24 @@ elseif(LINUX)
     SDL2_image
     SDL2_gfx
     )
+
+elseif(EMSCRIPTEN)
+  target_link_libraries(charlie2D
+    SDL2
+    SDL2_ttf
+    SDL2_mixer
+    SDL2_gfx
+  )
+
+  # Enable Emscripten-specific flags
+  set(CMAKE_EXECUTABLE_SUFFIX ".html")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_SDL=2")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_SDL_IMAGE=2")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s SDL2_IMAGE_FORMATS=['png']")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_SDL_TTF=2")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_SDL_MIXER=2")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_SDL_MIXER=2")
 
 endif()
 

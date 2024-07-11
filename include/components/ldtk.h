@@ -4,6 +4,7 @@
 #include "LDTKEntity.h"
 #include "Tile.h"
 
+#include <filesystem>
 #include <iostream>
 #include <vector>
 
@@ -72,10 +73,13 @@ public:
    * The entity tag is set to the name of the entity within ldtk, so you can
    * check for it in the loop and add components to different entity types
    */
-  static std::function<void()> onLoadLevel;
+  static std::function<void(std::vector<Entity*>)> onLoadLevel;
 
   static void preload(std::string iid);
 
   static std::map<std::string, std::map<std::string, TileLayer>>
       preloadedTiles;
+
+private:
+  static std::filesystem::path jsonDir;
 };

@@ -6,6 +6,7 @@
 #include "SDL_error.h"
 #include "SDL_render.h"
 #include "Tile.h"
+#include <filesystem>
 #include <utility>
 
 Box LDTK::worldBox;
@@ -16,9 +17,12 @@ json LDTK::currentLevel;
 std::map<std::string, std::map<std::string, json>> LDTK::worlds;
 
 Entity *LDTK::ldtkPlayer = nullptr;
-std::function<void()> LDTK::onLoadLevel = []() {};
+std::function<void(std::vector<Entity *>)> LDTK::onLoadLevel =
+    [](std::vector<Entity *>) {};
 
 std::map<std::string, std::map<std::string, TileLayer>> LDTK::preloadedTiles;
+
+std::filesystem::path LDTK::jsonDir;
 
 LDTK::LDTK() {}
 
@@ -89,8 +93,7 @@ json LDTK::getLevelJson(std::string iid) {
     }
   }
 
-  std::cout << "Level Not Found"
-            << "\n";
+  std::cout << "Level Not Found" << "\n";
   return {};
 }
 
@@ -108,10 +111,9 @@ void LDTK::preload(std::string iid) {
       for (auto const &tile : layer["gridTiles"]) {
         TileRaw rawTile;
 
-        std::string imageFileLocation;
-        imageFileLocation.append("img/ldtk");
-        imageFileLocation.append("/");
-        imageFileLocation.append(layer["__tilesetRelPath"]);
+        std::filesystem::path imageFileLocation;
+        imageFileLocation =
+            std::filesystem::path(jsonDir) / layer["__tilesetRelPath"];
         rawTile.image = imageFileLocation;
 
         rawTile.srcRect.x = tile["src"][0];
@@ -203,7 +205,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
     }
   }
 
-  onLoadLevel();
+  onLoadLevel(entities);
 
   if (handleUnload) {
     unload(lastEntities);
@@ -218,6 +220,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
 void LDTK::loadJson(std::string file) {
   std::ifstream f(file);
   fullJSON = json::parse(f);
+  jsonDir = std::filesystem::path(file).parent_path();
 
   auto flags = fullJSON["flags"];
   bool isMultiworld =
