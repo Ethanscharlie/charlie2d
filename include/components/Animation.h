@@ -1,6 +1,7 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
+#include "Image.h"
 #include "ResourceManager.h"
 #include "SDL_stdinc.h"
 #include "SDL_timer.h"
@@ -22,7 +23,7 @@ public:
    * \param framesIn the filenames for the frames in the animation
    * \param fpsIn fps stands for faps-Uhh I mean frames per second
    */
-  Animation(Sprite *spriteIn, std::vector<std::string> framesIn, float fpsIn);
+  Animation(Sprite *spriteIn, std::vector<Image> framesIn, float fpsIn);
   /**
    * \brief update loop for the animation
    *
@@ -53,7 +54,7 @@ public:
    * \brief The Sprite Component for the rendering
    */
   Sprite *sprite;
-  std::vector<std::string> frames;
+  std::vector<Image> frames;
   Uint32 timer = SDL_GetTicks();
   float fps = 1;
   int frameCounter = 0;

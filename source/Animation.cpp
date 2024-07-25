@@ -1,7 +1,8 @@
 #include "Animation.h"
+#include "Image.h"
 #include "Sprite.h"
 
-Animation::Animation(Sprite* spriteIn, std::vector<std::string> framesIn, float fpsIn) 
+Animation::Animation(Sprite* spriteIn, std::vector<Image> framesIn, float fpsIn) 
 {
     sprite = spriteIn;
     frames = framesIn;
@@ -12,7 +13,7 @@ void Animation::update()
 {
     if (playing && timer + fps*1000 < SDL_GetTicks())
     {
-        sprite->loadTexture(frames[frameCounter], false);
+        sprite->image = frames[frameCounter];
         
         if (direction == 1)
         {

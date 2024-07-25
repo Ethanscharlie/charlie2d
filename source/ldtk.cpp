@@ -129,12 +129,11 @@ void LDTK::preload(std::string iid) {
 
       std::string layerName = layer["__identifier"];
       preloadedTiles[iid][layerName] =
-          TileLayer(layerName, it - layerInstances.rbegin(),
-                    tileGroup(rawTiles, layer["__gridSize"]));
+          TileLayer(layerName, it - layerInstances.rbegin(), rawTiles);
 
-      for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
-        groupedTile.render();
-      }
+      // for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
+      //   groupedTile.render();
+      // }
     }
   }
 }
@@ -167,14 +166,15 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
 
     std::cout << "Loading layer " << layerName << "\n";
 
-    for (TileGroup &groupedTile : tileLayer.tiles) {
+    for (TileRaw &groupedTile : tileLayer.tiles) {
       Entity *tile = GameManager::createEntity(layerName);
 
       tile->box.position = (groupedTile.box.position);
       tile->box.size = (groupedTile.box.size);
       tile->box.position += (worldBox.position);
 
-      tile->add<Sprite>()->image.texture = groupedTile.getPreviousRender();
+      tile->add<Sprite>()->image = groupedTile.image;
+      tile->add<Sprite>()->image.srcRect = groupedTile.srcRect;
 
       tile->active = false;
       layerObject->get<TileLayerComponent>()->tiles.push_back(tile);

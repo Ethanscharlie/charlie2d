@@ -71,11 +71,11 @@ private:
 
 struct TileLayer {
   TileLayer() : name("") {}
-  TileLayer(std::string _name, int _layer, std::vector<TileGroup> _tiles)
+  TileLayer(std::string _name, int _layer, std::vector<TileRaw> _tiles)
       : name(_name), layer(_layer) {
     tiles = _tiles;
   }
-  std::vector<TileGroup> tiles;
+  std::vector<TileRaw> tiles;
   std::string name;
   int layer = 0;
 };

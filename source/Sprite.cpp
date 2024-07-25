@@ -42,7 +42,7 @@ void Sprite::loadTexture(const std::string &image, bool setSize,
   }
 }
 
-void Sprite::addAnimation(std::string title, std::vector<std::string> frames,
+void Sprite::addAnimation(std::string title, std::vector<Image> frames,
                           float fps) {
   animations[title] = new Animation(this, frames, fps);
 }

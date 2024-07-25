@@ -48,7 +48,7 @@ public:
    * \param title The title of the animation to go into the map
    * \param frames A vector of filepath strings for each frame of the animation
    */
-  void addAnimation(std::string title, std::vector<std::string> frames,
+  void addAnimation(std::string title, std::vector<Image> frames,
                     float fps);
 
   void setAlpha(Uint8 alpha);
