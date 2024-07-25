@@ -42,5 +42,5 @@ def create_project(dir: str):
     os.makedirs(libdir)
     shutilmove(fr"{PROJECTBUILD_FOLDER}/libcharlie2D.a", fr"{libdir}/libcharlie2D.a")
 
-create_project("./test")
+create_project("./FullBuild")
     
