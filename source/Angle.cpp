@@ -7,7 +7,7 @@ void Angle::lookAt(const Vector2f center, const Vector2f &point) {
  * \brief Gets a direction vector (Good for directional movement)
  * \return A normalized vector of this angle
  */
-Vector2f Angle::getVector() {
+auto Angle::getVector() -> Vector2f {
   Vector2f vector = {std::cos(radians), std::sin(radians)};
 
   float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);

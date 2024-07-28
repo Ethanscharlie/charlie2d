@@ -1,21 +1,21 @@
 #include "Box.h"
 
-float Box::getRight() { return position.x + size.x; }
-float Box::getLeft() { return position.x; }
-float Box::getTop() { return position.y; }
-float Box::getBottom() { return position.y + size.y; }
+auto Box::getRight() -> float { return position.x + size.x; }
+auto Box::getLeft() -> float { return position.x; }
+auto Box::getTop() -> float { return position.y; }
+auto Box::getBottom() -> float { return position.y + size.y; }
 
-Vector2f Box::getTopLeftCorner() { return position; }
-Vector2f Box::getTopMiddle() { return {position.x + size.x / 2, position.y}; }
-Vector2f Box::getTopRightCorner() { return {getRight(), position.y}; }
-Vector2f Box::getBottomLeftCorner() { return {position.x, getBottom()}; }
-Vector2f Box::getBottomMiddle() {
+auto Box::getTopLeftCorner() -> Vector2f { return position; }
+auto Box::getTopMiddle() -> Vector2f { return {position.x + size.x / 2, position.y}; }
+auto Box::getTopRightCorner() -> Vector2f { return {getRight(), position.y}; }
+auto Box::getBottomLeftCorner() -> Vector2f { return {position.x, getBottom()}; }
+auto Box::getBottomMiddle() -> Vector2f {
   return {position.x + size.x / 2, getBottom()};
 }
-Vector2f Box::getMiddleLeft() { return {position.x, position.y + size.y / 2}; }
-Vector2f Box::getMiddleRight() { return {getRight(), position.y + size.y / 2}; }
-Vector2f Box::getBottomRightCorner() { return {getRight(), getBottom()}; }
-Vector2f Box::getCenter() {
+auto Box::getMiddleLeft() -> Vector2f { return {position.x, position.y + size.y / 2}; }
+auto Box::getMiddleRight() -> Vector2f { return {getRight(), position.y + size.y / 2}; }
+auto Box::getBottomRightCorner() -> Vector2f { return {getRight(), getBottom()}; }
+auto Box::getCenter() -> Vector2f {
   return {position.x + size.x / 2, position.y + size.y / 2};
 }
 
@@ -36,7 +36,7 @@ void Box::setWithCenter(const Vector2f &point) {
   position.y = point.y - size.y / 2;
 }
 
-bool Box::checkCollision(Box other, BoxCollisionCheck boxCollisionCheck) {
+auto Box::checkCollision(Box other, BoxCollisionCheck boxCollisionCheck) -> bool {
 
   switch (boxCollisionCheck) {
   case BoxCollisionCheck::All:
@@ -58,8 +58,8 @@ void Box::print() {
             << size.y << std::endl;
 }
 
-slideOut Box::slide(const Vector2f &move, const std::vector<Box *> &solids,
-                    bool pushOut, bool useMoveBox) {
+auto Box::slide(const Vector2f &move, const std::vector<Box *> &solids,
+                    bool pushOut, bool useMoveBox) -> slideOut {
   slideOut out;
 
   // Start

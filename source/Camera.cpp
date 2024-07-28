@@ -32,7 +32,7 @@ void Camera::setPosition(const Vector2f &otherPosition) {
   position = cameraBox.getCenter();
 }
 
-Box Camera::getBox() {
+auto Camera::getBox() -> Box {
   Box cameraBox;
 
   Vector2f logicalSize;
@@ -41,9 +41,9 @@ Box Camera::getBox() {
   return cameraBox;
 }
 
-Vector2f Camera::getPosition() { return position; }
+auto Camera::getPosition() -> Vector2f { return position; }
 
-float Camera::getScale() { return scale; }
+auto Camera::getScale() -> float { return scale; }
 
 void Camera::resetCamera() {
   cameraLimitBox = {0, 0, 0, 0};

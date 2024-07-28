@@ -2,14 +2,14 @@
 #include "Entity.h"
 #include "Sprite.h"
 
-std::vector<TileGroup> tileGroup(std::vector<TileRaw> &tiles, int tilesize) {
+auto tileGroup(std::vector<TileRaw> &tiles, int tilesize) -> std::vector<TileGroup> {
   std::vector<TileGroup> aabbPool;
   std::vector<std::pair<Vector2f, std::vector<TileRaw>>> xMap;
 
   for (const auto &tile : tiles) {
     Box box = tile.box;
     if (box.size.x != tilesize) {
-      aabbPool.push_back(TileGroup(std::vector<TileRaw>{tile}, box));
+      aabbPool.emplace_back(std::vector<TileRaw>{tile}, box);
     } else {
       bool foundX = false;
       for (auto &entry : xMap) {

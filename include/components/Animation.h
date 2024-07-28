@@ -59,8 +59,8 @@ public:
   float fps = 1;
   int frameCounter = 0;
   int direction = 1;
-  bool playing;
-  bool looping;
+  bool playing{};
+  bool looping{};
   std::function<void()> onFinish;
 };
 

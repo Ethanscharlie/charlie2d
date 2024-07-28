@@ -8,7 +8,7 @@ void FadeTransition::start() {
 
 void FadeTransition::update(float deltaTime) {
   SDL_Rect fill_dst;
-  Uint32 elapsedTime;
+  Uint32 elapsedTime = 0;
 
   // Used for FadingOut and FadingIn so why repeat the code
   if (currentSection != Finished) {

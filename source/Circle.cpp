@@ -1,7 +1,7 @@
 #include "Circle.h"
 #include "Box.h"
 
-bool Circle::checkCollision(Box box) {
+auto Circle::checkCollision(Box box) -> bool {
   // Calculate the closest point to the circle within the rectangle
   float closestX =
       std::max(box.getLeft(), std::min(position.x, box.getRight()));
@@ -17,7 +17,7 @@ bool Circle::checkCollision(Box box) {
   return distanceSquared < (radius * radius);
 }
 
-bool Circle::checkCollision(const Circle &other) {
+auto Circle::checkCollision(const Circle &other) -> bool {
   float distance = std::sqrt(std::pow(other.position.x - position.x, 2) +
                              std::pow(other.position.y - position.y, 2));
 

@@ -1,4 +1,6 @@
 #include "InputManager.h"
+
+#include <math.h>
 #include "Camera.h"
 #include "Event.h"
 #include "GameManager.h"
@@ -15,20 +17,20 @@ float InputManager::mouseScroll = 0;
 bool InputManager::keyEvents[NUM_KEYS];
 
 InputManager::InputManager() {
-  for (int i = 0; i < NUM_KEYS; ++i) {
-    keyEvents[i] = false; // Initialize all keys as released
+  for (bool & keyEvent : keyEvents) {
+    keyEvent = false; // Initialize all keys as released
   }
 }
 
 void InputManager::update() {
   InputManager::mouseScroll = 0;
 
-  for (int i = 0; i < NUM_KEYS; ++i) {
-    keyEvents[i] = false; // Initialize all keys as released
+  for (bool & keyEvent : keyEvents) {
+    keyEvent = false; // Initialize all keys as released
   }
 }
 
-int InputManager::checkVertical() {
+auto InputManager::checkVertical() -> int {
   if (checkKeyHeld(SDL_SCANCODE_W) || checkKeyHeld(SDL_SCANCODE_UP))
     return 1;
   if (checkKeyHeld(SDL_SCANCODE_S) || checkKeyHeld(SDL_SCANCODE_DOWN))
@@ -36,7 +38,7 @@ int InputManager::checkVertical() {
   return 0;
 }
 
-int InputManager::checkHorizontal() {
+auto InputManager::checkHorizontal() -> int {
   if (checkKeyHeld(SDL_SCANCODE_D) || checkKeyHeld(SDL_SCANCODE_RIGHT))
     return 1;
   if (checkKeyHeld(SDL_SCANCODE_A) || checkKeyHeld(SDL_SCANCODE_LEFT))
@@ -44,12 +46,12 @@ int InputManager::checkHorizontal() {
   return 0;
 }
 
-Vector2f InputManager::checkAxis() {
+auto InputManager::checkAxis() -> Vector2f {
   return {static_cast<float>(checkHorizontal()),
           static_cast<float>(-checkVertical())};
 }
 
-Vector2f InputManager::getMouseWorldPosition() {
+auto InputManager::getMouseWorldPosition() -> Vector2f {
   Vector2f mouse = getMouseScreenPosition();
 
   // float scaler = GameManager::screen_change_scale *
@@ -62,24 +64,24 @@ Vector2f InputManager::getMouseWorldPosition() {
          Camera::getPosition();
 }
 
-Vector2f InputManager::getMouseUIPosition() {
+auto InputManager::getMouseUIPosition() -> Vector2f {
   Vector2f mouse = getMouseScreenPosition();
   return (mouse - GameManager::gameWindowSize / 2);
 }
 
-Vector2f InputManager::getMouseScreenPosition() {
-  int virtualWidth, virtualHeight;
+auto InputManager::getMouseScreenPosition() -> Vector2f {
+  int virtualWidth = 0, virtualHeight = 0;
   SDL_RenderGetLogicalSize(GameManager::renderer, &virtualWidth,
                            &virtualHeight);
 
-  int windowWidth, windowHeight;
+  int windowWidth = 0, windowHeight = 0;
   SDL_GetWindowSize(GameManager::window, &windowWidth, &windowHeight);
 
-  int mouseX, mouseY;
+  int mouseX = 0, mouseY = 0;
   SDL_GetMouseState(&mouseX, &mouseY);
 
-  double scale;
-  int xOffset, yOffset;
+  double scale = NAN;
+  int xOffset = 0, yOffset = 0;
   if (windowWidth * virtualHeight > windowHeight * virtualWidth) {
     // Calculate the scale based on height
     scale = (double)windowHeight / virtualHeight;
@@ -98,9 +100,9 @@ Vector2f InputManager::getMouseScreenPosition() {
   return {logicalX, logicalY};
 }
 
-bool InputManager::checkKeyHeld(SDL_Scancode scancode) {
+auto InputManager::checkKeyHeld(SDL_Scancode scancode) -> bool {
   SDL_PumpEvents();
-  const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
+  const Uint8 *keyboardState = SDL_GetKeyboardState(nullptr);
   return keyboardState[scancode];
 }
 

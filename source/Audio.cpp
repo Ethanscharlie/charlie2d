@@ -22,7 +22,7 @@ void Audio::play(bool loop) {
   }
 }
 
-Mix_Chunk *Audio::loadChunk(std::filesystem::path filename, bool forceReload) {
+auto Audio::loadChunk(std::filesystem::path filename, bool forceReload) -> Mix_Chunk * {
   if (loadedChunks.find(filename) == loadedChunks.end()) {
     std::cout << "Loading Audio " << filename << std::endl;
 
@@ -33,7 +33,7 @@ Mix_Chunk *Audio::loadChunk(std::filesystem::path filename, bool forceReload) {
     }
 
     Mix_Chunk *sound = Mix_LoadWAV(filename.string().c_str());
-    if (sound == NULL) {
+    if (sound == nullptr) {
       printf("Failed to load sound effect: %s\n", Mix_GetError());
       Mix_CloseAudio();
       return nullptr;
@@ -47,8 +47,8 @@ Mix_Chunk *Audio::loadChunk(std::filesystem::path filename, bool forceReload) {
 }
 
 void Audio::clearAllChunks() {
-  for (auto it = loadedChunks.begin(); it != loadedChunks.end(); it++) {
-    Mix_FreeChunk(it->second);
+  for (auto & loadedChunk : loadedChunks) {
+    Mix_FreeChunk(loadedChunk.second);
   }
   loadedChunks.clear();
 }

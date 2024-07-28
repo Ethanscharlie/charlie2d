@@ -11,7 +11,7 @@
 std::map<int, Entity *> entityIidMap;
 std::map<int, std::vector<int>> entityNeedsEntityMap;
 
-json serialize(Entity *entity) {
+auto serialize(Entity *entity) -> json {
   if (entity->checkComponent<ShadowFilter>()) {
     if (entity->get<ShadowFilter>() == GameManager::shadowFilter) {
       return {};
@@ -67,12 +67,12 @@ json serialize(Entity *entity) {
       }
 
       else if (data.type == typeid(Image)) {
-        Image *image = static_cast<Image *>(data.value);
+        auto *image = static_cast<Image *>(data.value);
         prop = image->path;
       }
 
       else if (data.type == typeid(std::string)) {
-        std::string *string = static_cast<std::string *>(data.value);
+        auto *string = static_cast<std::string *>(data.value);
         prop = *string;
       }
 
@@ -83,7 +83,7 @@ json serialize(Entity *entity) {
       }
 
       else if (data.type == typeid(Entity *)) {
-        Entity **entityPtr = static_cast<Entity **>(data.value);
+        auto **entityPtr = static_cast<Entity **>(data.value);
         Entity *entity = *entityPtr;
         prop = 0;
         if (entity != nullptr) {
@@ -115,7 +115,7 @@ json serialize(Entity *entity) {
   return jsonData;
 }
 
-Entity *deserialize(json jsonData, bool start) {
+auto deserialize(json jsonData, bool start) -> Entity * {
   if (jsonData.is_null())
     return nullptr;
 
@@ -168,7 +168,7 @@ Entity *deserialize(json jsonData, bool start) {
 
       else if (data.type == typeid(Vector2f)) {
         Vector2f value = {propJson["x"], propJson["y"]};
-        Vector2f *ptr = static_cast<Vector2f *>(data.value);
+        auto *ptr = static_cast<Vector2f *>(data.value);
         *ptr = value;
       }
 
@@ -180,13 +180,13 @@ Entity *deserialize(json jsonData, bool start) {
       }
 
       else if (data.type == typeid(Image)) {
-        Image *ptr = static_cast<Image *>(data.value);
+        auto *ptr = static_cast<Image *>(data.value);
         Image newImage = Image(propJson);
         *ptr = newImage;
       }
 
       else if (data.type == typeid(std::string)) {
-        std::string *ptr = static_cast<std::string *>(data.value);
+        auto *ptr = static_cast<std::string *>(data.value);
         *ptr = propJson;
       }
 
@@ -205,7 +205,7 @@ Entity *deserialize(json jsonData, bool start) {
       }
 
       else if (data.type == typeid(TileGrid)) {
-        TileGrid *tileGrid = static_cast<TileGrid *>(data.value);
+        auto *tileGrid = static_cast<TileGrid *>(data.value);
 
         for (json &tileJson : propJson["tiles"]) {
           GridTile tile;
@@ -234,7 +234,7 @@ Entity *deserialize(json jsonData, bool start) {
   return entity;
 }
 
-json serializeList(std::vector<Entity *> entities) {
+auto serializeList(std::vector<Entity *> entities) -> json {
   json entitiesListJson;
   for (Entity *entity : entities) {
     entitiesListJson[entity->tag].push_back(serialize(entity));
@@ -242,7 +242,7 @@ json serializeList(std::vector<Entity *> entities) {
   return entitiesListJson;
 }
 
-std::vector<Entity *> deserializeList(json jsonData, bool active) {
+auto deserializeList(json jsonData, bool active) -> std::vector<Entity *> {
   std::vector<Entity *> entities;
   entityIidMap.clear();
   entityNeedsEntityMap.clear();
@@ -267,7 +267,7 @@ std::vector<Entity *> deserializeList(json jsonData, bool active) {
       for (PropertyData data : component->propertyRegister) {
         if (data.type != typeid(Entity *))
           continue;
-        Entity **entityPtr = static_cast<Entity **>(data.value);
+        auto **entityPtr = static_cast<Entity **>(data.value);
         // Entity *entity = *entityPtr;
         *entityPtr = entityIidMap[entityNeedsEntityMap[entity->iid].back()];
         entityNeedsEntityMap[entity->iid].pop_back();
@@ -286,7 +286,7 @@ void serializeAndWrite(Entity *entity, std::string filepath) {
   file.close();
 }
 
-std::vector<Entity *> loadCollection(std::filesystem::path path) {
+auto loadCollection(std::filesystem::path path) -> std::vector<Entity *> {
   std::ifstream file(path);
   auto out = deserializeList(json::parse(file));
   file.close();

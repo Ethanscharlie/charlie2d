@@ -1,4 +1,6 @@
 #include "Math.h"
+
+#include <math.h>
 #include "Box.h"
 #include "Camera.h"
 #include "Entity.h"
@@ -9,29 +11,29 @@
 #include <random>
 #include <sstream>
 
-float randFloat(float min, float max) {
+auto randFloat(float min, float max) -> float {
   static std::random_device rd;
   static std::mt19937 gen(rd());
   std::uniform_real_distribution<float> dis(min, max);
   return dis(gen);
 }
 
-std::string floatToString(float value) {
+auto floatToString(float value) -> std::string {
   std::stringstream ss;
   ss << value;
   return ss.str();
 }
 
-Vector2f getLogcialPosition(Vector2f screenPos) {
-  int virtualWidth, virtualHeight;
+auto getLogcialPosition(Vector2f screenPos) -> Vector2f {
+  int virtualWidth = 0, virtualHeight = 0;
   SDL_RenderGetLogicalSize(GameManager::renderer, &virtualWidth,
                            &virtualHeight);
 
-  int windowWidth, windowHeight;
+  int windowWidth = 0, windowHeight = 0;
   SDL_GetWindowSize(GameManager::window, &windowWidth, &windowHeight);
 
-  double scale;
-  int xOffset, yOffset;
+  double scale = NAN;
+  int xOffset = 0, yOffset = 0;
   if (windowWidth * virtualHeight > windowHeight * virtualWidth) {
     // Calculate the scale based on height
     scale = (double)windowHeight / virtualHeight;
@@ -50,16 +52,16 @@ Vector2f getLogcialPosition(Vector2f screenPos) {
   return {logicalX, logicalY};
 }
 
-Vector2f getScreenPosition(Vector2f logicalPos) {
-  int virtualWidth, virtualHeight;
+auto getScreenPosition(Vector2f logicalPos) -> Vector2f {
+  int virtualWidth = 0, virtualHeight = 0;
   SDL_RenderGetLogicalSize(GameManager::renderer, &virtualWidth,
                            &virtualHeight);
 
-  int windowWidth, windowHeight;
+  int windowWidth = 0, windowHeight = 0;
   SDL_GetWindowSize(GameManager::window, &windowWidth, &windowHeight);
 
-  double scale;
-  int xOffset, yOffset;
+  double scale = NAN;
+  int xOffset = 0, yOffset = 0;
   if (windowWidth * virtualHeight > windowHeight * virtualWidth) {
     // Calculate the scale based on height
     scale = (double)windowHeight / virtualHeight;
@@ -78,7 +80,7 @@ Vector2f getScreenPosition(Vector2f logicalPos) {
   return {screenX, screenY};
 }
 
-Vector2f getImGuiPosition(Vector2f pos) {
+auto getImGuiPosition(Vector2f pos) -> Vector2f {
   Vector2f out;
 
   SDL_Rect logicalRect = getLogicalRect();
@@ -88,13 +90,13 @@ Vector2f getImGuiPosition(Vector2f pos) {
   return out;
 }
 
-SDL_Rect getLogicalRect() {
+auto getLogicalRect() -> SDL_Rect {
   int logical_w = 1, logical_h = 1;
   int output_w = GameManager::currentWindowSize.x;
   int output_h = GameManager::currentWindowSize.y;
   float want_aspect = 1.0f;
   float real_aspect = 1.0f;
-  float scale;
+  float scale = NAN;
   SDL_Rect logical_src_rect;
   SDL_Rect logical_dst_rect;
 
@@ -125,9 +127,9 @@ SDL_Rect getLogicalRect() {
   return logical_dst_rect;
 }
 
-Vector2f getWindowPosition(Vector2f gamePosition) {
-  int widthInPixels, heightInPixels;
-  int widthInPoints, heightInPoints;
+auto getWindowPosition(Vector2f gamePosition) -> Vector2f {
+  int widthInPixels = 0, heightInPixels = 0;
+  int widthInPoints = 0, heightInPoints = 0;
   SDL_GetWindowSize(GameManager::window, &widthInPoints, &heightInPoints);
   SDL_GL_GetDrawableSize(GameManager::window, &widthInPixels, &heightInPixels);
   float dpiScaleX = widthInPixels / (float)widthInPoints;
@@ -140,12 +142,12 @@ Vector2f getWindowPosition(Vector2f gamePosition) {
               logicalDst.y};
 }
 
-Vector2f getFullLogicalToWindowPosition(Vector2f fullLogicalPosition) {
+auto getFullLogicalToWindowPosition(Vector2f fullLogicalPosition) -> Vector2f {
   return fullLogicalPosition *
          (GameManager::currentWindowSize / GameManager::gameWindowSize);
 }
 
-std::string getTypeNameWithoutNumbers(std::type_index typeIndex) {
+auto getTypeNameWithoutNumbers(std::type_index typeIndex) -> std::string {
   std::string name = typeIndex.name();
   std::size_t pos = 0;
 
@@ -157,7 +159,7 @@ std::string getTypeNameWithoutNumbers(std::type_index typeIndex) {
   return name;
 }
 
-Box getRenderBox(Box box, EntityRenderPositionType renderPositionType) {
+auto getRenderBox(Box box, EntityRenderPositionType renderPositionType) -> Box {
   Box renderBox;
 
   switch (renderPositionType) {
@@ -178,12 +180,12 @@ Box getRenderBox(Box box, EntityRenderPositionType renderPositionType) {
   return renderBox;
 }
 
-Box getRenderBox(Entity *entity) {
+auto getRenderBox(Entity *entity) -> Box {
   Box box = entity->box;
   return getRenderBox(box, entity->renderPositionType);
 }
 
-std::array<Uint8, 3> hexToRGB(int hexColor) {
+auto hexToRGB(int hexColor) -> std::array<Uint8, 3> {
   Uint8 red = (hexColor >> 16) & 0xFF;
   Uint8 green = (hexColor >> 8) & 0xFF;
   Uint8 blue = hexColor & 0xFF;

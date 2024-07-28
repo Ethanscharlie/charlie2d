@@ -21,7 +21,7 @@ void ControllerManager::onControllerConnect(int joystickID) {
   }
 
   // Add if new player
-  controllers.push_back(controller);
+  controllers.emplace_back(controller);
 }
 
 void ControllerManager::onControllerDisconnect(int joystickID) {
@@ -73,7 +73,7 @@ void ControllerManager::onStickEvent(int joystickID, Uint8 sdl2Axis,
   }
 }
 
-Controller *ControllerManager::findController(int joystickID) {
+auto ControllerManager::findController(int joystickID) -> Controller * {
   for (Controller &controller : controllers) {
     if (controller.controller == nullptr)
       continue;

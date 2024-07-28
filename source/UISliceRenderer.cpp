@@ -39,7 +39,7 @@ void UISliceRenderer::update(float deltaTime) {
 void UISliceRenderer::Draw9SlicedTexture(SDL_Renderer *renderer,
                                          SDL_Texture *texture,
                                          SDL_Rect destRect, int borderSize) {
-  int textureWidth, textureHeight;
+  int textureWidth = 0, textureHeight = 0;
   SDL_QueryTexture(texture, nullptr, nullptr, &textureWidth, &textureHeight);
 
   // Define the nine source rectangles

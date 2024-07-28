@@ -14,22 +14,30 @@ file(GLOB_RECURSE CHARLIE_HEADERS
   ${PROJECT_SOURCE_DIR}/include/*.h
 )
 
-add_library(charlie2D STATIC ${CHARLIE_SOURCES} ${CHARLIE_HEADERS})                                                            
+add_library(charlie2D SHARED ${CHARLIE_SOURCES})                                                            
 
+if (LINUX)
 target_include_directories(charlie2D PUBLIC 
   ${PROJECT_SOURCE_DIR}/include/SDL2
+)
+elseif (WIN32)
+target_include_directories(charlie2D PUBLIC 
+  ${PROJECT_SOURCE_DIR}/include/SDL2win
+)
+endif()
+
+target_include_directories(charlie2D PUBLIC 
   ${PROJECT_SOURCE_DIR}/include
   ${PROJECT_SOURCE_DIR}/include/core
   ${PROJECT_SOURCE_DIR}/include/components
   ${PROJECT_SOURCE_DIR}/include/imgui
   ${PROJECT_SOURCE_DIR}/source
-  ${PROJECT_SOURCE_DIR}/imgui
   )      
 
 if (LINUX)
   set(SDL_LIB_PATH "${PROJECT_SOURCE_DIR}/lib/linux/SDL2")
 elseif (WIN32)
-  set(SDL_LIB_PATH "/usr/x86_64-w64-mingw32/lib")
+  set(SDL_LIB_PATH "${PROJECT_SOURCE_DIR}/lib/windows/SDL2")
 endif()
 
 find_library(SDL2_      SDL2       PATHS ${SDL_LIB_PATH})
@@ -40,7 +48,7 @@ find_library(SDL2_MIXER SDL2_mixer PATHS ${SDL_LIB_PATH})
 find_library(SDL2_GFX SDL2_gfx PATHS ${SDL_LIB_PATH})
 
 if (LINUX)
-  target_link_libraries(charlie2D
+  target_link_libraries(charlie2D PRIVATE
     ${SDL2_MAIN}
     ${SDL2_}
     ${SDL2_TTF}
@@ -49,11 +57,7 @@ if (LINUX)
     ${SDL2_GFX}
     )
 elseif (WIN32)
-  target_link_libraries(charlie2D
-    -static-libgcc
-    -static-libstdc++
-    -static
-    mingw32
+  target_link_libraries(charlie2D PRIVATE
     ${SDL2_MAIN}
     ${SDL2_}
     ${SDL2_TTF}
@@ -62,7 +66,6 @@ elseif (WIN32)
     ${SDL2_GFX}
     )
 elseif(EMSCRIPTEN)
-  # Enable Emscripten-specific flags
   set(CMAKE_EXECUTABLE_SUFFIX ".html")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_SDL=2")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")

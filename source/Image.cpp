@@ -1,4 +1,6 @@
 #include "Image.h"
+
+#include <utility>
 #include "Box.h"
 #include "GameManager.h"
 #include "Math.h"
@@ -25,12 +27,12 @@ void Image::render(const Box &box, const Angle &angle) {
                    (180 / M_PI) * angle.radians, nullptr, flip);
 }
 
-Image::Image(std::string _path) : path(_path) { texture = loadTexture(path); }
+Image::Image(std::string _path) : path(std::move(_path)) { texture = loadTexture(path); }
 
-SDL_Texture *Image::loadTexture(std::filesystem::path filename,
-                                bool forceReload) {
+auto Image::loadTexture(std::filesystem::path filename,
+                                bool forceReload) -> SDL_Texture * {
   if (loadedTextures.find(filename) == loadedTextures.end() || forceReload) {
-    SDL_Texture *texture = NULL;
+    SDL_Texture *texture = nullptr;
     texture = IMG_LoadTexture(GameManager::renderer, filename.string().c_str());
 
     if (texture == nullptr) {
@@ -47,8 +49,8 @@ SDL_Texture *Image::loadTexture(std::filesystem::path filename,
 }
 
 void Image::clearAllTextures() {
-  for (auto it = loadedTextures.begin(); it != loadedTextures.end(); it++) {
-    SDL_DestroyTexture(it->second);
+  for (auto & loadedTexture : loadedTextures) {
+    SDL_DestroyTexture(loadedTexture.second);
   }
   loadedTextures.clear();
 }

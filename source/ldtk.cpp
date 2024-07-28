@@ -24,7 +24,7 @@ std::map<std::string, std::map<std::string, TileLayer>> LDTK::preloadedTiles;
 
 std::filesystem::path LDTK::jsonDir;
 
-LDTK::LDTK() {}
+LDTK::LDTK() = default;
 
 void LDTK::update(float deltaTime) {
   // if (checkPlayerOutsideBounds()) {
@@ -49,7 +49,7 @@ void LDTK::unload(std::vector<Entity *> enlist) {
   enlist.clear();
 }
 
-std::string LDTK::findTraveledLevel(Entity *player) {
+auto LDTK::findTraveledLevel(Entity *player) -> std::string {
   if (player == nullptr) {
     std::cout << "NO PLAYER SET!" << std::endl;
     return "";
@@ -73,7 +73,7 @@ std::string LDTK::findTraveledLevel(Entity *player) {
   return "";
 }
 
-bool LDTK::checkOutsideBounds(Entity *player) {
+auto LDTK::checkOutsideBounds(Entity *player) -> bool {
   if (player->box.getCenter().x < worldBox.getRight() &&
       player->box.getCenter().x > worldBox.getLeft() &&
       player->box.getCenter().y < worldBox.getBottom() &&
@@ -84,7 +84,7 @@ bool LDTK::checkOutsideBounds(Entity *player) {
   return true;
 }
 
-json LDTK::getLevelJson(std::string iid) {
+auto LDTK::getLevelJson(std::string iid) -> json {
   for (auto [worldName, levels] : worlds) {
     auto it = levels.find(iid);
     if (it != levels.end()) {
@@ -114,7 +114,7 @@ void LDTK::preload(std::string iid) {
         std::filesystem::path imageFileLocation;
         imageFileLocation =
             std::filesystem::path(jsonDir) / layer["__tilesetRelPath"];
-        rawTile.image = imageFileLocation;
+        rawTile.image = imageFileLocation.string();
 
         rawTile.srcRect.x = tile["src"][0];
         rawTile.srcRect.y = tile["src"][1];

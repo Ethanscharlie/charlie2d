@@ -2,11 +2,11 @@
 #include "Image.h"
 #include "Sprite.h"
 
-Animation::Animation(Sprite* spriteIn, std::vector<Image> framesIn, float fpsIn) 
+Animation::Animation(Sprite* spriteIn, std::vector<Image> framesIn, float fpsIn) : sprite(spriteIn), frames(framesIn), fps(fpsIn) 
 {
-    sprite = spriteIn;
-    frames = framesIn;
-    fps = fpsIn;
+    
+    
+    
 }
 
 void Animation::update()

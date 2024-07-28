@@ -54,7 +54,7 @@ void EMSCRIPTEN_KEEPALIVE on_resize(int width, int height) {
 }
 #endif
 
-GameManager::GameManager() {}
+GameManager::GameManager() = default;
 
 GameManager::~GameManager() {
 
@@ -76,7 +76,7 @@ GameManager::~GameManager() {
 }
 
 void GameManager::init(Vector2f windowSize) {
-  srand(time(NULL));
+  srand(time(nullptr));
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Init(SDL_INIT_AUDIO);
   SDL_Init(SDL_INIT_TIMER);
@@ -138,7 +138,7 @@ void GameManager::Update() {
   ImGuiIO &io = ImGui::GetIO();
   (void)io;
 
-  int mouseX, mouseY;
+  int mouseX = 0, mouseY = 0;
   SDL_GetMouseState(&mouseX, &mouseY);
   Vector2f realMouse = (Vector2f(mouseX, mouseY));
   io.MousePos = {realMouse.x, realMouse.y};
@@ -337,11 +337,11 @@ void GameManager::destroyAll() {
   }
 }
 
-std::vector<Entity *> GameManager::getEntities(std::string tag) {
+auto GameManager::getEntities(std::string tag) -> std::vector<Entity *> {
   return entities[tag];
 }
 
-std::vector<Entity *> GameManager::getAllObjects() {
+auto GameManager::getAllObjects() -> std::vector<Entity *> {
   std::vector<Entity *> out;
   for (const auto &pair : entities) {
     const std::vector<Entity *> &entityPointers = pair.second;
@@ -350,8 +350,8 @@ std::vector<Entity *> GameManager::getAllObjects() {
   return out;
 }
 
-Entity *GameManager::createEntity(std::string tag) {
-  Entity *entity = new Entity();
+auto GameManager::createEntity(std::string tag) -> Entity * {
+  auto *entity = new Entity();
   entity->tag = tag;
 
   std::random_device dev;
