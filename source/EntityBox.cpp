@@ -1,7 +1,7 @@
-// #include "EntityBox.h"
-// #include "Camera.h"
-// #include "Entity.h"
-// #include "GameManager.h"
+// #include "EntityBox.hpp"
+// #include "Camera.hpp"
+// #include "Entity.hpp"
+// #include "GameManager.hpp"
 //
 // void entityBox::print() {
 //   globalBox.print();

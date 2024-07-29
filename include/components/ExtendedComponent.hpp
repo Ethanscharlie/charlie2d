@@ -1,6 +1,6 @@
 #pragma once
-#include "Component.h"
-#include "Entity.h"
+#include "Component.hpp"
+#include "Entity.hpp"
 
 class ExtendedComponent : public Component {
     public:

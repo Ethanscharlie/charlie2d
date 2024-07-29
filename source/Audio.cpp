@@ -1,4 +1,4 @@
-#include "Audio.h"
+#include "Audio.hpp"
 #include "SDL_mixer.h"
 
 std::map<std::filesystem::path, Mix_Chunk *> Audio::loadedChunks;

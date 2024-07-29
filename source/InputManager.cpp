@@ -1,11 +1,11 @@
-#include "InputManager.h"
+#include "InputManager.hpp"
 
 #include <math.h>
-#include "Camera.h"
-#include "Event.h"
-#include "GameManager.h"
+#include "Camera.hpp"
+#include "Event.hpp"
+#include "GameManager.hpp"
 #include "SDL_scancode.h"
-#include "Vector2f.h"
+#include "Vector2f.hpp"
 
 bool InputManager::mouseHeld = false;
 

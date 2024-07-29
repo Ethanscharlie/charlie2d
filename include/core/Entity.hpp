@@ -1,8 +1,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "Box.h"
-#include "GameManager.h"
+#include "Box.hpp"
+#include "GameManager.hpp"
 #include <SDL.h>
 #include <functional>
 #include <map>

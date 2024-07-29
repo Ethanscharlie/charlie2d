@@ -1,8 +1,8 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include "Image.h"
-#include "ResourceManager.h"
+#include "Image.hpp"
+#include "ResourceManager.hpp"
 #include "SDL_stdinc.h"
 #include "SDL_timer.h"
 #include <functional>

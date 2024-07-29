@@ -1,7 +1,7 @@
 #pragma once
-#include "Box.h"
-#include "Math.h"
-#include "Vector2f.h"
+#include "Box.hpp"
+#include "Math.hpp"
+#include "Vector2f.hpp"
 
 class Camera {
 public:

@@ -1,12 +1,12 @@
-#include "Math.h"
+#include "Math.hpp"
 
 #include <math.h>
-#include "Box.h"
-#include "Camera.h"
-#include "Entity.h"
-#include "GameManager.h"
-#include "ResourceManager.h"
-#include "Vector2f.h"
+#include "Box.hpp"
+#include "Camera.hpp"
+#include "Entity.hpp"
+#include "GameManager.hpp"
+#include "ResourceManager.hpp"
+#include "Vector2f.hpp"
 #include <iostream>
 #include <random>
 #include <sstream>

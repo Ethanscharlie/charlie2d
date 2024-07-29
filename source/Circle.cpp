@@ -1,5 +1,5 @@
-#include "Circle.h"
-#include "Box.h"
+#include "Circle.hpp"
+#include "Box.hpp"
 
 auto Circle::checkCollision(Box box) -> bool {
   // Calculate the closest point to the circle within the rectangle

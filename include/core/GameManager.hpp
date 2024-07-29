@@ -1,10 +1,10 @@
 #ifndef GAME_MANAGER_H
 #define GAME_MANAGER_H
 
-#include "Component.h"
-#include "InputManager.h"
-#include "Math.h"
-#include "ResourceManager.h"
+#include "Component.hpp"
+#include "InputManager.hpp"
+#include "Math.hpp"
+#include "ResourceManager.hpp"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>

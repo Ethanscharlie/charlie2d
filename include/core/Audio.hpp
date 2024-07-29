@@ -1,5 +1,5 @@
 #pragma once
-#include "Angle.h"
+#include "Angle.hpp"
 #include "SDL_mixer.h"
 #include "SDL_render.h"
 #include <array>

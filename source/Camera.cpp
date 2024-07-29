@@ -1,7 +1,7 @@
-#include "Camera.h"
-#include "GameManager.h"
+#include "Camera.hpp"
+#include "GameManager.hpp"
 #include "SDL_render.h"
-#include "Vector2f.h"
+#include "Vector2f.hpp"
 
 Vector2f Camera::position = {0, 0};
 Box Camera::cameraLimitBox;

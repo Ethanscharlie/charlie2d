@@ -1,7 +1,7 @@
 // #ifndef RESOURCE_MANAGER_H
 // #define RESOURCE_MANAGER_H
 //
-// // #include "GameManager.h"
+// // #include "GameManager.hpp"
 //
 // #include <SDL.h>
 // #include <SDL_image.h>

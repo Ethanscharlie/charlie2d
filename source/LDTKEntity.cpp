@@ -1,5 +1,5 @@
-#include "LDTKEntity.h"
-#include "ldtk.h"
+#include "LDTKEntity.hpp"
+#include "ldtk.hpp"
 
 void LDTKEntity::onDestroy() {
   LDTK::entities.erase(

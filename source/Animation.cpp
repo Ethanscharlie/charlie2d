@@ -1,6 +1,6 @@
-#include "Animation.h"
-#include "Image.h"
-#include "Sprite.h"
+#include "Animation.hpp"
+#include "Image.hpp"
+#include "Sprite.hpp"
 
 Animation::Animation(Sprite* spriteIn, std::vector<Image> framesIn, float fpsIn) : sprite(spriteIn), frames(framesIn), fps(fpsIn) 
 {

@@ -1,4 +1,4 @@
-// #include "ResourceManager.h"
+// #include "ResourceManager.hpp"
 // #include <iostream>
 //
 // ResourceManager &ResourceManager::getInstance(SDL_Renderer *renderer) {

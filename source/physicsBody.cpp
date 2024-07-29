@@ -1,4 +1,4 @@
-#include "physicsBody.h"
+#include "physicsBody.hpp"
 
 void physicsBody::update(float deltaTime) {
   // Adjusts velocity if greater then max (Ignores if -1)

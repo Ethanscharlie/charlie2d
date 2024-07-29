@@ -1,8 +1,8 @@
 #pragma once
-#include "Component.h"
-#include "ExtendedComponent.h"
-#include "Serializer.h"
-#include "Vector2f.h"
+#include "Component.hpp"
+#include "ExtendedComponent.hpp"
+#include "Serializer.hpp"
+#include "Vector2f.hpp"
 
 enum class AlignmentAnchor {
   topLeft,

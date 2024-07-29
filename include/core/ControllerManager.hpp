@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector2f.h"
+#include "Vector2f.hpp"
 #define NUM_BUTTONS 15
 #define BIT16_MAX 32767.0
 

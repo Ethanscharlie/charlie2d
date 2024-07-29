@@ -1,14 +1,14 @@
-#include "GameManager.h"
-#include "Audio.h"
-#include "Component.h"
-#include "ControllerManager.h"
-#include "Entity.h"
-#include "InputManager.h"
+#include "GameManager.hpp"
+#include "Audio.hpp"
+#include "Component.hpp"
+#include "ControllerManager.hpp"
+#include "Entity.hpp"
+#include "InputManager.hpp"
 #include "SDL_events.h"
 #include "SDL_gamecontroller.h"
 #include "SDL_mouse.h"
 #include "SDL_render.h"
-#include "ShadowFilter.h"
+#include "ShadowFilter.hpp"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
@@ -124,7 +124,7 @@ void GameManager::init(Vector2f windowSize) {
 
 #ifdef __EMSCRIPTEN__
   resize_callback();
-  float width = emscripten_run_script_int("window.innerWidth");
+  float width = emscripten_run_script_int("window.innerWid.hpp");
   float height = emscripten_run_script_int("window.innerHeight");
   GameManager::setWindowSize({width, height});
 #endif

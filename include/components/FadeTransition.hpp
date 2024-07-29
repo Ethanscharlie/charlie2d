@@ -1,7 +1,7 @@
 #pragma once
-#include "Component.h"
-#include "Entity.h"
-#include "GameManager.h"
+#include "Component.hpp"
+#include "Entity.hpp"
+#include "GameManager.hpp"
 #include "SDL_stdinc.h"
 #include "SDL_timer.h"
 #include <functional>

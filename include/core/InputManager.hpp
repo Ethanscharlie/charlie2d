@@ -4,8 +4,8 @@
 #include <SDL_gamecontroller.h>
 #include <unordered_map>
 #include <vector>
-// #include "GameManager.h"
-#include "Math.h"
+// #include "GameManager.hpp"
+#include "Math.hpp"
 #include "SDL_events.h"
 
 // #define NUM_KEYS 256 // Total number of keys

@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Component.h"
-#include "Entity.h"
-#include "Math.h"
-#include "Serializer.h"
-#include "SolidBody.h"
-#include "Tile.h"
+#include "Component.hpp"
+#include "Entity.hpp"
+#include "Math.hpp"
+#include "Serializer.hpp"
+#include "SolidBody.hpp"
+#include "Tile.hpp"
 
 /**
  * \brief A simple movement physics class

@@ -1,8 +1,8 @@
 #pragma once
-#include "Entity.h"
-#include "GameManager.h"
-#include "Serializer.h"
-#include "physicsBody.h"
+#include "Entity.hpp"
+#include "GameManager.hpp"
+#include "Serializer.hpp"
+#include "physicsBody.hpp"
 
 /**
  * \brief This class is made to be a simple Platformer player controller that

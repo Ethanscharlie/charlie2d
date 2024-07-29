@@ -1,6 +1,6 @@
 #pragma once
-#include "Component.h"
-#include "Serializer.h"
+#include "Component.hpp"
+#include "Serializer.hpp"
 
 // I know so cool
 class SolidBody : public Component {};

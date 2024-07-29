@@ -1,5 +1,5 @@
-#include "Light.h"
-#include "Math.h"
+#include "Light.hpp"
+#include "Math.hpp"
 #include "SDL_blendmode.h"
 
 void Light::update(float deltaTime) {

@@ -1,9 +1,9 @@
-#include "Serializer.h"
-#include "Entity.h"
-#include "Light.h"
-#include "ShadowFilter.h"
-#include "Text.h"
-#include "Tile.h"
+#include "Serializer.hpp"
+#include "Entity.hpp"
+#include "Light.hpp"
+#include "ShadowFilter.hpp"
+#include "Text.hpp"
+#include "Tile.hpp"
 #include <algorithm>
 #include <fstream>
 #include <string>
@@ -78,7 +78,7 @@ auto serialize(Entity *entity) -> json {
 
       else if (data.type == typeid(Font)) {
         Font *font = static_cast<Font *>(data.value);
-        prop["path"] = font->filepath;
+        prop["pa.hpp"] = font->filepath;
         prop["size"] = font->size;
       }
 
@@ -192,7 +192,7 @@ auto deserialize(json jsonData, bool start) -> Entity * {
 
       else if (data.type == typeid(Font)) {
         Font *ptr = static_cast<Font *>(data.value);
-        *ptr = Font(propJson["path"], propJson["size"]);
+        *ptr = Font(propJson["pa.hpp"], propJson["size"]);
       }
 
       else if (data.type == typeid(Entity *)) {

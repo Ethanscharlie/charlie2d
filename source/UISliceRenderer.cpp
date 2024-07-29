@@ -1,4 +1,4 @@
-#include "UISliceRenderer.h"
+#include "UISliceRenderer.hpp"
 
 void UISliceRenderer::start() {
   entity->layer = 65;

@@ -1,4 +1,4 @@
-#include "Entity.h"
+#include "Entity.hpp"
 
 void Entity::remove(std::type_index type) {
   // Remove from GameManager

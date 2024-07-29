@@ -1,6 +1,6 @@
 #pragma once
-#include "Component.h"
-#include "GameManager.h"
+#include "Component.hpp"
+#include "GameManager.hpp"
 #include "SDL_rect.h"
 #include "SDL_render.h"
 

@@ -1,4 +1,4 @@
-#include "FadeTransition.h"
+#include "FadeTransition.hpp"
 
 void FadeTransition::start() {
   entity->useLayer = true;

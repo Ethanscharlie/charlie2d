@@ -1,9 +1,9 @@
-#include "Image.h"
+#include "Image.hpp"
 
 #include <utility>
-#include "Box.h"
-#include "GameManager.h"
-#include "Math.h"
+#include "Box.hpp"
+#include "GameManager.hpp"
+#include "Math.hpp"
 #include "SDL_rect.h"
 
 std::map<std::filesystem::path, SDL_Texture *> Image::loadedTextures;

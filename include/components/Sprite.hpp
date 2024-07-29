@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Angle.h"
-#include "Animation.h"
-#include "GameManager.h"
-#include "Image.h"
-#include "Math.h"
+#include "Angle.hpp"
+#include "Animation.hpp"
+#include "GameManager.hpp"
+#include "Image.hpp"
+#include "Math.hpp"
 #include "SDL_blendmode.h"
-#include "Serializer.h"
+#include "Serializer.hpp"
 #include <SDL.h>
 
 class Animation;

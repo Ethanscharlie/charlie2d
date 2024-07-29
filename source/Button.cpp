@@ -1,5 +1,5 @@
-#include "Button.h"
-#include "Event.h"
+#include "Button.hpp"
+#include "Event.hpp"
 
 void Button::start() {
   Event::addEventListener("LeftMouseButtonDown", [this]() {

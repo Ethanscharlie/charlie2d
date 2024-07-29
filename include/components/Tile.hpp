@@ -2,16 +2,16 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include "Camera.h"
-#include "GameManager.h"
-#include "Math.h"
+#include "Camera.hpp"
+#include "GameManager.hpp"
+#include "Math.hpp"
 
 // Components
-#include "ResourceManager.h"
+#include "ResourceManager.hpp"
 #include "SDL_rect.h"
 #include "SDL_render.h"
-#include "Serializer.h"
-#include "Sprite.h"
+#include "Serializer.hpp"
+#include "Sprite.hpp"
 #include <vector>
 
 class Entity;

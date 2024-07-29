@@ -1,7 +1,7 @@
-#include "Sprite.h"
-#include "Camera.h"
-#include "Entity.h"
-#include "Math.h"
+#include "Sprite.hpp"
+#include "Camera.hpp"
+#include "Entity.hpp"
+#include "Math.hpp"
 #include "SDL_render.h"
 #include <string>
 

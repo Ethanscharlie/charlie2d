@@ -1,4 +1,4 @@
-#include "Box.h"
+#include "Box.hpp"
 
 auto Box::getRight() -> float { return position.x + size.x; }
 auto Box::getLeft() -> float { return position.x; }

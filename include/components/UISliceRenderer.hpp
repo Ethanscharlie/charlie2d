@@ -1,14 +1,14 @@
 #pragma once
-#include "Camera.h"
-#include "Entity.h"
-#include "GameManager.h"
-#include "ResourceManager.h"
+#include "Camera.hpp"
+#include "Entity.hpp"
+#include "GameManager.hpp"
+#include "ResourceManager.hpp"
 #include "SDL_stdinc.h"
-#include "Serializer.h"
+#include "Serializer.hpp"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-#include "Image.h"
+#include "Image.hpp"
 
 /**
  * \brief Renders a texture without stretching the corners

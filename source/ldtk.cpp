@@ -1,11 +1,11 @@
-#include "ldtk.h"
-#include "Entity.h"
-#include "FadeTransition.h"
-#include "GameManager.h"
-#include "LDTKEntity.h"
+#include "ldtk.hpp"
+#include "Entity.hpp"
+#include "FadeTransition.hpp"
+#include "GameManager.hpp"
+#include "LDTKEntity.hpp"
 #include "SDL_error.h"
 #include "SDL_render.h"
-#include "Tile.h"
+#include "Tile.hpp"
 #include <filesystem>
 #include <utility>
 
@@ -113,7 +113,7 @@ void LDTK::preload(std::string iid) {
 
         std::filesystem::path imageFileLocation;
         imageFileLocation =
-            std::filesystem::path(jsonDir) / layer["__tilesetRelPath"];
+            std::filesystem::path(jsonDir) / layer["__tilesetRelPa.hpp"];
         rawTile.image = imageFileLocation.string();
 
         rawTile.srcRect.x = tile["src"][0];
@@ -198,7 +198,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
         object->box.position = {entity["px"][0], entity["px"][1]};
         object->box.position += (worldBox.position);
 
-        object->box.size = {entity["width"], entity["height"]};
+        object->box.size = {entity["wid.hpp"], entity["height"]};
 
         entities.push_back(object);
       }

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Component.h"
+#include "Component.hpp"
 #include "SDL_stdinc.h"
 #include "SDL_timer.h"
-#include "Serializer.h"
+#include "Serializer.hpp"
 #include <cstdio>
 #include <functional>
 #include <map>

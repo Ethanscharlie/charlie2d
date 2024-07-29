@@ -1,4 +1,4 @@
-#include "Angle.h"
+#include "Angle.hpp"
 void Angle::lookAt(const Vector2f center, const Vector2f &point) {
   setWithVector({point.x - center.x, point.y - center.y});
 }

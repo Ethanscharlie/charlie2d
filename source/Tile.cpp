@@ -1,6 +1,6 @@
-#include "Tile.h"
-#include "Entity.h"
-#include "Sprite.h"
+#include "Tile.hpp"
+#include "Entity.hpp"
+#include "Sprite.hpp"
 
 auto tileGroup(std::vector<TileRaw> &tiles, int tilesize) -> std::vector<TileGroup> {
   std::vector<TileGroup> aabbPool;

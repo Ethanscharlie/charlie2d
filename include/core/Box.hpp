@@ -1,6 +1,6 @@
 #pragma once
 #include "SDL_rect.h"
-#include "Vector2f.h"
+#include "Vector2f.hpp"
 #include <vector>
 
 enum class BoxCollisionCheck { All, VerticaleOnly, HorizontalOnly };

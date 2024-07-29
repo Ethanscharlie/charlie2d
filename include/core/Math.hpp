@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Component.h"
+#include "Component.hpp"
 #include "SDL_rect.h"
 #include "SDL_render.h"
-#include "Vector2f.h"
+#include "Vector2f.hpp"
 #include <SDL.h>
 #include <cstdlib>
 #include <ctime>

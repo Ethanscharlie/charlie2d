@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Camera.h"
-#include "LDTKEntity.h"
-#include "Tile.h"
+#include "Camera.hpp"
+#include "LDTKEntity.hpp"
+#include "Tile.hpp"
 
 #include <filesystem>
 #include <iostream>

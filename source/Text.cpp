@@ -1,4 +1,4 @@
-#include "Text.h"
+#include "Text.hpp"
 
 void Text::start() { entity->useLayer = true; }
 

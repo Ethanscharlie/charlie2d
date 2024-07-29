@@ -1,5 +1,5 @@
-#include "JumpMan.h"
-#include "Event.h"
+#include "JumpMan.hpp"
+#include "Event.hpp"
 #include "SDL_keycode.h"
 #include "SDL_scancode.h"
 

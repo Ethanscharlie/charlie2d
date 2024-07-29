@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector2f.h"
+#include "Vector2f.hpp"
 
 /**
  * \brief A simple class for manageing angles (used in Sprite)

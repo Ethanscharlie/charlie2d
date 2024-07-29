@@ -1,11 +1,11 @@
 #pragma once
-#include "GameManager.h"
-#include "Image.h"
-#include "Math.h"
-#include "ResourceManager.h"
+#include "GameManager.hpp"
+#include "Image.hpp"
+#include "Math.hpp"
+#include "ResourceManager.hpp"
 #include "SDL_render.h"
-#include "Serializer.h"
-#include "ShadowFilter.h"
+#include "Serializer.hpp"
+#include "ShadowFilter.hpp"
 
 class Light : public Component {
 public:

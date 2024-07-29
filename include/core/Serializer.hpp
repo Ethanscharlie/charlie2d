@@ -1,10 +1,10 @@
 #ifndef SERIALIZER_H
 #define SERIALIZER_H
-#include "Component.h"
-#include "Entity.h"
-#include "GameManager.h"
-#include "LDTKEntity.h"
-#include "Vector2f.h"
+#include "Component.hpp"
+#include "Entity.hpp"
+#include "GameManager.hpp"
+#include "LDTKEntity.hpp"
+#include "Vector2f.hpp"
 #include <fstream>
 #include <map>
 

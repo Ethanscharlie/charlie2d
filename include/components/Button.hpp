@@ -1,12 +1,12 @@
 #pragma once
-#include "Camera.h"
-#include "Component.h"
-#include "Entity.h"
-#include "GameManager.h"
-#include "InputManager.h"
-#include "Math.h"
-#include "Serializer.h"
-#include "Vector2f.h"
+#include "Camera.hpp"
+#include "Component.hpp"
+#include "Entity.hpp"
+#include "GameManager.hpp"
+#include "InputManager.hpp"
+#include "Math.hpp"
+#include "Serializer.hpp"
+#include "Vector2f.hpp"
 #include <SDL.h>
 
 /**
