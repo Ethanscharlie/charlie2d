@@ -1,0 +1,40 @@
+\doxysection{Image.\+hpp}
+\hypertarget{Image_8hpp_source}{}\label{Image_8hpp_source}\index{include/core/Image.hpp@{include/core/Image.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Angle.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBox}{Box}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structImage}{Image}}\ \{}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{structImage}{Image}}()\ :\ path(\textcolor{stringliteral}{"{}"{}}),\ texture(\textcolor{keyword}{nullptr})\ \{\}}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{structImage}{Image}}(std::string\ \_path);}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structImage}{Image}}(SDL\_Texture\ *\_texture)\ :\ path(\textcolor{stringliteral}{"{}"{}}),\ texture(\_texture)\ \{\}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{void}\ render(\textcolor{keyword}{const}\ \mbox{\hyperlink{structBox}{Box}}\ \&box,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structAngle}{Angle}}\ \&angle\ =\ \mbox{\hyperlink{structAngle}{Angle}}());}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ SDL\_Texture\ *texture;}
+\DoxyCodeLine{00019\ \ \ std::string\ path;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ SDL\_Rect\ srcRect\ =\ \{0,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{00022\ \ \ std::array<Uint8,\ 3>\ color\ =\ \{255,\ 255,\ 255\};}
+\DoxyCodeLine{00023\ \ \ Uint8\ alpha\ =\ 255;}
+\DoxyCodeLine{00024\ \ \ SDL\_RendererFlip\ flip\ =\ SDL\_FLIP\_NONE;}
+\DoxyCodeLine{00025\ \ \ SDL\_BlendMode\ blendMode\ =\ SDL\_BLENDMODE\_BLEND;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ clearAllTextures();}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ reloadAllTextures();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ SDL\_Texture\ *loadTexture(std::filesystem::path\ filename,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ forceReload\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{static}\ std::map<std::filesystem::path,\ SDL\_Texture\ *>\ loadedTextures;}
+\DoxyCodeLine{00034\ \};}
+
+\end{DoxyCode}

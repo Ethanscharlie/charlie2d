@@ -1,0 +1,91 @@
+\doxysection{Alignment Class Reference}
+\hypertarget{classAlignment}{}\label{classAlignment}\index{Alignment@{Alignment}}
+Inheritance diagram for Alignment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAlignment}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAlignment_a2fa7384ab6325c32c27b23043b2752a0}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAlignment_ad4eaee52f6a7abd11baadf8b784e39b5}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAlignment_a299ad392476d631107adee3098021d77}\label{classAlignment_a299ad392476d631107adee3098021d77} 
+Alignment\+Anchor {\bfseries anchor}
+\item 
+\Hypertarget{classAlignment_ab105515d3ca7376669954fe8c9fd1ae9}\label{classAlignment_ab105515d3ca7376669954fe8c9fd1ae9} 
+\mbox{\hyperlink{structVector2f}{Vector2f}} {\bfseries offset}
+\item 
+\Hypertarget{classAlignment_ab96198900859fb2874acd3a0e822e9d0}\label{classAlignment_ab96198900859fb2874acd3a0e822e9d0} 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries parent} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAlignment_a2fa7384ab6325c32c27b23043b2752a0}\index{Alignment@{Alignment}!start@{start}}
+\index{start@{start}!Alignment@{Alignment}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classAlignment_a2fa7384ab6325c32c27b23043b2752a0} 
+void Alignment\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
+
+\Hypertarget{classAlignment_ad4eaee52f6a7abd11baadf8b784e39b5}\index{Alignment@{Alignment}!update@{update}}
+\index{update@{update}!Alignment@{Alignment}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classAlignment_ad4eaee52f6a7abd11baadf8b784e39b5} 
+void Alignment\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Alighnment.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,46 @@
+\doxysection{Scheduler.\+hpp}
+\hypertarget{Scheduler_8hpp_source}{}\label{Scheduler_8hpp_source}\index{include/components/Scheduler.hpp@{include/components/Scheduler.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SDL\_stdinc.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SDL\_timer.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Serializer.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSchedule}{Schedule}}\ \{}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{structSchedule}{Schedule}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{structSchedule}{Schedule}}(std::function<\textcolor{keywordtype}{void}()>\ \_function,\ Uint32\ \_millisecondWaitTime,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_removeTimerOnFinish,\ \textcolor{keywordtype}{int}\ \_removeAfterTimes)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ :\ function(\_function),\ millisecondWaitTime(\_millisecondWaitTime),}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ timerStartTime(SDL\_GetTicks()),}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ removeTimerOnFinish(\_removeTimerOnFinish),}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ timesCounter(\_removeAfterTimes)\ \{\}}
+\DoxyCodeLine{00024\ \ \ std::function<void()>\ function\ =\ []()\ \{\};}
+\DoxyCodeLine{00025\ \ \ Uint32\ millisecondWaitTime\ =\ 0;}
+\DoxyCodeLine{00026\ \ \ Uint32\ timerStartTime\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{bool}\ removeTimerOnFinish\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{int}\ timesCounter\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ std::function<void()>\ onFinish\ =\ []()\ \{\};}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScheduler}{Scheduler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScheduler_a12580d9d2584e1c2204631460f1a6051}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classScheduler_afef303e4f9d4b970368db827f1341e8f}{addSchedule}}(\textcolor{keyword}{const}\ std::string\ \&name,\ Uint32\ millisecondWaitTime,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ function,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ removeTimerOnFinish\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{int}\ removeAfterTimes\ =\ 0);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ removeSchedule(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ std::map<std::string,\ Schedule>\ schedules;}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ REGISTER\_COMPONENT\_TYPE(\mbox{\hyperlink{classScheduler}{Scheduler}});}
+
+\end{DoxyCode}

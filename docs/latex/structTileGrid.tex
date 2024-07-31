@@ -1,0 +1,43 @@
+\doxysection{Tile\+Grid Struct Reference}
+\hypertarget{structTileGrid}{}\label{structTileGrid}\index{TileGrid@{TileGrid}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structTileGrid_a7dd38b1f69961f09e0934aa856401dda}\label{structTileGrid_a7dd38b1f69961f09e0934aa856401dda} 
+void {\bfseries set\+Tile} (\mbox{\hyperlink{structGridTile}{Grid\+Tile}} tile, int x, int y)
+\item 
+\Hypertarget{structTileGrid_aa829b1b2f973c9d74e8a2a2a0895bac7}\label{structTileGrid_aa829b1b2f973c9d74e8a2a2a0895bac7} 
+void {\bfseries remove\+Tile} (int x, int y)
+\item 
+\Hypertarget{structTileGrid_ae30eb6e6e02d0a9b3bb62fcd85c83be6}\label{structTileGrid_ae30eb6e6e02d0a9b3bb62fcd85c83be6} 
+\mbox{\hyperlink{structGridTile}{Grid\+Tile}} \& {\bfseries get\+Tile} (int x, int y)
+\item 
+\Hypertarget{structTileGrid_a67adac30c913f96c1d0156ccb67da60c}\label{structTileGrid_a67adac30c913f96c1d0156ccb67da60c} 
+std\+::vector$<$ \mbox{\hyperlink{structTileRaw}{Tile\+Raw}} $>$ {\bfseries get\+Tiles\+As\+List} ()
+\item 
+\Hypertarget{structTileGrid_a60f85a72a22ee7e773bbdb363fcd2562}\label{structTileGrid_a60f85a72a22ee7e773bbdb363fcd2562} 
+void {\bfseries generate\+Grouped\+Colliders} ()
+\item 
+\Hypertarget{structTileGrid_a457ba94ec6c775ebbe8134401edaf8d9}\label{structTileGrid_a457ba94ec6c775ebbe8134401edaf8d9} 
+void {\bfseries on\+Modify} ()
+\item 
+\Hypertarget{structTileGrid_ad28937a71a7ab2207581a331e4a0f854}\label{structTileGrid_ad28937a71a7ab2207581a331e4a0f854} 
+std\+::vector$<$ \mbox{\hyperlink{structBox}{Box}} $>$ {\bfseries get\+Tile\+Groups} ()
+\item 
+\Hypertarget{structTileGrid_ae2c51df02b4ef8bff0acf1b12516b252}\label{structTileGrid_ae2c51df02b4ef8bff0acf1b12516b252} 
+bool {\bfseries check\+Collision} (\mbox{\hyperlink{structBox}{Box}} box)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structTileGrid_a0fc1b1c4e96230b49708b9ffd8bb200e}\label{structTileGrid_a0fc1b1c4e96230b49708b9ffd8bb200e} 
+int {\bfseries grid\+Size} = 16
+\item 
+\Hypertarget{structTileGrid_ab7e96fa7336789ac6eeea4362c2ff43e}\label{structTileGrid_ab7e96fa7336789ac6eeea4362c2ff43e} 
+std\+::map$<$ int, std\+::map$<$ int, \mbox{\hyperlink{structGridTile}{Grid\+Tile}} $>$ $>$ {\bfseries tiles}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Tile.\+hpp\end{DoxyCompactItemize}

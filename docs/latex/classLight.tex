@@ -1,0 +1,95 @@
+\doxysection{Light Class Reference}
+\hypertarget{classLight}{}\label{classLight}\index{Light@{Light}}
+Inheritance diagram for Light\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLight}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLight_a946c8a022644f47691ba68f242784431}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLight_ad718d33a2f466d98fffa93f53540bb4b}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLight_a6484dbbf36410fd202e5e06fa9d8cf44}\label{classLight_a6484dbbf36410fd202e5e06fa9d8cf44} 
+\mbox{\hyperlink{structImage}{Image}} {\bfseries image}
+\item 
+\Hypertarget{classLight_abc0747f7aa9ef6b6fa759a74e5b115d8}\label{classLight_abc0747f7aa9ef6b6fa759a74e5b115d8} 
+Uint8 {\bfseries r} = 255
+\item 
+\Hypertarget{classLight_ab494198188c522ed702132829c4433b2}\label{classLight_ab494198188c522ed702132829c4433b2} 
+Uint8 {\bfseries g} = 255
+\item 
+\Hypertarget{classLight_a83145ad38c30e5b78c5a82cce829ea1f}\label{classLight_a83145ad38c30e5b78c5a82cce829ea1f} 
+Uint8 {\bfseries b} = 255
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLight_a946c8a022644f47691ba68f242784431}\index{Light@{Light}!start@{start}}
+\index{start@{start}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classLight_a946c8a022644f47691ba68f242784431} 
+void Light\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
+
+\Hypertarget{classLight_ad718d33a2f466d98fffa93f53540bb4b}\index{Light@{Light}!update@{update}}
+\index{update@{update}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classLight_ad718d33a2f466d98fffa93f53540bb4b} 
+void Light\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Light.\+hpp\item 
+source/Light.\+cpp\end{DoxyCompactItemize}

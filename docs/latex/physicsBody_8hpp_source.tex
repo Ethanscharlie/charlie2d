@@ -1,0 +1,29 @@
+\doxysection{physics\+Body.\+hpp}
+\hypertarget{physicsBody_8hpp_source}{}\label{physicsBody_8hpp_source}\index{include/components/physicsBody.hpp@{include/components/physicsBody.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Entity.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8hpp}{Math.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Serializer.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}SolidBody.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Tile.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classphysicsBody}{physicsBody}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classphysicsBody}{physicsBody}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}physicsBody"{}})\{\};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{start}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classphysicsBody_aa33cc4abec54d4891a2baef648fdddad}{velocity}};}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classphysicsBody_a1be2be12c04bd03711fb622a88e87b14}{maxVelocity}}\ =\ \{-\/1,\ -\/1\};}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classphysicsBody_a2403035c0d252db50328509e9426a3b5}{pushOut}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ REGISTER\_COMPONENT\_TYPE(\mbox{\hyperlink{classphysicsBody}{physicsBody}});}
+
+\end{DoxyCode}

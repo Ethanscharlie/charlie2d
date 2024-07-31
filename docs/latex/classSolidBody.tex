@@ -1,0 +1,46 @@
+\doxysection{Solid\+Body Class Reference}
+\hypertarget{classSolidBody}{}\label{classSolidBody}\index{SolidBody@{SolidBody}}
+Inheritance diagram for Solid\+Body\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSolidBody}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{start}} ()
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{update}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Solid\+Body.\+hpp\end{DoxyCompactItemize}

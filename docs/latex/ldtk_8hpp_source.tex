@@ -1,0 +1,52 @@
+\doxysection{ldtk.\+hpp}
+\hypertarget{ldtk_8hpp_source}{}\label{ldtk_8hpp_source}\index{include/components/ldtk.hpp@{include/components/ldtk.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Camera.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}LDTKEntity.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Tile.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLDTK}{LDTK}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classLDTK}{LDTK}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTK_ab63a9f213ad8af16007789387f3fde6b}{unload}}(std::vector<Entity\ *>\ enlist\ =\ \mbox{\hyperlink{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}{entities}});}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classLDTK_aabe64eff32545af5799c1957be5b6a07}{findTraveledLevel}}(\mbox{\hyperlink{classEntity}{Entity}}\ *player);}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLDTK_adccc220494ba847ac082f4b1b0c9f03f}{checkOutsideBounds}}(\mbox{\hyperlink{classEntity}{Entity}}\ *player);}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTK_aed928cd94db7eb39a1d646a477a30dda}{loadLevel}}(std::string\ iid,\ \textcolor{keywordtype}{bool}\ handleUnload\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1}{loadJson}}(std::string\ file\ =\ \textcolor{stringliteral}{"{}img/ldtk/space.ldtk"{}});}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{static}\ json\ getLevelJson(std::string\ iid);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structBox}{Box}}\ worldBox;}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classEntity}{Entity}}\ *ldtkPlayer;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}{entities}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{static}\ json\ fullJSON;}
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{static}\ json\ currentLevel;}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::map<std::string,\ json>>\ worlds;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{static}\ std::function<void(std::vector<Entity*>)>\ \mbox{\hyperlink{classLDTK_a5165bd2378c1f3fa3043c7c7621ca5b9}{onLoadLevel}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ preload(std::string\ iid);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::map<std::string,\ TileLayer>>}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ preloadedTiles;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{static}\ std::filesystem::path\ jsonDir;}
+\DoxyCodeLine{00085\ \};}
+
+\end{DoxyCode}

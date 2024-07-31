@@ -2,12 +2,12 @@
 \hypertarget{classComponent}{}\label{classComponent}\index{Component@{Component}}
 
 
-Components are made to attach to \doxylink{classEntity}{Entity} s \doxylink{classSprite}{Sprite} Components with handle rendering while \doxylink{classCollider}{Collider} s will handle collisions.  
+Components are made to attach to \doxylink{classEntity}{Entity} s \doxylink{classSprite}{Sprite} Components with handle rendering while Collider s will handle collisions.  
 
 
 
 
-{\ttfamily \#include $<$Component.\+h$>$}
+{\ttfamily \#include $<$Component.\+hpp$>$}
 
 Inheritance diagram for Component\+:\begin{figure}[H]
 \begin{center}
@@ -27,7 +27,8 @@ virtual void \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{
 \begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+\Hypertarget{classComponent_ae54013904603c2a15d9963d28e666d78}\label{classComponent_ae54013904603c2a15d9963d28e666d78} 
+virtual void {\bfseries on\+Screen\+Change} ()
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -50,20 +51,23 @@ bool {\bfseries type\+Is\+Rendering} = false
 \Hypertarget{classComponent_a302b94be874440b798b1ec4d941ea8d0}\label{classComponent_a302b94be874440b798b1ec4d941ea8d0} 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
+\Hypertarget{classComponent_ac6691031ffc9e3cf3c29116abf445cbb}\label{classComponent_ac6691031ffc9e3cf3c29116abf445cbb} 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
 \Hypertarget{classComponent_ad1e24bf474dadd687bef5bd5658cec28}\label{classComponent_ad1e24bf474dadd687bef5bd5658cec28} 
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Components are made to attach to \doxylink{classEntity}{Entity} s \doxylink{classSprite}{Sprite} Components with handle rendering while \doxylink{classCollider}{Collider} s will handle collisions. 
+Components are made to attach to \doxylink{classEntity}{Entity} s \doxylink{classSprite}{Sprite} Components with handle rendering while Collider s will handle collisions. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}\label{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2} 
-\index{Component@{Component}!onDestroy@{onDestroy}}
+\Hypertarget{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}\index{Component@{Component}!onDestroy@{onDestroy}}
 \index{onDestroy@{onDestroy}!Component@{Component}}
 \doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
-{\footnotesize\ttfamily virtual void Component\+::on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2} 
+virtual void Component\+::on\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -71,27 +75,13 @@ Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true.
 
 
 
-Reimplemented in \mbox{\hyperlink{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb}{LDTKEntity}}, and \mbox{\hyperlink{classTileLayer_a7f3410a6fb557d5fb1474191c5b0fac4}{Tile\+Layer}}.
+Reimplemented in \mbox{\hyperlink{classExtendedComponent_af25185dd383b18431b32e671338f5f41}{Extended\+Component}}, \mbox{\hyperlink{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb}{LDTKEntity}}, and \mbox{\hyperlink{classTileLayerComponent_a59396a2c05dfb21dec7cc5b7c58beb0a}{Tile\+Layer\+Component}}.
 
-\Hypertarget{classComponent_ae54013904603c2a15d9963d28e666d78}\label{classComponent_ae54013904603c2a15d9963d28e666d78} 
-\index{Component@{Component}!onScreenChange@{onScreenChange}}
-\index{onScreenChange@{onScreenChange}!Component@{Component}}
-\doxysubsubsection{\texorpdfstring{onScreenChange()}{onScreenChange()}}
-{\footnotesize\ttfamily virtual void Component\+::on\+Screen\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
-
-
-Runs when the screen size is changed. 
-
-
-
-Reimplemented in \mbox{\hyperlink{classText_affaab7133b97efad656ceddefa93c819}{Text}}.
-
-\Hypertarget{classComponent_ae1ca93c773f779d0a004eec46f468560}\label{classComponent_ae1ca93c773f779d0a004eec46f468560} 
-\index{Component@{Component}!start@{start}}
+\Hypertarget{classComponent_ae1ca93c773f779d0a004eec46f468560}\index{Component@{Component}!start@{start}}
 \index{start@{start}!Component@{Component}}
 \doxysubsubsection{\texorpdfstring{start()}{start()}}
-{\footnotesize\ttfamily virtual void Component\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classComponent_ae1ca93c773f779d0a004eec46f468560} 
+virtual void Component\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -99,13 +89,13 @@ Runs after \doxylink{classComponent}{Component} data is set in entity.\+add.
 
 
 
-Reimplemented in \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{Button}}, \mbox{\hyperlink{classCircleCollider_a8d99b540a3931b6b0e81e6d1ed3b850d}{Circle\+Collider}}, \mbox{\hyperlink{classCollider_afc2cd70c2772433aaba405d1fc1a5beb}{Collider}}, \mbox{\hyperlink{classentityBox_a97964f06526bec8bbed4dffab167578b}{entity\+Box}}, \mbox{\hyperlink{classFadeTransition_ae658a5ad0dce9e31220ea3ab5d3f0f04}{Fade\+Transition}}, \mbox{\hyperlink{classSimpleImGuiPanel_a9b84b6a47785bff310b22828fea02af9}{Simple\+Im\+Gui\+Panel}}, \mbox{\hyperlink{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}{LDTKEntity}}, \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{physics\+Body}}, \mbox{\hyperlink{classScheduler_a92853b420d439bd49fc0c690b1c02bfd}{Scheduler}}, \mbox{\hyperlink{classSprite_ad69637776e32e93bda17fe7a108dbb86}{Sprite}}, \mbox{\hyperlink{classText_a7c7391c29820a87f72dd30c92e71c85f}{Text}}, \mbox{\hyperlink{classTileLayer_a5800e39c6e110a8595a841dc806433db}{Tile\+Layer}}, \mbox{\hyperlink{classUICanvas_a3b1a84d0f2bc7157e7f5414011cc0b29}{UICanvas}}, and \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{UISlice\+Renderer}}.
+Reimplemented in \mbox{\hyperlink{classAlignment_a2fa7384ab6325c32c27b23043b2752a0}{Alignment}}, \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{Button}}, \mbox{\hyperlink{classExtendedComponent_a91bafab5474ecab5c706c3f364695942}{Extended\+Component}}, \mbox{\hyperlink{classFadeTransition_ae658a5ad0dce9e31220ea3ab5d3f0f04}{Fade\+Transition}}, \mbox{\hyperlink{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}{LDTKEntity}}, \mbox{\hyperlink{classLight_a946c8a022644f47691ba68f242784431}{Light}}, \mbox{\hyperlink{classphysicsBody_a3f61ad0d22479bdea0ca431e7bbab107}{physics\+Body}}, \mbox{\hyperlink{classShadowFilter_a1997296389590a7b7ff08b030c939fd2}{Shadow\+Filter}}, \mbox{\hyperlink{classSprite_ad69637776e32e93bda17fe7a108dbb86}{Sprite}}, \mbox{\hyperlink{classText_a7c7391c29820a87f72dd30c92e71c85f}{Text}}, \mbox{\hyperlink{classTileLayerComponent_aaf14d55642c520fa57b8fc200149ccce}{Tile\+Layer\+Component}}, \mbox{\hyperlink{classTilemap_a2b8edd7f648523d633cbc258ec6af59c}{Tilemap}}, and \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{UISlice\+Renderer}}.
 
-\Hypertarget{classComponent_a3b3bee5d55446124842e5f2e229e1384}\label{classComponent_a3b3bee5d55446124842e5f2e229e1384} 
-\index{Component@{Component}!update@{update}}
+\Hypertarget{classComponent_a3b3bee5d55446124842e5f2e229e1384}\index{Component@{Component}!update@{update}}
 \index{update@{update}!Component@{Component}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily virtual void Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classComponent_a3b3bee5d55446124842e5f2e229e1384} 
+virtual void Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -113,10 +103,10 @@ Updates in the update loop.
 
 
 
-Reimplemented in \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{Button}}, \mbox{\hyperlink{classCircleCollider_af410c11f63576845aa343d8ff9b0e579}{Circle\+Collider}}, \mbox{\hyperlink{classCollider_accd99a67e32b8c4d56f5e346c06b1530}{Collider}}, \mbox{\hyperlink{classentityBox_a3f520eae5a09d1a5300238a75272d7b6}{entity\+Box}}, \mbox{\hyperlink{classFadeTransition_a2990c9bc595c7ac4ceab0e0b867a47ad}{Fade\+Transition}}, \mbox{\hyperlink{classSimpleImGuiPanel_a5d5a633e5d9991e3ea2da9468d03630e}{Simple\+Im\+Gui\+Panel}}, \mbox{\hyperlink{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}{LDTKEntity}}, \mbox{\hyperlink{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}{physics\+Body}}, \mbox{\hyperlink{classScheduler_a12580d9d2584e1c2204631460f1a6051}{Scheduler}}, \mbox{\hyperlink{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}{Sprite}}, \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{Text}}, \mbox{\hyperlink{classTileLayer_a1db294a23904e414861e8ebbf1a3f4ea}{Tile\+Layer}}, \mbox{\hyperlink{classUICanvas_ac8b11ae5b4b7a89c5da3d0d6034591e5}{UICanvas}}, and \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{UISlice\+Renderer}}.
+Reimplemented in \mbox{\hyperlink{classAlignment_ad4eaee52f6a7abd11baadf8b784e39b5}{Alignment}}, \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{Button}}, \mbox{\hyperlink{classExtendedComponent_adbfd35709f42d356cfa704f0bfe3e03a}{Extended\+Component}}, \mbox{\hyperlink{classFadeTransition_a2990c9bc595c7ac4ceab0e0b867a47ad}{Fade\+Transition}}, \mbox{\hyperlink{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}{Jump\+Man}}, \mbox{\hyperlink{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}{LDTKEntity}}, \mbox{\hyperlink{classLight_ad718d33a2f466d98fffa93f53540bb4b}{Light}}, \mbox{\hyperlink{classphysicsBody_adf53b6cb40bd3e506c7b79113ac3c234}{physics\+Body}}, \mbox{\hyperlink{classScheduler_a12580d9d2584e1c2204631460f1a6051}{Scheduler}}, \mbox{\hyperlink{classShadowFilter_a91dd6dd4e3718602ecc60239d9823579}{Shadow\+Filter}}, \mbox{\hyperlink{classSprite_aea1bb193b0b1a47512ef1e7751a38f2f}{Sprite}}, \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{Text}}, \mbox{\hyperlink{classTileLayerComponent_a45d6d8c3750596bfaa2f447b44955513}{Tile\+Layer\+Component}}, \mbox{\hyperlink{classTilemap_ae5cb79a0d9926b9e331d743bab4c58e3}{Tilemap}}, and \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{UISlice\+Renderer}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/core/Component.\+h\end{DoxyCompactItemize}
+include/core/Component.\+hpp\end{DoxyCompactItemize}

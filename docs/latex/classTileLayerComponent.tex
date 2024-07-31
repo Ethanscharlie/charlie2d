@@ -1,0 +1,112 @@
+\doxysection{Tile\+Layer\+Component Class Reference}
+\hypertarget{classTileLayerComponent}{}\label{classTileLayerComponent}\index{TileLayerComponent@{TileLayerComponent}}
+
+
+Made to optimize tile rendering by not sorting each tile individualy.  
+
+
+
+
+{\ttfamily \#include $<$Tile.\+hpp$>$}
+
+Inheritance diagram for Tile\+Layer\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTileLayerComponent}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTileLayerComponent_aaf14d55642c520fa57b8fc200149ccce}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTileLayerComponent_a45d6d8c3750596bfaa2f447b44955513}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTileLayerComponent_a59396a2c05dfb21dec7cc5b7c58beb0a}{on\+Destroy}} () override
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTileLayerComponent_a655265fc470dec07a2eb4129e0d4af9e}\label{classTileLayerComponent_a655265fc470dec07a2eb4129e0d4af9e} 
+std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries tiles}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Made to optimize tile rendering by not sorting each tile individualy. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTileLayerComponent_a59396a2c05dfb21dec7cc5b7c58beb0a}\index{TileLayerComponent@{TileLayerComponent}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!TileLayerComponent@{TileLayerComponent}}
+\doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
+{\footnotesize\ttfamily \label{classTileLayerComponent_a59396a2c05dfb21dec7cc5b7c58beb0a} 
+void Tile\+Layer\+Component\+::on\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{Component}}.
+
+\Hypertarget{classTileLayerComponent_aaf14d55642c520fa57b8fc200149ccce}\index{TileLayerComponent@{TileLayerComponent}!start@{start}}
+\index{start@{start}!TileLayerComponent@{TileLayerComponent}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classTileLayerComponent_aaf14d55642c520fa57b8fc200149ccce} 
+void Tile\+Layer\+Component\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
+
+\Hypertarget{classTileLayerComponent_a45d6d8c3750596bfaa2f447b44955513}\index{TileLayerComponent@{TileLayerComponent}!update@{update}}
+\index{update@{update}!TileLayerComponent@{TileLayerComponent}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classTileLayerComponent_a45d6d8c3750596bfaa2f447b44955513} 
+void Tile\+Layer\+Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Tile.\+hpp\item 
+source/Tile.\+cpp\end{DoxyCompactItemize}

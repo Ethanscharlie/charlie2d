@@ -1,0 +1,59 @@
+\doxysection{Box.\+hpp}
+\hypertarget{Box_8hpp_source}{}\label{Box_8hpp_source}\index{include/core/Box.hpp@{include/core/Box.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}SDL\_rect.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Vector2f.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{enum\ class}\ BoxCollisionCheck\ \{\ All,\ VerticaleOnly,\ HorizontalOnly\ \};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBox}{Box}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structslideOut}{slideOut}}\ \{}
+\DoxyCodeLine{00011\ \ \ std::vector<Box\ *>\ hitList;}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{bool}\ horizontalHit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{bool}\ verticleHit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBox}{Box}}\ \{}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{structBox}{Box}}()\ \{\}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{structBox}{Box}}(\textcolor{keywordtype}{float}\ p\_x,\ \textcolor{keywordtype}{float}\ p\_y,\ \textcolor{keywordtype}{float}\ p\_w,\ \textcolor{keywordtype}{float}\ p\_h)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ :\ position(p\_x,\ p\_y),\ size(p\_w,\ p\_h)\ \{\}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_aca5fea6a298b404edd1224085006a671}{getRight}}();}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_a3455ab63d5928edcddf1d1542d683461}{getLeft}}();}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_a6711c568df497dabffe727363ba779e0}{getTop}}();}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structBox_ae7c137ca1f2fcb73a98cf0d869876b99}{getBottom}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopLeftCorner();}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopMiddle();}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getTopRightCorner();}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomLeftCorner();}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomMiddle();}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getMiddleLeft();}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getMiddleRight();}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getBottomRightCorner();}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getCenter();}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a7738def139a86833bab2064234118fc8}{setScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point);}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a8cbd3f8ec11e4811eb29f9a79295780a}{changeScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&change);}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&point);}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{structBox_a67c4c0537ace51361c214ae5e9cae815}{checkCollision}}(\mbox{\hyperlink{structBox}{Box}}\ other,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BoxCollisionCheck\ boxCollisionCheck\ =\ BoxCollisionCheck::All);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structBox_a7f9cef3d9324289ae0fb4ec1aa50db9d}{print}}();}
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{structslideOut}{slideOut}}\ slide(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&move,\ \textcolor{keyword}{const}\ std::vector<Box\ *>\ \&solids,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pushOut\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ useMoveBox\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{operator}\ SDL\_Rect()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ SDL\_Rect(position.x,\ position.y,\ size.x,\ size.y);}
+\DoxyCodeLine{00084\ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ position;}
+\DoxyCodeLine{00087\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ size;}
+\DoxyCodeLine{00088\ \};}
+
+\end{DoxyCode}

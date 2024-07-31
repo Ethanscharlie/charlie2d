@@ -1,0 +1,22 @@
+\doxysection{Event.\+hpp}
+\hypertarget{Event_8hpp_source}{}\label{Event_8hpp_source}\index{include/core/Event.hpp@{include/core/Event.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ }EventListener\ =\ std::function<void()>;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEvent}{Event}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ fireEvent(std::string\ eventName);}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ addEventListener(std::string\ eventName,\ EventListener\ function);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::vector<EventListener>>\ eventListeners;}
+\DoxyCodeLine{00016\ \};}
+
+\end{DoxyCode}

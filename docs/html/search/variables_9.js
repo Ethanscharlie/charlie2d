@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['needground_0',['needGround',['../classJumpMan.html#a1547f2011e0d04367bde5a4da048ef75',1,'JumpMan']]]
+  ['maxspeed_0',['maxSpeed',['../classJumpMan.html#a6d3b341f99be4ce36bd4ddbc8ada24ab',1,'JumpMan']]],
+  ['maxvelocity_1',['maxVelocity',['../classphysicsBody.html#a1be2be12c04bd03711fb622a88e87b14',1,'physicsBody']]]
 ];

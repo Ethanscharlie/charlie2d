@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['tag_0',['tag',['../classEntity.html#a164f61a1e96badb6bc873ec2ef01ea6d',1,'Entity']]],
-  ['text_5fcolor_1',['text_color',['../classText.html#a54c87d79cfd95c0eeee7be2026cd5d3c',1,'Text']]],
-  ['texturename_2',['textureName',['../classSprite.html#aca40d3e107c6d8102932e9e680d01a33',1,'Sprite']]],
-  ['todestroy_3',['toDestroy',['../classEntity.html#ac2076343cde9e2901fd22912759d6176',1,'Entity']]],
-  ['touchingground_4',['touchingGround',['../classJumpMan.html#a358ede774827117039acb993885646f0',1,'JumpMan']]],
-  ['tracktion_5',['tracktion',['../classJumpMan.html#aead99e8ee4ba96535eb41d4131ac29fb',1,'JumpMan']]]
+  ['screen_5fchange_5fscale_0',['screen_change_scale',['../classGameManager.html#a773d2f4d3feb16d50e6a5250e4a5924d',1,'GameManager']]],
+  ['showborders_1',['showBorders',['../classSprite.html#ac45a960b0f941204b2b691bcd7e2289c',1,'Sprite']]],
+  ['skipupdate_2',['skipUpdate',['../classEntity.html#ac9b0bf55a3dc6c9314aca1fb612a8928',1,'Entity']]],
+  ['speed_3',['speed',['../classJumpMan.html#a1ec9fe2f6e96cb610c43156b608e79c7',1,'JumpMan']]],
+  ['sprite_4',['sprite',['../classAnimation.html#add71a00596eb3f48760752cb006ad768',1,'Animation']]],
+  ['standardupdate_5',['standardUpdate',['../classComponent.html#ad1e24bf474dadd687bef5bd5658cec28',1,'Component']]]
 ];

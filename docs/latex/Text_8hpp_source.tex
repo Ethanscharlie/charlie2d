@@ -1,0 +1,62 @@
+\doxysection{Text.\+hpp}
+\hypertarget{Text_8hpp_source}{}\label{Text_8hpp_source}\index{include/components/Text.hpp@{include/components/Text.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Camera.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Entity.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}GameManager.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Serializer.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structFont}{Font}}\ \{}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{structFont}{Font}}(std::string\ \_filepath,\ \textcolor{keywordtype}{int}\ \_size)\ :\ filepath(\_filepath),\ size(\_size)\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ font\ =\ TTF\_OpenFont(\_filepath.c\_str(),\ \_size);}
+\DoxyCodeLine{00014\ \ \ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{void}\ changeFont(std::string\ fontFile,\ \textcolor{keywordtype}{int}\ size)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ size\ =\ size;}
+\DoxyCodeLine{00018\ \ \ \ \ filepath\ =\ fontFile;}
+\DoxyCodeLine{00019\ \ \ \ \ font\ =\ TTF\_OpenFont(fontFile.c\_str(),\ size);}
+\DoxyCodeLine{00020\ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ std::string\ filepath\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{int}\ size\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ TTF\_Font\ *font\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ TTF\_OpenFont(mfontFile.c\_str(),\ fontSize);}}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classText}{Text}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classText}{Text}}()\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ propertyRegister\ =\ \{GET\_PROP(text),\ GET\_PROP(\mbox{\hyperlink{classText_a54c87d79cfd95c0eeee7be2026cd5d3c}{text\_color}}),\ GET\_PROP(font),}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GET\_PROP(renderInWorld)\};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ typeIsRendering\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00038\ \ \ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classText_a7c7391c29820a87f72dd30c92e71c85f}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classText_a57e755e59705824aeaa36d72bd6a8ff3}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classText_a902c7fd99475f2628a9c565bf1da959b}{changeFont}}(std::string\ fontFile,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classText_a41ddc0c12816b74ecf2b06f12ef08ae3}{renderTextInRect}}(SDL\_Renderer\ *renderer,\ \textcolor{keyword}{const}\ std::string\ \&text,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ SDL\_Rect\ \&rect);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{structBox}{Box}}\ textBox;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ std::string\ text\ =\ \textcolor{stringliteral}{"{}Sample\ Text"{}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ SDL\_Color\ \mbox{\hyperlink{classText_a54c87d79cfd95c0eeee7be2026cd5d3c}{text\_color}}\ =\ \{255,\ 255,\ 0\};}
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ int\ original\_font\_size\ =\ 20;}}
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ int\ fontSize;}}
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ std::string\ mfontFile\ =\ "{}"{};}}
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{structFont}{Font}}\ font\ =\ \{\textcolor{stringliteral}{"{}"{}},\ 20\};}
+\DoxyCodeLine{00069\ \ \ \textcolor{comment}{//\ SDL\_Color\ textColor;}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{bool}\ renderInWorld\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ REGISTER\_COMPONENT\_TYPE(\mbox{\hyperlink{classText}{Text}});}
+
+\end{DoxyCode}

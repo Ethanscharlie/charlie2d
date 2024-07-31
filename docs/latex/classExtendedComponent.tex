@@ -1,0 +1,106 @@
+\doxysection{Extended\+Component Class Reference}
+\hypertarget{classExtendedComponent}{}\label{classExtendedComponent}\index{ExtendedComponent@{ExtendedComponent}}
+Inheritance diagram for Extended\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classExtendedComponent}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classExtendedComponent_a91bafab5474ecab5c706c3f364695942}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classExtendedComponent_adbfd35709f42d356cfa704f0bfe3e03a}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+\Hypertarget{classExtendedComponent_ac278baf7e3506089951a0af8785497fe}\label{classExtendedComponent_ac278baf7e3506089951a0af8785497fe} 
+virtual void {\bfseries update} ()
+\item 
+virtual void \mbox{\hyperlink{classExtendedComponent_af25185dd383b18431b32e671338f5f41}{on\+Destroy}} () override
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+\Hypertarget{classExtendedComponent_a933ff93c4c83c518da96d3b8d4ba88ed}\label{classExtendedComponent_a933ff93c4c83c518da96d3b8d4ba88ed} 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries add} ()
+\item 
+\Hypertarget{classExtendedComponent_a26c5076a8fb0080d20e31441564c412f}\label{classExtendedComponent_a26c5076a8fb0080d20e31441564c412f} 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries get} ()
+\item 
+\Hypertarget{classExtendedComponent_ab57c1bea769dda27fe93f1fa30952b4d}\label{classExtendedComponent_ab57c1bea769dda27fe93f1fa30952b4d} 
+{\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classExtendedComponent_af25185dd383b18431b32e671338f5f41}\index{ExtendedComponent@{ExtendedComponent}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!ExtendedComponent@{ExtendedComponent}}
+\doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
+{\footnotesize\ttfamily \label{classExtendedComponent_af25185dd383b18431b32e671338f5f41} 
+virtual void Extended\+Component\+::on\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{Component}}.
+
+\Hypertarget{classExtendedComponent_a91bafab5474ecab5c706c3f364695942}\index{ExtendedComponent@{ExtendedComponent}!start@{start}}
+\index{start@{start}!ExtendedComponent@{ExtendedComponent}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classExtendedComponent_a91bafab5474ecab5c706c3f364695942} 
+virtual void Extended\+Component\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
+
+\Hypertarget{classExtendedComponent_adbfd35709f42d356cfa704f0bfe3e03a}\index{ExtendedComponent@{ExtendedComponent}!update@{update}}
+\index{update@{update}!ExtendedComponent@{ExtendedComponent}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classExtendedComponent_adbfd35709f42d356cfa704f0bfe3e03a} 
+void Extended\+Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Extended\+Component.\+hpp\end{DoxyCompactItemize}

@@ -7,45 +7,39 @@ Entitys are containers for an Enity\+Box and components.
 
 
 
-{\ttfamily \#include $<$Entity.\+h$>$}
+{\ttfamily \#include $<$Entity.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classEntity_adb247dffdb69e5967f36a30056a7dba7}\label{classEntity_adb247dffdb69e5967f36a30056a7dba7} 
-{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries add} ()
-\begin{DoxyCompactList}\small\item\em Adds a component to the entity Ex\+: \doxylink{classEntity_adb247dffdb69e5967f36a30056a7dba7}{add$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_abe66cdc587c335147849833216ca5c77}\label{classEntity_abe66cdc587c335147849833216ca5c77} 
-{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries require} ()
-\begin{DoxyCompactList}\small\item\em Either adds or gets a \doxylink{classComponent}{Component} depending on its existance (won\textquotesingle{}t override components) \end{DoxyCompactList}\item 
+\Hypertarget{classEntity_a4b071d6b5b4151792e7026a00755f9d0}\label{classEntity_a4b071d6b5b4151792e7026a00755f9d0} 
+{\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries add} (bool start=true)
+\begin{DoxyCompactList}\small\item\em Adds a component to the entity Ex\+: \doxylink{classEntity_a4b071d6b5b4151792e7026a00755f9d0}{add$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}\label{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a} 
 {\footnotesize template$<$typename C $>$ }\\C \texorpdfstring{$\ast$}{*} {\bfseries get} ()
 \begin{DoxyCompactList}\small\item\em Gets a component from the entity Ex\+: \doxylink{classEntity_a4f1930d93f71f6a22f54ca90bfc4290a}{get$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
+\Hypertarget{classEntity_a41d94fcf5e03f8cde3f1e44309a98f54}\label{classEntity_a41d94fcf5e03f8cde3f1e44309a98f54} 
+{\footnotesize template$<$typename C $>$ }\\C \& {\bfseries add\+Component} (bool start=true)
+\begin{DoxyCompactList}\small\item\em Adds a component to the entity. \end{DoxyCompactList}\item 
+\Hypertarget{classEntity_a9d714a24a0ed3fc151e9ffef94602e95}\label{classEntity_a9d714a24a0ed3fc151e9ffef94602e95} 
+{\footnotesize template$<$typename C $>$ }\\C \& {\bfseries get\+Component} ()
+\begin{DoxyCompactList}\small\item\em Gets a component from the entity. \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a37fcaa0ff788d31bd63c9b4907b1dcce}\label{classEntity_a37fcaa0ff788d31bd63c9b4907b1dcce} 
 {\footnotesize template$<$typename C $>$ }\\void {\bfseries remove} ()
 \begin{DoxyCompactList}\small\item\em Removes and deletes a component. \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_aaa08bd4404c74e38d426fb395411c3a6}\label{classEntity_aaa08bd4404c74e38d426fb395411c3a6} 
 {\footnotesize template$<$typename C $>$ }\\bool {\bfseries check\+Component} ()
 \begin{DoxyCompactList}\small\item\em Does the enity have this? Ex\+: \doxylink{classEntity_aaa08bd4404c74e38d426fb395411c3a6}{check\+Component$<$\+Sprite$>$()} \end{DoxyCompactList}\item 
+\Hypertarget{classEntity_a31a88f735ce6427bb820a46bf4613581}\label{classEntity_a31a88f735ce6427bb820a46bf4613581} 
+void {\bfseries remove} (std\+::type\+\_\+index type)
+\item 
 \Hypertarget{classEntity_a00b6eeaf99b35c8f8b10b5fbfc1baf4f}\label{classEntity_a00b6eeaf99b35c8f8b10b5fbfc1baf4f} 
 void {\bfseries update} ()
 \item 
+\Hypertarget{classEntity_ad5f6ac2e76c249b88d3728a832d6d34b}\label{classEntity_ad5f6ac2e76c249b88d3728a832d6d34b} 
+void {\bfseries change\+Tag} (std\+::string new\+Tag)
+\item 
 std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEntity_aaa195326122c2565110c11fffb8e38e2}{gets}} ()
-\item 
-\Hypertarget{classEntity_ab554f9ad736bc1251620b022d2713b50}\label{classEntity_ab554f9ad736bc1251620b022d2713b50} 
-void {\bfseries add\+Child} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
-\begin{DoxyCompactList}\small\item\em Adds a child to the entity. \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_a9e8a940b1f46ccba3607c1de727c9cb8}\label{classEntity_a9e8a940b1f46ccba3607c1de727c9cb8} 
-void {\bfseries set\+Parent} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}entity)
-\begin{DoxyCompactList}\small\item\em Sets the parent of the entity. \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_a6485d6af764cf54bb6723fe57bec91fa}\label{classEntity_a6485d6af764cf54bb6723fe57bec91fa} 
-\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Parent} ()
-\begin{DoxyCompactList}\small\item\em Gets the parent of the entity. \end{DoxyCompactList}\item 
-\Hypertarget{classEntity_ac6e3619e389101c796606f292f13ea97}\label{classEntity_ac6e3619e389101c796606f292f13ea97} 
-std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Children} ()
-\item 
-\Hypertarget{classEntity_ad426cf6d2a1b7e17d1a6a201a03941c9}\label{classEntity_ad426cf6d2a1b7e17d1a6a201a03941c9} 
-void {\bfseries remove\+Parent} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -56,12 +50,21 @@ bool {\bfseries to\+Destroy} = false
 \Hypertarget{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d}\label{classEntity_a164f61a1e96badb6bc873ec2ef01ea6d} 
 std\+::string {\bfseries tag} = "{}"{}
 \begin{DoxyCompactList}\small\item\em String tag for the entity. \end{DoxyCompactList}\item 
+\Hypertarget{classEntity_a931b21fbdebb1a5963b4bcab5df128f5}\label{classEntity_a931b21fbdebb1a5963b4bcab5df128f5} 
+std\+::string {\bfseries name} = "{}"{}
+\item 
+\Hypertarget{classEntity_a6a36adf129aa979010565e018ae2f931}\label{classEntity_a6a36adf129aa979010565e018ae2f931} 
+std\+::string {\bfseries group} = "{}"{}
+\item 
 \Hypertarget{classEntity_a6086dd8c4ea133261317ad01fc6695c6}\label{classEntity_a6086dd8c4ea133261317ad01fc6695c6} 
 bool {\bfseries debug} = false
 \item 
+\Hypertarget{classEntity_ad4a7334f8c8fd8e0a3211954d1c9d1a2}\label{classEntity_ad4a7334f8c8fd8e0a3211954d1c9d1a2} 
+Entity\+Render\+Position\+Type {\bfseries render\+Position\+Type} = Entity\+Render\+Position\+Type\+::\+World
+\item 
 \Hypertarget{classEntity_a7578d68b827bee22bf32c7adb2d5a2fa}\label{classEntity_a7578d68b827bee22bf32c7adb2d5a2fa} 
 int {\bfseries iid}
-\item 
+\begin{DoxyCompactList}\small\item\em Unique int id. \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928}\label{classEntity_ac9b0bf55a3dc6c9314aca1fb612a8928} 
 bool {\bfseries skip\+Update} = false
 \begin{DoxyCompactList}\small\item\em Skips the update loop for the next frame (Resets to true after) \end{DoxyCompactList}\item 
@@ -72,16 +75,13 @@ bool {\bfseries active} = true
 int {\bfseries layer} = 0
 \begin{DoxyCompactList}\small\item\em Layer to update on (requires entity-\/\texorpdfstring{$>$}{>}use\+Layer=true) \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a56175a9ad78b7bfac545821b2ce0321f}\label{classEntity_a56175a9ad78b7bfac545821b2ce0321f} 
-bool {\bfseries use\+Layer} = false
+bool {\bfseries use\+Layer} = true
 \begin{DoxyCompactList}\small\item\em Tells the engine to update with a sorting algorithim (made for sprites) \end{DoxyCompactList}\item 
+\Hypertarget{classEntity_a114a280ebca7c2adf27e63fba59ecf88}\label{classEntity_a114a280ebca7c2adf27e63fba59ecf88} 
+\mbox{\hyperlink{structBox}{Box}} {\bfseries box}
+\begin{DoxyCompactList}\small\item\em A pointer to the entitys entity\+Box. \end{DoxyCompactList}\item 
 \Hypertarget{classEntity_a3fc3002d66c3643d7688982e5ffc7f6d}\label{classEntity_a3fc3002d66c3643d7688982e5ffc7f6d} 
 std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries components}
-\item 
-\Hypertarget{classEntity_afaba2e72273c9067475b542f9428ca15}\label{classEntity_afaba2e72273c9067475b542f9428ca15} 
-std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries children}
-\item 
-\Hypertarget{classEntity_ac15a54cec580aaf79218140f2f073af7}\label{classEntity_ac15a54cec580aaf79218140f2f073af7} 
-\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries parent} = nullptr
 \end{DoxyCompactItemize}
 
 
@@ -89,14 +89,15 @@ std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{
 Entitys are containers for an Enity\+Box and components. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classEntity_aaa195326122c2565110c11fffb8e38e2}\label{classEntity_aaa195326122c2565110c11fffb8e38e2} 
-\index{Entity@{Entity}!gets@{gets}}
+\Hypertarget{classEntity_aaa195326122c2565110c11fffb8e38e2}\index{Entity@{Entity}!gets@{gets}}
 \index{gets@{gets}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{gets()}{gets()}}
-{\footnotesize\ttfamily std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ Entity\+::gets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classEntity_aaa195326122c2565110c11fffb8e38e2} 
+std\+::map$<$ std\+::type\+\_\+index, \mbox{\hyperlink{classComponent}{Component}} \texorpdfstring{$\ast$}{*} $>$ Entity\+::gets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Gets the entitys components 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/core/Entity.\+h\end{DoxyCompactItemize}
+include/core/Entity.\+hpp\item 
+source/Entity.\+cpp\end{DoxyCompactItemize}

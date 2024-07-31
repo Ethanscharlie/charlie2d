@@ -1,0 +1,43 @@
+\doxysection{Shadow\+Filter.\+hpp}
+\hypertarget{ShadowFilter_8hpp_source}{}\label{ShadowFilter_8hpp_source}\index{include/components/ShadowFilter.hpp@{include/components/ShadowFilter.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}GameManager.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SDL\_rect.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classShadowFilter}{ShadowFilter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classShadowFilter_a1997296389590a7b7ff08b030c939fd2}{start}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00010\ \ \ \ \ shadowFilter\ =\ SDL\_CreateTexture(}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ GameManager::renderer,\ SDL\_PIXELFORMAT\_RGBA8888,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ SDL\_TEXTUREACCESS\_TARGET,\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.x,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.y);}
+\DoxyCodeLine{00014\ \ \ \ \ SDL\_SetTextureBlendMode(shadowFilter,\ SDL\_BLENDMODE\_MOD);}
+\DoxyCodeLine{00015\ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ resetShadowFilter()\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Clear\ Shadow\ Filter}}
+\DoxyCodeLine{00019\ \ \ \ \ SDL\_Rect\ screenRect\ =\ \{0,\ 0,\ (int)\mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.x,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{int})\mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.y\};}
+\DoxyCodeLine{00021\ \ \ \ \ SDL\_SetRenderTarget(GameManager::renderer,\ shadowFilter);}
+\DoxyCodeLine{00022\ \ \ \ \ SDL\_RenderClear(GameManager::renderer);}
+\DoxyCodeLine{00023\ \ \ \ \ SDL\_SetRenderDrawColor(GameManager::renderer,\ shadowFilterTint[0],}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shadowFilterTint[1],\ shadowFilterTint[2],\ 255);}
+\DoxyCodeLine{00025\ \ \ \ \ SDL\_RenderFillRect(GameManager::renderer,\ \&screenRect);}
+\DoxyCodeLine{00026\ \ \ \ \ SDL\_SetRenderTarget(GameManager::renderer,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00027\ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classShadowFilter_a91dd6dd4e3718602ecc60239d9823579}{update}}(\textcolor{keywordtype}{float}\ deltatime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ SDL\_Rect\ screenRect\ =\ \{0,\ 0,\ (int)\mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.x,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{int})\mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}.y\};}
+\DoxyCodeLine{00032\ \ \ \ \ SDL\_RenderCopy(GameManager::renderer,\ shadowFilter,\ \textcolor{keyword}{nullptr},\ \&screenRect);}
+\DoxyCodeLine{00033\ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ std::array<Uint8,\ 3>\ shadowFilterTint\ =\ \{255,\ 255,\ 255\};}
+\DoxyCodeLine{00036\ \ \ SDL\_Texture\ *shadowFilter;}
+\DoxyCodeLine{00037\ \};}
+
+\end{DoxyCode}

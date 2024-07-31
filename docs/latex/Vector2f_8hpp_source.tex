@@ -1,0 +1,94 @@
+\doxysection{Vector2f.\+hpp}
+\hypertarget{Vector2f_8hpp_source}{}\label{Vector2f_8hpp_source}\index{include/core/Vector2f.hpp@{include/core/Vector2f.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVector2f}{Vector2f}}\ \{}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}()\ :\ x(0.0f),\ y(0.0f)\ \{\}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}(\textcolor{keywordtype}{float}\ p\_x,\ \textcolor{keywordtype}{float}\ p\_y)\ :\ x(p\_x),\ y(p\_y)\ \{\}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ x\ =\ v.x;}
+\DoxyCodeLine{00016\ \ \ \ \ y\ =\ v.y;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00018\ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ +\ v.x,\ y\ +\ v.y);\ \}}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ -\/\ v.x,\ y\ -\/\ v.y);\ \}}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ *\ v.x,\ y\ *\ v.y);\ \}}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator/(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ /\ v.x,\ y\ /\ v.y);\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ x\ +=\ v.x;}
+\DoxyCodeLine{00027\ \ \ \ \ y\ +=\ v.y;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator-\/=(\mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ x\ -\/=\ v.x;}
+\DoxyCodeLine{00032\ \ \ \ \ y\ -\/=\ v.y;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00034\ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator*=(\mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ x\ *=\ v.x;}
+\DoxyCodeLine{00037\ \ \ \ \ y\ *=\ v.y;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00039\ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator/=(\mbox{\hyperlink{structVector2f}{Vector2f}}\ \&v)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ x\ /=\ v.x;}
+\DoxyCodeLine{00042\ \ \ \ \ y\ /=\ v.y;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator+=(\textcolor{keywordtype}{float}\ s)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ x\ +=\ s;}
+\DoxyCodeLine{00048\ \ \ \ \ y\ +=\ s;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00050\ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator-\/=(\textcolor{keywordtype}{float}\ s)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ x\ -\/=\ s;}
+\DoxyCodeLine{00053\ \ \ \ \ y\ -\/=\ s;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00055\ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator*=(\textcolor{keywordtype}{float}\ s)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ x\ *=\ s;}
+\DoxyCodeLine{00058\ \ \ \ \ y\ *=\ s;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00060\ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&operator/=(\textcolor{keywordtype}{float}\ s)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ x\ /=\ s;}
+\DoxyCodeLine{00063\ \ \ \ \ y\ /=\ s;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00065\ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{bool}\ operator==(\mbox{\hyperlink{structVector2f}{Vector2f}}\ other)\ \{\ \textcolor{keywordflow}{return}\ x\ ==\ other.x\ \&\&\ y\ ==\ other.y;\ \}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{bool}\ operator!=(\mbox{\hyperlink{structVector2f}{Vector2f}}\ other)\ \{\ \textcolor{keywordflow}{return}\ x\ !=\ other.x\ ||\ y\ !=\ other.y;\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator+(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ num)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ +\ num,\ y\ +\ num);\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator-\/(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ num)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ -\/\ num,\ y\ -\/\ num);\ \}}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator*(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ num)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ *\ num,\ y\ *\ num);\ \}}
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ operator/(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ num)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVector2f}{Vector2f}}(x\ /\ num,\ y\ /\ num);\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \&\mbox{\hyperlink{structVector2f_a4d35552b4e9dc69bd54a138a2f81bc1a}{normalize}}()\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structVector2f_ab0220c31bc8afc05cf0b920636ede6cf}{length}}()\ ==\ 0)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00082\ \ \ \ \ *\textcolor{keyword}{this}\ *=\ (1.0\ /\ \mbox{\hyperlink{structVector2f_ab0220c31bc8afc05cf0b920636ede6cf}{length}}());}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00084\ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structVector2f_ab0220c31bc8afc05cf0b920636ede6cf}{length}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::sqrt(x\ *\ x\ +\ y\ *\ y);\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structVector2f_abbb907b946bf7249c37722985824b2ae}{print}}()\ \{\ std::cout\ <<\ x\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ y\ <<\ std::endl;\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structVector2f_a72888938308e6073c1c2f86775284408}{dist}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ point)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(pow(point.x\ -\/\ x,\ 2)\ +\ pow(point.y\ -\/\ y,\ 2));}
+\DoxyCodeLine{00101\ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{float}\ x,\ y;}
+\DoxyCodeLine{00104\ \};}
+
+\end{DoxyCode}

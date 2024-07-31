@@ -1,0 +1,225 @@
+\doxysection{Tile.\+hpp}
+\hypertarget{Tile_8hpp_source}{}\label{Tile_8hpp_source}\index{include/components/Tile.hpp@{include/components/Tile.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ tile.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TILE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TILE\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Camera.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameManager.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8hpp}{Math.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Components}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}SDL\_rect.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Serializer.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Sprite.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTileRaw}{TileRaw}}\ \{}
+\DoxyCodeLine{00020\ \ \ std::string\ image;}
+\DoxyCodeLine{00021\ \ \ SDL\_Rect\ srcRect;}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{structBox}{Box}}\ box;}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTileGroup}{TileGroup}}\ \{}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{structTileGroup}{TileGroup}}(std::vector<TileRaw>\ \_tiles,\ \mbox{\hyperlink{structBox}{Box}}\ newBox)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ tiles\ =\ \_tiles;}
+\DoxyCodeLine{00028\ \ \ \ \ box\ =\ newBox;}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{structTileGroup}{\string~TileGroup}}()\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (renderTexture\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ SDL\_DestroyTexture(renderTexture);}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ SDL\_Texture\ *render()\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (renderTexture\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ SDL\_DestroyTexture(renderTexture);}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ renderTexture\ =}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ SDL\_CreateTexture(GameManager::renderer,\ SDL\_PIXELFORMAT\_RGBA8888,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_TEXTUREACCESS\_TARGET,\ box.size.x,\ box.size.y);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ SDL\_SetRenderTarget(GameManager::renderer,\ renderTexture);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{structTileRaw}{TileRaw}}\ rawTile\ :\ tiles)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ SDL\_Texture\ *tileTexture\ =\ \mbox{\hyperlink{structImage}{Image}}(rawTile.image).texture;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ SDL\_Rect\ boxRect\ =\ SDL\_Rect(0,\ rawTile.box.position.y\ -\/\ box.position.y,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rawTile.box.size.x,\ rawTile.box.size.y);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ SDL\_RenderCopy(GameManager::renderer,\ tileTexture,\ \&rawTile.srcRect,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&boxRect);}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ SDL\_SetRenderTarget(GameManager::renderer,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ renderTexture;}
+\DoxyCodeLine{00061\ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ SDL\_Texture\ *getPreviousRender()\ \{\ \textcolor{keywordflow}{return}\ renderTexture;\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{structBox}{Box}}\ box;}
+\DoxyCodeLine{00066\ \ \ std::vector<TileRaw>\ tiles;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00069\ \ \ SDL\_Texture\ *renderTexture\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTileLayer}{TileLayer}}\ \{}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{structTileLayer}{TileLayer}}()\ :\ name(\textcolor{stringliteral}{"{}"{}})\ \{\}}
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{structTileLayer}{TileLayer}}(std::string\ \_name,\ \textcolor{keywordtype}{int}\ \_layer,\ std::vector<TileRaw>\ \_tiles)}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ :\ name(\_name),\ layer(\_layer)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ tiles\ =\ \_tiles;}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ \ \ std::vector<TileRaw>\ tiles;}
+\DoxyCodeLine{00079\ \ \ std::string\ name;}
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{int}\ layer\ =\ 0;}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ std::vector<TileGroup>\ tileGroup(std::vector<TileRaw>\ \&tiles,\ \textcolor{keywordtype}{int}\ tilesize);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTileLayerComponent}{TileLayerComponent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00089\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{classTileLayerComponent}{TileLayerComponent}}()\ :\ \mbox{\hyperlink{classComponent}{Component}}(\textcolor{stringliteral}{"{}TileLayer"{}})\ \{\}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTileLayerComponent_aaf14d55642c520fa57b8fc200149ccce}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTileLayerComponent_a45d6d8c3750596bfaa2f447b44955513}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTileLayerComponent_a59396a2c05dfb21dec7cc5b7c58beb0a}{onDestroy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ std::vector<Entity\ *>\ tiles;}
+\DoxyCodeLine{00097\ \};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGridTile}{GridTile}}\ \{}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{structGridTile}{GridTile}}(std::string\ \_image,\ SDL\_Rect\ \_srcRect)}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ :\ image(\_image),\ srcRect(\_srcRect)\ \{\}}
+\DoxyCodeLine{00102\ \ \ \mbox{\hyperlink{structGridTile}{GridTile}}()\ \{\}}
+\DoxyCodeLine{00103\ \ \ std::string\ image\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00104\ \ \ SDL\_Rect\ srcRect\ =\ \{0,\ 0,\ 16,\ 16\};}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTileGrid}{TileGrid}}\ \{}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordtype}{void}\ setTile(\mbox{\hyperlink{structGridTile}{GridTile}}\ tile,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ tiles[x][y]\ =\ tile;}
+\DoxyCodeLine{00110\ \ \ \ \ onModify();}
+\DoxyCodeLine{00111\ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{void}\ removeTile(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ tiles[x].erase(y);}
+\DoxyCodeLine{00115\ \ \ \ \ onModify();}
+\DoxyCodeLine{00116\ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \mbox{\hyperlink{structGridTile}{GridTile}}\ \&getTile(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y)\ \{\ \textcolor{keywordflow}{return}\ tiles[x][y];\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ std::vector<TileRaw>\ getTilesAsList()\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ std::vector<TileRaw>\ out;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&[x,\ xlevel]\ :\ tiles)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&[y,\ tile]\ :\ xlevel)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structTileRaw}{TileRaw}}\ tileOut\ =\ \mbox{\hyperlink{structTileRaw}{TileRaw}}();}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ tileOut.image\ =\ tile.image;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ tileOut.srcRect\ =\ tile.srcRect;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ tileOut.box\ =\ \{(float)x\ *\ gridSize,\ (\textcolor{keywordtype}{float})y\ *\ gridSize,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (float)gridSize,\ (\textcolor{keywordtype}{float})gridSize\};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ out.push\_back(tileOut);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00135\ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{void}\ generateGroupedColliders()\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ premadeColliders.clear();}
+\DoxyCodeLine{00139\ \ \ \ \ std::vector<TileRaw>\ tiles\ =\ getTilesAsList();}
+\DoxyCodeLine{00140\ \ \ \ \ premadeColliders\ =\ tiles;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ premadeColliders\ =\ tileGroup(tiles,\ gridSize);}}
+\DoxyCodeLine{00142\ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{void}\ onModify()\ \{\ generateGroupedColliders();\ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ std::vector<Box>\ getTileGroups()\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ std::vector<Box>\ out;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&tile\ :\ premadeColliders)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ out.push\_back(tile.box);}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{00154\ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordtype}{bool}\ checkCollision(\mbox{\hyperlink{structBox}{Box}}\ box)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{auto}\ tileGroups\ =\ getTileGroups();}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{structBox}{Box}}\ \&tileBox\ :\ tileGroups)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (box.\mbox{\hyperlink{structBox_a67c4c0537ace51361c214ae5e9cae815}{checkCollision}}(tileBox))\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00165\ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{int}\ gridSize\ =\ 16;}
+\DoxyCodeLine{00168\ \ \ std::map<int,\ std::map<int,\ GridTile>>\ tiles;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00171\ \ \ std::vector<TileRaw>\ premadeColliders;}
+\DoxyCodeLine{00172\ \};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTilemap}{Tilemap}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00175\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00176\ \ \ \mbox{\hyperlink{classTilemap}{Tilemap}}()\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ typeIsRendering\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00178\ \ \ \ \ propertyRegister\ =\ \{GET\_PROP(tileGrid),\ GET\_PROP(solid)\};}
+\DoxyCodeLine{00179\ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \mbox{\hyperlink{structBox}{Box}}\ getRenderBox(\mbox{\hyperlink{structBox}{Box}}\ box)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{structBox}{Box}}\ renderBox;}
+\DoxyCodeLine{00183\ \ \ \ \ renderBox.position\ =}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ (box.position\ -\/\ \mbox{\hyperlink{classCamera_a2558f2046281fca7ab6d8002100f4842}{Camera::getPosition}}())\ *\ \mbox{\hyperlink{classCamera_acbefe46b91c6e9552d5f7b93c5f2d616}{Camera::getScale}}()\ +}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{GameManager::gameWindowSize}}\ /\ 2;}
+\DoxyCodeLine{00186\ \ \ \ \ renderBox.size\ =\ box.size\ *\ \mbox{\hyperlink{classCamera_acbefe46b91c6e9552d5f7b93c5f2d616}{Camera::getScale}}();}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{return}\ renderBox;}
+\DoxyCodeLine{00188\ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTilemap_a2b8edd7f648523d633cbc258ec6af59c}{start}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTilemap_ae5cb79a0d9926b9e331d743bab4c58e3}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{\ render();\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{keywordtype}{void}\ render()\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{structTileRaw}{TileRaw}}\ \&tile\ :\ tileGrid.getTilesAsList())\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \mbox{\hyperlink{structImage}{Image}}\ tileImage;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tile.image\ !=\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ tileImage\ =\ tile.image;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tileImage.texture\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structBox}{Box}}\ renderBox\ =\ getRenderBox(tile.box);}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ renderBox.size.x\ +=\ 1;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ renderBox.size.y\ +=\ 1;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ tileImage.srcRect\ =\ tile.srcRect;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ tileImage.render(renderBox);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SDL\_RenderCopy(GameManager::renderer,\ tileImageTexture,}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \&tile.srcRect,}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&renderRect);}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \mbox{\hyperlink{structTileGrid}{TileGrid}}\ tileGrid;}
+\DoxyCodeLine{00217\ \ \ \textcolor{keywordtype}{bool}\ solid\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00218\ \ \ \textcolor{keywordtype}{int}\ gridSize\ =\ 16;}
+\DoxyCodeLine{00219\ \};}
+\DoxyCodeLine{00220\ REGISTER\_COMPONENT\_TYPE(\mbox{\hyperlink{classTilemap}{Tilemap}});}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

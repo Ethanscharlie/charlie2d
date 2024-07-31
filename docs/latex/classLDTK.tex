@@ -2,12 +2,12 @@
 \hypertarget{classLDTK}{}\label{classLDTK}\index{LDTK@{LDTK}}
 
 
-A loader for the Level Design Toolkit The entity tag is set to the name of the entity within ldtk Tiles are put of \doxylink{classTileLayer}{Tile\+Layer} s (But will also be tag named the same way)  
+A loader for the Level Design Toolkit The entity tag is set to the name of the entity within ldtk Tiles are put of \doxylink{structTileLayer}{Tile\+Layer} s (But will also be tag named the same way)  
 
 
 
 
-{\ttfamily \#include $<$ldtk.\+h$>$}
+{\ttfamily \#include $<$ldtk.\+hpp$>$}
 
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -17,16 +17,19 @@ static void {\bfseries update} (float delta\+Time)
 \item 
 static void \mbox{\hyperlink{classLDTK_ab63a9f213ad8af16007789387f3fde6b}{unload}} (std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ enlist=\mbox{\hyperlink{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}{entities}})
 \begin{DoxyCompactList}\small\item\em Removes all entites created by ldtk. \end{DoxyCompactList}\item 
-static std\+::string \mbox{\hyperlink{classLDTK_a19e2bb47b0c692d2cdafc120b01da449}{find\+Traveled\+Level}} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}player)
+static std\+::string \mbox{\hyperlink{classLDTK_aabe64eff32545af5799c1957be5b6a07}{find\+Traveled\+Level}} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}player)
 \begin{DoxyCompactList}\small\item\em Where did the player go? \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{classLDTK_a4a7f1156ceac70f9acb72e4a37c2953b}{check\+Outside\+Bounds}} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}player)
+static bool \mbox{\hyperlink{classLDTK_adccc220494ba847ac082f4b1b0c9f03f}{check\+Outside\+Bounds}} (\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}player)
 \begin{DoxyCompactList}\small\item\em Checks to see in the player is outside the bounds of the level. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classLDTK_aed928cd94db7eb39a1d646a477a30dda}{load\+Level}} (std\+::string iid, bool handle\+Unload=true)
 \begin{DoxyCompactList}\small\item\em Loads a level via iid. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1}{load\+Json}} (std\+::string file="{}img/ldtk/space.\+ldtk"{})
 \begin{DoxyCompactList}\small\item\em Loads up the json for your world (Please do before anything else here) \end{DoxyCompactList}\item 
-\Hypertarget{classLDTK_a865ffaa73e8e164ca92bc39e0029a254}\label{classLDTK_a865ffaa73e8e164ca92bc39e0029a254} 
+\Hypertarget{classLDTK_a1db000b92eb0aadf211b55cb43062c47}\label{classLDTK_a1db000b92eb0aadf211b55cb43062c47} 
 static json {\bfseries get\+Level\+Json} (std\+::string iid)
+\item 
+\Hypertarget{classLDTK_a2900dd1f9d8d5c18118b5b4c222fcd09}\label{classLDTK_a2900dd1f9d8d5c18118b5b4c222fcd09} 
+static void {\bfseries preload} (std\+::string iid)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -49,29 +52,32 @@ static json {\bfseries current\+Level}
 \Hypertarget{classLDTK_aa20caf146f0c7105b273f7c94185e87d}\label{classLDTK_aa20caf146f0c7105b273f7c94185e87d} 
 static std\+::map$<$ std\+::string, std\+::map$<$ std\+::string, json $>$ $>$ {\bfseries worlds}
 \item 
-static std\+::function$<$ void()$>$ \mbox{\hyperlink{classLDTK_a4a32938cc43d2845a1ea86f83d5f311c}{on\+Load\+Level}} = \mbox{[}$\,$\mbox{]}() \{\}
-\begin{DoxyCompactList}\small\item\em Runs when any level has finished loading. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static std\+::function$<$ void(std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$)$>$ \mbox{\hyperlink{classLDTK_a5165bd2378c1f3fa3043c7c7621ca5b9}{on\+Load\+Level}}
+\begin{DoxyCompactList}\small\item\em Runs when any level has finished loading. \end{DoxyCompactList}\item 
+\Hypertarget{classLDTK_a96e7aa5d59dd4ed67feda653216b36af}\label{classLDTK_a96e7aa5d59dd4ed67feda653216b36af} 
+static std\+::map$<$ std\+::string, std\+::map$<$ std\+::string, \mbox{\hyperlink{structTileLayer}{Tile\+Layer}} $>$ $>$ {\bfseries preloaded\+Tiles}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-A loader for the Level Design Toolkit The entity tag is set to the name of the entity within ldtk Tiles are put of \doxylink{classTileLayer}{Tile\+Layer} s (But will also be tag named the same way) 
+A loader for the Level Design Toolkit The entity tag is set to the name of the entity within ldtk Tiles are put of \doxylink{structTileLayer}{Tile\+Layer} s (But will also be tag named the same way) 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classLDTK_a4a7f1156ceac70f9acb72e4a37c2953b}\label{classLDTK_a4a7f1156ceac70f9acb72e4a37c2953b} 
-\index{LDTK@{LDTK}!checkOutsideBounds@{checkOutsideBounds}}
+\Hypertarget{classLDTK_adccc220494ba847ac082f4b1b0c9f03f}\index{LDTK@{LDTK}!checkOutsideBounds@{checkOutsideBounds}}
 \index{checkOutsideBounds@{checkOutsideBounds}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{checkOutsideBounds()}{checkOutsideBounds()}}
-{\footnotesize\ttfamily bool LDTK\+::check\+Outside\+Bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classLDTK_adccc220494ba847ac082f4b1b0c9f03f} 
+auto LDTK\+::check\+Outside\+Bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
 Checks to see in the player is outside the bounds of the level. 
 
-Made to be used with find\+Traveled\+Level \Hypertarget{classLDTK_a19e2bb47b0c692d2cdafc120b01da449}\label{classLDTK_a19e2bb47b0c692d2cdafc120b01da449} 
-\index{LDTK@{LDTK}!findTraveledLevel@{findTraveledLevel}}
+Made to be used with find\+Traveled\+Level \Hypertarget{classLDTK_aabe64eff32545af5799c1957be5b6a07}\index{LDTK@{LDTK}!findTraveledLevel@{findTraveledLevel}}
 \index{findTraveledLevel@{findTraveledLevel}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{findTraveledLevel()}{findTraveledLevel()}}
-{\footnotesize\ttfamily std\+::string LDTK\+::find\+Traveled\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classLDTK_aabe64eff32545af5799c1957be5b6a07} 
+auto LDTK\+::find\+Traveled\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*}}]{player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -82,11 +88,11 @@ Made to be used with check\+Outside\+Bounds
 {\em player} & The player \doxylink{classEntity}{Entity} \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1}\label{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1} 
-\index{LDTK@{LDTK}!loadJson@{loadJson}}
+\Hypertarget{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1}\index{LDTK@{LDTK}!loadJson@{loadJson}}
 \index{loadJson@{loadJson}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{loadJson()}{loadJson()}}
-{\footnotesize\ttfamily void LDTK\+::load\+Json (\begin{DoxyParamCaption}\item[{std\+::string}]{file = {\ttfamily "{}img/ldtk/space.ldtk"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1} 
+void LDTK\+::load\+Json (\begin{DoxyParamCaption}\item[{std\+::string}]{file}{ = {\ttfamily "{}img/ldtk/space.ldtk"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -97,11 +103,11 @@ Loads up the json for your world (Please do before anything else here)
 {\em file} & The filepath \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classLDTK_aed928cd94db7eb39a1d646a477a30dda}\label{classLDTK_aed928cd94db7eb39a1d646a477a30dda} 
-\index{LDTK@{LDTK}!loadLevel@{loadLevel}}
+\Hypertarget{classLDTK_aed928cd94db7eb39a1d646a477a30dda}\index{LDTK@{LDTK}!loadLevel@{loadLevel}}
 \index{loadLevel@{loadLevel}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{loadLevel()}{loadLevel()}}
-{\footnotesize\ttfamily void LDTK\+::load\+Level (\begin{DoxyParamCaption}\item[{std\+::string}]{iid,  }\item[{bool}]{handle\+Unload = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classLDTK_aed928cd94db7eb39a1d646a477a30dda} 
+void LDTK\+::load\+Level (\begin{DoxyParamCaption}\item[{std\+::string}]{iid}{, }\item[{bool}]{handle\+Unload}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -114,11 +120,11 @@ Loads a level via iid.
 {\em scene} & the current scene \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classLDTK_ab63a9f213ad8af16007789387f3fde6b}\label{classLDTK_ab63a9f213ad8af16007789387f3fde6b} 
-\index{LDTK@{LDTK}!unload@{unload}}
+\Hypertarget{classLDTK_ab63a9f213ad8af16007789387f3fde6b}\index{LDTK@{LDTK}!unload@{unload}}
 \index{unload@{unload}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{unload()}{unload()}}
-{\footnotesize\ttfamily void LDTK\+::unload (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$}]{enlist = {\ttfamily \mbox{\hyperlink{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}{entities}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classLDTK_ab63a9f213ad8af16007789387f3fde6b} 
+void LDTK\+::unload (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$}]{enlist}{ = {\ttfamily \mbox{\hyperlink{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}{entities}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -132,12 +138,18 @@ Removes all entites created by ldtk.
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classLDTK_a4a32938cc43d2845a1ea86f83d5f311c}\label{classLDTK_a4a32938cc43d2845a1ea86f83d5f311c} 
-\index{LDTK@{LDTK}!onLoadLevel@{onLoadLevel}}
+\Hypertarget{classLDTK_a5165bd2378c1f3fa3043c7c7621ca5b9}\index{LDTK@{LDTK}!onLoadLevel@{onLoadLevel}}
 \index{onLoadLevel@{onLoadLevel}!LDTK@{LDTK}}
 \doxysubsubsection{\texorpdfstring{onLoadLevel}{onLoadLevel}}
-{\footnotesize\ttfamily std\+::function$<$ void()$>$ LDTK\+::on\+Load\+Level = \mbox{[}$\,$\mbox{]}() \{\}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classLDTK_a5165bd2378c1f3fa3043c7c7621ca5b9} 
+std\+::function$<$ void(std\+::vector$<$ \mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} $>$)$>$ LDTK\+::on\+Load\+Level\hspace{0.3cm}{\ttfamily [static]}}
 
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ [](std::vector<Entity\ *>)\ \{\}}
+
+\end{DoxyCode}
 
 
 Runs when any level has finished loading. 
@@ -146,5 +158,5 @@ Here you can loop through the entities std\+::vector and check the propertys The
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/components/ldtk.\+h\item 
+include/components/ldtk.\+hpp\item 
 source/ldtk.\+cpp\end{DoxyCompactItemize}

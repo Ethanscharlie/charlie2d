@@ -7,19 +7,19 @@ A simple class for manageing angles (used in \doxylink{classSprite}{Sprite})
 
 
 
-{\ttfamily \#include $<$Math.\+h$>$}
+{\ttfamily \#include $<$Angle.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{structAngle_a706dcfa785f8f07133e3a0c56448e7f8}{look\+At}} (const \mbox{\hyperlink{structVector2f}{Vector2f}} center, const \mbox{\hyperlink{structVector2f}{Vector2f}} \&point)
 \begin{DoxyCompactList}\small\item\em Rotates to be pointing at something. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structVector2f}{Vector2f}} \mbox{\hyperlink{structAngle_a3606d02938728a4a6951dfbecac118f2}{get\+Vector}} ()
+\mbox{\hyperlink{structVector2f}{Vector2f}} \mbox{\hyperlink{structAngle_a7b5fe6957ccfcc261c5820c94d8ff7e2}{get\+Vector}} ()
 \begin{DoxyCompactList}\small\item\em Gets a direction vector (Good for directional movement) \end{DoxyCompactList}\item 
 \Hypertarget{structAngle_a96c3a2b1745d3282ffbf9f6b1ccf3d78}\label{structAngle_a96c3a2b1745d3282ffbf9f6b1ccf3d78} 
 void {\bfseries set\+With\+Vector} (\mbox{\hyperlink{structVector2f}{Vector2f}} vector)
 \begin{DoxyCompactList}\small\item\em Sets the angle with a vector (Doesn\textquotesingle{}t need to be normalized) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{structAngle_abf6535aa28888477e87c8fe749b3a402}{rotate}} (float angle)
+void \mbox{\hyperlink{structAngle_adcccc3129c4e740237d0bff02279b002}{rotate}} (float degrees)
 \begin{DoxyCompactList}\small\item\em Rotates in degrees. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -33,11 +33,11 @@ float {\bfseries radians} = 0
 A simple class for manageing angles (used in \doxylink{classSprite}{Sprite}) 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{structAngle_a3606d02938728a4a6951dfbecac118f2}\label{structAngle_a3606d02938728a4a6951dfbecac118f2} 
-\index{Angle@{Angle}!getVector@{getVector}}
+\Hypertarget{structAngle_a7b5fe6957ccfcc261c5820c94d8ff7e2}\index{Angle@{Angle}!getVector@{getVector}}
 \index{getVector@{getVector}!Angle@{Angle}}
 \doxysubsubsection{\texorpdfstring{getVector()}{getVector()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structVector2f}{Vector2f}} Angle\+::get\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{structAngle_a7b5fe6957ccfcc261c5820c94d8ff7e2} 
+auto Angle\+::get\+Vector (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -46,11 +46,11 @@ Gets a direction vector (Good for directional movement)
 \begin{DoxyReturn}{Returns}
 A normalized vector of this angle 
 \end{DoxyReturn}
-\Hypertarget{structAngle_a706dcfa785f8f07133e3a0c56448e7f8}\label{structAngle_a706dcfa785f8f07133e3a0c56448e7f8} 
-\index{Angle@{Angle}!lookAt@{lookAt}}
+\Hypertarget{structAngle_a706dcfa785f8f07133e3a0c56448e7f8}\index{Angle@{Angle}!lookAt@{lookAt}}
 \index{lookAt@{lookAt}!Angle@{Angle}}
 \doxysubsubsection{\texorpdfstring{lookAt()}{lookAt()}}
-{\footnotesize\ttfamily void Angle\+::look\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structVector2f}{Vector2f}}}]{center,  }\item[{const \mbox{\hyperlink{structVector2f}{Vector2f}} \&}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{structAngle_a706dcfa785f8f07133e3a0c56448e7f8} 
+void Angle\+::look\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structVector2f}{Vector2f}}}]{center}{, }\item[{const \mbox{\hyperlink{structVector2f}{Vector2f}} \&}]{point}{}\end{DoxyParamCaption})}
 
 
 
@@ -63,11 +63,11 @@ Rotates to be pointing at something.
 {\em point} & What are you lookin at?! \\
 \hline
 \end{DoxyParams}
-\Hypertarget{structAngle_abf6535aa28888477e87c8fe749b3a402}\label{structAngle_abf6535aa28888477e87c8fe749b3a402} 
-\index{Angle@{Angle}!rotate@{rotate}}
+\Hypertarget{structAngle_adcccc3129c4e740237d0bff02279b002}\index{Angle@{Angle}!rotate@{rotate}}
 \index{rotate@{rotate}!Angle@{Angle}}
 \doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
-{\footnotesize\ttfamily void Angle\+::rotate (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{structAngle_adcccc3129c4e740237d0bff02279b002} 
+void Angle\+::rotate (\begin{DoxyParamCaption}\item[{float}]{degrees}{}\end{DoxyParamCaption})}
 
 
 
@@ -80,6 +80,7 @@ Rotates in degrees.
 \end{DoxyParams}
 
 
-The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/core/\mbox{\hyperlink{Math_8h}{Math.\+h}}\end{DoxyCompactItemize}
+include/core/Angle.\+hpp\item 
+source/Angle.\+cpp\end{DoxyCompactItemize}

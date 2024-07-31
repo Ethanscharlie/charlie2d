@@ -1,0 +1,132 @@
+\doxysection{Game\+Manager.\+hpp}
+\hypertarget{GameManager_8hpp_source}{}\label{GameManager_8hpp_source}\index{include/core/GameManager.hpp@{include/core/GameManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_MANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAME\_MANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}InputManager.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8hpp}{Math.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SDL\_mixer.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <typeindex>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}SDL2\_framerate.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ IMGUI}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}SDL\_surface.h"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}imgui.h"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_sdl2.h"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_sdlrenderer2.h"{}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifdef\ \_\_EMSCRIPTEN\_\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <emscripten.h>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <emscripten/html5.h>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classComponentData}{ComponentData}};}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classShadowFilter}{ShadowFilter}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGameManager}{GameManager}}\ \{}
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classGameManager}{GameManager}}();}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classGameManager}{\string~GameManager}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_ad89996045a7158a3be2357228fc25579}{init}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ originalSize\ =\ \{1920,\ 1080\});}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a77c596a5ed06b3d5008b4187f58480d2}{Load}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_af3bb4452ac262ec8a68dcc3eea2f0124}{Update}}();}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a10cdc97d611120cb3e0ca203ef11d0c4}{playSound}}(std::string\ filename,\ \textcolor{keywordtype}{bool}\ loop\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_ac63aa477ce3707e03b42968d364a6ce6}{quit}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_ab1fda9b5d706497cc27baf7ba88021cd}{destroyAll}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classGameManager_a6dcef02deb07d391d9b059367ed4c38a}{createEntity}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classGameManager_a092bd5fcd0b957699d5371d7b2cb23e6}{getAllObjects}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{static}\ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{getComponents}}(std::string\ tag\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_aebd481948ba7fb05754e529cc3b47be2}{removeComponent}}(\mbox{\hyperlink{classComponent}{Component}}\ *component,\ std::type\_index\ type);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classGameManager_acb88a3053d4cb5898b29d101926922a8}{getEntities}}(std::string\ tag);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a23446d4fc037d61ba06422cb0d0f7937}{doUpdateLoop}}();}
+\DoxyCodeLine{00128\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_acfabcca795eb1f8f1583aefa1951ffde}{setWindowSize}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ size);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ changeEntityTag(\mbox{\hyperlink{classEntity}{Entity}}\ *entity,\ std::string\ newTag);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a3f4e3780aaf3159eb339da000357eeae}{addComponent}}(C\ *component);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{keyword}{static}\ SDL\_Window\ *window;}
+\DoxyCodeLine{00138\ \ \ \textcolor{keyword}{static}\ SDL\_Renderer\ *renderer;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_ab63f7a2c269aafb43e9e85f6ca8ebebc}{gameWindowSize}};}
+\DoxyCodeLine{00147\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classGameManager_abb18b130f0f509697c19bbded946d135}{currentWindowSize}};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classGameManager_a773d2f4d3feb16d50e6a5250e4a5924d}{screen\_change\_scale}};}
+\DoxyCodeLine{00156\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGameManager_acc57c7a6d727dd91ecda08b0e63b407d}{running}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGameManager_aad180c86f385db5da0eb0e14a473b26c}{updateEntities}};}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ deltaTime;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{static}\ SDL\_Texture\ *\mbox{\hyperlink{classGameManager_a74f663bd3f66a79118bb7a95f03ff9ed}{targetRenderSurface}};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::function<\mbox{\hyperlink{classComponent}{Component}}\ *(\mbox{\hyperlink{classEntity}{Entity}}\ *)>>}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ componentRegistry;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::vector<Entity\ *>>\ entities;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classShadowFilter}{ShadowFilter}}\ *shadowFilter;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00183\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ destroyEntity(\mbox{\hyperlink{classEntity}{Entity}}\ *entity);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keyword}{static}\ std::map<std::type\_index,\ std::vector<Component\ *>>\ components;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \textcolor{keyword}{static}\ Uint64\ lastTime;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \textcolor{keyword}{static}\ FPSmanager\ fpsManager;}
+\DoxyCodeLine{00190\ \};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>}
+\DoxyCodeLine{00193\ std::vector<C\ *>\ \mbox{\hyperlink{classGameManager_a4dc3cf85c9a4e360d02e2369752e4698}{GameManager::getComponents}}(std::string\ tag)\ \{}
+\DoxyCodeLine{00194\ \ \ std::vector<C\ *>\ hits;}
+\DoxyCodeLine{00195\ \ \ \textcolor{keyword}{auto}\ it\ =\ components.find(\textcolor{keyword}{typeid}(C));}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ components.end())\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ component\ :\ it-\/>second)\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \textcolor{comment}{//\ Static\ cast\ each\ Component*\ to\ C*}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (component-\/>entityTag\ ==\ tag\ ||\ tag\ ==\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ hits.push\_back(\textcolor{keyword}{static\_cast<}C\ *\textcolor{keyword}{>}(component));}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \}\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00205\ \ \ \ \ components[\textcolor{keyword}{typeid}(C)];}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordflow}{return}\ hits;}
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{keyword}{inline}\ std::map<std::string,\ std::function<\mbox{\hyperlink{classComponent}{Component}}\ *(\mbox{\hyperlink{classEntity}{Entity}}\ *)>>}
+\DoxyCodeLine{00211\ \ \ \ \ GameManager::componentRegistry;}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ C>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameManager_a3f4e3780aaf3159eb339da000357eeae}{GameManager::addComponent}}(C\ *component)\ \{}
+\DoxyCodeLine{00214\ \ \ components[\textcolor{keyword}{typeid}(C)].push\_back(component);}
+\DoxyCodeLine{00215\ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

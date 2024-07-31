@@ -1,0 +1,53 @@
+\doxysection{Image Struct Reference}
+\hypertarget{structImage}{}\label{structImage}\index{Image@{Image}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structImage_abe810d60395e0e8b4acba5d13f93f8d3}\label{structImage_abe810d60395e0e8b4acba5d13f93f8d3} 
+{\bfseries Image} (std\+::string \+\_\+path)
+\item 
+\Hypertarget{structImage_afaa4e025ef882ce27fbd6f95ad872185}\label{structImage_afaa4e025ef882ce27fbd6f95ad872185} 
+{\bfseries Image} (SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}\+\_\+texture)
+\item 
+\Hypertarget{structImage_a890598af108cba49645018325c7cf273}\label{structImage_a890598af108cba49645018325c7cf273} 
+void {\bfseries render} (const \mbox{\hyperlink{structBox}{Box}} \&box, const \mbox{\hyperlink{structAngle}{Angle}} \&angle=\mbox{\hyperlink{structAngle}{Angle}}())
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structImage_a3b4b3035da8132b07f09ef1faa9f5fa7}\label{structImage_a3b4b3035da8132b07f09ef1faa9f5fa7} 
+static void {\bfseries clear\+All\+Textures} ()
+\item 
+\Hypertarget{structImage_ac0697e8cb7bce310ab4d4d809927fb41}\label{structImage_ac0697e8cb7bce310ab4d4d809927fb41} 
+static void {\bfseries reload\+All\+Textures} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structImage_a4f44588a7d341e02dae82e2de94dfad6}\label{structImage_a4f44588a7d341e02dae82e2de94dfad6} 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries texture}
+\item 
+\Hypertarget{structImage_aec8a33f176362d146da8c058798ebbff}\label{structImage_aec8a33f176362d146da8c058798ebbff} 
+std\+::string {\bfseries path}
+\item 
+\Hypertarget{structImage_ad44f72b4a2142eb415ff8a88ec496de8}\label{structImage_ad44f72b4a2142eb415ff8a88ec496de8} 
+SDL\+\_\+\+Rect {\bfseries src\+Rect} = \{0, 0, 0, 0\}
+\item 
+\Hypertarget{structImage_ab81960b8dcd152b4663ef87b2a328bbd}\label{structImage_ab81960b8dcd152b4663ef87b2a328bbd} 
+std\+::array$<$ Uint8, 3 $>$ {\bfseries color} = \{255, 255, 255\}
+\item 
+\Hypertarget{structImage_ac990fa514bbf3d2aba4dd797b41f961c}\label{structImage_ac990fa514bbf3d2aba4dd797b41f961c} 
+Uint8 {\bfseries alpha} = 255
+\item 
+\Hypertarget{structImage_a7a55dd25c754183927f5de193f5132f6}\label{structImage_a7a55dd25c754183927f5de193f5132f6} 
+SDL\+\_\+\+Renderer\+Flip {\bfseries flip} = SDL\+\_\+\+FLIP\+\_\+\+NONE
+\item 
+\Hypertarget{structImage_ae6526a91201a54c9da54fbc34443964b}\label{structImage_ae6526a91201a54c9da54fbc34443964b} 
+SDL\+\_\+\+Blend\+Mode {\bfseries blend\+Mode} = SDL\+\_\+\+BLENDMODE\+\_\+\+BLEND
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/core/Image.\+hpp\item 
+source/Image.\+cpp\end{DoxyCompactItemize}

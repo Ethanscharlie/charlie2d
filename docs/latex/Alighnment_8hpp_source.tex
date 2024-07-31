@@ -1,0 +1,44 @@
+\doxysection{Alighnment.\+hpp}
+\hypertarget{Alighnment_8hpp_source}{}\label{Alighnment_8hpp_source}\index{include/components/Alighnment.hpp@{include/components/Alighnment.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}ExtendedComponent.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Serializer.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Vector2f.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum\ class}\ AlignmentAnchor\ \{}
+\DoxyCodeLine{00008\ \ \ topLeft,}
+\DoxyCodeLine{00009\ \ \ topMiddle,}
+\DoxyCodeLine{00010\ \ \ topRight,}
+\DoxyCodeLine{00011\ \ \ middleLeft,}
+\DoxyCodeLine{00012\ \ \ center,}
+\DoxyCodeLine{00013\ \ \ middleRight,}
+\DoxyCodeLine{00014\ \ \ bottomLeft,}
+\DoxyCodeLine{00015\ \ \ bottomMiddle,}
+\DoxyCodeLine{00016\ \ \ bottomRight}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAlignment}{Alignment}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classAlignment}{Alignment}}()\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ propertyRegister\ =\ \{GET\_PROP(parent),\ GET\_PROP(anchor),\ GET\_PROP(offset)\};}
+\DoxyCodeLine{00023\ \ \ \ \ typeIsRendering\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00024\ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAlignment_a2fa7384ab6325c32c27b23043b2752a0}{start}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAlignment_ad4eaee52f6a7abd11baadf8b784e39b5}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (parent\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}-\/>\mbox{\hyperlink{classEntity_a114a280ebca7c2adf27e63fba59ecf88}{box}}.\mbox{\hyperlink{structBox_a5bd186f19afe17b920554875ae6da468}{setWithCenter}}(parent-\/>\mbox{\hyperlink{classEntity_a114a280ebca7c2adf27e63fba59ecf88}{box}}.getCenter()\ +\ offset);}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ AlignmentAnchor\ anchor;}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ offset;}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *parent\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ REGISTER\_COMPONENT\_TYPE(\mbox{\hyperlink{classAlignment}{Alignment}});}
+
+\end{DoxyCode}

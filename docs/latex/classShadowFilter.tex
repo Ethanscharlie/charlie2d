@@ -1,0 +1,91 @@
+\doxysection{Shadow\+Filter Class Reference}
+\hypertarget{classShadowFilter}{}\label{classShadowFilter}\index{ShadowFilter@{ShadowFilter}}
+Inheritance diagram for Shadow\+Filter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classShadowFilter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classShadowFilter_a1997296389590a7b7ff08b030c939fd2}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+\Hypertarget{classShadowFilter_a2543e3a7ab44a26f9ed18f5c082e2c1b}\label{classShadowFilter_a2543e3a7ab44a26f9ed18f5c082e2c1b} 
+void {\bfseries reset\+Shadow\+Filter} ()
+\item 
+void \mbox{\hyperlink{classShadowFilter_a91dd6dd4e3718602ecc60239d9823579}{update}} (float deltatime) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classShadowFilter_abde7f6657146c2846094cee55bbfd2e1}\label{classShadowFilter_abde7f6657146c2846094cee55bbfd2e1} 
+std\+::array$<$ Uint8, 3 $>$ {\bfseries shadow\+Filter\+Tint} = \{255, 255, 255\}
+\item 
+\Hypertarget{classShadowFilter_a49474fdb279ce56d409fedd175ee0ce2}\label{classShadowFilter_a49474fdb279ce56d409fedd175ee0ce2} 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} {\bfseries shadow\+Filter}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classShadowFilter_a1997296389590a7b7ff08b030c939fd2}\index{ShadowFilter@{ShadowFilter}!start@{start}}
+\index{start@{start}!ShadowFilter@{ShadowFilter}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classShadowFilter_a1997296389590a7b7ff08b030c939fd2} 
+void Shadow\+Filter\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
+
+\Hypertarget{classShadowFilter_a91dd6dd4e3718602ecc60239d9823579}\index{ShadowFilter@{ShadowFilter}!update@{update}}
+\index{update@{update}!ShadowFilter@{ShadowFilter}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classShadowFilter_a91dd6dd4e3718602ecc60239d9823579} 
+void Shadow\+Filter\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Shadow\+Filter.\+hpp\end{DoxyCompactItemize}

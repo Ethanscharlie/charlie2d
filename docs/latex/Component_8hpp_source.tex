@@ -1,0 +1,48 @@
+\doxysection{Component.\+hpp}
+\hypertarget{Component_8hpp_source}{}\label{Component_8hpp_source}\index{include/core/Component.hpp@{include/core/Component.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COMPONENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COMPONENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <typeindex>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPropertyData}{PropertyData}}\ \{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structPropertyData}{PropertyData}}(std::string\ \_name,\ T\ *\_value)}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ :\ name(\_name),\ value(\_value),\ type(\textcolor{keyword}{typeid}(T))\ \{\}}
+\DoxyCodeLine{00016\ \ \ std::string\ name;}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ *value;}
+\DoxyCodeLine{00018\ \ \ std::type\_index\ type;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classComponent}{Component}}(std::string\ \_title\ =\ \textcolor{stringliteral}{"{}"{}})\ :\ title(\_title)\{\};}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classComponent}{\string~Component}}()\ \{\}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{start}}()\ \{\}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \{\}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{onDestroy}}()\ \{\}}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{onScreenChange}}()\ \{\}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classEntity}{Entity}}\ *\mbox{\hyperlink{classComponent_a6acb3f00c9d114d961c8763ede390d2c}{entity}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00050\ \ \ std::string\ title\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{bool}\ isInit\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{int}\ index;}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{bool}\ typeIsRendering\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00054\ \ \ std::string\ entityTag\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ std::vector<PropertyData>\ propertyRegister\ =\ \{\};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classComponent_ad1e24bf474dadd687bef5bd5658cec28}{standardUpdate}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

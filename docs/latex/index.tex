@@ -7,7 +7,9 @@
 \DoxyCodeLine{\#\ charlie2d}
 \DoxyCodeLine{A\ simple\ c++\ w/SDL2\ game\ engine}
 \DoxyCodeLine{}
-\DoxyCodeLine{DOCS\ HAVE\ BEEN\ FINISHED\ HOLY\ HELL\ THAT\ TOOK\ SO\ LONG}
+\DoxyCodeLine{\#\#\ Project\ Template}
+\DoxyCodeLine{https://github.com/Ethanscharlie/Charlie2D-\/Project-\/Template}
+\DoxyCodeLine{}
 \DoxyCodeLine{\#\ [DOCS](https://ethanscharlie.github.io/charlie2d/)}
 \DoxyCodeLine{}
 \DoxyCodeLine{\#\#\ Examples\ }
@@ -54,7 +56,7 @@
 \DoxyCodeLine{class\ Player\ :\ public\ Component\ \{}
 \DoxyCodeLine{\ \ \ \ public:}
 \DoxyCodeLine{\ \ \ \ void\ start()\ override\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ entity-\/>require<Sprite>()-\/>loadTexture("{}img/player.png"{});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ entity-\/>add<Sprite>()-\/>loadTexture("{}img/player.png"{});}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ void\ update(float\ deltaTime)\ override\ \{}
@@ -72,12 +74,11 @@
 
 \end{DoxyCodeInclude}
  \hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{charlie2d}{charlie2d}}\label{index_autotoc_md0}
-A simple c++ w/\+SDL2 game engine
-
-DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{\href{https://ethanscharlie.github.io/charlie2d/}{\texttt{ DOCS}}}{\href{https://ethanscharlie.github.io/charlie2d/}{\texttt{ DOCS}}}}\label{index_autotoc_md1}
-\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{index_autotoc_md2}
-\href{https://github.com/Ethanscharlie/ICNTBall/}{\texttt{ ICNTBall}}, a 2D metroidvania platformer\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Quickstart}{Quickstart}}\label{index_autotoc_md3}
-\hypertarget{index_autotoc_md4}{}\doxyparagraph{\texorpdfstring{The main fuction}{The main fuction}}\label{index_autotoc_md4}
+A simple c++ w/\+SDL2 game engine\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Project Template}{Project Template}}\label{index_autotoc_md1}
+\href{https://github.com/Ethanscharlie/Charlie2D-Project-Template}{\texttt{ https\+://github.\+com/\+Ethanscharlie/\+Charlie2\+D-\/\+Project-\/\+Template}}\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{\href{https://ethanscharlie.github.io/charlie2d/}{\texttt{ DOCS}}}{\href{https://ethanscharlie.github.io/charlie2d/}{\texttt{ DOCS}}}}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{index_autotoc_md3}
+\href{https://github.com/Ethanscharlie/ICNTBall/}{\texttt{ ICNTBall}}, a 2D metroidvania platformer\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Quickstart}{Quickstart}}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{The main fuction}{The main fuction}}\label{index_autotoc_md5}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{int\ main()}
@@ -91,13 +92,13 @@ DOCS HAVE BEEN FINISHED HOLY HELL THAT TOOK SO LONG \hypertarget{index_autotoc_m
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
- This is what the main should look like, the init() must be ran first and will also set the \textquotesingle{}original\textquotesingle{} resolution, note that this should be set once and left because changing it will change game behavior\hypertarget{index_autotoc_md5}{}\doxyparagraph{\texorpdfstring{Entities}{Entities}}\label{index_autotoc_md5}
+ This is what the main should look like, the init() must be ran first and will also set the \textquotesingle{}original\textquotesingle{} resolution, note that this should be set once and left because changing it will change game behavior\hypertarget{index_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Entities}{Entities}}\label{index_autotoc_md6}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Entity*\ player\ =\ GameManager::createEntity("{}Player"{});}
 
 \end{DoxyCode}
- Entites can be created with the \doxylink{classGameManager_a7a442fba2b349bd59cdc0bb93e35961b}{Game\+Manager\+::create\+Entity} method. In the instance above the \doxylink{classEntity}{Entity} is given the tag "{}\+Player"{}.\hypertarget{index_autotoc_md6}{}\doxyparagraph{\texorpdfstring{Components}{Components}}\label{index_autotoc_md6}
+ Entites can be created with the \doxylink{classGameManager_a6dcef02deb07d391d9b059367ed4c38a}{Game\+Manager\+::create\+Entity} method. In the instance above the \doxylink{classEntity}{Entity} is given the tag "{}\+Player"{}.\hypertarget{index_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{Components}{Components}}\label{index_autotoc_md7}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Entity*\ background\ =\ GameManager::createEntity("{}Background"{});}
@@ -116,7 +117,7 @@ Components can be created an added (Kinda like scripts)
 \DoxyCodeLine{class\ Player\ :\ public\ Component\ \{}
 \DoxyCodeLine{\ \ \ \ public:}
 \DoxyCodeLine{\ \ \ \ void\ start()\ override\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ entity-\/>require<Sprite>()-\/>loadTexture("{}img/player.png"{});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ entity-\/>add<Sprite>()-\/>loadTexture("{}img/player.png"{});}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ void\ update(float\ deltaTime)\ override\ \{}

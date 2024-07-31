@@ -7,7 +7,7 @@ A simple \doxylink{classComponent}{Component} container for \doxylink{classLDTK}
 
 
 
-{\ttfamily \#include $<$LDTKEntity.\+h$>$}
+{\ttfamily \#include $<$LDTKEntity.\+hpp$>$}
 
 Inheritance diagram for LDTKEntity\+:\begin{figure}[H]
 \begin{center}
@@ -29,7 +29,7 @@ void \mbox{\hyperlink{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb}{on\+Des
 \item 
 {\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
-virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+virtual void {\bfseries on\+Screen\+Change} ()
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -52,6 +52,8 @@ bool {\bfseries type\+Is\+Rendering} = false
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -60,11 +62,11 @@ bool {\bfseries standard\+Update} = true
 A simple \doxylink{classComponent}{Component} container for \doxylink{classLDTK}{LDTK} entity json data. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb}\label{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb} 
-\index{LDTKEntity@{LDTKEntity}!onDestroy@{onDestroy}}
+\Hypertarget{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb}\index{LDTKEntity@{LDTKEntity}!onDestroy@{onDestroy}}
 \index{onDestroy@{onDestroy}!LDTKEntity@{LDTKEntity}}
 \doxysubsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
-{\footnotesize\ttfamily void LDTKEntity\+::on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb} 
+void LDTKEntity\+::on\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -74,11 +76,11 @@ Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true.
 
 Reimplemented from \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{Component}}.
 
-\Hypertarget{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}\label{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b} 
-\index{LDTKEntity@{LDTKEntity}!start@{start}}
+\Hypertarget{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}\index{LDTKEntity@{LDTKEntity}!start@{start}}
 \index{start@{start}!LDTKEntity@{LDTKEntity}}
 \doxysubsubsection{\texorpdfstring{start()}{start()}}
-{\footnotesize\ttfamily void LDTKEntity\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b} 
+void LDTKEntity\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -88,11 +90,11 @@ Runs after \doxylink{classComponent}{Component} data is set in entity.\+add.
 
 Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
 
-\Hypertarget{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}\label{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb} 
-\index{LDTKEntity@{LDTKEntity}!update@{update}}
+\Hypertarget{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}\index{LDTKEntity@{LDTKEntity}!update@{update}}
 \index{update@{update}!LDTKEntity@{LDTKEntity}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void LDTKEntity\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb} 
+void LDTKEntity\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -106,5 +108,5 @@ Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/components/LDTKEntity.\+h\item 
+include/components/LDTKEntity.\+hpp\item 
 source/LDTKEntity.\+cpp\end{DoxyCompactItemize}

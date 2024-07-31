@@ -7,7 +7,7 @@ Meant to be used alongside \doxylink{classUISliceRenderer}{UISlice\+Renderer}.
 
 
 
-{\ttfamily \#include $<$Button.\+h$>$}
+{\ttfamily \#include $<$Button.\+hpp$>$}
 
 Inheritance diagram for Button\+:\begin{figure}[H]
 \begin{center}
@@ -29,7 +29,7 @@ void \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{update}} (f
 \item 
 virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+virtual void {\bfseries on\+Screen\+Change} ()
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -45,6 +45,12 @@ std\+::function$<$ void()$>$ {\bfseries on\+Hover} = \mbox{[}$\,$\mbox{]}() \{\}
 \item 
 \Hypertarget{classButton_a8ea2f4049513231318268bd9966f5420}\label{classButton_a8ea2f4049513231318268bd9966f5420} 
 std\+::function$<$ void()$>$ {\bfseries off\+Hover} = \mbox{[}$\,$\mbox{]}() \{\}
+\item 
+\Hypertarget{classButton_a9cb56dac19a1aad640004663ffc3c193}\label{classButton_a9cb56dac19a1aad640004663ffc3c193} 
+bool {\bfseries check\+In\+World} = false
+\item 
+\Hypertarget{classButton_a06ede294872f6782959d47379b9283ed}\label{classButton_a06ede294872f6782959d47379b9283ed} 
+bool {\bfseries touching} = false
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
@@ -61,6 +67,8 @@ bool {\bfseries type\+Is\+Rendering} = false
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -69,11 +77,11 @@ bool {\bfseries standard\+Update} = true
 Meant to be used alongside \doxylink{classUISliceRenderer}{UISlice\+Renderer}. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classButton_af20597b66882388602fa34959bcd2008}\label{classButton_af20597b66882388602fa34959bcd2008} 
-\index{Button@{Button}!start@{start}}
+\Hypertarget{classButton_af20597b66882388602fa34959bcd2008}\index{Button@{Button}!start@{start}}
 \index{start@{start}!Button@{Button}}
 \doxysubsubsection{\texorpdfstring{start()}{start()}}
-{\footnotesize\ttfamily void Button\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classButton_af20597b66882388602fa34959bcd2008} 
+void Button\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -83,11 +91,11 @@ Runs after \doxylink{classComponent}{Component} data is set in entity.\+add.
 
 Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
 
-\Hypertarget{classButton_af3d3e83faa0a146d66faeec9cc4c484e}\label{classButton_af3d3e83faa0a146d66faeec9cc4c484e} 
-\index{Button@{Button}!update@{update}}
+\Hypertarget{classButton_af3d3e83faa0a146d66faeec9cc4c484e}\index{Button@{Button}!update@{update}}
 \index{update@{update}!Button@{Button}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Button\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classButton_af3d3e83faa0a146d66faeec9cc4c484e} 
+void Button\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -99,6 +107,7 @@ Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/components/Button.\+h\end{DoxyCompactItemize}
+include/components/Button.\+hpp\item 
+source/Button.\+cpp\end{DoxyCompactItemize}

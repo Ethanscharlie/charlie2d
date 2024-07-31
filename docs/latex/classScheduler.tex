@@ -7,7 +7,7 @@ Made for background timers, for example a bullet that fires every 2 seconds, as 
 
 
 
-{\ttfamily \#include $<$Scheduler.\+h$>$}
+{\ttfamily \#include $<$Scheduler.\+hpp$>$}
 
 Inheritance diagram for Scheduler\+:\begin{figure}[H]
 \begin{center}
@@ -18,11 +18,9 @@ Inheritance diagram for Scheduler\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classScheduler_a92853b420d439bd49fc0c690b1c02bfd}{start}} () override
-\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classScheduler_a12580d9d2584e1c2204631460f1a6051}{update}} (float delta\+Time) override
 \begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classScheduler_a840000136f5cb4277e8888e4eafbed3e}{add\+Schedule}} (const std\+::string \&name, Uint32 millisecond\+Wait\+Time, std\+::function$<$ void()$>$ function, bool remove\+Timer\+On\+Finish=false)
+void \mbox{\hyperlink{classScheduler_afef303e4f9d4b970368db827f1341e8f}{add\+Schedule}} (const std\+::string \&name, Uint32 millisecond\+Wait\+Time, std\+::function$<$ void()$>$ function, bool remove\+Timer\+On\+Finish=false, int remove\+After\+Times=0)
 \begin{DoxyCompactList}\small\item\em Adds a schedule to the map. \end{DoxyCompactList}\item 
 \Hypertarget{classScheduler_a6c309bd75f6bc4c4244553399e68e1c1}\label{classScheduler_a6c309bd75f6bc4c4244553399e68e1c1} 
 void {\bfseries remove\+Schedule} (const std\+::string \&name)
@@ -32,11 +30,18 @@ void {\bfseries remove\+Schedule} (const std\+::string \&name)
 \item 
 {\bfseries Component} (std\+::string \+\_\+title="{}"{})
 \item 
+virtual void \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{start}} ()
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+virtual void {\bfseries on\+Screen\+Change} ()
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classScheduler_a64ddf0b778533a8e5fb55f31cef562de}\label{classScheduler_a64ddf0b778533a8e5fb55f31cef562de} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{structSchedule}{Schedule}} $>$ {\bfseries schedules}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,6 +57,8 @@ bool {\bfseries type\+Is\+Rendering} = false
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -60,11 +67,11 @@ bool {\bfseries standard\+Update} = true
 Made for background timers, for example a bullet that fires every 2 seconds, as well as cooldown timers with using remove\+Timer\+On\+Finish. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classScheduler_a840000136f5cb4277e8888e4eafbed3e}\label{classScheduler_a840000136f5cb4277e8888e4eafbed3e} 
-\index{Scheduler@{Scheduler}!addSchedule@{addSchedule}}
+\Hypertarget{classScheduler_afef303e4f9d4b970368db827f1341e8f}\index{Scheduler@{Scheduler}!addSchedule@{addSchedule}}
 \index{addSchedule@{addSchedule}!Scheduler@{Scheduler}}
 \doxysubsubsection{\texorpdfstring{addSchedule()}{addSchedule()}}
-{\footnotesize\ttfamily void Scheduler\+::add\+Schedule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{Uint32}]{millisecond\+Wait\+Time,  }\item[{std\+::function$<$ void()$>$}]{function,  }\item[{bool}]{remove\+Timer\+On\+Finish = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classScheduler_afef303e4f9d4b970368db827f1341e8f} 
+void Scheduler\+::add\+Schedule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{Uint32}]{millisecond\+Wait\+Time}{, }\item[{std\+::function$<$ void()$>$}]{function}{, }\item[{bool}]{remove\+Timer\+On\+Finish}{ = {\ttfamily false}, }\item[{int}]{remove\+After\+Times}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
 
 
 
@@ -74,32 +81,18 @@ Adds a schedule to the map.
 \begin{DoxyParams}{Parameters}
 {\em name} & The name to go in the map \\
 \hline
-{\em millisecond\+Wait\+Time} & How long before the function runs and this repeats \\
+{\em millisecond\+Wait\+Time} & How long before the function runs and this repeats\\
 \hline
-{\em function} & Code to run \\
+{\em function} & Code to run\\
 \hline
 {\em remove\+Timer\+On\+Finish} & Disables looping, only goes once (Good for cooldown wait timers) \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classScheduler_a92853b420d439bd49fc0c690b1c02bfd}\label{classScheduler_a92853b420d439bd49fc0c690b1c02bfd} 
-\index{Scheduler@{Scheduler}!start@{start}}
-\index{start@{start}!Scheduler@{Scheduler}}
-\doxysubsubsection{\texorpdfstring{start()}{start()}}
-{\footnotesize\ttfamily void Scheduler\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
-
-
-
-Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
-
-\Hypertarget{classScheduler_a12580d9d2584e1c2204631460f1a6051}\label{classScheduler_a12580d9d2584e1c2204631460f1a6051} 
-\index{Scheduler@{Scheduler}!update@{update}}
+\Hypertarget{classScheduler_a12580d9d2584e1c2204631460f1a6051}\index{Scheduler@{Scheduler}!update@{update}}
 \index{update@{update}!Scheduler@{Scheduler}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Scheduler\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classScheduler_a12580d9d2584e1c2204631460f1a6051} 
+void Scheduler\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -111,6 +104,7 @@ Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/components/Scheduler.\+h\end{DoxyCompactItemize}
+include/components/Scheduler.\+hpp\item 
+source/Scheduler.\+cpp\end{DoxyCompactItemize}

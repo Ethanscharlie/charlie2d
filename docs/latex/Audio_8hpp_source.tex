@@ -1,0 +1,35 @@
+\doxysection{Audio.\+hpp}
+\hypertarget{Audio_8hpp_source}{}\label{Audio_8hpp_source}\index{include/core/Audio.hpp@{include/core/Audio.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Angle.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}SDL\_mixer.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBox}{Box}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAudio}{Audio}}\ \{}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{structAudio}{Audio}}()\ :\ chunk(\textcolor{keyword}{nullptr})\ \{\}}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structAudio}{Audio}}(Mix\_Chunk\ *\_chunk)\ :\ chunk(\_chunk)\ \{\}}
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{structAudio}{Audio}}(std::filesystem::path\ \_path)\ :\ path(\_path)\ \{\ loadChunk(\_path);\ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ play(\textcolor{keywordtype}{bool}\ loop\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ std::filesystem::path\ path;}
+\DoxyCodeLine{00020\ \ \ Mix\_Chunk\ *chunk;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ clearAllChunks();}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ reloadAllChunks();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{static}\ Mix\_Chunk\ *loadChunk(std::filesystem::path\ filename,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ forceReload\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ std::map<std::filesystem::path,\ Mix\_Chunk\ *>\ loadedChunks;}
+\DoxyCodeLine{00029\ \};}
+
+\end{DoxyCode}

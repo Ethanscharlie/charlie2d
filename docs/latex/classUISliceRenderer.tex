@@ -2,12 +2,12 @@
 \hypertarget{classUISliceRenderer}{}\label{classUISliceRenderer}\index{UISliceRenderer@{UISliceRenderer}}
 
 
-Renders a texture without stretching the corners Don\textquotesingle{}t forget to use a \doxylink{classUICanvas}{UICanvas}.  
+Renders a texture without stretching the corners Don\textquotesingle{}t forget to use a UICanvas.  
 
 
 
 
-{\ttfamily \#include $<$UISlice\+Renderer.\+h$>$}
+{\ttfamily \#include $<$UISlice\+Renderer.\+hpp$>$}
 
 Inheritance diagram for UISlice\+Renderer\+:\begin{figure}[H]
 \begin{center}
@@ -27,7 +27,7 @@ void \mbox{\hyperlink{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}{st
 void {\bfseries load\+Texture} (std\+::string name)
 \begin{DoxyCompactList}\small\item\em Loads a texture from filepath, this is meant to be square for a panel of some sort. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}{update}} (float delta\+Time) override
-\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Loads a texture from filepath, this is meant to be square for a panel of some sort. \end{DoxyCompactList}\item 
 \Hypertarget{classUISliceRenderer_a639b0e41f6d925ceac3544890ee1d692}\label{classUISliceRenderer_a639b0e41f6d925ceac3544890ee1d692} 
 void {\bfseries Draw9\+Sliced\+Texture} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture, SDL\+\_\+\+Rect dest\+Rect, int border\+Size)
 \end{DoxyCompactItemize}
@@ -38,7 +38,7 @@ void {\bfseries Draw9\+Sliced\+Texture} (SDL\+\_\+\+Renderer \texorpdfstring{$\a
 \item 
 virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+virtual void {\bfseries on\+Screen\+Change} ()
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -61,19 +61,21 @@ bool {\bfseries type\+Is\+Rendering} = false
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Renders a texture without stretching the corners Don\textquotesingle{}t forget to use a \doxylink{classUICanvas}{UICanvas}. 
+Renders a texture without stretching the corners Don\textquotesingle{}t forget to use a UICanvas. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}\label{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0} 
-\index{UISliceRenderer@{UISliceRenderer}!start@{start}}
+\Hypertarget{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0}\index{UISliceRenderer@{UISliceRenderer}!start@{start}}
 \index{start@{start}!UISliceRenderer@{UISliceRenderer}}
 \doxysubsubsection{\texorpdfstring{start()}{start()}}
-{\footnotesize\ttfamily void UISlice\+Renderer\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classUISliceRenderer_acf303ae3fd794b707044ff2fd6fa3ba0} 
+void UISlice\+Renderer\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -83,15 +85,15 @@ Runs after \doxylink{classComponent}{Component} data is set in entity.\+add.
 
 Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
 
-\Hypertarget{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}\label{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679} 
-\index{UISliceRenderer@{UISliceRenderer}!update@{update}}
+\Hypertarget{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679}\index{UISliceRenderer@{UISliceRenderer}!update@{update}}
 \index{update@{update}!UISliceRenderer@{UISliceRenderer}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void UISlice\+Renderer\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classUISliceRenderer_a70dfbcf5eea07764b7f5c345f94f7679} 
+void UISlice\+Renderer\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Updates in the update loop. 
+Loads a texture from filepath, this is meant to be square for a panel of some sort. 
 
 
 
@@ -99,6 +101,7 @@ Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/components/UISlice\+Renderer.\+h\end{DoxyCompactItemize}
+include/components/UISlice\+Renderer.\+hpp\item 
+source/UISlice\+Renderer.\+cpp\end{DoxyCompactItemize}

@@ -7,7 +7,7 @@ This class is made to be a simple Platformer player controller that uses the \do
 
 
 
-{\ttfamily \#include $<$Jump\+Man.\+h$>$}
+{\ttfamily \#include $<$Jump\+Man.\+hpp$>$}
 
 Inheritance diagram for Jump\+Man\+:\begin{figure}[H]
 \begin{center}
@@ -29,7 +29,7 @@ void \mbox{\hyperlink{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}{update}} (
 \item 
 virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
 \begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classComponent_ae54013904603c2a15d9963d28e666d78}{on\+Screen\+Change}} ()
+virtual void {\bfseries on\+Screen\+Change} ()
 \begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -66,7 +66,10 @@ bool {\bfseries need\+Ground} = true
 \begin{DoxyCompactList}\small\item\em Who even cares about physics mid are jumps are the future. \end{DoxyCompactList}\item 
 \Hypertarget{classJumpMan_a358ede774827117039acb993885646f0}\label{classJumpMan_a358ede774827117039acb993885646f0} 
 bool {\bfseries touching\+Ground} = true
-\begin{DoxyCompactList}\small\item\em Uhh this should probably be a private value... \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Uhh this should probably be a private value... \end{DoxyCompactList}\item 
+\Hypertarget{classJumpMan_ad1967a61ebb5f3a1bb9eb9196298e470}\label{classJumpMan_ad1967a61ebb5f3a1bb9eb9196298e470} 
+float {\bfseries jumps\+Counter}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -82,6 +85,8 @@ bool {\bfseries type\+Is\+Rendering} = false
 \item 
 std\+::string {\bfseries entity\+Tag} = "{}"{}
 \item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
 bool {\bfseries standard\+Update} = true
 \begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -90,11 +95,11 @@ bool {\bfseries standard\+Update} = true
 This class is made to be a simple Platformer player controller that uses the \doxylink{classphysicsBody}{physics\+Body}. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}\label{classJumpMan_a9edfdb170af06e76632923f2b5d439e6} 
-\index{JumpMan@{JumpMan}!start@{start}}
+\Hypertarget{classJumpMan_a9edfdb170af06e76632923f2b5d439e6}\index{JumpMan@{JumpMan}!start@{start}}
 \index{start@{start}!JumpMan@{JumpMan}}
 \doxysubsubsection{\texorpdfstring{start()}{start()}}
-{\footnotesize\ttfamily void Jump\+Man\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classJumpMan_a9edfdb170af06e76632923f2b5d439e6} 
+void Jump\+Man\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -104,11 +109,11 @@ Runs after \doxylink{classComponent}{Component} data is set in entity.\+add.
 
 Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
 
-\Hypertarget{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}\label{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40} 
-\index{JumpMan@{JumpMan}!update@{update}}
+\Hypertarget{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40}\index{JumpMan@{JumpMan}!update@{update}}
 \index{update@{update}!JumpMan@{JumpMan}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Jump\+Man\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classJumpMan_a0cfd390cb9f6148fb7c391314c1bad40} 
+void Jump\+Man\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -120,6 +125,7 @@ Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/components/Jump\+Man.\+h\end{DoxyCompactItemize}
+include/components/Jump\+Man.\+hpp\item 
+source/Jump\+Man.\+cpp\end{DoxyCompactItemize}

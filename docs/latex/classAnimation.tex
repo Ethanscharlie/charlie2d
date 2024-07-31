@@ -7,12 +7,12 @@ ANIMATIONS YEAH!!! Meant to be used the the \doxylink{classSprite}{Sprite} \doxy
 
 
 
-{\ttfamily \#include $<$Animation.\+h$>$}
+{\ttfamily \#include $<$Animation.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classAnimation_ac42772bcf0eef694186a8f01b8132925}{Animation}} (\mbox{\hyperlink{classSprite}{Sprite}} \texorpdfstring{$\ast$}{*}sprite\+In, std\+::vector$<$ std\+::string $>$ frames\+In, float fps\+In)
+\mbox{\hyperlink{classAnimation_ae618423f4c89603c78f9041a3308e262}{Animation}} (\mbox{\hyperlink{classSprite}{Sprite}} \texorpdfstring{$\ast$}{*}sprite\+In, std\+::vector$<$ \mbox{\hyperlink{structImage}{Image}} $>$ frames\+In, float fps\+In)
 \begin{DoxyCompactList}\small\item\em Uhh yeah. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705}{update}} ()
 \begin{DoxyCompactList}\small\item\em update loop for the animation \end{DoxyCompactList}\item 
@@ -28,8 +28,8 @@ void \mbox{\hyperlink{classAnimation_ad173a19155aa3843533302ded3e01dd5}{loop}} (
 \Hypertarget{classAnimation_add71a00596eb3f48760752cb006ad768}\label{classAnimation_add71a00596eb3f48760752cb006ad768} 
 \mbox{\hyperlink{classSprite}{Sprite}} \texorpdfstring{$\ast$}{*} {\bfseries sprite}
 \begin{DoxyCompactList}\small\item\em The \doxylink{classSprite}{Sprite} \doxylink{classComponent}{Component} for the rendering. \end{DoxyCompactList}\item 
-\Hypertarget{classAnimation_a41853be6dd73831d6e062982f86f4173}\label{classAnimation_a41853be6dd73831d6e062982f86f4173} 
-std\+::vector$<$ std\+::string $>$ {\bfseries frames}
+\Hypertarget{classAnimation_aeaeb4074c422e98bf468638d0cbd56a1}\label{classAnimation_aeaeb4074c422e98bf468638d0cbd56a1} 
+std\+::vector$<$ \mbox{\hyperlink{structImage}{Image}} $>$ {\bfseries frames}
 \item 
 \Hypertarget{classAnimation_acac8a7be13b45b7e3c4fe2ffb88ccd55}\label{classAnimation_acac8a7be13b45b7e3c4fe2ffb88ccd55} 
 Uint32 {\bfseries timer} = SDL\+\_\+\+Get\+Ticks()
@@ -44,10 +44,10 @@ int {\bfseries frame\+Counter} = 0
 int {\bfseries direction} = 1
 \item 
 \Hypertarget{classAnimation_a7728add5eff875260186237b0b657448}\label{classAnimation_a7728add5eff875260186237b0b657448} 
-bool {\bfseries playing}
+bool {\bfseries playing} \{\}
 \item 
 \Hypertarget{classAnimation_acb37f27db7ff408ad5aac5b66562de01}\label{classAnimation_acb37f27db7ff408ad5aac5b66562de01} 
-bool {\bfseries looping}
+bool {\bfseries looping} \{\}
 \item 
 \Hypertarget{classAnimation_a19b354e46ceb8544e91e95cfefa3b9e3}\label{classAnimation_a19b354e46ceb8544e91e95cfefa3b9e3} 
 std\+::function$<$ void()$>$ {\bfseries on\+Finish}
@@ -58,11 +58,11 @@ std\+::function$<$ void()$>$ {\bfseries on\+Finish}
 ANIMATIONS YEAH!!! Meant to be used the the \doxylink{classSprite}{Sprite} \doxylink{classComponent}{Component}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classAnimation_ac42772bcf0eef694186a8f01b8132925}\label{classAnimation_ac42772bcf0eef694186a8f01b8132925} 
-\index{Animation@{Animation}!Animation@{Animation}}
+\Hypertarget{classAnimation_ae618423f4c89603c78f9041a3308e262}\index{Animation@{Animation}!Animation@{Animation}}
 \index{Animation@{Animation}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{Animation()}{Animation()}}
-{\footnotesize\ttfamily Animation\+::\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{sprite\+In,  }\item[{std\+::vector$<$ std\+::string $>$}]{frames\+In,  }\item[{float}]{fps\+In }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classAnimation_ae618423f4c89603c78f9041a3308e262} 
+Animation\+::\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{sprite\+In}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{structImage}{Image}} $>$}]{frames\+In}{, }\item[{float}]{fps\+In}{}\end{DoxyParamCaption})}
 
 
 
@@ -80,11 +80,11 @@ Uhh yeah.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classAnimation_ad173a19155aa3843533302ded3e01dd5}\label{classAnimation_ad173a19155aa3843533302ded3e01dd5} 
-\index{Animation@{Animation}!loop@{loop}}
+\Hypertarget{classAnimation_ad173a19155aa3843533302ded3e01dd5}\index{Animation@{Animation}!loop@{loop}}
 \index{loop@{loop}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
-{\footnotesize\ttfamily void Animation\+::loop (\begin{DoxyParamCaption}\item[{int}]{direction = {\ttfamily 1} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classAnimation_ad173a19155aa3843533302ded3e01dd5} 
+void Animation\+::loop (\begin{DoxyParamCaption}\item[{int}]{direction}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
 
 
 
@@ -95,11 +95,11 @@ Tells the animation to loop and not just play.
 {\em direction} & can be 1 or -\/1 (to play backwards) \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classAnimation_aa94dcb6f0f23ebd169573d9e039b2975}\label{classAnimation_aa94dcb6f0f23ebd169573d9e039b2975} 
-\index{Animation@{Animation}!play@{play}}
+\Hypertarget{classAnimation_aa94dcb6f0f23ebd169573d9e039b2975}\index{Animation@{Animation}!play@{play}}
 \index{play@{play}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{play()}{play()}}
-{\footnotesize\ttfamily void Animation\+::play (\begin{DoxyParamCaption}\item[{int}]{direction = {\ttfamily 1},  }\item[{std\+::function$<$ void()$>$}]{on\+Finish\+In = {\ttfamily \mbox{[}\mbox{]}()~\{\}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classAnimation_aa94dcb6f0f23ebd169573d9e039b2975} 
+void Animation\+::play (\begin{DoxyParamCaption}\item[{int}]{direction}{ = {\ttfamily 1}, }\item[{std\+::function$<$ void()$>$}]{on\+Finish\+In}{ = {\ttfamily \mbox{[}\mbox{]}()~\{\}}}\end{DoxyParamCaption})}
 
 
 
@@ -112,21 +112,21 @@ Starts the animation.
 {\em on\+Finish\+In} & code to run on animation finish \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classAnimation_ad53139f47d0156675d9e86cad7a9ec89}\label{classAnimation_ad53139f47d0156675d9e86cad7a9ec89} 
-\index{Animation@{Animation}!resetFrameCounter@{resetFrameCounter}}
+\Hypertarget{classAnimation_ad53139f47d0156675d9e86cad7a9ec89}\index{Animation@{Animation}!resetFrameCounter@{resetFrameCounter}}
 \index{resetFrameCounter@{resetFrameCounter}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{resetFrameCounter()}{resetFrameCounter()}}
-{\footnotesize\ttfamily void Animation\+::reset\+Frame\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classAnimation_ad53139f47d0156675d9e86cad7a9ec89} 
+void Animation\+::reset\+Frame\+Counter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 resets the frame counter 
 
-TODO remember what this method does because I forgor tbh \Hypertarget{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705}\label{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705} 
-\index{Animation@{Animation}!update@{update}}
+TODO remember what this method does because I forgor tbh \Hypertarget{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705}\index{Animation@{Animation}!update@{update}}
 \index{update@{update}!Animation@{Animation}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Animation\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705} 
+void Animation\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -136,5 +136,5 @@ Don\textquotesingle{}t worry it still uses the timer inside it and doesn\textquo
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/components/Animation.\+h\item 
+include/components/Animation.\+hpp\item 
 source/Animation.\+cpp\end{DoxyCompactItemize}

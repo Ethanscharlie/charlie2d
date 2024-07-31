@@ -1,0 +1,97 @@
+\doxysection{Tilemap Class Reference}
+\hypertarget{classTilemap}{}\label{classTilemap}\index{Tilemap@{Tilemap}}
+Inheritance diagram for Tilemap\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTilemap}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTilemap_a469c736f0947ff3741e65148931735c7}\label{classTilemap_a469c736f0947ff3741e65148931735c7} 
+\mbox{\hyperlink{structBox}{Box}} {\bfseries get\+Render\+Box} (\mbox{\hyperlink{structBox}{Box}} box)
+\item 
+void \mbox{\hyperlink{classTilemap_a2b8edd7f648523d633cbc258ec6af59c}{start}} () override
+\begin{DoxyCompactList}\small\item\em Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTilemap_ae5cb79a0d9926b9e331d743bab4c58e3}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates in the update loop. \end{DoxyCompactList}\item 
+\Hypertarget{classTilemap_a59188c8408731d07e7e44fb147790b47}\label{classTilemap_a59188c8408731d07e7e44fb147790b47} 
+void {\bfseries render} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} (std\+::string \+\_\+title="{}"{})
+\item 
+virtual void \mbox{\hyperlink{classComponent_a1d2e572343ab4b6c47d5d03c6448ceb2}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em Is called when entity-\/\texorpdfstring{$>$}{>}to\+Destory = true. \end{DoxyCompactList}\item 
+virtual void {\bfseries on\+Screen\+Change} ()
+\begin{DoxyCompactList}\small\item\em Runs when the screen size is changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTilemap_a99180b7a379eeffcb2f02ef13f33d696}\label{classTilemap_a99180b7a379eeffcb2f02ef13f33d696} 
+\mbox{\hyperlink{structTileGrid}{Tile\+Grid}} {\bfseries tile\+Grid}
+\item 
+\Hypertarget{classTilemap_a1d90242eb56890b6faf2b114eb301ea5}\label{classTilemap_a1d90242eb56890b6faf2b114eb301ea5} 
+bool {\bfseries solid} = false
+\item 
+\Hypertarget{classTilemap_a41a01adec802240c81ec0ab9b009f8ba}\label{classTilemap_a41a01adec802240c81ec0ab9b009f8ba} 
+int {\bfseries grid\+Size} = 16
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classComponent}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntity}{Entity}} \texorpdfstring{$\ast$}{*} {\bfseries entity} = nullptr
+\begin{DoxyCompactList}\small\item\em The attached entity. \end{DoxyCompactList}\item 
+std\+::string {\bfseries title} = "{}"{}
+\item 
+bool {\bfseries is\+Init} = false
+\item 
+int {\bfseries index}
+\item 
+bool {\bfseries type\+Is\+Rendering} = false
+\item 
+std\+::string {\bfseries entity\+Tag} = "{}"{}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structPropertyData}{Property\+Data}} $>$ {\bfseries property\+Register} = \{\}
+\item 
+bool {\bfseries standard\+Update} = true
+\begin{DoxyCompactList}\small\item\em Will update the \doxylink{classComponent}{Component} in the game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTilemap_a2b8edd7f648523d633cbc258ec6af59c}\index{Tilemap@{Tilemap}!start@{start}}
+\index{start@{start}!Tilemap@{Tilemap}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{classTilemap_a2b8edd7f648523d633cbc258ec6af59c} 
+void Tilemap\+::start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs after \doxylink{classComponent}{Component} data is set in entity.\+add. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_ae1ca93c773f779d0a004eec46f468560}{Component}}.
+
+\Hypertarget{classTilemap_ae5cb79a0d9926b9e331d743bab4c58e3}\index{Tilemap@{Tilemap}!update@{update}}
+\index{update@{update}!Tilemap@{Tilemap}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classTilemap_ae5cb79a0d9926b9e331d743bab4c58e3} 
+void Tilemap\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates in the update loop. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classComponent_a3b3bee5d55446124842e5f2e229e1384}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/components/Tile.\+hpp\end{DoxyCompactItemize}

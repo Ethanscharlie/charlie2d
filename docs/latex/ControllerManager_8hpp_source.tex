@@ -1,0 +1,44 @@
+\doxysection{Controller\+Manager.\+hpp}
+\hypertarget{ControllerManager_8hpp_source}{}\label{ControllerManager_8hpp_source}\index{include/core/ControllerManager.hpp@{include/core/ControllerManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Vector2f.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ NUM\_BUTTONS\ 15}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ BIT16\_MAX\ 32767.0}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}SDL\_gamecontroller.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structController}{Controller}}\ \{}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{structController}{Controller}}(SDL\_GameController\ *controller)\ \{\ this-\/>controller\ =\ controller;\ \}}
+\DoxyCodeLine{00012\ \ \ SDL\_GameController\ *controller;}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{bool}\ triggerButtons[NUM\_BUTTONS];}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ leftAxis;}
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{structVector2f}{Vector2f}}\ rightAxis;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{float}\ leftTrigger\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{float}\ rightTrigger\ =\ 0;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ resetTriggerButtons()\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ NUM\_BUTTONS;\ ++i)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ triggerButtons[i]\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Initialize\ all\ keys\ as\ released}}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \}}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classControllerManager}{ControllerManager}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{classControllerManager}{ControllerManager}}();}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onControllerConnect(\textcolor{keywordtype}{int}\ joystickID);}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onControllerDisconnect(\textcolor{keywordtype}{int}\ joystickID);}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onStickEvent(\textcolor{keywordtype}{int}\ joystickID,\ Uint8\ sdl2Axis,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sint16\ axisValue);}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ resetTriggerButtons();}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structController}{Controller}}\ *findController(\textcolor{keywordtype}{int}\ joystickID);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ Will\ be\ nullptr\ if\ disconnected}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{static}\ std::vector<Controller>\ controllers;}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}

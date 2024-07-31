@@ -7,13 +7,13 @@ Based struct for schedules used in the \doxylink{classScheduler}{Scheduler}.
 
 
 
-{\ttfamily \#include $<$Scheduler.\+h$>$}
+{\ttfamily \#include $<$Scheduler.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structSchedule_a6039b8134cf340bcc8736c865a440d4d}\label{structSchedule_a6039b8134cf340bcc8736c865a440d4d} 
-{\bfseries Schedule} (std\+::function$<$ void()$>$ \+\_\+function, Uint32 \+\_\+millisecond\+Wait\+Time, bool \+\_\+remove\+Timer\+On\+Finish)
+\Hypertarget{structSchedule_abd12de40d9dd71ee1f1dc0fb53fe530d}\label{structSchedule_abd12de40d9dd71ee1f1dc0fb53fe530d} 
+{\bfseries Schedule} (std\+::function$<$ void()$>$ \+\_\+function, Uint32 \+\_\+millisecond\+Wait\+Time, bool \+\_\+remove\+Timer\+On\+Finish, int \+\_\+remove\+After\+Times)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -29,6 +29,12 @@ Uint32 {\bfseries timer\+Start\+Time} = 0
 \item 
 \Hypertarget{structSchedule_af98df1489791947a1abb6f8f1d5e78d9}\label{structSchedule_af98df1489791947a1abb6f8f1d5e78d9} 
 bool {\bfseries remove\+Timer\+On\+Finish} = false
+\item 
+\Hypertarget{structSchedule_a19daef22b53b5d3d7fce07f0028f32e8}\label{structSchedule_a19daef22b53b5d3d7fce07f0028f32e8} 
+int {\bfseries times\+Counter} = 0
+\item 
+\Hypertarget{structSchedule_a50b251dff9a87959429b5cd787ceff2a}\label{structSchedule_a50b251dff9a87959429b5cd787ceff2a} 
+std\+::function$<$ void()$>$ {\bfseries on\+Finish} = \mbox{[}$\,$\mbox{]}() \{\}
 \end{DoxyCompactItemize}
 
 
@@ -37,4 +43,4 @@ Based struct for schedules used in the \doxylink{classScheduler}{Scheduler}.
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/components/Scheduler.\+h\end{DoxyCompactItemize}
+include/components/Scheduler.\+hpp\end{DoxyCompactItemize}

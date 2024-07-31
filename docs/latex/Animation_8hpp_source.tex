@@ -1,0 +1,40 @@
+\doxysection{Animation.\+hpp}
+\hypertarget{Animation_8hpp_source}{}\label{Animation_8hpp_source}\index{include/components/Animation.hpp@{include/components/Animation.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ANIMATION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ANIMATION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Image.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ResourceManager.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}SDL\_stdinc.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}SDL\_timer.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSprite}{Sprite}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAnimation}{Animation}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classAnimation_ae618423f4c89603c78f9041a3308e262}{Animation}}(\mbox{\hyperlink{classSprite}{Sprite}}\ *spriteIn,\ std::vector<Image>\ framesIn,\ \textcolor{keywordtype}{float}\ fpsIn);}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAnimation_a4318baf0b0735e7da87b2c6d3d3a2705}{update}}();}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAnimation_ad53139f47d0156675d9e86cad7a9ec89}{resetFrameCounter}}();}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAnimation_aa94dcb6f0f23ebd169573d9e039b2975}{play}}(}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction\ =\ 1,\ std::function<\textcolor{keywordtype}{void}()>\ onFinishIn\ =\ []()\ \{\});}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAnimation_ad173a19155aa3843533302ded3e01dd5}{loop}}(\textcolor{keywordtype}{int}\ direction\ =\ 1);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{classSprite}{Sprite}}\ *\mbox{\hyperlink{classAnimation_add71a00596eb3f48760752cb006ad768}{sprite}};}
+\DoxyCodeLine{00057\ \ \ std::vector<Image>\ frames;}
+\DoxyCodeLine{00058\ \ \ Uint32\ timer\ =\ SDL\_GetTicks();}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{float}\ fps\ =\ 1;}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{int}\ frameCounter\ =\ 0;}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{int}\ direction\ =\ 1;}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{bool}\ playing\{\};}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{bool}\ looping\{\};}
+\DoxyCodeLine{00064\ \ \ std::function<void()>\ onFinish;}
+\DoxyCodeLine{00065\ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

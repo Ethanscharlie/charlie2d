@@ -1,0 +1,39 @@
+\doxysection{Button.\+hpp}
+\hypertarget{Button_8hpp_source}{}\label{Button_8hpp_source}\index{include/components/Button.hpp@{include/components/Button.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Camera.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Entity.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}GameManager.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}InputManager.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8hpp}{Math.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Serializer.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Vector2f.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classButton}{Button}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classButton}{Button}}()\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ propertyRegister\ =\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ GET\_PROP(onClick),\ \ GET\_PROP(onHold),\ \ \ \ \ \ \ GET\_PROP(onHover),}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ GET\_PROP(offHover),\ GET\_PROP(checkInWorld),}
+\DoxyCodeLine{00021\ \ \ \ \ \};}
+\DoxyCodeLine{00022\ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classButton_af20597b66882388602fa34959bcd2008}{start}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classButton_af3d3e83faa0a146d66faeec9cc4c484e}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ std::function<void()>\ onClick\ =\ []()\ \{\};}
+\DoxyCodeLine{00029\ \ \ std::function<void()>\ onHold\ =\ []()\ \{\};}
+\DoxyCodeLine{00030\ \ \ std::function<void()>\ onHover\ =\ []()\ \{\};}
+\DoxyCodeLine{00031\ \ \ std::function<void()>\ offHover\ =\ []()\ \{\};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{bool}\ checkInWorld\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{bool}\ touching\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ REGISTER\_COMPONENT\_TYPE(\mbox{\hyperlink{classButton}{Button}});}
+
+\end{DoxyCode}

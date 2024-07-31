@@ -1,0 +1,42 @@
+\doxysection{Input\+Manager.\+hpp}
+\hypertarget{InputManager_8hpp_source}{}\label{InputManager_8hpp_source}\index{include/core/InputManager.hpp@{include/core/InputManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL\_gamecontroller.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \#include\ "{}GameManager.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Math_8hpp}{Math.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}SDL\_events.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \#define\ NUM\_KEYS\ 256\ //\ Total\ number\ of\ keys}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ NUM\_KEYS\ 286\ }\textcolor{comment}{//\ Total\ number\ of\ keys}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classInputManager}{InputManager}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{classInputManager}{InputManager}}();}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInputManager_a136d6afa55ee74eeda5eb72e78e3ee97}{update}}();}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classInputManager_a19e1a1564cf52ea0d23005e44eeb54ab}{checkVertical}}();}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classInputManager_a7a90eb957ee09d84d45aa7dc9d649e09}{checkHorizontal}}();}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_a8f766f85f343be3ee24aefd88f3a46f4}{checkAxis}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ checkKeyHeld(SDL\_Scancode\ scancode);}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_ab7baa92e499dccb00bd52da9fe2c41fe}{getMouseWorldPosition}}();}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_a875df72bf19d9f013d23595213413cda}{getMouseUIPosition}}();}
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{classInputManager_ac6265f26ac783b3a1f42a71f7873546e}{getMouseScreenPosition}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ mouseHeld;}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ leftMouseHeld;}
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ rightMouseHeld;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ mouseScroll;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInputManager_ab7469d2e183ca5878bbc20b55c04c343}{keyEvents}}[NUM\_KEYS];}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onEvent(SDL\_Event\ event);}
+\DoxyCodeLine{00066\ \};}
+
+\end{DoxyCode}
