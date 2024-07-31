@@ -2,32 +2,29 @@
 @include README.md
 # charlie2d
 A simple c++ w/SDL2 game engine
+[DOCS](https://ethanscharlie.github.io/charlie2d/)
 
-## Project Template
+## Setup
+To make things easier I have created a project template that should 
+make it as easy as possible to compile projects for any platform
 https://github.com/Ethanscharlie/Charlie2D-Project-Template
 
-# [DOCS](https://ethanscharlie.github.io/charlie2d/)
-
-## Examples 
-
-[ICNTBall](https://github.com/Ethanscharlie/ICNTBall/), a 2D metroidvania platformer
-
 ## Quickstart
-#### The main fuction
+#### Init
 ```
 int main()
 {   
     GameManager::init({1920, 1080});
 
-    GameManager::createEntity("Player");
+    // Game code
 
     GameManager::doUpdateLoop();
     return 0;
 }
 ```
-This is what the main should look like, the init() must be ran first and will also set 
-the 'original' resolution, note that this should be set once and left because changing it will change
-game behavior
+The init() must be ran first and will also set the 'original' resolution, 
+note that this should be set once and left because changing it will change
+game behavior, defaults to 1920x1080 if no argument is given
 
 #### Entities
 ```
@@ -43,8 +40,6 @@ background->add<Sprite>();
 background->get<Sprite>()->loadTexture("img/background.png");
 
 Entity* background2 = GameManager::createEntity("Background");
-// Require adds or gets depending on if the entity has the component
-background2->require<Sprite>()->loadTexture("img/background.png");
 ```
 
 Components can be created an added (Kinda like scripts)
