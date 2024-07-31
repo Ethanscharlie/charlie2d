@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['onloadlevel_0',['onLoadLevel',['../classLDTK.html#a4a32938cc43d2845a1ea86f83d5f311c',1,'LDTK']]],
-  ['onscreen_1',['onScreen',['../classSprite.html#a44b05ec74e2e39472be7c5b85e61d5d9',1,'Sprite']]]
+  ['needground_0',['needGround',['../classJumpMan.html#a1547f2011e0d04367bde5a4da048ef75',1,'JumpMan']]]
 ];
