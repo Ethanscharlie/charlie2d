@@ -97,43 +97,55 @@ auto LDTK::getLevelJson(std::string iid) -> json {
   return {};
 }
 
+void LDTK::loadTileLayer(json layer, int layerIndex, std::string iid) {
+  int tileWidth = layer["__gridSize"];
+  int tileHeight = layer["__gridSize"];
+
+  std::string tileLayerJsonName;
+  if (layer["__type"] == "Tiles") {
+    tileLayerJsonName = "gridTiles";
+  } else if (layer["__type"] == "AutoLayer") {
+    std::cout << "AUTO\n";
+    tileLayerJsonName = "autoLayerTiles";
+  }
+
+  std::vector<TileRaw> rawTiles;
+  for (auto const &tile : layer[tileLayerJsonName]) {
+    TileRaw rawTile;
+
+    std::filesystem::path imageFileLocation;
+    imageFileLocation =
+        std::filesystem::path(jsonDir) / layer["__tilesetRelPath"];
+    rawTile.image = imageFileLocation.string();
+
+    rawTile.srcRect.x = tile["src"][0];
+    rawTile.srcRect.y = tile["src"][1];
+    rawTile.srcRect.w = layer["__gridSize"];
+    rawTile.srcRect.h = layer["__gridSize"];
+
+    rawTile.box = {tile["px"][0], tile["px"][1], layer["__gridSize"],
+                   layer["__gridSize"]};
+
+    rawTiles.push_back(rawTile);
+  }
+
+  std::string layerName = layer["__identifier"];
+  preloadedTiles[iid][layerName] =
+      TileLayer(layerName, layerIndex, rawTiles);
+
+  // for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
+  //   groupedTile.render();
+  // }
+}
+
 void LDTK::preload(std::string iid) {
   auto thelevel = getLevelJson(iid);
   auto &layerInstances = thelevel["layerInstances"];
 
   for (auto it = layerInstances.rbegin(); it != layerInstances.rend(); ++it) {
     auto const &layer = *it;
-    if (layer["__type"] == "Tiles") {
-      int tileWidth = layer["__gridSize"];
-      int tileHeight = layer["__gridSize"];
-
-      std::vector<TileRaw> rawTiles;
-      for (auto const &tile : layer["gridTiles"]) {
-        TileRaw rawTile;
-
-        std::filesystem::path imageFileLocation;
-        imageFileLocation =
-            std::filesystem::path(jsonDir) / layer["__tilesetRelPa.hpp"];
-        rawTile.image = imageFileLocation.string();
-
-        rawTile.srcRect.x = tile["src"][0];
-        rawTile.srcRect.y = tile["src"][1];
-        rawTile.srcRect.w = layer["__gridSize"];
-        rawTile.srcRect.h = layer["__gridSize"];
-
-        rawTile.box = {tile["px"][0], tile["px"][1], layer["__gridSize"],
-                       layer["__gridSize"]};
-
-        rawTiles.push_back(rawTile);
-      }
-
-      std::string layerName = layer["__identifier"];
-      preloadedTiles[iid][layerName] =
-          TileLayer(layerName, it - layerInstances.rbegin(), rawTiles);
-
-      // for (TileGroup &groupedTile : preloadedTiles[iid][layerName].tiles) {
-      //   groupedTile.render();
-      // }
+    if (layer["__type"] == "Tiles" || layer["__type"] == "AutoLayer") {
+      loadTileLayer(layer, it - layerInstances.rbegin(), iid);
     }
   }
 }
@@ -198,7 +210,7 @@ void LDTK::loadLevel(std::string iid, bool handleUnload) {
         object->box.position = {entity["px"][0], entity["px"][1]};
         object->box.position += (worldBox.position);
 
-        object->box.size = {entity["wid.hpp"], entity["height"]};
+        object->box.size = {entity["width"], entity["height"]};
 
         entities.push_back(object);
       }

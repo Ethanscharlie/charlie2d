@@ -22,6 +22,8 @@ void Image::render(const Box &box, const Angle &angle) {
   }
 
   SDL_Rect renderRect = box;
+  renderRect.w += 1;
+  renderRect.h += 1;
 
   SDL_RenderCopyEx(GameManager::renderer, texture, srcRectPtr, &renderRect,
                    (180 / M_PI) * angle.radians, nullptr, flip);

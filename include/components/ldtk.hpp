@@ -75,11 +75,14 @@ public:
    */
   static std::function<void(std::vector<Entity*>)> onLoadLevel;
 
+
   static void preload(std::string iid);
 
   static std::map<std::string, std::map<std::string, TileLayer>>
       preloadedTiles;
 
 private:
+  static void loadTileLayer(json layer, int layerIndex, std::string iid);
+
   static std::filesystem::path jsonDir;
 };
