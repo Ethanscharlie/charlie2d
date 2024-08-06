@@ -27,7 +27,6 @@
 #include "SolidBody.hpp"
 #include "Sprite.hpp"
 #include "Text.hpp"
-#include "Tile.hpp"
 #include "UISliceRenderer.hpp"
 #include "ldtk.hpp"
 #include "physicsBody.hpp"

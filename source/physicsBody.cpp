@@ -27,14 +27,14 @@ void physicsBody::update(float deltaTime) {
     solids.push_back(&col->entity->box);
   }
 
-  for (Tilemap *tilemap : GameManager::getComponents<Tilemap>()) {
-    if (!tilemap->solid)
-      continue;
-    std::vector<Box> boxes = tilemap->tileGrid.getTileGroups();
-    for (Box &box : boxes) {
-      solids.push_back(&box);
-    }
-  }
+  // for (Tilemap *tilemap : GameManager::getComponents<Tilemap>()) {
+  //   if (!tilemap->solid)
+  //     continue;
+  //   std::vector<Box> boxes = tilemap->tileGrid.getTileGroups();
+  //   for (Box &box : boxes) {
+  //     solids.push_back(&box);
+  //   }
+  // }
 
   if (pushOut) {
     slideOut out = entity->box.slide(velocity * deltaTime, solids);

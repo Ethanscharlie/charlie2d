@@ -51,10 +51,10 @@ def create_project(dir: str):
     copytree("./bin", fr"{dir}/bin")
     
     # FOR SYSTEM WINDOWS
-    make_projectbuild_dir(PROJECTBUILD_FOLDER)
-    os.chdir(PROJECTBUILD_FOLDER)
-    os.system(fr"cmake -DCMAKE_TOOLCHAIN_FILE=~/TC-mingw.cmake {charlie2D_path}; cmake --build .")
-    move_files(dir, WINDOWS)
+    # make_projectbuild_dir(PROJECTBUILD_FOLDER)
+    # os.chdir(PROJECTBUILD_FOLDER)
+    # os.system(fr"cmake -DCMAKE_TOOLCHAIN_FILE=~/TC-mingw.cmake {charlie2D_path}; cmake --build .")
+    # move_files(dir, WINDOWS)
 
     # FOR SYSTEM LINUX
     make_projectbuild_dir(PROJECTBUILD_FOLDER)
@@ -63,11 +63,11 @@ def create_project(dir: str):
     move_files(dir, LINUX)
 
     # FOR SYSTEM WEB
-    make_projectbuild_dir(PROJECTBUILD_FOLDER)
-    os.chdir(PROJECTBUILD_FOLDER)
-    os.system("source ~/emsdk/emsdk_env.sh")
-    os.system(fr"emcmake cmake {charlie2D_path}; emmake make")
-    move_files(dir, WEB)
+    # make_projectbuild_dir(PROJECTBUILD_FOLDER)
+    # os.chdir(PROJECTBUILD_FOLDER)
+    # os.system("source ~/emsdk/emsdk_env.sh")
+    # os.system(fr"emcmake cmake {charlie2D_path}; emmake make")
+    # move_files(dir, WEB)
 
 create_project("./FullBuild")
     

@@ -19,12 +19,12 @@ void JumpMan::start() {
           break;
         }
       }
-      for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
-        if (col->tileGrid.checkCollision(groundCheckBox)) {
-          checkground = true;
-          break;
-        }
-      }
+      // for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
+      //   if (col->tileGrid.checkCollision(groundCheckBox)) {
+      //     checkground = true;
+      //     break;
+      //   }
+      // }
     } else
       checkground = true;
 
@@ -75,11 +75,11 @@ void JumpMan::update(float deltaTime) {
       touchingGround = true;
     }
   }
-  for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
-    if (col->tileGrid.checkCollision(groundCheckBox)) {
-      touchingGround = true;
-    }
-  }
+  // for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
+  //   if (col->tileGrid.checkCollision(groundCheckBox)) {
+  //     touchingGround = true;
+  //   }
+  // }
 
   entity->get<physicsBody>()->velocity.y += gravity * deltaTime;
 
