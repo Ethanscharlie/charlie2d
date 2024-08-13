@@ -12,15 +12,17 @@ using json = nlohmann::json;
 
 namespace LDTK {
 struct Level;
+struct Project;
+
 struct TileLayer {
   ~TileLayer();
-  TileLayer(const json &data, LayerDefinition *_layerDefinition,
-            Tileset *_tileset, Level *_level);
-  void render();
+  TileLayer(const json &data, Project* _project);
+  void render(Level* level);
+
+  Project* project = nullptr;
 
   LayerDefinition *layerDefinition;
   Tileset *tileset;
-  Level* level = nullptr;
 
   std::map<TileLoc, TileLoc> grid;
 

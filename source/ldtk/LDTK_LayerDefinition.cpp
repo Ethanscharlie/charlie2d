@@ -3,11 +3,12 @@
 #include "ldtk/LDTK_Tilemap.hpp"
 
 namespace LDTK {
-LayerDefinition::LayerDefinition(const json &layerDefJson) {
+LayerDefinition::LayerDefinition(const json &layerDefJson, int _renderingLayer) {
   identifier = layerDefJson["identifier"];
   type = layerDefJson["__type"];
   uid = layerDefJson["uid"];
   gridSize = layerDefJson["gridSize"];
+
   // guideGridWid = layerDefJson["guideGridWid"];
   // guideGridHei = layerDefJson["guideGridHei"];
   // displayOpacity = layerDefJson["displayOpacity"];
@@ -29,6 +30,8 @@ LayerDefinition::LayerDefinition(const json &layerDefJson) {
   // tilePivotX = layerDefJson["tilePivotX"];
   // tilePivotY = layerDefJson["tilePivotY"];
   // biomeFieldUid = layerDefJson["biomeFieldUid"];
+  //
+  renderingLayer = _renderingLayer;
 
   renderingEntity = GameManager::createEntity(identifier);
   renderingEntity->add<Tilemap>();

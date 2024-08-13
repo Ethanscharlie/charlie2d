@@ -2,18 +2,18 @@
 #include "Entity.hpp"
 #include "Image.hpp"
 #include "ldtk/LDTK_EntityData.hpp"
+#include "ldtk/LDTK_Project.hpp"
 #include "ldtk/LDTK_Tileset.hpp"
 #include <format>
 #include <stdexcept>
 
 namespace LDTK {
-FieldInstance::FieldInstance(const json &fieldInstanceJson,
-                             std::map<int, Tileset *> &_tilesets) {
-  tilesets = _tilesets;
-
+FieldInstance::FieldInstance(const json &fieldInstanceJson, Project *_project) {
   identifier = fieldInstanceJson["__identifier"];
   type = fieldInstanceJson["__type"];
   value = fieldInstanceJson["__value"];
+
+  project = _project;
 }
 
 bool FieldInstance::isNull() { return value.is_null(); }
@@ -43,11 +43,19 @@ std::any FieldInstance::getValue() {
   else if (type == "Tile") {
     int x = (int)value["x"] / (int)value["w"];
     int y = (int)value["y"] / (int)value["h"];
-    return tilesets[value["tilesetUid"]]->dictionary[TileLoc(x, y)];
+    return project->tilesets[value["tilesetUid"]]->dictionary[TileLoc(x, y)];
   }
 
-  if (type == "Entity_ref") {
-    throw std::runtime_error("Field Instance Entity ref not supported\n");
+  if (type == "EntityRef") {
+    std::string levelIid = value["levelIid"];
+    std::string layerIid = value["layerIid"];
+    std::string entityIid = value["entityIid"];
+    EntityInstance *instance = project->worlds[0]
+                                   ->getLevelWithIID(levelIid)
+                                   ->getEntitylayerWithIID(layerIid)
+                                   ->getInstanceFromIID(entityIid);
+
+    return instance;
   }
 
   else if (type == "Point") {

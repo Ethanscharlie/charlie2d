@@ -9,13 +9,14 @@
 using json = nlohmann::json;
 
 namespace LDTK {
+struct Project;
 struct FieldInstance {
   FieldInstance(const json &fieldInstanceJson,
-                std::map<int, Tileset *> &_tilesets);
+                Project* _project);
   bool isNull();
   std::any getValue();
 
-  std::map<int, Tileset *> tilesets;
+  Project* project;
 
   std::string identifier;
   std::string type;

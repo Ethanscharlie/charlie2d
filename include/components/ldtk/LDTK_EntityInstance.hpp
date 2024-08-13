@@ -7,16 +7,24 @@
 
 namespace LDTK {
 struct Level;
+struct Project;
+struct EntityData;
 struct EntityInstance {
-  EntityInstance(const json &entityDefJson, EntityDefinition *_entityDefintion, std::map<int, Tileset *> &_tilesets);
-  Entity *create(Level *level);
+  friend struct EntityData;
 
+  EntityInstance(const json &entityDefJson, Project *_project);
+  Entity *create(Level *level);
+  Entity* getEntity();
+
+  Project *project = nullptr;
   EntityDefinition *entityDefintion;
-  std::map<int, Tileset *> tilesets;
 
   std::string iid;
   Box box;
   int defUid;
   std::map<std::string, FieldInstance> fieldInstances;
+
+private:
+  Entity *entity = nullptr;
 };
 } // namespace LDTK

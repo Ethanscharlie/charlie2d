@@ -2,6 +2,7 @@
 #include "GameManager.hpp"
 #include "ldtk/LDTK_LayerDefinition.hpp"
 #include "ldtk/LDTK_Level.hpp"
+#include "ldtk/LDTK_Project.hpp"
 
 namespace LDTK {
 LayerDefinition::~LayerDefinition() {
@@ -10,17 +11,14 @@ LayerDefinition::~LayerDefinition() {
   }
 }
 
-TileLayer::TileLayer(const json &data, LayerDefinition *_layerDefinition,
-                     Tileset *_tileset, Level *_level) {
+TileLayer::TileLayer(const json &data, Project* _project) {
   if (!data["visible"])
     return;
   if (data["__type"] != "AutoLayer" && data["__type"] != "Tiles") {
     std::cerr << "NOT A VALID TILE LAYER\n";
   }
 
-  layerDefinition = _layerDefinition;
-  tileset = _tileset;
-  level = _level;
+  project = _project;
 
   opacity = data["__opacity"];
   iid = data["iid"];
@@ -30,6 +28,9 @@ TileLayer::TileLayer(const json &data, LayerDefinition *_layerDefinition,
   seed = data["seed"];
   width = data["__cWid"];
   height = data["__cHei"];
+
+  layerDefinition = project->layerDefinitions[layerDefUid].get();
+  tileset = project->tilesets[layerDefinition->tilesetDefUid].get();
 
   json tilesList;
   if (data["__type"] == "Tiles") {
@@ -48,11 +49,9 @@ TileLayer::TileLayer(const json &data, LayerDefinition *_layerDefinition,
                        (int)tileJson["px"][1] / gridSize);
     grid[pos] = (tilesetTile);
   }
-
-  render();
 }
 
-void TileLayer::render() {
+void TileLayer::render(Level* level) {
   if (texture != nullptr) {
     SDL_DestroyTexture(texture);
   }

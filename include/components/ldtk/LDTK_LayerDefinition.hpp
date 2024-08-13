@@ -7,10 +7,12 @@ using json = nlohmann::json;
 
 namespace LDTK {
 struct LayerDefinition {
-  LayerDefinition(const json &layerDefJson);
+  LayerDefinition(const json &layerDefJson, int _renderingLayer);
   ~LayerDefinition();
 
   Entity* renderingEntity;
+
+  int renderingLayer = 0;
 
   std::string identifier;
   std::string type;

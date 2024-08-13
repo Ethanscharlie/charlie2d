@@ -11,24 +11,21 @@ using json = nlohmann::json;
 
 namespace LDTK {
 struct FieldInstance;
+struct Project;
 
 struct Level {
-  Level(const json &levelJson,
-        std::map<int, LayerDefinition *> &_layerDefinitions,
-        std::map<int, EntityDefinition *> &_entityDefinitions,
-        std::map<int, Tileset *> &_tilesets);
+  Level(const json &levelJson, Project *_project);
+  EntityLayer* getEntitylayerWithIID(std::string iid);
 
   void load();
   void unload();
-  
+
   std::vector<Entity *> loadedEntites;
 
   std::vector<std::unique_ptr<TileLayer>> tileLayers;
   std::vector<std::unique_ptr<EntityLayer>> entityLayers;
 
-  std::map<int, LayerDefinition *> layerDefinitions;
-  std::map<int, EntityDefinition *> entityDefinitions;
-  std::map<int, Tileset *> tilesets;
+  Project *project = nullptr;
 
   Box levelBox;
 
@@ -46,5 +43,6 @@ struct Level {
   int bgPivotY;
   std::string smartColor;
   std::vector<FieldInstance> fieldInstance;
+  std::vector<std::string> neighbours;
 };
 } // namespace LDTK

@@ -1,19 +1,17 @@
 #include "ldtk/LDTK_Level.hpp"
+#include "ldtk/LDTK_EntityData.hpp"
 #include "ldtk/LDTK_EntityLayer.hpp"
 #include "ldtk/LDTK_FieldInstance.hpp"
+#include "ldtk/LDTK_Project.hpp"
 #include "ldtk/LDTK_TileLayer.hpp"
 #include "ldtk/LDTK_Tilemap.hpp"
 #include <memory>
+#include <stdexcept>
 
 namespace LDTK {
-Level::Level(const json &levelJson,
-             std::map<int, LayerDefinition *> &_layerDefinitions,
-             std::map<int, EntityDefinition *> &_entityDefinitions,
-             std::map<int, Tileset *> &_tilesets) {
+Level::Level(const json &levelJson, Project *_project) {
 
-  layerDefinitions = _layerDefinitions;
-  entityDefinitions = _entityDefinitions;
-  tilesets = _tilesets;
+  project = _project;
 
   identifier = levelJson["identifier"];
   iid = levelJson["iid"];
@@ -31,32 +29,32 @@ Level::Level(const json &levelJson,
 
   levelBox = Box(worldX, worldY, pxWid, pxHei);
 
+  for (const json &neighboursJson : levelJson["__neighbours"]) {
+    neighbours.push_back(neighboursJson["levelIid"]);
+  }
+
   for (const json &layer : levelJson["layerInstances"]) {
     int layerDefUid = layer["layerDefUid"];
-    LayerDefinition *layerDefinition = layerDefinitions[layerDefUid];
+    LayerDefinition *layerDefinition =
+        project->layerDefinitions[layerDefUid].get();
     std::string layerType = layerDefinition->type;
 
     if (layerType == "Tiles" || layerType == "AutoLayer") {
       int tilesetDefUid = layerDefinition->tilesetDefUid;
-      if (tilesets.find(tilesetDefUid) == tilesets.end()) {
+      if (project->tilesets.find(tilesetDefUid) == project->tilesets.end()) {
         std::cerr << "Error: tilesetDefUid " << tilesetDefUid
                   << " not in tilesets map\n";
         continue;
       }
 
-      Tileset *tileset = tilesets[tilesetDefUid];
-      tileLayers.push_back(
-          std::make_unique<TileLayer>(layer, layerDefinition, tileset, this));
+      Tileset *tileset = project->tilesets[tilesetDefUid].get();
+      tileLayers.push_back(std::make_unique<TileLayer>(layer, project));
     }
 
     else if (layerType == "Entities") {
-      entityLayers.push_back(std::make_unique<EntityLayer>(
-          layer, layerDefinition, entityDefinitions, tilesets));
+      entityLayers.push_back(std::make_unique<EntityLayer>(layer, project));
     }
   }
-
-  std::vector<std::unique_ptr<TileLayer>> tileLayers;
-  std::vector<std::unique_ptr<EntityLayer>> entityLayers;
 
   // TODO
   // fieldInstance = levelJson["fieldInstances"];
@@ -68,8 +66,9 @@ void Level::load() {
     LayerDefinition *layerDefinition = tileLayer->layerDefinition;
     Entity *renderingEntity = layerDefinition->renderingEntity;
     renderingEntity->add<Tilemap>()->layer = tileLayer;
-    levelBox.print();
     renderingEntity->add<Tilemap>()->renderBox = levelBox;
+    renderingEntity->useLayer = true;
+    renderingEntity->layer = layerDefinition->renderingLayer;
   }
 
   for (auto &entityLayerUPtr : entityLayers) {
@@ -77,6 +76,8 @@ void Level::load() {
     LayerDefinition *layerDefinition = entityLayer->layerDefinition;
     for (auto &instance : entityLayer->entityInstances) {
       Entity *entity = instance->create(this);
+      entity->useLayer = true;
+      entity->layer = layerDefinition->renderingLayer;
       loadedEntites.push_back(entity);
     }
   }
@@ -94,6 +95,16 @@ void Level::unload() {
     Entity *renderingEntity = layerDefinition->renderingEntity;
     renderingEntity->add<Tilemap>()->layer = nullptr;
   }
+}
+
+EntityLayer *Level::getEntitylayerWithIID(std::string iid) {
+  for (auto &entityLayer : entityLayers) {
+    if (entityLayer->iid == iid) {
+      return entityLayer.get();
+    }
+  }
+
+  throw std::runtime_error(std::format("Entity Layer {} was not found", iid));
 }
 
 } // namespace LDTK

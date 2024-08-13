@@ -10,17 +10,14 @@ using json = nlohmann::json;
 
 namespace LDTK {
 struct Level;
+struct Project;
 
 struct World {
-  World(const json &levelsJson,
-        std::map<int, LayerDefinition *> _layerDefinitions,
-        std::map<int, EntityDefinition *> _entityDefinitions,
-        std::map<int, Tileset *> _tilesets);
+  World(const json &levelsJson, Project* _project);
+  Level* getLevelWithIID(std::string iid);
 
-  std::map<int, LayerDefinition *> layerDefinitions;
-  std::map<int, EntityDefinition *> entityDefinitions;
-  std::map<int, Tileset *> tilesets;
+  Project* project;
 
-  std::map<std::string, std::unique_ptr<Level>> levels;
+  std::map<int, std::unique_ptr<Level>> levels;
 };
 } // namespace LDTK

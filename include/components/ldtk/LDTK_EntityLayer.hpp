@@ -1,19 +1,20 @@
 #pragma once
 #include "ldtk/LDTK_EntityDefinition.hpp"
+#include "ldtk/LDTK_EntityInstance.hpp"
 #include "ldtk/LDTK_LayerDefinition.hpp"
 #include "ldtk/LDTK_Tileset.hpp"
 #include "nlohmann/json.hpp"
-#include "ldtk/LDTK_EntityInstance.hpp"
 #include <memory>
 #include <string>
 
 using json = nlohmann::json;
 
 namespace LDTK {
+struct Project;
 
 struct EntityLayer {
-  EntityLayer(const json &entityLayerJson, LayerDefinition *_layerDefinition,
-              std::map<int, EntityDefinition *> &_entityDefinitions, std::map<int, Tileset *> &_tilesets);
+  EntityLayer(const json &entityLayerJson, Project *_project);
+  EntityInstance* getInstanceFromIID(std::string iid);
 
   std::string iid;
   int levelId;
@@ -25,8 +26,7 @@ struct EntityLayer {
 
   std::vector<std::unique_ptr<EntityInstance>> entityInstances;
 
+  Project* project;
   LayerDefinition *layerDefinition;
-  std::map<int, EntityDefinition *> entityDefinitions;
-  std::map<int, Tileset *> tilesets;
 };
 } // namespace LDTK

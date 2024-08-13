@@ -16,6 +16,8 @@ struct Tileset;
 struct Project {
   Project(const std::string& _jsonPath);
   void loadLevel(std::string iid);
+  void render();
+  Level* findTraveledLevel(Box& box);
 
   Level* currentLevel = nullptr;
   std::function<void()> onLoadLevel = [](){};

@@ -21,7 +21,7 @@ public:
   }
 
   Box renderBox;
-  bool solid = true;
+  bool solid = false;
   TileLayer *layer = nullptr;
 };
 } // namespace LDTK
