@@ -24,7 +24,7 @@ struct EntityDefinition {
   bool hollow;
   std::string color;
   std::string renderMode;
-  int tilesetId;
+  int tilesetId = -1;
   std::string tileRenderMode;
   // std::vector<int> nineSliceBorders;
   int pivotX;

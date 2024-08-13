@@ -6,15 +6,17 @@
 #include <string>
 
 namespace LDTK {
+struct Level;
 struct EntityInstance {
-  EntityInstance (const json& entityDefJson, EntityDefinition* _entityDefintion);
+  EntityInstance(const json &entityDefJson, EntityDefinition *_entityDefintion, std::map<int, Tileset *> &_tilesets);
+  Entity *create(Level *level);
 
-  EntityDefinition* entityDefintion;
+  EntityDefinition *entityDefintion;
+  std::map<int, Tileset *> tilesets;
 
   std::string iid;
   Box box;
   int defUid;
-  std::vector<FieldInstance> fieldInstances;
-
+  std::map<std::string, FieldInstance> fieldInstances;
 };
 } // namespace LDTK

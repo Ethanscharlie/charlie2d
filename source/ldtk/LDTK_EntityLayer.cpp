@@ -7,14 +7,15 @@
 namespace LDTK {
 EntityLayer::EntityLayer(
     const json &entityLayerJson, LayerDefinition *_layerDefinition,
-    std::map<int, EntityDefinition *> &_entityDefinitions) {
+    std::map<int, EntityDefinition *> &_entityDefinitions, std::map<int, Tileset *> &_tilesets) {
 
   layerDefinition = _layerDefinition;
   entityDefinitions = _entityDefinitions;
+  tilesets = _tilesets;
 
   for (const json &instance : entityLayerJson["entityInstances"]) {
     entityInstances.push_back(std::make_unique<EntityInstance>(
-        EntityInstance(instance, entityDefinitions[instance["defUid"]])));
+        instance, entityDefinitions[instance["defUid"]], tilesets));
   }
 
   iid = entityLayerJson["iid"];

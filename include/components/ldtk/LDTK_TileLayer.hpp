@@ -11,15 +11,18 @@
 using json = nlohmann::json;
 
 namespace LDTK {
+struct Level;
 struct TileLayer {
   ~TileLayer();
-  TileLayer(const json &data, LayerDefinition* _layerDefinition, Tileset* _tileset);
+  TileLayer(const json &data, LayerDefinition *_layerDefinition,
+            Tileset *_tileset, Level *_level);
   void render();
 
-  LayerDefinition* layerDefinition; 
-  const Tileset* tileset;
+  LayerDefinition *layerDefinition;
+  Tileset *tileset;
+  Level* level = nullptr;
 
-  std::vector<TileLoc> grid;
+  std::map<TileLoc, TileLoc> grid;
 
   SDL_Texture *texture = nullptr;
   std::vector<Box> boxes;
@@ -33,4 +36,4 @@ struct TileLayer {
   bool visible;
   int seed;
 };
-}
+} // namespace LDTK

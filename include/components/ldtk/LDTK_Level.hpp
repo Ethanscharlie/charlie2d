@@ -18,6 +18,11 @@ struct Level {
         std::map<int, EntityDefinition *> &_entityDefinitions,
         std::map<int, Tileset *> &_tilesets);
 
+  void load();
+  void unload();
+  
+  std::vector<Entity *> loadedEntites;
+
   std::vector<std::unique_ptr<TileLayer>> tileLayers;
   std::vector<std::unique_ptr<EntityLayer>> entityLayers;
 

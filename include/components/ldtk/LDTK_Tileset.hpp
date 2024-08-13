@@ -15,5 +15,9 @@ struct Tileset {
   Tileset(const json &data, std::filesystem::path jsonDir);
 
   std::map<TileLoc, Image> dictionary;
+
+  int tileGridSize;
+  int width;
+  int height;
 };
 } // namespace LDTK

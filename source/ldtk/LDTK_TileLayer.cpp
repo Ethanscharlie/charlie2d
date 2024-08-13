@@ -1,6 +1,7 @@
 #include "ldtk/LDTK_TileLayer.hpp"
 #include "GameManager.hpp"
 #include "ldtk/LDTK_LayerDefinition.hpp"
+#include "ldtk/LDTK_Level.hpp"
 
 namespace LDTK {
 LayerDefinition::~LayerDefinition() {
@@ -10,14 +11,16 @@ LayerDefinition::~LayerDefinition() {
 }
 
 TileLayer::TileLayer(const json &data, LayerDefinition *_layerDefinition,
-                     Tileset *_tileset) {
+                     Tileset *_tileset, Level *_level) {
   if (!data["visible"])
     return;
-  if (data["__type"] != "AutoLayer" && data["__type"] != "TileLayer")
-    return;
+  if (data["__type"] != "AutoLayer" && data["__type"] != "Tiles") {
+    std::cerr << "NOT A VALID TILE LAYER\n";
+  }
 
   layerDefinition = _layerDefinition;
   tileset = _tileset;
+  level = _level;
 
   opacity = data["__opacity"];
   iid = data["iid"];
@@ -41,7 +44,9 @@ TileLayer::TileLayer(const json &data, LayerDefinition *_layerDefinition,
     TileLoc tilesetTile = {(int)tileJson["src"][0] / gridSize,
                            (int)tileJson["src"][1] / gridSize};
 
-    grid.push_back(tilesetTile);
+    auto pos = TileLoc((int)tileJson["px"][0] / gridSize,
+                       (int)tileJson["px"][1] / gridSize);
+    grid[pos] = (tilesetTile);
   }
 
   render();
@@ -62,16 +67,18 @@ void TileLayer::render() {
 
   int pointerX = 0;
   int pointerY = 0;
-  for (TileLoc tileLoc : grid) {
+  for (auto &[pos, tileLoc] : grid) {
     const Image &image = tileset->dictionary.at(tileLoc);
 
     SDL_Rect dstrect;
-    dstrect.x = pointerX * gridSize;
-    dstrect.y = pointerY * gridSize;
+    dstrect.x = pos.first * gridSize;
+    dstrect.y = pos.second * gridSize;
     dstrect.w = gridSize;
     dstrect.h = gridSize;
 
-    boxes.push_back(Box(dstrect.x, dstrect.y, gridSize, gridSize));
+    Box box(dstrect.x, dstrect.y, gridSize, gridSize);
+    box.position += level->levelBox.position;
+    boxes.push_back(box);
 
     SDL_RenderCopy(GameManager::renderer, image.texture, &image.srcRect,
                    &dstrect);

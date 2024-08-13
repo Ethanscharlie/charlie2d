@@ -23,12 +23,14 @@ LayerDefinition::LayerDefinition(const json &layerDefJson) {
   // parallaxScaling = layerDefJson["parallaxScaling"];
   // useAsyncRender = layerDefJson["useAsyncRender"];
   // autoSourceLayerDefUid = layerDefJson["autoSourceLayerDefUid"];
-  // tilesetDefUid = layerDefJson["tilesetDefUid"];
+  if (!layerDefJson["tilesetDefUid"].is_null()) {
+    tilesetDefUid = layerDefJson["tilesetDefUid"];
+  }
   // tilePivotX = layerDefJson["tilePivotX"];
   // tilePivotY = layerDefJson["tilePivotY"];
   // biomeFieldUid = layerDefJson["biomeFieldUid"];
 
-  Entity* renderingEntity = GameManager::createEntity("LDTK" + identifier);
+  renderingEntity = GameManager::createEntity(identifier);
   renderingEntity->add<Tilemap>();
 }
 } // namespace LDTK

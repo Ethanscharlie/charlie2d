@@ -31,7 +31,7 @@ struct LayerDefinition {
   bool parallaxScaling;
   bool useAsyncRender;
   int autoSourceLayerDefUid;
-  int tilesetDefUid;
+  int tilesetDefUid = -1;
   int tilePivotX;
   int tilePivotY;
   int biomeFieldUid;

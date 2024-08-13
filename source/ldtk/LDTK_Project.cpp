@@ -6,11 +6,15 @@
 #include "ldtk/LDTK_Tilemap.hpp"
 #include "ldtk/LDTK_Tileset.hpp"
 #include "ldtk/LDTK_World.hpp"
+#include <fstream>
 #include <memory>
 
 namespace LDTK {
-Project::Project(const json &jsonData, const std::string &_jsonPath) {
+Project::Project(const std::string &_jsonPath) {
   jsonPath = _jsonPath;
+
+  std::ifstream file(jsonPath);
+  const json& jsonData = json::parse(file);
 
   std::map<int, LayerDefinition *> worldLayerDefinitions;
   std::map<int, EntityDefinition *> worldEntityDefinitions;
@@ -18,28 +22,27 @@ Project::Project(const json &jsonData, const std::string &_jsonPath) {
 
   for (const json &layerJson : jsonData["defs"]["layers"]) {
     int uid = layerJson["uid"];
-    layerDefinitions[uid] =
-        std::make_unique<LayerDefinition>(LayerDefinition(layerJson));
+    layerDefinitions[uid] = std::make_unique<LayerDefinition>(layerJson);
 
     worldLayerDefinitions[uid] = layerDefinitions[uid].get();
   }
   for (const json &entityDefJson : jsonData["defs"]["entities"]) {
     int uid = entityDefJson["uid"];
-    entityDefinitions[uid] =
-        std::make_unique<EntityDefinition>(EntityDefinition(entityDefJson));
+    entityDefinitions[uid] = std::make_unique<EntityDefinition>(entityDefJson);
 
     worldEntityDefinitions[uid] = entityDefinitions[uid].get();
   }
   for (const json &tilesetJson : jsonData["defs"]["tilesets"]) {
+    if (tilesetJson["identifier"] == "Internal_Icons") continue;
     int uid = tilesetJson["uid"];
-    tilesets[uid] = std::make_unique<Tileset>(Tileset(tilesetJson, jsonPath));
+    tilesets[uid] = std::make_unique<Tileset>(tilesetJson, jsonPath);
 
     worldTilesets[uid] = tilesets[uid].get();
   }
 
   worlds.push_back(
-      std::make_unique<World>(World(jsonData["levels"], worldLayerDefinitions,
-                                    worldEntityDefinitions, worldTilesets)));
+      std::make_unique<World>(jsonData["levels"], worldLayerDefinitions,
+                              worldEntityDefinitions, worldTilesets));
 
   iid = jsonData["iid"];
   jsonVersion = jsonData["jsonVersion"];
@@ -70,12 +73,12 @@ Project::Project(const json &jsonData, const std::string &_jsonPath) {
 }
 
 void Project::loadLevel(std::string iid) {
-  Level* currentLevel = worlds[0]->levels[iid].get();
-  for (auto& tileLayerUPtr : currentLevel->tileLayers) {
-    TileLayer* tileLayer = tileLayerUPtr.get();
-    LayerDefinition* layerDefinition = tileLayer->layerDefinition;
-    Entity* renderingEntity = layerDefinition->renderingEntity;
-    renderingEntity->add<Tilemap>()->layer = tileLayer;
-  }
+  if (currentLevel)
+    currentLevel->unload();
+
+  currentLevel = worlds[0]->levels[iid].get();
+  currentLevel->load();
+
+  onLoadLevel();
 }
 } // namespace LDTK

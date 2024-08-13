@@ -2,6 +2,7 @@
 #include "Event.hpp"
 #include "SDL_keycode.h"
 #include "SDL_scancode.h"
+#include "ldtk/LDTK_Tilemap.hpp"
 
 void JumpMan::start() {
   Event::addEventListener("SpaceKeyDown", [this]() {
@@ -19,12 +20,18 @@ void JumpMan::start() {
           break;
         }
       }
-      // for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
-      //   if (col->tileGrid.checkCollision(groundCheckBox)) {
-      //     checkground = true;
-      //     break;
-      //   }
-      // }
+      for (LDTK::Tilemap *col : GameManager::getComponents<LDTK::Tilemap>()) {
+        if (!col->layer)
+          continue;
+        if (!col->solid)
+          continue;
+        for (Box &box : col->layer->boxes) {
+          if (box.checkCollision(groundCheckBox)) {
+            checkground = true;
+            break;
+          }
+        }
+      }
     } else
       checkground = true;
 
@@ -75,11 +82,18 @@ void JumpMan::update(float deltaTime) {
       touchingGround = true;
     }
   }
-  // for (Tilemap *col : GameManager::getComponents<Tilemap>()) {
-  //   if (col->tileGrid.checkCollision(groundCheckBox)) {
-  //     touchingGround = true;
-  //   }
-  // }
+
+  for (LDTK::Tilemap *col : GameManager::getComponents<LDTK::Tilemap>()) {
+    if (!col->layer)
+      continue;
+    if (!col->solid)
+      continue;
+    for (Box &box : col->layer->boxes) {
+      if (box.checkCollision(groundCheckBox)) {
+        touchingGround = true;
+      }
+    }
+  }
 
   entity->get<physicsBody>()->velocity.y += gravity * deltaTime;
 

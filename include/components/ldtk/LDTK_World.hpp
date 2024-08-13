@@ -13,9 +13,9 @@ struct Level;
 
 struct World {
   World(const json &levelsJson,
-        std::map<int, LayerDefinition *> &_layerDefinitions,
-        std::map<int, EntityDefinition *> &_entityDefinitions,
-        std::map<int, Tileset *> &_tilesets);
+        std::map<int, LayerDefinition *> _layerDefinitions,
+        std::map<int, EntityDefinition *> _entityDefinitions,
+        std::map<int, Tileset *> _tilesets);
 
   std::map<int, LayerDefinition *> layerDefinitions;
   std::map<int, EntityDefinition *> entityDefinitions;

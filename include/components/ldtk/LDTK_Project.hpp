@@ -2,6 +2,7 @@
 #include "ldtk/LDTK_Level.hpp"
 #include "ldtk/LDTK_World.hpp"
 #include "nlohmann/json.hpp"
+#include <functional>
 #include <memory>
 #include <string>
 
@@ -13,10 +14,11 @@ struct EntityDefinition;
 struct Tileset;
 
 struct Project {
-  Project(const json &jsonData, const std::string& _jsonPath);
+  Project(const std::string& _jsonPath);
   void loadLevel(std::string iid);
 
   Level* currentLevel = nullptr;
+  std::function<void()> onLoadLevel = [](){};
 
   std::map<int, std::unique_ptr<LayerDefinition>> layerDefinitions;
   std::map<int, std::unique_ptr<EntityDefinition>> entityDefinitions;

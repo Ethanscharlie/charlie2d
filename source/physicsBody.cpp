@@ -1,4 +1,5 @@
 #include "physicsBody.hpp"
+#include "ldtk/LDTK_Tilemap.hpp"
 
 void physicsBody::update(float deltaTime) {
   // Adjusts velocity if greater then max (Ignores if -1)
@@ -27,14 +28,15 @@ void physicsBody::update(float deltaTime) {
     solids.push_back(&col->entity->box);
   }
 
-  // for (Tilemap *tilemap : GameManager::getComponents<Tilemap>()) {
-  //   if (!tilemap->solid)
-  //     continue;
-  //   std::vector<Box> boxes = tilemap->tileGrid.getTileGroups();
-  //   for (Box &box : boxes) {
-  //     solids.push_back(&box);
-  //   }
-  // }
+  for (LDTK::Tilemap *tilemap : GameManager::getComponents<LDTK::Tilemap>()) {
+    if (!tilemap->layer)
+      continue;
+    if (!tilemap->solid)
+      continue;
+    for (Box &box : tilemap->layer->boxes) {
+      solids.push_back(&box);
+    }
+  }
 
   if (pushOut) {
     slideOut out = entity->box.slide(velocity * deltaTime, solids);
