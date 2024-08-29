@@ -6,6 +6,7 @@
 #include "SDL_render.h"
 #include "ldtk/LDTK_TileLayer.hpp"
 #include "nlohmann/json.hpp"
+#include <cstdint>
 #include <string>
 
 using json = nlohmann::json;
@@ -14,8 +15,10 @@ namespace LDTK {
 class Tilemap : public Component {
 public:
   void update(float deltaTime) override {
-    if (!layer)
+    if (!layer) {
       return;
+    }
+
     Image image = {layer->texture};
     image.render(getRenderBox(renderBox));
   }

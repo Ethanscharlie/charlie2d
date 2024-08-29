@@ -42,7 +42,7 @@ struct Level {
   int bgPivotX;
   int bgPivotY;
   std::string smartColor;
-  std::vector<FieldInstance> fieldInstance;
+  std::map<std::string, FieldInstance> fieldInstances;
   std::vector<std::string> neighbours;
 };
 } // namespace LDTK

@@ -1,5 +1,6 @@
 #include "ldtk/LDTK_Project.hpp"
 
+#include "Event.hpp"
 #include "ldtk/LDTK_EntityDefinition.hpp"
 #include "ldtk/LDTK_LayerDefinition.hpp"
 #include "ldtk/LDTK_Level.hpp"
@@ -47,8 +48,9 @@ Project::Project(const std::string &_jsonPath) {
   int renderingLayer = jsonData["defs"]["layers"].size();
   for (const json &layerJson : jsonData["defs"]["layers"]) {
     int uid = layerJson["uid"];
-    layerDefinitions[uid] = std::make_unique<LayerDefinition>(layerJson, renderingLayer);
-    renderingLayer --;
+    layerDefinitions[uid] =
+        std::make_unique<LayerDefinition>(layerJson, renderingLayer);
+    renderingLayer--;
   }
   for (const json &entityDefJson : jsonData["defs"]["entities"]) {
     int uid = entityDefJson["uid"];
@@ -62,6 +64,8 @@ Project::Project(const std::string &_jsonPath) {
   }
 
   worlds.push_back(std::make_unique<World>(jsonData["levels"], this));
+
+  Event::addEventListener("screenResize", [this]() { render(); });
 }
 
 void Project::loadLevel(std::string iid) {
@@ -75,6 +79,7 @@ void Project::loadLevel(std::string iid) {
 }
 
 void Project::render() {
+  std::cout << "Rendering everthing\n";
   for (auto &world : worlds) {
     for (auto &[uid, level] : world->levels) {
       for (auto &tileLayer : level->tileLayers) {
@@ -84,7 +89,7 @@ void Project::render() {
   }
 }
 
-Level *Project::findTraveledLevel(Box& box) {
+Level *Project::findTraveledLevel(Box &box) {
   for (std::string levelIid : currentLevel->neighbours) {
     Level *level = worlds[0]->getLevelWithIID(levelIid);
     if (box.checkCollision(level->levelBox)) {

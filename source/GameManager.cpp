@@ -3,6 +3,7 @@
 #include "Component.hpp"
 #include "ControllerManager.hpp"
 #include "Entity.hpp"
+#include "Event.hpp"
 #include "InputManager.hpp"
 #include "SDL_events.h"
 #include "SDL_gamecontroller.h"
@@ -200,6 +201,8 @@ void GameManager::Update() {
                    io.DisplaySize.y / gameWindowSize.y);
         // Change camera aspect ratio
 
+        Event::fireEvent("screenResize");
+
         break;
       }
       break;
@@ -285,6 +288,8 @@ void GameManager::setWindowSize(Vector2f size) {
   screen_change_scale =
       ((float)currentWindowSize.x + (float)currentWindowSize.y) /
       (gameWindowSize.x + gameWindowSize.y);
+
+  Event::fireEvent("screenResize");
 
   for (auto &c : components) {
     for (Component *component : c.second) {

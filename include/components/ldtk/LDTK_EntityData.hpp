@@ -8,6 +8,7 @@
 #include "ldtk/LDTK_Level.hpp"
 #include "ldtk/LDTK_Project.hpp"
 #include "nlohmann/json.hpp"
+#include <algorithm>
 #include <string>
 
 using json = nlohmann::json;
@@ -16,7 +17,12 @@ namespace LDTK {
 class EntityData : public Component {
 public:
   void onDestroy() override {
-    entity->get<EntityData>()->instance->entity = nullptr;
+    instance->entity = nullptr;
+    auto it = std::find(level->loadedEntites.begin(),
+                        level->loadedEntites.end(), entity);
+    if (it != level->loadedEntites.end()) {
+      *it = nullptr;
+    }
   }
   EntityInstance *instance = nullptr;
   Level *level = nullptr;

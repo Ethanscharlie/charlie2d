@@ -56,8 +56,11 @@ Level::Level(const json &levelJson, Project *_project) {
     }
   }
 
-  // TODO
-  // fieldInstance = levelJson["fieldInstances"];
+  for (const json &fieldInstanceJson : levelJson["fieldInstances"]) {
+    std::string identifier = fieldInstanceJson["__identifier"];
+    FieldInstance field(fieldInstanceJson, project);
+    fieldInstances.emplace(identifier, field);
+  }
 }
 
 void Level::load() {
@@ -85,6 +88,8 @@ void Level::load() {
 
 void Level::unload() {
   for (Entity *entity : loadedEntites) {
+    if (!entity)
+      continue;
     entity->toDestroy = true;
   }
   loadedEntites.clear();
