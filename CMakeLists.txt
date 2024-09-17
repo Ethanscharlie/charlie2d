@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 file(GLOB_RECURSE CHARLIE_SOURCES 
   ${PROJECT_SOURCE_DIR}/source/*.cpp
+  ${PROJECT_SOURCE_DIR}/source/ldtk/*.cpp
   ${PROJECT_SOURCE_DIR}/imgui/*.cpp 
   )
 
