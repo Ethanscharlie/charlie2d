@@ -5,12 +5,14 @@
 #include <vector>
 
 using EventListener = std::function<void()>;
+using EventIdentifer = int;
 
 class Event {
 public:
   static void fireEvent(std::string eventName);
-  static void addEventListener(std::string eventName, EventListener function);
+  static EventIdentifer addEventListener(std::string eventName, EventListener function);
+  static void removeEventListener(EventIdentifer id);
 
 private:
-  static std::map<std::string, std::vector<EventListener>> eventListeners;
+  static std::map<std::string, std::map<EventIdentifer, EventListener>> eventListeners;
 };
