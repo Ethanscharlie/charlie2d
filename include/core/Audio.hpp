@@ -14,7 +14,7 @@ struct Audio {
   Audio(Mix_Chunk *_chunk) : chunk(_chunk) {}
   Audio(std::filesystem::path _path) : path(_path) { loadChunk(_path); }
 
-  void play(bool loop = false);
+  void play();
 
   std::filesystem::path path;
   Mix_Chunk *chunk;

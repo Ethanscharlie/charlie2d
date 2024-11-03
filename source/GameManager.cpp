@@ -315,10 +315,6 @@ void GameManager::doUpdateLoop() {
 #endif
 }
 
-void GameManager::playSound(std::string filename, bool loop) {
-  Audio(filename).play(loop);
-}
-
 void GameManager::quit() {
   ImGui_ImplSDLRenderer2_Shutdown();
   ImGui_ImplSDL2_Shutdown();

@@ -3,7 +3,7 @@
 
 std::map<std::filesystem::path, Mix_Chunk *> Audio::loadedChunks;
 
-void Audio::play(bool loop) {
+void Audio::play() {
   int maxChannels =
       Mix_AllocateChannels(-1); // Get the total number of channels
   int availableChannel = -1;

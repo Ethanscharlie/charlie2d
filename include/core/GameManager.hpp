@@ -56,13 +56,6 @@ public:
    */
   static void Update();
   /**
-   * \brief plays a soundfile, uses the ResourceManager so there is no need to
-   * worry about managing the file loading yourself
-   * \param filename the name of the file
-   * \param loop yeah you get the idea
-   */
-  static void playSound(std::string filename, bool loop = false);
-  /**
    * \brief Ends and closes everything (runs on sdl2 window close)
    */
   static void quit();
