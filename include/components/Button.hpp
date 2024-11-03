@@ -25,11 +25,14 @@ public:
 
   void update(float deltaTime) override;
 
+  void onDestroy() override;
+
   std::function<void()> onClick = []() {};
   std::function<void()> onHold = []() {};
   std::function<void()> onHover = []() {};
   std::function<void()> offHover = []() {};
 
+  int eventid = 0;
   bool checkInWorld = false;
   bool touching = false;
 };
