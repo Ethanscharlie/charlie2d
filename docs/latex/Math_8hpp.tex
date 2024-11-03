@@ -4,6 +4,7 @@
 {\ttfamily \#include "{}SDL\+\_\+rect.\+h"{}}\newline
 {\ttfamily \#include "{}SDL\+\_\+render.\+h"{}}\newline
 {\ttfamily \#include "{}Vector2f.\+hpp"{}}\newline
+{\ttfamily \#include "{}nlohmann/json.\+hpp"{}}\newline
 {\ttfamily \#include $<$SDL.\+h$>$}\newline
 {\ttfamily \#include $<$cstdlib$>$}\newline
 {\ttfamily \#include $<$ctime$>$}\newline
@@ -58,4 +59,10 @@ std\+::string {\bfseries get\+Type\+Name\+Without\+Numbers} (std\+::type\+\_\+in
 \item 
 \Hypertarget{Math_8hpp_a8d66a6e36ce93e89b400cc0b21fd9b9f}\label{Math_8hpp_a8d66a6e36ce93e89b400cc0b21fd9b9f} 
 std\+::array$<$ Uint8, 3 $>$ {\bfseries hex\+To\+RGB} (int hex\+Color)
+\item 
+\Hypertarget{Math_8hpp_a881e1327989f1b3828056ba5810b276d}\label{Math_8hpp_a881e1327989f1b3828056ba5810b276d} 
+std\+::vector$<$ \mbox{\hyperlink{structImage}{Image}} $>$ {\bfseries generate\+Spritesheet\+Animation} (\mbox{\hyperlink{structImage}{Image}} image, int grid\+Size=16, int row=0)
+\item 
+\Hypertarget{Math_8hpp_a0d23fbfbb72441e985db88e364c33dcd}\label{Math_8hpp_a0d23fbfbb72441e985db88e364c33dcd} 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ {\bfseries json\+To\+Vector} (const nlohmann\+::json \&j)
 \end{DoxyCompactItemize}

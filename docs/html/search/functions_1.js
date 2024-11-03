@@ -6,7 +6,6 @@ var searchData=
   ['checkcollision_3',['checkCollision',['../structBox.html#a67c4c0537ace51361c214ae5e9cae815',1,'Box']]],
   ['checkcomponent_4',['checkComponent',['../classEntity.html#aaa08bd4404c74e38d426fb395411c3a6',1,'Entity']]],
   ['checkhorizontal_5',['checkHorizontal',['../classInputManager.html#a7a90eb957ee09d84d45aa7dc9d649e09',1,'InputManager']]],
-  ['checkoutsidebounds_6',['checkOutsideBounds',['../classLDTK.html#adccc220494ba847ac082f4b1b0c9f03f',1,'LDTK']]],
-  ['checkvertical_7',['checkVertical',['../classInputManager.html#a19e1a1564cf52ea0d23005e44eeb54ab',1,'InputManager']]],
-  ['createentity_8',['createEntity',['../classGameManager.html#a6dcef02deb07d391d9b059367ed4c38a',1,'GameManager']]]
+  ['checkvertical_6',['checkVertical',['../classInputManager.html#a19e1a1564cf52ea0d23005e44eeb54ab',1,'InputManager']]],
+  ['createentity_7',['createEntity',['../classGameManager.html#a6dcef02deb07d391d9b059367ed4c38a',1,'GameManager']]]
 ];

@@ -1,18 +1,8 @@
 var searchData=
 [
-  ['tag_0',['tag',['../classEntity.html#a164f61a1e96badb6bc873ec2ef01ea6d',1,'Entity']]],
-  ['targetrendersurface_1',['targetRenderSurface',['../classGameManager.html#a74f663bd3f66a79118bb7a95f03ff9ed',1,'GameManager']]],
-  ['template_2',['Project Template',['../index.html#autotoc_md1',1,'']]],
-  ['text_3',['Text',['../classText.html',1,'']]],
-  ['text_5fcolor_4',['text_color',['../classText.html#a54c87d79cfd95c0eeee7be2026cd5d3c',1,'Text']]],
-  ['the_20main_20fuction_5',['The main fuction',['../index.html#autotoc_md5',1,'']]],
-  ['tilegrid_6',['TileGrid',['../structTileGrid.html',1,'']]],
-  ['tilegroup_7',['TileGroup',['../structTileGroup.html',1,'']]],
-  ['tilelayer_8',['TileLayer',['../structTileLayer.html',1,'']]],
-  ['tilelayercomponent_9',['TileLayerComponent',['../classTileLayerComponent.html',1,'']]],
-  ['tilemap_10',['Tilemap',['../classTilemap.html',1,'']]],
-  ['tileraw_11',['TileRaw',['../structTileRaw.html',1,'']]],
-  ['todestroy_12',['toDestroy',['../classEntity.html#ac2076343cde9e2901fd22912759d6176',1,'Entity']]],
-  ['touchingground_13',['touchingGround',['../classJumpMan.html#a358ede774827117039acb993885646f0',1,'JumpMan']]],
-  ['tracktion_14',['tracktion',['../classJumpMan.html#aead99e8ee4ba96535eb41d4131ac29fb',1,'JumpMan']]]
+  ['uislicerenderer_0',['UISliceRenderer',['../classUISliceRenderer.html',1,'']]],
+  ['update_1',['Update',['../classGameManager.html#af3bb4452ac262ec8a68dcc3eea2f0124',1,'GameManager']]],
+  ['update_2',['update',['../classComponent.html#a3b3bee5d55446124842e5f2e229e1384',1,'Component::update()'],['../classInputManager.html#a136d6afa55ee74eeda5eb72e78e3ee97',1,'InputManager::update()'],['../classAlignment.html#ad4eaee52f6a7abd11baadf8b784e39b5',1,'Alignment::update()'],['../classAnimation.html#a4318baf0b0735e7da87b2c6d3d3a2705',1,'Animation::update()'],['../classButton.html#af3d3e83faa0a146d66faeec9cc4c484e',1,'Button::update()'],['../classExtendedComponent.html#adbfd35709f42d356cfa704f0bfe3e03a',1,'ExtendedComponent::update()'],['../classFadeTransition.html#a2990c9bc595c7ac4ceab0e0b867a47ad',1,'FadeTransition::update()'],['../classJumpMan.html#a0cfd390cb9f6148fb7c391314c1bad40',1,'JumpMan::update()'],['../classLight.html#ad718d33a2f466d98fffa93f53540bb4b',1,'Light::update()'],['../classphysicsBody.html#adf53b6cb40bd3e506c7b79113ac3c234',1,'physicsBody::update()'],['../classScheduler.html#a12580d9d2584e1c2204631460f1a6051',1,'Scheduler::update()'],['../classShadowFilter.html#a91dd6dd4e3718602ecc60239d9823579',1,'ShadowFilter::update()'],['../classSprite.html#aea1bb193b0b1a47512ef1e7751a38f2f',1,'Sprite::update()'],['../classText.html#a57e755e59705824aeaa36d72bd6a8ff3',1,'Text::update()'],['../classUISliceRenderer.html#a70dfbcf5eea07764b7f5c345f94f7679',1,'UISliceRenderer::update()']]],
+  ['updateentities_3',['updateEntities',['../classGameManager.html#aad180c86f385db5da0eb0e14a473b26c',1,'GameManager']]],
+  ['uselayer_4',['useLayer',['../classEntity.html#a56175a9ad78b7bfac545821b2ce0321f',1,'Entity']]]
 ];

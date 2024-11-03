@@ -8,55 +8,80 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}SDL\_rect.h"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}SDL\_render.h"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Vector2f.hpp"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <ctime>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <typeindex>}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{structBox}{Box}};}
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{enum\ class}\ EntityRenderPositionType\ \{\ World,\ Screen\ \};}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}nlohmann/json.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <typeindex>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{structBox}{Box}};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEntity}{Entity}};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structImage}{Image}};}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{Math_8hpp_a2f5480bd60924b64a3793e77d985f692}{randFloat}}(\textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>\ T\ \mbox{\hyperlink{Math_8hpp_a4cc9a573ffeeaeebd465a8defc6da5c0}{getRandomElement}}(\textcolor{keyword}{const}\ T\ (\&arr)[N]);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00033\ std::string\ \mbox{\hyperlink{Math_8hpp_ad9482163d7c8ab70b2a82604a7587b1f}{floatToString}}(\textcolor{keywordtype}{float}\ value);}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00038\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{Math_8hpp_a44bece9dbe1c004ff62e83aad1bf8e42}{getLogcialPosition}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ screenPos);}
-\DoxyCodeLine{00042\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{Math_8hpp_a5d01e9bed27c3fabba28d34daecf0232}{getScreenPosition}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ logicalPos);}
-\DoxyCodeLine{00047\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{Math_8hpp_ac628621c950aea54f0641a1684c3d161}{getImGuiPosition}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ pos);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00054\ SDL\_Rect\ \mbox{\hyperlink{Math_8hpp_ad0d584b564b712a0e007719e9eda81f1}{getLogicalRect}}();}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getWindowPosition(\mbox{\hyperlink{structVector2f}{Vector2f}}\ gamePosition);}
+\DoxyCodeLine{00018\ \textcolor{keyword}{enum\ class}\ EntityRenderPositionType\ \{\ World,\ Screen\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{Math_8hpp_a2f5480bd60924b64a3793e77d985f692}{randFloat}}(\textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>\ T\ \mbox{\hyperlink{Math_8hpp_a4cc9a573ffeeaeebd465a8defc6da5c0}{getRandomElement}}(\textcolor{keyword}{const}\ T\ (\&arr)[N]);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ std::string\ \mbox{\hyperlink{Math_8hpp_ad9482163d7c8ab70b2a82604a7587b1f}{floatToString}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{Math_8hpp_a44bece9dbe1c004ff62e83aad1bf8e42}{getLogcialPosition}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ screenPos);}
+\DoxyCodeLine{00044\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{Math_8hpp_a5d01e9bed27c3fabba28d34daecf0232}{getScreenPosition}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ logicalPos);}
+\DoxyCodeLine{00049\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ \mbox{\hyperlink{Math_8hpp_ac628621c950aea54f0641a1684c3d161}{getImGuiPosition}}(\mbox{\hyperlink{structVector2f}{Vector2f}}\ pos);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ SDL\_Rect\ \mbox{\hyperlink{Math_8hpp_ad0d584b564b712a0e007719e9eda81f1}{getLogicalRect}}();}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getFullLogicalToWindowPosition(\mbox{\hyperlink{structVector2f}{Vector2f}}\ fullLogicalPosition);}
+\DoxyCodeLine{00058\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getWindowPosition(\mbox{\hyperlink{structVector2f}{Vector2f}}\ gamePosition);}
 \DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ std::string\ getTypeNameWithoutNumbers(std::type\_index\ typeIndex);}
+\DoxyCodeLine{00060\ \mbox{\hyperlink{structVector2f}{Vector2f}}\ getFullLogicalToWindowPosition(\mbox{\hyperlink{structVector2f}{Vector2f}}\ fullLogicalPosition);}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \mbox{\hyperlink{structBox}{Box}}\ getRenderBox(\mbox{\hyperlink{structBox}{Box}}\ \mbox{\hyperlink{classEntity_a114a280ebca7c2adf27e63fba59ecf88}{box}},\ EntityRenderPositionType\ renderPositionType\ =}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EntityRenderPositionType::World);}
-\DoxyCodeLine{00064\ \mbox{\hyperlink{structBox}{Box}}\ getRenderBox(\mbox{\hyperlink{classEntity}{Entity}}\ *entity);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ std::array<Uint8,\ 3>\ hexToRGB(\textcolor{keywordtype}{int}\ hexColor);}
+\DoxyCodeLine{00062\ std::string\ getTypeNameWithoutNumbers(std::type\_index\ typeIndex);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \mbox{\hyperlink{structBox}{Box}}\ getRenderBox(\mbox{\hyperlink{structBox}{Box}}\ box,\ EntityRenderPositionType\ renderPositionType\ =}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EntityRenderPositionType::World);}
+\DoxyCodeLine{00066\ \mbox{\hyperlink{structBox}{Box}}\ getRenderBox(\mbox{\hyperlink{classEntity}{Entity}}\ *entity);}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{comment}{//}}
-\DoxyCodeLine{00069\ \textcolor{comment}{//}}
-\DoxyCodeLine{00070\ \textcolor{comment}{//}}
-\DoxyCodeLine{00071\ \textcolor{comment}{//}}
-\DoxyCodeLine{00072\ \textcolor{comment}{//}}
-\DoxyCodeLine{00073\ \textcolor{comment}{//}}
-\DoxyCodeLine{00074\ \textcolor{comment}{//}}
+\DoxyCodeLine{00068\ std::array<Uint8,\ 3>\ hexToRGB(\textcolor{keywordtype}{int}\ hexColor);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ std::vector<Image>\ generateSpritesheetAnimation(\mbox{\hyperlink{structImage}{Image}}\ image,\ \textcolor{keywordtype}{int}\ gridSize\ =\ 16,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ std::vector<T>\ jsonToVector(\textcolor{keyword}{const}\ nlohmann::json\ \&j)\ \{}
+\DoxyCodeLine{00074\ \ \ std::vector<T>\ result;}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>\ T\ \mbox{\hyperlink{Math_8hpp_a4cc9a573ffeeaeebd465a8defc6da5c0}{getRandomElement}}(\textcolor{keyword}{const}\ T\ (\&arr)[N])\ \{}
-\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ Generate\ a\ random\ index\ within\ the\ array\ bounds}}
-\DoxyCodeLine{00078\ \ \ std::size\_t\ randomIndex\ =\ std::rand()\ \%\ N;}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//\ Return\ the\ randomly\ selected\ element}}
-\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{return}\ arr[randomIndex];}
-\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{if}\ (j.is\_array())\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&item\ :\ j)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (item.is\_number\_integer())\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ result.push\_back(item.get<\textcolor{keywordtype}{int}>());}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (item.is\_number\_float())\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ result.push\_back(item.get<\textcolor{keywordtype}{float}>());}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (item.is\_string())\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ result.push\_back(item.get<std::string>());}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (item.is\_boolean())\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ result.push\_back(item.get<\textcolor{keywordtype}{bool}>());}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{//}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>\ T\ \mbox{\hyperlink{Math_8hpp_a4cc9a573ffeeaeebd465a8defc6da5c0}{getRandomElement}}(\textcolor{keyword}{const}\ T\ (\&arr)[N])\ \{}
+\DoxyCodeLine{00102\ \ \ \textcolor{comment}{//\ Generate\ a\ random\ index\ within\ the\ array\ bounds}}
+\DoxyCodeLine{00103\ \ \ std::size\_t\ randomIndex\ =\ std::rand()\ \%\ N;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{comment}{//\ Return\ the\ randomly\ selected\ element}}
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordflow}{return}\ arr[randomIndex];}
+\DoxyCodeLine{00107\ \}}
 
 \end{DoxyCode}

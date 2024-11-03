@@ -52,11 +52,6 @@ public:
    */
   static void init(Vector2f originalSize = {1920, 1080});
   /**
-   * \brief Unloads all entities and loads the set scene
-   * \param name the scenes name
-   */
-  static void Load(const std::string &name);
-  /**
    * \brief the main charlie2d update loop method
    */
   static void Update();
