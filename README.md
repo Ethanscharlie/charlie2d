@@ -24,7 +24,7 @@ int main()
 ```
 The init() must be ran first and will also set the 'original' resolution, 
 note that this should be set once and left because changing it will change
-game behavior, defaults to 1920x1080 if no argument is given
+game behavior, defaults to 1920x1080 if no argument is given.
 
 #### Entities
 ```
