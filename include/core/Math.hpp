@@ -4,8 +4,8 @@
 #include "SDL_rect.h"
 #include "SDL_render.h"
 #include "Vector2f.hpp"
-#include <SDL.h>
 #include "nlohmann/json.hpp"
+#include <SDL.h>
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -13,6 +13,7 @@
 
 class Box;
 class Entity;
+struct Image;
 
 enum class EntityRenderPositionType { World, Screen };
 
@@ -66,6 +67,9 @@ Box getRenderBox(Entity *entity);
 
 std::array<Uint8, 3> hexToRGB(int hexColor);
 
+std::vector<Image> generateSpritesheetAnimation(Image image, int gridSize = 16,
+                                                int row = 0);
+
 template <typename T> std::vector<T> jsonToVector(const nlohmann::json &j) {
   std::vector<T> result;
 
@@ -85,7 +89,6 @@ template <typename T> std::vector<T> jsonToVector(const nlohmann::json &j) {
 
   return result;
 }
-
 
 //
 //

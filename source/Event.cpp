@@ -1,13 +1,31 @@
 #include "Event.hpp"
+#include "Math.hpp"
 
-std::map<std::string, std::vector<EventListener>> Event::eventListeners;
+std::map<std::string, std::map<EventIdentifer, EventListener>>
+    Event::eventListeners;
 
 void Event::fireEvent(std::string eventName) {
-  for (EventListener eventListener : eventListeners[eventName]) {
+  for (auto &[id, eventListener] : eventListeners[eventName]) {
     eventListener();
   }
 }
 
-void Event::addEventListener(std::string eventName, EventListener function) {
-  eventListeners[eventName].push_back(function);
+EventIdentifer Event::addEventListener(std::string eventName,
+                                       EventListener function) {
+  EventIdentifer id = randFloat(0, 1000000);
+  eventListeners[eventName][id] = function;
+  return id;
+}
+
+void Event::removeEventListener(EventIdentifer id) {
+  for (auto &[eventName, eventListener] : eventListeners) {
+    for (auto &[eventId, eventListener] : eventListener) {
+      if (eventId == id) {
+        eventListeners[eventName].erase(eventId);
+        return;
+      }
+    }
+  }
+
+  throw std::runtime_error("Event Listener identifer could not be found");
 }

@@ -24,7 +24,5 @@ var searchData=
   ['getscreenposition_21',['getScreenPosition',['../Math_8hpp.html#a5d01e9bed27c3fabba28d34daecf0232',1,'Math.cpp']]],
   ['gettop_22',['getTop',['../structBox.html#a6711c568df497dabffe727363ba779e0',1,'Box']]],
   ['getvector_23',['getVector',['../structAngle.html#a7b5fe6957ccfcc261c5820c94d8ff7e2',1,'Angle']]],
-  ['github_20io_20charlie2d_20docs_20a_24',['&lt;a href=&quot;https://ethanscharlie.github.io/charlie2d/&quot; &gt;DOCS&lt;/a&gt;',['../index.html#autotoc_md2',1,'']]],
-  ['gravity_25',['gravity',['../classJumpMan.html#a039026d20cf8685da6b4255fbab6b2e7',1,'JumpMan']]],
-  ['gridtile_26',['GridTile',['../structGridTile.html',1,'']]]
+  ['gravity_24',['gravity',['../classJumpMan.html#a039026d20cf8685da6b4255fbab6b2e7',1,'JumpMan']]]
 ];
