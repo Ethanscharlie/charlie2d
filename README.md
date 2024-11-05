@@ -11,7 +11,7 @@ make it as easy as possible to compile projects for any platform
 https://github.com/Ethanscharlie/Charlie2D-Project-Template
 
 ## Quickstart
-#### Init
+### Init
 ```
 int main()
 {   
@@ -27,7 +27,7 @@ The init() must be ran first and will also set the 'original' resolution,
 note that this should be set once and left because changing it will change
 game behavior, defaults to 1920x1080 if no argument is given.
 
-#### Entities
+### Entities
 ```
 Entity* player = GameManager::createEntity("Player");
 ```
@@ -43,7 +43,7 @@ The same can be done for components
 std::vector<Sprite*> spriteComponents = GameManager::getComponents<Sprite>();
 ```
 
-#### Components
+### Components
 ```
 Entity* background = GameManager::createEntity("Background");
 background->add<Sprite>();
@@ -75,7 +75,7 @@ player->add<Sprite>();
 player->add<Player>();
 ```
 
-#### Events
+### Events
 Events can be called in one place and then recived by multiple other places
 ```
 Event::addEventListener("LeftMouseButtonDown", []() {
