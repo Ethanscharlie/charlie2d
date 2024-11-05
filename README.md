@@ -65,3 +65,24 @@ Entity* player = createEntity("Player");
 player->add<Sprite>();
 player->add<Player>();
 ```
+
+#### Events
+Events can be called in one place and then recived by multiple other places
+```
+Event::addEventListener("LeftMouseButtonDown", []() {
+    Audio("res/rickroll.mp3").play();
+});
+```
+```
+Event::fireEvent("PlayerHasDied");
+```
+Note: If an event is tied to an entity then remember to REMOVE it after the entity is DESTROIED
+```
+int id = Event::addEventListener("PlayerHasDied", [entity]() {
+    entity->box.setWithCenter({0, 0});
+});
+
+entity->toDestroy = true;
+
+Event::removeEventListener(id);
+```
