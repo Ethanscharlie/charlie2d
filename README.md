@@ -2,7 +2,8 @@
 @include README.md
 # charlie2d
 A simple c++ w/SDL2 game engine
-[DOCS](https://ethanscharlie.github.io/charlie2d/)
+
+Please download to look at docs
 
 ## Setup
 To make things easier I have created a project template that should 
@@ -37,7 +38,7 @@ In the instance above the Entity is given the tag "Player".
 ```
 Entity* background = GameManager::createEntity("Background");
 background->add<Sprite>();
-background->get<Sprite>()->loadTexture("img/background.png");
+background->get<Sprite>()->loadTexture("res/background.png");
 
 Entity* background2 = GameManager::createEntity("Background");
 ```
@@ -47,11 +48,12 @@ Components can be created an added (Kinda like scripts)
 class Player : public Component {
     public:
     void start() override {
-        entity->add<Sprite>()->loadTexture("img/player.png");
+
     }
 
     void update(float deltaTime) override {
-        entity->get<Sprite>()->angle.lookAt(box->getBox().getCenter(), InputManager::getMousePosition());
+        Sprite* sprite = entity->get<Sprite>()
+        sprite->angle.lookAt(entity->box.getCenter(), InputManager::getMouseWorldPosition());
     }
 };
 ```
@@ -60,5 +62,6 @@ Update will of course run every game loop
 And then can be added to Entities
 ```
 Entity* player = createEntity("Player");
+player->add<Sprite>();
 player->add<Player>();
 ```
