@@ -34,6 +34,15 @@ Entity* player = GameManager::createEntity("Player");
 Entites can be created with the GameManager::createEntity method.
 In the instance above the Entity is given the tag "Player".
 
+To get a list of entities you can use the GameManager::getEntities function
+```
+std::vector<Entity*> enemies = GameManager::getEntities("Enemy");
+```
+The same can be done for components
+```
+std::vector<Sprite*> spriteComponents = GameManager::getComponents<Sprite>();
+```
+
 #### Components
 ```
 Entity* background = GameManager::createEntity("Background");
