@@ -35,10 +35,10 @@ target_include_directories(charlie2D PUBLIC
   ${PROJECT_SOURCE_DIR}/source
   )      
 
-if (LINUX)
-  set(SDL_LIB_PATH "${PROJECT_SOURCE_DIR}/lib/linux/SDL2")
-elseif (WIN32)
+if (WIN32)
   set(SDL_LIB_PATH "${PROJECT_SOURCE_DIR}/lib/windows/SDL2")
+else ()
+  set(SDL_LIB_PATH "")
 endif()
 
 find_library(SDL2_      SDL2       PATHS ${SDL_LIB_PATH})
