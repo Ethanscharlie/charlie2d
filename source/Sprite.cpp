@@ -5,15 +5,15 @@
 #include "SDL_render.h"
 #include <string>
 
-void Sprite::update(float deltaTime) {
-  Box renderBox = getRenderBox(entity);
+void Sprite::update() {
+  Box renderBox = getRenderBox(&entity);
 
   image.render(renderBox, angle);
 
   if (showBorders) {
-    SDL_SetRenderDrawColor(GameManager::renderer, 0, 255, 0, 255);
+    SDL_SetRenderDrawColor(GameManager::getRenderer(), 0, 255, 0, 255);
     SDL_Rect renderRect = renderBox;
-    SDL_RenderDrawRect(GameManager::renderer, &renderRect);
+    SDL_RenderDrawRect(GameManager::getRenderer(), &renderRect);
   }
 
   for (std::pair<std::string, Animation *> animation : animations) {
@@ -33,10 +33,10 @@ void Sprite::loadTexture(const std::string &image, bool setSize,
 
   if (setSize) {
     if (keepCentered) {
-      entity->box.setScale(
+      entity.box.setScale(
           {static_cast<float>(spriteRect.w), static_cast<float>(spriteRect.h)});
     } else {
-      entity->box.size = {static_cast<float>(spriteRect.w),
+      entity.box.size = {static_cast<float>(spriteRect.w),
                           static_cast<float>(spriteRect.h)};
     }
   }

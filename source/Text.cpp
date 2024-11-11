@@ -1,8 +1,7 @@
 #include "Text.hpp"
+#include "GameManager.hpp"
 
-void Text::start() { entity->useLayer = true; }
-
-void Text::update(float deltaTime) {
+void Text::update() {
   if (text.length() <= 0)
     return;
   // if (fontFile == "") return;
@@ -12,16 +11,16 @@ void Text::update(float deltaTime) {
   SDL_Rect spriteRect = {0, 0, 0, 0};
 
   float width_scale =
-      (float)GameManager::currentWindowSize.x / GameManager::gameWindowSize.x;
+      (float)GameManager::getCurrentWindowSize().x / GameManager::getGameWindowSize().x;
   float height_scale =
-      (float)GameManager::currentWindowSize.y / GameManager::gameWindowSize.y;
+      (float)GameManager::getCurrentWindowSize().y / GameManager::getGameWindowSize().y;
 
-  SDL_Rect renderRect = getRenderBox(entity);
+  SDL_Rect renderRect = getRenderBox(&entity);
 
   // spriteRect.w = entity->box.size.x;
   // spriteRect.h = entity->box.size.y;
 
-  renderTextInRect(GameManager::renderer, text, renderRect);
+  renderTextInRect(GameManager::getRenderer(), text, renderRect);
 }
 
 // void onScreenChange()  { changeFont(mfontFile, fontSize); }

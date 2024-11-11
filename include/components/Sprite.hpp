@@ -6,7 +6,6 @@
 #include "Image.hpp"
 #include "Math.hpp"
 #include "SDL_blendmode.h"
-#include "Serializer.hpp"
 #include <SDL.h>
 
 class Animation;
@@ -18,19 +17,8 @@ class Entity;
  */
 class Sprite : public Component {
 public:
-  Sprite() {
-    propertyRegister = {
-        GET_PROP(image),
-        GET_PROP(showBorders),
-        GET_PROP(angle),
-        GET_PROP(preventWeirdBorder),
-    };
-    typeIsRendering = true;
-  };
-
-  void start() override { entity->useLayer = true; }
-
-  void update(float deltaTime) override;
+  Sprite(Entity &entity) : Component(entity) {}
+  void update() override;
 
   /**
    * \brief Sets the texture
@@ -78,4 +66,3 @@ public:
 
   bool preventWeirdBorder = true;
 };
-REGISTER_COMPONENT_TYPE(Sprite);

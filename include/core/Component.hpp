@@ -24,34 +24,23 @@ struct PropertyData {
  */
 class Component {
 public:
-  Component(std::string _title = "") : title(_title){};
-  virtual ~Component() {}
-  /**
-   * \brief Runs after Component data is set in entity.add
-   */
-  virtual void start() {}
+  Component(Entity &entity) : entity(entity){};
   /**
    * \brief Updates in the update loop
    */
-  virtual void update(float deltaTime) {}
+  virtual void update() {}
   /**
    * \brief Is called when entity->toDestory = true
    */
   virtual void onDestroy() {}
-  /**
-   * \brief Runs when the screen size is changed
-   */
-  virtual void onScreenChange() {}
 
   /**
    * \brief The attached entity
    */
-  Entity *entity = nullptr;
+  Entity &entity;
   std::string title = "";
   bool isInit = false;
-  int index;
   bool typeIsRendering = false;
-  std::string entityTag = "";
 
   std::vector<PropertyData> propertyRegister = {};
 

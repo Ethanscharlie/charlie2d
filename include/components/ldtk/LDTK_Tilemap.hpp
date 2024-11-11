@@ -14,7 +14,8 @@ using json = nlohmann::json;
 namespace LDTK {
 class Tilemap : public Component {
 public:
-  void update(float deltaTime) override {
+  Tilemap(Entity &entity) : Component(entity) {}
+  void update() override {
     if (!layer) {
       return;
     }

@@ -1,19 +1,18 @@
 #include "FadeTransition.hpp"
 
-void FadeTransition::start() {
-  entity->useLayer = true;
-  entity->layer = 120;
+FadeTransition::FadeTransition(Entity& entity) : Component(entity) {
+  entity.layer = 120;
   typeIsRendering = true;
 }
 
-void FadeTransition::update(float deltaTime) {
+void FadeTransition::update() {
   SDL_Rect fill_dst;
   Uint32 elapsedTime = 0;
 
   // Used for FadingOut and FadingIn so why repeat the code
   if (currentSection != Finished) {
-    fill_dst.w = GameManager::gameWindowSize.x;
-    fill_dst.h = GameManager::gameWindowSize.y;
+    fill_dst.w = GameManager::getGameWindowSize().x;
+    fill_dst.h = GameManager::getGameWindowSize().y;
     fill_dst.x = 0;
     fill_dst.y = 0;
 
@@ -25,11 +24,11 @@ void FadeTransition::update(float deltaTime) {
     break;
 
   case FadingOut:
-    SDL_SetRenderDrawBlendMode(GameManager::renderer, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0,
+    SDL_SetRenderDrawBlendMode(GameManager::getRenderer(), SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(GameManager::getRenderer(), 0, 0, 0,
                            static_cast<Uint8>(255 * elapsedTime / fade_time));
 
-    SDL_RenderFillRect(GameManager::renderer, &fill_dst);
+    SDL_RenderFillRect(GameManager::getRenderer(), &fill_dst);
 
     if (elapsedTime >= fade_time) {
       currentSection = FadingIn;
@@ -40,12 +39,12 @@ void FadeTransition::update(float deltaTime) {
     break;
 
   case FadingIn:
-    SDL_SetRenderDrawBlendMode(GameManager::renderer, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawBlendMode(GameManager::getRenderer(), SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(
-        GameManager::renderer, 0, 0, 0,
+        GameManager::getRenderer(), 0, 0, 0,
         static_cast<Uint8>(255 - 255 * elapsedTime / fade_time));
 
-    SDL_RenderFillRect(GameManager::renderer, &fill_dst);
+    SDL_RenderFillRect(GameManager::getRenderer(), &fill_dst);
 
     if (elapsedTime >= fade_time) {
       currentSection = Finished;

@@ -68,9 +68,8 @@ void Level::load() {
     TileLayer *tileLayer = tileLayerUPtr.get();
     LayerDefinition *layerDefinition = tileLayer->layerDefinition;
     Entity *renderingEntity = layerDefinition->renderingEntity;
-    renderingEntity->add<Tilemap>()->layer = tileLayer;
-    renderingEntity->add<Tilemap>()->renderBox = levelBox;
-    renderingEntity->useLayer = true;
+    renderingEntity->addComponent<Tilemap>().layer = tileLayer;
+    renderingEntity->addComponent<Tilemap>().renderBox = levelBox;
     renderingEntity->layer = layerDefinition->renderingLayer;
   }
 
@@ -79,7 +78,6 @@ void Level::load() {
     LayerDefinition *layerDefinition = entityLayer->layerDefinition;
     for (auto &instance : entityLayer->entityInstances) {
       Entity *entity = instance->create(this);
-      entity->useLayer = true;
       entity->layer = layerDefinition->renderingLayer;
       loadedEntites.push_back(entity);
     }
@@ -90,7 +88,7 @@ void Level::unload() {
   for (Entity *entity : loadedEntites) {
     if (!entity)
       continue;
-    entity->toDestroy = true;
+    entity->destroy();
   }
   loadedEntites.clear();
 
@@ -98,7 +96,7 @@ void Level::unload() {
     TileLayer *tileLayer = tileLayerUPtr.get();
     LayerDefinition *layerDefinition = tileLayer->layerDefinition;
     Entity *renderingEntity = layerDefinition->renderingEntity;
-    renderingEntity->add<Tilemap>()->layer = nullptr;
+    renderingEntity->addComponent<Tilemap>().layer = nullptr;
   }
 }
 

@@ -5,7 +5,6 @@
 #include "GameManager.hpp"
 #include "InputManager.hpp"
 #include "Math.hpp"
-#include "Serializer.hpp"
 #include "Vector2f.hpp"
 #include <SDL.h>
 
@@ -14,16 +13,8 @@
  */
 class Button : public Component {
 public:
-  Button() {
-    propertyRegister = {
-        GET_PROP(onClick),  GET_PROP(onHold),       GET_PROP(onHover),
-        GET_PROP(offHover), GET_PROP(checkInWorld),
-    };
-  };
-
-  void start() override;
-
-  void update(float deltaTime) override;
+  Button(Entity &entity);
+  void update() override;
 
   void onDestroy() override;
 
@@ -36,4 +27,3 @@ public:
   bool checkInWorld = false;
   bool touching = false;
 };
-REGISTER_COMPONENT_TYPE(Button);

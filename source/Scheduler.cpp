@@ -1,6 +1,6 @@
 #include "Scheduler.hpp"
 
-void Scheduler::update(float deltaTime) {
+void Scheduler::update() {
   std::vector<std::string> toRemove;
   for (auto &[name, schedule] : schedules) {
     if (schedule.timerStartTime + schedule.millisecondWaitTime <

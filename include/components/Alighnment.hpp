@@ -1,7 +1,6 @@
 #pragma once
 #include "Component.hpp"
-#include "ExtendedComponent.hpp"
-#include "Serializer.hpp"
+#include "Entity.hpp"
 #include "Vector2f.hpp"
 
 enum class AlignmentAnchor {
@@ -18,21 +17,15 @@ enum class AlignmentAnchor {
 
 class Alignment : public Component {
 public:
-  Alignment() {
-    propertyRegister = {GET_PROP(parent), GET_PROP(anchor), GET_PROP(offset)};
-    typeIsRendering = true;
-  }
+  Alignment(Entity &entity) : Component(entity) {}
 
-  void start() override {}
-
-  void update(float deltaTime) override {
+  void update() override {
     if (parent == nullptr)
       return;
-    entity->box.setWithCenter(parent->box.getCenter() + offset);
+    entity.box.setWithCenter(parent->box.getCenter() + offset);
   }
 
   AlignmentAnchor anchor;
   Vector2f offset;
   Entity *parent = nullptr;
 };
-REGISTER_COMPONENT_TYPE(Alignment);

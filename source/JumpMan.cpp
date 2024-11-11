@@ -1,21 +1,24 @@
 #include "JumpMan.hpp"
+#include "Component.hpp"
 #include "Event.hpp"
+#include "GameManager.hpp"
 #include "SDL_keycode.h"
 #include "SDL_scancode.h"
 #include "ldtk/LDTK_Tilemap.hpp"
+#include "physicsBody.hpp"
 
-void JumpMan::start() {
+JumpMan::JumpMan(Entity& entity) : Component(entity) {
   Event::addEventListener("SpaceKeyDown", [this]() {
-    std::cout << "FPS: " << 1.0f / GameManager::deltaTime << std::endl;
+    std::cout << "FPS: " << 1.0f / GameManager::getDeltaTime() << std::endl;
     if (!allowJump)
       return;
 
     bool checkground = false;
     if (needGround) {
-      groundCheckBox = entity->box;
-      groundCheckBox.position.y += entity->box.size.y;
+      groundCheckBox = this->entity.box;
+      groundCheckBox.position.y += this->entity.box.size.y;
       for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
-        if (col->entity->box.checkCollision(groundCheckBox)) {
+        if (col->entity.box.checkCollision(groundCheckBox)) {
           checkground = true;
           break;
         }
@@ -41,44 +44,44 @@ void JumpMan::start() {
       jumpsCounter--;
       // Start Jump
       if (!jumping)
-        entity->get<physicsBody>()->velocity.y = 0;
+        this->entity.getComponent<physicsBody>().velocity.y = 0;
       jumping = true;
       // gravity = 1500;
     }
   });
 }
 
-void JumpMan::update(float deltaTime) {
-  entity->add<physicsBody>();
+void JumpMan::update() {
+  entity.addComponent<physicsBody>();
 
-  if (deltaTime > 0.2)
+  if (GameManager::getDeltaTime() > 0.2)
     return;
-  if (abs(entity->get<physicsBody>()->velocity.x) < maxSpeed) {
+  if (abs(entity.getComponent<physicsBody>().velocity.x) < maxSpeed) {
     if (touchingGround) {
-      entity->get<physicsBody>()->velocity.x +=
+      entity.getComponent<physicsBody>().velocity.x +=
           InputManager::checkHorizontal() * speed;
     } else {
-      entity->get<physicsBody>()->velocity.x +=
+      entity.getComponent<physicsBody>().velocity.x +=
           InputManager::checkHorizontal() * airSpeed;
     }
   }
 
-  if (abs(entity->get<physicsBody>()->velocity.x) < 1) {
-    entity->get<physicsBody>()->velocity.x = 0;
+  if (abs(entity.getComponent<physicsBody>().velocity.x) < 1) {
+    entity.getComponent<physicsBody>().velocity.x = 0;
   } else {
-    if (entity->get<physicsBody>()->velocity.x > 0) {
-      entity->get<physicsBody>()->velocity.x -= tracktion * deltaTime;
+    if (entity.getComponent<physicsBody>().velocity.x > 0) {
+      entity.getComponent<physicsBody>().velocity.x -= tracktion * GameManager::getDeltaTime();
     } else {
-      entity->get<physicsBody>()->velocity.x += tracktion * deltaTime;
+      entity.getComponent<physicsBody>().velocity.x += tracktion * GameManager::getDeltaTime();
     }
   }
 
   touchingGround = false;
-  groundCheckBox = entity->box;
-  groundCheckBox = entity->box;
-  groundCheckBox.position.y += entity->box.size.y;
+  groundCheckBox = entity.box;
+  groundCheckBox = entity.box;
+  groundCheckBox.position.y += entity.box.size.y;
   for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
-    if (col->entity->box.checkCollision(groundCheckBox)) {
+    if (col->entity.box.checkCollision(groundCheckBox)) {
       touchingGround = true;
     }
   }
@@ -95,14 +98,14 @@ void JumpMan::update(float deltaTime) {
     }
   }
 
-  entity->get<physicsBody>()->velocity.y += gravity * deltaTime;
+  entity.getComponent<physicsBody>().velocity.y += gravity * GameManager::getDeltaTime();
 
   if (InputManager::checkKeyHeld(SDL_SCANCODE_SPACE)) {
     // Keep Jump
     if (jumping) {
       if (jumpAmount <= jumpPeak) {
-        entity->get<physicsBody>()->velocity.y = -jumpChange;
-        jumpAmount += jumpChange * deltaTime;
+        entity.getComponent<physicsBody>().velocity.y = -jumpChange;
+        jumpAmount += jumpChange * GameManager::getDeltaTime();
       }
     }
   } else {

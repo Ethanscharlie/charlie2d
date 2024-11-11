@@ -25,7 +25,7 @@ void Image::render(const Box &box, const Angle &angle) {
   renderRect.w += 1;
   renderRect.h += 1;
 
-  SDL_RenderCopyEx(GameManager::renderer, texture, srcRectPtr, &renderRect,
+  SDL_RenderCopyEx(GameManager::getRenderer(), texture, srcRectPtr, &renderRect,
                    (180 / M_PI) * angle.radians, nullptr, flip);
 }
 
@@ -35,7 +35,7 @@ auto Image::loadTexture(std::filesystem::path filename,
                                 bool forceReload) -> SDL_Texture * {
   if (loadedTextures.find(filename) == loadedTextures.end() || forceReload) {
     SDL_Texture *texture = nullptr;
-    texture = IMG_LoadTexture(GameManager::renderer, filename.string().c_str());
+    texture = IMG_LoadTexture(GameManager::getRenderer(), filename.string().c_str());
 
     if (texture == nullptr) {
       std::cout << "Failed to load image texture " << filename << std::endl;

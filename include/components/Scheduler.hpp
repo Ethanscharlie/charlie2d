@@ -3,7 +3,6 @@
 #include "Component.hpp"
 #include "SDL_stdinc.h"
 #include "SDL_timer.h"
-#include "Serializer.hpp"
 #include <cstdio>
 #include <functional>
 #include <map>
@@ -35,7 +34,8 @@ struct Schedule {
  */
 class Scheduler : public Component {
 public:
-  void update(float deltaTime) override;
+  Scheduler(Entity &entity) : Component(entity) {}
+  void update() override;
   /**
    * \brief Adds a schedule to the map
    * \param name The name to go in the map
@@ -51,4 +51,3 @@ public:
 
   std::map<std::string, Schedule> schedules;
 };
-REGISTER_COMPONENT_TYPE(Scheduler);

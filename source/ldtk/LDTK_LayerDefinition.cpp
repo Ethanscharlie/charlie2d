@@ -1,6 +1,7 @@
 #include "ldtk/LDTK_LayerDefinition.hpp"
 #include "Entity.hpp"
 #include "ldtk/LDTK_Tilemap.hpp"
+#include "GameManager.hpp"
 
 namespace LDTK {
 LayerDefinition::LayerDefinition(const json &layerDefJson, int _renderingLayer) {
@@ -33,7 +34,7 @@ LayerDefinition::LayerDefinition(const json &layerDefJson, int _renderingLayer) 
   //
   renderingLayer = _renderingLayer;
 
-  renderingEntity = GameManager::createEntity(identifier);
-  renderingEntity->add<Tilemap>();
+  renderingEntity = &GameManager::createEntity(identifier);
+  renderingEntity->addComponent<Tilemap>();
 }
 } // namespace LDTK

@@ -7,7 +7,7 @@
 namespace LDTK {
 LayerDefinition::~LayerDefinition() {
   if (renderingEntity) {
-    renderingEntity->toDestroy = true;
+    renderingEntity->destroy();
   }
 }
 
@@ -58,11 +58,11 @@ void TileLayer::render(Level* level) {
 
   int gridSize = layerDefinition->gridSize;
 
-  texture = SDL_CreateTexture(GameManager::renderer, SDL_PIXELFORMAT_RGBA8888,
+  texture = SDL_CreateTexture(GameManager::getRenderer(), SDL_PIXELFORMAT_RGBA8888,
                               SDL_TEXTUREACCESS_TARGET, width * gridSize,
                               height * gridSize);
 
-  SDL_SetRenderTarget(GameManager::renderer, texture);
+  SDL_SetRenderTarget(GameManager::getRenderer(), texture);
 
   int pointerX = 0;
   int pointerY = 0;
@@ -79,7 +79,7 @@ void TileLayer::render(Level* level) {
     box.position += level->levelBox.position;
     boxes.push_back(box);
 
-    SDL_RenderCopy(GameManager::renderer, image.texture, &image.srcRect,
+    SDL_RenderCopy(GameManager::getRenderer(), image.texture, &image.srcRect,
                    &dstrect);
 
     pointerX++;
@@ -89,7 +89,7 @@ void TileLayer::render(Level* level) {
     }
   }
 
-  SDL_SetRenderTarget(GameManager::renderer, nullptr);
+  SDL_SetRenderTarget(GameManager::getRenderer(), nullptr);
 }
 
 TileLayer::~TileLayer() {

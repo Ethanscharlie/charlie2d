@@ -36,7 +36,7 @@ auto Camera::getBox() -> Box {
   Box cameraBox;
 
   Vector2f logicalSize;
-  cameraBox.size = (GameManager::gameWindowSize / scale);
+  cameraBox.size = (GameManager::getGameWindowSize() / scale);
   cameraBox.setWithCenter(position);
   return cameraBox;
 }

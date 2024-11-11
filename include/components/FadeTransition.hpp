@@ -10,8 +10,8 @@ enum Section { FadingOut, FadingIn, Finished };
 
 class FadeTransition : public Component {
 public:
-  void start() override;
-  void update(float deltaTime) override;
+  FadeTransition(Entity &entity);
+  void update() override;
   /**
    * \brief Performs a screen fade to black and back transition
    * \param middle code to run at the middle or *black* part of the transition

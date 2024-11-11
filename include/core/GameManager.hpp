@@ -2,26 +2,28 @@
 #define GAME_MANAGER_H
 
 #include "Component.hpp"
+#include "Entity.hpp"
 #include "InputManager.hpp"
 #include "Math.hpp"
 #include "ResourceManager.hpp"
+#include "SDL2_framerate.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
-#include <map>
 #include <SDL_ttf.h>
 #include <array>
 #include <functional>
 #include <iostream>
+#include <map>
 #include <string>
 #include <typeindex>
 #include <unordered_map>
 #include <vector>
-#include "SDL2_framerate.h"
 
 // IMGUI
 #include "SDL_render.h"
 #include "SDL_surface.h"
+#include "Vector2f.hpp"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
@@ -32,174 +34,119 @@
 #endif
 
 template <typename T> class ComponentData;
-class Entity;
 class ShadowFilter;
 
+namespace GameManager {
 /**
- * \brief A static class for charlie2d
- *
- * Please use as GameManager::
+ * \brief initalizer for charlie2d
+ * Must Be Called before anything in charlie2d can also set the original
+ * screen resolution
  */
-class GameManager {
-public:
-  GameManager();
-  ~GameManager();
+void init(Vector2f originalSize = {1920, 1080});
+/**
+ * \brief the main charlie2d update loop method
+ */
+void Update();
+/**
+ * \brief Ends and closes everything (runs on sdl2 window close)
+ */
+void quit();
 
-  /**
-   * \brief initalizer for charlie2d
-   * Must Be Called before anything in charlie2d can also set the original
-   * screen resolution
-   */
-  static void init(Vector2f originalSize = {1920, 1080});
-  /**
-   * \brief the main charlie2d update loop method
-   */
-  static void Update();
-  /**
-   * \brief Ends and closes everything (runs on sdl2 window close)
-   */
-  static void quit();
+/**
+ * \breif Destroys all entities currently alive
+ */
+void destroyAll();
 
-  /**
-   * \breif Destroys all entities currently alive
-   */
-  static void destroyAll();
+/**
+ * \brief Creates and Entity
+ * \param tag Currently the only way to set an Entitys tag
+ * \return The newly made Entity
+ */
+Entity &createEntity(std::string tag);
 
-  /**
-   * \brief Creates and Entity
-   * \param tag Currently the only way to set an Entitys tag
-   * \return The newly made Entity
-   */
-  static Entity *createEntity(std::string tag = "");
+/**
+ * \brief Gets Components via their type
+ * \param tag Will only grab Components with entities of a certain tag,
+ * Defaults to "" which ignores this Ex `GameManager::getComponents<Sprite>()`
+ * Will get every sprite component
+ */
+template <typename C> std::vector<C *> getComponents(std::string tag = "");
 
-  /**
-   * \brief A Vector of very entity in the scene
-   */
-  static std::vector<Entity *> getAllObjects();
+/**
+ * \brief Removes a component
+ */
+void removeComponent(Component *component, std::type_index type);
 
-  /**
-   * \brief Gets Components via their type
-   * \param tag Will only grab Components with entities of a certain tag,
-   * Defaults to "" which ignores this Ex `GameManager::getComponents<Sprite>()`
-   * Will get every sprite component
-   */
-  template <typename C>
-  static std::vector<C *> getComponents(std::string tag = "");
+/**
+ * \brief Gets entitys via their tags
+ * \param tag string for the tag
+ * \return An std::vector of entitys
+ */
+std::vector<Entity *> getEntities(std::string tag);
 
-  /**
-   * \brief Removes a component
-   */
-  static void removeComponent(Component *component, std::type_index type);
+SDL_Renderer *getRenderer();
+SDL_Window *getWindow();
 
-  /**
-   * \brief Gets entitys via their tags
-   * \param tag string for the tag
-   * \return An std::vector of entitys
-   */
-  static std::vector<Entity *> getEntities(std::string tag);
+/**
+ * \brief A Vector of very entity in the scene
+ */
+std::vector<Entity *> getEntities();
 
-  /**
-   * \brief starts the update loop
-   *
-   * Don't put anything after running this method because it won't run until the
-   * game is stopped (meant to be called in your main function after a scene in
-   * loaded)
-   */
-  static void doUpdateLoop();
-  /**
-   * \brief Changes the windows size
-   *
-   * This doesn't effect the original size and yes charlie2d supports screen
-   * resizing... mostly... some camera bugs need to be fixed \param size a
-   * Vector2f for the size, can be set like {1920, 1000} btw
-   */
-  static void setWindowSize(Vector2f size);
+/**
+ * \brief starts the update loop
+ *
+ * Don't put anything after running this method because it won't run until the
+ * game is stopped (meant to be called in your main function after a scene in
+ * loaded)
+ */
+void doUpdateLoop();
+/**
+ * \brief Changes the windows size
+ *
+ * This doesn't effect the original size and yes charlie2d supports screen
+ * resizing... mostly... some camera bugs need to be fixed \param size a
+ * Vector2f for the size, can be set like {1920, 1000} btw
+ */
+void setWindowSize(Vector2f size);
 
-  static void changeEntityTag(Entity *entity, std::string newTag);
+/**
+ * \brief the original resolution used for calculations
+ */
+Vector2f getGameWindowSize();
 
-  /**
-   * \breif Adds a component to the components map (Used by Entity class)
-   */
-  template <typename C> static void addComponent(C *component);
+/**
+ * \brief the current resolution, only use if you know what your doing
+ */
+Vector2f getCurrentWindowSize();
 
-  static SDL_Window *window;
-  static SDL_Renderer *renderer;
+/**
+ * \breif Adds a component to the components map (Used by Entity class)
+ */
+template <typename C> void addComponent(C *component);
 
-  /**
-   * \brief the original resolution
-   */
-  static Vector2f gameWindowSize;
-  /**
-   * \brief the current resolution
-   */
-  static Vector2f currentWindowSize;
+/**
+ * \breif Time in between frames, you should multiply this to any frame based
+ *  iteration, like player movement static float deltaTime;
+ */
+float getDeltaTime();
 
-  /**
-   * \brief ratio between original and current screen sizes
-   */
-  static float screen_change_scale;
-  /**
-   * \brief Is the game running? Well it should be...
-   */
-  static bool running;
+/**
+ * \brief is called when an entity is added or a layer is changed.
+ * Resorts the entire entity list based on layers
+ */
+void resortEntitiesNextFrame();
 
-  /**
-   * \brief Pause mode
-   */
-  static bool updateEntities;
-
-  static float deltaTime;
-
-  /**
-   * \breif Time in between frames, you should multiply this to any frame base
-iteration, like player movement static float deltaTime;
-  */
-
-  static SDL_Texture *targetRenderSurface;
-
-  static std::map<std::string, std::function<Component *(Entity *)>>
-      componentRegistry;
-
-  static std::map<std::string, std::vector<Entity *>> entities;
-
-  static ShadowFilter *shadowFilter;
-
-private:
-  /**
-   * Deletes
-   */
-  static void destroyEntity(Entity *entity);
-
-  static std::map<std::type_index, std::vector<Component *>> components;
-
-  static Uint64 lastTime;
-
-  static FPSmanager fpsManager;
-};
+} // namespace GameManager
 
 template <typename C>
 std::vector<C *> GameManager::getComponents(std::string tag) {
-  std::vector<C *> hits;
-  auto it = components.find(typeid(C));
-
-  if (it != components.end()) {
-    for (auto component : it->second) {
-      // Static cast each Component* to C*
-      if (component->entityTag == tag || tag == "") {
-        hits.push_back(static_cast<C *>(component));
-      }
+  std::vector<C *> components;
+  for (Entity *entity : getEntities()) {
+    if (entity->checkComponent<C>()) {
+      components.push_back(&entity->getComponent<C>());
     }
-  } else
-    components[typeid(C)];
-
-  return hits;
-}
-
-inline std::map<std::string, std::function<Component *(Entity *)>>
-    GameManager::componentRegistry;
-
-template <typename C> void GameManager::addComponent(C *component) {
-  components[typeid(C)].push_back(component);
+  }
+  return components;
 }
 
 #endif

@@ -55,27 +55,27 @@ auto InputManager::getMouseWorldPosition() -> Vector2f {
   Vector2f mouse = getMouseScreenPosition();
 
   // float scaler = GameManager::screen_change_scale *
-  // ((GameManager::gameWindowSize.x +
-  //             GameManager::gameWindowSize.y) / (GameManager::camera.size.x +
+  // ((GameManager::getGameWindowSize().x +
+  //             GameManager::getGameWindowSize().y) / (GameManager::camera.size.x +
   //             GameManager::camera.size.y));
   // return (mouse - GameManager::currentWindowSize / 2) / scaler +
   // GameManager::camera.getCenter();
-  return (mouse - GameManager::gameWindowSize / 2) / Camera::getScale() +
+  return (mouse - GameManager::getGameWindowSize() / 2) / Camera::getScale() +
          Camera::getPosition();
 }
 
 auto InputManager::getMouseUIPosition() -> Vector2f {
   Vector2f mouse = getMouseScreenPosition();
-  return (mouse - GameManager::gameWindowSize / 2);
+  return (mouse - GameManager::getGameWindowSize() / 2);
 }
 
 auto InputManager::getMouseScreenPosition() -> Vector2f {
   int virtualWidth = 0, virtualHeight = 0;
-  SDL_RenderGetLogicalSize(GameManager::renderer, &virtualWidth,
+  SDL_RenderGetLogicalSize(GameManager::getRenderer(), &virtualWidth,
                            &virtualHeight);
 
   int windowWidth = 0, windowHeight = 0;
-  SDL_GetWindowSize(GameManager::window, &windowWidth, &windowHeight);
+  SDL_GetWindowSize(GameManager::getWindow(), &windowWidth, &windowHeight);
 
   int mouseX = 0, mouseY = 0;
   SDL_GetMouseState(&mouseX, &mouseY);

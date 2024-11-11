@@ -1,7 +1,8 @@
 #include "physicsBody.hpp"
+#include "GameManager.hpp"
 #include "ldtk/LDTK_Tilemap.hpp"
 
-void physicsBody::update(float deltaTime) {
+void physicsBody::update() {
   // Adjusts velocity if greater then max (Ignores if -1)
   if (maxVelocity.x != -1) {
     if (abs(velocity.x) > abs(maxVelocity.x))
@@ -14,9 +15,9 @@ void physicsBody::update(float deltaTime) {
 
   // Prevents teleporting if people click of the window and
   // make deltatime bigger than... idk something problably
-  if (deltaTime > 0.2)
-    std::cout << deltaTime << std::endl;
-  if (deltaTime > 0.2)
+  if (GameManager::getDeltaTime() > 0.2)
+    std::cout << GameManager::getDeltaTime() << std::endl;
+  if (GameManager::getDeltaTime() > 0.2)
     return;
 
   // Check for pointless move
@@ -25,7 +26,7 @@ void physicsBody::update(float deltaTime) {
 
   std::vector<Box *> solids;
   for (SolidBody *col : GameManager::getComponents<SolidBody>()) {
-    solids.push_back(&col->entity->box);
+    solids.push_back(&col->entity.box);
   }
 
   for (LDTK::Tilemap *tilemap : GameManager::getComponents<LDTK::Tilemap>()) {
@@ -39,13 +40,13 @@ void physicsBody::update(float deltaTime) {
   }
 
   if (pushOut) {
-    slideOut out = entity->box.slide(velocity * deltaTime, solids);
+    slideOut out = entity.box.slide(velocity * GameManager::getDeltaTime(), solids);
 
     if (out.horizontalHit)
       velocity.x = 0;
     if (out.verticleHit)
       velocity.y = 0;
   } else {
-    entity->box.position += (velocity * deltaTime);
+    entity.box.position += (velocity * GameManager::getDeltaTime());
   }
 }

@@ -16,10 +16,11 @@ using json = nlohmann::json;
 namespace LDTK {
 class EntityData : public Component {
 public:
+  EntityData(Entity &entity) : Component(entity) {}
   void onDestroy() override {
     instance->entity = nullptr;
     auto it = std::find(level->loadedEntites.begin(),
-                        level->loadedEntites.end(), entity);
+                        level->loadedEntites.end(), &entity);
     if (it != level->loadedEntites.end()) {
       *it = nullptr;
     }

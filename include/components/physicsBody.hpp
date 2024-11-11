@@ -3,7 +3,6 @@
 #include "Component.hpp"
 #include "Entity.hpp"
 #include "Math.hpp"
-#include "Serializer.hpp"
 #include "SolidBody.hpp"
 
 /**
@@ -13,11 +12,8 @@
  */
 class physicsBody : public Component {
 public:
-  physicsBody() : Component("physicsBody"){};
-
-  void start() override {}
-
-  void update(float deltaTime) override;
+  physicsBody(Entity &entity) : Component(entity) {}
+  void update() override;
 
   /**
    * \brief The velocity for this body
@@ -37,4 +33,3 @@ public:
   bool pushOut = true;
 };
 
-REGISTER_COMPONENT_TYPE(physicsBody);

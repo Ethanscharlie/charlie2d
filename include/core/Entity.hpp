@@ -2,10 +2,11 @@
 #define ENTITY_H
 
 #include "Box.hpp"
-#include "GameManager.hpp"
+#include "Math.hpp"
 #include <SDL.h>
 #include <functional>
 #include <map>
+#include <memory>
 #include <stdexcept>
 #include <typeindex>
 #include <vector>
@@ -23,18 +24,9 @@ public:
   ~Entity() {}
 
   /**
-   * \brief Adds a component to the entity Ex: add<Sprite>()
-   */
-  template <typename C> C *add(bool start = true);
-  /**
-   * \brief Gets a component from the entity Ex: get<Sprite>()
-   */
-  template <typename C> C *get();
-
-  /**
    * \brief Adds a component to the entity
    */
-  template <typename C> C &addComponent(bool start = true);
+  template <typename C> C &addComponent();
   /**
    * \brief Gets a component from the entity
    */
@@ -54,33 +46,27 @@ public:
    */
   void remove(std::type_index type);
 
+  bool isQueuedForDestruction();
+
+  /**
+   * \brief Updates all components, is called my GameManager
+   */
   void update();
 
-  /**
-   * \brief Changes and entities tag
-   */
-  void changeTag(std::string newTag);
-  /**
-   * Gets the entitys components
-   */
-  std::map<std::type_index, Component *> gets() { return components; };
-
-  /**
-   * \brief If marked true the entity and all its components will be removed and
-   * deleted from memory
-   */
-  bool toDestroy = false;
   /**
    * \brief String tag for the entity
    */
   std::string tag = "";
 
-  std::string name = "";
+  /**
+   * \brief Marks the entity for deletion
+   */
+  void destroy();
 
-  std::string group = "";
-
-  bool debug = false;
-
+  /**
+   * \brief Tells the game to render the entity either in the world or on the
+   * screen. Screen is meant for UI
+   */
   EntityRenderPositionType renderPositionType = EntityRenderPositionType::World;
 
   /**
@@ -99,20 +85,20 @@ public:
    * \brief Layer to update on (requires entity->useLayer=true)
    */
   int layer = 0;
-  /**
-   * \brief Tells the engine to update with a sorting algorithim (made for
-   * sprites)
-   */
-  bool useLayer = true;
 
   /**
    *\brief A pointer to the entitys entityBox
    */
   Box box;
 
-  std::map<std::type_index, Component *> components;
-
 private:
+  std::map<std::type_index, std::unique_ptr<Component>> components;
+
+  /**
+   * \brief If marked true the entity and all its components will be removed and
+   * deleted from memory
+   */
+  bool toDestroy = false;
 };
 
 //
@@ -123,53 +109,16 @@ private:
 //
 //
 
-template <typename C> C *Entity::add(bool start) {
+template <typename C> C &Entity::addComponent() {
   if (checkComponent<C>()) {
-    return get<C>();
+    return getComponent<C>();
   }
 
-  C *component = new C();
+  std::unique_ptr<C> component = std::make_unique<C>(*this);
+  Component* componentPtr = component.get();
+  components[typeid(C)] = std::move(component);
 
-  component->entity = this;
-  component->entityTag = tag;
-  if (start)
-    component->start();
-  components[typeid(C)] = component;
-
-  component->index = iid; // components[typeid(C)].size();
-  GameManager::addComponent<C>(component);
-
-  return component;
-}
-
-template <typename C> C *Entity::get() {
-  auto it = components.find(typeid(C));
-  if (it != components.end()) {
-    if (it->second == nullptr)
-      throw std::runtime_error("Component was nullptr");
-    return static_cast<C *>(it->second);
-
-  } else
-    throw std::runtime_error("Component not found!");
-}
-
-template <typename C> C &Entity::addComponent(bool start) {
-  if (checkComponent<C>()) {
-    return get<C>();
-  }
-
-  C *component = new C();
-
-  component->entity = this;
-  component->entityTag = tag;
-  if (start)
-    component->start();
-  components[typeid(C)] = component;
-
-  component->index = iid; // components[typeid(C)].size();
-  GameManager::addComponent<C>(component);
-
-  return component;
+  return *static_cast<C *>(componentPtr);
 }
 
 template <typename C> C &Entity::getComponent() {
@@ -177,22 +126,18 @@ template <typename C> C &Entity::getComponent() {
   if (it != components.end()) {
     if (it->second == nullptr)
       throw std::runtime_error("Component was nullptr");
-    return static_cast<C *>(it->second);
 
-  } else
+    return *static_cast<C *>(it->second.get());
+  }
+
+  else {
     throw std::runtime_error("Component not found!");
+  }
 }
 
 template <typename C> void Entity::remove() {
-  // Remove from GameManager
-  C *component = get<C>();
-  GameManager::removeComponent(component, typeid(C));
-
-  // Remove from entity
+  C *component = getComponent<C>();
   components.erase(typeid(C));
-
-  delete component;
-
   std::cout << "Removed component " << typeid(C).name() << std::endl;
 }
 

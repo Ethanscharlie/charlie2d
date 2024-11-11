@@ -1,14 +1,14 @@
 #include "Button.hpp"
 #include "Event.hpp"
 
-void Button::start() {
+Button::Button(Entity &entity) : Component(entity) {
   eventid = Event::addEventListener("LeftMouseButtonDown", [this]() {
     if (touching)
       onClick();
   });
 }
 
-void Button::update(float deltaTime) {
+void Button::update() {
   touching = false;
   Vector2f mousePos;
   if (checkInWorld) {
@@ -17,10 +17,9 @@ void Button::update(float deltaTime) {
     mousePos = InputManager::getMouseUIPosition();
   }
 
-  touching = entity->box.getLeft() < mousePos.x &&
-             entity->box.getRight() > mousePos.x &&
-             entity->box.getTop() < mousePos.y &&
-             entity->box.getBottom() > mousePos.y;
+  touching =
+      entity.box.getLeft() < mousePos.x && entity.box.getRight() > mousePos.x &&
+      entity.box.getTop() < mousePos.y && entity.box.getBottom() > mousePos.y;
 
   if (touching) {
     onHover();
@@ -32,6 +31,4 @@ void Button::update(float deltaTime) {
   }
 }
 
-void Button::onDestroy() {
-  Event::removeEventListener(eventid);
-}
+void Button::onDestroy() { Event::removeEventListener(eventid); }

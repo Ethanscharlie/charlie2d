@@ -27,11 +27,11 @@ auto floatToString(float value) -> std::string {
 
 auto getLogcialPosition(Vector2f screenPos) -> Vector2f {
   int virtualWidth = 0, virtualHeight = 0;
-  SDL_RenderGetLogicalSize(GameManager::renderer, &virtualWidth,
+  SDL_RenderGetLogicalSize(GameManager::getRenderer(), &virtualWidth,
                            &virtualHeight);
 
   int windowWidth = 0, windowHeight = 0;
-  SDL_GetWindowSize(GameManager::window, &windowWidth, &windowHeight);
+  SDL_GetWindowSize(GameManager::getWindow(), &windowWidth, &windowHeight);
 
   double scale = NAN;
   int xOffset = 0, yOffset = 0;
@@ -55,11 +55,11 @@ auto getLogcialPosition(Vector2f screenPos) -> Vector2f {
 
 auto getScreenPosition(Vector2f logicalPos) -> Vector2f {
   int virtualWidth = 0, virtualHeight = 0;
-  SDL_RenderGetLogicalSize(GameManager::renderer, &virtualWidth,
+  SDL_RenderGetLogicalSize(GameManager::getRenderer(), &virtualWidth,
                            &virtualHeight);
 
   int windowWidth = 0, windowHeight = 0;
-  SDL_GetWindowSize(GameManager::window, &windowWidth, &windowHeight);
+  SDL_GetWindowSize(GameManager::getWindow(), &windowWidth, &windowHeight);
 
   double scale = NAN;
   int xOffset = 0, yOffset = 0;
@@ -87,14 +87,14 @@ auto getImGuiPosition(Vector2f pos) -> Vector2f {
   SDL_Rect logicalRect = getLogicalRect();
   Vector2f logicalPos = {(float)logicalRect.x, (float)logicalRect.y};
 
-  out = pos + GameManager::gameWindowSize / 2;
+  out = pos + GameManager::getGameWindowSize() / 2;
   return out;
 }
 
 auto getLogicalRect() -> SDL_Rect {
   int logical_w = 1, logical_h = 1;
-  int output_w = GameManager::currentWindowSize.x;
-  int output_h = GameManager::currentWindowSize.y;
+  int output_w = GameManager::getCurrentWindowSize().x;
+  int output_h = GameManager::getCurrentWindowSize().y;
   float want_aspect = 1.0f;
   float real_aspect = 1.0f;
   float scale = NAN;
@@ -131,21 +131,21 @@ auto getLogicalRect() -> SDL_Rect {
 auto getWindowPosition(Vector2f gamePosition) -> Vector2f {
   int widthInPixels = 0, heightInPixels = 0;
   int widthInPoints = 0, heightInPoints = 0;
-  SDL_GetWindowSize(GameManager::window, &widthInPoints, &heightInPoints);
-  SDL_GL_GetDrawableSize(GameManager::window, &widthInPixels, &heightInPixels);
+  SDL_GetWindowSize(GameManager::getWindow(), &widthInPoints, &heightInPoints);
+  SDL_GL_GetDrawableSize(GameManager::getWindow(), &widthInPixels, &heightInPixels);
   float dpiScaleX = widthInPixels / (float)widthInPoints;
   float dpiScaleY = heightInPixels / (float)heightInPoints;
 
   SDL_Rect logicalDst = getLogicalRect();
-  return {gamePosition.x * (logicalDst.w / GameManager::gameWindowSize.x) +
+  return {gamePosition.x * (logicalDst.w / GameManager::getGameWindowSize().x) +
               logicalDst.x,
-          gamePosition.y * (logicalDst.h / GameManager::gameWindowSize.y) +
+          gamePosition.y * (logicalDst.h / GameManager::getGameWindowSize().y) +
               logicalDst.y};
 }
 
 auto getFullLogicalToWindowPosition(Vector2f fullLogicalPosition) -> Vector2f {
   return fullLogicalPosition *
-         (GameManager::currentWindowSize / GameManager::gameWindowSize);
+         (GameManager::getCurrentWindowSize() / GameManager::getGameWindowSize());
 }
 
 auto getTypeNameWithoutNumbers(std::type_index typeIndex) -> std::string {
@@ -167,12 +167,12 @@ auto getRenderBox(Box box, EntityRenderPositionType renderPositionType) -> Box {
   case EntityRenderPositionType::World:
     renderBox.position =
         (box.position - Camera::getPosition()) * Camera::getScale() +
-        GameManager::gameWindowSize / 2;
+        GameManager::getGameWindowSize() / 2;
     renderBox.size = box.size * Camera::getScale();
     break;
 
   case EntityRenderPositionType::Screen:
-    renderBox.position = box.position + GameManager::gameWindowSize / 2;
+    renderBox.position = box.position + GameManager::getGameWindowSize() / 2;
     renderBox.size = box.size;
 
     break;

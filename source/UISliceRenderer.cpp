@@ -1,39 +1,34 @@
 #include "UISliceRenderer.hpp"
 
-void UISliceRenderer::start() {
-  entity->layer = 65;
-  entity->useLayer = true;
-}
-
 /**
  * \brief Loads a texture from filepath, this is meant to be square for a
  * panel of some sort
  */
-void UISliceRenderer::update(float deltaTime) {
+void UISliceRenderer::update() {
   SDL_Rect spriteRect = {0, 0, 0, 0};
 
   if (!rendererInWorld) {
-    Vector2f renderPos = entity->box.position + GameManager::gameWindowSize / 2;
+    Vector2f renderPos = entity.box.position + GameManager::getGameWindowSize() / 2;
     spriteRect.x = renderPos.x; //+ GameManager::camera.getCenter().x;
     spriteRect.y = renderPos.y; //+ GameManager::camera.getCenter().y;
-    spriteRect.w = entity->box.size.x;
-    spriteRect.h = entity->box.size.y;
+    spriteRect.w = entity.box.size.x;
+    spriteRect.h = entity.box.size.y;
 
   } else {
-    Vector2f renderPos = entity->box.position - Camera::getPosition();
+    Vector2f renderPos = entity.box.position - Camera::getPosition();
     renderPos = renderPos * Camera::getScale();
-    renderPos += GameManager::gameWindowSize / 2;
+    renderPos += GameManager::getGameWindowSize() / 2;
     spriteRect.x = renderPos.x;
     spriteRect.y = renderPos.y;
 
-    spriteRect.w = entity->box.size.x * Camera::getScale();
-    spriteRect.h = entity->box.size.y * Camera::getScale();
+    spriteRect.w = entity.box.size.x * Camera::getScale();
+    spriteRect.h = entity.box.size.y * Camera::getScale();
   }
 
   SDL_SetTextureBlendMode(image.texture, image.blendMode);
   SDL_SetTextureAlphaMod(image.texture, image.alpha);
 
-  Draw9SlicedTexture(GameManager::renderer, image.texture, spriteRect, 10);
+  Draw9SlicedTexture(GameManager::getRenderer(), image.texture, spriteRect, 10);
 }
 
 void UISliceRenderer::Draw9SlicedTexture(SDL_Renderer *renderer,

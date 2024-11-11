@@ -14,29 +14,25 @@
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_sdlrenderer2.h"
 #include <algorithm>
+#include <memory>
 #include <random>
 
-bool GameManager::running = true;
+static std::vector<std::unique_ptr<Entity>> entities;
 
-std::map<std::type_index, std::vector<Component *>> GameManager::components;
-std::map<std::string, std::vector<Entity *>>
-    GameManager::entities; // Sorted by tags
+static bool running = true;
+static bool resortNextFrame = false;
+static Vector2f gameWindowSize = {0, 0};
+static Vector2f currentWindowSize = {0, 0};
+static float screen_change_scale = 0;
+static SDL_Window *window = nullptr;
+static SDL_Renderer *renderer = nullptr;
+static bool updateEntities = true;
+static float deltaTime = 0;
+static Uint64 lastTime;
+static ShadowFilter *shadowFilter;
+static FPSmanager fpsManager;
 
-Vector2f GameManager::gameWindowSize = {0, 0};
-Vector2f GameManager::currentWindowSize = {0, 0};
-
-float GameManager::screen_change_scale = 0;
-
-SDL_Window *GameManager::window = nullptr;
-SDL_Renderer *GameManager::renderer = nullptr;
-
-bool GameManager::updateEntities = true;
-float GameManager::deltaTime = 0;
-Uint64 GameManager::lastTime;
-
-ShadowFilter *GameManager::shadowFilter;
-
-FPSmanager GameManager::fpsManager;
+// static void destroyEntity(Entity *entity);
 
 #ifdef __EMSCRIPTEN__
 EM_JS(void, resize_callback, (), {
@@ -49,34 +45,14 @@ extern "C" {
 // This is a C++ function that is called from JavaScript
 void EMSCRIPTEN_KEEPALIVE on_resize(int width, int height) {
   printf("Window resized to %dx%d\n", width, height);
-  GameManager::setWindowSize(
-      {static_cast<float>(width), static_cast<float>(height)});
+  setWindowSize({static_cast<float>(width), static_cast<float>(height)});
 }
 }
 #endif
 
-GameManager::GameManager() = default;
+namespace GameManager {
 
-GameManager::~GameManager() {
-
-  for (auto &[type, vector] : components) {
-    for (Component *component : vector) {
-      delete component;
-    }
-    vector.clear();
-  }
-  components.clear();
-
-  for (auto &[tag, vector] : entities) {
-    for (Entity *entity : vector) {
-      delete entity;
-    }
-    vector.clear();
-  }
-  entities.clear();
-}
-
-void GameManager::init(Vector2f windowSize) {
+void init(Vector2f windowSize) {
   srand(time(nullptr));
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Init(SDL_INIT_AUDIO);
@@ -99,7 +75,8 @@ void GameManager::init(Vector2f windowSize) {
 
   window = SDL_CreateWindow("Charlie2D Game", SDL_WINDOWPOS_CENTERED,
                             SDL_WINDOWPOS_CENTERED, currentWindowSize.x,
-                            currentWindowSize.y, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+                            currentWindowSize.y,
+                            SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
   SDL_RenderSetLogicalSize(renderer, windowSize.x, windowSize.y);
@@ -119,30 +96,19 @@ void GameManager::init(Vector2f windowSize) {
 
   // -------------------------------------------------------------
 
-  shadowFilter = createEntity("ShadowFilter")->add<ShadowFilter>();
-  shadowFilter->entity->useLayer = true;
-  shadowFilter->entity->layer = 99;
+  shadowFilter = &createEntity("ShadowFilter").addComponent<ShadowFilter>();
+  shadowFilter->entity.layer = 99;
 
 #ifdef __EMSCRIPTEN__
   resize_callback();
   float width = emscripten_run_script_int("window.innerWidth");
   float height = emscripten_run_script_int("window.innerHeight");
-  GameManager::setWindowSize({width, height});
+  setWindowSize({width, height});
 #endif
 }
 
-void GameManager::Update() {
-  InputManager::update();
-  ControllerManager::resetTriggerButtons();
+static void manageEvents() {
   SDL_Event event;
-
-  ImGuiIO &io = ImGui::GetIO();
-  (void)io;
-
-  int mouseX = 0, mouseY = 0;
-  SDL_GetMouseState(&mouseX, &mouseY);
-  Vector2f realMouse = (Vector2f(mouseX, mouseY));
-  io.MousePos = {realMouse.x, realMouse.y};
 
   while (SDL_PollEvent(&event)) {
     if (event.type != SDL_MOUSEMOTION) {
@@ -186,12 +152,6 @@ void GameManager::Update() {
             ((float)currentWindowSize.x + (float)currentWindowSize.y) /
             (gameWindowSize.x + gameWindowSize.y);
 
-        for (auto &c : components) {
-          for (Component *component : c.second) {
-            component->onScreenChange();
-          }
-        }
-
         // IMGUI
         ImGuiIO &io = ImGui::GetIO();
         io.DisplaySize =
@@ -208,8 +168,9 @@ void GameManager::Update() {
       break;
     }
   }
+}
 
-  // OLD SCENE UPDATE LOOP
+static void calculateDeltaTime() {
   Uint64 currentTime = SDL_GetPerformanceCounter();
   deltaTime =
       static_cast<float>((currentTime - lastTime) * 1000 /
@@ -222,61 +183,65 @@ void GameManager::Update() {
 
   lastTime = currentTime;
   lastTime = SDL_GetPerformanceCounter();
+}
 
-  // if (1.0f / deltaTime < 20)
-  //   std::cout << "FPS: " << 1.0f / deltaTime << std::endl;
+void Update() {
+  InputManager::update();
+  ControllerManager::resetTriggerButtons();
 
-  SDL_SetRenderDrawColor(GameManager::renderer, 0, 0, 0, 255);
-  SDL_RenderClear(GameManager::renderer);
+  ImGuiIO &io = ImGui::GetIO();
+  (void)io;
+
+  int mouseX = 0, mouseY = 0;
+  SDL_GetMouseState(&mouseX, &mouseY);
+  Vector2f realMouse = (Vector2f(mouseX, mouseY));
+  io.MousePos = {realMouse.x, realMouse.y};
+
+  manageEvents();
+  calculateDeltaTime();
+
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+  SDL_RenderClear(renderer);
 
   shadowFilter->resetShadowFilter();
 
-  std::vector<Entity *> layeredEntities;
-  std::vector<Entity *> entitesToRemove;
-  for (Entity *entity : getAllObjects()) {
-    if (entity->toDestroy) {
-      entitesToRemove.push_back(entity);
-      for (auto [type, component] : entity->components) {
-        component->onDestroy();
-      }
+  std::vector<int> entitesToRemove;
+  for (std::unique_ptr<Entity> &entityPtr : entities) {
+    Entity &entity = *entityPtr.get();
+    if (entity.isQueuedForDestruction()) {
+      entitesToRemove.push_back(entity.iid);
       continue;
     }
-    if (entity->skipUpdate) {
-      entity->skipUpdate = false;
+    if (entity.skipUpdate) {
+      entity.skipUpdate = false;
       continue;
     }
-    if (!entity->active)
+    if (!entity.active)
       continue;
-    if (entity->useLayer) {
-      layeredEntities.push_back(entity);
-      continue;
-    }
 
-    entity->update();
+    entity.update();
   }
 
-  std::sort(layeredEntities.begin(), layeredEntities.end(),
-            [](Entity *a, Entity *b) {
-              if (a->layer == b->layer)
-                return a->iid < b->iid;
-              return a->layer < b->layer;
-            });
-
-  for (Entity *entity : layeredEntities) {
-    entity->update();
+  if (resortNextFrame) {
+    std::sort(entities.begin(), entities.end(), [](auto &a, auto &b) {
+      if (a->layer == b->layer)
+        return a->iid < b->iid;
+      return a->layer < b->layer;
+    });
   }
 
-  // Destroyer
-  for (Entity *entity : entitesToRemove) {
-    destroyEntity(entity);
+  for (int iid : entitesToRemove) {
+    auto ne = std::remove_if(entities.begin(), entities.end(),
+                             [iid](auto &entity) { return entity->iid = iid; });
+
+    entities.erase(ne, entities.end());
   }
-  // END OF OLD SCENE LOOP
 
   SDL_RenderPresent(renderer);
   SDL_framerateDelay(&fpsManager);
 }
 
-void GameManager::setWindowSize(Vector2f size) {
+void setWindowSize(Vector2f size) {
   if (window == nullptr) {
     std::cerr << "Window was nullptr" << std::endl;
     return;
@@ -290,22 +255,9 @@ void GameManager::setWindowSize(Vector2f size) {
       (gameWindowSize.x + gameWindowSize.y);
 
   Event::fireEvent("screenResize");
-
-  for (auto &c : components) {
-    for (Component *component : c.second) {
-      component->onScreenChange();
-    }
-  }
 }
 
-void GameManager::changeEntityTag(Entity *entity, std::string newTag) {
-  auto &list = entities[entity->tag];
-  list.erase(std::remove(list.begin(), list.end(), entity), list.end());
-  entities[newTag].push_back(entity);
-  entity->tag = newTag;
-}
-
-void GameManager::doUpdateLoop() {
+void doUpdateLoop() {
 #ifdef __EMSCRIPTEN__
   emscripten_set_main_loop(Update, 0, 1);
 #else
@@ -315,44 +267,51 @@ void GameManager::doUpdateLoop() {
 #endif
 }
 
-void GameManager::quit() {
+void quit() {
   ImGui_ImplSDLRenderer2_Shutdown();
   ImGui_ImplSDL2_Shutdown();
   ImGui::DestroyContext();
 
-  SDL_DestroyRenderer(GameManager::renderer);
-  SDL_DestroyWindow(GameManager::window);
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
 
   TTF_Quit();
   Mix_Quit();
   SDL_Quit();
 
-  GameManager::running = false;
+  entities.clear();
+
+  running = false;
 }
 
-void GameManager::destroyAll() {
-  for (Entity *entity : getAllObjects()) {
-    if (entity == shadowFilter->entity)
+void destroyAll() {
+  for (auto &entityPtr : entities) {
+    if (entityPtr->iid == shadowFilter->entity.iid)
       continue;
-    entity->toDestroy = true;
+    entityPtr->destroy();
   }
 }
 
-auto GameManager::getEntities(std::string tag) -> std::vector<Entity *> {
-  return entities[tag];
-}
-
-auto GameManager::getAllObjects() -> std::vector<Entity *> {
-  std::vector<Entity *> out;
-  for (const auto &pair : entities) {
-    const std::vector<Entity *> &entityPointers = pair.second;
-    out.insert(out.end(), entityPointers.begin(), entityPointers.end());
+std::vector<Entity *> getEntities(std::string tag) {
+  std::vector<Entity *> entitiesWithTag;
+  for (auto &entityPtr : entities) {
+    if (entityPtr->tag == tag) {
+      entitiesWithTag.push_back(entityPtr.get());
+    }
   }
-  return out;
+  return entitiesWithTag;
 }
 
-auto GameManager::createEntity(std::string tag) -> Entity * {
-  auto *entity = new Entity();
+std::vector<Entity *> getEntities() {
+  std::vector<Entity *> entitiesWithoutOwnership;
+  for (auto &entityPtr : entities) {
+    entitiesWithoutOwnership.push_back(entityPtr.get());
+  }
+  return entitiesWithoutOwnership;
+}
+
+Entity &createEntity(std::string tag) {
+  std::unique_ptr<Entity> entity = std::make_unique<Entity>();
   entity->tag = tag;
 
   std::random_device dev;
@@ -360,32 +319,12 @@ auto GameManager::createEntity(std::string tag) -> Entity * {
   std::uniform_int_distribution<std::mt19937::result_type> dist(1, 100000); //
   entity->iid = dist(rng);
 
-  entities[tag].push_back(entity);
-  return entity;
+  Entity &entityRef = *entity.get();
+  entities.push_back(std::move(entity));
+
+  resortEntitiesNextFrame();
+  return entityRef;
 }
 
-void GameManager::removeComponent(Component *component, std::type_index type) {
-  components[type].erase(
-      std::remove(components[type].begin(), components[type].end(), component),
-      components[type].end());
-}
-
-void GameManager::destroyEntity(Entity *entity) {
-  if (entity == nullptr)
-    return;
-  if (std::find(getAllObjects().begin(), getAllObjects().end(), entity) ==
-      getAllObjects().end())
-    return;
-
-  // components
-  for (auto [ctype, component] : entity->components) {
-    removeComponent(component, ctype);
-    delete component;
-  }
-
-  entities[entity->tag].erase(std::remove(entities[entity->tag].begin(),
-                                          entities[entity->tag].end(), entity),
-                              entities[entity->tag].end());
-
-  delete entity;
-}
+void resortEntitiesNextFrame() { resortNextFrame = true; }
+} // namespace GameManager

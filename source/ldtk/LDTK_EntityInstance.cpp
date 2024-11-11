@@ -26,11 +26,11 @@ EntityInstance::EntityInstance(const json &entityDefJson, Project *_project) {
 }
 
 Entity *EntityInstance::create(Level *level) {
-  entity = GameManager::createEntity(entityDefintion->identifier);
+  entity = &GameManager::createEntity(entityDefintion->identifier);
   entity->box.position = box.position + level->levelBox.position;
   entity->box.size = box.size;
-  entity->add<EntityData>()->instance = this;
-  entity->add<EntityData>()->level = level;
+  entity->addComponent<EntityData>().instance = this;
+  entity->addComponent<EntityData>().level = level;
   return entity;
 }
 

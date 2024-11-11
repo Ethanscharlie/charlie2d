@@ -4,7 +4,6 @@
 #include "GameManager.hpp"
 #include "ResourceManager.hpp"
 #include "SDL_stdinc.h"
-#include "Serializer.hpp"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -16,23 +15,14 @@
  */
 class UISliceRenderer : public Component {
 public:
-  UISliceRenderer() {
-    propertyRegister = {
-        GET_PROP(rendererInWorld),
-        GET_PROP(image),
-    };
-
-    typeIsRendering = true;
-  };
-
+  UISliceRenderer(Entity &entity) : Component(entity) {}
   void setColor(std::array<Uint8, 3> color);
-  void start() override;
   /**
    * \brief Loads a texture from filepath, this is meant to be square for a
    * panel of some sort
    */
   void loadTexture(std::string name);
-  void update(float deltaTime) override;
+  void update() override;
 
   void Draw9SlicedTexture(SDL_Renderer *renderer, SDL_Texture *texture,
                           SDL_Rect destRect, int borderSize);
@@ -42,4 +32,3 @@ public:
 private:
   Image image;
 };
-REGISTER_COMPONENT_TYPE(UISliceRenderer);

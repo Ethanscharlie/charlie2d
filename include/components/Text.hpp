@@ -3,7 +3,6 @@
 #include "Entity.hpp"
 #include "GameManager.hpp"
 #include "ResourceManager.hpp"
-#include "Serializer.hpp"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -30,16 +29,8 @@ struct Font {
  */
 class Text : public Component {
 public:
-  Text() {
-    propertyRegister = {GET_PROP(text), GET_PROP(text_color), GET_PROP(font),
-                        GET_PROP(renderInWorld)};
-
-    typeIsRendering = true;
-  };
-
-  void start() override;
-
-  void update(float deltaTime) override;
+  Text(Entity &entity) : Component(entity) {}
+  void update() override;
 
   /**
    * \brief Sets the font and text size,
@@ -69,4 +60,3 @@ public:
   // SDL_Color textColor;
   bool renderInWorld = false;
 };
-REGISTER_COMPONENT_TYPE(Text);

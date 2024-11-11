@@ -1,8 +1,6 @@
 #pragma once
 #include "Entity.hpp"
 #include "GameManager.hpp"
-#include "Serializer.hpp"
-#include "physicsBody.hpp"
 
 /**
  * \brief This class is made to be a simple Platformer player controller that
@@ -10,18 +8,8 @@
  */
 class JumpMan : public Component {
 public:
-  JumpMan() {
-    propertyRegister = {
-        GET_PROP(gravity),    GET_PROP(speed),          GET_PROP(airSpeed),
-        GET_PROP(maxSpeed),   GET_PROP(tracktion),      GET_PROP(jumpPeak),
-        GET_PROP(jumpChange), GET_PROP(jumps),          GET_PROP(allowJump),
-        GET_PROP(needGround), GET_PROP(touchingGround),
-    };
-  }
-
-  void start() override;
-
-  void update(float deltaTime) override;
+  JumpMan(Entity &entity);
+  void update() override;
 
   /**
    * \brief Fall go brrr (is multipyed by deltaTime so it should be a large
@@ -77,4 +65,3 @@ private:
   bool jumping = false;
   Box groundCheckBox = {0, 0, 0, 0};
 };
-REGISTER_COMPONENT_TYPE(JumpMan);
