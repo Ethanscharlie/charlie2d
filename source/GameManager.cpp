@@ -45,7 +45,7 @@ extern "C" {
 // This is a C++ function that is called from JavaScript
 void EMSCRIPTEN_KEEPALIVE on_resize(int width, int height) {
   printf("Window resized to %dx%d\n", width, height);
-  setWindowSize({static_cast<float>(width), static_cast<float>(height)});
+  GameManager::setWindowSize({static_cast<float>(width), static_cast<float>(height)});
 }
 }
 #endif
@@ -103,7 +103,7 @@ void init(Vector2f windowSize) {
   resize_callback();
   float width = emscripten_run_script_int("window.innerWidth");
   float height = emscripten_run_script_int("window.innerHeight");
-  setWindowSize({width, height});
+  GameManager::setWindowSize({width, height});
 #endif
 }
 
