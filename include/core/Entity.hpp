@@ -48,6 +48,9 @@ public:
 
   bool isQueuedForDestruction();
 
+  void setLayer(const int& layer);
+  int getLayer();
+
   /**
    * \brief Updates all components, is called my GameManager
    */
@@ -81,10 +84,6 @@ public:
    * \brief NO MORE UPDATES
    */
   bool active = true;
-  /**
-   * \brief Layer to update on (requires entity->useLayer=true)
-   */
-  int layer = 0;
 
   /**
    *\brief A pointer to the entitys entityBox
@@ -93,6 +92,8 @@ public:
 
 private:
   std::map<std::type_index, std::unique_ptr<Component>> components;
+
+  int layer = 0;
 
   /**
    * \brief If marked true the entity and all its components will be removed and
@@ -115,7 +116,7 @@ template <typename C> C &Entity::addComponent() {
   }
 
   std::unique_ptr<C> component = std::make_unique<C>(*this);
-  Component* componentPtr = component.get();
+  Component *componentPtr = component.get();
   components[typeid(C)] = std::move(component);
 
   return *static_cast<C *>(componentPtr);
@@ -136,7 +137,7 @@ template <typename C> C &Entity::getComponent() {
 }
 
 template <typename C> void Entity::remove() {
-  C *component = getComponent<C>();
+  C &component = getComponent<C>();
   components.erase(typeid(C));
   std::cout << "Removed component " << typeid(C).name() << std::endl;
 }

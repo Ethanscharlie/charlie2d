@@ -1,7 +1,7 @@
 #include "FadeTransition.hpp"
 
 FadeTransition::FadeTransition(Entity& entity) : Component(entity) {
-  entity.layer = 120;
+  entity.setLayer(120);
   typeIsRendering = true;
 }
 

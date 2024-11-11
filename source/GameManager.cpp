@@ -97,7 +97,7 @@ void init(Vector2f windowSize) {
   // -------------------------------------------------------------
 
   shadowFilter = &createEntity("ShadowFilter").addComponent<ShadowFilter>();
-  shadowFilter->entity.layer = 99;
+  shadowFilter->entity.setLayer(99);
 
 #ifdef __EMSCRIPTEN__
   resize_callback();
@@ -224,15 +224,15 @@ void Update() {
 
   if (resortNextFrame) {
     std::sort(entities.begin(), entities.end(), [](auto &a, auto &b) {
-      if (a->layer == b->layer)
+      if (a->getLayer() == b->getLayer())
         return a->iid < b->iid;
-      return a->layer < b->layer;
+      return a->getLayer() < b->getLayer();
     });
   }
 
   for (int iid : entitesToRemove) {
     auto ne = std::remove_if(entities.begin(), entities.end(),
-                             [iid](auto &entity) { return entity->iid = iid; });
+                             [iid](auto &entity) { return entity->iid == iid; });
 
     entities.erase(ne, entities.end());
   }
@@ -325,6 +325,16 @@ Entity &createEntity(std::string tag) {
   resortEntitiesNextFrame();
   return entityRef;
 }
+
+SDL_Renderer *getRenderer() { return renderer; }
+
+SDL_Window *getWindow() { return window; }
+
+float getDeltaTime() { return deltaTime; }
+
+Vector2f getGameWindowSize() { return gameWindowSize; }
+
+Vector2f getCurrentWindowSize() { return currentWindowSize; }
 
 void resortEntitiesNextFrame() { resortNextFrame = true; }
 } // namespace GameManager

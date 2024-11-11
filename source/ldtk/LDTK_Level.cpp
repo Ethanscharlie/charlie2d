@@ -70,7 +70,7 @@ void Level::load() {
     Entity *renderingEntity = layerDefinition->renderingEntity;
     renderingEntity->addComponent<Tilemap>().layer = tileLayer;
     renderingEntity->addComponent<Tilemap>().renderBox = levelBox;
-    renderingEntity->layer = layerDefinition->renderingLayer;
+    renderingEntity->setLayer(layerDefinition->renderingLayer);
   }
 
   for (auto &entityLayerUPtr : entityLayers) {
@@ -78,7 +78,7 @@ void Level::load() {
     LayerDefinition *layerDefinition = entityLayer->layerDefinition;
     for (auto &instance : entityLayer->entityInstances) {
       Entity *entity = instance->create(this);
-      entity->layer = layerDefinition->renderingLayer;
+      entity->setLayer(layerDefinition->renderingLayer);
       loadedEntites.push_back(entity);
     }
   }
