@@ -5,7 +5,6 @@
 #include "Entity.hpp"
 #include "InputManager.hpp"
 #include "Math.hpp"
-#include "ResourceManager.hpp"
 #include "SDL2_framerate.h"
 #include <SDL.h>
 #include <SDL_image.h>

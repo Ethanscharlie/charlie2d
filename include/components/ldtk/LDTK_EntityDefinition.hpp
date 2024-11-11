@@ -1,6 +1,5 @@
 #pragma once
 
-#include "LDTKEntity.hpp"
 #include <string>
 #include <vector>
 #include "Math.hpp"

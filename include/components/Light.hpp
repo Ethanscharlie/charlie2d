@@ -2,7 +2,6 @@
 #include "GameManager.hpp"
 #include "Image.hpp"
 #include "Math.hpp"
-#include "ResourceManager.hpp"
 #include "SDL_render.h"
 #include "ShadowFilter.hpp"
 

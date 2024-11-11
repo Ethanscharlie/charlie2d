@@ -5,7 +5,6 @@
 #include "Entity.hpp"
 #include "GameManager.hpp"
 #include "Image.hpp"
-#include "ResourceManager.hpp"
 #include "Vector2f.hpp"
 #include <iostream>
 #include <math.h>

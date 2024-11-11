@@ -231,8 +231,9 @@ void Update() {
   }
 
   for (int iid : entitesToRemove) {
-    auto ne = std::remove_if(entities.begin(), entities.end(),
-                             [iid](auto &entity) { return entity->iid == iid; });
+    auto ne =
+        std::remove_if(entities.begin(), entities.end(),
+                       [iid](auto &entity) { return entity->iid == iid; });
 
     entities.erase(ne, entities.end());
   }

@@ -2,7 +2,6 @@
 #include "Camera.hpp"
 #include "Entity.hpp"
 #include "GameManager.hpp"
-#include "ResourceManager.hpp"
 #include "SDL_stdinc.h"
 #include <SDL.h>
 #include <SDL_image.h>
