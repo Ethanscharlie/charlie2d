@@ -52,21 +52,9 @@ public:
    */
   static void init(Vector2f originalSize = {1920, 1080});
   /**
-   * \brief Unloads all entities and loads the set scene
-   * \param name the scenes name
-   */
-  static void Load(const std::string &name);
-  /**
    * \brief the main charlie2d update loop method
    */
   static void Update();
-  /**
-   * \brief plays a soundfile, uses the ResourceManager so there is no need to
-   * worry about managing the file loading yourself
-   * \param filename the name of the file
-   * \param loop yeah you get the idea
-   */
-  static void playSound(std::string filename, bool loop = false);
   /**
    * \brief Ends and closes everything (runs on sdl2 window close)
    */

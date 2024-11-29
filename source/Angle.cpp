@@ -39,3 +39,4 @@ void Angle::rotate(float degrees) {
     radians += 2 * M_PI;
   }
 }
+

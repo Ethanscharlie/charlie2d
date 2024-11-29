@@ -1,11 +1,21 @@
 var searchData=
 [
-  ['randfloat_0',['randFloat',['../Math_8hpp.html#a2f5480bd60924b64a3793e77d985f692',1,'Math.cpp']]],
-  ['remove_1',['remove',['../classEntity.html#a37fcaa0ff788d31bd63c9b4907b1dcce',1,'Entity']]],
-  ['removecomponent_2',['removeComponent',['../classGameManager.html#aebd481948ba7fb05754e529cc3b47be2',1,'GameManager']]],
-  ['rendertextinrect_3',['renderTextInRect',['../classText.html#a41ddc0c12816b74ecf2b06f12ef08ae3',1,'Text']]],
-  ['resetcamera_4',['resetCamera',['../classCamera.html#aee8027b5309a5dc77db956d27924c387',1,'Camera']]],
-  ['resetframecounter_5',['resetFrameCounter',['../classAnimation.html#ad53139f47d0156675d9e86cad7a9ec89',1,'Animation']]],
-  ['rotate_6',['rotate',['../structAngle.html#adcccc3129c4e740237d0bff02279b002',1,'Angle']]],
-  ['running_7',['running',['../classGameManager.html#acc57c7a6d727dd91ecda08b0e63b407d',1,'GameManager']]]
+  ['schedule_0',['Schedule',['../structSchedule.html',1,'']]],
+  ['scheduler_1',['Scheduler',['../classScheduler.html',1,'']]],
+  ['screen_5fchange_5fscale_2',['screen_change_scale',['../classGameManager.html#a773d2f4d3feb16d50e6a5250e4a5924d',1,'GameManager']]],
+  ['setscale_3',['setScale',['../structBox.html#a7738def139a86833bab2064234118fc8',1,'Box']]],
+  ['setup_4',['Setup',['../index.html#autotoc_md1',1,'']]],
+  ['setwindowsize_5',['setWindowSize',['../classGameManager.html#acfabcca795eb1f8f1583aefa1951ffde',1,'GameManager']]],
+  ['setwithcenter_6',['setWithCenter',['../structBox.html#a5bd186f19afe17b920554875ae6da468',1,'Box']]],
+  ['setwithvector_7',['setWithVector',['../structAngle.html#a96c3a2b1745d3282ffbf9f6b1ccf3d78',1,'Angle']]],
+  ['shadowfilter_8',['ShadowFilter',['../classShadowFilter.html',1,'']]],
+  ['showborders_9',['showBorders',['../classSprite.html#ac45a960b0f941204b2b691bcd7e2289c',1,'Sprite']]],
+  ['skipupdate_10',['skipUpdate',['../classEntity.html#ac9b0bf55a3dc6c9314aca1fb612a8928',1,'Entity']]],
+  ['slideout_11',['slideOut',['../structslideOut.html',1,'']]],
+  ['solidbody_12',['SolidBody',['../classSolidBody.html',1,'']]],
+  ['speed_13',['speed',['../classJumpMan.html#a1ec9fe2f6e96cb610c43156b608e79c7',1,'JumpMan']]],
+  ['sprite_14',['Sprite',['../classSprite.html',1,'']]],
+  ['sprite_15',['sprite',['../classAnimation.html#add71a00596eb3f48760752cb006ad768',1,'Animation']]],
+  ['standardupdate_16',['standardUpdate',['../classComponent.html#ad1e24bf474dadd687bef5bd5658cec28',1,'Component']]],
+  ['start_17',['start',['../classComponent.html#ae1ca93c773f779d0a004eec46f468560',1,'Component::start()'],['../classAlignment.html#a2fa7384ab6325c32c27b23043b2752a0',1,'Alignment::start()'],['../classButton.html#af20597b66882388602fa34959bcd2008',1,'Button::start()'],['../classExtendedComponent.html#a91bafab5474ecab5c706c3f364695942',1,'ExtendedComponent::start()'],['../classFadeTransition.html#ae658a5ad0dce9e31220ea3ab5d3f0f04',1,'FadeTransition::start()'],['../classJumpMan.html#a9edfdb170af06e76632923f2b5d439e6',1,'JumpMan::start()'],['../classLight.html#a946c8a022644f47691ba68f242784431',1,'Light::start()'],['../classphysicsBody.html#a3f61ad0d22479bdea0ca431e7bbab107',1,'physicsBody::start()'],['../classShadowFilter.html#a1997296389590a7b7ff08b030c939fd2',1,'ShadowFilter::start()'],['../classSprite.html#ad69637776e32e93bda17fe7a108dbb86',1,'Sprite::start()'],['../classText.html#a7c7391c29820a87f72dd30c92e71c85f',1,'Text::start()'],['../classUISliceRenderer.html#acf303ae3fd794b707044ff2fd6fa3ba0',1,'UISliceRenderer::start()']]]
 ];

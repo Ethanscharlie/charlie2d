@@ -1,11 +1,11 @@
 #include "InputManager.hpp"
 
-#include <math.h>
 #include "Camera.hpp"
 #include "Event.hpp"
 #include "GameManager.hpp"
 #include "SDL_scancode.h"
 #include "Vector2f.hpp"
+#include <math.h>
 
 bool InputManager::mouseHeld = false;
 
@@ -17,7 +17,7 @@ float InputManager::mouseScroll = 0;
 bool InputManager::keyEvents[NUM_KEYS];
 
 InputManager::InputManager() {
-  for (bool & keyEvent : keyEvents) {
+  for (bool &keyEvent : keyEvents) {
     keyEvent = false; // Initialize all keys as released
   }
 }
@@ -25,7 +25,7 @@ InputManager::InputManager() {
 void InputManager::update() {
   InputManager::mouseScroll = 0;
 
-  for (bool & keyEvent : keyEvents) {
+  for (bool &keyEvent : keyEvents) {
     keyEvent = false; // Initialize all keys as released
   }
 }
@@ -118,6 +118,17 @@ void InputManager::onEvent(SDL_Event event) {
     if (event.button.button == SDL_BUTTON_LEFT) {
       Event::fireEvent("LeftMouseButtonDown");
       InputManager::leftMouseHeld = true;
+    }
+  }
+
+  if (event.type == SDL_MOUSEBUTTONUP) {
+    Event::fireEvent("MouseButtonUp");
+
+    if (event.button.button == SDL_BUTTON_RIGHT) {
+      Event::fireEvent("RightMouseButtonUp");
+    }
+    if (event.button.button == SDL_BUTTON_LEFT) {
+      Event::fireEvent("LeftMouseButtonUp");
     }
   }
 

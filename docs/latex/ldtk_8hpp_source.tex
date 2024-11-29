@@ -5,48 +5,98 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Camera.hpp"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}LDTKEntity.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Tile.hpp"{}}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <filesystem>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <fstream>}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
-\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Image.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}LDTKEntity.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Vector2f.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
 \DoxyCodeLine{00014\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLDTK}{LDTK}}\ \{}
-\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classLDTK}{LDTK}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }LDTK\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \}\ \textcolor{comment}{//\ namespace\ LDTK}}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime);}
-\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTK_ab63a9f213ad8af16007789387f3fde6b}{unload}}(std::vector<Entity\ *>\ enlist\ =\ \mbox{\hyperlink{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}{entities}});}
-\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classLDTK_aabe64eff32545af5799c1957be5b6a07}{findTraveledLevel}}(\mbox{\hyperlink{classEntity}{Entity}}\ *player);}
-\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLDTK_adccc220494ba847ac082f4b1b0c9f03f}{checkOutsideBounds}}(\mbox{\hyperlink{classEntity}{Entity}}\ *player);}
-\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTK_aed928cd94db7eb39a1d646a477a30dda}{loadLevel}}(std::string\ iid,\ \textcolor{keywordtype}{bool}\ handleUnload\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTK_a7c00a34dbf047f8bf2cdd1d3b8ddead1}{loadJson}}(std::string\ file\ =\ \textcolor{stringliteral}{"{}img/ldtk/space.ldtk"{}});}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{static}\ json\ getLevelJson(std::string\ iid);}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structBox}{Box}}\ worldBox;}
-\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classEntity}{Entity}}\ *ldtkPlayer;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{static}\ std::vector<Entity\ *>\ \mbox{\hyperlink{classLDTK_aaf61f56f261e0f06117c0c5b60c29384}{entities}};}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{static}\ json\ fullJSON;}
-\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{static}\ json\ currentLevel;}
-\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::map<std::string,\ json>>\ worlds;}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{static}\ std::function<void(std::vector<Entity*>)>\ \mbox{\hyperlink{classLDTK_a5165bd2378c1f3fa3043c7c7621ca5b9}{onLoadLevel}};}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ preload(std::string\ iid);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{static}\ std::map<std::string,\ std::map<std::string,\ TileLayer>>}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ preloadedTiles;}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{static}\ std::filesystem::path\ jsonDir;}
-\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ /**}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ \ *\ \(\backslash\)brief\ A\ loader\ for\ the\ Level\ Design\ Toolkit}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ *\ The\ entity\ tag\ is\ set\ to\ the\ name\ of\ the\ entity\ within\ ldtk}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ *\ Tiles\ are\ put\ of\ TileLayer\ s\ (But\ will\ also\ be\ tag\ named\ the\ same\ way)}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ \ */}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ class\ LDTK\ \{}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ public:}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ \ LDTK();}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ \ \ static\ void\ update(float\ deltaTime);}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ Removes\ all\ entites\ created\ by\ ldtk}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)param\ enlist\ Defaults\ to\ ldtk\ entities\ but\ can\ be\ any\ list\ of\ entities}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ \ static\ void\ unload(std::vector<Entity\ *>\ enlist\ =\ entities);}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ Where\ did\ the\ player\ go?}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ \ \ \ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ \ \ \ *\ Made\ to\ be\ used\ with\ checkOutsideBounds}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)param\ player\ The\ player\ Entity}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \ \ static\ std::string\ findTraveledLevel(Entity\ *player);}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ Checks\ to\ see\ in\ the\ player\ is\ outside\ the\ bounds\ of\ the\ level}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ \ \ \ *}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ \ \ \ *\ Made\ to\ be\ used\ with\ findTraveledLevel}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ \ \ static\ bool\ checkOutsideBounds(Entity\ *player);}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ Loads\ a\ level\ via\ iid}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)param\ iid\ The\ iid\ of\ the\ ldtk\ level}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)param\ scene\ the\ current\ scene}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ \ \ static\ void\ loadLevel(std::string\ iid,\ bool\ handleUnload\ =\ true);}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ Loads\ up\ the\ json\ for\ your\ world\ (Please\ do\ before\ anything\ else}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ \ \ \ *\ here)\ \(\backslash\)param\ file\ The\ filepath}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ \ \ static\ void\ loadJson(std::string\ file\ =\ "{}img/ldtk/space.ldtk"{});}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ \ \ static\ json\ getLevelJson(std::string\ iid);}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ \ \ static\ Box\ worldBox;}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ \ \ static\ Entity\ *ldtkPlayer;}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ List\ of\ all\ current\ entities\ loaded\ by\ ldtk}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ \ \ static\ std::vector<Entity\ *>\ entities;}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ \ \ static\ json\ fullJSON;}}
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ \ \ static\ json\ currentLevel;}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ \ \ static\ std::map<std::string,\ std::map<std::string,\ json>>\ worlds;}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//}}
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ Runs\ when\ any\ level\ has\ finished\ loading}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ \ \ \ *}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ \ \ \ *\ Here\ you\ can\ loop\ through\ the\ entities\ std::vector\ and\ check\ the}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ \ \ \ propertys}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ \ \ \ *\ The\ entity\ tag\ is\ set\ to\ the\ name\ of\ the\ entity\ within\ ldtk,\ so\ you\ can}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ \ \ \ *\ check\ for\ it\ in\ the\ loop\ and\ add\ components\ to\ different\ entity\ types}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ \ \ static\ std::function<void(std::vector<Entity*>)>\ onLoadLevel;}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ \ \ static\ std::map<std::string,\ std::map<std::string,\ TileLayer>>}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ \ \ \ \ \ \ preloadedTiles;}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ private:}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ \ \ static\ void\ loadTileLayer(json\ layer,\ int\ layerIndex,\ std::string\ iid);}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ \ \ static\ std::filesystem::path\ jsonDir;}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ \};}}
 
 \end{DoxyCode}

@@ -49,10 +49,16 @@ public:
    */
   template <typename C> bool checkComponent();
 
+  /**
+   * \brief Removes and deletes a component via type index
+   */
   void remove(std::type_index type);
 
   void update();
 
+  /**
+   * \brief Changes and entities tag
+   */
   void changeTag(std::string newTag);
   /**
    * Gets the entitys components

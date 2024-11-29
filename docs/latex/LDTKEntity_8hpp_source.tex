@@ -4,27 +4,33 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
-\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
 \DoxyCodeLine{00005\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLDTKEntityValue}{LDTKEntityValue}}\ \{}
-\DoxyCodeLine{00008\ \ \ std::string\ identifier;}
-\DoxyCodeLine{00009\ \ \ std::string\ type;}
-\DoxyCodeLine{00010\ \ \ json\ value;}
-\DoxyCodeLine{00011\ \};}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLDTKEntity}{LDTKEntity}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classComponent}{Component}}\ \{}
-\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classLDTKEntity}{LDTKEntity}}()\ \{\}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_acc210d0da97de9dcabc8a0e93024ba5b}{start}}()\textcolor{keyword}{\ override\ }\{\}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_a4ed891a674daf27e44a3802cd89bb2eb}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{\}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLDTKEntity_a17ab0033172efaef83fa2281cdb8a3bb}{onDestroy}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00029\ \ \ json\ \mbox{\hyperlink{classLDTKEntity_a68fe140bf6ea44ade76639a7293ee0de}{entityJson}};}
-\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ struct\ LDTKEntityValue\ \{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ \ std::string\ identifier;}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ \ std::string\ type;}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ \ json\ value;}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \};}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ /**}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ *\ \(\backslash\)brief\ A\ simple\ Component\ container\ for\ LDTK\ entity\ json\ data}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ */}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ class\ LDTKEntity\ :\ public\ Component\ \{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ public:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ \ LDTKEntity()\ \{\}}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ \ \ void\ start()\ override\ \{\}}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \ \ void\ update(float\ deltaTime)\ override\ \{\}}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ \ \ void\ onDestroy()\ override;}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ \ /**}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ \ \ *\ \(\backslash\)brief\ A\ nlohmann\ json\ file\ from\ ldtk\ for\ this\ entity}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ \ \ \ */}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ \ json\ entityJson;}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \};}}
 
 \end{DoxyCode}

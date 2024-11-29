@@ -3,7 +3,6 @@
 #include "Light.hpp"
 #include "ShadowFilter.hpp"
 #include "Text.hpp"
-#include "Tile.hpp"
 #include <algorithm>
 #include <fstream>
 #include <string>
@@ -91,24 +90,24 @@ auto serialize(Entity *entity) -> json {
         }
       }
 
-      else if (data.type == typeid(TileGrid)) {
-        TileGrid tileGrid = *static_cast<TileGrid *>(data.value);
-
-        for (auto &[x, xlevel] : tileGrid.tiles) {
-          for (auto &[y, tile] : xlevel) {
-            json tileJson;
-            tileJson["image"] = tile.image;
-            tileJson["srcRectX"] = tile.srcRect.x;
-            tileJson["srcRectY"] = tile.srcRect.y;
-            tileJson["srcRectW"] = tile.srcRect.w;
-            tileJson["srcRectH"] = tile.srcRect.h;
-            tileJson["gridX"] = x;
-            tileJson["gridY"] = y;
-
-            prop["tiles"].push_back(tileJson);
-          }
-        }
-      }
+      // else if (data.type == typeid(TileGrid)) {
+      //   TileGrid tileGrid = *static_cast<TileGrid *>(data.value);
+      //
+      //   for (auto &[x, xlevel] : tileGrid.tiles) {
+      //     for (auto &[y, tile] : xlevel) {
+      //       json tileJson;
+      //       tileJson["image"] = tile.image;
+      //       tileJson["srcRectX"] = tile.srcRect.x;
+      //       tileJson["srcRectY"] = tile.srcRect.y;
+      //       tileJson["srcRectW"] = tile.srcRect.w;
+      //       tileJson["srcRectH"] = tile.srcRect.h;
+      //       tileJson["gridX"] = x;
+      //       tileJson["gridY"] = y;
+      //
+      //       prop["tiles"].push_back(tileJson);
+      //     }
+      //   }
+      // }
     }
   }
 
@@ -204,20 +203,20 @@ auto deserialize(json jsonData, bool start) -> Entity * {
         // *entityPtr = entityIidMap[iid];
       }
 
-      else if (data.type == typeid(TileGrid)) {
-        auto *tileGrid = static_cast<TileGrid *>(data.value);
-
-        for (json &tileJson : propJson["tiles"]) {
-          GridTile tile;
-          tile.image = tileJson["image"];
-          tile.srcRect.x = tileJson["srcRectX"];
-          tile.srcRect.y = tileJson["srcRectY"];
-          tile.srcRect.w = tileJson["srcRectW"];
-          tile.srcRect.h = tileJson["srcRectH"];
-
-          tileGrid->setTile(tile, tileJson["gridX"], tileJson["gridY"]);
-        }
-      }
+      // else if (data.type == typeid(TileGrid)) {
+      //   auto *tileGrid = static_cast<TileGrid *>(data.value);
+      //
+      //   for (json &tileJson : propJson["tiles"]) {
+      //     GridTile tile;
+      //     tile.image = tileJson["image"];
+      //     tile.srcRect.x = tileJson["srcRectX"];
+      //     tile.srcRect.y = tileJson["srcRectY"];
+      //     tile.srcRect.w = tileJson["srcRectW"];
+      //     tile.srcRect.h = tileJson["srcRectH"];
+      //
+      //     tileGrid->setTile(tile, tileJson["gridX"], tileJson["gridY"]);
+      //   }
+      // }
     }
 
     if (start)

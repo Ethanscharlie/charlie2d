@@ -2,7 +2,7 @@
 #include "Event.hpp"
 
 void Button::start() {
-  Event::addEventListener("LeftMouseButtonDown", [this]() {
+  eventid = Event::addEventListener("LeftMouseButtonDown", [this]() {
     if (touching)
       onClick();
   });
@@ -30,4 +30,8 @@ void Button::update(float deltaTime) {
   } else {
     offHover();
   }
+}
+
+void Button::onDestroy() {
+  Event::removeEventListener(eventid);
 }

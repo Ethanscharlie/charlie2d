@@ -5,7 +5,6 @@
 #include "Math.hpp"
 #include "Serializer.hpp"
 #include "SolidBody.hpp"
-#include "Tile.hpp"
 
 /**
  * \brief A simple movement physics class

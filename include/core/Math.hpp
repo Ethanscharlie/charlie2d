@@ -4,6 +4,7 @@
 #include "SDL_rect.h"
 #include "SDL_render.h"
 #include "Vector2f.hpp"
+#include "nlohmann/json.hpp"
 #include <SDL.h>
 #include <cstdlib>
 #include <ctime>
@@ -12,6 +13,7 @@
 
 class Box;
 class Entity;
+struct Image;
 
 enum class EntityRenderPositionType { World, Screen };
 
@@ -64,6 +66,29 @@ Box getRenderBox(Box box, EntityRenderPositionType renderPositionType =
 Box getRenderBox(Entity *entity);
 
 std::array<Uint8, 3> hexToRGB(int hexColor);
+
+std::vector<Image> generateSpritesheetAnimation(Image image, int gridSize = 16,
+                                                int row = 0);
+
+template <typename T> std::vector<T> jsonToVector(const nlohmann::json &j) {
+  std::vector<T> result;
+
+  if (j.is_array()) {
+    for (const auto &item : j) {
+      if (item.is_number_integer()) {
+        result.push_back(item.get<int>());
+      } else if (item.is_number_float()) {
+        result.push_back(item.get<float>());
+      } else if (item.is_string()) {
+        result.push_back(item.get<std::string>());
+      } else if (item.is_boolean()) {
+        result.push_back(item.get<bool>());
+      }
+    }
+  }
+
+  return result;
+}
 
 //
 //

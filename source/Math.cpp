@@ -1,13 +1,14 @@
 #include "Math.hpp"
 
-#include <math.h>
 #include "Box.hpp"
 #include "Camera.hpp"
 #include "Entity.hpp"
 #include "GameManager.hpp"
+#include "Image.hpp"
 #include "ResourceManager.hpp"
 #include "Vector2f.hpp"
 #include <iostream>
+#include <math.h>
 #include <random>
 #include <sstream>
 
@@ -190,4 +191,27 @@ auto hexToRGB(int hexColor) -> std::array<Uint8, 3> {
   Uint8 green = (hexColor >> 8) & 0xFF;
   Uint8 blue = hexColor & 0xFF;
   return {red, green, blue};
+}
+
+std::vector<Image> generateSpritesheetAnimation(Image image, int gridSize,
+                                                int row) {
+  int width, height;
+  SDL_QueryTexture(image.texture, nullptr, nullptr, &width, &height);
+
+  int gridWidth = width / gridSize;
+  int gridHeight = height / gridSize;
+
+  if (gridHeight < row) {
+    throw std::runtime_error("Row was to high in animation");
+  }
+
+  std::vector<Image> frames;
+  int y = row * gridSize;
+  for (int x = 0; x < gridSize * gridWidth; x += gridSize) {
+    Image frame = {"res/images/birds.png"};
+    frame.srcRect = {x, y, gridSize, gridSize};
+    frames.push_back(frame);
+  }
+
+  return frames;
 }
