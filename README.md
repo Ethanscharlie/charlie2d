@@ -5,20 +5,6 @@ A simple c++ w/SDL2 game engine
 
 Please download to look at docs
 
-### Some stuff I need to do
-* Clean up the entity class
-* Add music support
-* Make audio contexts work in the browser correctly
-* Make ldtk easier to access (Creating a unique pointer with it is a pain in the ass)
-* Change getComponents to crawl through entites instead of saving a Components map in GameManager
-* Make entities and components stored with unique pointers instead of using new and delete
-* Stop passing entites and components with pointers (Using references instead). The plan is the store the entities in a vector with the references in a map of vectors by tag
-* Add proper documentation for the events in InputManager
-* Fix JumpMan to work with controller
-* Remove deltaTime from the component update function
-* Add a way to have event listeners automatially delete when an associated entity is destroyed
-* Add a way to make images white flash (an image where every valid pixil is white)
-
 ## Setup
 To make things easier I have created a project template that should 
 make it as easy as possible to compile projects for any platform
